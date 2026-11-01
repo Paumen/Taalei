@@ -559,6 +559,31 @@
    }
   },
   {
+   "slug": "dungeon-2",
+   "name": "dungeon-2",
+   "note": "Source zip without a licence file or maker.",
+   "licenseLabel": "CC0 1.0",
+   "count": 25,
+   "packs": [
+    "Dungeon Set 2"
+   ],
+   "origins": {
+    "Dungeon Set 2": 25
+   },
+   "scales": {
+    "1": 16,
+    "0.5": 9
+   },
+   "smooth": {
+    "smooth": 21,
+    "none": 4
+   },
+   "kitCheck": {
+    "factor": 1,
+    "kinds": 12
+   }
+  },
+  {
    "slug": "emace",
    "name": "emace",
    "licenseLabel": "CC0",
@@ -24593,6 +24618,24 @@
     "quat-cyberpunk/turret-gun-double",
     "quat-cyberpunk/turret-cannon"
    ]
+  },
+  {
+   "id": "dungeon-2/wall-cracked-1",
+   "type": "detail-variant",
+   "main": "dungeon-2/wall-cracked-1",
+   "members": [
+    "dungeon-2/wall-cracked-1",
+    "dungeon-2/wall-cracked-2"
+   ]
+  },
+  {
+   "id": "dungeon-2/floor-grate-square",
+   "type": "detail-variant",
+   "main": "dungeon-2/floor-grate-square",
+   "members": [
+    "dungeon-2/floor-grate-square",
+    "dungeon-2/floor-grate-round"
+   ]
   }
  ],
  "bands": [
@@ -24690,7 +24733,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 583,
+   "count": 584,
    "parent": "metal"
   },
   {
@@ -24698,7 +24741,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 909,
+   "count": 917,
    "parent": "metal"
   },
   {
@@ -24706,7 +24749,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2134,
+   "count": 2143,
    "parent": "metal"
   },
   {
@@ -24738,7 +24781,7 @@
    "name": "Masonry light",
    "type": "material",
    "description": "Light stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 304,
+   "count": 305,
    "parent": "stone"
   },
   {
@@ -24746,7 +24789,7 @@
    "name": "Masonry mid",
    "type": "material",
    "description": "Mid-grey stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 888,
+   "count": 895,
    "parent": "stone"
   },
   {
@@ -24754,7 +24797,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 163,
+   "count": 175,
    "parent": "stone"
   },
   {
@@ -24897,7 +24940,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 785,
+   "count": 787,
    "parent": "wood"
   },
   {
@@ -24905,7 +24948,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1238,
+   "count": 1239,
    "parent": "wood"
   },
   {
@@ -24913,7 +24956,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1590,
+   "count": 1592,
    "parent": "wood"
   },
   {
@@ -25162,7 +25205,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4840,
+   "count": 4847,
    "color": "#c07c8a"
   },
   {
@@ -25436,7 +25479,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 723,
+   "count": 725,
    "color": "#dd9f79"
   },
   {
@@ -25570,7 +25613,7 @@
    "name": "Barrel",
    "type": "kind",
    "description": "Barrel or cask, tapped keg included.",
-   "count": 62
+   "count": 63
   },
   {
    "id": "obj-container-barrel-metal",
@@ -25661,14 +25704,14 @@
    "name": "Crate",
    "type": "kind",
    "description": "crate, box, case",
-   "count": 147
+   "count": 148
   },
   {
    "id": "obj-container-crate-cube",
    "name": "Cube",
    "type": "kind",
    "description": "cube crate, cube box",
-   "count": 32
+   "count": 33
   },
   {
    "id": "obj-container-crate-cardboard",
@@ -25773,7 +25816,7 @@
    "name": "Equipment",
    "type": "kind",
    "description": "Carried or worn gear with no leaf that fits: gym weights and machines.",
-   "count": 1174,
+   "count": 1178,
    "color": "#6b5b95"
   },
   {
@@ -26111,7 +26154,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 815,
+   "count": 816,
    "color": "#c07c8a"
   },
   {
@@ -26792,7 +26835,7 @@
    "name": "Light",
    "type": "kind",
    "description": "chandelier, string lights, glow stick",
-   "count": 129,
+   "count": 130,
    "color": "#f2cb45"
   },
   {
@@ -26814,14 +26857,14 @@
    "name": "Fire",
    "type": "kind",
    "description": "Fixed place where a fire burns: campfire, brazier, fireplace.",
-   "count": 24
+   "count": 25
   },
   {
    "id": "str-fixture-fire-brazier",
    "name": "Brazier",
    "type": "kind",
    "description": "Standing metal basket or bowl holding a fire.",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-furnishing-light-lantern",
@@ -26905,7 +26948,7 @@
    "name": "Torch",
    "type": "kind",
    "description": "Torch: a hand-held or mounted stick with a flame.",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-equipment-pocketitem",
@@ -27124,7 +27167,7 @@
    "name": "Tool",
    "type": "kind",
    "description": "Tool with no leaf that fits.",
-   "count": 365,
+   "count": 369,
    "color": "#6d738a"
   },
   {
@@ -27160,14 +27203,14 @@
    "name": "Mechanism",
    "type": "kind",
    "description": "Mechanism worked by hand or foot: spring, gear, pulley, crank, jack, trap.",
-   "count": 28
+   "count": 31
   },
   {
    "id": "obj-equipment-tool-mechanism-lever",
    "name": "Lever",
    "type": "kind",
    "description": "Lever pulled or pushed by hand, standing on the floor or fixed to a wall.",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-equipment-tool-mechanism-lock",
@@ -27181,7 +27224,7 @@
    "name": "Floor button",
    "type": "kind",
    "description": "Button pressed by foot or by stepping on it: floor button, pressure plate, jump pad.",
-   "count": 5
+   "count": 6
   },
   {
    "id": "obj-equipment-tool-stationery",
@@ -27342,7 +27385,7 @@
    "name": "Supplies",
    "type": "kind",
    "description": "rope, chain, hook, wire, lighter",
-   "count": 65
+   "count": 66
   },
   {
    "id": "obj-equipment-tool-supplies-fastener",
@@ -27356,7 +27399,7 @@
    "name": "Chain",
    "type": "kind",
    "description": "Chain coil, hanging chain, single links and shackles.",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-equipment-tool-supplies-hook",
@@ -28192,7 +28235,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "mine entrance",
-   "count": 2719,
+   "count": 2737,
    "color": "#877a63"
   },
   {
@@ -28200,7 +28243,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 584
+   "count": 586
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -28378,7 +28421,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 1034,
+   "count": 1050,
    "color": "#a8762a"
   },
   {
@@ -28386,7 +28429,7 @@
    "name": "Door",
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
-   "count": 80
+   "count": 81
   },
   {
    "id": "str-part-door-doorway",
@@ -28400,7 +28443,7 @@
    "name": "Single",
    "type": "kind",
    "description": "The door leaf on its own, without the opening it hangs in.",
-   "count": 62
+   "count": 63
   },
   {
    "id": "str-part-door-trapdoor",
@@ -28421,7 +28464,7 @@
    "name": "Gate",
    "type": "kind",
    "description": "The way through a wall or an enclosure: the gateway with its opening, the leaf or portcullis that closes it, and the free-standing portal.",
-   "count": 55
+   "count": 57
   },
   {
    "id": "str-part-gate-gateway",
@@ -28435,21 +28478,21 @@
    "name": "Single",
    "type": "kind",
    "description": "The gate leaf on its own, without the opening it hangs in.",
-   "count": 10
+   "count": 12
   },
   {
    "id": "str-part-floor",
    "name": "Floor",
    "type": "kind",
    "description": "floor, floor tile, ceiling",
-   "count": 147
+   "count": 153
   },
   {
    "id": "str-part-floor-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Floor piece covering one full module of the kit grid.",
-   "count": 136
+   "count": 142
   },
   {
    "id": "str-part-floor-unit-wood",
@@ -28554,21 +28597,21 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, corner",
-   "count": 323
+   "count": 330
   },
   {
    "id": "str-part-wall-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid.",
-   "count": 281
+   "count": 288
   },
   {
    "id": "str-part-wall-unit-doorway",
    "name": "Doorway",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid, with a doorway in it.",
-   "count": 73
+   "count": 74
   },
   {
    "id": "str-part-wall-unit-window",
@@ -29015,7 +29058,7 @@
    "name": "Machine",
    "type": "kind",
    "description": "Standing industrial machinery: presses, pistons, scanners, conveyors, hoppers, cranes, car wash.",
-   "count": 65
+   "count": 66
   },
   {
    "id": "str-fixture-machinery-crane",
@@ -29492,7 +29535,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 514
+   "count": 515
   },
   {
    "id": "plural",
@@ -29513,7 +29556,7 @@
    "name": "Broken",
    "type": "tag",
    "description": "Damaged: a cracked, shattered or partial version of a thing, and the debris and rubble left of one.",
-   "count": 120
+   "count": 125
   },
   {
    "id": "piece",
@@ -29527,7 +29570,7 @@
    "name": "Mounted",
    "type": "tag",
    "description": "Not meant to stand on the ground in a scene: hung from a ceiling, beam or post, fixed to a wall, or set high on a building.",
-   "count": 383
+   "count": 386
   },
   {
    "id": "tba",
@@ -29693,7 +29736,7 @@
    "name": "1×½ grid",
    "type": "attribute",
    "description": "Size on the building grid in tiles of 1.0: 1 wide and 0.5 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
-   "count": 16,
+   "count": 17,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
@@ -29715,7 +29758,7 @@
    "name": "1×1 grid",
    "type": "attribute",
    "description": "Size on the building grid in tiles of 1.0: 1 wide and 1 high (walls, frames, gateways) or deep (floors, roofs, corridors).",
-   "count": 218,
+   "count": 228,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
@@ -30645,7 +30688,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4078,
+   "count": 4087,
    "derived": true
   },
   {
@@ -30653,7 +30696,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3506,
+   "count": 3522,
    "derived": true
   },
   {
@@ -35833,7 +35876,7 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "3dm-city",
@@ -39436,7 +39479,7 @@
     "space",
     "special-emissive"
    ],
-   "thickRel": 1.86
+   "thickRel": 1.85
   },
   {
    "kit": "3dm-scifi",
@@ -41889,7 +41932,7 @@
     "halloween",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.71
+   "thickRel": 1.63
   },
   {
    "kit": "aq-mushroom",
@@ -52436,7 +52479,7 @@
     "mounted",
     "wood-dark"
    ],
-   "thickRel": 0.54,
+   "thickRel": 0.56,
    "lint": [
     {
      "level": "error",
@@ -52561,12 +52604,12 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.47,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     },
     {
      "level": "error",
@@ -52612,7 +52655,7 @@
     "grid-1-5x1",
     "metal-iron-dark"
    ],
-   "thickRel": 0.52
+   "thickRel": 0.5
   },
   {
    "kit": "dungeon",
@@ -52651,7 +52694,7 @@
     "grid-1-5x1",
     "metal-iron-dark"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.54
   },
   {
    "kit": "dungeon",
@@ -52776,7 +52819,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "dungeon",
@@ -52819,7 +52862,7 @@
     "metal-steel",
     "mounted"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.35
   },
   {
    "kit": "dungeon",
@@ -52989,7 +53032,7 @@
     "wood-light"
    ],
    "variant": "dungeon/walls-001",
-   "thickRel": 1.47
+   "thickRel": 1.44
   },
   {
    "kit": "dungeon",
@@ -53036,7 +53079,7 @@
     "wood-light"
    ],
    "variant": "dungeon/walls-001",
-   "thickRel": 1.47
+   "thickRel": 1.44
   },
   {
    "kit": "dungeon",
@@ -53198,7 +53241,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/walls-010",
-   "thickRel": 1.36
+   "thickRel": 1.29
   },
   {
    "kit": "dungeon",
@@ -53238,7 +53281,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/walls-010",
-   "thickRel": 1.36
+   "thickRel": 1.29
   },
   {
    "kit": "dungeon",
@@ -53278,7 +53321,7 @@
     "grid-3-5x1",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.44
   },
   {
    "kit": "dungeon",
@@ -53320,7 +53363,7 @@
     "grid-3x1",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.52
   },
   {
    "kit": "dungeon",
@@ -53400,7 +53443,7 @@
     "grid-1-5x1",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "dungeon",
@@ -53439,7 +53482,7 @@
     "grid-1-5x1",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.05
   },
   {
    "kit": "dungeon",
@@ -53570,6 +53613,1018 @@
     "wood-light"
    ],
    "thickRel": 2.11
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "barrel",
+   "hash": "18080a60c8",
+   "kind": "obj-container-barrel",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.4,
+    0.398
+   ],
+   "tris": 248,
+   "tpu": 723,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14044,
+   "vtx": 346,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.016,
+   "thick": 0.253,
+   "avgTri": 0.00307,
+   "anglePct": 15,
+   "pieces": 1,
+   "vpt": 1.4,
+   "cells": [
+    "0,0",
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491",
+    "#ca9f6e"
+   ],
+   "tags": [
+    "metal-steel",
+    "wood-light"
+   ],
+   "thickRel": 0.99
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "brazier",
+   "hash": "d2af6d219b",
+   "kind": "str-fixture-fire-brazier",
+   "size": "s",
+   "wdh": [
+    0.4,
+    0.4,
+    0.268
+   ],
+   "tris": 474,
+   "tpu": 1382,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 24720,
+   "vtx": 637,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "thick": 0.0615,
+   "avgTri": 0.00111,
+   "anglePct": 12,
+   "pieces": 1,
+   "vpt": 1.34,
+   "cells": [
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b"
+   ],
+   "tags": [
+    "metal-iron-dark"
+   ],
+   "thickRel": 1
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "chains",
+   "hash": "f6dfd7378f",
+   "kind": "obj-equipment-tool-supplies-chain",
+   "size": "m",
+   "wdh": [
+    0.572,
+    0.127,
+    0.437
+   ],
+   "tris": 2564,
+   "tpu": 7475,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 128536,
+   "vtx": 3488,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0106,
+   "thick": 0.0517,
+   "avgTri": 0.0001,
+   "anglePct": 77,
+   "pieces": 3,
+   "vpt": 1.36,
+   "cells": [
+    "15,3",
+    "13,3"
+   ],
+   "colors": [
+    "#59534e",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-mid",
+    "metal-steel",
+    "mounted"
+   ],
+   "thickRel": 0.53
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "crate",
+   "hash": "ea3bbe1882",
+   "kind": "obj-container-crate-cube",
+   "size": "s",
+   "wdh": [
+    0.45,
+    0.45,
+    0.45
+   ],
+   "tris": 308,
+   "tpu": 898,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 17672,
+   "vtx": 448,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.2304,
+   "avgTri": 0.00454,
+   "anglePct": 53,
+   "pieces": 1,
+   "vpt": 1.45,
+   "cells": [
+    "0,0",
+    "1,0"
+   ],
+   "colors": [
+    "#9e6d44",
+    "#ca9f6e"
+   ],
+   "tags": [
+    "wood-light",
+    "wood-mid"
+   ],
+   "thickRel": 0.99
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "crusher",
+   "hash": "d4380c4f28",
+   "kind": "str-fixture-machinery",
+   "size": "m",
+   "wdh": [
+    0.658,
+    0.658,
+    0.665
+   ],
+   "tris": 180,
+   "tpu": 525,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 12204,
+   "vtx": 301,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.033,
+   "thick": 0.193,
+   "avgTri": 0.01219,
+   "anglePct": 46,
+   "pieces": 1,
+   "vpt": 1.67,
+   "cells": [
+    "14,3",
+    "12,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "mounted",
+    "stone-masonry-dark",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 1.52
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "door-cell",
+   "hash": "64f0c92f2c",
+   "kind": "str-part-door-single",
+   "size": "m",
+   "wdh": [
+    0.503,
+    0.059,
+    0.9
+   ],
+   "tris": 508,
+   "tpu": 1152,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 23892,
+   "vtx": 604,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0442,
+   "thick": 0.0729,
+   "avgTri": 0.00179,
+   "anglePct": 71,
+   "pieces": 1,
+   "vpt": 1.19,
+   "cells": [
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b"
+   ],
+   "tags": [
+    "metal-iron-dark"
+   ],
+   "thickRel": 0.77
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "doorway-cell",
+   "hash": "4277160761",
+   "kind": "str-part-wall-unit-doorway",
+   "size": "m",
+   "wdh": [
+    0.999,
+    0.332,
+    1
+   ],
+   "tris": 44,
+   "tpu": 90,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4164,
+   "vtx": 76,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.081,
+   "thick": 0.1101,
+   "avgTri": 0.06543,
+   "anglePct": 82,
+   "pieces": 1,
+   "vpt": 1.73,
+   "cells": [
+    "12,3"
+   ],
+   "colors": [
+    "#57493d"
+   ],
+   "tags": [
+    "grid-1x1",
+    "stone-masonry-dark"
+   ],
+   "thickRel": 1.17
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "floor-grate-round",
+   "hash": "4a29e1985a",
+   "kind": "str-part-floor-unit",
+   "size": "m",
+   "wdh": [
+    1,
+    1,
+    0.05
+   ],
+   "tris": 968,
+   "tpu": 1383,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 43108,
+   "vtx": 1120,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "thick": 0.0426,
+   "avgTri": 0.00252,
+   "anglePct": 92,
+   "pieces": 1,
+   "vpt": 1.16,
+   "cells": [
+    "12,3",
+    "15,3"
+   ],
+   "colors": [
+    "#57493d",
+    "#7a8491"
+   ],
+   "tags": [
+    "grid-1x1",
+    "metal-steel",
+    "stone-masonry-dark"
+   ],
+   "variant": "dungeon-2/floor-grate-square",
+   "thickRel": 0.87
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "floor-grate-square",
+   "hash": "50aabbfe6e",
+   "kind": "str-part-floor-unit",
+   "size": "m",
+   "wdh": [
+    1,
+    1,
+    0.05
+   ],
+   "tris": 912,
+   "tpu": 1303,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 40664,
+   "vtx": 1054,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "minTube": 0.0391,
+   "thick": 0.0416,
+   "avgTri": 0.00226,
+   "anglePct": 88,
+   "pieces": 1,
+   "vpt": 1.16,
+   "cells": [
+    "12,3",
+    "15,3"
+   ],
+   "colors": [
+    "#57493d",
+    "#7a8491"
+   ],
+   "tags": [
+    "grid-1x1",
+    "metal-steel",
+    "stone-masonry-dark"
+   ],
+   "variant": "dungeon-2/floor-grate-square",
+   "thickRel": 0.85
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "floor-saw-slot-end",
+   "hash": "8ae0495853",
+   "kind": "str-part-floor-unit",
+   "size": "m",
+   "wdh": [
+    1,
+    1,
+    0.05
+   ],
+   "tris": 64,
+   "tpu": 91,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5160,
+   "vtx": 104,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.026,
+   "thick": 0.0434,
+   "avgTri": 0.03431,
+   "anglePct": 95,
+   "pieces": 1,
+   "vpt": 1.63,
+   "cells": [
+    "14,3",
+    "12,3"
+   ],
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "grid-1x1",
+    "stone-masonry-dark",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 0.89
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "floor-saw-slot-mid",
+   "hash": "4e1fb4a3e5",
+   "kind": "str-part-floor-unit",
+   "size": "m",
+   "wdh": [
+    1,
+    1,
+    0.05
+   ],
+   "tris": 56,
+   "tpu": 80,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 4852,
+   "vtx": 96,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.026,
+   "thick": 0.0433,
+   "avgTri": 0.03904,
+   "anglePct": 93,
+   "pieces": 2,
+   "vpt": 1.71,
+   "cells": [
+    "12,3",
+    "14,3"
+   ],
+   "colors": [
+    "#57493d",
+    "#88735f"
+   ],
+   "tags": [
+    "grid-1x1",
+    "stone-masonry-dark",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 0.89
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "floor-spikes",
+   "hash": "73fc9e7925",
+   "kind": "str-part-floor-unit",
+   "size": "m",
+   "wdh": [
+    1,
+    1,
+    0.425
+   ],
+   "tris": 819,
+   "tpu": 1170,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 41976,
+   "vtx": 1113,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.0957,
+   "avgTri": 0.00851,
+   "anglePct": 80,
+   "pieces": 2,
+   "vpt": 1.36,
+   "cells": [
+    "12,3",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#57493d"
+   ],
+   "tags": [
+    "grid-1x1",
+    "metal-iron-dark",
+    "stone-masonry-dark"
+   ],
+   "thickRel": 1.96
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "floor-vents",
+   "hash": "9518ff36df",
+   "kind": "str-part-floor-unit",
+   "size": "m",
+   "wdh": [
+    1,
+    1,
+    0.051
+   ],
+   "tris": 596,
+   "tpu": 851,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 32152,
+   "vtx": 848,
+   "gridMod": true,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.008,
+   "thick": 0.0462,
+   "avgTri": 0.00391,
+   "anglePct": 90,
+   "pieces": 1,
+   "vpt": 1.42,
+   "cells": [
+    "15,3",
+    "12,3"
+   ],
+   "colors": [
+    "#57493d",
+    "#7a8491"
+   ],
+   "tags": [
+    "grid-1x1",
+    "metal-steel",
+    "stone-masonry-dark"
+   ],
+   "thickRel": 0.95
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "gate-iron",
+   "hash": "015b96eee8",
+   "kind": "str-part-gate-single",
+   "size": "m",
+   "wdh": [
+    0.806,
+    0.114,
+    1.4
+   ],
+   "tris": 888,
+   "tpu": 1294,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 39232,
+   "vtx": 1012,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.005,
+   "minTube": 0.0521,
+   "thick": 0.0764,
+   "avgTri": 0.00275,
+   "anglePct": 61,
+   "pieces": 1,
+   "vpt": 1.14,
+   "cells": [
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b"
+   ],
+   "tags": [
+    "metal-iron-dark"
+   ],
+   "thickRel": 0.95
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "gate-wood",
+   "hash": "62c2e688ca",
+   "kind": "str-part-gate-single",
+   "size": "m",
+   "wdh": [
+    0.807,
+    0.267,
+    1.4
+   ],
+   "tris": 464,
+   "tpu": 676,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 26632,
+   "vtx": 698,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.029,
+   "thick": 0.1214,
+   "avgTri": 0.00917,
+   "anglePct": 46,
+   "pieces": 4,
+   "vpt": 1.5,
+   "cells": [
+    "6,1",
+    "15,3",
+    "2,0"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#713e14",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "wood-dark"
+   ],
+   "thickRel": 1.5
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "lever",
+   "hash": "1035cf29a2",
+   "kind": "obj-equipment-tool-mechanism-lever",
+   "size": "s",
+   "wdh": [
+    0.304,
+    0.305,
+    0.35
+   ],
+   "tris": 248,
+   "tpu": 723,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 14172,
+   "vtx": 350,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.1378,
+   "avgTri": 0.00191,
+   "anglePct": 91,
+   "pieces": 3,
+   "vpt": 1.41,
+   "cells": [
+    "14,3",
+    "6,1",
+    "15,3"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#7a8491",
+    "#88735f"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 0.96
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "pressure-plate",
+   "hash": "143a35ba60",
+   "kind": "obj-equipment-tool-mechanism-button",
+   "size": "s",
+   "wdh": [
+    0.425,
+    0.423,
+    0.098
+   ],
+   "tris": 68,
+   "tpu": 198,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5236,
+   "vtx": 104,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.042,
+   "thick": 0.1166,
+   "avgTri": 0.01132,
+   "anglePct": 69,
+   "pieces": 1,
+   "vpt": 1.53,
+   "cells": [
+    "14,3",
+    "5,2"
+   ],
+   "colors": [
+    "#88735f",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "stone-masonry-light",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 0.99
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "saw-blade",
+   "hash": "293d78051c",
+   "kind": "obj-equipment-tool-mechanism",
+   "size": "s",
+   "wdh": [
+    0.47,
+    0.041,
+    0.47
+   ],
+   "tris": 48,
+   "tpu": 140,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4396,
+   "vtx": 82,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.039,
+   "thick": 0.0596,
+   "avgTri": 0.00545,
+   "anglePct": 54,
+   "pieces": 1,
+   "vpt": 1.71,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "comp",
+    "metal-steel"
+   ]
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "torch",
+   "hash": "31ef70470a",
+   "kind": "obj-furnishing-light-torch",
+   "size": "s",
+   "wdh": [
+    0.097,
+    0.149,
+    0.35
+   ],
+   "tris": 538,
+   "tpu": 1569,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 28512,
+   "vtx": 743,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.115,
+   "avgTri": 0.00016,
+   "anglePct": 26,
+   "pieces": 3,
+   "vpt": 1.38,
+   "cells": [
+    "15,3",
+    "2,0",
+    "6,1"
+   ],
+   "colors": [
+    "#3a3e4b",
+    "#713e14",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-iron-dark",
+    "metal-steel",
+    "mounted",
+    "wood-dark"
+   ],
+   "thickRel": 0.85
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "wall-cracked-1",
+   "hash": "70f21e48b4",
+   "kind": "str-part-wall-unit",
+   "size": "m",
+   "wdh": [
+    0.999,
+    0.339,
+    1
+   ],
+   "tris": 38,
+   "tpu": 78,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3520,
+   "vtx": 57,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.117,
+   "thick": 0.1411,
+   "avgTri": 0.06704,
+   "anglePct": 84,
+   "pieces": 1,
+   "vpt": 1.5,
+   "cells": [
+    "12,3"
+   ],
+   "colors": [
+    "#57493d"
+   ],
+   "tags": [
+    "broken",
+    "grid-1x1",
+    "stone-masonry-dark"
+   ],
+   "variant": "dungeon-2/wall-cracked-1",
+   "thickRel": 1.4
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "wall-cracked-2",
+   "hash": "a989f56640",
+   "kind": "str-part-wall-unit",
+   "size": "m",
+   "wdh": [
+    0.997,
+    0.341,
+    1
+   ],
+   "tris": 46,
+   "tpu": 94,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3888,
+   "vtx": 67,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.152,
+   "thick": 0.1389,
+   "avgTri": 0.05502,
+   "anglePct": 78,
+   "pieces": 1,
+   "vpt": 1.46,
+   "cells": [
+    "12,3"
+   ],
+   "colors": [
+    "#57493d"
+   ],
+   "tags": [
+    "broken",
+    "grid-1x1",
+    "stone-masonry-dark"
+   ],
+   "variant": "dungeon-2/wall-cracked-1",
+   "thickRel": 1.38
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "wall-cracked-3",
+   "hash": "1d46f987a9",
+   "kind": "str-part-wall-unit",
+   "size": "m",
+   "wdh": [
+    1,
+    0.319,
+    0.51
+   ],
+   "tris": 36,
+   "tpu": 105,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3584,
+   "vtx": 59,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.133,
+   "thick": 0.2338,
+   "avgTri": 0.04831,
+   "anglePct": 77,
+   "pieces": 1,
+   "vpt": 1.64,
+   "cells": [
+    "12,3"
+   ],
+   "colors": [
+    "#57493d"
+   ],
+   "tags": [
+    "broken",
+    "grid-1x0-5",
+    "stone-masonry-dark"
+   ],
+   "thickRel": 2.33
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "wall-cracked-4",
+   "hash": "2056b23291",
+   "kind": "str-part-wall-unit",
+   "size": "s",
+   "wdh": [
+    0.252,
+    0.3,
+    0.3
+   ],
+   "tris": 24,
+   "tpu": 70,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2780,
+   "vtx": 35,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.132,
+   "thick": 0.2166,
+   "avgTri": 0.01653,
+   "anglePct": 69,
+   "pieces": 1,
+   "vpt": 1.46,
+   "cells": [
+    "14,3"
+   ],
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "broken",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 2.15
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "wall-cracked-5",
+   "hash": "eab9df6e7b",
+   "kind": "str-part-wall-unit",
+   "size": "s",
+   "wdh": [
+    0.251,
+    0.3,
+    0.299
+   ],
+   "tris": 22,
+   "tpu": 64,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2764,
+   "vtx": 35,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.101,
+   "thick": 0.1986,
+   "avgTri": 0.01659,
+   "anglePct": 74,
+   "pieces": 1,
+   "vpt": 1.59,
+   "cells": [
+    "14,3"
+   ],
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "broken",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 1.98
+  },
+  {
+   "kit": "dungeon-2",
+   "name": "wall",
+   "hash": "51fe9a7e8d",
+   "kind": "str-part-wall-unit",
+   "size": "m",
+   "wdh": [
+    1,
+    0.323,
+    1
+   ],
+   "tris": 12,
+   "tpu": 24,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2256,
+   "vtx": 24,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.323,
+   "thick": 0.1502,
+   "avgTri": 0.27448,
+   "anglePct": 100,
+   "pieces": 1,
+   "vpt": 2,
+   "cells": [
+    "12,3"
+   ],
+   "colors": [
+    "#57493d"
+   ],
+   "tags": [
+    "grid-1x1",
+    "stone-masonry-dark"
+   ],
+   "thickRel": 1.49
   },
   {
    "kit": "emace-80s",
@@ -55859,7 +56914,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.89
   },
   {
    "kit": "emace-village",
@@ -56353,7 +57408,7 @@
      "open": 0.6
     }
    },
-   "thickRel": 1.28,
+   "thickRel": 1.32,
    "lint": [
     {
      "level": "warning",
@@ -60408,7 +61463,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/wall-log-doorway",
-   "thickRel": 1.77
+   "thickRel": 1.74
   },
   {
    "kit": "emace-village",
@@ -60452,7 +61507,7 @@
     "wood-light"
    ],
    "variant": "emace-village/wall-log-doorway",
-   "thickRel": 1.76
+   "thickRel": 1.73
   },
   {
    "kit": "emace-village",
@@ -60556,7 +61611,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-log",
-   "thickRel": 1.2,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "error",
@@ -60611,7 +61666,7 @@
      "inverted": 0.5
     }
    },
-   "thickRel": 1.02,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "error",
@@ -60731,7 +61786,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber-door",
-   "thickRel": 1.22
+   "thickRel": 1.19
   },
   {
    "kit": "emace-village",
@@ -60775,7 +61830,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber-door",
-   "thickRel": 1.29
+   "thickRel": 1.26
   },
   {
    "kit": "emace-village",
@@ -60863,7 +61918,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber",
-   "thickRel": 1.3
+   "thickRel": 1.24
   },
   {
    "kit": "emace-village",
@@ -69571,7 +70626,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/door",
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "fs-house",
@@ -69614,7 +70669,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/door",
-   "thickRel": 1.17
+   "thickRel": 1.21
   },
   {
    "kit": "fs-house",
@@ -69922,7 +70977,7 @@
     "stone-masonry-mid",
     "wood-mid"
    ],
-   "thickRel": 1.52,
+   "thickRel": 1.57,
    "lint": [
     {
      "level": "error",
@@ -72127,7 +73182,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/wall-curved-small",
-   "thickRel": 0.5
+   "thickRel": 0.48
   },
   {
    "kit": "fs-house",
@@ -72171,7 +73226,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/wall-curved-small",
-   "thickRel": 0.71
+   "thickRel": 0.68
   },
   {
    "kit": "fs-house",
@@ -72217,7 +73272,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/wall",
-   "thickRel": 1.16
+   "thickRel": 1.1
   },
   {
    "kit": "fs-house",
@@ -72300,7 +73355,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/wall",
-   "thickRel": 0.75
+   "thickRel": 0.72
   },
   {
    "kit": "fs-house",
@@ -73432,7 +74487,7 @@
     "stone-masonry-mid",
     "tba"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.15
   },
   {
    "kit": "fs-temple",
@@ -77835,7 +78890,7 @@
     "grid-1x0-5",
     "stone-masonry-light"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.26
   },
   {
    "kit": "fs-temple",
@@ -78323,7 +79378,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-temple/wall-curved-small-middle",
-   "thickRel": 0.71
+   "thickRel": 0.68
   },
   {
    "kit": "fs-temple",
@@ -78365,7 +79420,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-temple/wall-curved-small-middle",
-   "thickRel": 1.12
+   "thickRel": 1.07
   },
   {
    "kit": "fs-temple",
@@ -78493,7 +79548,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-corner-inner-a",
-   "thickRel": 1.13
+   "thickRel": 1.07
   },
   {
    "kit": "fs-temple",
@@ -78537,7 +79592,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-corner-inner-a",
-   "thickRel": 1.11
+   "thickRel": 1.06
   },
   {
    "kit": "fs-temple",
@@ -78581,7 +79636,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-corner-outer-a",
-   "thickRel": 1.69
+   "thickRel": 1.61
   },
   {
    "kit": "fs-temple",
@@ -78625,7 +79680,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-corner-outer-a",
-   "thickRel": 1.67
+   "thickRel": 1.59
   },
   {
    "kit": "fs-temple",
@@ -78670,7 +79725,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-full-a",
-   "thickRel": 1.09
+   "thickRel": 1.04
   },
   {
    "kit": "fs-temple",
@@ -78715,7 +79770,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-full-a",
-   "thickRel": 1.1
+   "thickRel": 1.05
   },
   {
    "kit": "fs-temple",
@@ -78757,7 +79812,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-temple/wall-ruined-full-a",
-   "thickRel": 1.15
+   "thickRel": 1.09
   },
   {
    "kit": "fs-temple",
@@ -78799,7 +79854,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-temple/wall-ruined-full-a",
-   "thickRel": 1.15
+   "thickRel": 1.09
   },
   {
    "kit": "fs-temple",
@@ -78843,7 +79898,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-half-a",
-   "thickRel": 1.32
+   "thickRel": 1.26
   },
   {
    "kit": "fs-temple",
@@ -78887,7 +79942,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-ruined-half-a",
-   "thickRel": 1.68
+   "thickRel": 1.6
   },
   {
    "kit": "fs-temple",
@@ -78966,7 +80021,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.72
+   "thickRel": 1.77
   },
   {
    "kit": "fs-temple",
@@ -79098,7 +80153,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.72
+   "thickRel": 1.77
   },
   {
    "kit": "fs-temple",
@@ -79138,7 +80193,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.71
+   "thickRel": 1.76
   },
   {
    "kit": "fs-temple",
@@ -79178,7 +80233,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.73
+   "thickRel": 1.78
   },
   {
    "kit": "fs-temple",
@@ -79221,7 +80276,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.75
+   "thickRel": 1.8
   },
   {
    "kit": "fs-temple",
@@ -79394,7 +80449,7 @@
     "stone-masonry-light",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.16
   },
   {
    "kit": "fs-temple",
@@ -79434,7 +80489,7 @@
     "grid-0-5x0-5",
     "stone-masonry-light"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.1
   },
   {
    "kit": "fs-temple",
@@ -83289,7 +84344,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/barrel-a",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "fs-town",
@@ -84824,7 +85879,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.26
   },
   {
    "kit": "fs-town",
@@ -86456,7 +87511,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-narrow-tall-a",
-   "thickRel": 1.5
+   "thickRel": 1.47
   },
   {
    "kit": "fs-town",
@@ -86499,7 +87554,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-narrow-tall-a",
-   "thickRel": 1.5
+   "thickRel": 1.47
   },
   {
    "kit": "fs-town",
@@ -86542,7 +87597,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.24
+   "thickRel": 1.21
   },
   {
    "kit": "fs-town",
@@ -86585,7 +87640,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.24
+   "thickRel": 1.21
   },
   {
    "kit": "fs-town",
@@ -86838,7 +87893,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.24
+   "thickRel": 1.22
   },
   {
    "kit": "fs-town",
@@ -86881,7 +87936,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/stone-doorway-wide-tall-a",
-   "thickRel": 1.24
+   "thickRel": 1.22
   },
   {
    "kit": "fs-town",
@@ -86921,7 +87976,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.51
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -86961,7 +88016,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.51
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -87001,7 +88056,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.51
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -87041,7 +88096,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.51
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -87081,7 +88136,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-town/stone-wall-a",
-   "thickRel": 0.51
+   "thickRel": 0.49
   },
   {
    "kit": "fs-town",
@@ -87207,7 +88262,7 @@
     "grid-0-5x0-5",
     "special"
    ],
-   "thickRel": 2.83
+   "thickRel": 2.69
   },
   {
    "kit": "fs-town",
@@ -87250,7 +88305,7 @@
     "wood-dark"
    ],
    "variant": "fs-town/stucco-doorway-narrow-tall",
-   "thickRel": 1.5
+   "thickRel": 1.47
   },
   {
    "kit": "fs-town",
@@ -87293,7 +88348,7 @@
     "wood-dark"
    ],
    "variant": "fs-town/stucco-doorway-narrow-tall",
-   "thickRel": 1.15
+   "thickRel": 1.13
   },
   {
    "kit": "fs-town",
@@ -96763,7 +97818,7 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/door-modular",
-   "thickRel": 1.04
+   "thickRel": 1.08
   },
   {
    "kit": "isa-bakery",
@@ -98348,7 +99403,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled-modular-corner-inner",
-   "thickRel": 1.48
+   "thickRel": 1.41
   },
   {
    "kit": "isa-bakery",
@@ -98399,7 +99454,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.28
   },
   {
    "kit": "isa-bakery",
@@ -98451,7 +99506,7 @@
      "other": 0.4
     }
    },
-   "thickRel": 0.77,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "warning",
@@ -98510,7 +99565,7 @@
      "inverted": 0.44
     }
    },
-   "thickRel": 0.78,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "warning",
@@ -98574,7 +99629,7 @@
      "inverted": 0.03
     }
    },
-   "thickRel": 1.54,
+   "thickRel": 1.47,
    "lint": [
     {
      "level": "warning",
@@ -98624,7 +99679,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled",
-   "thickRel": 1.51
+   "thickRel": 1.43
   },
   {
    "kit": "isa-bakery",
@@ -98798,7 +99853,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled",
-   "thickRel": 0.76
+   "thickRel": 0.72
   },
   {
    "kit": "isa-bakery",
@@ -98946,7 +100001,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled",
-   "thickRel": 1.58
+   "thickRel": 1.5
   },
   {
    "kit": "isa-bakery",
@@ -100712,7 +101767,7 @@
     "isa"
    ],
    "variant": "isa-bathroom/wall-tiled",
-   "thickRel": 1.48
+   "thickRel": 1.41
   },
   {
    "kit": "isa-bathroom",
@@ -100754,7 +101809,7 @@
     "isa"
    ],
    "variant": "isa-bathroom/wall-tiled",
-   "thickRel": 1.48
+   "thickRel": 1.41
   },
   {
    "kit": "isa-bathroom",
@@ -100802,7 +101857,7 @@
     "wood-mid"
    ],
    "variant": "isa-kitchen/wall-tiles-doorway",
-   "thickRel": 1.31
+   "thickRel": 1.28
   },
   {
    "kit": "isa-bathroom",
@@ -100895,7 +101950,7 @@
     "isa"
    ],
    "variant": "isa-bathroom/wall-tiled",
-   "thickRel": 1.58
+   "thickRel": 1.5
   },
   {
    "kit": "isa-food",
@@ -103850,7 +104905,7 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/door-modular",
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "isa-kitchen",
@@ -105346,7 +106401,7 @@
     "stone-masonry-light"
    ],
    "variant": "isa-kitchen/wall-tiles",
-   "thickRel": 1.48
+   "thickRel": 1.41
   },
   {
    "kit": "isa-kitchen",
@@ -105395,7 +106450,7 @@
     "wood-mid"
    ],
    "variant": "isa-kitchen/wall-tiles-doorway",
-   "thickRel": 1.3
+   "thickRel": 1.27
   },
   {
    "kit": "isa-kitchen",
@@ -105615,7 +106670,7 @@
     "stone-masonry-mid"
    ],
    "variant": "isa-kitchen/wall-tiles",
-   "thickRel": 0.72
+   "thickRel": 0.69
   },
   {
    "kit": "isa-kitchen",
@@ -105761,7 +106816,7 @@
     "stone-masonry-light"
    ],
    "variant": "isa-kitchen/wall-tiles",
-   "thickRel": 1.57
+   "thickRel": 1.5
   },
   {
    "kit": "isa-kitchen",
@@ -121938,7 +122993,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 0.85,
+   "thickRel": 0.87,
    "mark": [
     "grounded"
    ]
@@ -121981,7 +123036,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.69
   },
   {
    "kit": "kay-dun-1",
@@ -125596,7 +126651,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/torch-mounted",
-   "thickRel": 0.62,
+   "thickRel": 0.71,
    "mark": [
     "centered"
    ]
@@ -125641,7 +126696,7 @@
     "metal-iron-mid",
     "wood-dark"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.87
   },
   {
    "kit": "kay-dun-1",
@@ -127020,7 +128075,7 @@
     "kay",
     "wood-light"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "kay-dun-2",
@@ -127798,7 +128853,7 @@
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 4.79
+   "thickRel": 5.12
   },
   {
    "kit": "kay-dun-2",
@@ -127841,7 +128896,7 @@
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 4.95
+   "thickRel": 5.3
   },
   {
    "kit": "kay-dun-2",
@@ -127884,7 +128939,7 @@
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 3.35
+   "thickRel": 3.58
   },
   {
    "kit": "kay-dun-2",
@@ -127928,7 +128983,7 @@
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 4.97
+   "thickRel": 5.32
   },
   {
    "kit": "kay-dun-2",
@@ -127972,7 +129027,7 @@
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 4.87
+   "thickRel": 5.21
   },
   {
    "kit": "kay-dun-2",
@@ -128016,7 +129071,7 @@
     "stone-masonry-dark"
    ],
    "variant": "kay-dun-2/floor-foundation-allsides",
-   "thickRel": 5.06
+   "thickRel": 5.42
   },
   {
    "kit": "kay-dun-2",
@@ -128888,7 +129943,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "kay-dun-2",
@@ -130754,7 +131809,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/torch",
-   "thickRel": 0.87
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
@@ -130802,7 +131857,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/torch-mounted",
-   "thickRel": 0.62
+   "thickRel": 0.71
   },
   {
    "kit": "kay-dun-2",
@@ -130846,7 +131901,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/torch",
-   "thickRel": 0.68
+   "thickRel": 0.78
   },
   {
    "kit": "kay-dun-2",
@@ -131020,7 +132075,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.82
+   "thickRel": 0.78
   },
   {
    "kit": "kay-dun-2",
@@ -131259,7 +132314,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.32
+   "thickRel": 1.3
   },
   {
    "kit": "kay-dun-2",
@@ -131305,7 +132360,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.5
+   "thickRel": 1.43
   },
   {
    "kit": "kay-dun-2",
@@ -131348,7 +132403,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 2.47
+   "thickRel": 2.35
   },
   {
    "kit": "kay-dun-2",
@@ -131391,7 +132446,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.5
+   "thickRel": 1.43
   },
   {
    "kit": "kay-dun-2",
@@ -131439,7 +132494,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.95
+   "thickRel": 0.91
   },
   {
    "kit": "kay-dun-2",
@@ -131484,7 +132539,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.98
+   "thickRel": 0.93
   },
   {
    "kit": "kay-dun-2",
@@ -131541,7 +132596,7 @@
     "open"
    ],
    "variant": "kay-dun-2/wall-doorway",
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "kay-dun-2",
@@ -131586,7 +132641,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.01
   },
   {
    "kit": "kay-dun-2",
@@ -131631,7 +132686,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.24
   },
   {
    "kit": "kay-dun-2",
@@ -131688,7 +132743,7 @@
     "open"
    ],
    "variant": "kay-dun-2/wall-doorway",
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "kay-dun-2",
@@ -131733,7 +132788,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 3.11
+   "thickRel": 2.97
   },
   {
    "kit": "kay-dun-2",
@@ -131782,7 +132837,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "kay-dun-2",
@@ -131826,7 +132881,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.67
+   "thickRel": 1.6
   },
   {
    "kit": "kay-dun-2",
@@ -131870,7 +132925,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.78
+   "thickRel": 1.7
   },
   {
    "kit": "kay-dun-2",
@@ -131915,7 +132970,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.81
+   "thickRel": 1.72
   },
   {
    "kit": "kay-dun-2",
@@ -131960,7 +133015,7 @@
     "stone-masonry-dark",
     "wood-dark"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "kay-dun-2",
@@ -132004,7 +133059,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 1.05
+   "thickRel": 1
   },
   {
    "kit": "kay-dun-2",
@@ -132052,7 +133107,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.94
+   "thickRel": 0.9
   },
   {
    "kit": "kay-dun-2",
@@ -132148,7 +133203,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.87
+   "thickRel": 0.82
   },
   {
    "kit": "kay-dun-2",
@@ -132192,7 +133247,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.97
+   "thickRel": 0.93
   },
   {
    "kit": "kay-dun-2",
@@ -132236,7 +133291,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.97
+   "thickRel": 0.92
   },
   {
    "kit": "kay-dun-2",
@@ -132483,7 +133538,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-dun-2/wall",
-   "thickRel": 0.95
+   "thickRel": 0.9
   },
   {
    "kit": "kay-food",
@@ -133876,7 +134931,7 @@
     "wood-dark"
    ],
    "variant": "kay-food/door-a",
-   "thickRel": 1.38
+   "thickRel": 1.42
   },
   {
    "kit": "kay-food",
@@ -133920,7 +134975,7 @@
     "wood-dark"
    ],
    "variant": "kay-food/door-a",
-   "thickRel": 1.38
+   "thickRel": 1.42
   },
   {
    "kit": "kay-food",
@@ -137666,7 +138721,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-food/wall",
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "kay-food",
@@ -137909,7 +138964,7 @@
     "stone-masonry-light"
    ],
    "variant": "kay-food/wall",
-   "thickRel": 0.81
+   "thickRel": 0.77
   },
   {
    "kit": "kay-forest",
@@ -153533,7 +154588,7 @@
     "kay",
     "metal-iron-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 1
   },
   {
    "kit": "kay-mixed",
@@ -153574,7 +154629,7 @@
     "mounted"
    ],
    "variant": "kay-mixed/chain-hanging-a",
-   "thickRel": 2.62
+   "thickRel": 2.76
   },
   {
    "kit": "kay-mixed",
@@ -153615,7 +154670,7 @@
     "mounted"
    ],
    "variant": "kay-mixed/chain-hanging-a",
-   "thickRel": 0.64
+   "thickRel": 0.68
   },
   {
    "kit": "kay-mixed",
@@ -153654,7 +154709,7 @@
     "kay",
     "metal-iron-mid"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.11
   },
   {
    "kit": "kay-mixed",
@@ -154839,7 +155894,7 @@
     "kay",
     "metal-iron-mid"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.99
   },
   {
    "kit": "kay-mixed",
@@ -155590,7 +156645,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "kay-platformer",
@@ -156234,7 +157289,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 1
+   "thickRel": 1.04
   },
   {
    "kit": "kay-platformer",
@@ -156281,7 +157336,7 @@
     "tba"
    ],
    "variant": "kay-platformer/lever-wall-a",
-   "thickRel": 1.08
+   "thickRel": 1.13
   },
   {
    "kit": "kay-platformer",
@@ -156329,7 +157384,7 @@
     "tba"
    ],
    "variant": "kay-platformer/lever-wall-a",
-   "thickRel": 1
+   "thickRel": 1.05
   },
   {
    "kit": "kay-platformer",
@@ -158054,7 +159109,7 @@
     "scale-big"
    ],
    "variant": "kay-proto/cube-prototype-small",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "kay-proto",
@@ -158094,7 +159149,7 @@
     "plastic"
    ],
    "variant": "kay-proto/cube-prototype-small",
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "kay-proto",
@@ -158140,7 +159195,7 @@
     "wood-mid"
    ],
    "variant": "kay-proto/door-a",
-   "thickRel": 1.06
+   "thickRel": 1.09
   },
   {
    "kit": "kay-proto",
@@ -158183,7 +159238,7 @@
     "wood-mid"
    ],
    "variant": "kay-proto/door-a",
-   "thickRel": 1.01
+   "thickRel": 1.04
   },
   {
    "kit": "kay-proto",
@@ -158228,7 +159283,7 @@
     "metal-steel",
     "paper-sheet"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.32
   },
   {
    "kit": "kay-proto",
@@ -158950,7 +160005,7 @@
     "plastic",
     "stone-masonry-dark"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.79
   },
   {
    "kit": "kay-proto",
@@ -158993,7 +160048,7 @@
     "plastic",
     "stone-masonry-dark"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "kay-proto",
@@ -159089,7 +160144,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.81,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "warning",
@@ -170174,7 +171229,7 @@
    ],
    "specialBand": "6,1",
    "variant": "kay-tools/torch",
-   "thickRel": 2.09
+   "thickRel": 2.42
   },
   {
    "kit": "kay-tools",
@@ -170221,7 +171276,7 @@
     "wood-dark"
    ],
    "variant": "kay-tools/torch",
-   "thickRel": 2.09
+   "thickRel": 2.42
   },
   {
    "kit": "kay-tools",
@@ -172553,7 +173608,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.81
   },
   {
    "kit": "ken-arcade",
@@ -172648,7 +173703,7 @@
     "plastic",
     "stone-masonry-dark"
    ],
-   "thickRel": 2.04
+   "thickRel": 1.95
   },
   {
    "kit": "ken-arena",
@@ -173242,7 +174297,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/wall",
-   "thickRel": 1.52
+   "thickRel": 1.49
   },
   {
    "kit": "ken-arena",
@@ -173330,7 +174385,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/wall",
-   "thickRel": 2.03
+   "thickRel": 1.93
   },
   {
    "kit": "ken-arena",
@@ -177105,7 +178160,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.33,
+   "thickRel": 1.37,
    "lint": [
     {
      "level": "warning",
@@ -177375,7 +178430,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/gate",
-   "thickRel": 0.8
+   "thickRel": 0.82
   },
   {
    "kit": "ken-castle",
@@ -181523,7 +182578,7 @@
     "tba"
    ],
    "variant": "ken-factory/button-floor-round-small",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "ken-factory",
@@ -183226,7 +184281,7 @@
     "tba"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 1.8
+   "thickRel": 1.79
   },
   {
    "kit": "ken-factory",
@@ -183358,7 +184413,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.13
   },
   {
    "kit": "ken-factory",
@@ -183558,7 +184613,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.6
   },
   {
    "kit": "ken-factory",
@@ -183600,7 +184655,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.83
   },
   {
    "kit": "ken-factory",
@@ -183642,7 +184697,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -183777,7 +184832,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-connection-pipe",
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -183963,7 +185018,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "ken-factory",
@@ -184770,7 +185825,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 1.83
+   "thickRel": 1.82
   },
   {
    "kit": "ken-factory",
@@ -184853,7 +185908,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 2.32
+   "thickRel": 2.31
   },
   {
    "kit": "ken-factory",
@@ -184894,7 +185949,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 2.42
+   "thickRel": 2.41
   },
   {
    "kit": "ken-factory",
@@ -184979,7 +186034,7 @@
     "tba"
    ],
    "variant": "ken-factory/robot-arm-a",
-   "thickRel": 1.49
+   "thickRel": 1.48
   },
   {
    "kit": "ken-factory",
@@ -186192,7 +187247,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "ken-food",
@@ -193853,7 +194908,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-furniture/door",
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "ken-furniture",
@@ -193896,7 +194951,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/door",
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "ken-furniture",
@@ -197387,7 +198442,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/wall-doorway",
-   "thickRel": 0.73
+   "thickRel": 0.72
   },
   {
    "kit": "ken-furniture",
@@ -197522,7 +198577,7 @@
     "ken",
     "wood-mid"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.57
   },
   {
    "kit": "ken-furniture",
@@ -200922,7 +201977,7 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/cabin-door",
-   "thickRel": 0.8,
+   "thickRel": 0.79,
    "lint": [
     {
      "level": "error",
@@ -200972,7 +202027,7 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/cabin-door",
-   "thickRel": 0.79
+   "thickRel": 0.77
   },
   {
    "kit": "ken-holiday",
@@ -201058,7 +202113,7 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/cabin-door",
-   "thickRel": 0.81,
+   "thickRel": 0.79,
    "lint": [
     {
      "level": "error",
@@ -201110,7 +202165,7 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/cabin-door",
-   "thickRel": 0.79
+   "thickRel": 0.77
   },
   {
    "kit": "ken-holiday",
@@ -201475,7 +202530,7 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/cabin-door",
-   "thickRel": 1.24
+   "thickRel": 1.19
   },
   {
    "kit": "ken-holiday",
@@ -202186,7 +203241,7 @@
     "rubber",
     "tba"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "ken-holiday",
@@ -205533,7 +206588,7 @@
     "stone-masonry-mid",
     "tba"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.81
   },
   {
    "kit": "ken-market",
@@ -206184,7 +207239,7 @@
     "wood-mid"
    ],
    "variant": "ken-modular/door-brown-glass",
-   "thickRel": 1.24,
+   "thickRel": 1.28,
    "lint": [
     {
      "level": "warning",
@@ -206234,7 +207289,7 @@
     "wood-mid"
    ],
    "variant": "ken-modular/door-brown-glass",
-   "thickRel": 1.34,
+   "thickRel": 1.38,
    "lint": [
     {
      "level": "warning",
@@ -214318,7 +215373,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-platformer/door",
-   "thickRel": 0.75
+   "thickRel": 0.77
   },
   {
    "kit": "ken-platformer",
@@ -214364,7 +215419,7 @@
     "wood-dark"
    ],
    "variant": "ken-platformer/door",
-   "thickRel": 0.84
+   "thickRel": 0.87
   },
   {
    "kit": "ken-platformer",
@@ -215133,7 +216188,7 @@
     "toggle-off",
     "toggle"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.92
   },
   {
    "kit": "ken-platformer",
@@ -215783,7 +216838,7 @@
     "ken",
     "wood-dark"
    ],
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "ken-proto",
@@ -215903,7 +216958,7 @@
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
-   "thickRel": 0.92
+   "thickRel": 0.95
   },
   {
    "kit": "ken-proto",
@@ -215945,7 +217000,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.2
   },
   {
    "kit": "ken-proto",
@@ -217343,7 +218398,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/wall",
-   "thickRel": 1.15
+   "thickRel": 1.13
   },
   {
    "kit": "ken-proto",
@@ -217388,7 +218443,7 @@
     "metal-iron-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.23
   },
   {
    "kit": "ken-proto",
@@ -217434,7 +218489,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/wall-doorway-wide",
-   "thickRel": 1.72
+   "thickRel": 1.69
   },
   {
    "kit": "ken-proto",
@@ -217487,7 +218542,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.23,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "warning",
@@ -217538,7 +218593,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/wall",
-   "thickRel": 0.98
+   "thickRel": 0.96
   },
   {
    "kit": "ken-proto",
@@ -217579,7 +218634,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.1
   },
   {
    "kit": "ken-proto",
@@ -217784,7 +218839,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/wall",
-   "thickRel": 1.16
+   "thickRel": 1.1
   },
   {
    "kit": "ken-proto",
@@ -225358,7 +226413,7 @@
     "space"
    ],
    "variant": "ken-space/corridor-wall",
-   "thickRel": 0.73
+   "thickRel": 0.7
   },
   {
    "kit": "ken-space",
@@ -225404,7 +226459,7 @@
     "space"
    ],
    "variant": "ken-space/corridor-wall",
-   "thickRel": 0.66
+   "thickRel": 0.63
   },
   {
    "kit": "ken-space",
@@ -226877,7 +227932,7 @@
     "space"
    ],
    "variant": "ken-space/machine-generator",
-   "thickRel": 1.54
+   "thickRel": 1.53
   },
   {
    "kit": "ken-space",
@@ -230312,7 +231367,7 @@
     "space"
    ],
    "variant": "ken-station/door-single-closed",
-   "thickRel": 1.35
+   "thickRel": 1.39
   },
   {
    "kit": "ken-station",
@@ -230357,7 +231412,7 @@
     "space"
    ],
    "variant": "ken-station/door-single-closed",
-   "thickRel": 1.33
+   "thickRel": 1.37
   },
   {
    "kit": "ken-station",
@@ -230398,7 +231453,7 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.36
   },
   {
    "kit": "ken-station",
@@ -231641,7 +232696,7 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-station/wall",
-   "thickRel": 1.26
+   "thickRel": 1.2
   },
   {
    "kit": "ken-station",
@@ -231686,7 +232741,7 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-station/wall-corner",
-   "thickRel": 1.63
+   "thickRel": 1.56
   },
   {
    "kit": "ken-station",
@@ -231731,7 +232786,7 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-station/wall-corner-round",
-   "thickRel": 1.54
+   "thickRel": 1.47
   },
   {
    "kit": "ken-station",
@@ -231773,7 +232828,7 @@
     "space"
    ],
    "variant": "ken-station/wall-corner-round",
-   "thickRel": 1.54
+   "thickRel": 1.47
   },
   {
    "kit": "ken-station",
@@ -231815,7 +232870,7 @@
     "space"
    ],
    "variant": "ken-station/wall-corner",
-   "thickRel": 1.63
+   "thickRel": 1.55
   },
   {
    "kit": "ken-station",
@@ -231908,7 +232963,7 @@
     "space"
    ],
    "variant": "ken-station/wall-door",
-   "thickRel": 1.12
+   "thickRel": 1.1
   },
   {
    "kit": "ken-station",
@@ -231958,7 +233013,7 @@
     "textile-cloth-mid"
    ],
    "variant": "ken-station/wall-door-wide",
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "ken-station",
@@ -232005,7 +233060,7 @@
     "space"
    ],
    "variant": "ken-station/wall-door-wide",
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "ken-station",
@@ -232052,7 +233107,7 @@
     "space"
    ],
    "variant": "ken-station/wall-door",
-   "thickRel": 1.12
+   "thickRel": 1.1
   },
   {
    "kit": "ken-station",
@@ -232099,7 +233154,7 @@
     "space"
    ],
    "variant": "ken-station/wall-pillar",
-   "thickRel": 1.61
+   "thickRel": 1.54
   },
   {
    "kit": "ken-station",
@@ -232143,7 +233198,7 @@
     "space"
    ],
    "variant": "ken-station/wall-pillar",
-   "thickRel": 1.61
+   "thickRel": 1.54
   },
   {
    "kit": "ken-station",
@@ -232366,7 +233421,7 @@
     "space"
    ],
    "variant": "ken-station/wall",
-   "thickRel": 1.26
+   "thickRel": 1.2
   },
   {
    "kit": "ken-suburban",
@@ -234685,7 +235740,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 1.03
+   "thickRel": 0.98
   },
   {
    "kit": "ken-survival",
@@ -234728,7 +235783,7 @@
     "metal-iron-mid"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 1.07
+   "thickRel": 1.02
   },
   {
    "kit": "ken-survival",
@@ -234771,7 +235826,7 @@
     "metal-iron-mid"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 1.08
+   "thickRel": 1.03
   },
   {
    "kit": "ken-survival",
@@ -234814,7 +235869,7 @@
     "metal-iron-mid"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 0.52
+   "thickRel": 0.49
   },
   {
    "kit": "ken-survival",
@@ -234854,7 +235909,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-survival/metal-panel",
-   "thickRel": 0.52
+   "thickRel": 0.49
   },
   {
    "kit": "ken-survival",
@@ -239793,7 +240848,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.59
+   "thickRel": 0.56
   },
   {
    "kit": "ken-town",
@@ -239838,7 +240893,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 2.2
+   "thickRel": 2.09
   },
   {
    "kit": "ken-town",
@@ -239882,7 +240937,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 1.98
+   "thickRel": 1.89
   },
   {
    "kit": "ken-town",
@@ -239926,7 +240981,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 2.7
+   "thickRel": 2.57
   },
   {
    "kit": "ken-town",
@@ -239970,7 +241025,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.54
+   "thickRel": 0.52
   },
   {
    "kit": "ken-town",
@@ -240012,7 +241067,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.56
+   "thickRel": 0.53
   },
   {
    "kit": "ken-town",
@@ -240056,7 +241111,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.55
+   "thickRel": 0.53
   },
   {
    "kit": "ken-town",
@@ -240100,7 +241155,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.54
+   "thickRel": 0.51
   },
   {
    "kit": "ken-town",
@@ -240144,7 +241199,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.56
+   "thickRel": 0.53
   },
   {
    "kit": "ken-town",
@@ -240190,7 +241245,7 @@
     "wood-light"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.53
+   "thickRel": 0.51
   },
   {
    "kit": "ken-town",
@@ -240233,7 +241288,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.6
+   "thickRel": 0.57
   },
   {
    "kit": "ken-town",
@@ -240276,7 +241331,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.58
+   "thickRel": 0.55
   },
   {
    "kit": "ken-town",
@@ -240319,7 +241374,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.59
+   "thickRel": 0.57
   },
   {
    "kit": "ken-town",
@@ -240365,7 +241420,7 @@
     "wood-light"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.59
+   "thickRel": 0.57
   },
   {
    "kit": "ken-town",
@@ -240410,7 +241465,7 @@
     "wood-light"
    ],
    "variant": "ken-town/wall-wood-door",
-   "thickRel": 0.64
+   "thickRel": 0.63
   },
   {
    "kit": "ken-town",
@@ -240453,7 +241508,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.67
   },
   {
    "kit": "ken-town",
@@ -240558,7 +241613,7 @@
     "wood-light"
    ],
    "variant": "ken-town/wall-wood-door",
-   "thickRel": 0.65
+   "thickRel": 0.63
   },
   {
    "kit": "ken-town",
@@ -240600,7 +241655,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 1.1
+   "thickRel": 1.05
   },
   {
    "kit": "ken-town",
@@ -240642,7 +241697,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 2.23
+   "thickRel": 2.12
   },
   {
    "kit": "ken-town",
@@ -240814,7 +241869,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/wall-wood",
-   "thickRel": 0.56
+   "thickRel": 0.53
   },
   {
    "kit": "ken-town",
@@ -250454,7 +251509,7 @@
     "rubber",
     "tba"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-construction",
@@ -250724,7 +251779,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "lpa-construction",
@@ -253056,7 +254111,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "lpa-desert",
@@ -253143,7 +254198,7 @@
     "wood-dark"
    ],
    "variant": "lpa-desert/door-frame-a",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "lpa-desert",
@@ -253187,7 +254242,7 @@
     "wood-dark"
    ],
    "variant": "lpa-desert/door-frame-a",
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "lpa-desert",
@@ -253232,7 +254287,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.76
   },
   {
    "kit": "lpa-desert",
@@ -258474,7 +259529,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 2.12
+   "thickRel": 2.44
   },
   {
    "kit": "lpa-tools",
@@ -262138,7 +263193,7 @@
     "lpa",
     "metal-iron-dark"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.54
   },
   {
    "kit": "lpa-west",
@@ -262178,7 +263233,7 @@
     "lpa",
     "metal-iron-dark"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.56
   },
   {
    "kit": "lpa-west",
@@ -262570,7 +263625,7 @@
     "wood-dark"
    ],
    "variant": "lpa-west/door-a",
-   "thickRel": 0.55
+   "thickRel": 0.57
   },
   {
    "kit": "lpa-west",
@@ -262616,7 +263671,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/door-and-window-a",
-   "thickRel": 1.7
+   "thickRel": 1.66
   },
   {
    "kit": "lpa-west",
@@ -262666,7 +263721,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/door-and-window-a",
-   "thickRel": 1.65,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "error",
@@ -262719,7 +263774,7 @@
     "wood-dark"
    ],
    "variant": "lpa-west/door-a",
-   "thickRel": 0.58,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "error",
@@ -264038,7 +265093,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/int-door-a",
-   "thickRel": 0.56,
+   "thickRel": 0.54,
    "lint": [
     {
      "level": "error",
@@ -264092,7 +265147,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/int-door-a",
-   "thickRel": 0.8,
+   "thickRel": 0.78,
    "lint": [
     {
      "level": "error",
@@ -264142,7 +265197,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/int-wall",
-   "thickRel": 0.51,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "error",
@@ -264192,7 +265247,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/int-wall",
-   "thickRel": 0.7,
+   "thickRel": 0.66,
    "lint": [
     {
      "level": "error",
@@ -264320,7 +265375,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/large-wall-a",
-   "thickRel": 1.48
+   "thickRel": 1.41
   },
   {
    "kit": "lpa-west",
@@ -264363,7 +265418,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/large-wall-a",
-   "thickRel": 1.39,
+   "thickRel": 1.33,
    "lint": [
     {
      "level": "error",
@@ -264455,7 +265510,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 0.95
+   "thickRel": 0.93
   },
   {
    "kit": "lpa-west",
@@ -264502,7 +265557,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 1.64
+   "thickRel": 1.61
   },
   {
    "kit": "lpa-west",
@@ -264549,7 +265604,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 0.92,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "error",
@@ -264606,7 +265661,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/saloon-door-a",
-   "thickRel": 1.63,
+   "thickRel": 1.6,
    "lint": [
     {
      "level": "error",
@@ -265160,7 +266215,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/small-door-a",
-   "thickRel": 0.64
+   "thickRel": 0.62
   },
   {
    "kit": "lpa-west",
@@ -265207,7 +266262,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/small-door-a",
-   "thickRel": 0.6,
+   "thickRel": 0.58,
    "lint": [
     {
      "level": "error",
@@ -265423,7 +266478,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/small-wall-a",
-   "thickRel": 0.64
+   "thickRel": 0.61
   },
   {
    "kit": "lpa-west",
@@ -265466,7 +266521,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/small-wall-a",
-   "thickRel": 0.61,
+   "thickRel": 0.58,
    "lint": [
     {
      "level": "error",
@@ -266216,7 +267271,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-a",
-   "thickRel": 0.92
+   "thickRel": 0.88
   },
   {
    "kit": "lpa-west",
@@ -266257,7 +267312,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-a",
-   "thickRel": 0.54
+   "thickRel": 0.52
   },
   {
    "kit": "lpa-west",
@@ -266300,7 +267355,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-a",
-   "thickRel": 0.9,
+   "thickRel": 0.86,
    "lint": [
     {
      "level": "error",
@@ -266350,7 +267405,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-a",
-   "thickRel": 0.48,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "error",
@@ -266400,7 +267455,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-door-a",
-   "thickRel": 0.93
+   "thickRel": 0.91
   },
   {
    "kit": "lpa-west",
@@ -266443,7 +267498,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-door-a",
-   "thickRel": 0.95
+   "thickRel": 0.93
   },
   {
    "kit": "lpa-west",
@@ -266490,7 +267545,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-door-a",
-   "thickRel": 0.91,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "error",
@@ -266544,7 +267599,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-door-a",
-   "thickRel": 0.92,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "error",
@@ -266598,7 +267653,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/wall-door-a",
-   "thickRel": 0.91,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "error",
@@ -271335,7 +272390,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.73,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "error",
@@ -271636,7 +272691,7 @@
     "m3",
     "metal-iron-mid"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.46
   },
   {
    "kit": "m3-base",
@@ -271675,7 +272730,7 @@
     "m3",
     "pickup"
    ],
-   "thickRel": 1.66
+   "thickRel": 1.67
   },
   {
    "kit": "m3-base",
@@ -272438,7 +273493,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -273537,7 +274592,7 @@
     "m3",
     "metal-iron-mid"
    ],
-   "thickRel": 1.36,
+   "thickRel": 1.4,
    "lint": [
     {
      "level": "error",
@@ -276037,7 +277092,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.84
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -276076,7 +277131,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.85
+   "thickRel": 0.87
   },
   {
    "kit": "m3-base",
@@ -276116,7 +277171,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.84
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -276269,7 +277324,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.33
   },
   {
    "kit": "m3-base",
@@ -279838,7 +280893,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 2.59
+   "thickRel": 2.61
   },
   {
    "kit": "m3-base",
@@ -282481,7 +283536,7 @@
     "m3",
     "metal-iron-mid"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.31
   },
   {
    "kit": "m3-base",
@@ -288987,7 +290042,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.25
   },
   {
    "kit": "m3-base",
@@ -293585,7 +294640,7 @@
     "m3",
     "metal-iron-mid"
    ],
-   "thickRel": 1.46
+   "thickRel": 1.53
   },
   {
    "kit": "m3-base",
@@ -293663,7 +294718,7 @@
     "m3",
     "metal-copper"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.38
   },
   {
    "kit": "m3-base",
@@ -294697,7 +295752,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.05,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "error",
@@ -295042,7 +296097,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.85,
+   "thickRel": 0.88,
    "lint": [
     {
      "level": "warning",
@@ -295096,7 +296151,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.82,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -297598,7 +298653,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "m3-base",
@@ -303248,7 +304303,7 @@
     "wood-light"
    ],
    "variant": "m3-base/wooden-crate-01",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -303288,7 +304343,7 @@
     "wood-light"
    ],
    "variant": "m3-base/wooden-crate-01",
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -305104,7 +306159,7 @@
     "wood-mid"
    ],
    "variant": "medieval-forge/barrel",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "medieval-forge",
@@ -305317,7 +306372,7 @@
     "wood-dark"
    ],
    "variant": "medieval-forge/door",
-   "thickRel": 0.73
+   "thickRel": 0.75
   },
   {
    "kit": "medieval-forge",
@@ -305358,7 +306413,7 @@
     "wood-dark"
    ],
    "variant": "medieval-forge/door",
-   "thickRel": 0.67
+   "thickRel": 0.69
   },
   {
    "kit": "medieval-forge",
@@ -311564,7 +312619,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.38
   },
   {
    "kit": "pm-store",
@@ -312552,7 +313607,7 @@
      "open": 1
     }
    },
-   "thickRel": 3.42,
+   "thickRel": 3.46,
    "lint": [
     {
      "level": "error",
@@ -313950,7 +315005,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.1
   },
   {
    "kit": "props",
@@ -314241,7 +315296,7 @@
     "sailing",
     "wood-mid"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "props",
@@ -318390,7 +319445,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.94,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "error",
@@ -318439,7 +319494,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.27
   },
   {
    "kit": "quat-cyberpunk",
@@ -320555,7 +321610,7 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.89
+   "thickRel": 2.02
   },
   {
    "kit": "quat-dun-1",
@@ -320993,7 +322048,7 @@
      "other": 0.01
     }
    },
-   "thickRel": 0.97,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "warning",
@@ -330588,7 +331643,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.36
   },
   {
    "kit": "quat-interior",
@@ -330629,7 +331684,7 @@
     "qua"
    ],
    "variant": "quat-interior/door-panelled",
-   "thickRel": 1.27
+   "thickRel": 1.3
   },
   {
    "kit": "quat-interior",
@@ -330670,7 +331725,7 @@
     "qua"
    ],
    "variant": "quat-interior/door-panelled",
-   "thickRel": 1.2
+   "thickRel": 1.24
   },
   {
    "kit": "quat-interior",
@@ -330963,7 +332018,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.61,
+   "thickRel": 1.66,
    "lint": [
     {
      "level": "error",
@@ -332827,7 +333882,7 @@
     "sailing",
     "wood-mid"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "quat-medieval",
@@ -333345,7 +334400,7 @@
     "wood-mid"
    ],
    "variant": "quat-medieval/door-round",
-   "thickRel": 1.03
+   "thickRel": 1.06
   },
   {
    "kit": "quat-medieval",
@@ -333397,7 +334452,7 @@
     "wood-mid"
    ],
    "variant": "quat-medieval/door-round",
-   "thickRel": 1.07
+   "thickRel": 1.1
   },
   {
    "kit": "quat-medieval",
@@ -335176,7 +336231,7 @@
     "space"
    ],
    "variant": "quat-megakit/door-metal",
-   "thickRel": 0.76
+   "thickRel": 0.78
   },
   {
    "kit": "quat-megakit",
@@ -335266,7 +336321,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.77
   },
   {
    "kit": "quat-megakit",
@@ -335310,7 +336365,7 @@
     "space"
    ],
    "variant": "quat-megakit/door-frame-square",
-   "thickRel": 0.74
+   "thickRel": 0.72
   },
   {
    "kit": "quat-megakit",
@@ -335354,7 +336409,7 @@
     "space"
    ],
    "variant": "quat-megakit/door-frame-square",
-   "thickRel": 0.76
+   "thickRel": 0.74
   },
   {
    "kit": "quat-megakit",
@@ -335443,7 +336498,7 @@
     "space"
    ],
    "variant": "quat-megakit/door-metal",
-   "thickRel": 0.55
+   "thickRel": 0.56
   },
   {
    "kit": "quat-megakit",
@@ -344223,12 +345278,12 @@
     "qua",
     "sailing"
    ],
-   "thickRel": 0.43,
+   "thickRel": 0.45,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
+     "text": "I01 thickRel 0.45 wants min 0.5"
     }
    ]
   },
@@ -350835,7 +351890,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "quat-shoot",
@@ -352667,7 +353722,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.61
   },
   {
    "kit": "quat-shoot",
@@ -355733,7 +356788,7 @@
     "tba"
    ],
    "variant": "quat-survival/bear-trap-anim",
-   "thickRel": 0.48
+   "thickRel": 0.47
   },
   {
    "kit": "quat-survival",
@@ -356303,7 +357358,7 @@
     "qua"
    ],
    "variant": "quat-survival/match",
-   "thickRel": 2.13
+   "thickRel": 2.14
   },
   {
    "kit": "quat-survival",
@@ -356865,7 +357920,7 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 1.78
+   "thickRel": 2.05
   },
   {
    "kit": "quat-survival",
@@ -358703,12 +359758,12 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.47,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -359760,7 +360815,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.67
   },
   {
    "kit": "quat-sushi",
@@ -359808,7 +360863,7 @@
     "wood-mid"
    ],
    "variant": "quat-sushi/shoji-wall",
-   "thickRel": 0.88
+   "thickRel": 0.84
   },
   {
    "kit": "quat-sushi",
@@ -360428,7 +361483,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 0.49
+   "thickRel": 0.47
   },
   {
    "kit": "quat-sushi",
@@ -360474,7 +361529,7 @@
     "wood-mid"
    ],
    "variant": "quat-sushi/shoji-wall",
-   "thickRel": 0.87
+   "thickRel": 0.83
   },
   {
    "kit": "quat-sushi",
@@ -360519,7 +361574,7 @@
     "wood-mid"
    ],
    "variant": "quat-sushi/shoji-wall",
-   "thickRel": 0.87
+   "thickRel": 0.83
   },
   {
    "kit": "quat-sushi",
@@ -369405,7 +370460,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "rgp-explosives",
@@ -371511,7 +372566,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/door-a",
-   "thickRel": 0.79
+   "thickRel": 0.81
   },
   {
    "kit": "rgp-medieval",
@@ -371557,7 +372612,7 @@
     "stone-masonry-mid",
     "wood-light"
    ],
-   "thickRel": 0.67,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "error",
@@ -371611,7 +372666,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/door-a",
-   "thickRel": 0.53
+   "thickRel": 0.55
   },
   {
    "kit": "rgp-medieval",
@@ -371657,7 +372712,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.64
   },
   {
    "kit": "rgp-medieval",
@@ -380251,7 +381306,7 @@
     "wood-dark"
    ],
    "specialBand": "1,1",
-   "thickRel": 0.35,
+   "thickRel": 0.34,
    "lint": [
     {
      "level": "error",
@@ -384378,7 +385433,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.25
   },
   {
    "kit": "sq-bank",
@@ -385885,7 +386940,14 @@
     "tba"
    ],
    "variant": "sq-carwash/brush-arch",
-   "thickRel": 0.5
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "sq-carwash",
@@ -385936,7 +386998,7 @@
     "sq",
     "tba"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.58
   },
   {
    "kit": "sq-carwash",
@@ -387819,7 +388881,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "sq-gym",
@@ -390239,7 +391301,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.19
   },
   {
    "kit": "sq-pool",
@@ -390285,7 +391347,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 2.11
+   "thickRel": 2.12
   },
   {
    "kit": "sq-pool",
@@ -393903,7 +394965,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.59,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "error",
@@ -407716,12 +408778,12 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/wall-doorway",
-   "thickRel": 0.47,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.46 wants min 0.5"
     }
    ]
   },
@@ -407767,12 +408829,12 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/wall-doorway",
-   "thickRel": 0.47,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.46 wants min 0.5"
     }
    ]
   },
@@ -407817,7 +408879,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/wall",
-   "thickRel": 0.46
+   "thickRel": 0.43
   },
   {
    "kit": "styloo-school",
@@ -407959,7 +409021,7 @@
     "sty"
    ],
    "variant": "styloo-school/wall",
-   "thickRel": 0.46
+   "thickRel": 0.43
   },
   {
    "kit": "styloo-school",
@@ -416232,7 +417294,7 @@
     "wood-mid"
    ],
    "variant": "wizp-asia/barrel-a",
-   "thickRel": 0.89
+   "thickRel": 0.9
   },
   {
    "kit": "wizp-asia",
@@ -416363,7 +417425,7 @@
     "metal-iron-mid",
     "wizp"
    ],
-   "thickRel": 3.12
+   "thickRel": 3.11
   },
   {
    "kit": "wizp-asia",
@@ -421604,7 +422666,7 @@
     "wood-mid"
    ],
    "variant": "wizp-grave/crate",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "wizp-grave",
@@ -424661,7 +425723,7 @@
     "wood-mid"
    ],
    "variant": "wizp-mediev/barrel",
-   "thickRel": 0.95
+   "thickRel": 0.96
   },
   {
    "kit": "wizp-mediev",
@@ -424701,7 +425763,7 @@
     "wood-light"
    ],
    "variant": "wizp-grave/crate",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "wizp-mediev",
@@ -424830,7 +425892,7 @@
     "wood-mid"
    ],
    "variant": "wizp-mediev/dynamite-crate",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "wizp-mediev",
