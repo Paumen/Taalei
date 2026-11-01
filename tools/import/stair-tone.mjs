@@ -18,7 +18,10 @@ Steps: a tread (flat face looking up) and the faces no taller than --riser
 steps whose top is at it or within half a step below it are one stone.
 Each step stone is one flat tone, read at its centre, moved by up to --vary,
 spread evenly and shuffled, seeded by kit and file name. Walls and sides run
-the height gradient smoothly, point by point.
+the height gradient smoothly, point by point, and keep --keep of each face's
+old tone against the old trend of tone by height over all walls, so walls
+set apart in the old tones stay apart. Side triangles whose old tones, less
+that trend, differ by --split or more are never one face.
 Recess: rays over the half sky of each point; the share hitting the model
 within --reach of its size darkens it, from --open on, by up to --shadow.
 Overhang: rays up within 30 degrees; the share hitting the model within --over
@@ -37,6 +40,8 @@ Caps: flat tops that are no step are --trim lighter.
   --vary <f>       0.09
   --chip <f>       0.16
   --small <f>      0.03
+  --keep <f>       1
+  --split <f>      0.12
   --reach <f>      0.2
   --open <f>       0.3
   --shadow <f>     0.20
@@ -49,7 +54,7 @@ Caps: flat tops that are no step are --trim lighter.
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { cell: [14, 3], top: [0.32], edge: [0.26], rise: [0.42], side: [0.46], under: [0.86], whole: [0.6], vary: [0.09], chip: [0.16], small: [0.03], reach: [0.2], open: [0.3], shadow: [0.2], over: [0.35], hang: [0.2], trim: [0.06], riser: [1.6], dry: false, debug: false };
+const opt = { cell: [14, 3], top: [0.32], edge: [0.26], rise: [0.42], side: [0.46], under: [0.86], whole: [0.6], vary: [0.09], chip: [0.16], small: [0.03], keep: [1], split: [0.12], reach: [0.2], open: [0.3], shadow: [0.2], over: [0.35], hang: [0.2], trim: [0.06], riser: [1.6], dry: false, debug: false };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -119,12 +124,24 @@ for (const file of files) {
       const l = Math.hypot(...n);
       if (!l || !inCell((uv[a * 2] + uv[b * 2] + uv[c * 2]) / 3, (uv[a * 2 + 1] + uv[b * 2 + 1] + uv[c * 2 + 1]) / 3)) { keep.push(a, b, c); continue; }
       const normal = n.map((x) => x / l);
-      tris.push({ corners, ids: [a, b, c], normal, kind: normal[1] > 0.7 ? 0 : normal[1] < -0.7 ? 2 : 1 });
+      tris.push({ corners, ids: [a, b, c], normal, kind: normal[1] > 0.7 ? 0 : normal[1] < -0.7 ? 2 : 1, was: (uv[a * 2 + 1] + uv[b * 2 + 1] + uv[c * 2 + 1]) * 4 / 3 - cr });
     }
     if (tris.length) stone.push({ prim, pos, nrm, uv, keep, tris });
   }
   if (!stone.length) { console.log(`${file}: no stone in cell ${opt.cell}`); continue; }
 
+  const trend = (() => {
+    let sw = 0; let sx = 0; let sy = 0; let sxx = 0; let sxy = 0;
+    for (const s of stone) for (const tri of s.tris) if (tri.kind === 1) {
+      const w = area(tri.corners); const y = (tri.corners[0].w[1] + tri.corners[1].w[1] + tri.corners[2].w[1]) / 3;
+      sw += w; sx += w * y; sy += w * tri.was; sxx += w * y * y; sxy += w * y * tri.was;
+    }
+    if (!sw) return () => 0;
+    const mx = sx / sw; const my = sy / sw; const vx = sxx / sw - mx * mx;
+    const b = vx > 1e-12 ? (sxy / sw - mx * my) / vx : 0;
+    return (y) => my + b * (y - mx);
+  })();
+  for (const s of stone) for (const tri of s.tris) tri.res = tri.was - trend((tri.corners[0].w[1] + tri.corners[1].w[1] + tri.corners[2].w[1]) / 3);
   const faces = [];
   for (const s of stone) {
     const parent = s.tris.map((_, i) => i);
@@ -133,7 +150,7 @@ for (const file of files) {
     s.tris.forEach((tri, i) => { for (const c of tri.corners) { const k = c.w.map((x) => Math.round(x * 1e4)).join(','); if (!byPoint.has(k)) byPoint.set(k, []); byPoint.get(k).push(i); } });
     for (const list of byPoint.values()) for (let a = 0; a < list.length; a++) for (let b = a + 1; b < list.length; b++) {
       const p = s.tris[list[a]]; const q = s.tris[list[b]];
-      if (p.kind === q.kind && dot(p.normal, q.normal) > 0.97) parent[find(list[a])] = find(list[b]);
+      if (p.kind === q.kind && dot(p.normal, q.normal) > 0.97 && (p.kind !== 1 || Math.abs(p.res - q.res) < opt.split[0])) parent[find(list[a])] = find(list[b]);
     }
     const groups = new Map();
     s.tris.forEach((tri, i) => { const r = find(i); if (!groups.has(r)) groups.set(r, []); groups.get(r).push(tri); });
@@ -141,7 +158,9 @@ for (const file of files) {
       let lo = Infinity; let hi = -Infinity; let n = [0, 0, 0];
       for (const tri of list) { n = n.map((x, k) => x + tri.normal[k]); for (const c of tri.corners) { lo = Math.min(lo, c.w[1]); hi = Math.max(hi, c.w[1]); } }
       const size = list.reduce((x, tri) => x + area(tri.corners), 0);
-      const face = { id: faces.length, tris: list, kind: list[0].kind, lo, hi, normal: norm(n), step: -1, size };
+      let was = 0; let mid = 0;
+      for (const tri of list) { const a = area(tri.corners); for (let k = 0; k < 3; k++) { was += a * (s.uv[tri.ids[k] * 2 + 1] * 4 - cr) / 3; mid += a * tri.corners[k].w[1] / 3; } }
+      const face = { id: faces.length, tris: list, kind: list[0].kind, lo, hi, normal: norm(n), step: -1, size, was: was / (size || 1), mid: mid / (size || 1) };
       for (const tri of list) tri.face = face;
       faces.push(face);
     }
@@ -209,6 +228,16 @@ for (const file of files) {
   }
   for (const c of centre.values()) c.w = c.w.map((x) => x / (c.a || 1));
   const stoneArea = faces.reduce((x, f) => x + f.size, 0);
+  const walls = faces.filter((f) => f.kind === 1 && f.step < 0);
+  const fit = (() => {
+    let sw = 0; let sx = 0; let sy = 0; let sxx = 0; let sxy = 0;
+    for (const f of walls) { sw += f.size; sx += f.size * f.mid; sy += f.size * f.was; sxx += f.size * f.mid * f.mid; sxy += f.size * f.mid * f.was; }
+    if (!sw) return () => 0;
+    const mx = sx / sw; const my = sy / sw; const vx = sxx / sw - mx * mx;
+    const b = vx > 1e-12 ? (sxy / sw - mx * my) / vx : 0;
+    return (y) => my + b * (y - mx);
+  })();
+  for (const f of walls) f.keep = opt.keep[0] * (f.was - fit(f.mid));
   for (const f of faces) f.chip = f.kind !== 2 && Math.max(...f.normal.map(Math.abs)) < 0.95 && f.size < stoneArea * opt.small[0];
   const toneAt = (piece, v) => {
     const f = piece.face;
@@ -226,6 +255,7 @@ for (const file of files) {
     else {
       base = opt.side[0];
       at = (v.w[1] - y0) / span;
+      trim = f.keep;
     }
     return base + opt.whole[0] * (0.5 - at) + off + trim + shadeAt(mid, f) + (f.chip ? opt.chip[0] : 0);
   };
