@@ -22,6 +22,9 @@ holds --least of the face and the face is not graded by --mark or more.
 Every face and patch is flat; where two differ at a point, the point is doubled.
 
   --cell <c,r>     14,3
+  --also <c,r>     another band whose stone joins the steps and moves into --cell; repeatable
+  --notch <f>      0      side faces under --small of the largest riser sit this much darker, so chip facets read
+  --small <f>      0.2
   --tones <n>      5
   --gap <f>        0.07
   --top <f>        0.10
@@ -39,12 +42,13 @@ Every face and patch is flat; where two differ at a point, the point is doubled.
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { cell: [14, 3], tones: 5, gap: 0.07, top: 0.10, near: 2, side: 0.56, body: 0.26, under: 0.88, lip: 0.35, tall: 1.5, mark: 0.12, chip: 0.2, least: 0.03, level: 0.08, dry: false };
+const opt = { cell: [14, 3], also: [], notch: 0, small: 0.2, tones: 5, gap: 0.07, top: 0.10, near: 2, side: 0.56, body: 0.26, under: 0.88, lip: 0.35, tall: 1.5, mark: 0.12, chip: 0.2, least: 0.03, level: 0.08, dry: false };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === '--dry') opt.dry = true;
   else if (a === '--cell') opt.cell = args[++i].split(',').map(Number);
+  else if (a === '--also') opt.also.push(args[++i].split(',').map(Number));
   else if (a.startsWith('--')) opt[a.slice(2)] = Number(args[++i]);
   else files.push(a);
 }
@@ -73,7 +77,8 @@ function union(n) {
 function tone(file) {
   const glb = readGlb(file);
   const [cu, cr] = opt.cell;
-  const inCell = (u, v) => u >= cu / 16 && u <= (cu + 1) / 16 && v >= cr / 4 && v <= (cr + 1) / 4;
+  const cellOf = (u, v) => [[cu, cr], ...opt.also].find(([c, r]) => u >= c / 16 && u <= (c + 1) / 16 && v >= r / 4 && v <= (r + 1) / 4);
+  const inCell = (u, v) => !!cellOf(u, v);
   const stone = [];
   const tris = [];
   for (const prim of editablePrimitives(glb.json)) {
@@ -95,8 +100,9 @@ function tone(file) {
       const n = cross(sub(b, a), sub(c, a));
       const l = Math.hypot(...n);
       if (!l) continue;
-      const vs = ids.map((i) => uv[i * 2 + 1] * 4 - cr);
-      const tri = { s, t, ids, pts: [a, b, c], normal: n.map((x) => x / l), area: l / 2, was: v * 4 - cr, vs, spread: Math.max(...vs) - Math.min(...vs) };
+      const r0 = cellOf(u, v)[1];
+      const vs = ids.map((i) => uv[i * 2 + 1] * 4 - r0);
+      const tri = { s, t, ids, pts: [a, b, c], normal: n.map((x) => x / l), area: l / 2, was: v * 4 - r0, vs, spread: Math.max(...vs) - Math.min(...vs) };
       s.tris.push(tri);
       tris.push(tri);
     }
@@ -218,10 +224,12 @@ function tone(file) {
   used.forEach((s, i) => { s.v = opt.top + deal[i] * opt.gap; });
 
   const floor = floorSide;
+  const risers = faces.filter((f) => f.kind === 'side' && f.step).map((f) => f.area).sort((a, b) => a - b);
+  const riser = risers.length ? risers[risers.length - 1] : 0;
   for (const f of faces) {
     if (f.kind === 'up') f.v = (f.step ? f.step.v : opt.body) + f.offset;
     else if (f.kind === 'down') f.v = opt.under + f.offset;
-    else f.v = Math.max(floor, opt.side + f.offset);
+    else f.v = Math.max(floor, opt.side + f.offset + (opt.notch && f.area < opt.small * riser ? opt.notch : 0));
   }
 
   const replaced = new Map();
