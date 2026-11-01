@@ -1131,5 +1131,16 @@ window.KENNEY_KITS = [
   "url": "https://quaternius.com/",
   "licenseLabel": "CC0 1.0",
   "note": "Quaternius; free version of the Modular SciFi MegaKit."
+ },
+ {
+  "slug": "quat-essentials",
+  "url": "https://quaternius.com/",
+  "licenseLabel": "CC0 1.0",
+  "note": "Quaternius; free version of the Sci-Fi Essentials Kit."
+ },
+ {
+  "slug": "quat-cyberpunk",
+  "url": null,
+  "note": "Quaternius; source zip carries no licence file."
  }
 ]
