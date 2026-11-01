@@ -5271,6 +5271,26 @@
    }
   },
   {
+   "slug": "vases-pots",
+   "name": "vases-pots",
+   "url": "https://opengameart.org/users/fabinhosc",
+   "note": "FabinhoSC; public domain (CC0) per the pack's Read.txt.",
+   "licenseLabel": "CC0 1.0",
+   "count": 30,
+   "packs": [
+    "Stylized Vases And Pots"
+   ],
+   "origins": {
+    "Stylized Vases And Pots": 30
+   },
+   "scales": {
+    "0.3": 30
+   },
+   "smooth": {
+    "smooth": 30
+   }
+  },
+  {
    "slug": "weapon-pack",
    "name": "weapon-pack",
    "note": "Source zip names no author; see kits/workfiles/weapon-pack/LICENSE.txt.",
@@ -24636,6 +24656,71 @@
     "dungeon-2/floor-grate-square",
     "dungeon-2/floor-grate-round"
    ]
+  },
+  {
+   "id": "vases-pots/pot-large",
+   "type": "detail-variant",
+   "main": "vases-pots/pot-large",
+   "members": [
+    "vases-pots/pot-large",
+    "vases-pots/pot-large-handle",
+    "vases-pots/pot-large-rope",
+    "vases-pots/pot-large-lid",
+    "vases-pots/pot-large-cracked",
+    "vases-pots/pot-large-handle-cracked"
+   ]
+  },
+  {
+   "id": "vases-pots/pot-small",
+   "type": "detail-variant",
+   "main": "vases-pots/pot-small",
+   "members": [
+    "vases-pots/pot-small",
+    "vases-pots/pot-small-handle",
+    "vases-pots/pot-small-rope",
+    "vases-pots/pot-small-lid",
+    "vases-pots/pot-small-cracked",
+    "vases-pots/pot-small-handle-cracked"
+   ]
+  },
+  {
+   "id": "vases-pots/vase-round",
+   "type": "detail-variant",
+   "main": "vases-pots/vase-round",
+   "members": [
+    "vases-pots/vase-round",
+    "vases-pots/vase-round-handle",
+    "vases-pots/vase-round-rope",
+    "vases-pots/vase-round-lid",
+    "vases-pots/vase-round-cracked",
+    "vases-pots/vase-round-handle-cracked"
+   ]
+  },
+  {
+   "id": "vases-pots/vase-long",
+   "type": "detail-variant",
+   "main": "vases-pots/vase-long",
+   "members": [
+    "vases-pots/vase-long",
+    "vases-pots/vase-long-handle",
+    "vases-pots/vase-long-rope",
+    "vases-pots/vase-long-lid",
+    "vases-pots/vase-long-cracked",
+    "vases-pots/vase-long-handle-cracked"
+   ]
+  },
+  {
+   "id": "vases-pots/vase-big",
+   "type": "detail-variant",
+   "main": "vases-pots/vase-big",
+   "members": [
+    "vases-pots/vase-big",
+    "vases-pots/vase-big-handle",
+    "vases-pots/vase-big-rope",
+    "vases-pots/vase-big-lid",
+    "vases-pots/vase-big-cracked",
+    "vases-pots/vase-big-handle-cracked"
+   ]
   }
  ],
  "bands": [
@@ -24861,7 +24946,7 @@
    "name": "Ceramic light",
    "type": "material",
    "description": "Light fired clay: porcelain plates, cups, basins, white tiles.",
-   "count": 304,
+   "count": 334,
    "parent": "ceramic"
   },
   {
@@ -24869,7 +24954,7 @@
    "name": "Ceramic mid",
    "type": "material",
    "description": "Terracotta: flower pots, jugs, roof tiles.",
-   "count": 118,
+   "count": 148,
    "parent": "ceramic"
   },
   {
@@ -24877,7 +24962,7 @@
    "name": "Ceramic dark",
    "type": "material",
    "description": "Dark fired clay: brick-red roof tiles, glazed pots and vases.",
-   "count": 267,
+   "count": 297,
    "parent": "ceramic"
   },
   {
@@ -25068,7 +25153,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 202,
+   "count": 207,
    "parent": "textile"
   },
   {
@@ -25205,7 +25290,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4847,
+   "count": 4877,
    "color": "#c07c8a"
   },
   {
@@ -25479,7 +25564,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 725,
+   "count": 755,
    "color": "#dd9f79"
   },
   {
@@ -25760,7 +25845,7 @@
    "name": "Pot",
    "type": "kind",
    "description": "pot, amphora",
-   "count": 97
+   "count": 127
   },
   {
    "id": "obj-container-pot-jar",
@@ -25774,7 +25859,7 @@
    "name": "Vase",
    "type": "kind",
    "description": "Vase: a narrow-necked open vessel for display.",
-   "count": 26
+   "count": 44
   },
   {
    "id": "obj-container-pot-urn",
@@ -29556,7 +29641,7 @@
    "name": "Broken",
    "type": "tag",
    "description": "Damaged: a cracked, shattered or partial version of a thing, and the debris and rubble left of one.",
-   "count": 125
+   "count": 135
   },
   {
    "id": "piece",
@@ -30594,7 +30679,7 @@
    "name": "Small version",
    "type": "attribute",
    "description": "A clearly smaller version of its kind: half, low, short or small. Only on kinds that set scale in lint/kinds.json.",
-   "count": 146,
+   "count": 152,
    "kinds": [
     "obj-container-chest",
     "obj-container-crate",
@@ -30688,7 +30773,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4087,
+   "count": 4117,
    "derived": true
   },
   {
@@ -35876,7 +35961,7 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "3dm-city",
@@ -41890,7 +41975,7 @@
     "metal-gold",
     "metal-iron-dark"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.55
   },
   {
    "kit": "aq-hallow",
@@ -43717,7 +43802,7 @@
     "ceramic-mid",
     "special-liquid"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.34
   },
   {
    "kit": "aq-pond",
@@ -48118,7 +48203,7 @@
     "ceramic-mid",
     "shm"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.65
   },
   {
    "kit": "clay-props",
@@ -48316,7 +48401,7 @@
     "ceramic-mid",
     "shm"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.74
   },
   {
    "kit": "cooking-assets",
@@ -52944,7 +53029,7 @@
     "ceramic-mid"
    ],
    "variant": "dungeon/vase",
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "dungeon",
@@ -52985,7 +53070,7 @@
     "ceramic-mid"
    ],
    "variant": "dungeon/vase",
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "dungeon",
@@ -55635,7 +55720,7 @@
     "ceramic-light",
     "cork"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.55
   },
   {
    "kit": "emace-village",
@@ -58523,7 +58608,7 @@
    "tags": [
     "ceramic-mid"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.2
   },
   {
    "kit": "emace-village",
@@ -67149,7 +67234,7 @@
     "paper-sheet"
    ],
    "variant": "food-pack-2/milk-carton",
-   "thickRel": 1.54
+   "thickRel": 1.56
   },
   {
    "kit": "food-pack-2",
@@ -67190,7 +67275,7 @@
     "plastic"
    ],
    "variant": "food-pack-2/milk-carton",
-   "thickRel": 1.54
+   "thickRel": 1.56
   },
   {
    "kit": "food-pack-2",
@@ -79099,7 +79184,7 @@
     "fs"
    ],
    "variant": "fs-temple/vase-a",
-   "thickRel": 0.87
+   "thickRel": 0.85
   },
   {
    "kit": "fs-temple",
@@ -79139,7 +79224,7 @@
     "fs"
    ],
    "variant": "fs-temple/vase-a",
-   "thickRel": 1.58
+   "thickRel": 1.54
   },
   {
    "kit": "fs-temple",
@@ -79179,7 +79264,7 @@
     "fs"
    ],
    "variant": "fs-temple/vase-c",
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "fs-temple",
@@ -79219,7 +79304,7 @@
     "fs"
    ],
    "variant": "fs-temple/vase-c",
-   "thickRel": 0.93
+   "thickRel": 0.91
   },
   {
    "kit": "fs-temple",
@@ -93016,7 +93101,7 @@
     "ceramic-mid",
     "ct"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "household",
@@ -93401,7 +93486,7 @@
     "metal-iron-dark",
     "metal-steel"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.18
   },
   {
    "kit": "household",
@@ -96567,7 +96652,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "ipoly-torture",
@@ -98327,7 +98412,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "isa-bakery",
@@ -123736,7 +123821,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-a-decorated",
-   "thickRel": 1.68
+   "thickRel": 1.64
   },
   {
    "kit": "kay-dun-1",
@@ -123775,7 +123860,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-a-decorated",
-   "thickRel": 1.68
+   "thickRel": 1.64
   },
   {
    "kit": "kay-dun-1",
@@ -123816,7 +123901,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-b",
-   "thickRel": 1.37
+   "thickRel": 1.34
   },
   {
    "kit": "kay-dun-1",
@@ -123855,7 +123940,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-b",
-   "thickRel": 1.37
+   "thickRel": 1.34
   },
   {
    "kit": "kay-dun-1",
@@ -123896,7 +123981,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-c-decorated",
-   "thickRel": 0.97
+   "thickRel": 1.12
   },
   {
    "kit": "kay-dun-1",
@@ -123935,7 +124020,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-c-decorated",
-   "thickRel": 0.97
+   "thickRel": 1.12
   },
   {
    "kit": "kay-dun-1",
@@ -153056,7 +153141,7 @@
     "ceramic-mid",
     "kay"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.97
   },
   {
    "kit": "kay-holiday",
@@ -188003,7 +188088,7 @@
     "paper-sheet"
    ],
    "variant": "ken-food/carton",
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "ken-food",
@@ -188045,7 +188130,7 @@
     "plastic"
    ],
    "variant": "ken-food/carton",
-   "thickRel": 1.51
+   "thickRel": 1.52
   },
   {
    "kit": "ken-food",
@@ -201801,7 +201886,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-grave/urn-round",
-   "thickRel": 1.03
+   "thickRel": 1.19
   },
   {
    "kit": "ken-grave",
@@ -201844,7 +201929,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-grave/urn-round",
-   "thickRel": 1.08
+   "thickRel": 1.25
   },
   {
    "kit": "ken-holiday",
@@ -221630,7 +221715,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "ken-roads",
@@ -248687,7 +248772,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-1",
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "loaf-coffins",
@@ -248726,7 +248811,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-1",
-   "thickRel": 0.98
+   "thickRel": 0.96
   },
   {
    "kit": "loaf-coffins",
@@ -248765,7 +248850,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-1",
-   "thickRel": 1.19
+   "thickRel": 1.17
   },
   {
    "kit": "loaf-coffins",
@@ -248803,7 +248888,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-6",
-   "thickRel": 1.15
+   "thickRel": 1.12
   },
   {
    "kit": "loaf-coffins",
@@ -248841,7 +248926,7 @@
     "ceramic-dark"
    ],
    "variant": "loaf-coffins/ceramic-6",
-   "thickRel": 0.75
+   "thickRel": 0.73
   },
   {
    "kit": "loaf-coffins",
@@ -248879,7 +248964,7 @@
     "ceramic-mid"
    ],
    "variant": "loaf-coffins/ceramic-6",
-   "thickRel": 0.87
+   "thickRel": 0.85
   },
   {
    "kit": "loaf-coffins",
@@ -248918,7 +249003,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-8",
-   "thickRel": 0.39
+   "thickRel": 0.45
   },
   {
    "kit": "loaf-coffins",
@@ -248957,7 +249042,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-8",
-   "thickRel": 0.75
+   "thickRel": 0.87
   },
   {
    "kit": "loaf-coffins",
@@ -257830,7 +257915,7 @@
     "metal-steel"
    ],
    "variant": "lpa-home/safe-a",
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "lpa-home",
@@ -257873,7 +257958,7 @@
     "metal-steel"
    ],
    "variant": "lpa-home/safe-a",
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "lpa-home",
@@ -258866,7 +258951,7 @@
     "glass",
     "lpa"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.12
   },
   {
    "kit": "lpa-home",
@@ -267150,7 +267235,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/trough-b",
-   "thickRel": 1.31
+   "thickRel": 1.32
   },
   {
    "kit": "lpa-west",
@@ -267190,7 +267275,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/trough-b",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "lpa-west",
@@ -269105,7 +269190,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 0.26
+   "thickRel": 0.27
   },
   {
    "kit": "m3-base",
@@ -272653,7 +272738,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.17
   },
   {
    "kit": "m3-base",
@@ -277559,7 +277644,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.41
   },
   {
    "kit": "m3-base",
@@ -279252,7 +279337,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 1.44
+   "thickRel": 1.4
   },
   {
    "kit": "m3-base",
@@ -279290,7 +279375,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 0.48
+   "thickRel": 0.55
   },
   {
    "kit": "m3-base",
@@ -281480,7 +281565,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -288020,7 +288105,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.82
   },
   {
    "kit": "m3-base",
@@ -294795,7 +294880,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.87
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -294834,7 +294919,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.24
+   "thickRel": 0.28
   },
   {
    "kit": "m3-base",
@@ -294873,7 +294958,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.2
+   "thickRel": 0.23
   },
   {
    "kit": "m3-base",
@@ -294912,7 +294997,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.2
+   "thickRel": 0.23
   },
   {
    "kit": "m3-base",
@@ -294951,7 +295036,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.22
+   "thickRel": 0.25
   },
   {
    "kit": "m3-base",
@@ -294990,7 +295075,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.34
+   "thickRel": 0.39
   },
   {
    "kit": "m3-base",
@@ -295030,7 +295115,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-01",
-   "thickRel": 0.27
+   "thickRel": 0.31
   },
   {
    "kit": "m3-base",
@@ -298822,7 +298907,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.24
   },
   {
    "kit": "m3-base",
@@ -302005,7 +302090,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.59
   },
   {
    "kit": "m3-base",
@@ -303738,7 +303823,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-jug-01",
-   "thickRel": 1.06
+   "thickRel": 1.23
   },
   {
    "kit": "m3-base",
@@ -303777,7 +303862,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-jug-01",
-   "thickRel": 1.25
+   "thickRel": 1.44
   },
   {
    "kit": "m3-base",
@@ -315981,7 +316066,7 @@
     "ceramic-light"
    ],
    "variant": "props/jug-a",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "props",
@@ -316021,7 +316106,7 @@
     "ceramic-light"
    ],
    "variant": "props/jug-a",
-   "thickRel": 0.7
+   "thickRel": 0.69
   },
   {
    "kit": "props",
@@ -316063,7 +316148,7 @@
     "ceramic-light"
    ],
    "variant": "props/jug-a",
-   "thickRel": 0.35
+   "thickRel": 0.41
   },
   {
    "kit": "props",
@@ -316105,7 +316190,7 @@
     "ceramic-light"
    ],
    "variant": "props/jug-a",
-   "thickRel": 0.33
+   "thickRel": 0.38
   },
   {
    "kit": "props",
@@ -321998,7 +322083,7 @@
     "ceramic-dark",
     "qua"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.65
   },
   {
    "kit": "quat-dun-1",
@@ -346428,7 +346513,7 @@
     "ceramic-mid",
     "qua"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.74
   },
   {
    "kit": "quat-props",
@@ -346466,7 +346551,7 @@
     "ceramic-mid",
     "qua"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.07
   },
   {
    "kit": "quat-props",
@@ -351934,7 +352019,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.96
   },
   {
    "kit": "quat-shoot",
@@ -353722,7 +353807,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.62
   },
   {
    "kit": "quat-shoot",
@@ -369737,7 +369822,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 1.68
+   "thickRel": 1.64
   },
   {
    "kit": "rgp-asia",
@@ -378609,7 +378694,7 @@
     "special-organic",
     "wood-dark"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "rgp-medieval",
@@ -380468,7 +380553,7 @@
     "wood-light"
    ],
    "variant": "rgp-props/trough-1-a",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "rgp-props",
@@ -399960,7 +400045,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.41
+   "thickRel": 0.47
   },
   {
    "kit": "styloo-furniture",
@@ -401626,7 +401711,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.53
   },
   {
    "kit": "styloo-kitchen",
@@ -415771,6 +415856,1383 @@
    "thickRel": 0.69
   },
   {
+   "kit": "vases-pots",
+   "name": "pot-large-cracked",
+   "hash": "1c96884948",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.374,
+    0.379,
+    0.285
+   ],
+   "tris": 2066,
+   "tpu": 6023,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 78464,
+   "vtx": 2017,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.0545,
+   "avgTri": 0.0004,
+   "anglePct": 14,
+   "pieces": 10,
+   "vpt": 0.98,
+   "cells": [
+    "5,0",
+    "8,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/pot-large",
+   "thickRel": 0.32
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-large-handle-cracked",
+   "hash": "1f098beaf3",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.374,
+    0.379,
+    0.287
+   ],
+   "tris": 2998,
+   "tpu": 8741,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 120700,
+   "vtx": 3161,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.0548,
+   "avgTri": 0.00028,
+   "anglePct": 14,
+   "pieces": 10,
+   "vpt": 1.05,
+   "cells": [
+    "5,0",
+    "8,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/pot-large",
+   "thickRel": 0.32
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-large-handle",
+   "hash": "da858f95a8",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.374,
+    0.379,
+    0.287
+   ],
+   "tris": 1516,
+   "tpu": 4420,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 51840,
+   "vtx": 1288,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0152,
+   "thick": 0.0546,
+   "avgTri": 0.00049,
+   "anglePct": 16,
+   "pieces": 5,
+   "vpt": 0.85,
+   "cells": [
+    "8,0",
+    "5,2",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/pot-large",
+   "thickRel": 0.32,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0152 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-large-lid",
+   "hash": "25fae50375",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.374,
+    0.379,
+    0.35
+   ],
+   "tris": 1606,
+   "tpu": 4682,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 55704,
+   "vtx": 1392,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2462,
+   "avgTri": 0.00052,
+   "anglePct": 17,
+   "pieces": 2,
+   "vpt": 0.87,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/pot-large",
+   "thickRel": 1.45
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-large-rope",
+   "hash": "8f3bbbbd4d",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.374,
+    0.379,
+    0.287
+   ],
+   "tris": 2120,
+   "tpu": 6181,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 73632,
+   "vtx": 1856,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0558,
+   "avgTri": 0.0004,
+   "anglePct": 14,
+   "pieces": 10,
+   "vpt": 0.88,
+   "cells": [
+    "8,0",
+    "5,2",
+    "5,0",
+    "14,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#907a66",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "textile-rope"
+   ],
+   "variant": "vases-pots/pot-large",
+   "thickRel": 0.33
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-large",
+   "hash": "95229c6168",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.374,
+    0.379,
+    0.285
+   ],
+   "tris": 956,
+   "tpu": 2787,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 30580,
+   "vtx": 730,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0545,
+   "avgTri": 0.00075,
+   "anglePct": 16,
+   "pieces": 1,
+   "vpt": 0.76,
+   "cells": [
+    "8,0",
+    "5,2",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/pot-large",
+   "thickRel": 0.32
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-small-cracked",
+   "hash": "64d3cadfe1",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.188,
+    0.191,
+    0.153
+   ],
+   "tris": 2146,
+   "tpu": 6257,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 83964,
+   "vtx": 2173,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.0552,
+   "avgTri": 0.0001,
+   "anglePct": 13,
+   "pieces": 10,
+   "vpt": 1.01,
+   "cells": [
+    "5,0",
+    "5,2",
+    "8,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "scale-small"
+   ],
+   "variant": "vases-pots/pot-small",
+   "thickRel": 0.33
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-small-handle-cracked",
+   "hash": "235baa9173",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.188,
+    0.208,
+    0.153
+   ],
+   "tris": 2606,
+   "tpu": 7598,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 106956,
+   "vtx": 2805,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.0576,
+   "avgTri": 0.00009,
+   "anglePct": 13,
+   "pieces": 10,
+   "vpt": 1.08,
+   "cells": [
+    "8,0",
+    "5,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "scale-small"
+   ],
+   "variant": "vases-pots/pot-small",
+   "thickRel": 0.34
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-small-handle",
+   "hash": "18c97fc7fa",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.188,
+    0.208,
+    0.153
+   ],
+   "tris": 1400,
+   "tpu": 4082,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 47316,
+   "vtx": 1168,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0575,
+   "avgTri": 0.00014,
+   "anglePct": 14,
+   "pieces": 3,
+   "vpt": 0.83,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "scale-small"
+   ],
+   "variant": "vases-pots/pot-small",
+   "thickRel": 0.34
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-small-lid",
+   "hash": "01638533d8",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.188,
+    0.191,
+    0.198
+   ],
+   "tris": 1602,
+   "tpu": 4671,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 56512,
+   "vtx": 1417,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2389,
+   "avgTri": 0.00015,
+   "anglePct": 16,
+   "pieces": 2,
+   "vpt": 0.88,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "scale-small"
+   ],
+   "variant": "vases-pots/pot-small",
+   "thickRel": 1.41
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-small-rope",
+   "hash": "1b1cadae09",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.188,
+    0.208,
+    0.153
+   ],
+   "tris": 1560,
+   "tpu": 4548,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 52748,
+   "vtx": 1308,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0591,
+   "avgTri": 0.00014,
+   "anglePct": 14,
+   "pieces": 4,
+   "vpt": 0.84,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0",
+    "14,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#907a66",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "scale-small",
+    "textile-rope"
+   ],
+   "variant": "vases-pots/pot-small",
+   "thickRel": 0.35
+  },
+  {
+   "kit": "vases-pots",
+   "name": "pot-small",
+   "hash": "f47cc6a427",
+   "kind": "obj-container-pot",
+   "size": "s",
+   "wdh": [
+    0.188,
+    0.191,
+    0.153
+   ],
+   "tris": 956,
+   "tpu": 2787,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 31764,
+   "vtx": 766,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "thick": 0.0551,
+   "avgTri": 0.00021,
+   "anglePct": 15,
+   "pieces": 1,
+   "vpt": 0.8,
+   "cells": [
+    "8,0",
+    "5,2",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "scale-small"
+   ],
+   "variant": "vases-pots/pot-small",
+   "thickRel": 0.32
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-big-cracked",
+   "hash": "75fb141a21",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.216,
+    0.217,
+    0.416
+   ],
+   "tris": 1920,
+   "tpu": 5598,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 76076,
+   "vtx": 1969,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.012,
+   "thick": 0.1414,
+   "avgTri": 0.00027,
+   "anglePct": 6,
+   "pieces": 10,
+   "vpt": 1.03,
+   "cells": [
+    "8,0",
+    "5,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-big",
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.012 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-big-handle-cracked",
+   "hash": "b3b66f5202",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.223,
+    0.416
+   ],
+   "tris": 3021,
+   "tpu": 8808,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 121976,
+   "vtx": 3196,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1379,
+   "avgTri": 0.00017,
+   "anglePct": 6,
+   "pieces": 10,
+   "vpt": 1.06,
+   "cells": [
+    "8,0",
+    "5,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-big",
+   "thickRel": 0.94
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-big-handle",
+   "hash": "afe598a8b4",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.223,
+    0.416
+   ],
+   "tris": 1516,
+   "tpu": 4420,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 54360,
+   "vtx": 1366,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0151,
+   "thick": 0.1383,
+   "avgTri": 0.00032,
+   "anglePct": 6,
+   "pieces": 5,
+   "vpt": 0.9,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-big",
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0151 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-big-lid",
+   "hash": "0a06cac9a8",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.216,
+    0.217,
+    0.448
+   ],
+   "tris": 1604,
+   "tpu": 4676,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 58524,
+   "vtx": 1480,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2987,
+   "avgTri": 0.00031,
+   "anglePct": 7,
+   "pieces": 2,
+   "vpt": 0.92,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-big",
+   "thickRel": 2.04
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-big-rope",
+   "hash": "70ba304e18",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.223,
+    0.416
+   ],
+   "tris": 1836,
+   "tpu": 5353,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 65744,
+   "vtx": 1662,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1381,
+   "avgTri": 0.00028,
+   "anglePct": 6,
+   "pieces": 7,
+   "vpt": 0.91,
+   "cells": [
+    "14,2",
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#907a66",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "textile-rope"
+   ],
+   "variant": "vases-pots/vase-big",
+   "thickRel": 0.94
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-big",
+   "hash": "d5d1e05b29",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.216,
+    0.217,
+    0.416
+   ],
+   "tris": 956,
+   "tpu": 2787,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 31384,
+   "vtx": 754,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1424,
+   "avgTri": 0.0005,
+   "anglePct": 6,
+   "pieces": 1,
+   "vpt": 0.79,
+   "cells": [
+    "8,0",
+    "5,2",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-big",
+   "thickRel": 0.97
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-long-cracked",
+   "hash": "77b6e1dbad",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.225,
+    0.416
+   ],
+   "tris": 2200,
+   "tpu": 6414,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 84136,
+   "vtx": 2169,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1714,
+   "avgTri": 0.0002,
+   "anglePct": 6,
+   "pieces": 10,
+   "vpt": 0.99,
+   "cells": [
+    "5,0",
+    "8,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-long",
+   "thickRel": 1.17
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-long-handle-cracked",
+   "hash": "280f97cbb4",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.225,
+    0.416
+   ],
+   "tris": 3032,
+   "tpu": 8840,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 118916,
+   "vtx": 3099,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1703,
+   "avgTri": 0.00015,
+   "anglePct": 6,
+   "pieces": 11,
+   "vpt": 1.02,
+   "cells": [
+    "5,0",
+    "8,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-long",
+   "thickRel": 1.16
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-long-handle",
+   "hash": "5d4f021258",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.225,
+    0.416
+   ],
+   "tris": 1336,
+   "tpu": 3895,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 44420,
+   "vtx": 1090,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.027,
+   "thick": 0.1701,
+   "avgTri": 0.00031,
+   "anglePct": 5,
+   "pieces": 3,
+   "vpt": 0.82,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-long",
+   "thickRel": 1.16
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-long-lid",
+   "hash": "2211815d4a",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.225,
+    0.493
+   ],
+   "tris": 1926,
+   "tpu": 5615,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 68916,
+   "vtx": 1745,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2685,
+   "avgTri": 0.00022,
+   "anglePct": 6,
+   "pieces": 3,
+   "vpt": 0.91,
+   "cells": [
+    "8,0",
+    "5,2",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-long",
+   "thickRel": 1.83
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-long-rope",
+   "hash": "3723f2b314",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.225,
+    0.416
+   ],
+   "tris": 1940,
+   "tpu": 5656,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 64996,
+   "vtx": 1620,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.027,
+   "thick": 0.169,
+   "avgTri": 0.00022,
+   "anglePct": 5,
+   "pieces": 8,
+   "vpt": 0.84,
+   "cells": [
+    "14,2",
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#907a66",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "textile-rope"
+   ],
+   "variant": "vases-pots/vase-long",
+   "thickRel": 1.15
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-long",
+   "hash": "1f4f865ab4",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.222,
+    0.225,
+    0.416
+   ],
+   "tris": 956,
+   "tpu": 2787,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 29564,
+   "vtx": 698,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1715,
+   "avgTri": 0.00041,
+   "anglePct": 5,
+   "pieces": 1,
+   "vpt": 0.73,
+   "cells": [
+    "8,0",
+    "5,2",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-long",
+   "thickRel": 1.17
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-round-cracked",
+   "hash": "18dfc423f2",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.143,
+    0.145,
+    0.219
+   ],
+   "tris": 2084,
+   "tpu": 6076,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 77712,
+   "vtx": 1989,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1467,
+   "avgTri": 0.00008,
+   "anglePct": 9,
+   "pieces": 10,
+   "vpt": 0.95,
+   "cells": [
+    "5,0",
+    "8,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-round",
+   "thickRel": 1
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-round-handle-cracked",
+   "hash": "9908383b1c",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.143,
+    0.145,
+    0.219
+   ],
+   "tris": 2502,
+   "tpu": 7294,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 99128,
+   "vtx": 2579,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.1461,
+   "avgTri": 0.00007,
+   "anglePct": 8,
+   "pieces": 10,
+   "vpt": 1.03,
+   "cells": [
+    "8,0",
+    "5,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "broken",
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-round",
+   "thickRel": 1
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-round-handle",
+   "hash": "b0eea79e31",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.143,
+    0.145,
+    0.219
+   ],
+   "tris": 1216,
+   "tpu": 3545,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 39984,
+   "vtx": 973,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1462,
+   "avgTri": 0.00013,
+   "anglePct": 9,
+   "pieces": 2,
+   "vpt": 0.8,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-round",
+   "thickRel": 1
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-round-lid",
+   "hash": "9f4d8f1b45",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.143,
+    0.145,
+    0.275
+   ],
+   "tris": 1766,
+   "tpu": 5149,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 60108,
+   "vtx": 1499,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "thick": 0.2541,
+   "avgTri": 0.00009,
+   "anglePct": 10,
+   "pieces": 3,
+   "vpt": 0.85,
+   "cells": [
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-round",
+   "thickRel": 1.74
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-round-rope",
+   "hash": "db7a1ca465",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.143,
+    0.145,
+    0.219
+   ],
+   "tris": 1820,
+   "tpu": 5306,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 59732,
+   "vtx": 1477,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1444,
+   "avgTri": 0.0001,
+   "anglePct": 8,
+   "pieces": 7,
+   "vpt": 0.81,
+   "cells": [
+    "14,2",
+    "5,2",
+    "8,0",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#907a66",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid",
+    "textile-rope"
+   ],
+   "variant": "vases-pots/vase-round",
+   "thickRel": 0.99
+  },
+  {
+   "kit": "vases-pots",
+   "name": "vase-round",
+   "hash": "05c5ccb8e9",
+   "kind": "obj-container-pot-vase",
+   "size": "s",
+   "wdh": [
+    0.143,
+    0.145,
+    0.219
+   ],
+   "tris": 956,
+   "tpu": 2787,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 28636,
+   "vtx": 668,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "thick": 0.1468,
+   "avgTri": 0.00016,
+   "anglePct": 9,
+   "pieces": 1,
+   "vpt": 0.7,
+   "cells": [
+    "8,0",
+    "5,2",
+    "5,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#ce7954",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-dark",
+    "ceramic-light",
+    "ceramic-mid"
+   ],
+   "variant": "vases-pots/vase-round",
+   "thickRel": 1
+  },
+  {
    "kit": "weapon-pack",
    "name": "axe-1",
    "hash": "d6558a6ff9",
@@ -420100,7 +421562,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pot-large",
-   "thickRel": 1.06
+   "thickRel": 1.22
   },
   {
    "kit": "wizp-asia",
@@ -420141,7 +421603,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pot-large",
-   "thickRel": 1.24
+   "thickRel": 1.44
   },
   {
    "kit": "wizp-asia",
@@ -421237,7 +422699,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/urn-a",
-   "thickRel": 1.12
+   "thickRel": 1.29
   },
   {
    "kit": "wizp-asia",
@@ -421278,7 +422740,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/urn-a",
-   "thickRel": 1.12
+   "thickRel": 1.29
   },
   {
    "kit": "wizp-asia",
@@ -429220,7 +430682,7 @@
     "wizp"
    ],
    "variant": "wizp-village/pot-stone-a",
-   "thickRel": 1.06
+   "thickRel": 1.22
   },
   {
    "kit": "wizp-village",
@@ -429260,7 +430722,7 @@
     "wizp"
    ],
    "variant": "wizp-village/pot-stone-a",
-   "thickRel": 1.24
+   "thickRel": 1.44
   },
   {
    "kit": "wizp-village",
