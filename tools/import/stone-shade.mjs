@@ -43,6 +43,9 @@ height, both by the whole model.
   --add <0|1>      0      1: keep each vertex's own v and add the shading on top,
                           so --base and --keep do nothing
   --shift <f>      0      with --add, added to every v of the band
+  --jitter <f>     0      each piece a fixed random tone within +-f
+  --fjitter <f>    0      each flat face region a fixed random tone within +-f
+  --seed <n>       1
   --dry`;
 
 const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
@@ -439,6 +442,9 @@ function shade(file, o) {
     if (x > hi - k) return hi - k * Math.exp((hi - k - x) / k);
     return x;
   };
+  const rnd = (k) => { let h = 2166136261 ^ o.seed; for (const ch of String(k)) h = Math.imul(h ^ ch.charCodeAt(0), 16777619); return ((h >>> 0) / 4294967295) * 2 - 1; };
+  let rid = 0;
+  for (const g of region.values()) g.id = rid++;
   let moved = 0;
   for (const v of verts) {
     const pc = pieces.get(v.piece);
@@ -459,6 +465,7 @@ function shade(file, o) {
       + o.shadow * Math.max(recess * (1 - own), overhang) + o.keep * dev;
     if (v.n[1] < -0.5) val = Math.max(val, o.base + o.under);
     if (o.add) val = v.was + val - o.base - o.keep * dev + o.shift;
+    val += o.jitter * rnd(`p${v.piece}`) + (v.region ? o.fjitter * rnd(`r${v.region.id}`) : 0);
     val = soft(val) + pc.trim + (v.region ? v.region.step : proud ? -o.trim : 0);
     val = Math.max(0.04, Math.min(0.94, val));
     v.s.uv[2 * v.i + 1] = (cv + val) / 4;
@@ -475,7 +482,7 @@ function shade(file, o) {
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, flat: 0.97, keep: 1, split: 0, add: 0, shift: 0, dry: false };
+const opts = { cell: '14,3', base: 0.42, whole: 0.5, piece: 0.15, up: 0.12, down: 0.08, shadow: 0.2, trim: 0.08, near: 0.12, over: 0.35, open: 0.45, under: 0.3, light: 0.15, dark: 0.82, band: 0.12, budget: 0.08, flat: 0.97, keep: 1, split: 0, add: 0, shift: 0, jitter: 0, fjitter: 0, seed: 1, dry: false };
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === '--dry') { opts.dry = true; continue; }
