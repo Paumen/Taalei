@@ -3201,18 +3201,18 @@
    "url": "https://github.com/M3-org/base-meshes",
    "artist": "M3",
    "licenseLabel": "CC0 1.0",
-   "count": 891,
+   "count": 901,
    "packs": [
     "Base Meshes",
     "The Base Mesh Kitbash"
    ],
    "origins": {
-    "Base Meshes": 844,
+    "Base Meshes": 854,
     "none": 1,
     "The Base Mesh Kitbash": 46
    },
    "scales": {
-    "0.87": 863,
+    "0.87": 873,
     "2.088": 2,
     "1.827": 1,
     "0.6525": 3,
@@ -3229,8 +3229,8 @@
     "1.637": 1
    },
    "smooth": {
-    "smooth": 866,
-    "none": 25
+    "smooth": 875,
+    "none": 26
    },
    "kitCheck": {
     "factor": 1.04,
@@ -24636,6 +24636,24 @@
     "dungeon-2/floor-grate-square",
     "dungeon-2/floor-grate-round"
    ]
+  },
+  {
+   "id": "m3-base/kicker-01",
+   "type": "detail-variant",
+   "main": "m3-base/kicker-01",
+   "members": [
+    "m3-base/kicker-01",
+    "m3-base/kicker-02"
+   ]
+  },
+  {
+   "id": "m3-base/skatepark-pyramid",
+   "type": "detail-variant",
+   "main": "m3-base/skatepark-pyramid",
+   "members": [
+    "m3-base/skatepark-pyramid",
+    "m3-base/skatepark-pyramid-half"
+   ]
   }
  ],
  "bands": [
@@ -24813,7 +24831,7 @@
    "name": "Concrete",
    "type": "material",
    "description": "Concrete and asphalt: road surfaces, crossings, car parks. Kerbs and pavement are masonry.",
-   "count": 53,
+   "count": 61,
    "parent": "stone"
   },
   {
@@ -24948,7 +24966,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1239,
+   "count": 1241,
    "parent": "wood"
   },
   {
@@ -28235,7 +28253,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "mine entrance",
-   "count": 2737,
+   "count": 2747,
    "color": "#877a63"
   },
   {
@@ -28243,7 +28261,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 586
+   "count": 596
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -29107,7 +29125,7 @@
    "name": "Playground",
    "type": "kind",
    "description": "Fixed play equipment: slides, swings, seesaws, climbing frames, roundabouts, spring riders, sandboxes, stepping stumps.",
-   "count": 67,
+   "count": 71,
    "color": "#e0a93b"
   },
   {
@@ -29115,7 +29133,7 @@
    "name": "Leisure",
    "type": "kind",
    "description": "Fixed structure for leisure or watching: ferris wheel, grandstand.",
-   "count": 80
+   "count": 90
   },
   {
    "id": "str-building-residential",
@@ -30704,7 +30722,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1229,
+   "count": 1239,
    "derived": true
   },
   {
@@ -30864,7 +30882,7 @@
    "name": "M3",
    "type": "artist",
    "description": "Kits from M3 (m3-org on GitHub). Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 891,
+   "count": 901,
    "derived": true
   },
   {
@@ -112087,7 +112105,7 @@
     "spin"
    ],
    "variant": "isa-playground/merry-go-round-anim",
-   "thickRel": 0.6
+   "thickRel": 0.57
   },
   {
    "kit": "isa-playground",
@@ -112134,7 +112152,7 @@
     "tba"
    ],
    "variant": "isa-playground/merry-go-round-anim",
-   "thickRel": 0.62
+   "thickRel": 0.59
   },
   {
    "kit": "isa-playground",
@@ -112178,7 +112196,7 @@
     "plastic"
    ],
    "variant": "isa-playground/monkey-bars-a",
-   "thickRel": 0.52
+   "thickRel": 0.5
   },
   {
    "kit": "isa-playground",
@@ -112222,7 +112240,14 @@
     "plastic"
    ],
    "variant": "isa-playground/monkey-bars-a",
-   "thickRel": 0.51
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "isa-playground",
@@ -112307,12 +112332,12 @@
     "plastic"
    ],
    "variant": "isa-playground/sandbox-round-decorated",
-   "thickRel": 0.44,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.44 wants min 0.5"
+     "text": "I01 thickRel 0.42 wants min 0.5"
     }
    ]
   },
@@ -112357,12 +112382,12 @@
     "plastic"
    ],
    "variant": "isa-playground/sandbox-round",
-   "thickRel": 0.4,
+   "thickRel": 0.38,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
+     "text": "I01 thickRel 0.38 wants min 0.5"
     }
    ]
   },
@@ -112413,12 +112438,12 @@
     "plastic"
    ],
    "variant": "isa-playground/sandbox-round-decorated",
-   "thickRel": 0.46,
+   "thickRel": 0.44,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.44 wants min 0.5"
     }
    ]
   },
@@ -112467,12 +112492,12 @@
     "plastic"
    ],
    "variant": "isa-playground/sandbox-round",
-   "thickRel": 0.45,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.45 wants min 0.5"
+     "text": "I01 thickRel 0.42 wants min 0.5"
     }
    ]
   },
@@ -112640,7 +112665,7 @@
     "plastic"
    ],
    "variant": "isa-playground/seesaw-large",
-   "thickRel": 1.56
+   "thickRel": 1.48
   },
   {
    "kit": "isa-playground",
@@ -112686,7 +112711,7 @@
     "plastic"
    ],
    "variant": "isa-playground/seesaw-large",
-   "thickRel": 1.2
+   "thickRel": 1.14
   },
   {
    "kit": "isa-playground",
@@ -112813,7 +112838,7 @@
     "wood-mid"
    ],
    "variant": "isa-playground/slide-a",
-   "thickRel": 0.63
+   "thickRel": 0.6
   },
   {
    "kit": "isa-playground",
@@ -112859,7 +112884,7 @@
     "wood-mid"
    ],
    "variant": "isa-playground/slide-a",
-   "thickRel": 0.78
+   "thickRel": 0.74
   },
   {
    "kit": "isa-playground",
@@ -112906,7 +112931,7 @@
     "plastic"
    ],
    "variant": "isa-playground/spring-horse-a",
-   "thickRel": 0.56
+   "thickRel": 0.53
   },
   {
    "kit": "isa-playground",
@@ -112953,7 +112978,7 @@
     "plastic"
    ],
    "variant": "isa-playground/spring-horse-a",
-   "thickRel": 0.56
+   "thickRel": 0.53
   },
   {
    "kit": "isa-playground",
@@ -113323,7 +113348,7 @@
     "plastic"
    ],
    "variant": "isa-playground/swing-b-large",
-   "thickRel": 0.54
+   "thickRel": 0.51
   },
   {
    "kit": "isa-playground",
@@ -113369,12 +113394,12 @@
     "plastic"
    ],
    "variant": "isa-playground/swing-b-large",
-   "thickRel": 0.42,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
+     "text": "I01 thickRel 0.39 wants min 0.5"
     }
    ]
   },
@@ -113424,7 +113449,7 @@
     "plastic"
    ],
    "variant": "isa-playground/swing-b-large",
-   "thickRel": 0.54
+   "thickRel": 0.51
   },
   {
    "kit": "isa-playground",
@@ -113472,12 +113497,12 @@
     "plastic"
    ],
    "variant": "isa-playground/swing-b-large",
-   "thickRel": 0.41,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.41 wants min 0.5"
+     "text": "I01 thickRel 0.39 wants min 0.5"
     }
    ]
   },
@@ -113519,7 +113544,7 @@
     "plastic"
    ],
    "variant": "isa-playground/tire-azure",
-   "thickRel": 1.91
+   "thickRel": 1.81
   },
   {
    "kit": "isa-playground",
@@ -113559,7 +113584,7 @@
     "plastic"
    ],
    "variant": "isa-playground/tire-azure",
-   "thickRel": 1.91
+   "thickRel": 1.81
   },
   {
    "kit": "isa-playground",
@@ -154320,7 +154345,7 @@
     "tba"
    ],
    "variant": "kay-minigame/swiper",
-   "thickRel": 1.77
+   "thickRel": 1.67
   },
   {
    "kit": "kay-minigame",
@@ -154369,7 +154394,7 @@
     "tba"
    ],
    "variant": "kay-minigame/swiper",
-   "thickRel": 1.73
+   "thickRel": 1.64
   },
   {
    "kit": "kay-minigame",
@@ -154419,7 +154444,7 @@
     "tba"
    ],
    "variant": "kay-minigame/swiper",
-   "thickRel": 1.44
+   "thickRel": 1.37
   },
   {
    "kit": "kay-minigame",
@@ -158612,7 +158637,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.64
   },
   {
    "kit": "kay-platformer",
@@ -224208,7 +224233,7 @@
     "stone-concrete"
    ],
    "variant": "ken-skate/bowl-side-low",
-   "thickRel": 1.24
+   "thickRel": 1.18
   },
   {
    "kit": "ken-skate",
@@ -224251,7 +224276,7 @@
     "stone-concrete"
    ],
    "variant": "ken-skate/bowl-side",
-   "thickRel": 1.46
+   "thickRel": 1.39
   },
   {
    "kit": "ken-skate",
@@ -224294,7 +224319,7 @@
     "stone-concrete"
    ],
    "variant": "ken-skate/bowl-side-low",
-   "thickRel": 0.8
+   "thickRel": 0.76
   },
   {
    "kit": "ken-skate",
@@ -224337,7 +224362,7 @@
     "stone-concrete"
    ],
    "variant": "ken-skate/bowl-side",
-   "thickRel": 0.78
+   "thickRel": 0.74
   },
   {
    "kit": "ken-skate",
@@ -224376,7 +224401,7 @@
     "ken",
     "stone-concrete"
    ],
-   "thickRel": 2.01
+   "thickRel": 1.91
   },
   {
    "kit": "ken-skate",
@@ -224419,7 +224444,7 @@
     "stone-concrete"
    ],
    "variant": "ken-skate/bowl-side-low",
-   "thickRel": 1.07
+   "thickRel": 1.01
   },
   {
    "kit": "ken-skate",
@@ -224462,7 +224487,7 @@
     "stone-concrete"
    ],
    "variant": "ken-skate/bowl-side",
-   "thickRel": 1.11
+   "thickRel": 1.05
   },
   {
    "kit": "ken-skate",
@@ -224626,7 +224651,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.01
   },
   {
    "kit": "ken-skate",
@@ -224668,7 +224693,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.05
   },
   {
    "kit": "ken-skate",
@@ -224714,7 +224739,7 @@
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.33
   },
   {
    "kit": "ken-skate",
@@ -224756,7 +224781,7 @@
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.61
   },
   {
    "kit": "ken-skate",
@@ -224798,7 +224823,7 @@
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.9
   },
   {
    "kit": "ken-skate",
@@ -224840,7 +224865,7 @@
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.2
   },
   {
    "kit": "ken-skate",
@@ -224889,7 +224914,7 @@
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.87
   },
   {
    "kit": "ken-skate",
@@ -224937,7 +224962,7 @@
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.86
   },
   {
    "kit": "ken-skate",
@@ -225066,7 +225091,14 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.51
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-skate",
@@ -225109,7 +225141,14 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.5
+   "thickRel": 0.48,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.48 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-skate",
@@ -225153,7 +225192,7 @@
     "plastic"
    ],
    "variant": "ken-skate/rail-low",
-   "thickRel": 0.86
+   "thickRel": 0.81
   },
   {
    "kit": "ken-skate",
@@ -225196,7 +225235,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.57
+   "thickRel": 1.49
   },
   {
    "kit": "ken-skate",
@@ -225240,7 +225279,7 @@
     "plastic"
    ],
    "variant": "ken-skate/rail-low",
-   "thickRel": 1.56
+   "thickRel": 1.48
   },
   {
    "kit": "ken-skate",
@@ -225283,7 +225322,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.77
   },
   {
    "kit": "ken-skate",
@@ -225326,7 +225365,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.77
   },
   {
    "kit": "ken-skate",
@@ -225375,7 +225414,7 @@
     "wood-mid"
    ],
    "variant": "ken-skate/ramp",
-   "thickRel": 1
+   "thickRel": 0.95
   },
   {
    "kit": "ken-skate",
@@ -225418,7 +225457,7 @@
     "wood-mid"
    ],
    "variant": "ken-skate/ramp",
-   "thickRel": 1.06
+   "thickRel": 1.01
   },
   {
    "kit": "ken-skate",
@@ -225558,7 +225597,7 @@
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 1.9
+   "thickRel": 1.8
   },
   {
    "kit": "ken-skate",
@@ -225606,7 +225645,7 @@
     "stone-concrete",
     "wood-mid"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.82
   },
   {
    "kit": "ken-skate",
@@ -278241,7 +278280,7 @@
     "metal-steel",
     "stone-masonry-light"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.01
   },
   {
    "kit": "m3-base",
@@ -281525,6 +281564,84 @@
   },
   {
    "kit": "m3-base",
+   "name": "grind-box-01",
+   "hash": "52382316a9",
+   "kind": "str-fixture-leisure-playground",
+   "size": "l",
+   "wdh": [
+    1.566,
+    0.364,
+    0.182
+   ],
+   "tris": 472,
+   "tpu": 1183,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 17912,
+   "vtx": 424,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0426,
+   "thick": 0.2785,
+   "avgTri": 0.00529,
+   "anglePct": 61,
+   "pieces": 1,
+   "vpt": 0.9,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "m3",
+    "stone-concrete"
+   ],
+   "thickRel": 2.14
+  },
+  {
+   "kit": "m3-base",
+   "name": "grind-box-02",
+   "hash": "42d8d01a88",
+   "kind": "str-fixture-leisure",
+   "size": "l",
+   "wdh": [
+    5.089,
+    1.614,
+    0.696
+   ],
+   "tris": 42,
+   "tpu": 7,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 3536,
+   "vtx": 56,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.174,
+   "minTube": 0.5356,
+   "thick": 0.1976,
+   "avgTri": 0.37176,
+   "anglePct": 75,
+   "pieces": 1,
+   "vpt": 1.33,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "m3",
+    "stone-concrete"
+   ],
+   "thickRel": 1.57
+  },
+  {
+   "kit": "m3-base",
    "name": "grind-rail-02",
    "hash": "20cad893a5",
    "kind": "str-fixture-leisure-playground",
@@ -281561,7 +281678,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/grind-rail-04",
-   "thickRel": 2.84
+   "thickRel": 2.69
   },
   {
    "kit": "m3-base",
@@ -281601,7 +281718,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/grind-rail-04",
-   "thickRel": 1.09
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
@@ -281641,7 +281758,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/grind-rail-04",
-   "thickRel": 2.71
+   "thickRel": 2.57
   },
   {
    "kit": "m3-base",
@@ -281984,7 +282101,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.17,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -284017,6 +284134,84 @@
      "text": "0.3% of view 90/50 over 0.1%: open 100.0%"
     }
    ]
+  },
+  {
+   "kit": "m3-base",
+   "name": "kicker-01",
+   "hash": "126db8511c",
+   "kind": "str-fixture-leisure-playground",
+   "size": "l",
+   "wdh": [
+    1.088,
+    1.74,
+    0.522
+   ],
+   "tris": 24,
+   "tpu": 18,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2840,
+   "vtx": 38,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.13,
+   "thick": 0.1507,
+   "avgTri": 0.22266,
+   "anglePct": 63,
+   "pieces": 1,
+   "vpt": 1.58,
+   "cells": [
+    "1,0"
+   ],
+   "colors": [
+    "#9e6d44"
+   ],
+   "tags": [
+    "m3",
+    "wood-mid"
+   ],
+   "variant": "m3-base/kicker-01",
+   "thickRel": 1.16
+  },
+  {
+   "kit": "m3-base",
+   "name": "kicker-02",
+   "hash": "e6415c2aa9",
+   "kind": "str-fixture-leisure-playground",
+   "size": "l",
+   "wdh": [
+    1.088,
+    1.74,
+    0.522
+   ],
+   "tris": 108,
+   "tpu": 81,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5536,
+   "vtx": 105,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.018,
+   "thick": 0.13,
+   "avgTri": 0.04737,
+   "anglePct": 65,
+   "pieces": 1,
+   "vpt": 0.97,
+   "cells": [
+    "1,0"
+   ],
+   "colors": [
+    "#9e6d44"
+   ],
+   "tags": [
+    "m3",
+    "wood-mid"
+   ],
+   "variant": "m3-base/kicker-01",
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -286551,6 +286746,158 @@
   },
   {
    "kit": "m3-base",
+   "name": "launch-box-01",
+   "hash": "16cd3992fb",
+   "kind": "str-fixture-leisure",
+   "size": "l",
+   "wdh": [
+    4.132,
+    1.087,
+    0.522
+   ],
+   "tris": 62,
+   "tpu": 20,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4108,
+   "vtx": 70,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.037,
+   "thick": 0.2342,
+   "avgTri": 0.11767,
+   "anglePct": 55,
+   "pieces": 1,
+   "vpt": 1.13,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "m3",
+    "stone-concrete"
+   ],
+   "thickRel": 1.86
+  },
+  {
+   "kit": "m3-base",
+   "name": "launch-box-02",
+   "hash": "5278d91ed9",
+   "kind": "str-fixture-leisure",
+   "size": "l",
+   "wdh": [
+    4.07,
+    2.33,
+    0.522
+   ],
+   "tris": 112,
+   "tpu": 17,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6272,
+   "vtx": 128,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.037,
+   "thick": 0.1072,
+   "avgTri": 0.07637,
+   "anglePct": 46,
+   "pieces": 1,
+   "vpt": 1.14,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "m3",
+    "stone-concrete"
+   ],
+   "thickRel": 0.85
+  },
+  {
+   "kit": "m3-base",
+   "name": "launch-box-04",
+   "hash": "cace6af395",
+   "kind": "str-fixture-leisure-playground",
+   "size": "l",
+   "wdh": [
+    2.308,
+    2.308,
+    0.336
+   ],
+   "tris": 152,
+   "tpu": 41,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 6304,
+   "vtx": 121,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.076,
+   "thick": 0.0701,
+   "avgTri": 0.03863,
+   "anglePct": 33,
+   "pieces": 1,
+   "vpt": 0.8,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "m3",
+    "stone-concrete"
+   ],
+   "thickRel": 0.54
+  },
+  {
+   "kit": "m3-base",
+   "name": "launch-box-05",
+   "hash": "cbfdb48443",
+   "kind": "str-fixture-leisure",
+   "size": "l",
+   "wdh": [
+    3.572,
+    3.572,
+    0.522
+   ],
+   "tris": 424,
+   "tpu": 47,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11764,
+   "vtx": 241,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.036,
+   "thick": 0.0652,
+   "avgTri": 0.02484,
+   "anglePct": 18,
+   "pieces": 1,
+   "vpt": 0.57,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "m3",
+    "stone-concrete"
+   ],
+   "thickRel": 0.52
+  },
+  {
+   "kit": "m3-base",
    "name": "lemon",
    "hash": "1a01076aaa",
    "kind": "obj-food-fruit-lemon",
@@ -288070,7 +288417,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.31,
+   "thickRel": 1.24,
    "lint": [
     {
      "level": "error",
@@ -293523,7 +293870,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.42,
+   "thickRel": 1.35,
    "lint": [
     {
      "level": "warning",
@@ -297435,6 +297782,84 @@
   },
   {
    "kit": "m3-base",
+   "name": "skatepark-pyramid-half",
+   "hash": "bda458d5d5",
+   "kind": "str-fixture-leisure",
+   "size": "l",
+   "wdh": [
+    4.568,
+    2.284,
+    0.522
+   ],
+   "tris": 18,
+   "tpu": 2,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 2132,
+   "vtx": 18,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.222,
+   "thick": 0.106,
+   "avgTri": 0.68719,
+   "anglePct": 17,
+   "pieces": 1,
+   "vpt": 1,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "m3",
+    "stone-concrete"
+   ],
+   "variant": "m3-base/skatepark-pyramid",
+   "thickRel": 0.84
+  },
+  {
+   "kit": "m3-base",
+   "name": "skatepark-pyramid",
+   "hash": "aa50594d1e",
+   "kind": "str-fixture-leisure",
+   "size": "l",
+   "wdh": [
+    4.568,
+    4.568,
+    0.522
+   ],
+   "tris": 18,
+   "tpu": 1,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 1920,
+   "vtx": 12,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.307,
+   "thick": 0.0551,
+   "avgTri": 1.20854,
+   "anglePct": 6,
+   "pieces": 1,
+   "vpt": 0.67,
+   "cells": [
+    "13,3"
+   ],
+   "colors": [
+    "#59534e"
+   ],
+   "tags": [
+    "m3",
+    "stone-concrete"
+   ],
+   "variant": "m3-base/skatepark-pyramid",
+   "thickRel": 0.44
+  },
+  {
+   "kit": "m3-base",
    "name": "skiff-01",
    "hash": "cf60dfb349",
    "kind": "obj-transport-watercraft-boat",
@@ -298455,7 +298880,7 @@
     "m3",
     "wood-light"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.42
   },
   {
    "kit": "m3-base",
@@ -300497,7 +300922,7 @@
     "m3",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.84
+   "thickRel": 1.74
   },
   {
    "kit": "m3-base",
