@@ -1142,5 +1142,11 @@ window.KENNEY_KITS = [
   "slug": "quat-cyberpunk",
   "url": null,
   "note": "Quaternius; source zip carries no licence file."
+ },
+ {
+  "slug": "dungeon-2",
+  "url": null,
+  "licenseLabel": "CC0 1.0",
+  "note": "Source zip without a licence file or maker."
  }
 ]
