@@ -1148,5 +1148,9 @@ window.KENNEY_KITS = [
   "url": null,
   "licenseLabel": "CC0 1.0",
   "note": "Source zip without a licence file or maker."
+ },
+ {
+  "slug": "mali",
+  "url": null
  }
 ]
