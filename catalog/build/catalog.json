@@ -575,11 +575,11 @@
     "0.5": 9
    },
    "smooth": {
-    "smooth": 15,
-    "none": 10
+    "smooth": 21,
+    "none": 4
    },
    "kitCheck": {
-    "factor": 1.22,
+    "factor": 1,
     "kinds": 12
    }
   },
@@ -24682,7 +24682,7 @@
    "name": "Masonry light",
    "type": "material",
    "description": "Light stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 304,
+   "count": 305,
    "parent": "stone"
   },
   {
@@ -24690,7 +24690,7 @@
    "name": "Masonry mid",
    "type": "material",
    "description": "Mid-grey stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 894,
+   "count": 895,
    "parent": "stone"
   },
   {
@@ -24698,7 +24698,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 177,
+   "count": 175,
    "parent": "stone"
   },
   {
@@ -30589,7 +30589,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4073,
+   "count": 4078,
    "derived": true
   },
   {
@@ -30597,7 +30597,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3499,
+   "count": 3494,
    "derived": true
   },
   {
@@ -52380,7 +52380,7 @@
     "mounted",
     "wood-dark"
    ],
-   "thickRel": 0.61,
+   "thickRel": 0.59,
    "lint": [
     {
      "level": "error",
@@ -52720,7 +52720,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "dungeon",
@@ -52763,7 +52763,7 @@
     "metal-steel",
     "mounted"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.35
   },
   {
    "kit": "dungeon",
@@ -53518,28 +53518,27 @@
   {
    "kit": "dungeon-2",
    "name": "barrel",
-   "hash": "8a70358ca6",
+   "hash": "18080a60c8",
    "kind": "obj-container-barrel",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.507,
-    0.507,
-    0.5
+    0.4,
+    0.4,
+    0.398
    ],
    "tris": 248,
    "tpu": 723,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13948,
+   "bytes": 14044,
    "vtx": 346,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.02,
-   "thick": 0.2529,
-   "avgTri": 0.00497,
-   "anglePct": 33,
+   "minEdge": 0.016,
+   "thick": 0.253,
+   "avgTri": 0.00307,
+   "anglePct": 15,
    "pieces": 1,
    "vpt": 1.4,
    "cells": [
@@ -53559,27 +53558,27 @@
   {
    "kit": "dungeon-2",
    "name": "brazier",
-   "hash": "288da5845f",
+   "hash": "d2af6d219b",
    "kind": "str-fixture-fire-brazier",
    "size": "s",
    "wdh": [
     0.4,
     0.4,
-    0.262
+    0.268
    ],
    "tris": 474,
    "tpu": 1382,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 24608,
+   "bytes": 24720,
    "vtx": 637,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "thick": 0.0558,
-   "avgTri": 0.00106,
-   "anglePct": 22,
+   "minEdge": 0.006,
+   "thick": 0.0615,
+   "avgTri": 0.00111,
+   "anglePct": 12,
    "pieces": 1,
    "vpt": 1.34,
    "cells": [
@@ -53591,32 +53590,32 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.92
+   "thickRel": 1
   },
   {
    "kit": "dungeon-2",
    "name": "chains",
-   "hash": "00742cce7c",
+   "hash": "f6dfd7378f",
    "kind": "obj-equipment-tool-supplies-chain",
    "size": "m",
    "wdh": [
-    0.673,
-    0.15,
-    0.514
+    0.572,
+    0.127,
+    0.437
    ],
    "tris": 2564,
    "tpu": 7475,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 128460,
+   "bytes": 128536,
    "vtx": 3488,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0124,
+   "minTube": 0.0106,
    "thick": 0.0517,
-   "avgTri": 0.00014,
+   "avgTri": 0.0001,
    "anglePct": 77,
    "pieces": 3,
    "vpt": 1.36,
@@ -53638,28 +53637,27 @@
   {
    "kit": "dungeon-2",
    "name": "crate",
-   "hash": "a6b1e3a7d4",
+   "hash": "ea3bbe1882",
    "kind": "obj-container-crate-cube",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.5,
-    0.5
+    0.45,
+    0.45,
+    0.45
    ],
    "tris": 308,
    "tpu": 898,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17556,
+   "bytes": 17672,
    "vtx": 448,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "thick": 0.2294,
-   "avgTri": 0.00587,
-   "anglePct": 100,
+   "minEdge": 0.007,
+   "thick": 0.2304,
+   "avgTri": 0.00454,
+   "anglePct": 53,
    "pieces": 1,
    "vpt": 1.45,
    "cells": [
@@ -53679,28 +53677,27 @@
   {
    "kit": "dungeon-2",
    "name": "crusher",
-   "hash": "1ecefc5e3e",
+   "hash": "d4380c4f28",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
-    0.5,
-    0.5,
-    0.5
+    0.658,
+    0.658,
+    0.665
    ],
    "tris": 180,
    "tpu": 525,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 12096,
+   "bytes": 12204,
    "vtx": 301,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.023,
-   "thick": 0.1902,
-   "avgTri": 0.00705,
-   "anglePct": 52,
+   "minEdge": 0.033,
+   "thick": 0.193,
+   "avgTri": 0.01219,
+   "anglePct": 46,
    "pieces": 1,
    "vpt": 1.67,
    "cells": [
@@ -53719,17 +53716,17 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.52
   },
   {
    "kit": "dungeon-2",
    "name": "door-cell",
-   "hash": "0c18d2f881",
+   "hash": "64f0c92f2c",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
-    0.5,
-    0.05,
+    0.503,
+    0.059,
     0.9
    ],
    "tris": 508,
@@ -53737,15 +53734,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 23804,
+   "bytes": 23892,
    "vtx": 604,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0249,
-   "thick": 0.0718,
-   "avgTri": 0.00161,
-   "anglePct": 100,
+   "minTube": 0.0442,
+   "thick": 0.0729,
+   "avgTri": 0.00179,
+   "anglePct": 71,
    "pieces": 1,
    "vpt": 1.19,
    "cells": [
@@ -53757,24 +53754,17 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0249 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "dungeon-2",
    "name": "doorway-cell",
-   "hash": "f51b0d41d5",
+   "hash": "4277160761",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
-    1,
-    0.3,
+    0.999,
+    0.332,
     1
    ],
    "tris": 44,
@@ -53782,14 +53772,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4108,
+   "bytes": 4164,
    "vtx": 76,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.071,
-   "thick": 0.1026,
-   "avgTri": 0.06146,
-   "anglePct": 100,
+   "minEdge": 0.081,
+   "thick": 0.1101,
+   "avgTri": 0.06543,
+   "anglePct": 82,
    "pieces": 1,
    "vpt": 1.73,
    "cells": [
@@ -53802,12 +53792,12 @@
     "grid-1x1",
     "stone-masonry-dark"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.17
   },
   {
    "kit": "dungeon-2",
    "name": "floor-grate-round",
-   "hash": "9021bc6147",
+   "hash": "4a29e1985a",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
@@ -53820,7 +53810,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 43092,
+   "bytes": 43108,
    "vtx": 1120,
    "gridMod": true,
    "grounded": true,
@@ -53850,7 +53840,7 @@
   {
    "kit": "dungeon-2",
    "name": "floor-grate-square",
-   "hash": "e82ae0f15e",
+   "hash": "50aabbfe6e",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
@@ -53863,7 +53853,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 40648,
+   "bytes": 40664,
    "vtx": 1054,
    "gridMod": true,
    "grounded": true,
@@ -53894,7 +53884,7 @@
   {
    "kit": "dungeon-2",
    "name": "floor-saw-slot-end",
-   "hash": "8e3890ece2",
+   "hash": "8ae0495853",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
@@ -53907,7 +53897,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5144,
+   "bytes": 5160,
    "vtx": 104,
    "gridMod": true,
    "grounded": true,
@@ -53936,7 +53926,7 @@
   {
    "kit": "dungeon-2",
    "name": "floor-saw-slot-mid",
-   "hash": "df1b5e4f96",
+   "hash": "4e1fb4a3e5",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
@@ -53949,7 +53939,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4840,
+   "bytes": 4852,
    "vtx": 96,
    "gridMod": true,
    "grounded": true,
@@ -53978,7 +53968,7 @@
   {
    "kit": "dungeon-2",
    "name": "floor-spikes",
-   "hash": "e1f55d7a5f",
+   "hash": "73fc9e7925",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
@@ -53991,7 +53981,7 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 41944,
+   "bytes": 41976,
    "vtx": 1113,
    "gridMod": true,
    "grounded": true,
@@ -54020,29 +54010,28 @@
   {
    "kit": "dungeon-2",
    "name": "floor-vents",
-   "hash": "2fbfa4d9b6",
+   "hash": "9518ff36df",
    "kind": "str-part-floor-unit",
    "size": "m",
    "wdh": [
     1,
     1,
-    0.05
+    0.051
    ],
    "tris": 596,
    "tpu": 851,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 32148,
+   "bytes": 32152,
    "vtx": 848,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minTube": 0.0251,
-   "thick": 0.0486,
-   "avgTri": 0.00393,
-   "anglePct": 98,
+   "minEdge": 0.008,
+   "thick": 0.0462,
+   "avgTri": 0.00391,
+   "anglePct": 90,
    "pieces": 1,
    "vpt": 1.42,
    "cells": [
@@ -54058,24 +54047,17 @@
     "metal-steel",
     "stone-masonry-dark"
    ],
-   "thickRel": 0.99,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0251 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "dungeon-2",
    "name": "gate-iron",
-   "hash": "6966bf4c63",
+   "hash": "015b96eee8",
    "kind": "str-part-gate-single",
    "size": "m",
    "wdh": [
-    0.8,
-    0.1,
+    0.806,
+    0.114,
     1.4
    ],
    "tris": 888,
@@ -54083,15 +54065,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 39180,
+   "bytes": 39232,
    "vtx": 1012,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.05,
-   "thick": 0.0704,
-   "avgTri": 0.00247,
-   "anglePct": 93,
+   "minTube": 0.0521,
+   "thick": 0.0764,
+   "avgTri": 0.00275,
+   "anglePct": 61,
    "pieces": 1,
    "vpt": 1.14,
    "cells": [
@@ -54103,17 +54085,17 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.95
   },
   {
    "kit": "dungeon-2",
    "name": "gate-wood",
-   "hash": "96cc0f0b66",
+   "hash": "62c2e688ca",
    "kind": "str-part-gate-single",
    "size": "m",
    "wdh": [
-    0.8,
-    0.25,
+    0.807,
+    0.267,
     1.4
    ],
    "tris": 464,
@@ -54121,15 +54103,14 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26556,
+   "bytes": 26632,
    "vtx": 698,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.028,
-   "minTube": 0.459,
-   "thick": 0.1124,
-   "avgTri": 0.008,
-   "anglePct": 57,
+   "minEdge": 0.029,
+   "thick": 0.1214,
+   "avgTri": 0.00917,
+   "anglePct": 46,
    "pieces": 4,
    "vpt": 1.5,
    "cells": [
@@ -54147,117 +54128,115 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.5
   },
   {
    "kit": "dungeon-2",
    "name": "lever",
-   "hash": "d782ff2a45",
+   "hash": "1035cf29a2",
    "kind": "obj-equipment-tool-mechanism-lever",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.5,
-    0.575
+    0.304,
+    0.305,
+    0.35
    ],
    "tris": 248,
    "tpu": 723,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 14076,
+   "bytes": 14172,
    "vtx": 350,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "thick": 0.1249,
-   "avgTri": 0.00487,
-   "anglePct": 98,
+   "minEdge": 0.002,
+   "thick": 0.1378,
+   "avgTri": 0.00191,
+   "anglePct": 91,
    "pieces": 3,
    "vpt": 1.41,
    "cells": [
-    "12,3",
+    "14,3",
     "6,1",
     "15,3"
    ],
    "colors": [
     "#3a3e4b",
-    "#57493d",
-    "#7a8491"
+    "#7a8491",
+    "#88735f"
    ],
    "tags": [
     "metal-iron-dark",
     "metal-steel",
-    "stone-masonry-dark"
+    "stone-masonry-mid"
    ],
-   "thickRel": 0.94
+   "thickRel": 1
   },
   {
    "kit": "dungeon-2",
    "name": "pressure-plate",
-   "hash": "398617a20e",
+   "hash": "143a35ba60",
    "kind": "obj-equipment-tool-mechanism-button",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.5,
-    0.1
+    0.425,
+    0.423,
+    0.098
    ],
    "tris": 68,
    "tpu": 198,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5128,
+   "bytes": 5236,
    "vtx": 104,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.043,
-   "thick": 0.1057,
-   "avgTri": 0.01464,
-   "anglePct": 100,
+   "minEdge": 0.042,
+   "thick": 0.1166,
+   "avgTri": 0.01132,
+   "anglePct": 69,
    "pieces": 1,
    "vpt": 1.53,
    "cells": [
-    "12,3",
-    "14,3"
+    "14,3",
+    "5,2"
    ],
    "colors": [
-    "#57493d",
-    "#88735f"
+    "#88735f",
+    "#d8cfb7"
    ],
    "tags": [
-    "stone-masonry-dark",
+    "stone-masonry-light",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.99
   },
   {
    "kit": "dungeon-2",
    "name": "saw-blade",
-   "hash": "1758775f90",
+   "hash": "293d78051c",
    "kind": "obj-equipment-tool-mechanism",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.5,
-    0.025,
-    0.5
+    0.47,
+    0.041,
+    0.47
    ],
    "tris": 48,
    "tpu": 140,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4288,
+   "bytes": 4396,
    "vtx": 82,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.025,
-   "thick": 0.043,
-   "avgTri": 0.00582,
-   "anglePct": 57,
+   "minEdge": 0.039,
+   "thick": 0.0596,
+   "avgTri": 0.00545,
+   "anglePct": 54,
    "pieces": 1,
    "vpt": 1.71,
    "cells": [
@@ -54274,27 +54253,27 @@
   {
    "kit": "dungeon-2",
    "name": "torch",
-   "hash": "881a3bc0c7",
+   "hash": "31ef70470a",
    "kind": "obj-furnishing-light-torch",
    "size": "s",
    "wdh": [
-    0.067,
-    0.103,
-    0.246
+    0.097,
+    0.149,
+    0.35
    ],
    "tris": 538,
    "tpu": 1569,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 28436,
+   "bytes": 28512,
    "vtx": 743,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.11,
-   "avgTri": 0.00006,
-   "anglePct": 36,
+   "minEdge": 0.003,
+   "thick": 0.115,
+   "avgTri": 0.00016,
+   "anglePct": 26,
    "pieces": 3,
    "vpt": 1.38,
    "cells": [
@@ -54313,24 +54292,17 @@
     "mounted",
     "wood-dark"
    ],
-   "thickRel": 0.82,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.246 under min 0.3 (obj-furnishing-light-torch)"
-    }
-   ]
+   "thickRel": 0.85
   },
   {
    "kit": "dungeon-2",
    "name": "wall-cracked-1",
-   "hash": "f618ab5917",
+   "hash": "70f21e48b4",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    1,
-    0.3,
+    0.999,
+    0.339,
     1
    ],
    "tris": 38,
@@ -54338,14 +54310,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3464,
+   "bytes": 3520,
    "vtx": 57,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.127,
-   "thick": 0.1273,
-   "avgTri": 0.06363,
-   "anglePct": 85,
+   "minEdge": 0.117,
+   "thick": 0.1411,
+   "avgTri": 0.06704,
+   "anglePct": 84,
    "pieces": 1,
    "vpt": 1.5,
    "cells": [
@@ -54360,17 +54332,17 @@
     "stone-masonry-dark"
    ],
    "variant": "dungeon-2/wall-cracked-1",
-   "thickRel": 1.27
+   "thickRel": 1.4
   },
   {
    "kit": "dungeon-2",
    "name": "wall-cracked-2",
-   "hash": "9eaaf35424",
+   "hash": "a989f56640",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    1,
-    0.3,
+    0.997,
+    0.341,
     1
    ],
    "tris": 46,
@@ -54378,14 +54350,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3832,
+   "bytes": 3888,
    "vtx": 67,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.15,
-   "thick": 0.1257,
-   "avgTri": 0.05248,
-   "anglePct": 85,
+   "minEdge": 0.152,
+   "thick": 0.1389,
+   "avgTri": 0.05502,
+   "anglePct": 78,
    "pieces": 1,
    "vpt": 1.46,
    "cells": [
@@ -54400,32 +54372,32 @@
     "stone-masonry-dark"
    ],
    "variant": "dungeon-2/wall-cracked-1",
-   "thickRel": 1.25
+   "thickRel": 1.38
   },
   {
    "kit": "dungeon-2",
    "name": "wall-cracked-3",
-   "hash": "63f31ddb75",
+   "hash": "1d46f987a9",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1,
-    0.3,
-    0.5
+    0.319,
+    0.51
    ],
    "tris": 36,
    "tpu": 105,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3532,
+   "bytes": 3584,
    "vtx": 59,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.15,
-   "thick": 0.2253,
-   "avgTri": 0.04659,
-   "anglePct": 78,
+   "minEdge": 0.133,
+   "thick": 0.2338,
+   "avgTri": 0.04831,
+   "anglePct": 77,
    "pieces": 1,
    "vpt": 1.64,
    "cells": [
@@ -54439,16 +54411,16 @@
     "grid-1x0-5",
     "stone-masonry-dark"
    ],
-   "thickRel": 2.24
+   "thickRel": 2.33
   },
   {
    "kit": "dungeon-2",
    "name": "wall-cracked-4",
-   "hash": "25767017dc",
+   "hash": "2056b23291",
    "kind": "str-part-wall-unit",
    "size": "s",
    "wdh": [
-    0.25,
+    0.252,
     0.3,
     0.3
    ],
@@ -54457,13 +54429,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2696,
+   "bytes": 2780,
    "vtx": 35,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.135,
-   "thick": 0.2122,
-   "avgTri": 0.0165,
+   "minEdge": 0.132,
+   "thick": 0.2166,
+   "avgTri": 0.01653,
    "anglePct": 69,
    "pieces": 1,
    "vpt": 1.46,
@@ -54477,31 +54449,31 @@
     "broken",
     "stone-masonry-mid"
    ],
-   "thickRel": 2.11
+   "thickRel": 2.15
   },
   {
    "kit": "dungeon-2",
    "name": "wall-cracked-5",
-   "hash": "1cabc86810",
+   "hash": "eab9df6e7b",
    "kind": "str-part-wall-unit",
    "size": "s",
    "wdh": [
-    0.25,
+    0.251,
     0.3,
-    0.3
+    0.299
    ],
    "tris": 22,
    "tpu": 64,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2684,
+   "bytes": 2764,
    "vtx": 35,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.103,
-   "thick": 0.1938,
-   "avgTri": 0.01657,
+   "minEdge": 0.101,
+   "thick": 0.1986,
+   "avgTri": 0.01659,
    "anglePct": 74,
    "pieces": 1,
    "vpt": 1.59,
@@ -54515,17 +54487,17 @@
     "broken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.93
+   "thickRel": 1.98
   },
   {
    "kit": "dungeon-2",
    "name": "wall",
-   "hash": "2ceae946a9",
+   "hash": "51fe9a7e8d",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     1,
-    0.3,
+    0.323,
     1
    ],
    "tris": 12,
@@ -54533,13 +54505,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2228,
+   "bytes": 2256,
    "vtx": 24,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.3,
-   "thick": 0.1395,
-   "avgTri": 0.26667,
+   "minEdge": 0.323,
+   "thick": 0.1502,
+   "avgTri": 0.27448,
    "anglePct": 100,
    "pieces": 1,
    "vpt": 2,
@@ -54553,7 +54525,7 @@
     "grid-1x1",
     "stone-masonry-dark"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.49
   },
   {
    "kit": "emace-80s",
@@ -74416,7 +74388,7 @@
     "stone-masonry-mid",
     "tba"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.2
   },
   {
    "kit": "fs-temple",
@@ -156574,7 +156546,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "kay-platformer",
@@ -157218,7 +157190,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.09
   },
   {
    "kit": "kay-platformer",
@@ -157265,7 +157237,7 @@
     "tba"
    ],
    "variant": "kay-platformer/lever-wall-a",
-   "thickRel": 1.23
+   "thickRel": 1.18
   },
   {
    "kit": "kay-platformer",
@@ -157313,7 +157285,7 @@
     "tba"
    ],
    "variant": "kay-platformer/lever-wall-a",
-   "thickRel": 1.14
+   "thickRel": 1.1
   },
   {
    "kit": "kay-platformer",
@@ -182500,7 +182472,7 @@
     "tba"
    ],
    "variant": "ken-factory/button-floor-round-small",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "ken-factory",
@@ -184577,7 +184549,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "ken-factory",
@@ -184619,7 +184591,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.84
   },
   {
    "kit": "ken-factory",
@@ -216110,7 +216082,7 @@
     "toggle-off",
     "toggle"
    ],
-   "thickRel": 1
+   "thickRel": 0.96
   },
   {
    "kit": "ken-platformer",
@@ -280129,7 +280101,7 @@
     "m3",
     "metal-iron-mid"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "m3-base",
@@ -283285,7 +283257,7 @@
     "metal-iron-mid"
    ],
    "variant": "m3-base/iron-brazier-01",
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "m3-base",
@@ -283333,7 +283305,7 @@
      "inverted": 0.29
     }
    },
-   "thickRel": 0.99,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "warning",
@@ -283380,7 +283352,7 @@
     "metal-iron-mid"
    ],
    "variant": "m3-base/iron-brazier-01",
-   "thickRel": 1.23
+   "thickRel": 1.22
   },
   {
    "kit": "m3-base",
@@ -289971,7 +289943,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.25
   },
   {
    "kit": "m3-base",
@@ -294647,7 +294619,7 @@
     "m3",
     "metal-copper"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.38
   },
   {
    "kit": "m3-base",
@@ -298582,7 +298554,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "m3-base",
@@ -315787,7 +315759,7 @@
     "metal-iron-mid",
     "wood-light"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.08
   },
   {
    "kit": "props",
@@ -354594,7 +354566,7 @@
     "tba"
    ],
    "variant": "quat-survival/bear-trap-anim",
-   "thickRel": 0.48
+   "thickRel": 0.47
   },
   {
    "kit": "quat-survival",
@@ -369671,7 +369643,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/brazier",
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "rgp-medieval",
@@ -377568,7 +377540,7 @@
     "rgp"
    ],
    "variant": "rgp-medieval/brazier",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "rgp-props",
@@ -415231,7 +415203,7 @@
     "metal-iron-mid",
     "wizp"
    ],
-   "thickRel": 3.14
+   "thickRel": 3.11
   },
   {
    "kit": "wizp-asia",
