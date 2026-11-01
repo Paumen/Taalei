@@ -15,6 +15,9 @@ A config is a JSON object:
   copied to the kit's `LICENSE.txt`.
 - `monsters`: how many points of the texture each triangle reads, 1 to 7
   (1 by default, the centre); with more, the band most points fall in wins.
+- `cuts`: texture v values where the source texture changes colour; each
+  triangle crossing one is cut along it, so a colour edge inside a source
+  triangle stays a clean edge.
 - `schaal`: the pack's scale; `drempel`: the angle in degrees below which faces
   share a smoothed normal.
 - `banden`: source colour (`"r,g,b"`) → band.
