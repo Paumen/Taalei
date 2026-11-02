@@ -36859,12 +36859,12 @@
    "kit": "3dm-electronics",
    "collection": "3dm",
    "name": "router",
-   "hash": "a7575ee89c",
+   "hash": "eee34ccb9b",
    "kind": "obj-device-electronics-computer",
    "size": "s",
    "wdh": [
     0.22,
-    0.18,
+    0.177,
     0.215
    ],
    "tris": 1305,
@@ -36877,10 +36877,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0264,
-   "thick": 0.1043,
+   "minTube": 0.0196,
+   "thick": 0.1059,
    "avgTri": 0.00011,
-   "anglePct": 53,
+   "anglePct": 55,
    "pieces": 25,
    "vpt": 1.5,
    "cells": [
@@ -36897,19 +36897,23 @@
     "special-emissive"
    ],
    "backface": {
-    "share": 0.0015,
-    "view": "180/20",
+    "share": 0.0016,
+    "view": "135/20",
     "causes": {
-     "inverted": 0.99,
-     "other": 0.01
+     "inverted": 1
     }
    },
-   "thickRel": 0.71,
+   "thickRel": 0.72,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.1% of view 180/20 over 0.1%: inverted 99.0%, other 1.0%"
+     "text": "0.2% of view 135/20 over 0.1%: inverted 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0196 wants min 0.026"
     }
    ]
   },
@@ -39621,12 +39625,12 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "broom",
-   "hash": "1265d346b3",
+   "hash": "e8b7b7298c",
    "kind": "obj-equipment-tool-twohand-broom",
    "size": "m",
    "wdh": [
-    0.175,
-    0.181,
+    0.171,
+    0.18,
     0.79
    ],
    "tris": 934,
@@ -39639,10 +39643,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0261,
-   "thick": 0.2487,
-   "avgTri": 0.00063,
-   "anglePct": 1,
+   "minTube": 0.0096,
+   "thick": 0.2353,
+   "avgTri": 0.00037,
+   "anglePct": 3,
    "pieces": 30,
    "vpt": 0.89,
    "cells": [
@@ -39662,7 +39666,14 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.15,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0096 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "aq-hallow",
@@ -46193,7 +46204,7 @@
    "kit": "avra-nature",
    "collection": "avra",
    "name": "ivy",
-   "hash": "18b2e16a07",
+   "hash": "7827c1d2ce",
    "kind": "env-flora-plant",
    "size": "m",
    "wdh": [
@@ -46211,9 +46222,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0039,
+   "minTube": 0.0065,
    "thick": 0.0393,
-   "avgTri": 0.00011,
+   "avgTri": 0.00012,
    "anglePct": 8,
    "pieces": 128,
    "vpt": 2.48,
@@ -46233,14 +46244,7 @@
     "leaf-light",
     "mounted"
    ],
-   "thickRel": 0.47,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0039 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.47
   },
   {
    "kit": "avra-nature",
@@ -49842,7 +49846,7 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.16
   },
   {
    "kit": "cooking-assets",
@@ -50490,7 +50494,7 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "cooking-assets",
@@ -51353,7 +51357,7 @@
   {
    "kit": "cooking-assets",
    "name": "toaster-oven",
-   "hash": "7fe1321d75",
+   "hash": "723e8b087e",
    "kind": "obj-device-appliance-kitchen",
    "size": "s",
    "wdh": [
@@ -51361,22 +51365,22 @@
     0.275,
     0.305
    ],
-   "tris": 766,
-   "tpu": 2233,
+   "tris": 764,
+   "tpu": 2227,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 36640,
-   "vtx": 957,
+   "bytes": 35860,
+   "vtx": 933,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0262,
-   "thick": 0.2463,
-   "avgTri": 0.00192,
-   "anglePct": 43,
-   "pieces": 23,
-   "vpt": 1.25,
+   "thick": 0.2468,
+   "avgTri": 0.00191,
+   "anglePct": 44,
+   "pieces": 24,
+   "vpt": 1.22,
    "cells": [
     "13,3",
     "3,2",
@@ -51395,7 +51399,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "cooking-assets",
@@ -51696,7 +51700,7 @@
   {
    "kit": "cooking-assets",
    "name": "wine-glass",
-   "hash": "fb604051e7",
+   "hash": "b7053e54e4",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
@@ -51714,8 +51718,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0093,
-   "thick": 0.0676,
+   "thick": 0.0692,
    "avgTri": 0.00016,
    "anglePct": 15,
    "pieces": 2,
@@ -51731,14 +51734,7 @@
     "mab"
    ],
    "variant": "cooking-assets/wine-glass",
-   "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0093 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.76
   },
   {
    "kit": "cooking-assets",
@@ -56250,7 +56246,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "chopping-block",
-   "hash": "23f66b676b",
+   "hash": "ac3a5b33e0",
    "kind": "obj-equipment-tool-station",
    "size": "m",
    "wdh": [
@@ -56258,22 +56254,22 @@
     0.254,
     0.515
    ],
-   "tris": 153,
-   "tpu": 446,
+   "tris": 181,
+   "tpu": 528,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 10256,
-   "vtx": 243,
+   "bytes": 12024,
+   "vtx": 293,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0261,
-   "thick": 0.1772,
-   "avgTri": 0.00225,
+   "minTube": 0.0265,
+   "thick": 0.1775,
+   "avgTri": 0.0019,
    "anglePct": 6,
    "pieces": 3,
-   "vpt": 1.59,
+   "vpt": 1.62,
    "cells": [
     "2,0",
     "13,3",
@@ -70991,7 +70987,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "fs-house",
@@ -74153,28 +74149,28 @@
    "kit": "fs-temple",
    "collection": "fs-buildings",
    "name": "puzzle-closed-conduit-straight",
-   "hash": "cbdd223b2a",
+   "hash": "61e99a00a1",
    "kind": "str-part-puzzle",
    "size": "s",
    "wdh": [
     0.495,
     0.045,
-    0.026
+    0.011
    ],
    "tris": 28,
    "tpu": 82,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 2392,
+   "bytes": 2372,
    "vtx": 24,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
-   "minTube": 0.0261,
-   "thick": 0.463,
-   "avgTri": 0.0022,
-   "anglePct": 53,
+   "minTube": 0.0112,
+   "thick": 0.3667,
+   "avgTri": 0.00174,
+   "anglePct": 100,
    "pieces": 1,
    "vpt": 0.86,
    "cells": [
@@ -74187,6 +74183,13 @@
     "comp",
     "fs",
     "stone-masonry-light"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0112 wants min 0.026"
+    }
    ]
   },
   {
@@ -90584,7 +90587,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "household",
@@ -96776,7 +96779,7 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "coffee-machine",
-   "hash": "fe25cbd03e",
+   "hash": "fc326546d6",
    "kind": "obj-device-appliance-kitchen-coffeemaker",
    "size": "s",
    "wdh": [
@@ -96784,22 +96787,22 @@
     0.295,
     0.407
    ],
-   "tris": 1216,
-   "tpu": 3545,
+   "tris": 1190,
+   "tpu": 3469,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 56408,
-   "vtx": 1490,
+   "bytes": 56124,
+   "vtx": 1486,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0261,
-   "thick": 0.1797,
-   "avgTri": 0.00057,
-   "anglePct": 78,
-   "pieces": 13,
-   "vpt": 1.23,
+   "minEdge": 0.001,
+   "minTube": 0.0264,
+   "thick": 0.18,
+   "avgTri": 0.00059,
+   "anglePct": 79,
+   "pieces": 14,
+   "vpt": 1.25,
    "cells": [
     "13,3",
     "15,3",
@@ -96816,7 +96819,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "isa-bakery",
@@ -98701,7 +98704,7 @@
     "spin"
    ],
    "variant": "isa-bakery/stand-mixer-anim",
-   "thickRel": 0.58
+   "thickRel": 0.57
   },
   {
    "kit": "isa-bakery",
@@ -98749,7 +98752,7 @@
     "tba"
    ],
    "variant": "isa-bakery/stand-mixer-anim",
-   "thickRel": 0.58
+   "thickRel": 0.57
   },
   {
    "kit": "isa-bakery",
@@ -135870,7 +135873,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "fridge-a-decorated",
-   "hash": "ca6887629e",
+   "hash": "2bea8d8fae",
    "kind": "obj-device-appliance-fridge",
    "size": "m",
    "wdh": [
@@ -135878,8 +135881,8 @@
     0.672,
     0.75
    ],
-   "tris": 2428,
-   "tpu": 6607,
+   "tris": 2460,
+   "tpu": 6694,
    "mat": 1,
    "bands": 6,
    "calls": 1,
@@ -135888,12 +135891,12 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minTube": 0.03,
+   "minTube": 0.0183,
    "thick": 0.2589,
-   "avgTri": 0.00246,
-   "anglePct": 64,
-   "pieces": 26,
-   "vpt": 0.97,
+   "avgTri": 0.0025,
+   "anglePct": 62,
+   "pieces": 34,
+   "vpt": 0.96,
    "cells": [
     "3,1",
     "15,3",
@@ -135924,6 +135927,11 @@
      "level": "error",
      "check": "measures",
      "text": "G13 bands 6 wants max 5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0183 wants min 0.026"
     }
    ]
   },
@@ -146561,12 +146569,12 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "bucket-arrows",
-   "hash": "c6f3e054de",
+   "hash": "f59291b951",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
     0.252,
-    0.262,
+    0.257,
     0.417
    ],
    "tris": 272,
@@ -146580,10 +146588,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minTube": 0.0266,
-   "thick": 0.1618,
-   "avgTri": 0.00217,
-   "anglePct": 15,
+   "minTube": 0.0176,
+   "thick": 0.1404,
+   "avgTri": 0.00197,
+   "anglePct": 17,
    "pieces": 13,
    "vpt": 1.77,
    "cells": [
@@ -146606,7 +146614,14 @@
     "wood-mid"
    ],
    "variant": "kay-hexagon/bucket",
-   "thickRel": 1.94
+   "thickRel": 1.68,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0176 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "kay-hexagon",
@@ -187569,12 +187584,12 @@
   {
    "kit": "ken-food",
    "name": "cheese-slicer",
-   "hash": "55884f3486",
+   "hash": "f5b0ba208d",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.086,
-    0.016,
+    0.02,
     0.236
    ],
    "tris": 72,
@@ -187587,10 +187602,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0052,
-   "thick": 0.1117,
-   "avgTri": 0.00032,
-   "anglePct": 73,
+   "thick": 0.1163,
+   "avgTri": 0.00034,
+   "anglePct": 65,
    "pieces": 3,
    "vpt": 1.64,
    "cells": [
@@ -187606,14 +187620,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.76,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0052 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.79
   },
   {
    "kit": "ken-food",
@@ -195176,7 +195183,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.59
   },
   {
    "kit": "ken-furniture",
@@ -195390,7 +195397,7 @@
     "ken",
     "metal-iron-mid"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.15
   },
   {
    "kit": "ken-furniture",
@@ -255680,7 +255687,7 @@
     "metal-steel",
     "tba"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.15
   },
   {
    "kit": "lpa-home",
@@ -255727,7 +255734,7 @@
   {
    "kit": "lpa-home",
    "name": "fan",
-   "hash": "862c26409d",
+   "hash": "19bb571369",
    "kind": "obj-device-appliance",
    "size": "s",
    "wdh": [
@@ -255745,9 +255752,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "thick": 0.0824,
-   "avgTri": 0.00038,
-   "anglePct": 41,
+   "minTube": 0.0087,
+   "thick": 0.0744,
+   "avgTri": 0.00035,
+   "anglePct": 36,
    "pieces": 16,
    "vpt": 1.67,
    "cells": [
@@ -255765,18 +255773,23 @@
     "tba"
    ],
    "backface": {
-    "share": 0.0023,
-    "view": "180/20",
+    "share": 0.0029,
+    "view": "0/20",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 0.34,
+   "thickRel": 0.31,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.2% of view 180/20 over 0.1%: open 100.0%"
+     "text": "0.3% of view 0/20 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0087 wants min 0.026"
     }
    ]
   },
@@ -256235,7 +256248,7 @@
     "lpa",
     "wood-mid"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.36
   },
   {
    "kit": "lpa-home",
@@ -256399,7 +256412,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.27
   },
   {
    "kit": "lpa-home",
@@ -286795,7 +286808,7 @@
   {
    "kit": "m3-base",
    "name": "mesh-bin",
-   "hash": "d89acb9293",
+   "hash": "ce7a942d5b",
    "kind": "obj-container-trashcan",
    "size": "s",
    "wdh": [
@@ -286812,11 +286825,11 @@
    "vtx": 2152,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0079,
-   "thick": 0.042,
-   "avgTri": 0.00016,
-   "anglePct": 38,
+   "minEdge": 0.007,
+   "minTube": 0.0123,
+   "thick": 0.0451,
+   "avgTri": 0.00023,
+   "anglePct": 31,
    "pieces": 26,
    "vpt": 1.85,
    "cells": [
@@ -286829,17 +286842,12 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.28,
+   "thickRel": 0.3,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.28 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0079 wants min 0.026"
+     "text": "I01 thickRel 0.3 wants min 0.5"
     }
    ]
   },
@@ -287041,12 +287049,12 @@
   {
    "kit": "m3-base",
    "name": "microwave",
-   "hash": "3f30882594",
+   "hash": "7cf1f0bf5d",
    "kind": "obj-device-appliance-kitchen-microwave",
    "size": "s",
    "wdh": [
     0.25,
-    0.226,
+    0.219,
     0.159
    ],
    "tris": 1506,
@@ -287059,10 +287067,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0265,
-   "thick": 0.2304,
-   "avgTri": 0.00031,
-   "anglePct": 90,
+   "minTube": 0.0122,
+   "thick": 0.2381,
+   "avgTri": 0.0003,
+   "anglePct": 91,
    "pieces": 14,
    "vpt": 1.14,
    "cells": [
@@ -287081,7 +287089,14 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0122 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -287381,7 +287396,7 @@
     "stone-masonry-light"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -287421,7 +287436,7 @@
     "stone-masonry-light"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -290519,29 +290534,29 @@
   {
    "kit": "m3-base",
    "name": "paperclip",
-   "hash": "ddec29406f",
+   "hash": "ff232cd78f",
    "kind": "obj-equipment-tool-stationery",
    "size": "s",
    "wdh": [
     0.08,
-    0.018,
+    0.022,
     0.006
    ],
-   "tris": 464,
-   "tpu": 1353,
+   "tris": 432,
+   "tpu": 1259,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19712,
-   "vtx": 482,
+   "bytes": 31304,
+   "vtx": 850,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1795,
+   "thick": 0.1914,
    "avgTri": 0.00001,
-   "anglePct": 0,
+   "anglePct": 44,
    "pieces": 1,
-   "vpt": 1.04,
+   "vpt": 1.97,
    "cells": [
     "15,3"
    ],
@@ -290553,7 +290568,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.91
   },
   {
    "kit": "m3-base",
@@ -298464,11 +298479,11 @@
   {
    "kit": "m3-base",
    "name": "steel-ladder",
-   "hash": "ee44c49fd1",
+   "hash": "5196a4e594",
    "kind": "str-access-ladder",
    "size": "m",
    "wdh": [
-    0.113,
+    0.147,
     0.027,
     1.091
    ],
@@ -298482,9 +298497,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0261,
-   "thick": 0.3249,
-   "avgTri": 0.00118,
+   "minTube": 0.0262,
+   "thick": 0.248,
+   "avgTri": 0.00119,
    "anglePct": 82,
    "pieces": 16,
    "vpt": 2,
@@ -298502,7 +298517,7 @@
     "rubber"
    ],
    "variant": "m3-base/steel-ladder",
-   "thickRel": 2.86
+   "thickRel": 2.18
   },
   {
    "kit": "m3-base",
@@ -300317,28 +300332,28 @@
   {
    "kit": "m3-base",
    "name": "toasting-fork",
-   "hash": "e5e2b58af8",
+   "hash": "dbabe91dd5",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.066,
-    0.006,
-    0.25
+    0.069,
+    0.015,
+    0.252
    ],
    "tris": 342,
    "tpu": 997,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 36408,
+   "bytes": 36416,
    "vtx": 1026,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0055,
-   "thick": 0.1269,
-   "avgTri": 0.00002,
-   "anglePct": 47,
+   "minEdge": 0.003,
+   "minTube": 0.012,
+   "thick": 0.1416,
+   "avgTri": 0.00005,
+   "anglePct": 38,
    "pieces": 3,
    "vpt": 3,
    "cells": [
@@ -300351,14 +300366,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.87,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0055 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -372244,7 +372252,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "clothesline",
-   "hash": "3699a386cd",
+   "hash": "65d80d7ee6",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
@@ -372262,10 +372270,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0261,
-   "thick": 0.0953,
-   "avgTri": 0.00037,
-   "anglePct": 17,
+   "minTube": 0.0119,
+   "thick": 0.095,
+   "avgTri": 0.00033,
+   "anglePct": 19,
    "pieces": 19,
    "vpt": 1.3,
    "cells": [
@@ -372291,12 +372299,17 @@
     "textile-cloth-mid",
     "textile-rope"
    ],
-   "thickRel": 1.49,
+   "thickRel": 1.48,
    "lint": [
     {
      "level": "error",
      "check": "measures",
      "text": "G13 bands 6 wants max 5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0119 wants min 0.026"
     }
    ]
   },
@@ -380535,7 +380548,7 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "clock",
-   "hash": "b5db5b35d7",
+   "hash": "7f5b1e363c",
    "kind": "obj-furnishing-clock",
    "size": "s",
    "wdh": [
@@ -380553,8 +380566,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0122,
-   "thick": 0.1067,
+   "minTube": 0.0016,
+   "thick": 0.1069,
    "avgTri": 0.0003,
    "anglePct": 79,
    "pieces": 14,
@@ -380593,6 +380606,11 @@
      "level": "warning",
      "check": "backface",
      "text": "0.4% of view 180/20 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0016 wants min 0.012"
     }
    ]
   },
@@ -388103,7 +388121,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.09
   },
   {
    "kit": "sq-fastfood",
@@ -392646,7 +392664,7 @@
   {
    "kit": "styloo-farm",
    "name": "cherries",
-   "hash": "50ec88b870",
+   "hash": "f5589aa7f4",
    "kind": "obj-food-fruit-cherry",
    "size": "s",
    "wdh": [
@@ -392664,10 +392682,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.012,
-   "thick": 0.0848,
+   "minTube": 0.008,
+   "thick": 0.0838,
    "avgTri": 0.00002,
-   "anglePct": 0,
+   "anglePct": 1,
    "pieces": 8,
    "vpt": 0.91,
    "cells": [
@@ -392692,6 +392710,11 @@
      "level": "warning",
      "check": "measures",
      "text": "I01 thickRel 0.35 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.008 wants min 0.012"
     }
    ]
   },
@@ -397362,13 +397385,13 @@
   {
    "kit": "styloo-food",
    "name": "iced-coffee",
-   "hash": "7bb0f22b46",
+   "hash": "c8d12b26b5",
    "kind": "obj-kitchenware-tableware-drinkware-takeaway",
    "size": "s",
    "wdh": [
     0.103,
     0.103,
-    0.202
+    0.201
    ],
    "tris": 338,
    "tpu": 985,
@@ -397379,10 +397402,11 @@
    "vtx": 375,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "thick": 0.2608,
-   "avgTri": 0.00018,
-   "anglePct": 7,
+   "minEdge": 0.003,
+   "minTube": 0.0179,
+   "thick": 0.2611,
+   "avgTri": 0.00017,
+   "anglePct": 8,
    "pieces": 2,
    "vpt": 1.11,
    "cells": [
@@ -397398,7 +397422,14 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 2.77
+   "thickRel": 2.78,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0179 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -404084,7 +404115,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.77
   },
   {
    "kit": "styloo-school",
@@ -407574,7 +407605,7 @@
   {
    "kit": "styloo-school",
    "name": "toilet-roll",
-   "hash": "6048160674",
+   "hash": "7308df3ba7",
    "kind": "obj-furnishing-bathroom-toiletroll",
    "size": "s",
    "wdh": [
@@ -407592,10 +407623,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0036,
-   "thick": 0.185,
+   "thick": 0.1834,
    "avgTri": 0.0001,
-   "anglePct": 54,
+   "anglePct": 52,
    "pieces": 2,
    "vpt": 1.14,
    "cells": [
@@ -407611,14 +407641,7 @@
     "paper-sheet",
     "sty"
    ],
-   "thickRel": 1.44,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0036 wants min 0.012"
-    }
-   ]
+   "thickRel": 1.43
   },
   {
    "kit": "styloo-school",
@@ -410145,7 +410168,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.53
+   "thickRel": 1.52
   },
   {
    "kit": "taalei-kit",
@@ -415535,7 +415558,7 @@
   {
    "kit": "vases-pots",
    "name": "vase-big-cracked",
-   "hash": "b81da16e78",
+   "hash": "7b2767aba7",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
@@ -415543,8 +415566,8 @@
     0.217,
     0.416
    ],
-   "tris": 1866,
-   "tpu": 5440,
+   "tris": 1920,
+   "tpu": 5598,
    "mat": 1,
    "bands": 3,
    "calls": 1,
@@ -415553,11 +415576,12 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
+   "minTube": 0.012,
    "thick": 0.1414,
    "avgTri": 0.00027,
    "anglePct": 6,
-   "pieces": 9,
-   "vpt": 1.06,
+   "pieces": 10,
+   "vpt": 1.03,
    "cells": [
     "8,0",
     "5,0",
@@ -415575,7 +415599,14 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-big",
-   "thickRel": 0.97
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.012 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "vases-pots",
