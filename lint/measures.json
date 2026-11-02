@@ -7,12 +7,13 @@
   { "id": "G11", "when": "*", "except": "kind:obj-food | kind:obj-equipment-target-bullseye | kind:str-fixture-utility-solar | kind:obj-transport-watercraft-ship | kind:obj-leisure-toy | kind:env-fauna | kind:env-flora-waterplant | mat:plastic | kind:obj-transport-land-rail | kind:obj-transport-air-space | kind:str-fixture-marker-totem | kind:str-fixture-light-traffic | kind:obj-equipment-pocketitem-scroll | nmat<1 | kind:str-building & tag:space | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "nmat × 2" },
   { "id": "G30", "when": "kind:str-building & tag:space", "except": "nmat<1 | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "nmat × 3" },
   { "id": "G12", "when": "kind:obj-food | kind:env-fauna | kind:env-flora-waterplant | mat:plastic", "except": "nmat<1 | kind:obj-food-baked-pastry | kind:obj-food-sweet-icecream | kind:env-fauna-fish-shark | kind:env-fauna-bird | kind:obj-food-fish-sushi | kind:str-fixture-marker-sign-lettering | kind:obj-equipment-tool-stationery-writing | kind:obj-leisure-toy | kind:obj-leisure-game | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "nmat × 3" },
-  { "id": "G13", "when": "*", "except": "kind:char | size:l & !kind:obj-transport-land-road | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "bandsmax" },
+  { "id": "G13", "when": "*", "except": "kind:char | size:l & !kind:obj-transport-land-road & !kind:obj-leisure-toy | tag:plural | kind:set", "field": "bands", "assert": "max", "value": "bandsmax" },
   { "id": "G14", "when": "kind:char", "except": "tag:plural | kind:set", "field": "bands", "assert": "max", "value": 6 },
-  { "id": "G15", "when": "size:l", "except": "kind:str-building | kind:obj-transport-land-road | tag:plural | kind:set", "field": "bands", "assert": "max", "value": 6 },
+  { "id": "G15", "when": "size:l", "except": "kind:str-building | kind:obj-transport-land-road | kind:obj-leisure-toy | tag:plural | kind:set", "field": "bands", "assert": "max", "value": 6 },
   { "id": "G17", "when": "size:l & kind:str-building", "except": "tag:plural | kind:set", "field": "bands", "assert": "max", "value": 7 },
   { "id": "G31", "when": "size:s", "except": "mat:earth-soil | kind:obj-equipment-target-bullseye | tag:plural | kind:set", "field": "band:taupe-dark", "assert": "is", "value": false },
-  { "id": "G19", "when": "kind:obj-container-barrel", "except": "tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–1500" },
+  { "id": "G19", "when": "kind:obj-container-barrel", "except": "kind:obj-container-barrel-metal | tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–1500" },
+  { "id": "G32", "when": "kind:obj-container-barrel-metal", "except": "tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–2200" },
   { "id": "G27", "when": "minTube>0", "field": "minTube", "assert": "min", "value": "tubeneed" }
  ]
 }
