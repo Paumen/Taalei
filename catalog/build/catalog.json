@@ -379402,7 +379402,7 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "clock",
-   "hash": "66a70c1118",
+   "hash": "7f5b1e363c",
    "kind": "obj-furnishing-clock",
    "size": "s",
    "wdh": [
@@ -379420,8 +379420,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0124,
-   "thick": 0.1067,
+   "minTube": 0.0016,
+   "thick": 0.1069,
    "avgTri": 0.0003,
    "anglePct": 79,
    "pieces": 14,
@@ -379447,7 +379447,26 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.72
+   "backface": {
+    "share": 0.0045,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.72,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/20 over 0.1%: open 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0016 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "rgp-vintage",
