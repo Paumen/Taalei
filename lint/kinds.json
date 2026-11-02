@@ -187,6 +187,13 @@
         },
         {
          "id": "obj-container-crate-ammo",
+         "mat.metal": [
+          "metal-steel",
+          "metal-iron-mid",
+          "metal-iron-dark",
+          "metal-gold",
+          "metal-copper"
+         ],
          "nouns": [
           "ammo box",
           "ammo can",
@@ -352,6 +359,7 @@
          "id": "obj-container-pot-vase",
          "longest.min": 0.15,
          "longest.max": 0.5,
+         "tube.min": 0.012,
          "nouns": [
           "vase"
          ]
@@ -1420,6 +1428,7 @@
          "id": "obj-food-meal-burger",
          "longest.min": 0.1,
          "longest.max": 0.25,
+         "bands.max": 7,
          "nouns": [
           "burger",
           "hamburger",
@@ -1451,6 +1460,7 @@
         },
         {
          "id": "obj-food-meal-soup",
+         "bands.max": 6,
          "nouns": [
           "soup",
           "stew",
@@ -1917,8 +1927,17 @@
             "throwing knife",
             "shuriken",
             "throwing star",
-            "boomerang",
-            "javelin"
+            "boomerang"
+           ],
+           "children": [
+            {
+             "id": "obj-equipment-weapon-ranged-throwing-javelin",
+             "longest.min": 0.4,
+             "longest.max": 0.7,
+             "nouns": [
+              "javelin"
+             ]
+            }
            ]
           },
           {
@@ -2040,7 +2059,7 @@
          "longest.min": 0.5,
          "longest.max": 0.9,
          "tube.min": 0.006,
-         "bands.max": 7,
+         "bands.max": 8,
          "nouns": [
           "training dummy",
           "training post",
@@ -2951,6 +2970,9 @@
            "id": "obj-transport-land-road-car",
            "longest.min": 1,
            "longest.max": 1.4,
+           "scale": {
+            "big": 1.6
+           },
            "nouns": [
             "car",
             "sedan",
@@ -3028,6 +3050,7 @@
          "children": [
           {
            "id": "obj-resource-metal-parts-pipe",
+           "tube.min": 0.012,
            "nouns": [
             "pipe (stock)",
             "pipe bundle"
@@ -3808,6 +3831,7 @@
          "tube.min": 0.012,
          "longest.min": 0.5,
          "longest.max": 1,
+         "bands.max": 6,
          "nouns": [
           "fridge",
           "refrigerator",
@@ -4424,6 +4448,9 @@
          "id": "str-part-gate-gateway",
          "high.min": 0.8,
          "high.max": 2.4,
+         "scale": {
+          "small": 0.6
+         },
          "nouns": [
           "gateway",
           "torii"
@@ -5283,6 +5310,7 @@
          "longest.max": 1.6,
          "tube.min": 0.006,
          "scale": {
+          "small": 0.4,
           "big": 2
          },
          "nouns": [
@@ -5438,6 +5466,7 @@
          "scale": {
           "big": 2
          },
+         "bands.max": 6,
          "nouns": [
           "well"
          ]
