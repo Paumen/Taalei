@@ -1158,5 +1158,18 @@ window.KENNEY_KITS = [
  {
   "slug": "mali",
   "url": null
+ },
+ {
+  "slug": "quat-buildings",
+  "url": "https://quaternius.com/",
+  "note": "Source zip has no licence file; Quaternius releases its packs as CC0."
+ },
+ {
+  "slug": "quat-buildings-2",
+  "url": "https://quaternius.com/"
+ },
+ {
+  "slug": "quat-textured",
+  "url": "https://quaternius.com/"
  }
 ]

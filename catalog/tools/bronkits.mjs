@@ -247,8 +247,8 @@ export const BRONKITS = [
   { map: 'Ultimate_Modular_Sci-Fi', naam: 'Ultimate Modular Sci-Fi', kit: null, source: 'qua', formaat: 'obj' },
   { map: 'Ultimate_House_Interior_Pack_OBJ', naam: 'Ultimate House Interior Pack (OBJ)', kit: null, source: 'qua', formaat: 'obj' },
   { map: 'Ultimate_Modular_Ruins_Pack', naam: 'Ultimate Modular Ruins Pack', kit: null, source: 'qua', formaat: 'obj' },
-  { map: 'Buildings_Pack_Quaternius', naam: 'Buildings Pack (Aug 2017)', kit: null, source: 'qua', formaat: 'obj' },
-  { map: 'Buildings_Pack_Jan_2019_Quaternius', naam: 'Buildings Pack (Jan 2019)', kit: null, source: 'qua', formaat: 'obj' },
+  { map: 'Buildings_Pack_Quaternius', naam: 'Buildings Pack (Aug 2017)', kit: 'quat-buildings', source: 'qua', formaat: 'obj' },
+  { map: 'Buildings_Pack_Jan_2019_Quaternius', naam: 'Buildings Pack (Jan 2019)', kit: 'quat-buildings-2', source: 'qua', formaat: 'obj' },
   { map: 'Furniture_Pack_Quaternius', naam: 'Furniture Pack', kit: null, source: 'qua', formaat: 'obj' },
-  { map: 'Ultimate_Textured_Building_Pack', naam: 'Ultimate Textured Building Pack', kit: null, source: 'qua', formaat: 'obj', alleMappen: true },
+  { map: 'Ultimate_Textured_Building_Pack', naam: 'Ultimate Textured Building Pack', kit: 'quat-textured', source: 'qua', formaat: 'obj', alleMappen: true },
 ];
