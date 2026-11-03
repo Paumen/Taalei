@@ -293,7 +293,7 @@ export function leesObj(pad) {
       uvs: heeftUvs ? uvs : null,
       hoekkleuren: null,
       indices: Uint32Array.from({ length: aantal }, (_, i) => i),
-      materiaal: materialen.get(naam) ?? { textuur: null, kleur: [255, 255, 255] },
+      materiaal: { naam, ...(materialen.get(naam) ?? { textuur: null, kleur: [255, 255, 255] }) },
     });
   }
 
