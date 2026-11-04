@@ -248,7 +248,8 @@ export function leesObj(pad) {
     else if (sleutel === 'vn') vn.push(stukken.slice(1, 4).map(Number));
     else if (sleutel === 'vt') vt.push(stukken.slice(1, 3).map(Number));
     else if (sleutel === 'mtllib') {
-      materialen = leesMtl(join(dirname(pad), stukken.slice(1).join(' ')));
+      const mtl = join(dirname(pad), stukken.slice(1).join(' '));
+      materialen = leesMtl(existsSync(mtl) ? mtl : pad.replace(/\.obj$/i, '.mtl'));
     } else if (sleutel === 'usemtl') materiaal = stukken.slice(1).join(' ');
     else if (sleutel === 'f') {
       const hoek = stukken.slice(1).map((deel) => {
