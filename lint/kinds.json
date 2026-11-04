@@ -88,6 +88,12 @@
           "fuel barrel",
           "chemical drum"
          ]
+        },
+        {
+         "id": "obj-container-barrel-wood",
+         "nouns": [
+          "wooden barrel"
+         ]
         }
        ]
       },
@@ -312,6 +318,35 @@
        ]
       },
       {
+       "id": "obj-container-trash",
+       "nouns": [],
+       "children": [
+        {
+         "id": "obj-container-trash-trashcan",
+         "tube.min": 0.012,
+         "longest.min": 0.2,
+         "longest.max": 0.6,
+         "scale": {
+          "small": 0.5
+         },
+         "nouns": [
+          "trashcan",
+          "trash can",
+          "litter bin"
+         ]
+        },
+        {
+         "id": "obj-container-trash-dumpster",
+         "longest.min": 0.5,
+         "longest.max": 2,
+         "nouns": [
+          "dumpster",
+          "skip"
+         ]
+        }
+       ]
+      },
+      {
        "id": "obj-container-bag",
        "tube.min": 0.006,
        "band.textile-cloth": [
@@ -463,20 +498,6 @@
        ]
       },
       {
-       "id": "obj-container-trashcan",
-       "tube.min": 0.012,
-       "longest.min": 0.2,
-       "longest.max": 0.6,
-       "scale": {
-        "small": 0.5
-       },
-       "nouns": [
-        "trashcan",
-        "trash can",
-        "litter bin"
-       ]
-      },
-      {
        "id": "obj-container-cargo",
        "longest.min": 1.4,
        "longest.max": 2.2,
@@ -494,15 +515,6 @@
        "longest.max": 0.6,
        "nouns": [
         "basket"
-       ]
-      },
-      {
-       "id": "obj-container-dumpster",
-       "longest.min": 0.5,
-       "longest.max": 2,
-       "nouns": [
-        "dumpster",
-        "skip"
        ]
       },
       {
@@ -1969,16 +1981,38 @@
          },
          "nouns": [
           "explosive",
-          "grenade",
-          "molotov cocktail",
-          "dynamite",
-          "bomb",
-          "fuse bomb",
-          "smoke bomb",
-          "time bomb",
-          "claymore",
-          "landmine",
-          "tnt"
+          "molotov cocktail"
+         ],
+         "children": [
+          {
+           "id": "obj-equipment-weapon-explosive-dynamite",
+           "nouns": [
+            "dynamite",
+            "time bomb",
+            "tnt"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-explosive-grenade",
+           "nouns": [
+            "grenade"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-explosive-mine",
+           "nouns": [
+            "claymore",
+            "landmine"
+           ]
+          },
+          {
+           "id": "obj-equipment-weapon-explosive-powder",
+           "nouns": [
+            "bomb",
+            "fuse bomb",
+            "smoke bomb"
+           ]
+          }
          ]
         },
         {
@@ -2405,8 +2439,15 @@
            "id": "obj-equipment-tool-hand-hammer",
            "longest.max": 0.45,
            "nouns": [
-            "hammer",
-            "mallet"
+            "hammer"
+           ],
+           "children": [
+            {
+             "id": "obj-equipment-tool-hand-hammer-mallet",
+             "nouns": [
+              "mallet"
+             ]
+            }
            ]
           },
           {
@@ -2450,9 +2491,16 @@
             "bolster (chisel)",
             "file",
             "hand plane",
-            "trowel",
             "plasterer's float",
             "nail file"
+           ],
+           "children": [
+            {
+             "id": "obj-equipment-tool-hand-shaping-trowel",
+             "nouns": [
+              "trowel"
+             ]
+            }
            ]
           },
           {
@@ -3619,6 +3667,15 @@
            ]
           },
           {
+           "id": "obj-furnishing-furniture-storage-display",
+           "nouns": [
+            "display rack",
+            "spinner rack",
+            "slat wall",
+            "prize wall"
+           ]
+          },
+          {
            "id": "obj-furnishing-furniture-storage-rack",
            "longest.min": 0.3,
            "longest.max": 0.95,
@@ -3647,15 +3704,6 @@
               "coat stand",
               "hat stand",
               "coat hooks"
-             ]
-            },
-            {
-             "id": "obj-furnishing-furniture-storage-rack-display",
-             "nouns": [
-              "display rack",
-              "spinner rack",
-              "slat wall",
-              "prize wall"
              ]
             }
            ]
@@ -3793,10 +3841,22 @@
        "longest.max": 0.9,
        "nouns": [
         "clock",
-        "alarm clock",
-        "wall clock",
-        "grandfather clock",
-        "hourglass"
+        "grandfather clock"
+       ],
+       "children": [
+        {
+         "id": "obj-furnishing-clock-wall",
+         "nouns": [
+          "wall clock"
+         ]
+        },
+        {
+         "id": "obj-furnishing-clock-table",
+         "nouns": [
+          "alarm clock",
+          "hourglass"
+         ]
+        }
        ]
       }
      ]
@@ -4952,6 +5012,33 @@
           "turnstile",
           "garden arch"
          ]
+        },
+        {
+         "id": "str-barrier-fence-picket",
+         "nouns": [
+          "picket fence",
+          "plank fence"
+         ]
+        },
+        {
+         "id": "str-barrier-fence-iron",
+         "nouns": [
+          "iron fence"
+         ]
+        },
+        {
+         "id": "str-barrier-fence-temporary",
+         "nouns": [
+          "construction fence",
+          "crowd barrier",
+          "sandbags"
+         ]
+        },
+        {
+         "id": "str-barrier-fence-roped",
+         "nouns": [
+          "rope fence"
+         ]
         }
        ]
       },
@@ -5620,6 +5707,16 @@
           "spring rider",
           "sandbox",
           "stepping stumps"
+         ],
+         "children": [
+          {
+           "id": "str-fixture-leisure-playground-skate",
+           "nouns": [
+            "skate ramp",
+            "half-pipe",
+            "grind rail"
+           ]
+          }
          ]
         }
        ]
@@ -5827,11 +5924,8 @@
       "octopus",
       "crab",
       "lobster",
-      "frog",
       "snail",
-      "worm",
-      "dragon",
-      "turtle"
+      "worm"
      ],
      "children": [
       {
@@ -5863,6 +5957,12 @@
           "ray",
           "stingray",
           "manta ray"
+         ]
+        },
+        {
+         "id": "env-fauna-fish-reef",
+         "nouns": [
+          "reef fish"
          ]
         }
        ]
@@ -5912,6 +6012,19 @@
         "whale",
         "dolphin",
         "seal"
+       ]
+      },
+      {
+       "id": "env-fauna-fictional",
+       "nouns": [
+        "dragon"
+       ]
+      },
+      {
+       "id": "env-fauna-amphibian",
+       "nouns": [
+        "frog",
+        "turtle"
        ]
       }
      ]
@@ -6424,8 +6537,23 @@
    "nouns": [
     "playable",
     "npc",
-    "skeleton (rigged)",
     "animal (rigged)"
+   ],
+   "children": [
+    {
+     "id": "char-robot",
+     "nouns": []
+    },
+    {
+     "id": "char-human",
+     "nouns": []
+    },
+    {
+     "id": "char-undead",
+     "nouns": [
+      "skeleton (rigged)"
+     ]
+    }
    ]
   },
   {

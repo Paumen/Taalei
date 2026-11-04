@@ -69,13 +69,13 @@ const SIZES = {
   'obj-container-crate-scifi': 0.6,
   'obj-container-cylinder': 0.8,
   'obj-container-cylinder-tank': 0.8,
-  'obj-container-dumpster': 1.8,
+  'obj-container-trash-dumpster': 1.8,
   'obj-container-pot': 0.4,
   'obj-container-pot-jar': 0.15,
   'obj-container-pot-urn': 0.5,
   'obj-container-pot-vase': 0.5,
   'obj-container-present': 0.3,
-  'obj-container-trashcan': 0.9,
+  'obj-container-trash-trashcan': 0.9,
   'obj-device-appliance': 1,
   'obj-device-appliance-blender': 0.4,
   'obj-device-appliance-extractor': 0.9,
@@ -380,7 +380,7 @@ const SIZES = {
 };
 
 const HIGH = new Set([
-  'obj-container-trashcan',
+  'obj-container-trash-trashcan',
   'obj-device-appliance-fridge',
   'obj-device-appliance-laundry',
   'obj-device-appliance-oven',
