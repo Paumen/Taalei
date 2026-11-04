@@ -1171,5 +1171,13 @@ window.KENNEY_KITS = [
  {
   "slug": "quat-textured",
   "url": "https://quaternius.com/"
+ },
+ {
+  "slug": "quat-scifi-mod",
+  "url": "https://quaternius.com/packs/ultimatemodularscifi.html"
+ },
+ {
+  "slug": "quat-ruins",
+  "url": "https://quaternius.com/packs/ultimatemodularruins.html"
  }
 ]
