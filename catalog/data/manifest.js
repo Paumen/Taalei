@@ -1179,5 +1179,11 @@ window.KENNEY_KITS = [
  {
   "slug": "quat-ruins",
   "url": "https://quaternius.com/packs/ultimatemodularruins.html"
+ },
+ {
+  "slug": "quat-furniture",
+  "url": "https://quaternius.com/",
+  "licenseLabel": "CC0",
+  "note": "Quaternius, Furniture Pack (March 2019)."
  }
 ]
