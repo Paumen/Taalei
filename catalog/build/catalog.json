@@ -3957,6 +3957,32 @@
    }
   },
   {
+   "slug": "quat-furniture",
+   "name": "quat-furniture",
+   "url": "https://quaternius.com/",
+   "note": "Quaternius, Furniture Pack (March 2019).",
+   "artist": "Quaternius",
+   "licenseLabel": "CC0",
+   "count": 19,
+   "packs": [
+    "Furniture Pack"
+   ],
+   "origins": {
+    "Furniture Pack": 19
+   },
+   "scales": {
+    "0.3": 19
+   },
+   "smooth": {
+    "smooth": 18,
+    "none": 1
+   },
+   "kitCheck": {
+    "factor": 0.87,
+    "kinds": 13
+   }
+  },
+  {
    "slug": "quat-guns",
    "name": "quat-guns",
    "artist": "Quaternius",
@@ -4030,26 +4056,28 @@
    "note": "Quaternius; source zip carries no licence file.",
    "artist": "Quaternius",
    "licenseLabel": "CC0",
-   "count": 77,
+   "count": 105,
    "packs": [
-    "Ultimate House Interior Pack"
+    "Ultimate House Interior Pack",
+    "Ultimate House Interior Pack (OBJ)"
    ],
    "origins": {
-    "Ultimate House Interior Pack": 77
+    "Ultimate House Interior Pack": 77,
+    "Ultimate House Interior Pack (OBJ)": 28
    },
    "scales": {
-    "0.3": 72,
+    "0.3": 100,
     "0.321": 2,
     "0.366": 2,
     "0.318": 1
    },
    "smooth": {
-    "smooth": 76,
-    "none": 1
+    "smooth": 96,
+    "none": 9
    },
    "kitCheck": {
-    "factor": 1.01,
-    "kinds": 34
+    "factor": 0.98,
+    "kinds": 38
    }
   },
   {
@@ -25066,6 +25094,107 @@
     "quat-ruins/window-open",
     "quat-ruins/window-bars"
    ]
+  },
+  {
+   "id": "quat-interior/column-round",
+   "type": "maatvariant",
+   "main": "quat-interior/column-round",
+   "members": [
+    "quat-interior/column-round",
+    "quat-interior/column-round-b",
+    "quat-interior/column-round-c"
+   ]
+  },
+  {
+   "id": "quat-interior/column-square-tall",
+   "type": "maatvariant",
+   "main": "quat-interior/column-square-tall",
+   "members": [
+    "quat-interior/column-square-tall",
+    "quat-interior/column-square-short"
+   ]
+  },
+  {
+   "id": "quat-interior/chair-c",
+   "type": "detail-variant",
+   "main": "quat-interior/chair-c",
+   "members": [
+    "quat-interior/chair-c",
+    "quat-interior/chair-d"
+   ]
+  },
+  {
+   "id": "quat-interior/couch-large",
+   "type": "color-variant",
+   "main": "quat-interior/couch-large",
+   "members": [
+    "quat-interior/couch-large",
+    "quat-interior/couch-large-b"
+   ]
+  },
+  {
+   "id": "quat-interior/kitchen-counter-a",
+   "type": "detail-variant",
+   "main": "quat-interior/kitchen-counter-a",
+   "members": [
+    "quat-interior/kitchen-counter-a",
+    "quat-interior/kitchen-counter-b"
+   ]
+  },
+  {
+   "id": "quat-interior/mirror-a",
+   "type": "detail-variant",
+   "main": "quat-interior/mirror-a",
+   "members": [
+    "quat-interior/mirror-a",
+    "quat-interior/mirror-b"
+   ]
+  },
+  {
+   "id": "quat-interior/shelf-narrow-a",
+   "type": "maatvariant",
+   "main": "quat-interior/shelf-narrow-a",
+   "members": [
+    "quat-interior/shelf-narrow-a",
+    "quat-interior/shelf-narrow-b"
+   ]
+  },
+  {
+   "id": "quat-furniture/bed-double",
+   "type": "maatvariant",
+   "main": "quat-furniture/bed-double",
+   "members": [
+    "quat-furniture/bed-double",
+    "quat-furniture/bed-single"
+   ]
+  },
+  {
+   "id": "quat-furniture/bookcase",
+   "type": "detail-variant",
+   "main": "quat-furniture/bookcase",
+   "members": [
+    "quat-furniture/bookcase",
+    "quat-furniture/bookcase-books"
+   ]
+  },
+  {
+   "id": "quat-furniture/wardrobe-tall",
+   "type": "maatvariant",
+   "main": "quat-furniture/wardrobe-tall",
+   "members": [
+    "quat-furniture/wardrobe-tall",
+    "quat-furniture/wardrobe-short"
+   ]
+  },
+  {
+   "id": "quat-furniture/door-a",
+   "type": "detail-variant",
+   "main": "quat-furniture/door-a",
+   "members": [
+    "quat-furniture/door-a",
+    "quat-furniture/door-b",
+    "quat-furniture/door-c"
+   ]
   }
  ],
  "bands": [
@@ -25163,7 +25292,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 596,
+   "count": 597,
    "parent": "metal"
   },
   {
@@ -25179,7 +25308,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2154,
+   "count": 2164,
    "parent": "metal"
   },
   {
@@ -25187,7 +25316,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim.",
-   "count": 324,
+   "count": 331,
    "parent": "metal"
   },
   {
@@ -25219,7 +25348,7 @@
    "name": "Masonry mid",
    "type": "material",
    "description": "Mid-grey stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 966,
+   "count": 973,
    "parent": "stone"
   },
   {
@@ -25291,7 +25420,7 @@
    "name": "Ceramic light",
    "type": "material",
    "description": "Light fired clay: porcelain plates, cups, basins, white tiles.",
-   "count": 335,
+   "count": 336,
    "parent": "ceramic"
   },
   {
@@ -25323,7 +25452,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 563,
+   "count": 569,
    "parent": "glass"
   },
   {
@@ -25347,7 +25476,7 @@
    "name": "Mirror",
    "type": "material",
    "description": "Mirror glass.",
-   "count": 13,
+   "count": 15,
    "parent": "glass"
   },
   {
@@ -25370,7 +25499,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 784,
+   "count": 788,
    "parent": "wood"
   },
   {
@@ -25378,7 +25507,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1255,
+   "count": 1266,
    "parent": "wood"
   },
   {
@@ -25386,7 +25515,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1627,
+   "count": 1645,
    "parent": "wood"
   },
   {
@@ -25410,7 +25539,7 @@
    "name": "Paper sheet",
    "type": "material",
    "description": "Paper and parchment: books, scrolls, maps, labels.",
-   "count": 300,
+   "count": 301,
    "parent": "paper"
   },
   {
@@ -25474,7 +25603,7 @@
    "name": "Cloth light",
    "type": "material",
    "description": "Light cloth: canvas, sails, bedding, bandages, shirts.",
-   "count": 292,
+   "count": 294,
    "parent": "textile-cloth"
   },
   {
@@ -25482,7 +25611,7 @@
    "name": "Cloth mid",
    "type": "material",
    "description": "Mid cloth: sacks, hessian, grips, wraps.",
-   "count": 212,
+   "count": 214,
    "parent": "textile-cloth"
   },
   {
@@ -25490,7 +25619,7 @@
    "name": "Cloth dark",
    "type": "material",
    "description": "Dark cloth: banners, upholstery, cushions, rugs, clothing.",
-   "count": 349,
+   "count": 362,
    "parent": "textile-cloth"
   },
   {
@@ -25521,7 +25650,7 @@
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers.",
-   "count": 191,
+   "count": 193,
    "parent": "animal"
   },
   {
@@ -25576,7 +25705,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1525,
+   "count": 1534,
    "parent": "polymer"
   },
   {
@@ -25614,7 +25743,7 @@
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 188
+   "count": 189
   },
   {
    "id": "special-food",
@@ -25635,7 +25764,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
-   "count": 4890,
+   "count": 4927,
    "color": "#c07c8a"
   },
   {
@@ -25643,7 +25772,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 294
+   "count": 295
   },
   {
    "id": "obj-leisure",
@@ -25657,7 +25786,7 @@
    "name": "Appliance",
    "type": "kind",
    "description": "Powered appliance for kitchen or home: fridge, stove, oven, coffee machine, washer, dryer, ceiling fan, water cooler.",
-   "count": 91
+   "count": 92
   },
   {
    "id": "obj-device-appliance-drink",
@@ -26584,7 +26713,7 @@
    "name": "Furnishing",
    "type": "kind",
    "description": "Furnishing with no leaf that fits.",
-   "count": 820,
+   "count": 853,
    "color": "#c07c8a"
   },
   {
@@ -26599,14 +26728,14 @@
    "name": "Furniture",
    "type": "kind",
    "description": "Furniture: seating, table, bed, storage.",
-   "count": 542
+   "count": 568
   },
   {
    "id": "obj-furnishing-furniture-counter",
    "name": "Counter",
    "type": "kind",
    "description": "Kitchen or shop counter with worktop, including kitchen bars and host stands.",
-   "count": 49
+   "count": 51
   },
   {
    "id": "obj-furnishing-furniture-counter-sink",
@@ -26648,7 +26777,7 @@
    "name": "Textile",
    "type": "kind",
    "description": "Soft furnishing: pillow, rug, curtain, blinds.",
-   "count": 60
+   "count": 62
   },
   {
    "id": "obj-furnishing-textile-mat",
@@ -26662,21 +26791,21 @@
    "name": "Curtains",
    "type": "kind",
    "description": "Curtains, blinds or a shower curtain, usually on a rail.",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-furnishing-textile-rug",
    "name": "Rug",
    "type": "kind",
    "description": "Flat textile on the floor: rug, carpet, doormat, picnic blanket, folded or spread.",
-   "count": 37
+   "count": 38
   },
   {
    "id": "obj-furnishing-bathroom",
    "name": "Bathroom",
    "type": "kind",
    "description": "Fixed bathroom fitting: toilet, bathtub, shower, washbasin, bathroom mirror, towel rail, changing stall.",
-   "count": 54
+   "count": 57
   },
   {
    "id": "obj-furnishing-bathroom-towelrail",
@@ -26711,14 +26840,14 @@
    "name": "Mirror",
    "type": "kind",
    "description": "bathroom mirror",
-   "count": 5
+   "count": 7
   },
   {
    "id": "obj-furnishing-bathroom-toilet",
    "name": "Toilet",
    "type": "kind",
    "description": "toilet, urinal",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-furnishing-bathroom-bath",
@@ -26739,14 +26868,14 @@
    "name": "Bed",
    "type": "kind",
    "description": "bed, bedroll, bunk, cot, hammock",
-   "count": 35
+   "count": 37
   },
   {
    "id": "obj-furnishing-furniture-bed-double",
    "name": "Double bed",
    "type": "kind",
    "description": "double bed",
-   "count": 10
+   "count": 11
   },
   {
    "id": "obj-furnishing-furniture-bed-bunk",
@@ -26760,14 +26889,14 @@
    "name": "Seating",
    "type": "kind",
    "description": "Seating with no leaf that fits.",
-   "count": 181
+   "count": 192
   },
   {
    "id": "obj-furnishing-furniture-seating-sofa",
    "name": "Sofa",
    "type": "kind",
    "description": "Upholstered seat for several people: couch, sofa, lounge sofa.",
-   "count": 22
+   "count": 27
   },
   {
    "id": "obj-furnishing-furniture-seating-bench",
@@ -26795,28 +26924,28 @@
    "name": "Chair",
    "type": "kind",
    "description": "chair, throne",
-   "count": 78
+   "count": 83
   },
   {
    "id": "obj-furnishing-furniture-seating-chair-desk",
    "name": "Desk chair",
    "type": "kind",
    "description": "desk chair, office chair",
-   "count": 15
+   "count": 16
   },
   {
    "id": "obj-furnishing-furniture-seating-chair-lounge",
    "name": "Lounge chair",
    "type": "kind",
    "description": "armchair, lounge chair",
-   "count": 16
+   "count": 17
   },
   {
    "id": "obj-furnishing-furniture-seating-stool",
    "name": "Stool",
    "type": "kind",
    "description": "stool",
-   "count": 38
+   "count": 39
   },
   {
    "id": "obj-furnishing-furniture-seating-stool-bar",
@@ -26837,14 +26966,14 @@
    "name": "Storage",
    "type": "kind",
    "description": "chest of drawers, dresser, coat rack, weapon rack",
-   "count": 159
+   "count": 167
   },
   {
    "id": "obj-furnishing-furniture-storage-bookcase",
    "name": "Bookcase",
    "type": "kind",
    "description": "Free-standing shelving unit or bookcase, open or with doors.",
-   "count": 30
+   "count": 35
   },
   {
    "id": "obj-furnishing-furniture-storage-dresser",
@@ -26858,7 +26987,7 @@
    "name": "Cabinet",
    "type": "kind",
    "description": "Closed or open standing case with a carcass: cabinet, bookcase, wardrobe.",
-   "count": 33
+   "count": 35
   },
   {
    "id": "obj-furnishing-furniture-storage-cabinet-locker",
@@ -26879,7 +27008,7 @@
    "name": "Shelf",
    "type": "kind",
    "description": "Boards carried on brackets or a frame, open on the front.",
-   "count": 46
+   "count": 47
   },
   {
    "id": "obj-furnishing-furniture-storage-rack",
@@ -26914,7 +27043,7 @@
    "name": "Table",
    "type": "kind",
    "description": "table, desk, workbench",
-   "count": 116
+   "count": 119
   },
   {
    "id": "obj-furnishing-furniture-table-square",
@@ -26935,14 +27064,14 @@
    "name": "Side table",
    "type": "kind",
    "description": "side table, nightstand, bedside table, end table",
-   "count": 12
+   "count": 13
   },
   {
    "id": "obj-furnishing-furniture-table-desk",
    "name": "Desk",
    "type": "kind",
    "description": "Work or office desk, straight or corner.",
-   "count": 14
+   "count": 15
   },
   {
    "id": "obj-furnishing-furniture-table-coffee",
@@ -26956,7 +27085,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 425,
+   "count": 428,
    "color": "#9c3f2e"
   },
   {
@@ -26999,7 +27128,7 @@
    "name": "Stove",
    "type": "kind",
    "description": "Appliance with burners or plates to cook on: stove, range, cooktop.",
-   "count": 19
+   "count": 20
   },
   {
    "id": "obj-device-appliance-oven",
@@ -27132,7 +27261,7 @@
    "name": "Tableware",
    "type": "kind",
    "description": "and any tableware with no leaf that fits",
-   "count": 227
+   "count": 230
   },
   {
    "id": "obj-kitchenware-tableware-condiment",
@@ -27146,7 +27275,7 @@
    "name": "Cutlery",
    "type": "kind",
    "description": "spoon",
-   "count": 40
+   "count": 43
   },
   {
    "id": "obj-kitchenware-tableware-cutlery-chopsticks",
@@ -27160,21 +27289,21 @@
    "name": "Fork",
    "type": "kind",
    "description": "fork, table fork, dinner fork",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-kitchenware-tableware-cutlery-knife",
    "name": "Knife",
    "type": "kind",
    "description": "knife (table), table knife, butter knife, steak knife",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-kitchenware-tableware-cutlery-spoon",
    "name": "Spoon",
    "type": "kind",
    "description": "spoon (table), table spoon, teaspoon, soup spoon, rice spoon",
-   "count": 11
+   "count": 12
   },
   {
    "id": "obj-kitchenware-tableware-plate",
@@ -27265,7 +27394,7 @@
    "name": "Light",
    "type": "kind",
    "description": "chandelier, string lights, glow stick",
-   "count": 130,
+   "count": 132,
    "color": "#f2cb45"
   },
   {
@@ -27308,7 +27437,7 @@
    "name": "Lamp",
    "type": "kind",
    "description": "Indoor lamp: table, floor, wall or ceiling lamp.",
-   "count": 68
+   "count": 70
   },
   {
    "id": "obj-furnishing-light-lamp-spot",
@@ -27322,7 +27451,7 @@
    "name": "Ceiling lamp",
    "type": "kind",
    "description": "ceiling lamp, ceiling light, disco ball",
-   "count": 27
+   "count": 28
   },
   {
    "id": "obj-furnishing-light-lamp-ceiling-fan",
@@ -27350,7 +27479,7 @@
    "name": "Floor lamp",
    "type": "kind",
    "description": "Standing lamp on a pole, with a shade or bare light.",
-   "count": 8
+   "count": 9
   },
   {
    "id": "obj-furnishing-light-lamp-wall",
@@ -28665,7 +28794,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "mine entrance",
-   "count": 2835,
+   "count": 2845,
    "color": "#877a63"
   },
   {
@@ -28851,7 +28980,7 @@
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 1074,
+   "count": 1084,
    "color": "#a8762a"
   },
   {
@@ -28859,7 +28988,7 @@
    "name": "Door",
    "type": "kind",
    "description": "The way into a room or a house: the leaf, the opening it hangs in, and the hatch in a floor.",
-   "count": 81
+   "count": 84
   },
   {
    "id": "str-part-door-doorway",
@@ -28873,7 +29002,7 @@
    "name": "Single",
    "type": "kind",
    "description": "The door leaf on its own, without the opening it hangs in.",
-   "count": 63
+   "count": 66
   },
   {
    "id": "str-part-door-trapdoor",
@@ -28985,7 +29114,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support, bracing",
-   "count": 110
+   "count": 114
   },
   {
    "id": "str-part-roof",
@@ -29069,7 +29198,7 @@
    "name": "Window",
    "type": "kind",
    "description": "window, shutter",
-   "count": 30
+   "count": 33
   },
   {
    "id": "str-fixture-marker",
@@ -30007,7 +30136,7 @@
    "name": "Mounted",
    "type": "tag",
    "description": "Not meant to stand on the ground in a scene: hung from a ceiling, beam or post, fixed to a wall, or set high on a building.",
-   "count": 394
+   "count": 402
   },
   {
    "id": "tba",
@@ -31128,7 +31257,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4124,
+   "count": 4142,
    "derived": true
   },
   {
@@ -31136,7 +31265,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3554,
+   "count": 3580,
    "derived": true
   },
   {
@@ -31144,7 +31273,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1305,
+   "count": 1308,
    "derived": true
   },
   {
@@ -31168,7 +31297,7 @@
    "name": "Quaternius",
    "type": "artist",
    "description": "Kits from Quaternius (quaternius.com). Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1193,
+   "count": 1240,
    "derived": true
   },
   {
@@ -36770,7 +36899,7 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.44
   },
   {
    "kit": "3dm-city-2",
@@ -38780,12 +38909,12 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 0.31,
+   "thickRel": 0.28,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.31 wants min 0.5"
+     "text": "I01 thickRel 0.28 wants min 0.5"
     }
    ]
   },
@@ -39754,7 +39883,7 @@
     "space",
     "special-emissive"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.23
   },
   {
    "kit": "3dm-scifi",
@@ -41647,7 +41776,7 @@
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "aq-hallow",
@@ -43075,7 +43204,7 @@
     "metal-gold",
     "special-liquid"
    ],
-   "thickRel": 1.8
+   "thickRel": 1.82
   },
   {
    "kit": "aq-pond",
@@ -49560,7 +49689,7 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/cutlery-set",
-   "thickRel": 1.22
+   "thickRel": 1.2
   },
   {
    "kit": "cooking-assets",
@@ -50547,7 +50676,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 3.56
+   "thickRel": 3.52
   },
   {
    "kit": "cooking-assets",
@@ -51101,7 +51230,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 3.42
+   "thickRel": 3.37
   },
   {
    "kit": "cooking-assets",
@@ -51343,7 +51472,7 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/cutlery-set",
-   "thickRel": 1.12
+   "thickRel": 1.09
   },
   {
    "kit": "cooking-assets",
@@ -51468,7 +51597,7 @@
     "scale-small"
    ],
    "variant": "cooking-assets/stove",
-   "thickRel": 0.72
+   "thickRel": 0.71
   },
   {
    "kit": "cooking-assets",
@@ -51568,7 +51697,7 @@
     "scale-small"
    ],
    "variant": "cooking-assets/stove",
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "cooking-assets",
@@ -52459,7 +52588,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "dungeon",
@@ -52821,7 +52950,7 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.5
+   "thickRel": 0.52
   },
   {
    "kit": "dungeon",
@@ -52941,7 +53070,7 @@
     "mounted",
     "wood-light"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.96
   },
   {
    "kit": "dungeon",
@@ -53763,7 +53892,7 @@
    "tags": [
     "wood-light"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.9
   },
   {
    "kit": "dungeon",
@@ -54042,7 +54171,7 @@
    "tags": [
     "metal-iron-dark"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "dungeon-2",
@@ -54894,7 +55023,7 @@
     "wood-dark"
    ],
    "variant": "emace-80s/bookcase",
-   "thickRel": 2.23
+   "thickRel": 2.09
   },
   {
    "kit": "emace-80s",
@@ -54934,7 +55063,7 @@
     "wood-dark"
    ],
    "variant": "emace-80s/bookcase",
-   "thickRel": 1.14
+   "thickRel": 1.08
   },
   {
    "kit": "emace-80s",
@@ -55106,7 +55235,7 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "emace-80s",
@@ -56467,7 +56596,7 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.76
   },
   {
    "kit": "emace-village",
@@ -56845,7 +56974,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/corner-shelf",
-   "thickRel": 0.72
+   "thickRel": 0.73
   },
   {
    "kit": "emace-village",
@@ -57082,7 +57211,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.92
   },
   {
    "kit": "emace-village",
@@ -59022,7 +59151,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.78
   },
   {
    "kit": "emace-village",
@@ -60395,7 +60524,7 @@
      "inverted": 1
     }
    },
-   "thickRel": 1.04,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "warning",
@@ -60443,7 +60572,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/shutters",
-   "thickRel": 1.02
+   "thickRel": 1.12
   },
   {
    "kit": "emace-village",
@@ -60484,7 +60613,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/shutters",
-   "thickRel": 1.28
+   "thickRel": 1.4
   },
   {
    "kit": "emace-village",
@@ -69714,7 +69843,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-house/bar-corner-inner",
-   "thickRel": 0.71
+   "thickRel": 0.7
   },
   {
    "kit": "fs-house",
@@ -69758,7 +69887,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-house/bar-corner-inner",
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "fs-house",
@@ -69845,7 +69974,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-house/bar-corner-inner",
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "fs-house",
@@ -69940,7 +70069,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/counter",
-   "thickRel": 1.22
+   "thickRel": 1.21
   },
   {
    "kit": "fs-house",
@@ -69983,7 +70112,7 @@
     "fs",
     "metal-steel"
    ],
-   "thickRel": 0.5
+   "thickRel": 0.51
   },
   {
    "kit": "fs-house",
@@ -70077,7 +70206,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/bed-single",
-   "thickRel": 1.17,
+   "thickRel": 1.19,
    "lint": [
     {
      "level": "warning",
@@ -70183,7 +70312,7 @@
     "special-emissive"
    ],
    "variant": "fs-house/ceiling-fan-a",
-   "thickRel": 0.54
+   "thickRel": 0.53
   },
   {
    "kit": "fs-house",
@@ -70230,7 +70359,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/ceiling-fan-a",
-   "thickRel": 0.62
+   "thickRel": 0.61
   },
   {
    "kit": "fs-house",
@@ -70274,7 +70403,7 @@
     "textile-cloth-light"
    ],
    "variant": "fs-house/ceiling-light",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "fs-house",
@@ -70315,7 +70444,7 @@
     "textile-cloth-light"
    ],
    "variant": "fs-house/ceiling-light",
-   "thickRel": 2.94
+   "thickRel": 2.91
   },
   {
    "kit": "fs-house",
@@ -70401,7 +70530,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.38
   },
   {
    "kit": "fs-house",
@@ -70495,7 +70624,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/counter",
-   "thickRel": 1.29
+   "thickRel": 1.28
   },
   {
    "kit": "fs-house",
@@ -70540,7 +70669,7 @@
     "textile-cloth-dark"
    ],
    "variant": "fs-house/curtains",
-   "thickRel": 0.81
+   "thickRel": 0.78
   },
   {
    "kit": "fs-house",
@@ -70585,7 +70714,7 @@
     "textile-cloth-dark"
    ],
    "variant": "fs-house/curtains",
-   "thickRel": 1.39
+   "thickRel": 1.34
   },
   {
    "kit": "fs-house",
@@ -70628,7 +70757,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/door",
-   "thickRel": 1.15
+   "thickRel": 1.19
   },
   {
    "kit": "fs-house",
@@ -70671,7 +70800,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/door",
-   "thickRel": 1.21
+   "thickRel": 1.25
   },
   {
    "kit": "fs-house",
@@ -70755,7 +70884,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-house/doorway",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "fs-house",
@@ -71195,12 +71324,12 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 0.35,
+   "thickRel": 0.36,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.35 wants min 0.5"
+     "text": "I01 thickRel 0.36 wants min 0.5"
     }
    ]
   },
@@ -71918,7 +72047,7 @@
     "mounted",
     "wood-light"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "fs-house",
@@ -71962,7 +72091,7 @@
     "mounted",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.57
   },
   {
    "kit": "fs-house",
@@ -72002,7 +72131,7 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.2
   },
   {
    "kit": "fs-house",
@@ -72308,7 +72437,7 @@
     "metal-steel",
     "scale-big"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "fs-house",
@@ -72438,7 +72567,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.22
   },
   {
    "kit": "fs-house",
@@ -72523,7 +72652,7 @@
     "mounted",
     "paper-sheet"
    ],
-   "thickRel": 1.89
+   "thickRel": 1.91
   },
   {
    "kit": "fs-house",
@@ -72563,7 +72692,7 @@
     "ceramic-light",
     "fs"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.91
   },
   {
    "kit": "fs-house",
@@ -72607,7 +72736,7 @@
     "textile-cloth-dark"
    ],
    "variant": "fs-house/towel-rail",
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "fs-house",
@@ -72649,7 +72778,7 @@
     "mounted"
    ],
    "variant": "fs-house/towel-rail",
-   "thickRel": 2.13
+   "thickRel": 2.15
   },
   {
    "kit": "fs-house",
@@ -78259,7 +78388,7 @@
     "textile-cloth-dark"
    ],
    "variant": "fs-temple/rug-sun",
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "fs-temple",
@@ -79852,7 +79981,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.77
+   "thickRel": 1.82
   },
   {
    "kit": "fs-temple",
@@ -79984,7 +80113,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.77
+   "thickRel": 1.82
   },
   {
    "kit": "fs-temple",
@@ -80024,7 +80153,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.76
+   "thickRel": 1.82
   },
   {
    "kit": "fs-temple",
@@ -80064,7 +80193,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.77
+   "thickRel": 1.83
   },
   {
    "kit": "fs-temple",
@@ -80107,7 +80236,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-temple/wall-straight-door",
-   "thickRel": 1.8
+   "thickRel": 1.86
   },
   {
    "kit": "fs-temple",
@@ -81138,7 +81267,7 @@
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "fs-terrain",
@@ -85702,7 +85831,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.3
   },
   {
    "kit": "fs-town",
@@ -90632,7 +90761,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.9
   },
   {
    "kit": "household",
@@ -90798,7 +90927,7 @@
     "ct",
     "metal-steel"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "household",
@@ -90842,7 +90971,7 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.3
   },
   {
    "kit": "household",
@@ -90976,7 +91105,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.24,
+   "thickRel": 1.17,
    "lint": [
     {
      "level": "warning",
@@ -91024,7 +91153,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "household",
@@ -91268,7 +91397,7 @@
     "ct",
     "wood-mid"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.78
   },
   {
    "kit": "household",
@@ -91314,7 +91443,7 @@
     "special-emissive",
     "wax"
    ],
-   "thickRel": 0.67,
+   "thickRel": 0.66,
    "lint": [
     {
      "level": "warning",
@@ -91573,7 +91702,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.66
   },
   {
    "kit": "household",
@@ -91711,7 +91840,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.34
   },
   {
    "kit": "household",
@@ -91896,7 +92025,7 @@
     "metal-iron-mid",
     "wood-mid"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "household",
@@ -93020,7 +93149,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.42,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
@@ -93030,7 +93159,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
+     "text": "I01 thickRel 0.41 wants min 0.5"
     }
    ]
   },
@@ -93299,7 +93428,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "household",
@@ -93564,7 +93693,7 @@
     "ct",
     "metal-steel"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.11
   },
   {
    "kit": "household",
@@ -96547,7 +96676,7 @@
     "ipoly",
     "wood-mid"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.66
   },
   {
    "kit": "isa-bakery",
@@ -96860,7 +96989,7 @@
     "isa",
     "wood-dark"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.97
   },
   {
    "kit": "isa-bakery",
@@ -97067,7 +97196,7 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/counter-closet-a-large",
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "isa-bakery",
@@ -97363,7 +97492,7 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.42
   },
   {
    "kit": "isa-bakery",
@@ -97512,7 +97641,7 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/door-modular",
-   "thickRel": 1.08
+   "thickRel": 1.11
   },
   {
    "kit": "isa-bakery",
@@ -99714,7 +99843,7 @@
     "wood-light"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 1.31
+   "thickRel": 1.32
   },
   {
    "kit": "isa-bakery",
@@ -99759,7 +99888,7 @@
     "mounted"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "isa-bakery",
@@ -99801,7 +99930,7 @@
     "mounted"
    ],
    "variant": "isa-bakery/wall-shelf-a",
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "isa-bakery",
@@ -100176,7 +100305,7 @@
     "metal-steel",
     "special-liquid"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "isa-bathroom",
@@ -100776,12 +100905,12 @@
     "isa",
     "mounted"
    ],
-   "thickRel": 0.42,
+   "thickRel": 0.43,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
     }
    ]
   },
@@ -101385,7 +101514,7 @@
     "wood-mid"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 2.2
+   "thickRel": 2.22
   },
   {
    "kit": "isa-bathroom",
@@ -104139,7 +104268,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.23
   },
   {
    "kit": "isa-kitchen",
@@ -104302,7 +104431,7 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.18
   },
   {
    "kit": "isa-kitchen",
@@ -104347,7 +104476,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.54
   },
   {
    "kit": "isa-kitchen",
@@ -104521,7 +104650,7 @@
     "isa",
     "wood-dark"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "isa-kitchen",
@@ -104565,7 +104694,7 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/door-modular",
-   "thickRel": 0.97
+   "thickRel": 1
   },
   {
    "kit": "isa-kitchen",
@@ -104608,7 +104737,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.57
   },
   {
    "kit": "isa-kitchen",
@@ -105017,7 +105146,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.96
+   "thickRel": 2.94
   },
   {
    "kit": "isa-kitchen",
@@ -105225,7 +105354,7 @@
     "metal-steel",
     "tba"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "isa-kitchen",
@@ -105404,7 +105533,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.55
   },
   {
    "kit": "isa-kitchen",
@@ -105721,7 +105850,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.3,
+   "thickRel": 2.29,
    "lint": [
     {
      "level": "warning",
@@ -105959,7 +106088,7 @@
     "wood-light"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 2.19
+   "thickRel": 2.21
   },
   {
    "kit": "isa-kitchen",
@@ -106004,7 +106133,7 @@
     "wood-light"
    ],
    "variant": "isa-bathroom/wall-shelf",
-   "thickRel": 2.03
+   "thickRel": 2.04
   },
   {
    "kit": "isa-kitchen",
@@ -107812,7 +107941,7 @@
     "wood-mid"
    ],
    "variant": "isa-picnic/cutlery-set",
-   "thickRel": 0.95
+   "thickRel": 0.93
   },
   {
    "kit": "isa-picnic",
@@ -108564,7 +108693,7 @@
     "wood-mid"
    ],
    "variant": "isa-picnic/cutlery-set",
-   "thickRel": 1
+   "thickRel": 0.97
   },
   {
    "kit": "isa-picnic",
@@ -113506,7 +113635,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.13
   },
   {
    "kit": "jb-kitchen",
@@ -113914,7 +114043,7 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 2.97
+   "thickRel": 2.93
   },
   {
    "kit": "jb-kitchen",
@@ -114037,7 +114166,7 @@
    "tags": [
     "metal-steel"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.16
   },
   {
    "kit": "jb-kitchen",
@@ -121157,7 +121286,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-1/bookcase",
-   "thickRel": 1.56
+   "thickRel": 1.46
   },
   {
    "kit": "kay-dun-1",
@@ -121290,7 +121419,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-1/bookcase-wide",
-   "thickRel": 0.77
+   "thickRel": 0.72
   },
   {
    "kit": "kay-dun-1",
@@ -121420,7 +121549,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-1/bookcase-wide",
-   "thickRel": 0.77
+   "thickRel": 0.72
   },
   {
    "kit": "kay-dun-1",
@@ -121459,7 +121588,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-1/bookcase",
-   "thickRel": 1.56
+   "thickRel": 1.47
   },
   {
    "kit": "kay-dun-1",
@@ -121584,7 +121713,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.9,
+   "thickRel": 0.87,
    "lint": [
     {
      "level": "warning",
@@ -122587,7 +122716,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 0.87,
+   "thickRel": 0.9,
    "mark": [
     "grounded"
    ]
@@ -126318,7 +126447,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.72
   },
   {
    "kit": "kay-dun-1",
@@ -127695,7 +127824,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.3
   },
   {
    "kit": "kay-dun-2",
@@ -129943,7 +130072,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/shelf-large",
-   "thickRel": 2.59
+   "thickRel": 2.61
   },
   {
    "kit": "kay-dun-2",
@@ -129989,7 +130118,7 @@
     "wick",
     "wood-dark"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.11
   },
   {
    "kit": "kay-dun-2",
@@ -130030,7 +130159,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/shelf-large",
-   "thickRel": 1.93
+   "thickRel": 1.95
   },
   {
    "kit": "kay-dun-2",
@@ -133463,7 +133592,7 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.2
   },
   {
    "kit": "kay-food",
@@ -133503,7 +133632,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-b-wood",
-   "thickRel": 1.24
+   "thickRel": 1.2
   },
   {
    "kit": "kay-food",
@@ -133591,7 +133720,7 @@
     "wood-mid"
    ],
    "variant": "kay-food/counter-a",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-food",
@@ -133728,7 +133857,7 @@
     "wood-mid"
    ],
    "variant": "kay-food/counter-inner-corner",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "kay-food",
@@ -134456,7 +134585,7 @@
     "kay",
     "metal-steel"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.69
   },
   {
    "kit": "kay-food",
@@ -134503,7 +134632,7 @@
     "wood-dark"
    ],
    "variant": "kay-food/door-a",
-   "thickRel": 1.42
+   "thickRel": 1.46
   },
   {
    "kit": "kay-food",
@@ -134547,7 +134676,7 @@
     "wood-dark"
    ],
    "variant": "kay-food/door-a",
-   "thickRel": 1.42
+   "thickRel": 1.46
   },
   {
    "kit": "kay-food",
@@ -134590,7 +134719,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.75
   },
   {
    "kit": "kay-food",
@@ -136706,7 +136835,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.32
+   "thickRel": 2.3
   },
   {
    "kit": "kay-food",
@@ -137258,7 +137387,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.99
+   "thickRel": 1.98
   },
   {
    "kit": "kay-food",
@@ -137485,7 +137614,7 @@
     "scale-small"
    ],
    "variant": "kay-food/stove",
-   "thickRel": 0.91
+   "thickRel": 0.89
   },
   {
    "kit": "kay-food",
@@ -137533,7 +137662,7 @@
     "scale-small"
    ],
    "variant": "kay-food/stove",
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "kay-food",
@@ -138168,7 +138297,7 @@
     "mounted",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "kay-food",
@@ -141448,7 +141577,7 @@
     "textile-cloth-light"
    ],
    "variant": "kay-furniture/armchair",
-   "thickRel": 1.1
+   "thickRel": 1.07
   },
   {
    "kit": "kay-furniture",
@@ -141488,7 +141617,7 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-furniture/armchair",
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "kay-furniture",
@@ -141535,7 +141664,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/bed-double-b",
-   "thickRel": 0.77
+   "thickRel": 0.78
   },
   {
    "kit": "kay-furniture",
@@ -141582,7 +141711,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/bed-double-b",
-   "thickRel": 0.76
+   "thickRel": 0.77
   },
   {
    "kit": "kay-furniture",
@@ -141950,7 +142079,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/cabinet-medium",
-   "thickRel": 1.36
+   "thickRel": 1.33
   },
   {
    "kit": "kay-furniture",
@@ -142179,7 +142308,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.05
   },
   {
    "kit": "kay-furniture",
@@ -142222,7 +142351,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-a",
-   "thickRel": 1.09
+   "thickRel": 1.05
   },
   {
    "kit": "kay-furniture",
@@ -142262,7 +142391,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-b-wood",
-   "thickRel": 1.16
+   "thickRel": 1.12
   },
   {
    "kit": "kay-furniture",
@@ -142305,7 +142434,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-a",
-   "thickRel": 1.16
+   "thickRel": 1.12
   },
   {
    "kit": "kay-furniture",
@@ -142348,7 +142477,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/chair-a",
-   "thickRel": 1.09
+   "thickRel": 1.05
   },
   {
    "kit": "kay-furniture",
@@ -142475,7 +142604,7 @@
     "textile-cloth-light"
    ],
    "variant": "kay-furniture/couch-pillows",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "kay-furniture",
@@ -142516,7 +142645,7 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-furniture/couch-pillows",
-   "thickRel": 0.92
+   "thickRel": 0.93
   },
   {
    "kit": "kay-furniture",
@@ -142559,7 +142688,7 @@
     "metal-steel",
     "textile-cloth-light"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.86
   },
   {
    "kit": "kay-furniture",
@@ -143226,7 +143355,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/shelf-a-big",
-   "thickRel": 2.53
+   "thickRel": 2.55
   },
   {
    "kit": "kay-furniture",
@@ -143270,7 +143399,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/shelf-a-big",
-   "thickRel": 2.01
+   "thickRel": 2.02
   },
   {
    "kit": "kay-furniture",
@@ -143361,7 +143490,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/shelf-b-large",
-   "thickRel": 2.5
+   "thickRel": 2.52
   },
   {
    "kit": "kay-furniture",
@@ -143452,7 +143581,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/shelf-b-large",
-   "thickRel": 2
+   "thickRel": 2.01
   },
   {
    "kit": "kay-furniture",
@@ -150537,7 +150666,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.7
   },
   {
    "kit": "kay-holiday",
@@ -150784,7 +150913,7 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-holiday/carpet-round-large",
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "kay-holiday",
@@ -155665,7 +155794,7 @@
     "scale-big",
     "tba"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.04
   },
   {
    "kit": "kay-platformer",
@@ -158700,7 +158829,7 @@
     "wood-mid"
    ],
    "variant": "kay-proto/door-a",
-   "thickRel": 1.09
+   "thickRel": 1.13
   },
   {
    "kit": "kay-proto",
@@ -158743,7 +158872,7 @@
     "wood-mid"
    ],
    "variant": "kay-proto/door-a",
-   "thickRel": 1.04
+   "thickRel": 1.07
   },
   {
    "kit": "kay-proto",
@@ -158788,7 +158917,7 @@
     "metal-steel",
     "paper-sheet"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.36
   },
   {
    "kit": "kay-proto",
@@ -172453,7 +172582,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-arcade",
@@ -172755,7 +172884,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "ken-arcade",
@@ -173396,7 +173525,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/column",
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "ken-arena",
@@ -177545,7 +177674,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.37,
+   "thickRel": 1.41,
    "lint": [
     {
      "level": "warning",
@@ -177815,7 +177944,7 @@
     "wood-dark"
    ],
    "variant": "ken-castle/gate",
-   "thickRel": 0.82
+   "thickRel": 0.85
   },
   {
    "kit": "ken-castle",
@@ -183793,7 +183922,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.16
   },
   {
    "kit": "ken-factory",
@@ -187759,7 +187888,7 @@
     "ken",
     "wood-mid"
    ],
-   "thickRel": 4.51
+   "thickRel": 4.49
   },
   {
    "kit": "ken-food",
@@ -188622,7 +188751,7 @@
     "metal-steel"
    ],
    "variant": "ken-food/cutlery-set",
-   "thickRel": 0.98
+   "thickRel": 0.96
   },
   {
    "kit": "ken-food",
@@ -190174,7 +190303,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 3.69
+   "thickRel": 3.64
   },
   {
    "kit": "ken-food",
@@ -191088,7 +191217,7 @@
     "metal-steel"
    ],
    "variant": "ken-food/cutlery-set",
-   "thickRel": 0.86
+   "thickRel": 0.83
   },
   {
    "kit": "ken-food",
@@ -192556,12 +192685,12 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 0.42,
+   "thickRel": 0.43,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
     }
    ]
   },
@@ -192702,7 +192831,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.21
   },
   {
    "kit": "ken-furniture",
@@ -192836,7 +192965,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/bed-single",
-   "thickRel": 1.04
+   "thickRel": 1.06
   },
   {
    "kit": "ken-furniture",
@@ -193051,7 +193180,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/bookcase-closed",
-   "thickRel": 3.13
+   "thickRel": 2.94
   },
   {
    "kit": "ken-furniture",
@@ -193097,7 +193226,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.68,
+   "thickRel": 0.64,
    "lint": [
     {
      "level": "warning",
@@ -193150,7 +193279,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.25,
+   "thickRel": 1.17,
    "lint": [
     {
      "level": "warning",
@@ -193196,7 +193325,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/bookcase-open",
-   "thickRel": 0.77
+   "thickRel": 0.72
   },
   {
    "kit": "ken-furniture",
@@ -193242,7 +193371,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.26,
+   "thickRel": 1.18,
    "lint": [
     {
      "level": "warning",
@@ -193292,7 +193421,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/cabinet-bed-drawer",
-   "thickRel": 1.08
+   "thickRel": 1.06
   },
   {
    "kit": "ken-furniture",
@@ -193336,7 +193465,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/cabinet-bed-drawer",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "ken-furniture",
@@ -193595,7 +193724,7 @@
     "spin"
    ],
    "variant": "ken-furniture/ceiling-fan-anim",
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "ken-furniture",
@@ -193649,7 +193778,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.89,
+   "thickRel": 0.88,
    "lint": [
     {
      "level": "warning",
@@ -193698,7 +193827,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/chair",
-   "thickRel": 1.17
+   "thickRel": 1.13
   },
   {
    "kit": "ken-furniture",
@@ -193739,7 +193868,7 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.93
   },
   {
    "kit": "ken-furniture",
@@ -193781,7 +193910,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-furniture/chair-modern-cushion",
-   "thickRel": 1.15
+   "thickRel": 1.11
   },
   {
    "kit": "ken-furniture",
@@ -193823,7 +193952,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-furniture/chair-modern-cushion",
-   "thickRel": 1.19
+   "thickRel": 1.15
   },
   {
    "kit": "ken-furniture",
@@ -193861,7 +193990,7 @@
     "ken",
     "wood-mid"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.13
   },
   {
    "kit": "ken-furniture",
@@ -193907,7 +194036,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.16,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "warning",
@@ -194119,7 +194248,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/desk",
-   "thickRel": 0.52
+   "thickRel": 0.51
   },
   {
    "kit": "ken-furniture",
@@ -194169,7 +194298,7 @@
      "inverted": 0.02
     }
    },
-   "thickRel": 1.03,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -194221,7 +194350,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-furniture/door",
-   "thickRel": 0.97
+   "thickRel": 1
   },
   {
    "kit": "ken-furniture",
@@ -194264,7 +194393,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/door",
-   "thickRel": 0.93
+   "thickRel": 0.96
   },
   {
    "kit": "ken-furniture",
@@ -194468,7 +194597,7 @@
     "mounted"
    ],
    "variant": "ken-furniture/hood-large",
-   "thickRel": 0.73
+   "thickRel": 0.72
   },
   {
    "kit": "ken-furniture",
@@ -194720,7 +194849,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-cabinet-corner-inner",
-   "thickRel": 1.29
+   "thickRel": 1.28
   },
   {
    "kit": "ken-furniture",
@@ -194766,7 +194895,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-cabinet",
-   "thickRel": 1.33
+   "thickRel": 1.32
   },
   {
    "kit": "ken-furniture",
@@ -195024,7 +195153,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-cabinet",
-   "thickRel": 1.33
+   "thickRel": 1.32
   },
   {
    "kit": "ken-furniture",
@@ -195380,7 +195509,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-stove",
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "ken-furniture",
@@ -195430,7 +195559,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-stove",
-   "thickRel": 1.08
+   "thickRel": 1.07
   },
   {
    "kit": "ken-furniture",
@@ -195473,7 +195602,7 @@
     "textile-cloth-light"
    ],
    "variant": "ken-furniture/lamp-round-floor",
-   "thickRel": 1.07
+   "thickRel": 1
   },
   {
    "kit": "ken-furniture",
@@ -195560,7 +195689,7 @@
     "textile-cloth-light"
    ],
    "variant": "ken-furniture/lamp-round-table",
-   "thickRel": 2.88
+   "thickRel": 2.85
   },
   {
    "kit": "ken-furniture",
@@ -195603,7 +195732,7 @@
     "textile-cloth-light"
    ],
    "variant": "ken-furniture/lamp-round-floor",
-   "thickRel": 1.41
+   "thickRel": 1.31
   },
   {
    "kit": "ken-furniture",
@@ -195732,7 +195861,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/lounge-chair",
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "ken-furniture",
@@ -195774,7 +195903,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/lounge-chair",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "ken-furniture",
@@ -195815,7 +195944,7 @@
     "metal-steel",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.35
   },
   {
    "kit": "ken-furniture",
@@ -195857,12 +195986,12 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-furniture/lounge-design-sofa",
-   "thickRel": 0.48,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
+     "text": "I01 thickRel 0.49 wants min 0.5"
     }
    ]
   },
@@ -195906,7 +196035,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-furniture/lounge-design-sofa",
-   "thickRel": 1.24
+   "thickRel": 1.26
   },
   {
    "kit": "ken-furniture",
@@ -195991,7 +196120,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/lounge-sofa",
-   "thickRel": 0.63
+   "thickRel": 0.64
   },
   {
    "kit": "ken-furniture",
@@ -196074,7 +196203,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/lounge-sofa",
-   "thickRel": 0.96
+   "thickRel": 0.98
   },
   {
    "kit": "ken-furniture",
@@ -196507,7 +196636,7 @@
     "metal-steel"
    ],
    "variant": "ken-furniture/shower",
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "ken-furniture",
@@ -196550,7 +196679,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/side-table",
-   "thickRel": 0.94
+   "thickRel": 0.92
   },
   {
    "kit": "ken-furniture",
@@ -196589,7 +196718,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/side-table",
-   "thickRel": 0.63
+   "thickRel": 0.62
   },
   {
    "kit": "ken-furniture",
@@ -197619,7 +197748,7 @@
     "ken"
    ],
    "variant": "ken-furniture/toilet",
-   "thickRel": 1.05
+   "thickRel": 1
   },
   {
    "kit": "ken-furniture",
@@ -197658,7 +197787,7 @@
     "ken"
    ],
    "variant": "ken-furniture/toilet",
-   "thickRel": 0.88
+   "thickRel": 0.84
   },
   {
    "kit": "ken-furniture",
@@ -198557,7 +198686,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "ken-grave",
@@ -205547,7 +205676,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "ken-market",
@@ -205595,7 +205724,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "ken-market",
@@ -206007,7 +206136,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.1
   },
   {
    "kit": "ken-mini-dun",
@@ -206102,7 +206231,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "ken-mini-dun",
@@ -206435,7 +206564,7 @@
     "wood-mid"
    ],
    "variant": "ken-modular/door-brown-glass",
-   "thickRel": 1.28,
+   "thickRel": 1.32,
    "lint": [
     {
      "level": "warning",
@@ -206485,7 +206614,7 @@
     "wood-mid"
    ],
    "variant": "ken-modular/door-brown-glass",
-   "thickRel": 1.38,
+   "thickRel": 1.43,
    "lint": [
     {
      "level": "warning",
@@ -214561,7 +214690,7 @@
     "metal-iron-dark"
    ],
    "variant": "ken-platformer/door",
-   "thickRel": 0.77
+   "thickRel": 0.8
   },
   {
    "kit": "ken-platformer",
@@ -214607,7 +214736,7 @@
     "wood-dark"
    ],
    "variant": "ken-platformer/door",
-   "thickRel": 0.87
+   "thickRel": 0.9
   },
   {
    "kit": "ken-platformer",
@@ -216026,7 +216155,7 @@
     "ken",
     "wood-dark"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.06
   },
   {
    "kit": "ken-proto",
@@ -216066,7 +216195,7 @@
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "ken-proto",
@@ -216106,7 +216235,7 @@
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "ken-proto",
@@ -216146,7 +216275,7 @@
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
-   "thickRel": 0.95
+   "thickRel": 0.98
   },
   {
    "kit": "ken-proto",
@@ -216188,7 +216317,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.23
   },
   {
    "kit": "ken-proto",
@@ -220543,7 +220672,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "ken-roads",
@@ -220586,7 +220715,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "ken-roads",
@@ -226259,7 +226388,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-space/desk-chair",
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "ken-space",
@@ -226345,7 +226474,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-space/desk-chair",
-   "thickRel": 1.44
+   "thickRel": 1.48
   },
   {
    "kit": "ken-space",
@@ -229608,7 +229737,7 @@
     "textile-cloth-light"
    ],
    "variant": "ken-station/bed-single-covered",
-   "thickRel": 1.08
+   "thickRel": 1.1
   },
   {
    "kit": "ken-station",
@@ -229655,7 +229784,7 @@
     "textile-cloth-light"
    ],
    "variant": "ken-station/bed-single",
-   "thickRel": 1.02
+   "thickRel": 1.04
   },
   {
    "kit": "ken-station",
@@ -229834,7 +229963,7 @@
     "space"
    ],
    "variant": "ken-station/chair-armrest",
-   "thickRel": 1.04
+   "thickRel": 1.07
   },
   {
    "kit": "ken-station",
@@ -229880,7 +230009,7 @@
     "space"
    ],
    "variant": "ken-station/chair-armrest",
-   "thickRel": 0.95
+   "thickRel": 0.97
   },
   {
    "kit": "ken-station",
@@ -229926,7 +230055,7 @@
     "space"
    ],
    "variant": "ken-station/chair",
-   "thickRel": 1.5
+   "thickRel": 1.54
   },
   {
    "kit": "ken-station",
@@ -229972,7 +230101,7 @@
     "space"
    ],
    "variant": "ken-station/chair",
-   "thickRel": 1.36
+   "thickRel": 1.4
   },
   {
    "kit": "ken-station",
@@ -230018,7 +230147,7 @@
     "space"
    ],
    "variant": "ken-station/chair",
-   "thickRel": 1.5
+   "thickRel": 1.54
   },
   {
    "kit": "ken-station",
@@ -230064,7 +230193,7 @@
     "space"
    ],
    "variant": "ken-station/chair",
-   "thickRel": 1.36
+   "thickRel": 1.39
   },
   {
    "kit": "ken-station",
@@ -230402,7 +230531,7 @@
     "space"
    ],
    "variant": "ken-station/door-double",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "ken-station",
@@ -230489,7 +230618,7 @@
     "space"
    ],
    "variant": "ken-station/door-double",
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "ken-station",
@@ -230534,7 +230663,7 @@
     "space"
    ],
    "variant": "ken-station/door-single-closed",
-   "thickRel": 1.39
+   "thickRel": 1.44
   },
   {
    "kit": "ken-station",
@@ -230579,7 +230708,7 @@
     "space"
    ],
    "variant": "ken-station/door-single-closed",
-   "thickRel": 1.37
+   "thickRel": 1.41
   },
   {
    "kit": "ken-station",
@@ -230620,7 +230749,7 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.4
   },
   {
    "kit": "ken-station",
@@ -231771,7 +231900,7 @@
     "space"
    ],
    "variant": "ken-station/table",
-   "thickRel": 1.76
+   "thickRel": 1.75
   },
   {
    "kit": "ken-station",
@@ -235726,7 +235855,7 @@
     "metal-iron-dark",
     "metal-iron-mid"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "ken-survival",
@@ -251989,7 +252118,7 @@
     "plastic"
    ],
    "variant": "lpa-construction/portable-toilet-a",
-   "thickRel": 2.11
+   "thickRel": 2.14
   },
   {
    "kit": "lpa-construction",
@@ -252032,7 +252161,7 @@
     "plastic"
    ],
    "variant": "lpa-construction/portable-toilet-a",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "lpa-construction",
@@ -253318,7 +253447,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-desert",
@@ -254032,7 +254161,7 @@
     "wood-mid"
    ],
    "variant": "lpa-desert/shutter-a",
-   "thickRel": 1
+   "thickRel": 1.1
   },
   {
    "kit": "lpa-desert",
@@ -254076,7 +254205,7 @@
     "wood-mid"
    ],
    "variant": "lpa-desert/shutter-a",
-   "thickRel": 1
+   "thickRel": 1.09
   },
   {
    "kit": "lpa-desert",
@@ -254297,7 +254426,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/armchair-a",
-   "thickRel": 1.3
+   "thickRel": 1.28
   },
   {
    "kit": "lpa-home",
@@ -254336,7 +254465,7 @@
     "textile-cloth-dark"
    ],
    "variant": "lpa-home/armchair-a",
-   "thickRel": 1.45
+   "thickRel": 1.42
   },
   {
    "kit": "lpa-home",
@@ -254424,7 +254553,7 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "lpa-home",
@@ -254470,7 +254599,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/bed-double",
-   "thickRel": 0.98
+   "thickRel": 1
   },
   {
    "kit": "lpa-home",
@@ -254644,7 +254773,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/bookcase-b",
-   "thickRel": 1.9
+   "thickRel": 1.79
   },
   {
    "kit": "lpa-home",
@@ -254684,7 +254813,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/bookcase-b",
-   "thickRel": 1.18
+   "thickRel": 1.11
   },
   {
    "kit": "lpa-home",
@@ -254724,7 +254853,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/bookcase-b",
-   "thickRel": 1.02
+   "thickRel": 0.96
   },
   {
    "kit": "lpa-home",
@@ -255027,7 +255156,7 @@
     "metal-iron-mid",
     "mounted"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.57
   },
   {
    "kit": "lpa-home",
@@ -255071,7 +255200,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 1.86
+   "thickRel": 1.83
   },
   {
    "kit": "lpa-home",
@@ -255113,7 +255242,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.01
   },
   {
    "kit": "lpa-home",
@@ -255410,7 +255539,7 @@
     "mounted",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "lpa-home",
@@ -255452,7 +255581,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.18
   },
   {
    "kit": "lpa-home",
@@ -255638,7 +255767,7 @@
     "textile-cloth-dark"
    ],
    "variant": "lpa-home/floor-lamp-a",
-   "thickRel": 0.69
+   "thickRel": 0.64
   },
   {
    "kit": "lpa-home",
@@ -255681,7 +255810,7 @@
     "textile-cloth-light"
    ],
    "variant": "lpa-home/floor-lamp-a",
-   "thickRel": 0.59
+   "thickRel": 0.55
   },
   {
    "kit": "lpa-home",
@@ -256012,7 +256141,7 @@
     "metal-steel",
     "paper-sheet"
    ],
-   "thickRel": 2.29
+   "thickRel": 2.28
   },
   {
    "kit": "lpa-home",
@@ -256300,7 +256429,7 @@
     "mounted"
    ],
    "variant": "lpa-home/mirror-a",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "lpa-home",
@@ -256422,7 +256551,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.73
+   "thickRel": 1.7
   },
   {
    "kit": "lpa-home",
@@ -256467,7 +256596,7 @@
     "plastic",
     "textile-cloth-dark"
    ],
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "lpa-home",
@@ -256892,7 +257021,7 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 2.1
+   "thickRel": 2.12
   },
   {
    "kit": "lpa-home",
@@ -256979,7 +257108,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/sofa-a",
-   "thickRel": 1.15
+   "thickRel": 1.16
   },
   {
    "kit": "lpa-home",
@@ -257018,7 +257147,7 @@
     "textile-cloth-dark"
    ],
    "variant": "lpa-home/sofa-a",
-   "thickRel": 1.34
+   "thickRel": 1.36
   },
   {
    "kit": "lpa-home",
@@ -257152,7 +257281,7 @@
     "metal-steel",
     "tba"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.16
   },
   {
    "kit": "lpa-home",
@@ -257539,7 +257668,7 @@
     "paper-cardboard",
     "paper-sheet"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "lpa-home",
@@ -257627,7 +257756,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.07
   },
   {
    "kit": "lpa-home",
@@ -257670,7 +257799,7 @@
     "mounted",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "lpa-home",
@@ -257917,7 +258046,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/wall-shelf-a",
-   "thickRel": 1.81
+   "thickRel": 1.83
   },
   {
    "kit": "lpa-home",
@@ -257958,7 +258087,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/wall-shelf-a",
-   "thickRel": 1.29
+   "thickRel": 1.3
   },
   {
    "kit": "lpa-home",
@@ -261488,7 +261617,7 @@
     "lpa",
     "wood-mid"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "lpa-west",
@@ -262117,7 +262246,7 @@
     "lpa",
     "metal-iron-dark"
    ],
-   "thickRel": 0.54
+   "thickRel": 0.56
   },
   {
    "kit": "lpa-west",
@@ -262196,7 +262325,7 @@
     "lpa",
     "wood-mid"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.8
   },
   {
    "kit": "lpa-west",
@@ -262549,7 +262678,7 @@
     "wood-dark"
    ],
    "variant": "lpa-west/door-a",
-   "thickRel": 0.57
+   "thickRel": 0.59
   },
   {
    "kit": "lpa-west",
@@ -262691,7 +262820,7 @@
     "wood-dark"
    ],
    "variant": "lpa-west/door-a",
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "lpa-west",
@@ -271172,7 +271301,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -272220,7 +272349,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "m3-base",
@@ -274934,12 +275063,12 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 0.38,
+   "thickRel": 0.37,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.38 wants min 0.5"
+     "text": "I01 thickRel 0.37 wants min 0.5"
     }
    ]
   },
@@ -275384,7 +275513,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/dining-chair-01",
-   "thickRel": 0.85
+   "thickRel": 0.82
   },
   {
    "kit": "m3-base",
@@ -275428,7 +275557,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/dining-chair-01",
-   "thickRel": 0.92
+   "thickRel": 0.88
   },
   {
    "kit": "m3-base",
@@ -275518,7 +275647,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 2.16
+   "thickRel": 2.15
   },
   {
    "kit": "m3-base",
@@ -275557,7 +275686,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/display-table-01",
-   "thickRel": 1.34
+   "thickRel": 1.33
   },
   {
    "kit": "m3-base",
@@ -275759,7 +275888,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.86
+   "thickRel": 0.89
   },
   {
    "kit": "m3-base",
@@ -275798,7 +275927,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.87
+   "thickRel": 0.9
   },
   {
    "kit": "m3-base",
@@ -275838,7 +275967,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/door-01",
-   "thickRel": 0.86
+   "thickRel": 0.89
   },
   {
    "kit": "m3-base",
@@ -277097,7 +277226,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.41
   },
   {
    "kit": "m3-base",
@@ -277992,7 +278121,7 @@
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 5.25
+   "thickRel": 5.19
   },
   {
    "kit": "m3-base",
@@ -278073,7 +278202,7 @@
     "plastic"
    ],
    "variant": "m3-base/folding-chair-01",
-   "thickRel": 0.85
+   "thickRel": 0.82
   },
   {
    "kit": "m3-base",
@@ -278116,7 +278245,7 @@
     "plastic"
    ],
    "variant": "m3-base/folding-chair-01",
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "m3-base",
@@ -278201,7 +278330,7 @@
     "plastic"
    ],
    "variant": "m3-base/folding-chair-01",
-   "thickRel": 0.8
+   "thickRel": 0.77
   },
   {
    "kit": "m3-base",
@@ -278244,7 +278373,7 @@
     "plastic"
    ],
    "variant": "m3-base/folding-chair-01",
-   "thickRel": 0.74
+   "thickRel": 0.71
   },
   {
    "kit": "m3-base",
@@ -278367,7 +278496,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/cutlery-set",
-   "thickRel": 1.17
+   "thickRel": 1.15
   },
   {
    "kit": "m3-base",
@@ -279944,7 +280073,7 @@
     "stone-masonry-light"
    ],
    "variant": "m3-base/greek-column-01",
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "m3-base",
@@ -281380,7 +281509,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/honeycomb-shelving",
-   "thickRel": 0.61
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -281503,12 +281632,12 @@
     "wood-mid"
    ],
    "variant": "m3-base/honeycomb-shelving",
-   "thickRel": 0.46,
+   "thickRel": 0.47,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -281826,7 +281955,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "m3-base",
@@ -282227,7 +282356,7 @@
     "special-emissive",
     "wax"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.63
   },
   {
    "kit": "m3-base",
@@ -286226,7 +286355,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "m3-base",
@@ -286432,7 +286561,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.73
   },
   {
    "kit": "m3-base",
@@ -287974,7 +288103,7 @@
     "plastic",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.85
   },
   {
    "kit": "m3-base",
@@ -288064,7 +288193,7 @@
      "other": 1
     }
    },
-   "thickRel": 0.63,
+   "thickRel": 0.62,
    "lint": [
     {
      "level": "warning",
@@ -288597,7 +288726,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.51
+   "thickRel": 0.49
   },
   {
    "kit": "m3-base",
@@ -289002,7 +289131,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -292827,7 +292956,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "m3-base",
@@ -294492,7 +294621,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -294830,7 +294959,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.88,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "warning",
@@ -294884,7 +295013,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.85,
+   "thickRel": 0.88,
    "lint": [
     {
      "level": "warning",
@@ -295014,7 +295143,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 2.97
+   "thickRel": 2.93
   },
   {
    "kit": "m3-base",
@@ -295661,7 +295790,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.73
   },
   {
    "kit": "m3-base",
@@ -296582,7 +296711,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.64
   },
   {
    "kit": "m3-base",
@@ -297340,7 +297469,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.95
+   "thickRel": 1.93
   },
   {
    "kit": "m3-base",
@@ -297379,7 +297508,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/cutlery-set",
-   "thickRel": 1.07
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -298886,7 +299015,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -299994,7 +300123,7 @@
     "paper-cardboard",
     "paper-sheet"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "m3-base",
@@ -300246,7 +300375,7 @@
     "mounted"
    ],
    "variant": "m3-base/towel-holder",
-   "thickRel": 1.78
+   "thickRel": 1.8
   },
   {
    "kit": "m3-base",
@@ -300978,7 +301107,7 @@
     "m3",
     "wood-light"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.55
   },
   {
    "kit": "m3-base",
@@ -303024,7 +303153,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.62
+   "thickRel": 0.6
   },
   {
    "kit": "m3-base",
@@ -306138,7 +306267,7 @@
     "wood-dark"
    ],
    "variant": "medieval-forge/door",
-   "thickRel": 0.75
+   "thickRel": 0.77
   },
   {
    "kit": "medieval-forge",
@@ -306179,7 +306308,7 @@
     "wood-dark"
    ],
    "variant": "medieval-forge/door",
-   "thickRel": 0.69
+   "thickRel": 0.71
   },
   {
    "kit": "medieval-forge",
@@ -312967,7 +313096,7 @@
     "textile-cloth-dark"
    ],
    "variant": "pm-store/rug",
-   "thickRel": 1.53
+   "thickRel": 1.54
   },
   {
    "kit": "pm-store",
@@ -316694,7 +316823,7 @@
     "stone-concrete",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "quat-apocalypse",
@@ -320215,7 +320344,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.97
+   "thickRel": 1
   },
   {
    "kit": "quat-cyberpunk",
@@ -321329,12 +321458,12 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/support",
-   "thickRel": 0.4,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
+     "text": "I01 thickRel 0.41 wants min 0.5"
     }
    ]
   },
@@ -322632,7 +322761,7 @@
     "wood-mid"
    ],
    "variant": "quat-dun-1/trapdoor",
-   "thickRel": 0.71
+   "thickRel": 0.72
   },
   {
    "kit": "quat-dun-1",
@@ -322680,7 +322809,7 @@
     "wood-mid"
    ],
    "variant": "quat-dun-1/trapdoor",
-   "thickRel": 0.55
+   "thickRel": 0.56
   },
   {
    "kit": "quat-dun-1",
@@ -323622,7 +323751,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.88
   },
   {
    "kit": "quat-essentials",
@@ -323907,7 +324036,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.58
   },
   {
    "kit": "quat-essentials",
@@ -323950,7 +324079,7 @@
     "space"
    ],
    "variant": "quat-essentials/desk-medium",
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "quat-essentials",
@@ -323993,7 +324122,7 @@
     "space"
    ],
    "variant": "quat-essentials/desk-medium",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "quat-essentials",
@@ -324698,7 +324827,7 @@
     "space"
    ],
    "variant": "quat-essentials/shelves-thin-short",
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "quat-essentials",
@@ -324742,7 +324871,7 @@
     "space"
    ],
    "variant": "quat-essentials/shelves-thin-short",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "quat-essentials",
@@ -329057,7 +329186,7 @@
     "qua"
    ],
    "variant": "quat-food/cutlery-set",
-   "thickRel": 1.08
+   "thickRel": 1.06
   },
   {
    "kit": "quat-food",
@@ -329562,7 +329691,7 @@
     "qua"
    ],
    "variant": "quat-food/cutlery-set",
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "quat-food",
@@ -330144,7 +330273,7 @@
     "qua",
     "special-liquid"
    ],
-   "thickRel": 1.43
+   "thickRel": 1.41
   },
   {
    "kit": "quat-food",
@@ -330184,7 +330313,7 @@
     "qua"
    ],
    "variant": "quat-food/cutlery-set",
-   "thickRel": 0.75
+   "thickRel": 0.73
   },
   {
    "kit": "quat-food",
@@ -330520,6 +330649,1051 @@
     "special-food"
    ],
    "thickRel": 0.66
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "armchair",
+   "hash": "9359dc0a4d",
+   "kind": "obj-furnishing-furniture-seating-chair-lounge",
+   "size": "s",
+   "wdh": [
+    0.491,
+    0.431,
+    0.408
+   ],
+   "tris": 2596,
+   "tpu": 7569,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 93156,
+   "vtx": 2378,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0222,
+   "thick": 0.1584,
+   "avgTri": 0.00061,
+   "anglePct": 21,
+   "pieces": 8,
+   "vpt": 0.92,
+   "cells": [
+    "2,0",
+    "3,0"
+   ],
+   "colors": [
+    "#52301e",
+    "#713e14"
+   ],
+   "tags": [
+    "leather",
+    "qua",
+    "wood-dark"
+   ],
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 7569 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "bed-double",
+   "hash": "01f9b6a36c",
+   "kind": "obj-furnishing-furniture-bed-double",
+   "size": "m",
+   "wdh": [
+    0.848,
+    1.278,
+    0.467
+   ],
+   "tris": 4712,
+   "tpu": 6211,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 202276,
+   "vtx": 5390,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0091,
+   "thick": 0.1138,
+   "avgTri": 0.00152,
+   "anglePct": 64,
+   "pieces": 32,
+   "vpt": 1.14,
+   "cells": [
+    "14,3",
+    "8,0",
+    "1,0",
+    "2,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#873a27",
+    "#88735f",
+    "#9e6d44"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "textile-cloth-mid",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "variant": "quat-furniture/bed-double",
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.278 over max 1.1 (obj-furnishing-furniture-bed)"
+    },
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 6211 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0091 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "bed-single",
+   "hash": "e2ea86abfa",
+   "kind": "obj-furnishing-furniture-bed",
+   "size": "m",
+   "wdh": [
+    0.618,
+    1.278,
+    0.467
+   ],
+   "tris": 3684,
+   "tpu": 6663,
+   "mat": 1,
+   "bands": 4,
+   "calls": 1,
+   "bytes": 166812,
+   "vtx": 4475,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0261,
+   "thick": 0.15,
+   "avgTri": 0.00143,
+   "anglePct": 61,
+   "pieces": 29,
+   "vpt": 1.21,
+   "cells": [
+    "14,3",
+    "8,0",
+    "1,0",
+    "2,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#873a27",
+    "#88735f",
+    "#9e6d44"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "textile-cloth-mid",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "variant": "quat-furniture/bed-double",
+   "thickRel": 1.06,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.278 over max 1.1 (obj-furnishing-furniture-bed)"
+    },
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 6663 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "bookcase-books",
+   "hash": "b7141ffcb4",
+   "kind": "obj-furnishing-furniture-storage-bookcase",
+   "size": "m",
+   "wdh": [
+    0.553,
+    0.199,
+    1.011
+   ],
+   "tris": 10948,
+   "tpu": 22100,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 656472,
+   "vtx": 18414,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0025,
+   "thick": 0.1402,
+   "avgTri": 0.00042,
+   "anglePct": 97,
+   "pieces": 87,
+   "vpt": 1.68,
+   "cells": [
+    "1,0",
+    "2,0",
+    "5,2",
+    "8,0",
+    "6,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#873a27",
+    "#9e6d44",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "paper-sheet",
+    "qua",
+    "textile-cloth-dark",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "variant": "quat-furniture/bookcase",
+   "thickRel": 1.67,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 22100 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0025 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "bookcase",
+   "hash": "e150286b73",
+   "kind": "obj-furnishing-furniture-storage-bookcase",
+   "size": "m",
+   "wdh": [
+    0.553,
+    0.199,
+    1.011
+   ],
+   "tris": 2928,
+   "tpu": 5910,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 149960,
+   "vtx": 4090,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0025,
+   "thick": 0.1256,
+   "avgTri": 0.0011,
+   "anglePct": 97,
+   "pieces": 14,
+   "vpt": 1.4,
+   "cells": [
+    "1,0",
+    "2,0",
+    "6,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#9e6d44",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "qua",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "variant": "quat-furniture/bookcase",
+   "thickRel": 1.5,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 5910 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0025 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "chair",
+   "hash": "0e1734ec27",
+   "kind": "obj-furnishing-furniture-seating-chair",
+   "size": "s",
+   "wdh": [
+    0.152,
+    0.19,
+    0.32
+   ],
+   "tris": 736,
+   "tpu": 2146,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 35136,
+   "vtx": 914,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0072,
+   "thick": 0.1301,
+   "avgTri": 0.00013,
+   "anglePct": 33,
+   "pieces": 6,
+   "vpt": 1.24,
+   "cells": [
+    "1,0",
+    "8,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#9e6d44"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "wood-mid"
+   ],
+   "thickRel": 1.08,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.32 under min 0.35 (obj-furnishing-furniture-seating-chair)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0072 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "desk",
+   "hash": "4a8ba467ed",
+   "kind": "obj-furnishing-furniture-table-desk",
+   "size": "m",
+   "wdh": [
+    0.547,
+    0.254,
+    0.277
+   ],
+   "tris": 2640,
+   "tpu": 7697,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 126596,
+   "vtx": 3416,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0005,
+   "thick": 0.1655,
+   "avgTri": 0.0005,
+   "anglePct": 98,
+   "pieces": 9,
+   "vpt": 1.29,
+   "cells": [
+    "1,0",
+    "2,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#9e6d44"
+   ],
+   "tags": [
+    "qua",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "thickRel": 1.22,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.277 under min 0.35 (obj-furnishing-furniture-table-desk)"
+    },
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 7697 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0005 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "door-a",
+   "hash": "06494f7c5b",
+   "kind": "str-part-door-single",
+   "size": "m",
+   "wdh": [
+    0.478,
+    0.096,
+    0.924
+   ],
+   "tris": 2216,
+   "tpu": 4894,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 93144,
+   "vtx": 2449,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0062,
+   "thick": 0.0857,
+   "avgTri": 0.00065,
+   "anglePct": 95,
+   "pieces": 3,
+   "vpt": 1.11,
+   "cells": [
+    "2,0",
+    "6,0",
+    "3,2"
+   ],
+   "colors": [
+    "#713e14",
+    "#b5d5e3",
+    "#f1a63b"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-gold",
+    "qua",
+    "wood-dark"
+   ],
+   "variant": "quat-furniture/door-a",
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0062 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "door-b",
+   "hash": "d53db78877",
+   "kind": "str-part-door-single",
+   "size": "m",
+   "wdh": [
+    0.525,
+    0.096,
+    0.942
+   ],
+   "tris": 1028,
+   "tpu": 2227,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 51732,
+   "vtx": 1378,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.005,
+   "thick": 0.0774,
+   "avgTri": 0.00147,
+   "anglePct": 97,
+   "pieces": 2,
+   "vpt": 1.34,
+   "cells": [
+    "2,0",
+    "6,0",
+    "3,2"
+   ],
+   "colors": [
+    "#713e14",
+    "#b5d5e3",
+    "#f1a63b"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-gold",
+    "qua",
+    "wood-dark"
+   ],
+   "variant": "quat-furniture/door-a",
+   "thickRel": 0.84,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.005 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "door-c",
+   "hash": "fed197c8e1",
+   "kind": "str-part-door-single",
+   "size": "m",
+   "wdh": [
+    0.525,
+    0.098,
+    0.942
+   ],
+   "tris": 848,
+   "tpu": 1837,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 44688,
+   "vtx": 1192,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0209,
+   "thick": 0.0781,
+   "avgTri": 0.00178,
+   "anglePct": 89,
+   "pieces": 2,
+   "vpt": 1.41,
+   "cells": [
+    "2,0",
+    "6,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "qua",
+    "wood-dark"
+   ],
+   "variant": "quat-furniture/door-a",
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0209 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "nightstand",
+   "hash": "1798d5585a",
+   "kind": "obj-furnishing-furniture-table-side",
+   "size": "s",
+   "wdh": [
+    0.176,
+    0.152,
+    0.154
+   ],
+   "tris": 2016,
+   "tpu": 5878,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 104700,
+   "vtx": 2848,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0005,
+   "thick": 0.2212,
+   "avgTri": 0.00018,
+   "anglePct": 97,
+   "pieces": 9,
+   "vpt": 1.41,
+   "cells": [
+    "1,0",
+    "2,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#9e6d44"
+   ],
+   "tags": [
+    "qua",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "thickRel": 1.38,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.154 under min 0.25 (obj-furnishing-furniture-table-side)"
+    },
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 5878 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0005 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "office-chair",
+   "hash": "8021db1e3d",
+   "kind": "obj-furnishing-furniture-seating-chair-desk",
+   "size": "s",
+   "wdh": [
+    0.217,
+    0.242,
+    0.338
+   ],
+   "tris": 2116,
+   "tpu": 6169,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 104476,
+   "vtx": 2820,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0185,
+   "thick": 0.1033,
+   "avgTri": 0.0001,
+   "anglePct": 15,
+   "pieces": 21,
+   "vpt": 1.33,
+   "cells": [
+    "15,3",
+    "13,3",
+    "4,2"
+   ],
+   "colors": [
+    "#1564a4",
+    "#59534e",
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.338 under min 0.35 (obj-furnishing-furniture-seating-chair)"
+    },
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 6169 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "sofa-a",
+   "hash": "228b6ea5b4",
+   "kind": "obj-furnishing-furniture-seating-sofa",
+   "size": "m",
+   "wdh": [
+    1.272,
+    0.535,
+    0.452
+   ],
+   "tris": 2392,
+   "tpu": 5021,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 91044,
+   "vtx": 2351,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.177,
+   "avgTri": 0.00156,
+   "anglePct": 39,
+   "pieces": 13,
+   "vpt": 0.98,
+   "cells": [
+    "8,0",
+    "2,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#873a27"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "wood-dark"
+   ],
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 5021 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "sofa-b",
+   "hash": "5b28eeffb7",
+   "kind": "obj-furnishing-furniture-seating-sofa",
+   "size": "m",
+   "wdh": [
+    1.201,
+    0.462,
+    0.436
+   ],
+   "tris": 3688,
+   "tpu": 9495,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 139968,
+   "vtx": 3636,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.2231,
+   "avgTri": 0.00103,
+   "anglePct": 27,
+   "pieces": 12,
+   "vpt": 0.99,
+   "cells": [
+    "8,0",
+    "2,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#873a27"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "wood-dark"
+   ],
+   "thickRel": 1.13,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 9495 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "sofa-corner",
+   "hash": "b9a6003c57",
+   "kind": "obj-furnishing-furniture-seating-sofa",
+   "size": "m",
+   "wdh": [
+    1.201,
+    0.84,
+    0.436
+   ],
+   "tris": 3886,
+   "tpu": 5503,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 147272,
+   "vtx": 3827,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.1229,
+   "avgTri": 0.00114,
+   "anglePct": 33,
+   "pieces": 14,
+   "vpt": 0.98,
+   "cells": [
+    "3,0",
+    "2,0"
+   ],
+   "colors": [
+    "#52301e",
+    "#713e14"
+   ],
+   "tags": [
+    "leather",
+    "qua",
+    "wood-dark"
+   ],
+   "thickRel": 0.62,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "tpu",
+     "text": "tpu 5503 over max 5000 (obj-furnishing)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "stool",
+   "hash": "6a3ece8e85",
+   "kind": "obj-furnishing-furniture-seating-stool",
+   "size": "s",
+   "wdh": [
+    0.152,
+    0.16,
+    0.173
+   ],
+   "tris": 524,
+   "tpu": 1528,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 27580,
+   "vtx": 718,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0095,
+   "thick": 0.0808,
+   "avgTri": 0.00014,
+   "anglePct": 43,
+   "pieces": 6,
+   "vpt": 1.37,
+   "cells": [
+    "1,0",
+    "8,0"
+   ],
+   "colors": [
+    "#873a27",
+    "#9e6d44"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "wood-mid"
+   ],
+   "thickRel": 0.74,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.173 under min 0.2 (obj-furnishing-furniture-seating-stool)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0095 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "table",
+   "hash": "159f0528b2",
+   "kind": "obj-furnishing-furniture-table",
+   "size": "m",
+   "wdh": [
+    0.425,
+    0.834,
+    0.247
+   ],
+   "tris": 1108,
+   "tpu": 3230,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 51228,
+   "vtx": 1348,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.0114,
+   "thick": 0.0848,
+   "avgTri": 0.00168,
+   "anglePct": 98,
+   "pieces": 14,
+   "vpt": 1.22,
+   "cells": [
+    "2,0",
+    "1,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#9e6d44"
+   ],
+   "tags": [
+    "qua",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "thickRel": 0.81,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0114 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "wardrobe-short",
+   "hash": "725c5b517e",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "size": "m",
+   "wdh": [
+    0.466,
+    0.272,
+    0.68
+   ],
+   "tris": 4040,
+   "tpu": 11778,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 197448,
+   "vtx": 5365,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0007,
+   "thick": 0.2053,
+   "avgTri": 0.0007,
+   "anglePct": 96,
+   "pieces": 12,
+   "vpt": 1.33,
+   "cells": [
+    "2,0",
+    "6,0",
+    "1,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#9e6d44",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "qua",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "variant": "quat-furniture/wardrobe-tall",
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 11778 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0007 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-furniture",
+   "name": "wardrobe-tall",
+   "hash": "8547b646de",
+   "kind": "obj-furnishing-furniture-storage-cabinet",
+   "size": "m",
+   "wdh": [
+    0.466,
+    0.261,
+    0.893
+   ],
+   "tris": 2988,
+   "tpu": 6829,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 143104,
+   "vtx": 3864,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0,
+   "minTube": 0.0064,
+   "thick": 0.2222,
+   "avgTri": 0.00085,
+   "anglePct": 97,
+   "pieces": 10,
+   "vpt": 1.29,
+   "cells": [
+    "2,0",
+    "6,0",
+    "1,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#9e6d44",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-gold",
+    "qua",
+    "wood-dark",
+    "wood-mid"
+   ],
+   "variant": "quat-furniture/wardrobe-tall",
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 6829 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0064 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-guns",
@@ -331004,7 +332178,7 @@
     "textile-cloth-dark"
    ],
    "variant": "quat-interior/armchair-a",
-   "thickRel": 1.12
+   "thickRel": 1.1
   },
   {
    "kit": "quat-interior",
@@ -331043,7 +332217,7 @@
     "qua"
    ],
    "variant": "quat-interior/armchair-a",
-   "thickRel": 1.25
+   "thickRel": 1.23
   },
   {
    "kit": "quat-interior",
@@ -331142,7 +332316,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "quat-interior",
@@ -331232,7 +332406,7 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "quat-interior",
@@ -331315,7 +332489,7 @@
     "qua",
     "wood-light"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.71
   },
   {
    "kit": "quat-interior",
@@ -331456,7 +332630,7 @@
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-cluster-a",
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "quat-interior",
@@ -331501,7 +332675,7 @@
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-cluster-a",
-   "thickRel": 1.18
+   "thickRel": 1.17
   },
   {
    "kit": "quat-interior",
@@ -331547,7 +332721,7 @@
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-cube",
-   "thickRel": 0.73
+   "thickRel": 0.72
   },
   {
    "kit": "quat-interior",
@@ -331593,7 +332767,7 @@
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-cube",
-   "thickRel": 3.16
+   "thickRel": 3.12
   },
   {
    "kit": "quat-interior",
@@ -331637,7 +332811,64 @@
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-dome",
-   "thickRel": 1.86
+   "thickRel": 1.84
+  },
+  {
+   "kit": "quat-interior",
+   "name": "ceiling-light-icosahedron-triple",
+   "hash": "6141172d4b",
+   "kind": "obj-furnishing-light-lamp-ceiling",
+   "size": "s",
+   "wdh": [
+    0.488,
+    0.151,
+    0.264
+   ],
+   "tris": 3596,
+   "tpu": 10484,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 207216,
+   "vtx": 5752,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0032,
+   "thick": 0.0831,
+   "avgTri": 0.00006,
+   "anglePct": 32,
+   "pieces": 10,
+   "vpt": 1.6,
+   "cells": [
+    "15,3",
+    "6,0",
+    "5,2"
+   ],
+   "colors": [
+    "#7a8491",
+    "#d8cfb7",
+    "#f1a63b"
+   ],
+   "tags": [
+    "metal-steel",
+    "mounted",
+    "qua",
+    "special-emissive"
+   ],
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "error",
+     "check": "tpu",
+     "text": "tpu 10484 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0032 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -331726,7 +332957,7 @@
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-dome",
-   "thickRel": 2.84
+   "thickRel": 2.81
   },
   {
    "kit": "quat-interior",
@@ -331768,7 +332999,7 @@
     "qua",
     "special-emissive"
    ],
-   "thickRel": 3.05
+   "thickRel": 3.02
   },
   {
    "kit": "quat-interior",
@@ -331808,7 +333039,7 @@
     "wood-dark"
    ],
    "variant": "quat-interior/chair-a",
-   "thickRel": 0.99
+   "thickRel": 0.96
   },
   {
    "kit": "quat-interior",
@@ -331848,7 +333079,107 @@
     "wood-dark"
    ],
    "variant": "quat-interior/chair-a",
-   "thickRel": 0.8
+   "thickRel": 0.77
+  },
+  {
+   "kit": "quat-interior",
+   "name": "chair-c",
+   "hash": "dcebd8aac3",
+   "kind": "obj-furnishing-furniture-seating-chair",
+   "size": "m",
+   "wdh": [
+    0.229,
+    0.248,
+    0.507
+   ],
+   "tris": 352,
+   "tpu": 1026,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 19116,
+   "vtx": 486,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "minTube": 0.0073,
+   "thick": 0.1319,
+   "avgTri": 0.00117,
+   "anglePct": 68,
+   "pieces": 13,
+   "vpt": 1.38,
+   "cells": [
+    "2,0",
+    "8,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#873a27"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "wood-dark"
+   ],
+   "variant": "quat-interior/chair-c",
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0073 wants min 0.012"
+    }
+   ]
+  },
+  {
+   "kit": "quat-interior",
+   "name": "chair-d",
+   "hash": "17a3d58298",
+   "kind": "obj-furnishing-furniture-seating-chair",
+   "size": "m",
+   "wdh": [
+    0.229,
+    0.251,
+    0.508
+   ],
+   "tris": 428,
+   "tpu": 1248,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 22388,
+   "vtx": 574,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.006,
+   "minTube": 0.0073,
+   "thick": 0.1288,
+   "avgTri": 0.00103,
+   "anglePct": 66,
+   "pieces": 14,
+   "vpt": 1.34,
+   "cells": [
+    "2,0",
+    "8,0"
+   ],
+   "colors": [
+    "#713e14",
+    "#873a27"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "wood-dark"
+   ],
+   "variant": "quat-interior/chair-c",
+   "thickRel": 1.07,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0073 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -331891,7 +333222,87 @@
     "qua",
     "special-emissive"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.95
+  },
+  {
+   "kit": "quat-interior",
+   "name": "column-round-b",
+   "hash": "7453f17419",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.42,
+    0.442,
+    1.2
+   ],
+   "tris": 556,
+   "tpu": 946,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 31044,
+   "vtx": 820,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "minTube": 0.3733,
+   "thick": 0.2159,
+   "avgTri": 0.00272,
+   "anglePct": 32,
+   "pieces": 1,
+   "vpt": 1.47,
+   "cells": [
+    "14,3"
+   ],
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-masonry-mid"
+   ],
+   "variant": "quat-interior/column-round",
+   "thickRel": 0.84
+  },
+  {
+   "kit": "quat-interior",
+   "name": "column-round-c",
+   "hash": "7f72d74cb1",
+   "kind": "str-part-pillar",
+   "size": "l",
+   "wdh": [
+    0.42,
+    0.442,
+    1.629
+   ],
+   "tris": 556,
+   "tpu": 697,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 31020,
+   "vtx": 820,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.017,
+   "minTube": 0.3319,
+   "thick": 0.2393,
+   "avgTri": 0.00326,
+   "anglePct": 30,
+   "pieces": 1,
+   "vpt": 1.47,
+   "cells": [
+    "14,3"
+   ],
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-masonry-mid"
+   ],
+   "variant": "quat-interior/column-round",
+   "thickRel": 0.93
   },
   {
    "kit": "quat-interior",
@@ -331929,7 +333340,86 @@
     "qua",
     "stone-masonry-mid"
    ],
+   "variant": "quat-interior/column-round",
    "thickRel": 0.67
+  },
+  {
+   "kit": "quat-interior",
+   "name": "column-square-short",
+   "hash": "2fd69411c6",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.272,
+    0.272,
+    0.734
+   ],
+   "tris": 148,
+   "tpu": 411,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10268,
+   "vtx": 248,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.257,
+   "avgTri": 0.00484,
+   "anglePct": 28,
+   "pieces": 1,
+   "vpt": 1.68,
+   "cells": [
+    "14,3"
+   ],
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-masonry-mid"
+   ],
+   "variant": "quat-interior/column-square-tall",
+   "thickRel": 1
+  },
+  {
+   "kit": "quat-interior",
+   "name": "column-square-tall",
+   "hash": "ea4225258e",
+   "kind": "str-part-pillar",
+   "size": "m",
+   "wdh": [
+    0.272,
+    0.272,
+    1.248
+   ],
+   "tris": 180,
+   "tpu": 294,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 11760,
+   "vtx": 288,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "thick": 0.3268,
+   "avgTri": 0.00673,
+   "anglePct": 84,
+   "pieces": 1,
+   "vpt": 1.6,
+   "cells": [
+    "14,3"
+   ],
+   "colors": [
+    "#88735f"
+   ],
+   "tags": [
+    "qua",
+    "stone-masonry-mid"
+   ],
+   "variant": "quat-interior/column-square-tall",
+   "thickRel": 1.27
   },
   {
    "kit": "quat-interior",
@@ -331967,7 +333457,53 @@
     "qua",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.69
+  },
+  {
+   "kit": "quat-interior",
+   "name": "couch-large-b",
+   "hash": "acb2fc3064",
+   "kind": "obj-furnishing-furniture-seating-sofa",
+   "size": "l",
+   "wdh": [
+    1.557,
+    0.598,
+    0.632
+   ],
+   "tris": 1332,
+   "tpu": 2044,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 56712,
+   "vtx": 1476,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "thick": 0.2248,
+   "avgTri": 0.00536,
+   "anglePct": 63,
+   "pieces": 7,
+   "vpt": 1.11,
+   "cells": [
+    "8,0"
+   ],
+   "colors": [
+    "#873a27"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark"
+   ],
+   "variant": "quat-interior/couch-large",
+   "thickRel": 1.14,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "high 0.632 over max 0.5 (obj-furnishing-furniture-seating-sofa)"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -332005,7 +333541,54 @@
     "qua",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.2
+   "variant": "quat-interior/couch-large",
+   "thickRel": 1.22
+  },
+  {
+   "kit": "quat-interior",
+   "name": "couch-low",
+   "hash": "335f63b3ac",
+   "kind": "obj-furnishing-furniture-seating-sofa",
+   "size": "l",
+   "wdh": [
+    2.126,
+    0.906,
+    0.326
+   ],
+   "tris": 1300,
+   "tpu": 964,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 56136,
+   "vtx": 1464,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "minTube": 0.1153,
+   "thick": 0.1792,
+   "avgTri": 0.0068,
+   "anglePct": 69,
+   "pieces": 5,
+   "vpt": 1.13,
+   "cells": [
+    "8,0"
+   ],
+   "colors": [
+    "#873a27"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark"
+   ],
+   "thickRel": 0.91,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "high 0.326 under min 0.35 (obj-furnishing-furniture-seating-sofa)"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -332048,7 +333631,7 @@
     "wood-dark"
    ],
    "variant": "quat-interior/couch-medium-a",
-   "thickRel": 1.14
+   "thickRel": 1.16
   },
   {
    "kit": "quat-interior",
@@ -332090,7 +333673,7 @@
     "textile-cloth-dark"
    ],
    "variant": "quat-interior/couch-medium-a",
-   "thickRel": 0.97
+   "thickRel": 0.99
   },
   {
    "kit": "quat-interior",
@@ -332141,12 +333724,74 @@
      "other": 0.3
     }
    },
-   "thickRel": 1.04,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
      "text": "0.5% of view 90/20 over 0.1%: inverted 70.0%, other 30.0%"
+    }
+   ]
+  },
+  {
+   "kit": "quat-interior",
+   "name": "curtains-single",
+   "hash": "2dd54dd66b",
+   "kind": "obj-furnishing-textile-curtains",
+   "size": "m",
+   "wdh": [
+    0.49,
+    0.143,
+    1.303
+   ],
+   "tris": 219,
+   "tpu": 343,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 11576,
+   "vtx": 273,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.007,
+   "minTube": 0.0202,
+   "thick": 0.0994,
+   "avgTri": 0.00566,
+   "anglePct": 43,
+   "pieces": 3,
+   "vpt": 1.25,
+   "cells": [
+    "15,3",
+    "8,0"
+   ],
+   "colors": [
+    "#7a8491",
+    "#873a27"
+   ],
+   "tags": [
+    "metal-steel",
+    "mounted",
+    "qua",
+    "textile-cloth-dark"
+   ],
+   "backface": {
+    "share": 0.1347,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.58,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.303 over max 1.2 (obj-furnishing-textile-curtains)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "13.5% of view 270/50 over 0.5%: open 100.0%"
     }
    ]
   },
@@ -332279,7 +333924,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 1.36
+   "thickRel": 1.4
   },
   {
    "kit": "quat-interior",
@@ -332320,7 +333965,7 @@
     "qua"
    ],
    "variant": "quat-interior/door-panelled",
-   "thickRel": 1.3
+   "thickRel": 1.34
   },
   {
    "kit": "quat-interior",
@@ -332361,7 +334006,7 @@
     "qua"
    ],
    "variant": "quat-interior/door-panelled",
-   "thickRel": 1.24
+   "thickRel": 1.28
   },
   {
    "kit": "quat-interior",
@@ -332697,7 +334342,56 @@
     "special-emissive"
    ],
    "variant": "quat-interior/floor-lamp",
-   "thickRel": 1.33
+   "thickRel": 1.24
+  },
+  {
+   "kit": "quat-interior",
+   "name": "floor-lamp-stand",
+   "hash": "cf2d35db6e",
+   "kind": "obj-furnishing-light-lamp-floor",
+   "size": "m",
+   "wdh": [
+    0.203,
+    0.203,
+    0.884
+   ],
+   "tris": 244,
+   "tpu": 563,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 14460,
+   "vtx": 360,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "minTube": 0.004,
+   "thick": 0.2646,
+   "avgTri": 0.00143,
+   "anglePct": 22,
+   "pieces": 4,
+   "vpt": 1.48,
+   "cells": [
+    "5,2",
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua",
+    "textile-cloth-light"
+   ],
+   "thickRel": 1.22,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.004 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -332739,7 +334433,58 @@
     "textile-cloth-light"
    ],
    "variant": "quat-interior/floor-lamp",
-   "thickRel": 1.12
+   "thickRel": 1.05
+  },
+  {
+   "kit": "quat-interior",
+   "name": "fork",
+   "hash": "ddc4c975d3",
+   "kind": "obj-kitchenware-tableware-cutlery-fork",
+   "size": "s",
+   "wdh": [
+    0.013,
+    0.121,
+    0.003
+   ],
+   "tris": 188,
+   "tpu": 548,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 10132,
+   "vtx": 235,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0028,
+   "thick": 0.3006,
+   "avgTri": 0.00001,
+   "anglePct": 83,
+   "pieces": 1,
+   "vpt": 1.25,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua"
+   ],
+   "thickRel": 1.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.121 under min 0.15 (obj-kitchenware-tableware-cutlery)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0028 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -333068,6 +334813,96 @@
   },
   {
    "kit": "quat-interior",
+   "name": "kitchen-counter-a",
+   "hash": "535cf510e2",
+   "kind": "obj-furnishing-furniture-counter",
+   "size": "s",
+   "wdh": [
+    0.303,
+    0.336,
+    0.484
+   ],
+   "tris": 84,
+   "tpu": 245,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 6012,
+   "vtx": 126,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.283,
+   "avgTri": 0.00949,
+   "anglePct": 99,
+   "pieces": 2,
+   "vpt": 1.5,
+   "cells": [
+    "1,1",
+    "15,3",
+    "14,3"
+   ],
+   "colors": [
+    "#21552a",
+    "#7a8491",
+    "#88735f"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "qua",
+    "stone-masonry-mid"
+   ],
+   "variant": "quat-interior/kitchen-counter-a",
+   "thickRel": 1.46
+  },
+  {
+   "kit": "quat-interior",
+   "name": "kitchen-counter-b",
+   "hash": "2ef26ef5ad",
+   "kind": "obj-furnishing-furniture-counter",
+   "size": "s",
+   "wdh": [
+    0.303,
+    0.336,
+    0.487
+   ],
+   "tris": 212,
+   "tpu": 618,
+   "mat": 1,
+   "bands": 3,
+   "calls": 1,
+   "bytes": 12912,
+   "vtx": 318,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "thick": 0.2835,
+   "avgTri": 0.00382,
+   "anglePct": 99,
+   "pieces": 4,
+   "vpt": 1.5,
+   "cells": [
+    "1,1",
+    "15,3",
+    "14,3"
+   ],
+   "colors": [
+    "#21552a",
+    "#7a8491",
+    "#88735f"
+   ],
+   "tags": [
+    "metal-steel",
+    "plastic",
+    "qua",
+    "stone-masonry-mid"
+   ],
+   "variant": "quat-interior/kitchen-counter-a",
+   "thickRel": 1.46
+  },
+  {
+   "kit": "quat-interior",
    "name": "kitchen-sink",
    "hash": "bfbb3ab114",
    "kind": "obj-furnishing-furniture-counter-sink",
@@ -333112,6 +334947,221 @@
   },
   {
    "kit": "quat-interior",
+   "name": "kitchen-stove",
+   "hash": "e25044c450",
+   "kind": "obj-device-appliance-stove",
+   "size": "s",
+   "wdh": [
+    0.303,
+    0.336,
+    0.485
+   ],
+   "tris": 524,
+   "tpu": 1528,
+   "mat": 1,
+   "bands": 5,
+   "calls": 1,
+   "bytes": 30644,
+   "vtx": 814,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.002,
+   "minTube": 0.0033,
+   "thick": 0.272,
+   "avgTri": 0.00227,
+   "anglePct": 99,
+   "pieces": 10,
+   "vpt": 1.55,
+   "cells": [
+    "1,1",
+    "15,3",
+    "13,3",
+    "3,2",
+    "14,3"
+   ],
+   "colors": [
+    "#21552a",
+    "#59534e",
+    "#7a8491",
+    "#88735f",
+    "#b5d5e3"
+   ],
+   "tags": [
+    "glass-clear",
+    "metal-iron-mid",
+    "metal-steel",
+    "plastic",
+    "qua",
+    "stone-masonry-mid"
+   ],
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0033 wants min 0.008"
+    }
+   ]
+  },
+  {
+   "kit": "quat-interior",
+   "name": "knife",
+   "hash": "fba9dfc2ea",
+   "kind": "obj-kitchenware-tableware-cutlery-knife",
+   "size": "s",
+   "wdh": [
+    0.01,
+    0.126,
+    0.002
+   ],
+   "tris": 112,
+   "tpu": 327,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 5760,
+   "vtx": 112,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0015,
+   "thick": 0.4012,
+   "avgTri": 0.00002,
+   "anglePct": 95,
+   "pieces": 1,
+   "vpt": 1,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua"
+   ],
+   "backface": {
+    "share": 0.0294,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.56,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.126 under min 0.15 (obj-kitchenware-tableware-cutlery)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.9% of view 180/20 over 0.5%: open 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0015 wants min 0.006"
+    }
+   ]
+  },
+  {
+   "kit": "quat-interior",
+   "name": "mirror-a",
+   "hash": "312d405712",
+   "kind": "obj-furnishing-bathroom-mirror",
+   "size": "s",
+   "wdh": [
+    0.194,
+    0.031,
+    0.279
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6020,
+   "vtx": 128,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0167,
+   "thick": 0.0705,
+   "avgTri": 0.00318,
+   "anglePct": 100,
+   "pieces": 4,
+   "vpt": 1.68,
+   "cells": [
+    "13,3",
+    "15,3"
+   ],
+   "colors": [
+    "#59534e",
+    "#7a8491"
+   ],
+   "tags": [
+    "glass-mirror",
+    "mounted",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-interior/mirror-a",
+   "thickRel": 0.56
+  },
+  {
+   "kit": "quat-interior",
+   "name": "mirror-b",
+   "hash": "12e716b289",
+   "kind": "obj-furnishing-bathroom-mirror",
+   "size": "s",
+   "wdh": [
+    0.161,
+    0.011,
+    0.232
+   ],
+   "tris": 92,
+   "tpu": 268,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5468,
+   "vtx": 108,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.004,
+   "thick": 0.0623,
+   "avgTri": 0.00069,
+   "anglePct": 85,
+   "pieces": 1,
+   "vpt": 1.17,
+   "cells": [
+    "13,3",
+    "15,3"
+   ],
+   "colors": [
+    "#59534e",
+    "#7a8491"
+   ],
+   "tags": [
+    "glass-mirror",
+    "mounted",
+    "plastic",
+    "qua"
+   ],
+   "variant": "quat-interior/mirror-a",
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
+  },
+  {
+   "kit": "quat-interior",
    "name": "nightstand-a",
    "hash": "02d4e42ee7",
    "kind": "obj-furnishing-furniture-table-side",
@@ -333152,7 +335202,7 @@
     "wood-dark"
    ],
    "variant": "quat-interior/nightstand-a",
-   "thickRel": 0.78
+   "thickRel": 0.76
   },
   {
    "kit": "quat-interior",
@@ -333195,7 +335245,7 @@
     "wood-dark"
    ],
    "variant": "quat-interior/nightstand-a",
-   "thickRel": 0.98
+   "thickRel": 0.96
   },
   {
    "kit": "quat-interior",
@@ -333237,7 +335287,7 @@
     "wood-dark"
    ],
    "variant": "quat-interior/nightstand-a",
-   "thickRel": 1.35
+   "thickRel": 1.33
   },
   {
    "kit": "quat-interior",
@@ -333281,7 +335331,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.14
   },
   {
    "kit": "quat-interior",
@@ -333365,6 +335415,47 @@
   },
   {
    "kit": "quat-interior",
+   "name": "rug-square",
+   "hash": "6f84a8d5db",
+   "kind": "obj-furnishing-textile-rug",
+   "size": "m",
+   "wdh": [
+    0.928,
+    0.954,
+    0.011
+   ],
+   "tris": 98,
+   "tpu": 158,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 5584,
+   "vtx": 110,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.012,
+   "thick": 0.0343,
+   "avgTri": 0.00898,
+   "anglePct": 85,
+   "pieces": 1,
+   "vpt": 1.12,
+   "cells": [
+    "8,0",
+    "5,2"
+   ],
+   "colors": [
+    "#873a27",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "qua",
+    "textile-cloth-dark",
+    "textile-cloth-light"
+   ],
+   "thickRel": 0.58
+  },
+  {
+   "kit": "quat-interior",
    "name": "rug",
    "hash": "13470d596d",
    "kind": "obj-furnishing-textile-rug",
@@ -333406,6 +335497,92 @@
   },
   {
    "kit": "quat-interior",
+   "name": "shelf-narrow-a",
+   "hash": "ace2e62b9f",
+   "kind": "obj-furnishing-furniture-storage-bookcase",
+   "size": "m",
+   "wdh": [
+    0.212,
+    0.196,
+    0.95
+   ],
+   "tris": 96,
+   "tpu": 206,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8176,
+   "vtx": 192,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "thick": 0.1704,
+   "avgTri": 0.01263,
+   "anglePct": 100,
+   "pieces": 8,
+   "vpt": 2,
+   "cells": [
+    "0,0"
+   ],
+   "colors": [
+    "#ca9f6e"
+   ],
+   "tags": [
+    "qua",
+    "wood-light"
+   ],
+   "variant": "quat-interior/shelf-narrow-a",
+   "thickRel": 2.03
+  },
+  {
+   "kit": "quat-interior",
+   "name": "shelf-narrow-b",
+   "hash": "40b38480b5",
+   "kind": "obj-furnishing-furniture-storage-bookcase",
+   "size": "m",
+   "wdh": [
+    0.336,
+    0.227,
+    1.331
+   ],
+   "tris": 120,
+   "tpu": 184,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9864,
+   "vtx": 240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "minTube": 0.0141,
+   "thick": 0.1473,
+   "avgTri": 0.01865,
+   "anglePct": 100,
+   "pieces": 10,
+   "vpt": 2,
+   "cells": [
+    "0,0"
+   ],
+   "colors": [
+    "#ca9f6e"
+   ],
+   "tags": [
+    "qua",
+    "wood-light"
+   ],
+   "variant": "quat-interior/shelf-narrow-a",
+   "thickRel": 1.76,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.331 over max 1.2 (obj-furnishing-furniture-storage-bookcase)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-interior",
    "name": "shelf-small-a",
    "hash": "6a29b912b7",
    "kind": "obj-furnishing-furniture-storage-shelf",
@@ -333442,7 +335619,7 @@
     "wood-light"
    ],
    "variant": "quat-interior/shelf-small-a",
-   "thickRel": 2.08
+   "thickRel": 2.1
   },
   {
    "kit": "quat-interior",
@@ -333482,7 +335659,143 @@
     "wood-light"
    ],
    "variant": "quat-interior/shelf-small-a",
-   "thickRel": 1.27
+   "thickRel": 1.28
+  },
+  {
+   "kit": "quat-interior",
+   "name": "shelf-small-c",
+   "hash": "a57891c897",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "size": "s",
+   "wdh": [
+    0.312,
+    0.165,
+    0.117
+   ],
+   "tris": 48,
+   "tpu": 140,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 4824,
+   "vtx": 96,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.01,
+   "thick": 0.0806,
+   "avgTri": 0.006,
+   "anglePct": 100,
+   "pieces": 4,
+   "vpt": 2,
+   "cells": [
+    "0,0"
+   ],
+   "colors": [
+    "#ca9f6e"
+   ],
+   "tags": [
+    "mounted",
+    "qua",
+    "wood-light"
+   ],
+   "thickRel": 0.78
+  },
+  {
+   "kit": "quat-interior",
+   "name": "shelf-wide",
+   "hash": "bff05a9690",
+   "kind": "obj-furnishing-furniture-storage-bookcase",
+   "size": "m",
+   "wdh": [
+    0.695,
+    0.227,
+    1.331
+   ],
+   "tris": 120,
+   "tpu": 184,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 9856,
+   "vtx": 240,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.009,
+   "minTube": 0.0141,
+   "thick": 0.0689,
+   "avgTri": 0.02835,
+   "anglePct": 100,
+   "pieces": 10,
+   "vpt": 2,
+   "cells": [
+    "0,0"
+   ],
+   "colors": [
+    "#ca9f6e"
+   ],
+   "tags": [
+    "qua",
+    "wood-light"
+   ],
+   "thickRel": 0.82,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.331 over max 1.2 (obj-furnishing-furniture-storage-bookcase)"
+    }
+   ]
+  },
+  {
+   "kit": "quat-interior",
+   "name": "spoon",
+   "hash": "52b54467bf",
+   "kind": "obj-kitchenware-tableware-cutlery-spoon",
+   "size": "s",
+   "wdh": [
+    0.025,
+    0.122,
+    0.005
+   ],
+   "tris": 128,
+   "tpu": 373,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 8708,
+   "vtx": 201,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.0013,
+   "thick": 0.1634,
+   "avgTri": 0.00002,
+   "anglePct": 38,
+   "pieces": 2,
+   "vpt": 1.57,
+   "cells": [
+    "15,3"
+   ],
+   "colors": [
+    "#7a8491"
+   ],
+   "tags": [
+    "metal-steel",
+    "qua"
+   ],
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 0.122 under min 0.15 (obj-kitchenware-tableware-cutlery)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0013 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -333773,6 +336086,44 @@
   },
   {
    "kit": "quat-interior",
+   "name": "toilet-b",
+   "hash": "ef3fbc2f16",
+   "kind": "obj-furnishing-bathroom-toilet",
+   "size": "s",
+   "wdh": [
+    0.333,
+    0.462,
+    0.302
+   ],
+   "tris": 334,
+   "tpu": 974,
+   "mat": 1,
+   "bands": 1,
+   "calls": 1,
+   "bytes": 16480,
+   "vtx": 406,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.013,
+   "thick": 0.2137,
+   "avgTri": 0.00251,
+   "anglePct": 54,
+   "pieces": 5,
+   "vpt": 1.22,
+   "cells": [
+    "5,2"
+   ],
+   "colors": [
+    "#d8cfb7"
+   ],
+   "tags": [
+    "ceramic-light",
+    "qua"
+   ],
+   "thickRel": 1.48
+  },
+  {
+   "kit": "quat-interior",
    "name": "toilet-paper-holder",
    "hash": "ffcdf56a99",
    "kind": "obj-furnishing-bathroom-toiletroll",
@@ -333814,7 +336165,7 @@
     "paper-sheet",
     "qua"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "quat-interior",
@@ -333893,7 +336244,7 @@
     "ceramic-light",
     "qua"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.09
   },
   {
    "kit": "quat-interior",
@@ -333938,7 +336289,7 @@
     "qua",
     "textile-cloth-light"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "quat-interior",
@@ -334198,6 +336549,61 @@
   },
   {
    "kit": "quat-interior",
+   "name": "window-large-b",
+   "hash": "8c927ccf10",
+   "kind": "str-part-window",
+   "size": "m",
+   "wdh": [
+    0.55,
+    0.042,
+    0.51
+   ],
+   "tris": 252,
+   "tpu": 735,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 15080,
+   "vtx": 378,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0103,
+   "thick": 0.0423,
+   "avgTri": 0.00528,
+   "anglePct": 100,
+   "pieces": 10,
+   "vpt": 1.5,
+   "cells": [
+    "5,2",
+    "3,2"
+   ],
+   "colors": [
+    "#b5d5e3",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-clear",
+    "mounted",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0103 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "quat-interior",
    "name": "window-large",
    "hash": "d909ddfc1b",
    "kind": "str-part-window",
@@ -334238,7 +336644,57 @@
     "qua"
    ],
    "variant": "quat-interior/window-large",
-   "thickRel": 0.56
+   "thickRel": 0.61
+  },
+  {
+   "kit": "quat-interior",
+   "name": "window-round-b",
+   "hash": "f59fc712bd",
+   "kind": "str-part-window",
+   "size": "s",
+   "wdh": [
+    0.272,
+    0.034,
+    0.465
+   ],
+   "tris": 122,
+   "tpu": 356,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 6292,
+   "vtx": 129,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.014,
+   "minTube": 0.0137,
+   "thick": 0.0828,
+   "avgTri": 0.00272,
+   "anglePct": 95,
+   "pieces": 3,
+   "vpt": 1.06,
+   "cells": [
+    "5,2",
+    "3,2"
+   ],
+   "colors": [
+    "#b5d5e3",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-clear",
+    "mounted",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0137 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -334281,7 +336737,57 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.15
+  },
+  {
+   "kit": "quat-interior",
+   "name": "window-small-b",
+   "hash": "5299ce1aa7",
+   "kind": "str-part-window",
+   "size": "s",
+   "wdh": [
+    0.278,
+    0.042,
+    0.371
+   ],
+   "tris": 112,
+   "tpu": 327,
+   "mat": 1,
+   "bands": 2,
+   "calls": 1,
+   "bytes": 7756,
+   "vtx": 176,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.003,
+   "minTube": 0.0154,
+   "thick": 0.0601,
+   "avgTri": 0.00434,
+   "anglePct": 100,
+   "pieces": 5,
+   "vpt": 1.57,
+   "cells": [
+    "5,2",
+    "3,2"
+   ],
+   "colors": [
+    "#b5d5e3",
+    "#d8cfb7"
+   ],
+   "tags": [
+    "glass-clear",
+    "mounted",
+    "plastic",
+    "qua"
+   ],
+   "thickRel": 0.7,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0154 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -334325,7 +336831,7 @@
     "qua"
    ],
    "variant": "quat-interior/window-large",
-   "thickRel": 0.91
+   "thickRel": 1
   },
   {
    "kit": "quat-medieval",
@@ -335008,7 +337514,7 @@
     "wood-mid"
    ],
    "variant": "quat-medieval/door-round",
-   "thickRel": 1.06
+   "thickRel": 1.09
   },
   {
    "kit": "quat-medieval",
@@ -335060,7 +337566,7 @@
     "wood-mid"
    ],
    "variant": "quat-medieval/door-round",
-   "thickRel": 1.1
+   "thickRel": 1.13
   },
   {
    "kit": "quat-medieval",
@@ -336072,7 +338578,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.84
   },
   {
    "kit": "quat-megakit",
@@ -336604,7 +339110,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "quat-megakit",
@@ -336648,7 +339154,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "quat-megakit",
@@ -336826,7 +339332,7 @@
     "space"
    ],
    "variant": "quat-megakit/door-metal",
-   "thickRel": 0.79
+   "thickRel": 0.81
   },
   {
    "kit": "quat-megakit",
@@ -336873,7 +339379,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "quat-megakit",
@@ -337093,7 +339599,7 @@
     "space"
    ],
    "variant": "quat-megakit/door-metal",
-   "thickRel": 0.56
+   "thickRel": 0.58
   },
   {
    "kit": "quat-megakit",
@@ -345487,7 +347993,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.26,
+   "thickRel": 1.23,
    "lint": [
     {
      "level": "warning",
@@ -345848,7 +348354,7 @@
     "wax",
     "wood-dark"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.7
   },
   {
    "kit": "quat-props",
@@ -346700,7 +349206,7 @@
     "qua"
    ],
    "variant": "quat-props/cutlery-set",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "quat-props",
@@ -346816,7 +349322,7 @@
     "qua"
    ],
    "variant": "quat-props/cutlery-set",
-   "thickRel": 1.23
+   "thickRel": 1.2
   },
   {
    "kit": "quat-props",
@@ -351117,7 +353623,7 @@
     "wood-mid"
    ],
    "variant": "quat-ruins/bookcase-full",
-   "thickRel": 0.65
+   "thickRel": 0.61
   },
   {
    "kit": "quat-ruins",
@@ -351167,7 +353673,7 @@
     "wood-dark"
    ],
    "variant": "quat-ruins/bookcase-full",
-   "thickRel": 0.98,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "error",
@@ -351503,7 +354009,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-ruins/column-round",
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "quat-ruins",
@@ -351543,7 +354049,7 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.39
   },
   {
    "kit": "quat-ruins",
@@ -351893,7 +354399,7 @@
   {
    "kit": "quat-ruins",
    "name": "floor-squares",
-   "hash": "cd1df29fc0",
+   "hash": "b8d2f54cd5",
    "kind": "str-part-floor-unit-stone",
    "size": "m",
    "wdh": [
@@ -351901,20 +354407,20 @@
     0.998,
     0.054
    ],
-   "tris": 424,
-   "tpu": 609,
+   "tris": 413,
+   "tpu": 594,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 27924,
-   "vtx": 745,
+   "bytes": 27252,
+   "vtx": 726,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "thick": 0.0453,
-   "avgTri": 0.00432,
-   "anglePct": 38,
+   "avgTri": 0.00381,
+   "anglePct": 28,
    "pieces": 16,
    "vpt": 1.76,
    "cells": [
@@ -351930,11 +354436,11 @@
    ],
    "variant": "quat-ruins/floor-standard",
    "backface": {
-    "share": 0.2417,
-    "view": "225/50",
+    "share": 0.1197,
+    "view": "270/50",
     "causes": {
-     "open": 0.99,
-     "inverted": 0.01
+     "inverted": 0.38,
+     "open": 0.62
     }
    },
    "thickRel": 0.73,
@@ -351942,7 +354448,7 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "24.2% of view 225/50 over 0.5%: open 99.0%, inverted 1.0%"
+     "text": "12.0% of view 270/50 over 0.5%: open 62.0%, inverted 38.0%"
     }
    ]
   },
@@ -353804,7 +356310,7 @@
   {
    "kit": "quat-scifi-mod",
    "name": "pipes",
-   "hash": "e97a3ec407",
+   "hash": "fbc96e8870",
    "kind": "str-fixture-utility-pipe",
    "size": "m",
    "wdh": [
@@ -353812,22 +356318,22 @@
     0.143,
     0.415
    ],
-   "tris": 362,
-   "tpu": 1055,
+   "tris": 356,
+   "tpu": 1038,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 23776,
-   "vtx": 628,
+   "bytes": 23484,
+   "vtx": 620,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
    "minTube": 0.0133,
-   "thick": 0.1316,
-   "avgTri": 0.00348,
-   "anglePct": 28,
+   "thick": 0.1315,
+   "avgTri": 0.00352,
+   "anglePct": 27,
    "pieces": 13,
-   "vpt": 1.73,
+   "vpt": 1.74,
    "cells": [
     "6,1"
    ],
@@ -353864,28 +356370,28 @@
   {
    "kit": "quat-scifi-mod",
    "name": "pod",
-   "hash": "5d5920a2ee",
+   "hash": "b67109c66b",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
-    0.651,
-    0.653,
+    0.615,
+    0.615,
     1.228
    ],
-   "tris": 2257,
-   "tpu": 3751,
+   "tris": 2246,
+   "tpu": 3733,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 100452,
-   "vtx": 2668,
+   "bytes": 99808,
+   "vtx": 2651,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "thick": 0.2185,
-   "avgTri": 0.0023,
-   "anglePct": 49,
-   "pieces": 23,
+   "thick": 0.2317,
+   "avgTri": 0.00211,
+   "anglePct": 44,
+   "pieces": 21,
    "vpt": 1.18,
    "cells": [
     "15,3",
@@ -353906,17 +356412,18 @@
    ],
    "backface": {
     "share": 0.0148,
-    "view": "90/50",
+    "view": "315/50",
     "causes": {
-     "open": 1
+     "open": 0.54,
+     "inverted": 0.46
     }
    },
-   "thickRel": 1.7,
+   "thickRel": 1.8,
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "1.5% of view 90/50 over 0.5%: open 100.0%"
+     "text": "1.5% of view 315/50 over 0.5%: open 54.0%, inverted 46.0%"
     }
    ]
   },
@@ -353962,7 +356469,7 @@
     "space"
    ],
    "variant": "quat-scifi-mod/shelf",
-   "thickRel": 0.66,
+   "thickRel": 0.62,
    "lint": [
     {
      "level": "error",
@@ -354013,7 +356520,7 @@
     "space"
    ],
    "variant": "quat-scifi-mod/shelf",
-   "thickRel": 0.62,
+   "thickRel": 0.58,
    "lint": [
     {
      "level": "error",
@@ -356452,7 +358959,7 @@
     "textile-cloth-dark"
    ],
    "variant": "quat-shoot/sofa",
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "quat-shoot",
@@ -356492,7 +358999,7 @@
     "textile-cloth-dark"
    ],
    "variant": "quat-shoot/sofa",
-   "thickRel": 1.09
+   "thickRel": 1.11
   },
   {
    "kit": "quat-shoot",
@@ -361475,7 +363982,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "quat-sushi",
@@ -361514,7 +364021,7 @@
     "wood-dark"
    ],
    "variant": "quat-sushi/cabinet-shelves",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "quat-sushi",
@@ -361553,7 +364060,7 @@
     "wood-dark"
    ],
    "variant": "quat-sushi/cabinet-shelves",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "quat-sushi",
@@ -361595,7 +364102,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.72,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "warning",
@@ -361773,7 +364280,7 @@
     "wood-mid"
    ],
    "variant": "quat-sushi/counter-straight",
-   "thickRel": 1.5
+   "thickRel": 1.49
   },
   {
    "kit": "quat-sushi",
@@ -361946,7 +364453,7 @@
     "wood-mid"
    ],
    "variant": "quat-sushi/counter-straight",
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "quat-sushi",
@@ -362868,12 +365375,12 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.47,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -363248,7 +365755,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.01
   },
   {
    "kit": "quat-sushi",
@@ -364037,7 +366544,7 @@
     "qua",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.32
   },
   {
    "kit": "quat-sushi",
@@ -376787,7 +379294,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/door-a",
-   "thickRel": 0.81
+   "thickRel": 0.84
   },
   {
    "kit": "rgp-medieval",
@@ -376833,7 +379340,7 @@
     "stone-masonry-mid",
     "wood-light"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.72
   },
   {
    "kit": "rgp-medieval",
@@ -376880,7 +379387,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/door-a",
-   "thickRel": 0.55
+   "thickRel": 0.57
   },
   {
    "kit": "rgp-medieval",
@@ -376926,7 +379433,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.66
   },
   {
    "kit": "rgp-medieval",
@@ -378699,7 +381206,7 @@
     "wood-mid"
    ],
    "variant": "rgp-medieval/market-table-1",
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "rgp-medieval",
@@ -380209,7 +382716,7 @@
     "wood-dark"
    ],
    "variant": "rgp-medieval/post-a",
-   "thickRel": 1.65
+   "thickRel": 1.66
   },
   {
    "kit": "rgp-medieval",
@@ -381619,7 +384126,7 @@
     "wood-mid"
    ],
    "variant": "rgp-medieval/shelf-a",
-   "thickRel": 0.74
+   "thickRel": 0.69
   },
   {
    "kit": "rgp-medieval",
@@ -381660,7 +384167,7 @@
     "wood-mid"
    ],
    "variant": "rgp-medieval/shelf-a",
-   "thickRel": 0.74
+   "thickRel": 0.7
   },
   {
    "kit": "rgp-medieval",
@@ -383298,7 +385805,7 @@
     "wood-dark"
    ],
    "variant": "rgp-medieval/window-frame",
-   "thickRel": 0.88
+   "thickRel": 0.96
   },
   {
    "kit": "rgp-medieval",
@@ -383342,7 +385849,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.4,
+   "thickRel": 0.44,
    "lint": [
     {
      "level": "warning",
@@ -383352,7 +385859,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
+     "text": "I01 thickRel 0.44 wants min 0.5"
     }
    ]
   },
@@ -383402,7 +385909,7 @@
     "wood-dark"
    ],
    "variant": "rgp-medieval/window-frame",
-   "thickRel": 0.77
+   "thickRel": 0.84
   },
   {
    "kit": "rgp-props",
@@ -384544,7 +387051,7 @@
     "rgp",
     "wood-mid"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.81
   },
   {
    "kit": "rgp-props",
@@ -384723,7 +387230,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.96
   },
   {
    "kit": "rgp-vintage",
@@ -384855,7 +387362,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.86,
+   "thickRel": 0.83,
    "mark": [
     "centered"
    ]
@@ -385007,7 +387514,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.72
   },
   {
    "kit": "rgp-vintage",
@@ -385322,7 +387829,7 @@
     "rgp",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.24
   },
   {
    "kit": "rgp-vintage",
@@ -389358,7 +391865,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.62
   },
   {
    "kit": "sq-bank",
@@ -389555,7 +392062,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.29
   },
   {
    "kit": "sq-bank",
@@ -389604,7 +392111,7 @@
     "sq",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "sq-bowling",
@@ -389881,7 +392388,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.88
   },
   {
    "kit": "sq-bowling",
@@ -390146,7 +392653,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.75
   },
   {
    "kit": "sq-bowling",
@@ -390336,7 +392843,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "sq-bowling",
@@ -390385,7 +392892,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.06
+   "thickRel": 1
   },
   {
    "kit": "sq-cards",
@@ -392277,7 +394784,7 @@
     "sq",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.89
   },
   {
    "kit": "sq-cinema",
@@ -392478,7 +394985,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "sq-fastfood",
@@ -392773,7 +395280,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.96
   },
   {
    "kit": "sq-gym",
@@ -393889,7 +396396,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.02
   },
   {
    "kit": "sq-lab",
@@ -394172,7 +396679,7 @@
     "sq",
     "wood-light"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "sq-laundry",
@@ -394258,7 +396765,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.65
   },
   {
    "kit": "sq-laundry",
@@ -394853,7 +397360,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.77
   },
   {
    "kit": "sq-pool",
@@ -395365,7 +397872,7 @@
     "sq",
     "tba"
    ],
-   "thickRel": 3.22
+   "thickRel": 3.19
   },
   {
    "kit": "sq-rink",
@@ -401005,7 +403512,7 @@
     "wood-mid"
    ],
    "variant": "styloo-food/chopsticks",
-   "thickRel": 4.44
+   "thickRel": 4.42
   },
   {
    "kit": "styloo-food",
@@ -402500,7 +405007,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 3.3
+   "thickRel": 3.25
   },
   {
    "kit": "styloo-food",
@@ -403003,7 +405510,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/chair-a",
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "styloo-furniture",
@@ -403042,7 +405549,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/chair-a",
-   "thickRel": 0.87
+   "thickRel": 0.84
   },
   {
    "kit": "styloo-furniture",
@@ -403081,7 +405588,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/chair-a",
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "styloo-furniture",
@@ -403248,7 +405755,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.63
   },
   {
    "kit": "styloo-furniture",
@@ -403417,7 +405924,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 2.64
+   "thickRel": 2.61
   },
   {
    "kit": "styloo-furniture",
@@ -403496,7 +406003,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "styloo-furniture",
@@ -403534,7 +406041,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.77
   },
   {
    "kit": "styloo-furniture",
@@ -405116,7 +407623,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/cutlery-set",
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "styloo-kitchen",
@@ -405595,7 +408102,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/cutlery-set",
-   "thickRel": 1.34
+   "thickRel": 1.3
   },
   {
    "kit": "styloo-kitchen",
@@ -405634,7 +408141,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/cutlery-set",
-   "thickRel": 0.84
+   "thickRel": 0.82
   },
   {
    "kit": "styloo-kitchen",
@@ -407497,7 +410004,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.79
   },
   {
    "kit": "styloo-school",
@@ -407666,7 +410173,7 @@
     "sty"
    ],
    "variant": "styloo-school/cafeteria-chair",
-   "thickRel": 1.16
+   "thickRel": 1.12
   },
   {
    "kit": "styloo-school",
@@ -407708,7 +410215,7 @@
     "sty"
    ],
    "variant": "styloo-school/cafeteria-chair",
-   "thickRel": 1.11
+   "thickRel": 1.08
   },
   {
    "kit": "styloo-school",
@@ -408380,7 +410887,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.82
   },
   {
    "kit": "styloo-school",
@@ -408496,7 +411003,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 2.97
+   "thickRel": 2.79
   },
   {
    "kit": "styloo-school",
@@ -408539,7 +411046,7 @@
     "sty",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.68
+   "thickRel": 0.66
   },
   {
    "kit": "styloo-school",
@@ -408583,7 +411090,7 @@
     "sty",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.81
   },
   {
    "kit": "styloo-school",
@@ -408816,7 +411323,7 @@
     "sty",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.89
   },
   {
    "kit": "styloo-school",
@@ -409151,7 +411658,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "styloo-school",
@@ -409236,7 +411743,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.78
   },
   {
    "kit": "styloo-school",
@@ -409770,7 +412277,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.59
+   "thickRel": 1.5
   },
   {
    "kit": "styloo-school",
@@ -410865,7 +413372,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.61
+   "thickRel": 1.59
   },
   {
    "kit": "styloo-school",
@@ -411129,7 +413636,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.95
   },
   {
    "kit": "styloo-school",
@@ -411168,7 +413675,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "styloo-school",
@@ -411211,7 +413718,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "styloo-school",
@@ -411337,7 +413844,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "styloo-school",
@@ -411376,7 +413883,7 @@
     "sty"
    ],
    "variant": "styloo-school/soap-bar-red",
-   "thickRel": 1.9
+   "thickRel": 1.92
   },
   {
    "kit": "styloo-school",
@@ -411415,7 +413922,7 @@
     "wax"
    ],
    "variant": "styloo-school/soap-bar-red",
-   "thickRel": 1.9
+   "thickRel": 1.92
   },
   {
    "kit": "styloo-school",
@@ -411453,7 +413960,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.75
   },
   {
    "kit": "styloo-school",
@@ -411823,7 +414330,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "styloo-school",
@@ -411864,7 +414371,7 @@
     "paper-sheet",
     "sty"
    ],
-   "thickRel": 1.43
+   "thickRel": 1.45
   },
   {
    "kit": "styloo-school",
@@ -411905,7 +414412,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.83
   },
   {
    "kit": "styloo-school",
@@ -412112,7 +414619,7 @@
     "mounted",
     "sty"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.76
   },
   {
    "kit": "styloo-school",
@@ -412290,7 +414797,7 @@
     "sty",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.83
   },
   {
    "kit": "styloo-school",
@@ -412670,7 +415177,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.3
   },
   {
    "kit": "styloo-weapons",
@@ -417134,7 +419641,7 @@
     "plastic"
    ],
    "variant": "taalei-kit/sewing-machine",
-   "thickRel": 0.65
+   "thickRel": 0.64
   },
   {
    "kit": "taalei-kit",
@@ -420812,7 +423319,7 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "western",
@@ -421234,7 +423741,7 @@
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.2
   },
   {
    "kit": "western",
@@ -424136,7 +426643,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "wizp-asia",
