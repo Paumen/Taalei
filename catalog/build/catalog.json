@@ -38376,7 +38376,23 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.02
+   "backface": {
+    "share": 0.0036,
+    "view": "225/20",
+    "causes": {
+     "inside-out": 0.19,
+     "open": 0.79,
+     "inverted": 0.02
+    }
+   },
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 225/20 over 0.1%: open 79.0%, inside-out 19.0%, inverted 2.0%"
+    }
+   ]
   },
   {
    "kit": "3dm-guns",
@@ -45764,7 +45780,7 @@
   {
    "kit": "architecture",
    "name": "fortress",
-   "hash": "552037e231",
+   "hash": "d8ce4ea62c",
    "kind": "str-building-military-castle",
    "size": "l",
    "wdh": [
@@ -45772,22 +45788,22 @@
     4.38,
     1.743
    ],
-   "tris": 4613,
+   "tris": 4624,
    "tpu": 122,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 295288,
-   "vtx": 8319,
+   "bytes": 299004,
+   "vtx": 8433,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "minTube": 0.5769,
+   "minEdge": 0.003,
+   "minTube": 0,
    "thick": 0.0814,
-   "avgTri": 0.02531,
-   "anglePct": 77,
-   "pieces": 267,
-   "vpt": 1.8,
+   "avgTri": 0.02537,
+   "anglePct": 76,
+   "pieces": 275,
+   "vpt": 1.82,
    "cells": [
     "14,3",
     "1,0"
@@ -45803,21 +45819,7 @@
     "wood-mid"
    ],
    "variant": "architecture/castle",
-   "backface": {
-    "share": 0.0032,
-    "view": "90/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 90/20 over 0.1%: open 100.0%"
-    }
-   ]
+   "thickRel": 0.73
   },
   {
    "kit": "avra-food",
@@ -226832,7 +226834,21 @@
     "space"
    ],
    "variant": "ken-space/gate-complex",
-   "thickRel": 1
+   "backface": {
+    "share": 0.0058,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.6% of view 0/20 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-space",
@@ -234033,7 +234049,7 @@
    "kit": "ken-suburban",
    "collection": "ken-city",
    "name": "house-s",
-   "hash": "d6b84dafbe",
+   "hash": "b87db8ee4a",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -234041,22 +234057,22 @@
     2.39,
     2.503
    ],
-   "tris": 1205,
-   "tpu": 65,
+   "tris": 1216,
+   "tpu": 66,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 55360,
-   "vtx": 1457,
+   "bytes": 56160,
+   "vtx": 1480,
    "grounded": true,
    "centered": true,
    "minEdge": 0.024,
-   "minTube": 0.0439,
+   "minTube": 0.0661,
    "thick": 0.1839,
-   "avgTri": 0.03945,
-   "anglePct": 66,
-   "pieces": 19,
-   "vpt": 1.21,
+   "avgTri": 0.0405,
+   "anglePct": 67,
+   "pieces": 17,
+   "vpt": 1.22,
    "cells": [
     "15,3",
     "6,1",
@@ -234085,21 +234101,7 @@
     "storeys-2"
    ],
    "variant": "ken-suburban/house-s",
-   "backface": {
-    "share": 0.0026,
-    "view": "270/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 270/20 over 0.1%: open 100.0%"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-suburban",
@@ -249378,7 +249380,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-b",
-   "hash": "9f8002ea42",
+   "hash": "d426476b2e",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -249391,8 +249393,8 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 28768,
-   "vtx": 713,
+   "bytes": 29152,
+   "vtx": 725,
    "grounded": true,
    "centered": true,
    "minEdge": 0.03,
@@ -249400,8 +249402,8 @@
    "thick": 0.2041,
    "avgTri": 0.17009,
    "anglePct": 83,
-   "pieces": 11,
-   "vpt": 1.91,
+   "pieces": 13,
+   "vpt": 1.94,
    "cells": [
     "5,2",
     "8,0",
@@ -249429,7 +249431,7 @@
   {
    "kit": "loaf-gothic",
    "name": "structure-c",
-   "hash": "ed4becedab",
+   "hash": "db9787cc32",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -249442,8 +249444,8 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 40284,
-   "vtx": 1003,
+   "bytes": 41052,
+   "vtx": 1027,
    "grounded": true,
    "centered": true,
    "minEdge": 0.022,
@@ -249451,8 +249453,8 @@
    "thick": 0.145,
    "avgTri": 0.12449,
    "anglePct": 56,
-   "pieces": 21,
-   "vpt": 1.79,
+   "pieces": 23,
+   "vpt": 1.83,
    "cells": [
     "5,2",
     "8,0",
@@ -259718,7 +259720,21 @@
     "metal-steel",
     "scale-big"
    ],
-   "thickRel": 0.64
+   "backface": {
+    "share": 0.0012,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.64,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "lpa-weapons",
@@ -305133,7 +305149,7 @@
   {
    "kit": "mali",
    "name": "barracks",
-   "hash": "4c67848476",
+   "hash": "f769e800aa",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -305146,8 +305162,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 190256,
-   "vtx": 4904,
+   "bytes": 195248,
+   "vtx": 5060,
    "grounded": true,
    "centered": true,
    "minEdge": 0.024,
@@ -305155,8 +305171,8 @@
    "thick": 0.1406,
    "avgTri": 0.02979,
    "anglePct": 89,
-   "pieces": 131,
-   "vpt": 1.85,
+   "pieces": 157,
+   "vpt": 1.91,
    "cells": [
     "0,0",
     "2,0",
@@ -305275,7 +305291,7 @@
   {
    "kit": "mali",
    "name": "corral",
-   "hash": "72d550ce58",
+   "hash": "a5e2d01fec",
    "kind": "str-building-work-agricultural-coop",
    "size": "l",
    "wdh": [
@@ -305288,8 +305304,8 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 74212,
-   "vtx": 1880,
+   "bytes": 75748,
+   "vtx": 1928,
    "grounded": true,
    "centered": true,
    "minEdge": 0.028,
@@ -305297,8 +305313,8 @@
    "thick": 0.1283,
    "avgTri": 0.02123,
    "anglePct": 90,
-   "pieces": 54,
-   "vpt": 1.8,
+   "pieces": 62,
+   "vpt": 1.84,
    "cells": [
     "0,0",
     "2,0",
@@ -305324,7 +305340,7 @@
   {
    "kit": "mali",
    "name": "defense-tower",
-   "hash": "d1da428ed7",
+   "hash": "56bf243f6f",
    "kind": "str-building-tower-watch",
    "size": "l",
    "wdh": [
@@ -305337,8 +305353,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 122960,
-   "vtx": 3120,
+   "bytes": 125072,
+   "vtx": 3186,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
@@ -305346,8 +305362,8 @@
    "thick": 0.2494,
    "avgTri": 0.01819,
    "anglePct": 93,
-   "pieces": 55,
-   "vpt": 1.73,
+   "pieces": 67,
+   "vpt": 1.77,
    "cells": [
     "0,0",
     "5,2",
@@ -305523,7 +305539,7 @@
   {
    "kit": "mali",
    "name": "house-1",
-   "hash": "9b14ede883",
+   "hash": "df19107486",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -305536,8 +305552,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 99912,
-   "vtx": 2552,
+   "bytes": 103372,
+   "vtx": 2660,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -305546,8 +305562,8 @@
    "thick": 0.123,
    "avgTri": 0.037,
    "anglePct": 90,
-   "pieces": 72,
-   "vpt": 1.83,
+   "pieces": 90,
+   "vpt": 1.91,
    "cells": [
     "0,0",
     "2,0",
@@ -305571,7 +305587,7 @@
   {
    "kit": "mali",
    "name": "house-2",
-   "hash": "2194ddf8a2",
+   "hash": "0811bc9ea5",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -305584,8 +305600,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 104128,
-   "vtx": 2662,
+   "bytes": 106432,
+   "vtx": 2734,
    "grounded": true,
    "centered": true,
    "minEdge": 0.027,
@@ -305593,8 +305609,8 @@
    "thick": 0.133,
    "avgTri": 0.03457,
    "anglePct": 89,
-   "pieces": 72,
-   "vpt": 1.83,
+   "pieces": 84,
+   "vpt": 1.88,
    "cells": [
     "0,0",
     "2,0",
@@ -305618,7 +305634,7 @@
   {
    "kit": "mali",
    "name": "house-3",
-   "hash": "6a5db20df0",
+   "hash": "4f04f149ad",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -305631,8 +305647,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 102712,
-   "vtx": 2622,
+   "bytes": 105784,
+   "vtx": 2718,
    "grounded": true,
    "centered": true,
    "minEdge": 0.027,
@@ -305640,8 +305656,8 @@
    "thick": 0.1368,
    "avgTri": 0.03241,
    "anglePct": 94,
-   "pieces": 75,
-   "vpt": 1.82,
+   "pieces": 91,
+   "vpt": 1.88,
    "cells": [
     "2,0",
     "0,0",
@@ -305679,7 +305695,7 @@
   {
    "kit": "mali",
    "name": "house-4",
-   "hash": "3f53c6daed",
+   "hash": "49d5ead5f0",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -305692,8 +305708,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 98980,
-   "vtx": 2522,
+   "bytes": 102052,
+   "vtx": 2618,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -305702,8 +305718,8 @@
    "thick": 0.1218,
    "avgTri": 0.035,
    "anglePct": 92,
-   "pieces": 70,
-   "vpt": 1.8,
+   "pieces": 86,
+   "vpt": 1.87,
    "cells": [
     "0,0",
     "2,0",
@@ -305863,7 +305879,7 @@
   {
    "kit": "mali",
    "name": "sentry-tower",
-   "hash": "23e7993a1a",
+   "hash": "2a12a26d01",
    "kind": "str-building-tower-watch",
    "size": "l",
    "wdh": [
@@ -305876,8 +305892,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 82656,
-   "vtx": 2060,
+   "bytes": 85728,
+   "vtx": 2156,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
@@ -305885,8 +305901,8 @@
    "thick": 0.2183,
    "avgTri": 0.02066,
    "anglePct": 91,
-   "pieces": 27,
-   "vpt": 1.62,
+   "pieces": 43,
+   "vpt": 1.7,
    "cells": [
     "0,0",
     "14,3",
@@ -318470,7 +318486,7 @@
   {
    "kit": "quat-buildings",
    "name": "bank",
-   "hash": "5659365a60",
+   "hash": "d4e34204bb",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -318478,22 +318494,22 @@
     4.244,
     2.923
    ],
-   "tris": 12582,
-   "tpu": 253,
+   "tris": 7098,
+   "tpu": 143,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 487956,
+   "bytes": 455052,
    "vtx": 12842,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "thick": 0.1627,
-   "avgTri": 0.01317,
-   "anglePct": 61,
+   "avgTri": 0.01968,
+   "anglePct": 66,
    "pieces": 1,
-   "vpt": 1.02,
+   "vpt": 1.81,
    "cells": [
     "5,2",
     "8,0"
@@ -318513,7 +318529,7 @@
   {
    "kit": "quat-buildings",
    "name": "flat-2",
-   "hash": "cf9bc412f5",
+   "hash": "6a2af28098",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -318521,7 +318537,7 @@
     1.892,
     3.167
    ],
-   "tris": 2084,
+   "tris": 2073,
    "tpu": 160,
    "mat": 1,
    "bands": 6,
@@ -318533,10 +318549,10 @@
    "minEdge": 0.007,
    "minTube": 0.0209,
    "thick": 0.2393,
-   "avgTri": 0.02351,
+   "avgTri": 0.02296,
    "anglePct": 100,
    "pieces": 1,
-   "vpt": 1.27,
+   "vpt": 1.28,
    "cells": [
     "5,2",
     "13,3",
@@ -318640,7 +318656,7 @@
   {
    "kit": "quat-buildings",
    "name": "hospital",
-   "hash": "dcf55a0f5e",
+   "hash": "c93154a69d",
    "kind": "str-building-work",
    "size": "l",
    "wdh": [
@@ -318653,15 +318669,15 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 242056,
-   "vtx": 6724,
+   "bytes": 242888,
+   "vtx": 6748,
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
    "thick": 0.1807,
    "avgTri": 0.03976,
    "anglePct": 99,
-   "pieces": 1,
+   "pieces": 9,
    "vpt": 1.59,
    "cells": [
     "8,0",
@@ -318756,7 +318772,7 @@
   {
    "kit": "quat-buildings",
    "name": "house-3",
-   "hash": "264b9a8d77",
+   "hash": "bea090cd26",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -318769,15 +318785,15 @@
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 186524,
-   "vtx": 5041,
+   "bytes": 186684,
+   "vtx": 5044,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.2335,
    "avgTri": 0.00424,
    "anglePct": 45,
-   "pieces": 1,
+   "pieces": 2,
    "vpt": 1.27,
    "cells": [
     "5,2",
@@ -318867,7 +318883,7 @@
   {
    "kit": "quat-buildings",
    "name": "house-5",
-   "hash": "4220d6a2c9",
+   "hash": "d8ec6ab030",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -318880,15 +318896,15 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 124340,
-   "vtx": 3346,
+   "bytes": 124628,
+   "vtx": 3355,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "thick": 0.1731,
    "avgTri": 0.00804,
    "anglePct": 48,
-   "pieces": 1,
+   "pieces": 3,
    "vpt": 1.28,
    "cells": [
     "5,2",
@@ -318924,7 +318940,7 @@
   {
    "kit": "quat-buildings",
    "name": "house",
-   "hash": "80ca6a2b94",
+   "hash": "73442cfc3e",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -318937,8 +318953,8 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 188828,
-   "vtx": 5051,
+   "bytes": 194972,
+   "vtx": 5243,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
@@ -318946,8 +318962,8 @@
    "thick": 0.2125,
    "avgTri": 0.0028,
    "anglePct": 67,
-   "pieces": 1,
-   "vpt": 1.18,
+   "pieces": 33,
+   "vpt": 1.22,
    "cells": [
     "13,3",
     "5,2",
@@ -319048,7 +319064,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-1-large",
-   "hash": "49211bdcd2",
+   "hash": "9c88fb3c67",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319056,22 +319072,22 @@
     2.195,
     3.737
    ],
-   "tris": 41788,
-   "tpu": 797,
+   "tris": 41516,
+   "tpu": 792,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 1982660,
+   "bytes": 1981088,
    "vtx": 54077,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0027,
    "thick": 0.2209,
-   "avgTri": 0.00537,
+   "avgTri": 0.00538,
    "anglePct": 62,
    "pieces": 553,
-   "vpt": 1.29,
+   "vpt": 1.3,
    "cells": [
     "5,2",
     "12,3",
@@ -319174,30 +319190,30 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-2-large",
-   "hash": "e0938e3257",
+   "hash": "5814a45220",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
     4.573,
     1.776,
-    4.734
+    4.739
    ],
    "tris": 15072,
    "tpu": 392,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 697012,
-   "vtx": 18908,
+   "bytes": 698164,
+   "vtx": 18944,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0044,
-   "thick": 0.1537,
+   "thick": 0.1535,
    "avgTri": 0.00965,
    "anglePct": 86,
-   "pieces": 72,
-   "vpt": 1.25,
+   "pieces": 82,
+   "vpt": 1.26,
    "cells": [
     "14,3",
     "8,0",
@@ -319237,30 +319253,30 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-2-small",
-   "hash": "660f6bbd65",
+   "hash": "8257834eb0",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
     2.867,
     1.989,
-    3.974
+    3.976
    ],
    "tris": 5160,
    "tpu": 228,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 238632,
-   "vtx": 6442,
+   "bytes": 240168,
+   "vtx": 6490,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0049,
+   "minTube": 0,
    "thick": 0.2381,
    "avgTri": 0.01513,
    "anglePct": 87,
-   "pieces": 25,
-   "vpt": 1.25,
+   "pieces": 29,
+   "vpt": 1.26,
    "cells": [
     "14,3",
     "8,0",
@@ -319288,14 +319304,7 @@
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-2-large",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0049 wants min 0.026"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "quat-buildings-2",
@@ -319410,7 +319419,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-4",
-   "hash": "9ff7d10a83",
+   "hash": "cef180b027",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319423,8 +319432,8 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 420092,
-   "vtx": 11255,
+   "bytes": 423188,
+   "vtx": 11351,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319432,8 +319441,8 @@
    "thick": 0.2242,
    "avgTri": 0.0089,
    "anglePct": 89,
-   "pieces": 19,
-   "vpt": 1.16,
+   "pieces": 33,
+   "vpt": 1.17,
    "cells": [
     "14,3",
     "5,2",
@@ -319461,7 +319470,8 @@
     "share": 0.0013,
     "view": "45/50",
     "causes": {
-     "inverted": 1
+     "inverted": 0.88,
+     "open": 0.12
     }
    },
    "thickRel": 0.95,
@@ -319469,7 +319479,7 @@
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.1% of view 45/50 over 0.1%: inverted 100.0%"
+     "text": "0.1% of view 45/50 over 0.1%: inverted 88.0%, open 12.0%"
     },
     {
      "level": "error",
@@ -319481,7 +319491,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "house-1",
-   "hash": "b6027450e1",
+   "hash": "ebc1c06409",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -319494,16 +319504,16 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 1351336,
-   "vtx": 36865,
+   "bytes": 1351740,
+   "vtx": 36877,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.007,
+   "minTube": 0,
    "thick": 0.2025,
    "avgTri": 0.0038,
    "anglePct": 54,
-   "pieces": 166,
+   "pieces": 167,
    "vpt": 1.3,
    "cells": [
     "8,0",
@@ -319528,14 +319538,7 @@
     "storeys-2",
     "wood-mid"
    ],
-   "thickRel": 1.1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.007 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "quat-buildings-2",
@@ -345565,7 +345568,7 @@
   {
    "kit": "quat-pirate",
    "name": "house-3",
-   "hash": "f1bf1b9c5a",
+   "hash": "92b2e47806",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -345573,22 +345576,22 @@
     1.451,
     4.087
    ],
-   "tris": 5377,
-   "tpu": 279,
+   "tris": 5364,
+   "tpu": 278,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 408956,
-   "vtx": 10719,
+   "bytes": 424640,
+   "vtx": 11214,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.026,
-   "thick": 0.13,
-   "avgTri": 0.00897,
-   "anglePct": 60,
-   "pieces": 290,
-   "vpt": 1.99,
+   "minEdge": 0.001,
+   "minTube": 0,
+   "thick": 0.1301,
+   "avgTri": 0.00898,
+   "anglePct": 56,
+   "pieces": 292,
+   "vpt": 2.09,
    "cells": [
     "0,0",
     "2,0",
@@ -345621,21 +345624,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "backface": {
-    "share": 0.0028,
-    "view": "90/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 0.71,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 90/20 over 0.1%: open 100.0%"
-    }
-   ]
+   "thickRel": 0.71
   },
   {
    "kit": "quat-pirate",
@@ -367425,7 +367414,7 @@
   {
    "kit": "quat-textured",
    "name": "2-story-columns",
-   "hash": "675b12035a",
+   "hash": "99dc1d2f40",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -367438,8 +367427,8 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 212300,
-   "vtx": 5907,
+   "bytes": 215780,
+   "vtx": 6015,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -367447,8 +367436,8 @@
    "thick": 0.2394,
    "avgTri": 0.01344,
    "anglePct": 95,
-   "pieces": 183,
-   "vpt": 1.63,
+   "pieces": 201,
+   "vpt": 1.66,
    "cells": [
     "5,2",
     "14,3",
@@ -367614,7 +367603,7 @@
   {
    "kit": "quat-textured",
    "name": "2-story-sidehouse",
-   "hash": "25ac88f1c4",
+   "hash": "ac3d9cdf6f",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -367627,8 +367616,8 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 332652,
-   "vtx": 9285,
+   "bytes": 333228,
+   "vtx": 9303,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -367636,7 +367625,7 @@
    "thick": 0.2105,
    "avgTri": 0.01089,
    "anglePct": 94,
-   "pieces": 287,
+   "pieces": 290,
    "vpt": 1.64,
    "cells": [
     "3,2",
@@ -367929,7 +367918,7 @@
   {
    "kit": "quat-textured",
    "name": "3-story-balcony",
-   "hash": "c682c1d7e3",
+   "hash": "42193e5c5e",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -367942,8 +367931,8 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 296500,
-   "vtx": 8239,
+   "bytes": 296692,
+   "vtx": 8245,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
@@ -367951,7 +367940,7 @@
    "thick": 0.2574,
    "avgTri": 0.01172,
    "anglePct": 96,
-   "pieces": 242,
+   "pieces": 243,
    "vpt": 1.58,
    "cells": [
     "14,3",
@@ -368057,7 +368046,7 @@
   {
    "kit": "quat-textured",
    "name": "4-story",
-   "hash": "d20123237c",
+   "hash": "53a38c1ee7",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -368070,8 +368059,8 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 400048,
-   "vtx": 11164,
+   "bytes": 400432,
+   "vtx": 11176,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
@@ -368079,8 +368068,8 @@
    "thick": 0.2913,
    "avgTri": 0.01125,
    "anglePct": 96,
-   "pieces": 295,
-   "vpt": 1.62,
+   "pieces": 297,
+   "vpt": 1.63,
    "cells": [
     "14,3",
     "5,2",
@@ -368820,7 +368809,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "barracks-1-a",
-   "hash": "f381c7c903",
+   "hash": "77471386fa",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -368828,21 +368817,21 @@
     2.156,
     1.438
    ],
-   "tris": 848,
-   "tpu": 135,
+   "tris": 859,
+   "tpu": 137,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 58932,
-   "vtx": 1639,
+   "bytes": 59672,
+   "vtx": 1660,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0296,
    "thick": 0.178,
-   "avgTri": 0.04953,
-   "anglePct": 92,
-   "pieces": 75,
+   "avgTri": 0.04933,
+   "anglePct": 93,
+   "pieces": 76,
    "vpt": 1.93,
    "cells": [
     "2,0",
@@ -368869,21 +368858,7 @@
     "wood-light"
    ],
    "variant": "quat-town/barracks-1-b",
-   "backface": {
-    "share": 0.0039,
-    "view": "270/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 1.3,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.4% of view 270/20 over 0.1%: open 100.0%"
-    }
-   ]
+   "thickRel": 1.3
   },
   {
    "kit": "quat-town",
@@ -371714,7 +371689,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-a",
-   "hash": "48ee699837",
+   "hash": "19ddce7e35",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -371722,22 +371697,22 @@
     2.623,
     1.006
    ],
-   "tris": 8630,
-   "tpu": 949,
+   "tris": 8582,
+   "tpu": 944,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 708264,
-   "vtx": 20470,
+   "bytes": 712232,
+   "vtx": 20603,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.026,
-   "thick": 0.1452,
-   "avgTri": 0.00773,
+   "thick": 0.1451,
+   "avgTri": 0.00777,
    "anglePct": 71,
-   "pieces": 360,
-   "vpt": 2.37,
+   "pieces": 277,
+   "vpt": 2.4,
    "cells": [
     "13,3",
     "2,0",
@@ -371760,21 +371735,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
-   "backface": {
-    "share": 0.0014,
-    "view": "315/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 0.96,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.1% of view 315/20 over 0.1%: open 100.0%"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "quat-town",
@@ -380477,7 +380438,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "house-10",
-   "hash": "44f60a587f",
+   "hash": "1303dfcfcb",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -380485,21 +380446,21 @@
     3.966,
     3.045
    ],
-   "tris": 1438,
+   "tris": 1448,
    "tpu": 31,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 74156,
-   "vtx": 2003,
+   "bytes": 74728,
+   "vtx": 2019,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.012,
-   "minTube": 0.0348,
+   "minEdge": 0.001,
+   "minTube": 0,
    "thick": 0.1684,
-   "avgTri": 0.06166,
-   "anglePct": 67,
-   "pieces": 102,
+   "avgTri": 0.06873,
+   "anglePct": 70,
+   "pieces": 104,
    "vpt": 1.39,
    "cells": [
     "12,3",
@@ -380520,22 +380481,7 @@
     "storeys-2",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0019,
-    "view": "225/50",
-    "causes": {
-     "inverted": 0.75,
-     "other": 0.25
-    }
-   },
-   "thickRel": 0.92,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 225/50 over 0.1%: inverted 75.0%, other 25.0%"
-    }
-   ]
+   "thickRel": 0.92
   },
   {
    "kit": "rgp-medieval",
@@ -385685,7 +385631,21 @@
     "rgp",
     "wood-mid"
    ],
-   "thickRel": 1.15
+   "backface": {
+    "share": 0.001,
+    "view": "0/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 1.15,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 0/20 over 0.1%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -401111,6 +401071,20 @@
     "textile-cloth-mid",
     "wood-dark",
     "wood-light"
+   ],
+   "backface": {
+    "share": 0.0012,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 135/20 over 0.1%: open 100.0%"
+    }
    ]
   },
   {
@@ -402492,7 +402466,7 @@
   {
    "kit": "styloo-farm",
    "name": "windmill-large",
-   "hash": "d0b99d61fc",
+   "hash": "2b121927e8",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
    "wdh": [
@@ -402500,22 +402474,22 @@
     1.648,
     3.253
    ],
-   "tris": 2732,
-   "tpu": 227,
+   "tris": 2712,
+   "tpu": 225,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 188764,
-   "vtx": 5343,
+   "bytes": 197668,
+   "vtx": 5625,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0115,
-   "thick": 0.1458,
-   "avgTri": 0.00762,
-   "anglePct": 31,
-   "pieces": 113,
-   "vpt": 1.96,
+   "thick": 0.1461,
+   "avgTri": 0.00792,
+   "anglePct": 29,
+   "pieces": 102,
+   "vpt": 2.07,
    "cells": [
     "2,0",
     "5,2",
@@ -402542,21 +402516,7 @@
     "wood-dark"
    ],
    "variant": "styloo-farm/windmill-anim",
-   "backface": {
-    "share": 0.0013,
-    "view": "90/50",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 1.16,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.1% of view 90/50 over 0.1%: open 100.0%"
-    }
-   ]
+   "thickRel": 1.16
   },
   {
    "kit": "styloo-farm",
@@ -435901,7 +435861,21 @@
     "wood-mid"
    ],
    "variant": "wizp-village/house-a",
-   "thickRel": 0.68
+   "backface": {
+    "share": 0.0014,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.68,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "wizp-village",
@@ -438358,8 +438332,20 @@
     "metal-steel",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.0023,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.84,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
