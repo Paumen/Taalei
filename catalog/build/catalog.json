@@ -25263,6 +25263,18 @@
   {
    "name": "nickel",
    "hex": "#7a8491"
+  },
+  {
+   "name": "magenta",
+   "hex": "#af4c87"
+  },
+  {
+   "name": "teal",
+   "hex": "#328686"
+  },
+  {
+   "name": "lime",
+   "hex": "#95b438"
   }
  ],
  "tags": [
@@ -25302,7 +25314,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2171,
+   "count": 2164,
    "parent": "metal"
   },
   {
@@ -25334,7 +25346,7 @@
    "name": "Masonry light",
    "type": "material",
    "description": "Light stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 338,
+   "count": 336,
    "parent": "stone"
   },
   {
@@ -25342,7 +25354,7 @@
    "name": "Masonry mid",
    "type": "material",
    "description": "Mid-grey stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 985,
+   "count": 982,
    "parent": "stone"
   },
   {
@@ -25350,7 +25362,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 207,
+   "count": 212,
    "parent": "stone"
   },
   {
@@ -25366,7 +25378,7 @@
    "name": "Concrete",
    "type": "material",
    "description": "Concrete and asphalt: road surfaces, crossings, car parks. Kerbs and pavement are masonry.",
-   "count": 69,
+   "count": 66,
    "parent": "stone"
   },
   {
@@ -25430,7 +25442,7 @@
    "name": "Ceramic dark",
    "type": "material",
    "description": "Dark fired clay: brick-red roof tiles, glazed pots and vases.",
-   "count": 337,
+   "count": 335,
    "parent": "ceramic"
   },
   {
@@ -25446,7 +25458,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 569,
+   "count": 578,
    "parent": "glass"
   },
   {
@@ -25454,7 +25466,7 @@
    "name": "Tinted glass",
    "type": "material",
    "description": "Tinted glass: sunglasses, ski goggles, tinted visors. Dark basalt, or hunter, sienna or amber for lens-colour variants.",
-   "count": 46,
+   "count": 37,
    "parent": "glass"
   },
   {
@@ -25501,7 +25513,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1281,
+   "count": 1280,
    "parent": "wood"
   },
   {
@@ -25509,7 +25521,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1667,
+   "count": 1676,
    "parent": "wood"
   },
   {
@@ -118724,7 +118736,7 @@
   {
    "kit": "kay-city",
    "name": "building-a-no-base",
-   "hash": "26878b7ad9",
+   "hash": "b12e768b01",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -118735,10 +118747,10 @@
    "tris": 456,
    "tpu": 54,
    "mat": 1,
-   "bands": 8,
+   "bands": 9,
    "calls": 1,
-   "bytes": 30208,
-   "vtx": 807,
+   "bytes": 32716,
+   "vtx": 805,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -118749,35 +118761,37 @@
    "pieces": 47,
    "vpt": 1.77,
    "cells": [
-    "4,2",
+    "10,0",
     "1,1",
     "15,3",
-    "5,0",
+    "2,0",
     "12,3",
-    "5,2",
     "3,2",
-    "14,3"
+    "14,3",
+    "5,2",
+    "8,0"
    ],
    "colors": [
-    "#1564a4",
     "#21552a",
+    "#328686",
     "#57493d",
+    "#713e14",
     "#7a8491",
+    "#873a27",
     "#88735f",
     "#b5d5e3",
-    "#ce7954",
     "#d8cfb7"
    ],
    "tags": [
     "glass-clear",
     "kay",
-    "metal-steel",
     "plastic",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
-    "textile-cloth-light"
+    "textile-cloth-light",
+    "wood-dark"
    ],
    "variant": "kay-city/building-a-no-base",
    "thickRel": 1,
@@ -118785,7 +118799,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G17 bands 8 wants max 7"
+     "text": "G17 bands 9 wants max 7"
     }
    ]
   },
@@ -118851,7 +118865,7 @@
   {
    "kit": "kay-city",
    "name": "building-b-no-base",
-   "hash": "ef27b42fc4",
+   "hash": "2c15cd550f",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -118862,10 +118876,10 @@
    "tris": 610,
    "tpu": 61,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
-   "bytes": 39620,
-   "vtx": 1073,
+   "bytes": 43576,
+   "vtx": 1087,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -118874,21 +118888,23 @@
    "avgTri": 0.05901,
    "anglePct": 100,
    "pieces": 60,
-   "vpt": 1.76,
+   "vpt": 1.78,
    "cells": [
-    "5,0",
-    "4,2",
-    "15,3",
     "5,2",
+    "9,0",
+    "15,3",
+    "2,0",
     "12,3",
     "3,2",
+    "5,0",
     "14,3"
    ],
    "colors": [
-    "#1564a4",
     "#57493d",
+    "#713e14",
     "#7a8491",
     "#88735f",
+    "#af4c87",
     "#b5d5e3",
     "#ce7954",
     "#d8cfb7"
@@ -118896,15 +118912,22 @@
    "tags": [
     "glass-clear",
     "kay",
-    "metal-steel",
     "plastic",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "wood-dark"
    ],
    "variant": "kay-city/building-a-no-base",
-   "thickRel": 1.02
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "kay-city",
@@ -118968,7 +118991,7 @@
   {
    "kit": "kay-city",
    "name": "building-c-no-base",
-   "hash": "1d04d258e0",
+   "hash": "e3487a06b9",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -118981,7 +119004,7 @@
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 42284,
+   "bytes": 46208,
    "vtx": 1149,
    "grounded": true,
    "centered": true,
@@ -118994,29 +119017,27 @@
    "vpt": 1.73,
    "cells": [
     "8,0",
+    "14,3",
     "15,3",
     "3,2",
-    "5,2",
-    "12,3",
-    "14,3"
+    "2,0",
+    "12,3"
    ],
    "colors": [
     "#57493d",
+    "#713e14",
     "#7a8491",
     "#873a27",
     "#88735f",
-    "#b5d5e3",
-    "#d8cfb7"
+    "#b5d5e3"
    ],
    "tags": [
-    "ceramic-dark",
     "glass-clear",
     "kay",
-    "metal-steel",
     "stone-masonry-dark",
-    "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "wood-dark"
    ],
    "variant": "kay-city/building-c-no-base",
    "thickRel": 1.24
@@ -119083,7 +119104,7 @@
   {
    "kit": "kay-city",
    "name": "building-d-no-base",
-   "hash": "17ddc67c1a",
+   "hash": "fc825af685",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -119096,8 +119117,8 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 56952,
-   "vtx": 1561,
+   "bytes": 62148,
+   "vtx": 1560,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -119111,7 +119132,7 @@
     "1,1",
     "0,0",
     "15,3",
-    "5,2",
+    "2,0",
     "12,3",
     "3,2",
     "14,3"
@@ -119119,21 +119140,20 @@
    "colors": [
     "#21552a",
     "#57493d",
+    "#713e14",
     "#7a8491",
     "#88735f",
     "#b5d5e3",
-    "#ca9f6e",
-    "#d8cfb7"
+    "#ca9f6e"
    ],
    "tags": [
     "glass-clear",
     "kay",
-    "metal-steel",
     "plastic",
     "stone-masonry-dark",
-    "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "wood-dark"
    ],
    "variant": "kay-city/building-c-no-base",
    "thickRel": 1.09
@@ -119200,7 +119220,7 @@
   {
    "kit": "kay-city",
    "name": "building-e-no-base",
-   "hash": "abdf861ec6",
+   "hash": "5da7f27037",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -119213,8 +119233,8 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 65068,
-   "vtx": 1792,
+   "bytes": 70908,
+   "vtx": 1789,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -119223,24 +119243,24 @@
    "avgTri": 0.06467,
    "anglePct": 99,
    "pieces": 104,
-   "vpt": 1.77,
+   "vpt": 1.76,
    "cells": [
-    "5,0",
-    "6,0",
+    "5,2",
+    "9,0",
     "12,3",
     "3,2",
-    "5,2",
+    "2,0",
     "14,3",
     "8,0"
    ],
    "colors": [
     "#57493d",
+    "#713e14",
     "#873a27",
     "#88735f",
+    "#af4c87",
     "#b5d5e3",
-    "#ce7954",
-    "#d8cfb7",
-    "#f1a63b"
+    "#d8cfb7"
    ],
    "tags": [
     "glass-clear",
@@ -119251,7 +119271,8 @@
     "stone-masonry-mid",
     "storeys-3",
     "textile-cloth-dark",
-    "textile-cloth-light"
+    "textile-cloth-light",
+    "wood-dark"
    ],
    "variant": "kay-city/building-e",
    "thickRel": 0.91
@@ -119318,7 +119339,7 @@
   {
    "kit": "kay-city",
    "name": "building-f-no-base",
-   "hash": "7dc7c6e8f1",
+   "hash": "0775f126b5",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -119331,8 +119352,8 @@
    "mat": 1,
    "bands": 8,
    "calls": 1,
-   "bytes": 73632,
-   "vtx": 2033,
+   "bytes": 80372,
+   "vtx": 2031,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -119343,35 +119364,34 @@
    "pieces": 110,
    "vpt": 1.75,
    "cells": [
-    "6,0",
+    "9,0",
     "3,2",
-    "5,2",
+    "2,0",
     "12,3",
     "8,0",
     "14,3",
-    "0,0",
+    "5,2",
     "15,3"
    ],
    "colors": [
     "#57493d",
+    "#713e14",
     "#7a8491",
     "#873a27",
     "#88735f",
+    "#af4c87",
     "#b5d5e3",
-    "#ca9f6e",
-    "#d8cfb7",
-    "#f1a63b"
+    "#d8cfb7"
    ],
    "tags": [
-    "ceramic-dark",
     "glass-clear",
     "kay",
-    "metal-steel",
     "plastic",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "wood-dark"
    ],
    "variant": "kay-city/building-f",
    "thickRel": 0.86,
@@ -119445,7 +119465,7 @@
   {
    "kit": "kay-city",
    "name": "building-g-no-base",
-   "hash": "51f0e16194",
+   "hash": "928525d79a",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -119458,8 +119478,8 @@
    "mat": 1,
    "bands": 8,
    "calls": 1,
-   "bytes": 70976,
-   "vtx": 1958,
+   "bytes": 77696,
+   "vtx": 1964,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -119470,35 +119490,35 @@
    "pieces": 110,
    "vpt": 1.76,
    "cells": [
-    "4,2",
-    "5,0",
+    "14,3",
+    "5,2",
     "1,1",
     "15,3",
     "3,2",
-    "5,2",
+    "2,0",
     "12,3",
-    "14,3"
+    "8,0"
    ],
    "colors": [
-    "#1564a4",
     "#21552a",
     "#57493d",
+    "#713e14",
     "#7a8491",
+    "#873a27",
     "#88735f",
     "#b5d5e3",
-    "#ce7954",
     "#d8cfb7"
    ],
    "tags": [
     "glass-clear",
     "kay",
-    "metal-steel",
     "plastic",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
-    "textile-cloth-light"
+    "textile-cloth-light",
+    "wood-dark"
    ],
    "variant": "kay-city/building-g",
    "thickRel": 0.87,
@@ -119572,7 +119592,7 @@
   {
    "kit": "kay-city",
    "name": "building-h-no-base",
-   "hash": "0359c1a4e4",
+   "hash": "8326c32023",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -119583,10 +119603,10 @@
    "tris": 1415,
    "tpu": 59,
    "mat": 1,
-   "bands": 8,
+   "bands": 9,
    "calls": 1,
-   "bytes": 90336,
-   "vtx": 2507,
+   "bytes": 98644,
+   "vtx": 2506,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -119597,35 +119617,37 @@
    "pieces": 130,
    "vpt": 1.77,
    "cells": [
-    "4,2",
+    "11,0",
     "15,3",
-    "6,0",
-    "5,2",
+    "9,0",
+    "2,0",
     "12,3",
     "3,2",
-    "5,0",
-    "14,3"
+    "8,0",
+    "14,3",
+    "5,2"
    ],
    "colors": [
-    "#1564a4",
     "#57493d",
+    "#713e14",
     "#7a8491",
+    "#873a27",
     "#88735f",
+    "#95b438",
+    "#af4c87",
     "#b5d5e3",
-    "#ce7954",
-    "#d8cfb7",
-    "#f1a63b"
+    "#d8cfb7"
    ],
    "tags": [
     "glass-clear",
     "kay",
-    "metal-steel",
     "plastic",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-4",
-    "textile-cloth-light"
+    "textile-cloth-light",
+    "wood-dark"
    ],
    "variant": "kay-city/building-h",
    "thickRel": 0.92,
@@ -119633,7 +119655,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G17 bands 8 wants max 7"
+     "text": "G17 bands 9 wants max 7"
     }
    ]
   },
@@ -180386,7 +180408,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-g",
-   "hash": "6cb2fb82b2",
+   "hash": "7169e6c984",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -180399,7 +180421,7 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 83064,
+   "bytes": 94048,
    "vtx": 2204,
    "grounded": true,
    "centered": true,
@@ -180416,17 +180438,17 @@
     "15,3",
     "5,2",
     "3,2",
-    "6,0",
+    "8,0",
     "14,3"
    ],
    "colors": [
     "#3a3e4b",
     "#57493d",
     "#7a8491",
+    "#873a27",
     "#88735f",
     "#b5d5e3",
-    "#d8cfb7",
-    "#f1a63b"
+    "#d8cfb7"
    ],
    "tags": [
     "glass-clear",
@@ -180443,7 +180465,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-h",
-   "hash": "1ee3f2c65f",
+   "hash": "cfebe4ff7b",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -180456,7 +180478,7 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 61452,
+   "bytes": 69612,
    "vtx": 1617,
    "grounded": true,
    "centered": true,
@@ -180469,10 +180491,10 @@
    "vpt": 1.18,
    "cells": [
     "15,3",
+    "5,2",
     "12,3",
     "14,3",
     "6,1",
-    "5,2",
     "3,2",
     "8,0"
    ],
@@ -180500,7 +180522,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-i",
-   "hash": "b2e8465e75",
+   "hash": "2482a54601",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -180513,8 +180535,8 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 113564,
-   "vtx": 3027,
+   "bytes": 126864,
+   "vtx": 2970,
    "grounded": true,
    "centered": true,
    "minEdge": 0.024,
@@ -180523,7 +180545,7 @@
    "avgTri": 0.03478,
    "anglePct": 100,
    "pieces": 11,
-   "vpt": 1.2,
+   "vpt": 1.17,
    "cells": [
     "15,3",
     "12,3",
@@ -180531,16 +180553,16 @@
     "14,3",
     "5,2",
     "3,2",
-    "6,0"
+    "8,0"
    ],
    "colors": [
     "#3a3e4b",
     "#57493d",
     "#7a8491",
+    "#873a27",
     "#88735f",
     "#b5d5e3",
-    "#d8cfb7",
-    "#f1a63b"
+    "#d8cfb7"
    ],
    "tags": [
     "glass-clear",
@@ -180615,7 +180637,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-k",
-   "hash": "8da79930ec",
+   "hash": "95c0a9d31a",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -180628,7 +180650,7 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 115660,
+   "bytes": 131504,
    "vtx": 3070,
    "grounded": true,
    "centered": true,
@@ -180646,16 +180668,16 @@
     "15,3",
     "3,2",
     "6,1",
-    "6,0"
+    "8,0"
    ],
    "colors": [
     "#3a3e4b",
     "#57493d",
     "#7a8491",
+    "#873a27",
     "#88735f",
     "#b5d5e3",
-    "#d8cfb7",
-    "#f1a63b"
+    "#d8cfb7"
    ],
    "tags": [
     "glass-clear",
@@ -318536,7 +318558,7 @@
   {
    "kit": "quat-buildings",
    "name": "flat-2",
-   "hash": "c87ad3c39d",
+   "hash": "063ba2032a",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -318549,7 +318571,7 @@
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 98648,
+   "bytes": 111028,
    "vtx": 2647,
    "grounded": true,
    "centered": true,
@@ -318562,14 +318584,14 @@
    "vpt": 1.28,
    "cells": [
     "5,2",
-    "13,3",
+    "12,3",
     "1,0",
     "2,0",
-    "3,2",
-    "14,3"
+    "14,3",
+    "3,2"
    ],
    "colors": [
-    "#59534e",
+    "#57493d",
     "#713e14",
     "#88735f",
     "#9e6d44",
@@ -318579,7 +318601,7 @@
    "tags": [
     "glass-clear",
     "qua",
-    "stone-concrete",
+    "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
@@ -318591,7 +318613,7 @@
   {
    "kit": "quat-buildings",
    "name": "flat",
-   "hash": "c90b4ee1fc",
+   "hash": "a8d82f1e24",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -318604,7 +318626,7 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 100712,
+   "bytes": 113388,
    "vtx": 2703,
    "grounded": true,
    "centered": true,
@@ -318618,14 +318640,14 @@
    "cells": [
     "5,2",
     "8,0",
+    "12,3",
     "1,0",
     "2,0",
     "3,2",
-    "13,3",
     "14,3"
    ],
    "colors": [
-    "#59534e",
+    "#57493d",
     "#713e14",
     "#873a27",
     "#88735f",
@@ -318637,7 +318659,7 @@
     "ceramic-dark",
     "glass-clear",
     "qua",
-    "stone-concrete",
+    "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
@@ -318714,7 +318736,7 @@
   {
    "kit": "quat-buildings",
    "name": "house-2",
-   "hash": "493e849dde",
+   "hash": "5ef1c6fa15",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
@@ -318725,9 +318747,9 @@
    "tris": 2000,
    "tpu": 822,
    "mat": 1,
-   "bands": 5,
+   "bands": 8,
    "calls": 1,
-   "bytes": 95316,
+   "bytes": 107256,
    "vtx": 2556,
    "grounded": true,
    "centered": true,
@@ -318740,13 +318762,19 @@
    "cells": [
     "5,2",
     "13,3",
+    "12,3",
     "8,0",
+    "2,0",
+    "14,3",
     "1,0",
     "3,2"
    ],
    "colors": [
+    "#57493d",
     "#59534e",
+    "#713e14",
     "#873a27",
+    "#88735f",
     "#9e6d44",
     "#b5d5e3",
     "#d8cfb7"
@@ -318760,12 +318788,19 @@
     "storeys-1-5",
     "wood-mid"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.29,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G13 bands 8 wants max 5"
+    }
+   ]
   },
   {
    "kit": "quat-buildings",
    "name": "house-3",
-   "hash": "bea090cd26",
+   "hash": "fb6f772f92",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -318776,10 +318811,10 @@
    "tris": 3958,
    "tpu": 1106,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
-   "bytes": 186684,
-   "vtx": 5044,
+   "bytes": 210340,
+   "vtx": 5043,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -318792,11 +318827,13 @@
     "5,2",
     "8,0",
     "1,0",
+    "12,3",
     "2,0",
     "14,3",
     "3,2"
    ],
    "colors": [
+    "#57493d",
     "#713e14",
     "#873a27",
     "#88735f",
@@ -318819,7 +318856,7 @@
   {
    "kit": "quat-buildings",
    "name": "house-4",
-   "hash": "bdc250ec0f",
+   "hash": "827ac8c375",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -318830,9 +318867,9 @@
    "tris": 2048,
    "tpu": 491,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
-   "bytes": 97716,
+   "bytes": 110004,
    "vtx": 2624,
    "grounded": true,
    "centered": true,
@@ -318846,12 +318883,14 @@
     "5,2",
     "14,3",
     "8,0",
+    "12,3",
     "2,0",
     "1,0",
     "3,2",
     "13,3"
    ],
    "colors": [
+    "#57493d",
     "#59534e",
     "#713e14",
     "#873a27",
@@ -318871,12 +318910,19 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.33,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "quat-buildings",
    "name": "house-5",
-   "hash": "d8ec6ab030",
+   "hash": "03f549d759",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -318887,10 +318933,10 @@
    "tris": 2624,
    "tpu": 412,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
-   "bytes": 124628,
-   "vtx": 3355,
+   "bytes": 140152,
+   "vtx": 3350,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -318901,14 +318947,16 @@
    "vpt": 1.28,
    "cells": [
     "5,2",
-    "13,3",
+    "12,3",
     "1,0",
     "14,3",
     "8,0",
     "2,0",
-    "3,2"
+    "3,2",
+    "13,3"
    ],
    "colors": [
+    "#57493d",
     "#59534e",
     "#713e14",
     "#873a27",
@@ -318928,12 +318976,19 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.94,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "quat-buildings",
    "name": "house",
-   "hash": "0f6b181ff4",
+   "hash": "79e3e131f0",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -318946,8 +319001,8 @@
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 194972,
-   "vtx": 5243,
+   "bytes": 216508,
+   "vtx": 5115,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
@@ -318956,18 +319011,18 @@
    "avgTri": 0.00281,
    "anglePct": 67,
    "pieces": 35,
-   "vpt": 1.22,
+   "vpt": 1.19,
    "cells": [
-    "13,3",
+    "12,3",
     "5,2",
     "1,0",
     "8,0",
     "2,0",
-    "3,2",
-    "14,3"
+    "14,3",
+    "3,2"
    ],
    "colors": [
-    "#59534e",
+    "#57493d",
     "#713e14",
     "#873a27",
     "#88735f",
@@ -318979,7 +319034,7 @@
     "ceramic-dark",
     "glass-clear",
     "qua",
-    "stone-concrete",
+    "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
@@ -318991,7 +319046,7 @@
   {
    "kit": "quat-buildings",
    "name": "shop",
-   "hash": "f85113de18",
+   "hash": "58de6399bd",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -319002,9 +319057,9 @@
    "tris": 1454,
    "tpu": 233,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 83948,
+   "bytes": 92612,
    "vtx": 2304,
    "grounded": true,
    "centered": true,
@@ -319016,13 +319071,15 @@
    "pieces": 2,
    "vpt": 1.58,
    "cells": [
-    "14,3",
+    "12,3",
     "5,2",
     "8,0",
     "3,2",
+    "14,3",
     "13,3"
    ],
    "colors": [
+    "#57493d",
     "#59534e",
     "#873a27",
     "#88735f",
@@ -319043,7 +319100,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-1-large",
-   "hash": "4691463616",
+   "hash": "608a34c1c2",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319054,9 +319111,9 @@
    "tris": 41516,
    "tpu": 792,
    "mat": 1,
-   "bands": 6,
+   "bands": 5,
    "calls": 1,
-   "bytes": 1981088,
+   "bytes": 2230124,
    "vtx": 54077,
    "grounded": true,
    "centered": true,
@@ -319069,27 +319126,24 @@
    "vpt": 1.3,
    "cells": [
     "5,2",
+    "2,0",
     "12,3",
     "8,0",
-    "13,3",
-    "14,3",
-    "2,0"
+    "3,2"
    ],
    "colors": [
     "#57493d",
-    "#59534e",
     "#713e14",
     "#873a27",
-    "#88735f",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
     "ceramic-dark",
-    "glass-tinted",
+    "glass-clear",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "stone-masonry-mid",
     "storeys-4",
     "wood-dark"
    ],
@@ -319099,7 +319153,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-1-small",
-   "hash": "5b94585efd",
+   "hash": "4e5683065c",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319110,9 +319164,9 @@
    "tris": 16620,
    "tpu": 677,
    "mat": 1,
-   "bands": 6,
+   "bands": 5,
    "calls": 1,
-   "bytes": 802920,
+   "bytes": 902584,
    "vtx": 21927,
    "grounded": true,
    "centered": true,
@@ -319128,24 +319182,21 @@
     "2,0",
     "5,2",
     "12,3",
-    "13,3",
-    "14,3"
+    "3,2"
    ],
    "colors": [
     "#57493d",
-    "#59534e",
     "#713e14",
     "#873a27",
-    "#88735f",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
     "ceramic-dark",
-    "glass-tinted",
+    "glass-clear",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "stone-masonry-mid",
     "storeys-4",
     "wood-dark"
    ],
@@ -319155,7 +319206,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-2-large",
-   "hash": "ae875f38e5",
+   "hash": "415cafde5d",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319168,8 +319219,8 @@
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 698164,
-   "vtx": 18944,
+   "bytes": 788984,
+   "vtx": 18958,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319185,19 +319236,19 @@
     "2,0",
     "12,3",
     "5,2",
-    "13,3"
+    "3,2"
    ],
    "colors": [
     "#57493d",
-    "#59534e",
     "#713e14",
     "#873a27",
     "#88735f",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
     "ceramic-dark",
-    "glass-tinted",
+    "glass-clear",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
@@ -319206,27 +319257,12 @@
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-2-large",
-   "backface": {
-    "share": 0.0022,
-    "view": "45/50",
-    "causes": {
-     "open": 0.99,
-     "inverted": 0.01
-    }
-   },
-   "thickRel": 0.65,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 45/50 over 0.1%: open 99.0%, inverted 1.0%"
-    }
-   ]
+   "thickRel": 0.65
   },
   {
    "kit": "quat-buildings-2",
    "name": "building-2-small",
-   "hash": "8257834eb0",
+   "hash": "1ae7086b50",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319239,8 +319275,8 @@
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 240168,
-   "vtx": 6490,
+   "bytes": 270300,
+   "vtx": 6466,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319249,26 +319285,26 @@
    "avgTri": 0.01513,
    "anglePct": 87,
    "pieces": 29,
-   "vpt": 1.26,
+   "vpt": 1.25,
    "cells": [
     "14,3",
     "8,0",
     "2,0",
     "12,3",
-    "5,2",
-    "13,3"
+    "3,2",
+    "5,2"
    ],
    "colors": [
     "#57493d",
-    "#59534e",
     "#713e14",
     "#873a27",
     "#88735f",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
     "ceramic-dark",
-    "glass-tinted",
+    "glass-clear",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
@@ -319282,7 +319318,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-3-big",
-   "hash": "d8d758e7d0",
+   "hash": "b61d79c316",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319295,7 +319331,7 @@
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 389812,
+   "bytes": 431776,
    "vtx": 10821,
    "gridMod": true,
    "grounded": true,
@@ -319308,24 +319344,24 @@
    "pieces": 96,
    "vpt": 1.54,
    "cells": [
+    "14,3",
     "8,0",
     "5,2",
-    "14,3",
-    "13,3",
+    "3,2",
     "2,0",
     "12,3"
    ],
    "colors": [
     "#57493d",
-    "#59534e",
     "#713e14",
     "#873a27",
     "#88735f",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
     "ceramic-dark",
-    "glass-tinted",
+    "glass-clear",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
@@ -319339,7 +319375,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-3-small",
-   "hash": "9c7367f216",
+   "hash": "b9aa0b2a02",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319350,9 +319386,9 @@
    "tris": 5242,
    "tpu": 134,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 313504,
+   "bytes": 344896,
    "vtx": 8766,
    "grounded": true,
    "centered": true,
@@ -319364,25 +319400,28 @@
    "pieces": 90,
    "vpt": 1.67,
    "cells": [
+    "14,3",
     "8,0",
     "5,2",
-    "13,3",
+    "3,2",
     "2,0",
     "12,3"
    ],
    "colors": [
     "#57493d",
-    "#59534e",
     "#713e14",
     "#873a27",
+    "#88735f",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
     "ceramic-dark",
-    "glass-tinted",
+    "glass-clear",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
+    "stone-masonry-mid",
     "storeys-3",
     "wood-dark"
    ],
@@ -319392,7 +319431,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-4",
-   "hash": "0181e34edb",
+   "hash": "77620d1fd5",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -319405,8 +319444,8 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 423188,
-   "vtx": 11351,
+   "bytes": 489536,
+   "vtx": 11600,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -319415,23 +319454,23 @@
    "avgTri": 0.00892,
    "anglePct": 89,
    "pieces": 39,
-   "vpt": 1.17,
+   "vpt": 1.19,
    "cells": [
-    "14,3",
-    "5,2",
     "12,3",
+    "5,2",
     "2,0",
-    "13,3"
+    "14,3",
+    "3,2"
    ],
    "colors": [
     "#57493d",
-    "#59534e",
     "#713e14",
     "#88735f",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
-    "glass-tinted",
+    "glass-clear",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
@@ -319439,27 +319478,12 @@
     "storeys-4",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0013,
-    "view": "45/50",
-    "causes": {
-     "open": 0.86,
-     "inverted": 0.14
-    }
-   },
-   "thickRel": 0.95,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.1% of view 45/50 over 0.1%: open 86.0%, inverted 14.0%"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "quat-buildings-2",
    "name": "house-1",
-   "hash": "ebc1c06409",
+   "hash": "e8976dcebc",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -319470,9 +319494,9 @@
    "tris": 28354,
    "tpu": 1760,
    "mat": 1,
-   "bands": 5,
+   "bands": 7,
    "calls": 1,
-   "bytes": 1351740,
+   "bytes": 1521804,
    "vtx": 36877,
    "grounded": true,
    "centered": true,
@@ -319485,24 +319509,28 @@
    "vpt": 1.3,
    "cells": [
     "8,0",
-    "14,3",
+    "12,3",
+    "3,2",
     "13,3",
     "1,0",
+    "2,0",
     "5,2"
    ],
    "colors": [
+    "#57493d",
     "#59534e",
+    "#713e14",
     "#873a27",
-    "#88735f",
     "#9e6d44",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
     "ceramic-dark",
-    "glass-tinted",
+    "glass-clear",
     "qua",
+    "stone-masonry-dark",
     "stone-masonry-light",
-    "stone-masonry-mid",
     "storeys-2",
     "wood-mid"
    ],
@@ -319511,7 +319539,7 @@
   {
    "kit": "quat-buildings-2",
    "name": "house-2",
-   "hash": "60d2df9215",
+   "hash": "c18ab6b91f",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -319522,9 +319550,9 @@
    "tris": 19714,
    "tpu": 1171,
    "mat": 1,
-   "bands": 5,
+   "bands": 6,
    "calls": 1,
-   "bytes": 946872,
+   "bytes": 1065096,
    "vtx": 25845,
    "grounded": true,
    "centered": true,
@@ -319537,26 +319565,28 @@
    "vpt": 1.31,
    "cells": [
     "8,0",
-    "14,3",
+    "12,3",
+    "3,2",
     "13,3",
-    "1,0",
+    "2,0",
     "5,2"
    ],
    "colors": [
+    "#57493d",
     "#59534e",
+    "#713e14",
     "#873a27",
-    "#88735f",
-    "#9e6d44",
+    "#b5d5e3",
     "#d8cfb7"
    ],
    "tags": [
     "ceramic-dark",
-    "glass-tinted",
+    "glass-clear",
     "qua",
+    "stone-masonry-dark",
     "stone-masonry-light",
-    "stone-masonry-mid",
     "storeys-1-5",
-    "wood-mid"
+    "wood-dark"
    ],
    "thickRel": 1.17
   },

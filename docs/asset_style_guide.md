@@ -91,6 +91,9 @@ In a value, a material id ending in `:` (`wood:`) means that material or any sub
 | `terracotta` | 5,0 |
 | `amber` | 6,0 |
 | `sienna` | 8,0 |
+| `magenta` | 9,0 |
+| `teal` | 10,0 |
+| `lime` | 11,0 |
 | `hunter` | 1,1 |
 | `moss` | 3,1 |
 | `slate` | 6,1 |
