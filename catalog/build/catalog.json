@@ -4471,13 +4471,13 @@
     "Stylized Asia RG": 81
    },
    "scales": {
-    "1": 4,
+    "1": 3,
     "0.4724": 68,
     "0.3": 1,
     "0.7": 1,
     "0.8": 3,
     "0.9": 1,
-    "0.85": 2,
+    "0.85": 3,
     "0.6614": 1
    },
    "smooth": {
@@ -25309,7 +25309,7 @@
    "name": "Gold",
    "type": "material",
    "description": "Gold: bars, nuggets, coins, rings, gold keys and trim.",
-   "count": 333,
+   "count": 332,
    "parent": "metal"
   },
   {
@@ -25349,7 +25349,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 206,
+   "count": 207,
    "parent": "stone"
   },
   {
@@ -25492,7 +25492,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 788,
+   "count": 787,
    "parent": "wood"
   },
   {
@@ -375308,71 +375308,55 @@
   {
    "kit": "rgp-asia",
    "name": "palace",
-   "hash": "1f29cc05a9",
+   "hash": "f30fb8bcbe",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    10.609,
-    5.602,
-    5.246
+    9.609,
+    5.307,
+    4.459
    ],
-   "tris": 16818,
-   "tpu": 54,
+   "tris": 8254,
+   "tpu": 36,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
-   "bytes": 913220,
-   "vtx": 25340,
+   "bytes": 435936,
+   "vtx": 12030,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.014,
-   "thick": 0.1728,
-   "avgTri": 0.02131,
-   "anglePct": 76,
-   "pieces": 682,
-   "vpt": 1.51,
+   "minEdge": 0.006,
+   "minTube": 0.0264,
+   "thick": 0.1539,
+   "avgTri": 0.03548,
+   "anglePct": 71,
+   "pieces": 663,
+   "vpt": 1.46,
    "cells": [
     "2,0",
-    "6,0",
     "14,3",
-    "8,0"
+    "12,3",
+    "8,0",
+    "1,0"
    ],
    "colors": [
+    "#57493d",
     "#713e14",
     "#873a27",
     "#88735f",
-    "#f1a63b"
+    "#9e6d44"
    ],
    "tags": [
     "asia",
     "ceramic-dark",
-    "metal-gold",
     "rgp",
+    "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-2",
     "wood-dark",
-    "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-light wants tan, has chestnut amber taupe sienna"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-mid wants camel, has chestnut amber taupe sienna"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.014 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.84
   },
   {
    "kit": "rgp-asia",
