@@ -123,7 +123,7 @@ const MARK={great:['★','Spot on: excellent, beyond expectations'],bad:['✕✕
 const K='review:'+D.title+':'+D.base;
 let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
-const shown=new Set(Object.keys(NAME));let two=false,openOnly=false,slide=false;
+const shown=new Set(Object.keys(NAME));let two=false,openOnly=false,slide=false,scl=false;
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LV={low:1,mid:2,strong:3};
 const mag=s=>`<span class="mag l${LV[s]||1}" title="${['','small','medium','large'][LV[s]||1]} change"><i></i><i></i><i></i></span>`;
@@ -182,14 +182,14 @@ const boxes=list=>(list||[]).map(([x,y,w,h])=>`<i class="bx" style="left:${x*100
 const pic=(src,cap,cls,bx)=>`<figure class="pic ${cls||''}">${src?`<img src="${src}" alt="${esc(cap)}" loading="lazy">`:''}${cap?`<figcaption>${esc(cap)}</figcaption>`:''}${bx||''}</figure>`;
 const wipe=(b,a,cls)=>`<div class="wipe ${cls||''}"><img src="${b}" alt="before"><img class="a" src="${a}" alt="after"><div class="h"></div></div>`;
 function pics(it){
-  if(it.scale)return scalePanel(it);
+  if(it.scale&&scl)return scalePanel(it);
   if(!it.visual)return `<div class="pics">${pic(it.img.a1,'')}${pic(it.img.a2,'')}</div>`;
   return `<div class="pics vis">${pic(it.img.b1,'')}${pic(it.img.a1,'','',boxes(it.boxes.front))}${pic(it.img.b2,'','back')}${pic(it.img.a2,'','back',boxes(it.boxes.back))}</div>${wipe(it.img.b1,it.img.a1)}${wipe(it.img.b2,it.img.a2,'back')}`;
 }
 function drawTop(){
   document.getElementById('top').innerHTML=`<span class="title">${esc(D.title)}</span>`+
   Object.keys(NAME).map(t=>`<button type="button" class="filter" data-t="${t}" aria-pressed="${shown.has(t)}" title="${NAME[t]}">${dot(t)}</button>`).join('')+
-  `<button type="button" class="switch" id="slide" aria-pressed="${slide}">Slider</button><button type="button" class="switch" id="two" aria-pressed="${two}">2 angles</button><button type="button" class="switch" id="open" aria-pressed="${openOnly}">Unjudged</button>`;
+  `<button type="button" class="switch" id="slide" aria-pressed="${slide}">Slider</button><button type="button" class="switch" id="two" aria-pressed="${two}">2 angles</button><button type="button" class="switch" id="open" aria-pressed="${openOnly}">Unjudged</button>`+(D.items.some(it=>it.scale)?`<button type="button" class="switch" id="scl" aria-pressed="${scl}">Scale</button>`:'');
 }
 function card(it,i){
   const s=st[it.model]||{},more=MORE.some(m=>m[0]===s.v);
@@ -217,6 +217,7 @@ document.addEventListener('click',e=>{
   if(e.target.closest('#two')){two=!two;document.body.classList.toggle('two',two);drawTop();return}
   if(e.target.closest('#slide')){slide=!slide;document.body.classList.toggle('slide',slide);drawTop();return}
   if(e.target.closest('#open')){openOnly=!openOnly;drawTop();filter();return}
+  if(e.target.closest('#scl')){scl=!scl;drawTop();drawList();return}
   const a=e.target.closest('article');if(!a)return;
   const mk=e.target.closest('[data-m]');if(mk){const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
     s.m=s.m===mk.dataset.m?undefined:mk.dataset.m;if(!s.v&&!s.c&&!s.m)delete st[it.model];save();redraw(a);return}
