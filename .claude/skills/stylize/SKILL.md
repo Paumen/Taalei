@@ -182,3 +182,15 @@ Then `inflate.mjs` pushes the surface out and scales back to size:
   revert it and report the old finding.
 - **Modular parts** (doors, bricks, wall panels, rails): size them by the
   kind like the rest, and check they still fit each other.
+- **Thin furniture** (boards, legs, slats, shelves): thicken each part on
+  its own toward the kind's peers, and move hardware out with the surface it
+  sits on rather than scaling it.
+- **Rebuild when patching keeps failing.** When a model is retried twice
+  and each round only patched the source mesh, build it new instead: plain
+  boxes, prisms and cylinders in the peers' proportions, with the source's
+  features, colours and size listed and kept. In Nov 2026 four rejected
+  FantasyProps models failed three patch rounds and were all kept once
+  rebuilt.
+- Before sending, render each model from four sides at full tile size:
+  stray slivers, uneven shapes and parts poking through often only show
+  there.
