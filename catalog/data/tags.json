@@ -496,7 +496,6 @@
     "m3-base/decorative-shelf-bracket",
     "m3-base/double-coat-hook-01",
     "m3-base/allen-key-screw",
-    "m3-base/allen-key-screw-head",
     "m3-base/cable-clip",
     "m3-base/chain-link",
     "m3-base/clothes-peg",
@@ -514,8 +513,6 @@
     "m3-base/military-crate-01",
     "m3-base/outdoor-wall-light",
     "m3-base/roller-chain",
-    "m3-base/screw-end",
-    "m3-base/screw-head",
     "m3-base/tent-peg-02",
     "m3-base/wood-barrel",
     "m3-base/anchor-01",
@@ -616,7 +613,9 @@
     "quat-textured/2-story-columns",
     "quat-ruins/doors-gothic",
     "quat-ruins/doors-round",
-    "quat-interior/kitchen-stove"
+    "quat-interior/kitchen-stove",
+    "m3-base/screw",
+    "m3-base/hex-screw"
    ]
   },
   {
@@ -1544,7 +1543,6 @@
     "quat-scifi-mod/pod",
     "quat-ruins/barrel",
     "quat-ruins/cart",
-    "quat-ruins/chest",
     "quat-ruins/doors-gothic",
     "quat-ruins/doors-round",
     "quat-ruins/window-bars"
@@ -3719,7 +3717,8 @@
     "quat-interior/kitchen-stove",
     "quat-interior/ceiling-light-icosahedron-triple",
     "quat-interior/floor-lamp-stand",
-    "quat-furniture/office-chair"
+    "quat-furniture/office-chair",
+    "quat-cyberpunk/collectible-gear"
    ]
   },
   {
@@ -4052,7 +4051,6 @@
     "quat-essentials/ammo-box",
     "quat-essentials/ammo-box-small",
     "quat-cyberpunk/collectible-board",
-    "quat-cyberpunk/collectible-gear",
     "quat-furniture/bookcase",
     "quat-furniture/bookcase-books",
     "quat-furniture/wardrobe-tall",
@@ -10218,7 +10216,6 @@
     "quat-ruins/barrel",
     "quat-ruins/bookcase-empty",
     "quat-ruins/cart",
-    "quat-ruins/chest",
     "quat-ruins/crate",
     "quat-ruins/doors-gothic",
     "quat-ruins/doors-round",
@@ -11865,7 +11862,6 @@
     "quat-ruins/bookcase-empty",
     "quat-ruins/bookcase-full",
     "quat-ruins/cart",
-    "quat-ruins/chest",
     "quat-ruins/crate",
     "quat-ruins/doors-gothic",
     "quat-ruins/doors-round",
@@ -13192,7 +13188,12 @@
     "food-pack-2/sandwich",
     "isa-picnic/sandwich",
     "food-pack-2/corn",
-    "kay-minigame/cactus"
+    "kay-minigame/cactus",
+    "natuur/cattail-1",
+    "natuur/cattail-2",
+    "natuur/cattail-3",
+    "natuur/cattail-4",
+    "natuur/cattail-5"
    ]
   },
   {
@@ -14178,7 +14179,6 @@
     "loaf-coffins/coffin-wood-c",
     "loaf-coffins/coffin-wood-d-4",
     "isa-bakery/table-round-c",
-    "ken-forest-mini/character-archer",
     "kay-dun-1/book-c",
     "styloo-school/book-red",
     "styloo-school/book-red-small",
@@ -14695,7 +14695,6 @@
     "m3-base/pouch-02",
     "m3-base/saber-01",
     "quat-props/sword-bronze",
-    "ken-forest-mini/character-archer",
     "avra-weapons/arming-sword",
     "avra-weapons/dagger",
     "avra-weapons/handaxe",
@@ -14958,7 +14957,6 @@
     "kay-hexagon/bucket-arrows",
     "kay-skeleton-1/shield-round-arrows",
     "kay-skeleton/shield-small-b",
-    "ken-forest-mini/character-archer",
     "avra-weapons/arrow",
     "avra-weapons/bolt",
     "avra-weapons/quiver",
@@ -15051,7 +15049,6 @@
     "emace-village/bench-draped",
     "emace-village/bear-trophy",
     "m3-base/deer-head",
-    "ken-forest-mini/character-archer",
     "styloo-farm/shark"
    ]
   },
@@ -18159,9 +18156,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "models": [
-    "3dm-industrial-2/generator"
-   ]
+   "models": []
   },
   {
    "id": "obj-leisure",
@@ -18429,17 +18424,11 @@
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, cash register, console.",
    "models": [
-    "rgp-vintage/gramophone",
-    "rgp-vintage/gramophone-record",
-    "taalei-kit/turntable",
-    "taalei-kit/turntable-dj",
-    "taalei-kit/turntable-retro",
-    "taalei-kit/jukebox",
-    "taalei-kit/jukebox-diner",
-    "taalei-kit/jukebox-space",
     "taalei-kit/typewriter",
     "taalei-kit/typewriter-office",
-    "taalei-kit/typewriter-portable"
+    "taalei-kit/typewriter-portable",
+    "3dm-industrial-2/generator",
+    "taalei-kit/copier"
    ]
   },
   {
@@ -18537,7 +18526,16 @@
     "3dm-electronics/microphone",
     "m3-base/computer-speaker",
     "sq-studio/amp-stack",
-    "sq-studio/mixing-console"
+    "sq-studio/mixing-console",
+    "ipoly-concert/mic-stand",
+    "rgp-vintage/gramophone",
+    "rgp-vintage/gramophone-record",
+    "taalei-kit/jukebox",
+    "taalei-kit/jukebox-diner",
+    "taalei-kit/jukebox-space",
+    "taalei-kit/turntable",
+    "taalei-kit/turntable-dj",
+    "taalei-kit/turntable-retro"
    ]
   },
   {
@@ -18553,8 +18551,7 @@
     "3dm-electronics/router",
     "styloo-school/router",
     "taalei-kit/retro-laptop",
-    "taalei-kit/retro-pc",
-    "taalei-kit/copier"
+    "taalei-kit/retro-pc"
    ]
   },
   {
@@ -18590,12 +18587,7 @@
    "name": "Console",
    "type": "kind",
    "description": "game console, game controller",
-   "models": [
-    "3dm-electronics/console",
-    "lpa-home/console-c",
-    "lpa-home/console-d",
-    "m3-base/cartoon-controller"
-   ]
+   "models": []
   },
   {
    "id": "obj-device-electronics-computer-terminal",
@@ -18785,7 +18777,6 @@
    "color": "#dd9f79",
    "models": [
     "household/piggy-bank",
-    "styloo-school/cork",
     "m3-base/ash-tray"
    ]
   },
@@ -19197,7 +19188,9 @@
     "m3-base/eye-drop-bottle",
     "m3-base/pill-bottle",
     "m3-base/plastic-bottle-01",
-    "m3-base/cleaning-bottle-08"
+    "m3-base/cleaning-bottle-08",
+    "m3-base/paint-tube-01",
+    "m3-base/paint-tube-02"
    ]
   },
   {
@@ -19449,8 +19442,7 @@
     "kay-dun-1/chest-common-closed",
     "kay-dun-1/chest-rare-closed",
     "emace-village/chest",
-    "quat-dun-1/chest-gold",
-    "quat-ruins/chest"
+    "quat-dun-1/chest-gold"
    ]
   },
   {
@@ -19505,7 +19497,6 @@
     "makeup/makeup-bag",
     "styloo-farm/crate-open",
     "styloo-farm/crate-open-slate",
-    "lpa-desert/crate",
     "isa-picnic/cooler",
     "lpa-construction/boxes-pallet"
    ]
@@ -19696,7 +19687,8 @@
     "kay-food/crate-tomatoes",
     "ken-pirate/crate-bottles",
     "quat-sushi/bottle-crate",
-    "m3-base/pallet-box-01"
+    "m3-base/pallet-box-01",
+    "lpa-desert/crate"
    ]
   },
   {
@@ -20170,9 +20162,7 @@
     "kay-dun-2/plate-food-b",
     "kay-mixed/taco",
     "ken-food/taco",
-    "food-pack-2/pancakes-plate",
     "kay-food/food-dinner",
-    "food-pack-2/waffle-plate",
     "kay-holiday/mug-cocoa-candycane"
    ]
   },
@@ -20357,7 +20347,6 @@
     "isa-bakery/pretzel",
     "quat-sushi/gyoza",
     "food-pack-2/cinnamon-roll",
-    "isa-bakery/pastry-stand-filled",
     "isa-bakery/pastry-stand-tiered-filled"
    ]
   },
@@ -20978,7 +20967,9 @@
     "m3-base/reed-diffuser-01",
     "ken-holiday/stocking",
     "ken-holiday/stocking-cane",
-    "m3-base/cubed-trellis"
+    "m3-base/cubed-trellis",
+    "lpa-west/horseshoe",
+    "m3-base/horse-shoe"
    ]
   },
   {
@@ -21644,7 +21635,9 @@
     "kay-furniture/cabinet-medium",
     "quat-props/drawers",
     "makeup/makeup-organizer",
-    "m3-base/office-drawer-handle"
+    "m3-base/office-drawer-handle",
+    "quat-sushi/cabinet-shelves",
+    "quat-sushi/cabinet-shelves-plain"
    ]
   },
   {
@@ -21740,8 +21733,6 @@
     "m3-base/hexagon-shelf",
     "m3-base/honeycomb-shelving",
     "dungeon/shelf",
-    "quat-sushi/cabinet-shelves",
-    "quat-sushi/cabinet-shelves-plain",
     "kay-dun-2/shelves",
     "kay-dun-2/shelf-small-candles",
     "quat-interior/shelf-small-c"
@@ -22026,7 +22017,6 @@
     "cooking-assets/trivet",
     "taalei-kit/barbecue",
     "household/barbecue",
-    "lpa-home/knife-block",
     "m3-base/cupcake-case",
     "m3-base/freezer-block",
     "m3-base/mortar-and-pestle-01",
@@ -22216,7 +22206,8 @@
     "jb-kitchen/kitchen-knife",
     "m3-base/kitchen-knife",
     "isa-kitchen/knife",
-    "kay-food/knife"
+    "kay-food/knife",
+    "lpa-home/knife-block"
    ]
   },
   {
@@ -23454,7 +23445,8 @@
     "kay-resources/iron-nugget-large",
     "kay-resources/iron-nugget-medium",
     "kay-resources/iron-nugget-small",
-    "kay-resources/iron-nuggets"
+    "kay-resources/iron-nuggets",
+    "m3-base/horse-bit"
    ]
   },
   {
@@ -24192,8 +24184,6 @@
     "m3-base/paintbrush-03",
     "m3-base/toothbrush",
     "m3-base/comb",
-    "m3-base/paint-tube-01",
-    "m3-base/paint-tube-02",
     "styloo-school/paint-palette",
     "m3-base/painters-palette-01"
    ]
@@ -24382,7 +24372,8 @@
     "m3-base/champagne-cork",
     "m3-base/door-stop-wedge",
     "m3-base/tapered-cork",
-    "m3-base/lighter-01"
+    "m3-base/lighter-01",
+    "styloo-school/cork"
    ]
   },
   {
@@ -24393,18 +24384,17 @@
    "models": [
     "kay-tools/screw-a",
     "kay-tools/screw-b",
-    "m3-base/screw-end",
-    "m3-base/screw-head",
     "rgp-props/nail-a",
     "rgp-medieval/nail",
-    "m3-base/allen-key-screw-head",
     "m3-base/allen-key-screw",
     "kay-tools/nail",
     "m3-base/fencing-pin",
     "m3-base/tent-peg-02",
     "m3-base/clothes-peg",
     "m3-base/wooden-dolly-peg",
-    "m3-base/cable-clip"
+    "m3-base/cable-clip",
+    "m3-base/screw",
+    "m3-base/hex-screw"
    ]
   },
   {
@@ -24481,11 +24471,7 @@
    "type": "kind",
    "description": "saddle",
    "color": "#5a7a9c",
-   "models": [
-    "lpa-west/horseshoe",
-    "m3-base/horse-bit",
-    "m3-base/horse-shoe"
-   ]
+   "models": []
   },
   {
    "id": "sym",
@@ -24514,7 +24500,13 @@
     "ken-platformer/star",
     "quat-rpg/star",
     "quat-cyberpunk/pickup-health",
-    "quat-cyberpunk/pickup-heart"
+    "quat-cyberpunk/pickup-heart",
+    "m3-base/heart-icon-01",
+    "m3-base/lightning-bolt",
+    "m3-base/lightning-icon",
+    "m3-base/star-01",
+    "m3-base/star-02",
+    "pm-store/star"
    ]
   },
   {
@@ -24545,9 +24537,6 @@
     "m3-base/exclamation-mark",
     "m3-base/question-mark",
     "m3-base/health",
-    "m3-base/heart-icon-01",
-    "m3-base/lightning-bolt",
-    "m3-base/lightning-icon",
     "m3-base/power-icon",
     "m3-base/settings-icon",
     "m3-base/wifi-symbol",
@@ -24555,9 +24544,7 @@
     "m3-base/rounded-speech-bubble",
     "m3-base/bevelled-speech-bubble",
     "m3-base/banner-ui-01",
-    "m3-base/banner-ui-02",
-    "m3-base/star-01",
-    "m3-base/star-02"
+    "m3-base/banner-ui-02"
    ]
   },
   {
@@ -24576,8 +24563,7 @@
     "m3-base/radioactive-symbol",
     "m3-base/snowflake-01",
     "m3-base/snowflake-02",
-    "m3-base/water-drip",
-    "pm-store/star"
+    "m3-base/water-drip"
    ]
   },
   {
@@ -24950,7 +24936,6 @@
     "western/cart",
     "lpa-west/cart-a",
     "lpa-west/cart-b",
-    "lpa-west/stagecoach",
     "ken-town/cart-high",
     "ken-town/cart-high-empty",
     "quat-ruins/cart"
@@ -24963,8 +24948,6 @@
    "description": "wheelbarrow, sled, minecart, small cart",
    "models": [
     "isa-playground/cart",
-    "ken-holiday/sled-long",
-    "ken-holiday/sled",
     "wizp-mediev/minecart-ore",
     "wizp-mediev/minecart",
     "fs-terrain/cave-prop-minecart",
@@ -25006,7 +24989,8 @@
    "description": "covered wagon, prairie wagon, conestoga",
    "models": [
     "lpa-west/cart-c",
-    "western/cart-covered"
+    "western/cart-covered",
+    "lpa-west/stagecoach"
    ]
   },
   {
@@ -25065,8 +25049,7 @@
     "ken-car/wheel-tractor-dark-back",
     "ken-car/wheel-tractor-dark-front",
     "ken-car/wheel-tractor-front",
-    "ken-car/wheel-truck",
-    "quat-apocalypse/wheel"
+    "ken-car/wheel-truck"
    ]
   },
   {
@@ -25093,7 +25076,8 @@
     "m3-base/car-tire-01",
     "m3-base/car-tire-02",
     "quat-apocalypse/wheels",
-    "quat-shoot/tires"
+    "quat-shoot/tires",
+    "quat-apocalypse/wheel"
    ]
   },
   {
@@ -25507,8 +25491,7 @@
    "type": "kind",
    "description": "sling, slingshot, dart",
    "models": [
-    "kay-minigame/slingshot",
-    "m3-base/dart"
+    "kay-minigame/slingshot"
    ]
   },
   {
@@ -25777,8 +25760,7 @@
     "ken-blaster/target-detail",
     "ken-blaster/target-large",
     "rgp-medieval/archery-target-high",
-    "rgp-medieval/archery-target",
-    "m3-base/dart-board"
+    "rgp-medieval/archery-target"
    ]
   },
   {
@@ -25791,8 +25773,7 @@
     "kay-adventurers/rogue",
     "kay-adventurers/rogue-hooded",
     "quat-sushi/panda",
-    "quat-sushi/rabbit",
-    "ken-forest-mini/character-archer"
+    "quat-sushi/rabbit"
    ]
   },
   {
@@ -27970,7 +27951,9 @@
    "type": "kind",
    "description": "Building with no leaf that fits.",
    "color": "#7d4f3a",
-   "models": []
+   "models": [
+    "architecture/coliseum"
+   ]
   },
   {
    "id": "str-building-work",
@@ -27988,7 +27971,30 @@
    "description": "room, cellar, souterrain, dungeon",
    "color": "#a8762a",
    "models": [
-    "styloo-school/cafeteria-room"
+    "styloo-school/cafeteria-room",
+    "emace-village/beam",
+    "fs-town/canopy-beam",
+    "fs-town/canopy-beam-short",
+    "fs-town/stucco-support-angled-large",
+    "fs-town/stucco-support-angled-low",
+    "fs-town/stucco-support-angled-small",
+    "fs-town/stucco-support-beam-a",
+    "fs-town/stucco-support-beam-b",
+    "fs-town/stucco-support-beam-c",
+    "fs-town/stucco-support-pillar-a",
+    "fs-town/stucco-support-pillar-b",
+    "fs-town/stucco-support-pillar-c",
+    "fs-town/wood-baseboard",
+    "kay-platformer/bracing-large",
+    "kay-platformer/bracing-medium",
+    "kay-platformer/bracing-small",
+    "kay-platformer/strut-horizontal",
+    "m3-base/i-beam",
+    "quat-cyberpunk/support",
+    "quat-cyberpunk/support-short",
+    "quat-megakit/column-metal-support",
+    "quat-megakit/column-metal-support-curve",
+    "rgp-vintage/beam"
    ]
   },
   {
@@ -28223,16 +28229,9 @@
    "type": "kind",
    "description": "Floor piece covering one full module of the kit grid.",
    "models": [
-    "kay-dun-2/floor-tile-extralarge-grates-open",
-    "kay-dun-2/floor-tile-big-grate-open",
-    "kay-dun-2/floor-tile-big-spikes",
     "kay-minigame/barrier-floor",
-    "ken-arena/block",
     "sq-pool/pool-edge-corner",
     "sq-pool/pool-edge-straight",
-    "ken-mini-dun/floor-detail",
-    "ken-proto/floor-square-small",
-    "ken-proto/floor-square",
     "ken-skate/floor-concrete",
     "kay-proto/floor",
     "kay-proto/floor-prototype",
@@ -28241,8 +28240,6 @@
     "ken-station/balcony-floor-corner",
     "ken-station/balcony-floor-center",
     "ken-station/balcony-floor",
-    "lpa-construction/floor-slab",
-    "kay-dun-2/floor-tile-grate-open",
     "kay-dun-2/ceiling-tile",
     "quat-megakit/platform-3-plates",
     "quat-megakit/platform-center-plate",
@@ -28352,7 +28349,12 @@
     "kay-dun-2/floor-tile-small-decorated",
     "quat-ruins/floor-squares",
     "quat-ruins/floor-standard",
-    "quat-ruins/floor-standard-half"
+    "quat-ruins/floor-standard-half",
+    "kay-dun-2/floor-tile-big-grate-open",
+    "kay-dun-2/floor-tile-big-spikes",
+    "kay-dun-2/floor-tile-extralarge-grates-open",
+    "kay-dun-2/floor-tile-grate-open",
+    "ken-mini-dun/floor-detail"
    ]
   },
   {
@@ -28377,7 +28379,9 @@
     "kay-hallow/floor-dirt-small",
     "kay-hallow/floor-dirt",
     "kay-proto/floor-dirt",
-    "kay-spook/floor-graveyard"
+    "kay-spook/floor-graveyard",
+    "ken-arena/block",
+    "lpa-construction/floor-slab"
    ]
   },
   {
@@ -28396,7 +28400,9 @@
     "ken-market/floor-tiles",
     "quat-sushi/floor-checker",
     "quat-sushi/floor-kitchen",
-    "quat-sushi/floor-tile"
+    "quat-sushi/floor-tile",
+    "ken-proto/floor-square",
+    "ken-proto/floor-square-small"
    ]
   },
   {
@@ -28447,7 +28453,6 @@
     "ken-factory/structure-yellow-tall",
     "rgp-medieval/drying-rack-a",
     "rgp-medieval/drying-rack-b",
-    "fs-town/wood-baseboard",
     "ken-town/balcony-wall",
     "ken-space/supports-high",
     "ken-space/supports-low",
@@ -28677,7 +28682,6 @@
     "kay-platformer/pillar-2x2x2",
     "kay-platformer/pillar-2x2x4",
     "kay-platformer/pillar-2x2x8",
-    "rgp-vintage/beam",
     "rgp-medieval/post-a",
     "rgp-medieval/post-b",
     "ken-town/pillar-stone",
@@ -28685,7 +28689,6 @@
     "quat-dun-2/column-2",
     "ken-space/monorail-track-support-corner",
     "ken-space/monorail-track-support",
-    "kay-platformer/strut-horizontal",
     "kay-platformer/strut-vertical",
     "fs-temple/pillar-large-arch",
     "fs-temple/pillar-large-arch-top",
@@ -28702,8 +28705,6 @@
     "ken-proto/shape-hollow-cylinder",
     "ken-proto/shape-hollow-hexagon-half",
     "ken-proto/shape-hollow-hexagon",
-    "emace-village/beam",
-    "m3-base/i-beam",
     "m3-base/greek-column-01",
     "m3-base/greek-column-02",
     "m3-base/pagoda-pillar",
@@ -28715,29 +28716,11 @@
     "dungeon/beam-001",
     "dungeon/beam-002",
     "fs-house/wall-joint-top",
-    "kay-platformer/bracing-large",
-    "kay-platformer/bracing-medium",
-    "kay-platformer/bracing-small",
-    "fs-town/stucco-support-angled-large",
-    "fs-town/stucco-support-angled-low",
-    "fs-town/stucco-support-angled-small",
-    "fs-town/stucco-support-beam-a",
-    "fs-town/stucco-support-beam-b",
-    "fs-town/stucco-support-beam-c",
-    "fs-town/stucco-support-pillar-a",
-    "fs-town/stucco-support-pillar-b",
-    "fs-town/stucco-support-pillar-c",
-    "fs-town/canopy-beam",
-    "fs-town/canopy-beam-short",
-    "quat-megakit/column-metal-support",
-    "quat-megakit/column-metal-support-curve",
     "quat-megakit/column-pipes",
     "quat-megakit/column-round",
     "quat-megakit/column-hollow",
     "quat-megakit/column-large-straight",
     "quat-megakit/column-simple",
-    "quat-cyberpunk/support",
-    "quat-cyberpunk/support-short",
     "quat-ruins/column-bridge-support",
     "quat-ruins/column-round",
     "quat-ruins/column-round-short",
@@ -29407,7 +29390,8 @@
     "lpa-west/sign-b",
     "lpa-west/sign-c",
     "lpa-west/sign-f",
-    "isa-bakery/pricing-card"
+    "isa-bakery/pricing-card",
+    "sq-bowling/arrow-sign"
    ]
   },
   {
@@ -29534,7 +29518,6 @@
     "lpa-west/welcome-sign",
     "m3-base/finger-post-sign-01",
     "m3-base/finger-post-sign-02",
-    "sq-bowling/arrow-sign",
     "fs-town/sign-a",
     "ipoly-signs/sign-board-planks",
     "ipoly-signs/sign-board",
@@ -30016,11 +29999,9 @@
     "rgp-asia/gong",
     "wizp-asia/bell",
     "wizp-asia/gong",
-    "ipoly-concert/mic-stand",
     "western/piano",
     "m3-base/glockenspiel",
-    "m3-base/piano",
-    "m3-base/plectrum"
+    "m3-base/piano"
    ]
   },
   {
@@ -30061,7 +30042,8 @@
     "m3-base/acoustic-guitar",
     "m3-base/electric-guitar",
     "m3-base/fretboard",
-    "m3-base/violin-bow"
+    "m3-base/violin-bow",
+    "m3-base/plectrum"
    ]
   },
   {
@@ -30248,7 +30230,15 @@
     "taalei-kit/tricycle-b",
     "taalei-kit/newtons-cradle",
     "taalei-kit/tricycle-coral",
-    "taalei-kit/tricycle-coral-b"
+    "taalei-kit/tricycle-coral-b",
+    "3dm-electronics/console",
+    "ken-holiday/sled",
+    "ken-holiday/sled-long",
+    "lpa-home/console-c",
+    "lpa-home/console-d",
+    "m3-base/cartoon-controller",
+    "m3-base/dart",
+    "m3-base/dart-board"
    ]
   },
   {
@@ -30283,7 +30273,6 @@
     "quat-medieval/bell-tower",
     "taalei-kit/lighthouse",
     "wizp-mediev/wizard-tower",
-    "wizp-village/tower",
     "ken-pirate/tower-base-door",
     "ken-castle/tower-base",
     "ken-castle/tower-hexagon-base",
@@ -31041,7 +31030,6 @@
     "ken-racing/grand-stand-round",
     "ken-racing/grand-stand",
     "sq-pool/lifeguard-chair",
-    "architecture/coliseum",
     "m3-base/rugby-goal",
     "sq-pool/diving-board",
     "ken-skate/benches"
@@ -31452,7 +31440,8 @@
     "kay-holiday/plate-cookies",
     "food-pack-2/cookies-plate",
     "food-pack-2/cookies-chocolate-plate",
-    "food-pack-2/cookies-chips-plate"
+    "food-pack-2/cookies-chips-plate",
+    "isa-bakery/pastry-stand-filled"
    ]
   },
   {
@@ -31549,7 +31538,9 @@
    "models": [
     "food-pack-2/pancake",
     "ken-food/pancakes",
-    "styloo-food/pancakes"
+    "styloo-food/pancakes",
+    "food-pack-2/pancakes-plate",
+    "food-pack-2/waffle-plate"
    ]
   },
   {
@@ -31623,7 +31614,8 @@
     "ken-grave/altar-stone",
     "ken-grave/altar-wood",
     "kay-spook/shrine",
-    "emace-village/wayside-shrine"
+    "emace-village/wayside-shrine",
+    "wizp-village/tower"
    ]
   },
   {
@@ -32916,7 +32908,6 @@
     "kay-weapons/bow-b-with-string",
     "quat-rpg/bow-golden",
     "quat-rpg/bow-wooden",
-    "ken-forest-mini/character-archer",
     "natuur/mushroom-brown"
    ]
   },
@@ -33470,7 +33461,6 @@
     "emace-village/roof-thatch-cut-e",
     "emace-village/beam",
     "m3-base/i-beam",
-    "m3-base/allen-key-screw-head",
     "m3-base/arrowhead",
     "m3-base/barbed-arrowhead",
     "m3-base/block-fence-foot",
@@ -33526,8 +33516,6 @@
     "m3-base/rope-twist-07",
     "m3-base/rope-twist-08",
     "m3-base/round-handrail-bracket",
-    "m3-base/screw-end",
-    "m3-base/screw-head",
     "m3-base/shovel-handle",
     "m3-base/spindle-03",
     "m3-base/spindle-04",
@@ -33668,7 +33656,9 @@
     "quat-textured/sign-hardware",
     "quat-textured/sign-bookshop",
     "quat-textured/sign-barbershop",
-    "quat-textured/balcony"
+    "quat-textured/balcony",
+    "m3-base/screw",
+    "m3-base/hex-screw"
    ]
   },
   {
@@ -34212,7 +34202,6 @@
     "quat-essentials/health-tube",
     "quat-essentials/keycard",
     "quat-cyberpunk/collectible-board",
-    "quat-cyberpunk/collectible-gear",
     "quat-cyberpunk/pickup-health",
     "quat-cyberpunk/pickup-heart",
     "quat-cyberpunk/pickup-tank"
@@ -36496,7 +36485,8 @@
     "quat-buildings/flat-2",
     "quat-buildings-2/building-3-big",
     "quat-buildings-2/building-3-small",
-    "quat-textured/3-story-balcony"
+    "quat-textured/3-story-balcony",
+    "architecture/coliseum"
    ]
   },
   {
