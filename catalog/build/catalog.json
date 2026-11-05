@@ -1440,7 +1440,7 @@
    ],
    "kitCheck": {
     "factor": 1.04,
-    "kinds": 55
+    "kinds": 54
    }
   },
   {
@@ -2615,7 +2615,7 @@
    },
    "kitCheck": {
     "factor": 0.97,
-    "kinds": 76
+    "kinds": 75
    }
   },
   {
@@ -27199,7 +27199,7 @@
    "name": "Block",
    "type": "kind",
    "description": "knife block, knife rack",
-   "count": 3
+   "count": 4
   },
   {
    "id": "obj-kitchenware-cookware-utensil-spatula",
@@ -27374,7 +27374,7 @@
    "name": "Glass",
    "type": "kind",
    "description": "Drinking glass: tumbler, beer glass, shot glass, glass of milk.",
-   "count": 12
+   "count": 11
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-cup",
@@ -27395,7 +27395,7 @@
    "name": "Goblet",
    "type": "kind",
    "description": "Stemmed drinking vessel on a foot.",
-   "count": 27
+   "count": 28
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-tankard",
@@ -28473,7 +28473,7 @@
    "name": "Human",
    "type": "kind",
    "description": "human",
-   "count": 11
+   "count": 13
   },
   {
    "id": "char-undead",
@@ -115054,7 +115054,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.51,
+   "thickRel": 1.49,
    "mark": [
     "centered"
    ]
@@ -115474,7 +115474,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.55,
+   "thickRel": 1.53,
    "mark": [
     "centered"
    ]
@@ -115665,7 +115665,7 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.37
   },
   {
    "kit": "kay-adventurers",
@@ -115996,14 +115996,14 @@
     "Working_B",
     "Working_C"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.36
   },
   {
    "kit": "kay-adventurers",
    "collection": "kay-rpg",
    "name": "rogue-hooded",
    "hash": "d416101b06",
-   "kind": "char",
+   "kind": "char-human",
    "size": "m",
    "wdh": [
     0.589,
@@ -116185,14 +116185,14 @@
     "Working_C"
    ],
    "variant": "kay-adventurers/rogue-hooded",
-   "thickRel": 1.04
+   "thickRel": 1.41
   },
   {
    "kit": "kay-adventurers",
    "collection": "kay-rpg",
    "name": "rogue",
    "hash": "ca16ac0ed1",
-   "kind": "char",
+   "kind": "char-human",
    "size": "m",
    "wdh": [
     0.589,
@@ -116376,7 +116376,7 @@
     "Working_C"
    ],
    "variant": "kay-adventurers/rogue-hooded",
-   "thickRel": 1.03
+   "thickRel": 1.4
   },
   {
    "kit": "kay-adventurers",
@@ -135269,27 +135269,28 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "food-ingredient-carrot-chopped",
-   "hash": "5a2d2f6bd9",
+   "hash": "14014b99eb",
    "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
-    0.254,
-    0.094,
-    0.096
+    0.248,
+    0.08,
+    0.082
    ],
    "tris": 552,
    "tpu": 1609,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20980,
+   "bytes": 20976,
    "vtx": 503,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "thick": 0.2333,
-   "avgTri": 0.00014,
-   "anglePct": 22,
+   "minTube": 0.0258,
+   "thick": 0.2519,
+   "avgTri": 0.00011,
+   "anglePct": 20,
    "pieces": 6,
    "vpt": 0.91,
    "cells": [
@@ -135351,12 +135352,12 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "food-ingredient-carrot",
-   "hash": "28677a791a",
+   "hash": "9beebda0f9",
    "kind": "obj-food-vegetable-root-carrot",
    "size": "s",
    "wdh": [
-    0.087,
-    0.086,
+    0.074,
+    0.073,
     0.225
    ],
    "tris": 342,
@@ -135368,10 +135369,10 @@
    "vtx": 278,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.2798,
-   "avgTri": 0.00017,
-   "anglePct": 0,
+   "minEdge": 0.007,
+   "thick": 0.2929,
+   "avgTri": 0.00014,
+   "anglePct": 1,
    "pieces": 4,
    "vpt": 0.81,
    "cells": [
@@ -135388,7 +135389,7 @@
     "special-food"
    ],
    "variant": "kay-food/food-ingredient-carrot",
-   "thickRel": 1.92
+   "thickRel": 2.01
   },
   {
    "kit": "kay-food",
@@ -151692,7 +151693,7 @@
     "kay",
     "special-liquid"
    ],
-   "thickRel": 3.15
+   "thickRel": 3.14
   },
   {
    "kit": "kay-holiday",
@@ -188125,7 +188126,7 @@
    "kit": "ken-food",
    "name": "cocktail",
    "hash": "12805aeed4",
-   "kind": "obj-kitchenware-tableware-drinkware-glass",
+   "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
     0.117,
@@ -256190,7 +256191,7 @@
     "glass",
     "lpa"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.78
   },
   {
    "kit": "lpa-home",
@@ -256363,7 +256364,7 @@
    "kit": "lpa-home",
    "name": "knife-block",
    "hash": "ccfd9ac409",
-   "kind": "obj-kitchenware-cookware-utensil-knife",
+   "kind": "obj-kitchenware-cookware-utensil-knife-block",
    "size": "s",
    "wdh": [
     0.142,
@@ -291383,7 +291384,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -317874,7 +317875,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.76,
+   "thickRel": 0.75,
    "lint": [
     {
      "level": "warning",
@@ -317935,7 +317936,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "quat-apocalypse",
@@ -317987,7 +317988,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "quat-apocalypse",
@@ -318048,7 +318049,7 @@
      "open": 1
     }
    },
-   "thickRel": 1,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "warning",
@@ -345877,7 +345878,7 @@
     "Wave",
     "Yes"
    ],
-   "thickRel": 1.02,
+   "thickRel": 1,
    "mark": [
     "centered"
    ]
@@ -345953,7 +345954,7 @@
     "Wave",
     "Yes"
    ],
-   "thickRel": 0.9,
+   "thickRel": 0.89,
    "mark": [
     "centered"
    ]
@@ -346026,7 +346027,7 @@
     "Wave",
     "Yes"
    ],
-   "thickRel": 0.97,
+   "thickRel": 0.95,
    "mark": [
     "centered"
    ]
@@ -403497,7 +403498,7 @@
   {
    "kit": "styloo-food",
    "name": "egg-half",
-   "hash": "c0c0ab9c7d",
+   "hash": "b0be0c6761",
    "kind": "obj-food-egg",
    "size": "s",
    "wdh": [
@@ -403505,13 +403506,13 @@
     0.06,
     0.021
    ],
-   "tris": 158,
-   "tpu": 461,
+   "tris": 184,
+   "tpu": 536,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6076,
-   "vtx": 113,
+   "bytes": 7192,
+   "vtx": 143,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -403519,7 +403520,7 @@
    "avgTri": 0.00003,
    "anglePct": 32,
    "pieces": 1,
-   "vpt": 0.72,
+   "vpt": 0.78,
    "cells": [
     "5,2",
     "6,0"
@@ -404313,7 +404314,7 @@
   {
    "kit": "styloo-food",
    "name": "maki-tuna",
-   "hash": "be141ccef2",
+   "hash": "2d3d4c1925",
    "kind": "obj-food-fish-sushi",
    "size": "s",
    "wdh": [
@@ -404321,25 +404322,25 @@
     0.05,
     0.044
    ],
-   "tris": 44,
-   "tpu": 128,
+   "tris": 96,
+   "tpu": 280,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 3576,
-   "vtx": 56,
+   "bytes": 5236,
+   "vtx": 98,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.013,
+   "minEdge": 0.008,
    "thick": 0.2636,
-   "avgTri": 0.00027,
+   "avgTri": 0.00013,
    "anglePct": 37,
    "pieces": 1,
-   "vpt": 1.27,
+   "vpt": 1.02,
    "cells": [
     "13,3",
-    "8,0",
-    "5,2"
+    "5,2",
+    "8,0"
    ],
    "colors": [
     "#59534e",
