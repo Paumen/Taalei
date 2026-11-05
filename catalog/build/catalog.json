@@ -330884,16 +330884,16 @@
   {
    "kit": "quat-furniture",
    "name": "bed-double",
-   "hash": "00042b6e81",
+   "hash": "ef15d860b5",
    "kind": "obj-furnishing-furniture-bed-double",
    "size": "m",
    "wdh": [
-    0.636,
-    0.95,
-    0.353
+    0.848,
+    1.278,
+    0.467
    ],
    "tris": 4492,
-   "tpu": 10621,
+   "tpu": 5921,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -330901,11 +330901,11 @@
    "vtx": 5318,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0233,
-   "thick": 0.1164,
-   "avgTri": 0.0009,
-   "anglePct": 60,
+   "minEdge": 0.002,
+   "minTube": 0.0091,
+   "thick": 0.1138,
+   "avgTri": 0.0015,
+   "anglePct": 62,
    "pieces": 25,
    "vpt": 1.18,
    "cells": [
@@ -330928,40 +330928,50 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/bed-double",
-   "thickRel": 0.92,
+   "thickRel": 0.9,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.278 over max 1.1 (obj-furnishing-furniture-bed)"
+    },
+    {
+     "level": "warning",
      "check": "tpu",
-     "text": "tpu 10621 over max 5000 (obj-furnishing)"
+     "text": "tpu 5921 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0091 wants min 0.012"
     }
    ]
   },
   {
    "kit": "quat-furniture",
    "name": "bed-single",
-   "hash": "a3c4d4123f",
+   "hash": "f387fc518d",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
-    0.468,
-    0.955,
-    0.355
+    0.618,
+    1.278,
+    0.467
    ],
    "tris": 3464,
-   "tpu": 10099,
+   "tpu": 6266,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 163224,
+   "bytes": 163220,
    "vtx": 4403,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0235,
-   "thick": 0.1528,
-   "avgTri": 0.00087,
-   "anglePct": 57,
+   "minEdge": 0.003,
+   "minTube": 0.0261,
+   "thick": 0.15,
+   "avgTri": 0.00143,
+   "anglePct": 59,
    "pieces": 22,
    "vpt": 1.27,
    "cells": [
@@ -330984,12 +330994,17 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/bed-double",
-   "thickRel": 1.08,
+   "thickRel": 1.06,
    "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 1.278 over max 1.1 (obj-furnishing-furniture-bed)"
+    },
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 10099 over max 5000 (obj-furnishing)"
+     "text": "tpu 6266 over max 5000 (obj-furnishing)"
     }
    ]
   },
@@ -333205,13 +333220,13 @@
   {
    "kit": "quat-interior",
    "name": "chair-d",
-   "hash": "305bc99a71",
+   "hash": "09dfd2d5be",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
-    0.217,
-    0.233,
-    0.463
+    0.208,
+    0.229,
+    0.462
    ],
    "tris": 428,
    "tpu": 1248,
@@ -333222,11 +333237,11 @@
    "vtx": 574,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minTube": 0.0106,
-   "thick": 0.1418,
-   "avgTri": 0.00111,
-   "anglePct": 53,
+   "minEdge": 0.006,
+   "minTube": 0.0066,
+   "thick": 0.1288,
+   "avgTri": 0.00085,
+   "anglePct": 66,
    "pieces": 14,
    "vpt": 1.34,
    "cells": [
@@ -333243,12 +333258,12 @@
     "wood-dark"
    ],
    "variant": "quat-interior/chair-c",
-   "thickRel": 1.18,
+   "thickRel": 1.07,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0106 wants min 0.012"
+     "text": "G27 minTube 0.0066 wants min 0.012"
     }
    ]
   },
@@ -356441,30 +356456,30 @@
   {
    "kit": "quat-scifi-mod",
    "name": "shelf-tall",
-   "hash": "d59bab92bf",
+   "hash": "fa3c82ff5f",
    "kind": "obj-furnishing-furniture-storage-bookcase",
    "size": "m",
    "wdh": [
-    0.697,
+    0.699,
     0.276,
     1.056
    ],
-   "tris": 396,
-   "tpu": 765,
+   "tris": 536,
+   "tpu": 1036,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 24424,
-   "vtx": 642,
+   "bytes": 32944,
+   "vtx": 882,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.013,
-   "thick": 0.0558,
-   "avgTri": 0.00747,
-   "anglePct": 98,
-   "pieces": 7,
-   "vpt": 1.62,
+   "minTube": 0.0118,
+   "thick": 0.0521,
+   "avgTri": 0.00855,
+   "anglePct": 99,
+   "pieces": 12,
+   "vpt": 1.65,
    "cells": [
     "6,0",
     "15,3"
@@ -356480,12 +356495,19 @@
     "space"
    ],
    "variant": "quat-scifi-mod/shelf",
-   "thickRel": 0.67
+   "thickRel": 0.62,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0118 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-scifi-mod",
    "name": "shelf",
-   "hash": "7f89090d5e",
+   "hash": "be3d70a67b",
    "kind": "obj-furnishing-furniture-storage-bookcase",
    "size": "m",
    "wdh": [
@@ -356498,15 +356520,15 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22708,
+   "bytes": 22700,
    "vtx": 594,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.013,
-   "thick": 0.0557,
-   "avgTri": 0.00591,
-   "anglePct": 98,
+   "minTube": 0.0118,
+   "thick": 0.0488,
+   "avgTri": 0.00511,
+   "anglePct": 99,
    "pieces": 6,
    "vpt": 1.61,
    "cells": [
@@ -356524,7 +356546,14 @@
     "space"
    ],
    "variant": "quat-scifi-mod/shelf",
-   "thickRel": 0.66
+   "thickRel": 0.58,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0118 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "quat-scifi-mod",
