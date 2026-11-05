@@ -2,6 +2,10 @@
  "modelPath": "kits/npc",
  "kits": [
   {
+   "slug": "kenney_mini-forest_1.0",
+   "name": "Kenney Mini Forest"
+  },
+  {
    "slug": "kenney_platformer-kit",
    "name": "Kenney Platformer Kit"
   },
@@ -113,6 +117,17 @@
   }
  ],
  "sources": [
+  {
+   "slug": "kenney_mini-forest_1.0",
+   "name": "Kenney Mini Forest",
+   "kit": "ken-forest-mini",
+   "format": "glb",
+   "inSource": 22,
+   "inCatalog": 14,
+   "listed": 1,
+   "scale": 1.197,
+   "folder": "Models/GLB format"
+  },
   {
    "slug": "kenney_platformer-kit",
    "name": "Kenney Platformer Kit",
@@ -403,6 +418,10 @@
    "name": "Metal"
   },
   {
+   "id": "obj-container-barrel-wood",
+   "name": "Wood"
+  },
+  {
    "id": "obj-container-bucket",
    "name": "Bucket"
   },
@@ -471,6 +490,18 @@
    "name": "Pump"
   },
   {
+   "id": "obj-container-trash",
+   "name": "Trash"
+  },
+  {
+   "id": "obj-container-trash-trashcan",
+   "name": "Trashcan"
+  },
+  {
+   "id": "obj-container-trash-dumpster",
+   "name": "Dumpster"
+  },
+  {
    "id": "obj-container-bag",
    "name": "Bag"
   },
@@ -535,20 +566,12 @@
    "name": "Drink"
   },
   {
-   "id": "obj-container-trashcan",
-   "name": "Trashcan"
-  },
-  {
    "id": "obj-container-cargo",
    "name": "Cargo"
   },
   {
    "id": "obj-container-basket",
    "name": "Basket"
-  },
-  {
-   "id": "obj-container-dumpster",
-   "name": "Dumpster"
   },
   {
    "id": "obj-container-cylinder",
@@ -1135,6 +1158,22 @@
    "name": "Explosive"
   },
   {
+   "id": "obj-equipment-weapon-explosive-dynamite",
+   "name": "Dynamite"
+  },
+  {
+   "id": "obj-equipment-weapon-explosive-grenade",
+   "name": "Grenade"
+  },
+  {
+   "id": "obj-equipment-weapon-explosive-mine",
+   "name": "Mine"
+  },
+  {
+   "id": "obj-equipment-weapon-explosive-powder",
+   "name": "Powder"
+  },
+  {
    "id": "obj-equipment-weapon-magic",
    "name": "Magic"
   },
@@ -1279,6 +1318,10 @@
    "name": "Hammer"
   },
   {
+   "id": "obj-equipment-tool-hand-hammer-mallet",
+   "name": "Mallet"
+  },
+  {
    "id": "obj-equipment-tool-hand-saw",
    "name": "Saw"
   },
@@ -1297,6 +1340,10 @@
   {
    "id": "obj-equipment-tool-hand-shaping",
    "name": "Shaping"
+  },
+  {
+   "id": "obj-equipment-tool-hand-shaping-trowel",
+   "name": "Trowel"
   },
   {
    "id": "obj-equipment-tool-hand-gripper",
@@ -1759,6 +1806,10 @@
    "name": "Shelf"
   },
   {
+   "id": "obj-furnishing-furniture-storage-display",
+   "name": "Display"
+  },
+  {
    "id": "obj-furnishing-furniture-storage-rack",
    "name": "Rack"
   },
@@ -1769,10 +1820,6 @@
   {
    "id": "obj-furnishing-furniture-storage-rack-coat",
    "name": "Coat"
-  },
-  {
-   "id": "obj-furnishing-furniture-storage-rack-display",
-   "name": "Display"
   },
   {
    "id": "obj-furnishing-furniture-storage-bookcase",
@@ -1825,6 +1872,14 @@
   {
    "id": "obj-furnishing-clock",
    "name": "Clock"
+  },
+  {
+   "id": "obj-furnishing-clock-wall",
+   "name": "Wall"
+  },
+  {
+   "id": "obj-furnishing-clock-table",
+   "name": "Table"
   },
   {
    "id": "obj-device",
@@ -2287,6 +2342,22 @@
    "name": "Gate"
   },
   {
+   "id": "str-barrier-fence-picket",
+   "name": "Picket"
+  },
+  {
+   "id": "str-barrier-fence-iron",
+   "name": "Iron"
+  },
+  {
+   "id": "str-barrier-fence-temporary",
+   "name": "Temporary"
+  },
+  {
+   "id": "str-barrier-fence-roped",
+   "name": "Roped"
+  },
+  {
    "id": "str-barrier-railing",
    "name": "Railing"
   },
@@ -2531,6 +2602,10 @@
    "name": "Playground"
   },
   {
+   "id": "str-fixture-leisure-playground-skate",
+   "name": "Skate"
+  },
+  {
    "id": "str-fixture-light",
    "name": "Light"
   },
@@ -2607,6 +2682,10 @@
    "name": "Ray"
   },
   {
+   "id": "env-fauna-fish-reef",
+   "name": "Reef"
+  },
+  {
    "id": "env-fauna-starfish",
    "name": "Starfish"
   },
@@ -2621,6 +2700,14 @@
   {
    "id": "env-fauna-mammal",
    "name": "Mammal"
+  },
+  {
+   "id": "env-fauna-fictional",
+   "name": "Fictional"
+  },
+  {
+   "id": "env-fauna-amphibian",
+   "name": "Amphibian"
   },
   {
    "id": "env-remains",
@@ -2803,6 +2890,18 @@
    "name": "Character"
   },
   {
+   "id": "char-robot",
+   "name": "Robot"
+  },
+  {
+   "id": "char-human",
+   "name": "Human"
+  },
+  {
+   "id": "char-undead",
+   "name": "Undead"
+  },
+  {
    "id": "sym",
    "name": "Symbol"
   },
@@ -2825,6 +2924,22 @@
  ],
  "variants": [],
  "models": [
+  {
+   "kit": "kenney_mini-forest_1.0",
+   "name": "character-archer",
+   "wdh": [
+    0.9,
+    1,
+    0.6
+   ],
+   "tris": 574,
+   "tpu": 893,
+   "mat": 2,
+   "hash": "c13fbcb0a1",
+   "bytes": 29720,
+   "scaled": true,
+   "file": "character-archer.glb"
+  },
   {
    "kit": "kenney_platformer-kit",
    "name": "character-oobi",
@@ -4537,7 +4652,7 @@
   {
    "kit": "Animated_Enemies",
    "name": "Frog",
-   "kind": "env-fauna",
+   "kind": "env-fauna-amphibian",
    "wdh": [
     3.5,
     1.5,
