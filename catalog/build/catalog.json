@@ -345568,7 +345568,7 @@
   {
    "kit": "quat-pirate",
    "name": "house-3",
-   "hash": "92b2e47806",
+   "hash": "f1bf1b9c5a",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -345576,22 +345576,22 @@
     1.451,
     4.087
    ],
-   "tris": 5364,
-   "tpu": 278,
+   "tris": 5377,
+   "tpu": 279,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 424640,
-   "vtx": 11214,
+   "bytes": 408956,
+   "vtx": 10719,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0,
-   "thick": 0.1301,
-   "avgTri": 0.00898,
-   "anglePct": 56,
-   "pieces": 292,
-   "vpt": 2.09,
+   "minEdge": 0.008,
+   "minTube": 0.026,
+   "thick": 0.13,
+   "avgTri": 0.00897,
+   "anglePct": 60,
+   "pieces": 290,
+   "vpt": 1.99,
    "cells": [
     "0,0",
     "2,0",
@@ -345624,7 +345624,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.71
+   "backface": {
+    "share": 0.0028,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.71,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 90/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-pirate",
@@ -402466,7 +402480,7 @@
   {
    "kit": "styloo-farm",
    "name": "windmill-large",
-   "hash": "2b121927e8",
+   "hash": "d0b99d61fc",
    "kind": "str-building-work-industrial-mill",
    "size": "l",
    "wdh": [
@@ -402474,22 +402488,22 @@
     1.648,
     3.253
    ],
-   "tris": 2712,
-   "tpu": 225,
+   "tris": 2732,
+   "tpu": 227,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 197668,
-   "vtx": 5625,
+   "bytes": 188764,
+   "vtx": 5343,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0115,
-   "thick": 0.1461,
-   "avgTri": 0.00792,
-   "anglePct": 29,
-   "pieces": 102,
-   "vpt": 2.07,
+   "thick": 0.1458,
+   "avgTri": 0.00762,
+   "anglePct": 31,
+   "pieces": 113,
+   "vpt": 1.96,
    "cells": [
     "2,0",
     "5,2",
@@ -402516,7 +402530,21 @@
     "wood-dark"
    ],
    "variant": "styloo-farm/windmill-anim",
-   "thickRel": 1.16
+   "backface": {
+    "share": 0.0013,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
