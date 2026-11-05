@@ -4471,7 +4471,7 @@
     "Stylized Asia RG": 81
    },
    "scales": {
-    "1": 4,
+    "1": 3,
     "0.4724": 68,
     "0.3": 1,
     "0.7": 1,
@@ -4479,6 +4479,7 @@
     "0.9": 1,
     "0.85": 2,
     "0.57": 1,
+    "0.5": 1,
     "0.6614": 1
    },
    "smooth": {
@@ -25493,7 +25494,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 788,
+   "count": 787,
    "parent": "wood"
   },
   {
@@ -374744,7 +374745,21 @@
     "storeys-1",
     "wood-dark"
    ],
-   "thickRel": 1.09
+   "backface": {
+    "share": 0.0082,
+    "view": "180/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.8% of view 180/20 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -375312,40 +375327,42 @@
   {
    "kit": "rgp-asia",
    "name": "palace",
-   "hash": "1f29cc05a9",
+   "hash": "a29692f124",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    10.609,
-    5.602,
-    5.246
+    4.185,
+    3.086,
+    2.632
    ],
-   "tris": 16818,
-   "tpu": 54,
+   "tris": 4534,
+   "tpu": 133,
    "mat": 1,
-   "bands": 4,
+   "bands": 5,
    "calls": 1,
-   "bytes": 913220,
-   "vtx": 25340,
+   "bytes": 271768,
+   "vtx": 7596,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.014,
-   "thick": 0.1728,
-   "avgTri": 0.02131,
-   "anglePct": 76,
-   "pieces": 682,
-   "vpt": 1.51,
+   "minEdge": 0.007,
+   "minTube": 0.0269,
+   "thick": 0.1513,
+   "avgTri": 0.02371,
+   "anglePct": 73,
+   "pieces": 266,
+   "vpt": 1.68,
    "cells": [
     "2,0",
-    "6,0",
     "14,3",
-    "8,0"
+    "8,0",
+    "1,0",
+    "6,0"
    ],
    "colors": [
     "#713e14",
     "#873a27",
     "#88735f",
+    "#9e6d44",
     "#f1a63b"
    ],
    "tags": [
@@ -375356,27 +375373,9 @@
     "stone-masonry-mid",
     "storeys-2",
     "wood-dark",
-    "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-light wants tan, has chestnut amber taupe sienna"
-    },
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-mid wants camel, has chestnut amber taupe sienna"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.014 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.82
   },
   {
    "kit": "rgp-asia",
