@@ -76,7 +76,7 @@ export const BRONKITS = [
   { map: 'AssetPack', naam: 'Asset Pack', kit: 'medieval-forge', formaat: 'fbx' },
 
   { map: 'KayKit_Mixed_Bag_1_FREE', naam: 'KayKit Mixed Bag 1', kit: 'kay-mixed', source: 'kay', formaat: 'gltf' },
-  { map: 'KayKit_Mixed_Bag_2_FREE', naam: 'KayKit Mixed Bag 2', kit: null, source: 'kay', formaat: 'gltf' },
+  { map: 'KayKit_Mixed_Bag_2_FREE', naam: 'KayKit Mixed Bag 2', kit: 'kay-mixed', source: 'kay', formaat: 'gltf' },
   { map: 'KayKit_Medieval_Builder_Pack_1.0', naam: 'KayKit Medieval Builder Pack', kit: 'kay-builder', source: 'kay', formaat: 'glb', alleMappen: true },
   { map: 'KayKit_Spooktober_Seasonal_Pack_1.1', naam: 'KayKit Spooktober Seasonal Pack', kit: 'kay-spook', source: 'kay', formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
   { map: 'KayKit_Mini-Game_Variety_Pack_1.2', naam: 'KayKit Mini-Game Variety Pack', kit: 'kay-minigame', source: 'kay', formaat: 'glb', extraFormaten: ['gltf'], alleMappen: true },
