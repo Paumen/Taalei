@@ -350013,7 +350013,7 @@
   {
    "kit": "quat-props",
    "name": "candle-stand",
-   "hash": "d1c8fb506a",
+   "hash": "8788a96a5b",
    "kind": "obj-furnishing-light-candle",
    "size": "m",
    "wdh": [
@@ -350031,10 +350031,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.0155,
-   "thick": 0.0696,
-   "avgTri": 0.00024,
-   "anglePct": 20,
+   "minTube": 0.0159,
+   "thick": 0.0691,
+   "avgTri": 0.00022,
+   "anglePct": 22,
    "pieces": 43,
    "vpt": 1.18,
    "cells": [
@@ -350894,41 +350894,34 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 1.07,
-   "lint": [
-    {
-     "level": "error",
-     "check": "mat",
-     "text": "metal needs metal-steel, has metal-gold (obj-equipment-tool)"
-    }
-   ]
+   "thickRel": 1.07
   },
   {
    "kit": "quat-props",
    "name": "pot",
-   "hash": "08742eeac9",
+   "hash": "314314b23b",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.406,
-    0.344,
+    0.401,
+    0.328,
     0.157
    ],
-   "tris": 752,
-   "tpu": 2192,
+   "tris": 968,
+   "tpu": 2822,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 38200,
-   "vtx": 868,
+   "bytes": 51168,
+   "vtx": 1192,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "thick": 0.0609,
-   "avgTri": 0.0006,
+   "minEdge": 0.004,
+   "thick": 0.0709,
+   "avgTri": 0.00048,
    "anglePct": 23,
    "pieces": 7,
-   "vpt": 1.15,
+   "vpt": 1.23,
    "cells": [
     "6,1"
    ],
@@ -350939,7 +350932,7 @@
     "metal-iron-dark",
     "qua"
    ],
-   "thickRel": 0.36
+   "thickRel": 0.41
   },
   {
    "kit": "quat-props",
@@ -401559,30 +401552,30 @@
    "kit": "sq-studio",
    "collection": "sq-props",
    "name": "drum-kit",
-   "hash": "37cb5adddd",
+   "hash": "731dad7079",
    "kind": "obj-leisure-art-instrument-drum",
    "size": "m",
    "wdh": [
-    0.76,
-    0.607,
-    0.654
+    0.767,
+    0.629,
+    0.651
    ],
-   "tris": 1526,
-   "tpu": 4449,
+   "tris": 1692,
+   "tpu": 4933,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 80604,
-   "vtx": 1902,
+   "bytes": 91104,
+   "vtx": 2168,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0135,
-   "thick": 0.0811,
-   "avgTri": 0.00118,
-   "anglePct": 71,
-   "pieces": 48,
-   "vpt": 1.25,
+   "minEdge": 0.008,
+   "minTube": 0.019,
+   "thick": 0.0826,
+   "avgTri": 0.00097,
+   "anglePct": 45,
+   "pieces": 53,
+   "vpt": 1.28,
    "cells": [
     "8,0",
     "15,3",
@@ -401603,7 +401596,21 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.51
+   "backface": {
+    "share": 0.0042,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.52,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 0/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "sq-studio",
