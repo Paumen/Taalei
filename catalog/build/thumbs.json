@@ -2906,6 +2906,13 @@
    "v": "3bcad648cb",
    "f": "bcc30bee80"
   },
+  "obj-leisure-game-console": {
+   "cols": 3,
+   "rows": 2,
+   "key": "d62e7e080a",
+   "v": "b62ebe47dc",
+   "f": "b241cfbb24"
+  },
   "obj-leisure-game-gamble": {
    "cols": 4,
    "rows": 3,
@@ -2929,10 +2936,10 @@
   },
   "obj-leisure-toy": {
    "cols": 8,
-   "rows": 8,
-   "key": "8010632f76",
-   "v": "0bf2c0fb12",
-   "f": "4b85c1e5ae"
+   "rows": 7,
+   "key": "e766886ff0",
+   "v": "8184dfd6b3",
+   "f": "8426527a10"
   },
   "obj-resource-crop-hay": {
    "cols": 3,
@@ -3348,11 +3355,25 @@
    "f": "582aa7eeef"
   },
   "str-barrier-railing": {
-   "cols": 8,
-   "rows": 7,
-   "key": "20c7e28585",
-   "v": "f63f056b43",
-   "f": "5666d9067a"
+   "cols": 6,
+   "rows": 6,
+   "key": "27dd1ff977",
+   "v": "bb8de8bc39",
+   "f": "c5b393cfef"
+  },
+  "str-barrier-railing-post": {
+   "cols": 4,
+   "rows": 4,
+   "key": "9b0ae868e6",
+   "v": "7043fd9406",
+   "f": "6ae3c38302"
+  },
+  "str-barrier-railing-stairs": {
+   "cols": 3,
+   "rows": 3,
+   "key": "1e8e25bd1d",
+   "v": "4836639213",
+   "f": "94ce66be2f"
   },
   "str-barrier-traffic": {
    "cols": 2,
@@ -3993,10 +4014,17 @@
   },
   "str-part-gate-gateway": {
    "cols": 6,
-   "rows": 6,
-   "key": "75fc5c70af",
-   "v": "5dcef6144c",
-   "f": "878967298f"
+   "rows": 5,
+   "key": "1e0e0564ee",
+   "v": "f83b9d18ca",
+   "f": "2f350e204d"
+  },
+  "str-part-gate-gateway-torii": {
+   "cols": 3,
+   "rows": 2,
+   "key": "0345c0ca0c",
+   "v": "0a9e736c18",
+   "f": "cc71bc3030"
   },
   "str-part-gate-single": {
    "cols": 4,
@@ -4237,7 +4265,7 @@
   },
   "3dm-electronics/console": {
    "glb": "59169a214c",
-   "kind": "obj-leisure-toy",
+   "kind": "obj-leisure-game-console",
    "at": 0
   },
   "3dm-electronics/digital-camera": {
@@ -8237,33 +8265,33 @@
   },
   "fs-house/railing-baluster": {
    "glb": "ebceca4c7a",
-   "kind": "str-barrier-railing",
-   "at": 1
+   "kind": "str-barrier-railing-post",
+   "at": 0
   },
   "fs-house/railing-corner": {
    "glb": "4e07a6e947",
    "kind": "str-barrier-railing",
-   "at": 2
+   "at": 1
   },
   "fs-house/railing-post": {
    "glb": "ddf9f149f3",
-   "kind": "str-barrier-railing",
-   "at": 3
+   "kind": "str-barrier-railing-post",
+   "at": 1
   },
   "fs-house/railing-stairs": {
    "glb": "0216cf7b82",
-   "kind": "str-barrier-railing",
-   "at": 4
+   "kind": "str-barrier-railing-stairs",
+   "at": 0
   },
   "fs-house/railing-stairs-curved-inner": {
    "glb": "096e04ebe7",
-   "kind": "str-barrier-railing",
-   "at": 5
+   "kind": "str-barrier-railing-stairs",
+   "at": 1
   },
   "fs-house/railing-stairs-curved-outer": {
    "glb": "c5ee2acfe4",
-   "kind": "str-barrier-railing",
-   "at": 6
+   "kind": "str-barrier-railing-stairs",
+   "at": 2
   },
   "fs-house/rug-oval": {
    "glb": "e31045804b",
@@ -9022,18 +9050,18 @@
   },
   "fs-temple/stairs-newel-base": {
    "glb": "29844c9b5f",
-   "kind": "str-barrier-railing",
-   "at": 7
+   "kind": "str-barrier-railing-post",
+   "at": 2
   },
   "fs-temple/stairs-newel-middle": {
    "glb": "5567cb1155",
-   "kind": "str-barrier-railing",
-   "at": 8
+   "kind": "str-barrier-railing-post",
+   "at": 3
   },
   "fs-temple/stairs-newel-top": {
    "glb": "2411050afe",
-   "kind": "str-barrier-railing",
-   "at": 9
+   "kind": "str-barrier-railing-post",
+   "at": 4
   },
   "fs-temple/stairs-steps-curved": {
    "glb": "2dba9a80c2",
@@ -10418,32 +10446,32 @@
   "fs-town/wood-railing-corner": {
    "glb": "2a4e972b95",
    "kind": "str-barrier-railing",
-   "at": 10
+   "at": 2
   },
   "fs-town/wood-railing-stairs": {
    "glb": "dbb5c09f4b",
-   "kind": "str-barrier-railing",
-   "at": 11
+   "kind": "str-barrier-railing-stairs",
+   "at": 3
   },
   "fs-town/wood-railing-straight": {
    "glb": "76fed22c0e",
    "kind": "str-barrier-railing",
-   "at": 12
+   "at": 3
   },
   "fs-town/wood-rope-corner": {
    "glb": "71823a868e",
    "kind": "str-barrier-railing",
-   "at": 13
+   "at": 4
   },
   "fs-town/wood-rope-stairs": {
    "glb": "11247d4ef8",
-   "kind": "str-barrier-railing",
-   "at": 14
+   "kind": "str-barrier-railing-stairs",
+   "at": 4
   },
   "fs-town/wood-rope-straight": {
    "glb": "e3a9334288",
    "kind": "str-barrier-railing",
-   "at": 15
+   "at": 5
   },
   "fs-town/wood-steps": {
    "glb": "36dd0556eb",
@@ -10593,7 +10621,7 @@
   "household/doll": {
    "glb": "cfc14c93aa",
    "kind": "obj-leisure-toy",
-   "at": 1
+   "at": 0
   },
   "household/dresser": {
    "glb": "f79c27832a",
@@ -10738,7 +10766,7 @@
   "household/rubber-duck": {
    "glb": "01bb94fe9f",
    "kind": "obj-leisure-toy",
-   "at": 2
+   "at": 1
   },
   "household/safe": {
    "glb": "83026790d2",
@@ -11603,7 +11631,7 @@
   "isa-bathroom/rubber-duck": {
    "glb": "20fc723f81",
    "kind": "obj-leisure-toy",
-   "at": 3
+   "at": 2
   },
   "isa-bathroom/sink-cabinet": {
    "glb": "048837655b",
@@ -12408,7 +12436,7 @@
   "isa-picnic/frisbee": {
    "glb": "3fb8479bf3",
    "kind": "obj-leisure-toy",
-   "at": 4
+   "at": 3
   },
   "isa-picnic/grapes": {
    "glb": "409985f5ae",
@@ -12923,12 +12951,12 @@
   "isa-playground/shovel": {
    "glb": "b62cea99c7",
    "kind": "obj-leisure-toy",
-   "at": 5
+   "at": 4
   },
   "isa-playground/shovel-plastic": {
    "glb": "415628e352",
    "kind": "obj-leisure-toy",
-   "at": 6
+   "at": 5
   },
   "isa-playground/slide-a": {
    "glb": "89011a2667",
@@ -13318,12 +13346,12 @@
   "kay-blocks/decorative-block-amber": {
    "glb": "a4048e040d",
    "kind": "obj-leisure-toy",
-   "at": 7
+   "at": 6
   },
   "kay-blocks/decorative-block-azure": {
    "glb": "fea2244ae3",
    "kind": "obj-leisure-toy",
-   "at": 8
+   "at": 7
   },
   "kay-builder/archery-range": {
    "glb": "0081519a35",
@@ -17308,17 +17336,17 @@
   "kay-holiday/snowball": {
    "glb": "a3b24513b8",
    "kind": "obj-leisure-toy",
-   "at": 9
+   "at": 8
   },
   "kay-holiday/snowball-cannon": {
    "glb": "c103eca8fe",
    "kind": "obj-leisure-toy",
-   "at": 10
+   "at": 9
   },
   "kay-holiday/snowball-pile": {
    "glb": "bcca2352d0",
    "kind": "obj-leisure-toy",
-   "at": 11
+   "at": 10
   },
   "kay-holiday/snowman": {
    "glb": "cb3d80ca22",
@@ -17343,7 +17371,7 @@
   "kay-holiday/train-track": {
    "glb": "3b8d649d7e",
    "kind": "obj-leisure-toy",
-   "at": 12
+   "at": 11
   },
   "kay-holiday/tree-stand": {
    "glb": "fb277399ab",
@@ -17707,13 +17735,13 @@
   },
   "kay-mixed/handheld-console": {
    "glb": "03310587ea",
-   "kind": "obj-leisure-toy",
-   "at": 13
+   "kind": "obj-leisure-game-console",
+   "at": 1
   },
   "kay-mixed/haunted-manor": {
    "glb": "b9fc913319",
    "kind": "obj-leisure-toy",
-   "at": 14
+   "at": 12
   },
   "kay-mixed/haunted-manor-house": {
    "glb": "95a52410cd",
@@ -17763,22 +17791,22 @@
   "kay-mixed/plushie-chicken-a": {
    "glb": "e3c0fdbf98",
    "kind": "obj-leisure-toy",
-   "at": 15
+   "at": 13
   },
   "kay-mixed/plushie-chicken-b": {
    "glb": "526291b27a",
    "kind": "obj-leisure-toy",
-   "at": 16
+   "at": 14
   },
   "kay-mixed/puzzle-cube-center": {
    "glb": "c3d6f256e0",
    "kind": "obj-leisure-toy",
-   "at": 17
+   "at": 15
   },
   "kay-mixed/puzzle-cube-incomplete": {
    "glb": "96f4c5dc32",
    "kind": "obj-leisure-toy",
-   "at": 18
+   "at": 16
   },
   "kay-mixed/rollerskate-a": {
    "glb": "2f7261ec98",
@@ -17803,7 +17831,7 @@
   "kay-mixed/sled": {
    "glb": "4c8c28e90d",
    "kind": "obj-leisure-toy",
-   "at": 19
+   "at": 17
   },
   "kay-mixed/taco": {
    "glb": "d0947caf48",
@@ -18048,32 +18076,32 @@
   "kay-platformer/railing-corner-double": {
    "glb": "f5387f6c29",
    "kind": "str-barrier-railing",
-   "at": 16
+   "at": 6
   },
   "kay-platformer/railing-corner-padded": {
    "glb": "c3c09e6ad3",
    "kind": "str-barrier-railing",
-   "at": 17
+   "at": 7
   },
   "kay-platformer/railing-corner-single": {
    "glb": "099de80e71",
    "kind": "str-barrier-railing",
-   "at": 18
+   "at": 8
   },
   "kay-platformer/railing-double": {
    "glb": "15e3ef9b65",
    "kind": "str-barrier-railing",
-   "at": 19
+   "at": 9
   },
   "kay-platformer/railing-padded": {
    "glb": "76cb817176",
    "kind": "str-barrier-railing",
-   "at": 20
+   "at": 10
   },
   "kay-platformer/railing-single": {
    "glb": "416b768096",
    "kind": "str-barrier-railing",
-   "at": 21
+   "at": 11
   },
   "kay-platformer/sign-arrow-stand": {
    "glb": "46552261e7",
@@ -22983,7 +23011,7 @@
   "ken-holiday/nutcracker": {
    "glb": "80d63b533e",
    "kind": "obj-leisure-toy",
-   "at": 20
+   "at": 18
   },
   "ken-holiday/present-cube": {
    "glb": "09d280d1b7",
@@ -23003,17 +23031,17 @@
   "ken-holiday/reindeer": {
    "glb": "7c4b5bd0ff",
    "kind": "obj-leisure-toy",
-   "at": 21
+   "at": 19
   },
   "ken-holiday/sled": {
    "glb": "0a943b0522",
    "kind": "obj-leisure-toy",
-   "at": 22
+   "at": 20
   },
   "ken-holiday/sled-long": {
    "glb": "219c583c5f",
    "kind": "obj-leisure-toy",
-   "at": 23
+   "at": 21
   },
   "ken-holiday/snowman": {
    "glb": "65470531a7",
@@ -23038,7 +23066,7 @@
   "ken-holiday/train-track": {
    "glb": "08b535ece8",
    "kind": "obj-leisure-toy",
-   "at": 24
+   "at": 22
   },
   "ken-holiday/tree": {
    "glb": "4be7af1e4e",
@@ -23283,7 +23311,7 @@
   "ken-market/railing": {
    "glb": "1cbc027d42",
    "kind": "str-barrier-railing",
-   "at": 22
+   "at": 12
   },
   "ken-market/shelf-bags": {
    "glb": "f669a43b43",
@@ -24953,12 +24981,12 @@
   "ken-racing/rail": {
    "glb": "71fa83abde",
    "kind": "str-barrier-railing",
-   "at": 23
+   "at": 13
   },
   "ken-racing/rail-double": {
    "glb": "48b5af31f2",
    "kind": "str-barrier-railing",
-   "at": 24
+   "at": 14
   },
   "ken-racing/ramp": {
    "glb": "316659e4cd",
@@ -25343,7 +25371,7 @@
   "ken-skate/fence": {
    "glb": "ba3919c13f",
    "kind": "str-barrier-railing",
-   "at": 25
+   "at": 15
   },
   "ken-skate/floor-concrete": {
    "glb": "d0379fbb08",
@@ -25453,12 +25481,12 @@
   "ken-skate/scooter": {
    "glb": "d588c95528",
    "kind": "obj-leisure-toy",
-   "at": 25
+   "at": 23
   },
   "ken-skate/skateboard": {
    "glb": "60da7f47d0",
    "kind": "obj-leisure-toy",
-   "at": 26
+   "at": 24
   },
   "ken-skate/slope-smooth": {
    "glb": "818e6a9d40",
@@ -25798,12 +25826,12 @@
   "ken-space/rail": {
    "glb": "dda865270c",
    "kind": "str-barrier-railing",
-   "at": 26
+   "at": 16
   },
   "ken-space/rail-corner": {
    "glb": "3121c3fa5a",
    "kind": "str-barrier-railing",
-   "at": 27
+   "at": 17
   },
   "ken-space/rocket-a": {
    "glb": "cddfe7a93e",
@@ -25968,17 +25996,17 @@
   "ken-station/balcony-rail": {
    "glb": "88b66f3fc0",
    "kind": "str-barrier-railing",
-   "at": 28
+   "at": 18
   },
   "ken-station/balcony-rail-center": {
    "glb": "733c60d9a0",
    "kind": "str-barrier-railing",
-   "at": 29
+   "at": 19
   },
   "ken-station/balcony-rail-corner": {
    "glb": "600f0a451d",
    "kind": "str-barrier-railing",
-   "at": 30
+   "at": 20
   },
   "ken-station/bed-double": {
    "glb": "3f9c5fa034",
@@ -26113,12 +26141,12 @@
   "ken-station/rail": {
    "glb": "b9a14d3d8e",
    "kind": "str-barrier-railing",
-   "at": 31
+   "at": 21
   },
   "ken-station/rail-narrow": {
    "glb": "6072956e0e",
    "kind": "str-barrier-railing",
-   "at": 32
+   "at": 22
   },
   "ken-station/stairs": {
    "glb": "4afca5aae7",
@@ -26137,13 +26165,13 @@
   },
   "ken-station/stairs-handrail": {
    "glb": "10b222a46b",
-   "kind": "str-barrier-railing",
-   "at": 33
+   "kind": "str-barrier-railing-stairs",
+   "at": 5
   },
   "ken-station/stairs-handrail-single": {
    "glb": "0d731a4138",
-   "kind": "str-barrier-railing",
-   "at": 34
+   "kind": "str-barrier-railing-stairs",
+   "at": 6
   },
   "ken-station/stairs-ramp": {
    "glb": "73a54a4c31",
@@ -28802,13 +28830,13 @@
   },
   "lpa-home/console-c": {
    "glb": "25358c43e2",
-   "kind": "obj-leisure-toy",
-   "at": 27
+   "kind": "obj-leisure-game-console",
+   "at": 2
   },
   "lpa-home/console-d": {
    "glb": "42784fe6c8",
-   "kind": "obj-leisure-toy",
-   "at": 28
+   "kind": "obj-leisure-game-console",
+   "at": 3
   },
   "lpa-home/cookpot": {
    "glb": "2c7ca15b91",
@@ -30173,7 +30201,7 @@
   "m3-base/abacus": {
    "glb": "10b3b9a473",
    "kind": "obj-leisure-toy",
-   "at": 29
+   "at": 25
   },
   "m3-base/acorn": {
    "glb": "df273f3c00",
@@ -30292,18 +30320,18 @@
   },
   "m3-base/baluster-colchester": {
    "glb": "408fd266eb",
-   "kind": "str-barrier-railing",
-   "at": 35
+   "kind": "str-barrier-railing-post",
+   "at": 5
   },
   "m3-base/baluster-oxford": {
    "glb": "61e3a19725",
-   "kind": "str-barrier-railing",
-   "at": 36
+   "kind": "str-barrier-railing-post",
+   "at": 6
   },
   "m3-base/baluster-pembroke": {
    "glb": "37919a9625",
-   "kind": "str-barrier-railing",
-   "at": 37
+   "kind": "str-barrier-railing-post",
+   "at": 7
   },
   "m3-base/bandage": {
    "glb": "5c76ba06e1",
@@ -30632,8 +30660,8 @@
   },
   "m3-base/cartoon-controller": {
    "glb": "0b199abb9f",
-   "kind": "obj-leisure-toy",
-   "at": 30
+   "kind": "obj-leisure-game-console",
+   "at": 4
   },
   "m3-base/cartoon-fish-bone": {
    "glb": "a48c42a2ac",
@@ -31098,12 +31126,12 @@
   "m3-base/dart": {
    "glb": "b06e2a023f",
    "kind": "obj-leisure-toy",
-   "at": 31
+   "at": 26
   },
   "m3-base/dart-board": {
    "glb": "99c89ffcdf",
    "kind": "obj-leisure-toy",
-   "at": 32
+   "at": 27
   },
   "m3-base/decanter": {
    "glb": "70a07140c0",
@@ -31318,7 +31346,7 @@
   "m3-base/elephant-jigsaw-ornament": {
    "glb": "49c93f4fe5",
    "kind": "obj-leisure-toy",
-   "at": 33
+   "at": 28
   },
   "m3-base/engineering-brick-01": {
    "glb": "608816f940",
@@ -31493,7 +31521,7 @@
   "m3-base/foam-finger": {
    "glb": "9de5900b61",
    "kind": "obj-leisure-toy",
-   "at": 34
+   "at": 29
   },
   "m3-base/folded-chair-01": {
    "glb": "5e5dbe753b",
@@ -32038,7 +32066,7 @@
   "m3-base/jigsaw-piece": {
    "glb": "826654dab2",
    "kind": "obj-leisure-toy",
-   "at": 35
+   "at": 30
   },
   "m3-base/kennel-01": {
    "glb": "7a0b5dc9c4",
@@ -32677,23 +32705,23 @@
   },
   "m3-base/newel-cap-01": {
    "glb": "07ffc443a9",
-   "kind": "str-barrier-railing",
-   "at": 38
+   "kind": "str-barrier-railing-post",
+   "at": 8
   },
   "m3-base/newel-cap-02": {
    "glb": "d38369e021",
-   "kind": "str-barrier-railing",
-   "at": 39
+   "kind": "str-barrier-railing-post",
+   "at": 9
   },
   "m3-base/newel-cap-03": {
    "glb": "570e590ac4",
-   "kind": "str-barrier-railing",
-   "at": 40
+   "kind": "str-barrier-railing-post",
+   "at": 10
   },
   "m3-base/newel-cap-04": {
    "glb": "9a701af2ab",
-   "kind": "str-barrier-railing",
-   "at": 41
+   "kind": "str-barrier-railing-post",
+   "at": 11
   },
   "m3-base/notebook-01": {
    "glb": "9b799235ee",
@@ -32823,12 +32851,12 @@
   "m3-base/pacifier-01": {
    "glb": "d70d5f4211",
    "kind": "obj-leisure-toy",
-   "at": 36
+   "at": 31
   },
   "m3-base/pacifier-02": {
    "glb": "d9d6b0e843",
    "kind": "obj-leisure-toy",
-   "at": 37
+   "at": 32
   },
   "m3-base/padlock": {
    "glb": "83582d4544",
@@ -33008,12 +33036,12 @@
   "m3-base/pedestrian-guardrail": {
    "glb": "e17de1d0a4",
    "kind": "str-barrier-railing",
-   "at": 42
+   "at": 23
   },
   "m3-base/peg-person": {
    "glb": "d6ae90d323",
    "kind": "obj-leisure-toy",
-   "at": 38
+   "at": 33
   },
   "m3-base/pen-01": {
    "glb": "43c8f5da70",
@@ -33348,12 +33376,12 @@
   "m3-base/rocket-toy-01": {
    "glb": "06a1f73ff0",
    "kind": "obj-leisure-toy",
-   "at": 39
+   "at": 34
   },
   "m3-base/rocket-toy-02": {
    "glb": "9b0d1fb72c",
    "kind": "obj-leisure-toy",
-   "at": 40
+   "at": 35
   },
   "m3-base/roll-top-chimney": {
    "glb": "31b14e6f1c",
@@ -33487,8 +33515,8 @@
   },
   "m3-base/round-handrail-bracket": {
    "glb": "078625b021",
-   "kind": "str-barrier-railing",
-   "at": 43
+   "kind": "str-barrier-railing-stairs",
+   "at": 7
   },
   "m3-base/round-shield": {
    "glb": "f611bb6da0",
@@ -33678,22 +33706,22 @@
   "m3-base/skateboard-deck": {
    "glb": "6282510af0",
    "kind": "obj-leisure-toy",
-   "at": 41
+   "at": 36
   },
   "m3-base/skateboard-setup": {
    "glb": "f3412110e6",
    "kind": "obj-leisure-toy",
-   "at": 42
+   "at": 37
   },
   "m3-base/skateboard-truck": {
    "glb": "85dc8b3e2d",
    "kind": "obj-leisure-toy",
-   "at": 43
+   "at": 38
   },
   "m3-base/skateboard-wheel": {
    "glb": "d2568376e6",
    "kind": "obj-leisure-toy",
-   "at": 44
+   "at": 39
   },
   "m3-base/skatepark-pyramid": {
    "glb": "aa50594d1e",
@@ -33807,23 +33835,23 @@
   },
   "m3-base/spindle-03": {
    "glb": "637792d06b",
-   "kind": "str-barrier-railing",
-   "at": 44
+   "kind": "str-barrier-railing-post",
+   "at": 12
   },
   "m3-base/spindle-04": {
    "glb": "a5d48419f8",
-   "kind": "str-barrier-railing",
-   "at": 45
+   "kind": "str-barrier-railing-post",
+   "at": 13
   },
   "m3-base/spindle-05": {
    "glb": "131a9f15d8",
-   "kind": "str-barrier-railing",
-   "at": 46
+   "kind": "str-barrier-railing-post",
+   "at": 14
   },
   "m3-base/spindle-06": {
    "glb": "f07a18ec57",
-   "kind": "str-barrier-railing",
-   "at": 47
+   "kind": "str-barrier-railing-post",
+   "at": 15
   },
   "m3-base/spine-ramp-01": {
    "glb": "f7bd1e14e6",
@@ -34187,13 +34215,13 @@
   },
   "m3-base/torii-gate-01": {
    "glb": "c7a9908d13",
-   "kind": "str-part-gate-gateway",
-   "at": 19
+   "kind": "str-part-gate-gateway-torii",
+   "at": 0
   },
   "m3-base/torii-gate-02": {
    "glb": "d82a37eebb",
-   "kind": "str-part-gate-gateway",
-   "at": 20
+   "kind": "str-part-gate-gateway-torii",
+   "at": 1
   },
   "m3-base/towel-holder": {
    "glb": "f3f9cbe6b9",
@@ -34228,7 +34256,7 @@
   "m3-base/trunk-protection-railing": {
    "glb": "c833b21361",
    "kind": "str-barrier-railing",
-   "at": 48
+   "at": 24
   },
   "m3-base/tuscan-column": {
    "glb": "7d6bbbd777",
@@ -34383,7 +34411,7 @@
   "m3-base/water-pistol": {
    "glb": "7db8640b62",
    "kind": "obj-leisure-toy",
-   "at": 45
+   "at": 40
   },
   "m3-base/watering-can-01": {
    "glb": "5955c3916e",
@@ -34448,7 +34476,7 @@
   "m3-base/wind-up-key": {
    "glb": "80b104279d",
    "kind": "obj-leisure-toy",
-   "at": 46
+   "at": 41
   },
   "m3-base/wine-bottle": {
    "glb": "db965af056",
@@ -34838,7 +34866,7 @@
   "mali/wall-gate": {
    "glb": "8ee496e68c",
    "kind": "str-part-gate-gateway",
-   "at": 21
+   "at": 19
   },
   "mali/wall-short": {
    "glb": "8a0554d756",
@@ -35652,8 +35680,8 @@
   },
   "pm-store/gateway-board": {
    "glb": "b696e277f2",
-   "kind": "str-part-gate-gateway",
-   "at": 22
+   "kind": "str-part-gate-gateway-torii",
+   "at": 2
   },
   "pm-store/ground-garden": {
    "glb": "a863c9e94f",
@@ -36563,7 +36591,7 @@
   "quat-cyberpunk/rail": {
    "glb": "d145d94200",
    "kind": "str-barrier-railing",
-   "at": 49
+   "at": 25
   },
   "quat-cyberpunk/robot-flying": {
    "glb": "db7ad4de05",
@@ -38743,17 +38771,17 @@
   "quat-megakit/rail-2": {
    "glb": "909ac1c810",
    "kind": "str-barrier-railing",
-   "at": 50
+   "at": 26
   },
   "quat-megakit/rail-round-big": {
    "glb": "4338d5a035",
    "kind": "str-barrier-railing",
-   "at": 51
+   "at": 27
   },
   "quat-megakit/rail-round-small": {
    "glb": "f51bb55e7d",
    "kind": "str-barrier-railing",
-   "at": 52
+   "at": 28
   },
   "quat-megakit/vent-big": {
    "glb": "42f4fdf882",
@@ -40983,7 +41011,7 @@
   "quat-shoot/tank": {
    "glb": "ff8232036d",
    "kind": "obj-leisure-toy",
-   "at": 47
+   "at": 42
   },
   "quat-shoot/tires": {
    "glb": "9557ca8ef2",
@@ -41478,7 +41506,7 @@
   "quat-sushi/arch": {
    "glb": "f3971e3ebc",
    "kind": "str-part-gate-gateway",
-   "at": 23
+   "at": 20
   },
   "quat-sushi/avocado": {
    "glb": "7dd5e56606",
@@ -41847,8 +41875,8 @@
   },
   "quat-sushi/torii-gate": {
    "glb": "e7a863faa4",
-   "kind": "str-part-gate-gateway",
-   "at": 24
+   "kind": "str-part-gate-gateway-torii",
+   "at": 3
   },
   "quat-sushi/tuna": {
    "glb": "9c877a354d",
@@ -41953,7 +41981,7 @@
   "quat-textured/balcony": {
    "glb": "e68435f492",
    "kind": "str-barrier-railing",
-   "at": 53
+   "at": 29
   },
   "quat-textured/bricks-small": {
    "glb": "233fa0ced3",
@@ -42368,22 +42396,22 @@
   "quat-town/wall-towers-door-1": {
    "glb": "1d6b9f5b24",
    "kind": "str-part-gate-gateway",
-   "at": 25
+   "at": 21
   },
   "quat-town/wall-towers-door-2": {
    "glb": "82448d11fb",
    "kind": "str-part-gate-gateway",
-   "at": 26
+   "at": 22
   },
   "quat-town/wall-towers-gate-1": {
    "glb": "1aebb35e84",
    "kind": "str-part-gate-gateway",
-   "at": 27
+   "at": 23
   },
   "quat-town/wall-towers-gate-2": {
    "glb": "80b6452e92",
    "kind": "str-part-gate-gateway",
-   "at": 28
+   "at": 24
   },
   "quat-town/watchtower-1-a": {
    "glb": "8fb210cae2",
@@ -42583,12 +42611,12 @@
   "rgp-asia/garden-wall-gate-a": {
    "glb": "9228dab02d",
    "kind": "str-part-gate-gateway",
-   "at": 29
+   "at": 25
   },
   "rgp-asia/garden-wall-gate-b": {
    "glb": "2c729069ba",
    "kind": "str-part-gate-gateway",
-   "at": 30
+   "at": 26
   },
   "rgp-asia/garden-wall-plain": {
    "glb": "8fc8a57d5e",
@@ -42603,7 +42631,7 @@
   "rgp-asia/gate": {
    "glb": "4692388132",
    "kind": "str-part-gate-gateway",
-   "at": 31
+   "at": 27
   },
   "rgp-asia/gazebo": {
    "glb": "47a7f3a84e",
@@ -42882,8 +42910,8 @@
   },
   "rgp-asia/torii": {
    "glb": "4153112074",
-   "kind": "str-part-gate-gateway",
-   "at": 32
+   "kind": "str-part-gate-gateway-torii",
+   "at": 4
   },
   "rgp-asia/training-dummy": {
    "glb": "15b781291a",
@@ -44833,7 +44861,7 @@
   "sq-casino/rail-section": {
    "glb": "2a0e4c0aee",
    "kind": "str-barrier-railing",
-   "at": 54
+   "at": 30
   },
   "sq-casino/roller-stool": {
    "glb": "3439e1631c",
@@ -45158,7 +45186,7 @@
   "sq-pool/float-stack": {
    "glb": "b7b9beee95",
    "kind": "obj-leisure-toy",
-   "at": 48
+   "at": 43
   },
   "sq-pool/lane-ropes": {
    "glb": "bd2167bb13",
@@ -47298,7 +47326,7 @@
   "taalei-kit/abc-block": {
    "glb": "ec1f4208cd",
    "kind": "obj-leisure-toy",
-   "at": 49
+   "at": 44
   },
   "taalei-kit/balance-scale": {
    "glb": "5b396c8a32",
@@ -47403,22 +47431,22 @@
   "taalei-kit/drone": {
    "glb": "eb6a473219",
    "kind": "obj-leisure-toy",
-   "at": 50
+   "at": 45
   },
   "taalei-kit/drone-canopy": {
    "glb": "1d9878fc04",
    "kind": "obj-leisure-toy",
-   "at": 51
+   "at": 46
   },
   "taalei-kit/drone-gimbal": {
    "glb": "688eab0f7b",
    "kind": "obj-leisure-toy",
-   "at": 52
+   "at": 47
   },
   "taalei-kit/drone-unibody": {
    "glb": "9fecb3e00b",
    "kind": "obj-leisure-toy",
-   "at": 53
+   "at": 48
   },
   "taalei-kit/fishing-rod": {
    "glb": "2d32db44a0",
@@ -47548,7 +47576,7 @@
   "taalei-kit/newtons-cradle": {
    "glb": "c566bef1df",
    "kind": "obj-leisure-toy",
-   "at": 54
+   "at": 49
   },
   "taalei-kit/ornament": {
    "glb": "358664dc5b",
@@ -47748,27 +47776,27 @@
   "taalei-kit/tricycle": {
    "glb": "7b5ae8a29f",
    "kind": "obj-leisure-toy",
-   "at": 55
+   "at": 50
   },
   "taalei-kit/tricycle-a": {
    "glb": "5fbdcbb9e9",
    "kind": "obj-leisure-toy",
-   "at": 56
+   "at": 51
   },
   "taalei-kit/tricycle-b": {
    "glb": "6262b9537e",
    "kind": "obj-leisure-toy",
-   "at": 57
+   "at": 52
   },
   "taalei-kit/tricycle-coral": {
    "glb": "ae9cf7f859",
    "kind": "obj-leisure-toy",
-   "at": 58
+   "at": 53
   },
   "taalei-kit/tricycle-coral-b": {
    "glb": "5968f08334",
    "kind": "obj-leisure-toy",
-   "at": 59
+   "at": 54
   },
   "taalei-kit/trident": {
    "glb": "670849856b",
@@ -48577,8 +48605,8 @@
   },
   "wizp-asia/torii": {
    "glb": "aa8c822678",
-   "kind": "str-part-gate-gateway",
-   "at": 33
+   "kind": "str-part-gate-gateway-torii",
+   "at": 5
   },
   "wizp-asia/tower": {
    "glb": "a5597682b2",

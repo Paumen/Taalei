@@ -4415,7 +4415,7 @@
    },
    "kitCheck": {
     "factor": 0.95,
-    "kinds": 30
+    "kinds": 31
    }
   },
   {
@@ -4492,8 +4492,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.04,
-    "kinds": 30
+    "factor": 1.03,
+    "kinds": 31
    }
   },
   {
@@ -25938,7 +25938,14 @@
    "name": "Game",
    "type": "kind",
    "description": "Game or sport gear: trading cards, card binders and slabs, bowling pins, air hockey gear, pool floats.",
-   "count": 70
+   "count": 75
+  },
+  {
+   "id": "obj-leisure-game-console",
+   "name": "Game console",
+   "type": "kind",
+   "description": "Video game console, handheld console or game controller.",
+   "count": 5
   },
   {
    "id": "obj-leisure-game-gym",
@@ -29199,6 +29206,13 @@
    "count": 34
   },
   {
+   "id": "str-part-gate-gateway-torii",
+   "name": "Torii",
+   "type": "kind",
+   "description": "Freestanding shrine gateway of two posts under crossbeams.",
+   "count": 6
+  },
+  {
    "id": "str-part-gate-single",
    "name": "Single",
    "type": "kind",
@@ -29628,7 +29642,7 @@
    "name": "Toy",
    "type": "kind",
    "description": "Thing made to play with: frisbee, plushie, puzzle cube, pacifier.",
-   "count": 60
+   "count": 55
   },
   {
    "id": "str-fixture-utility-fountain",
@@ -29902,8 +29916,22 @@
    "id": "str-barrier-railing",
    "name": "Railing",
    "type": "kind",
-   "description": "railing, balustrade, baluster, handrail, banister",
+   "description": "railing, balustrade",
    "count": 55
+  },
+  {
+   "id": "str-barrier-railing-stairs",
+   "name": "Stair railing",
+   "type": "kind",
+   "description": "Railing or handrail that runs along a stair, and its brackets.",
+   "count": 8
+  },
+  {
+   "id": "str-barrier-railing-post",
+   "name": "Railing post",
+   "type": "kind",
+   "description": "Single post of a railing: baluster, spindle, newel post or newel cap.",
+   "count": 16
   },
   {
    "id": "obj-food-vegetable-tomato",
@@ -34482,6 +34510,12 @@
    "longest.max": 0.4,
    "tpu.max": 10000
   },
+  "obj-leisure-game-console": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-leisure-game-gamble": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -34871,6 +34905,18 @@
    "tpu.max": 5000
   },
   "str-barrier-railing": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-barrier-railing-post": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-barrier-railing-stairs": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -35434,6 +35480,13 @@
    "tpu.max": 5000
   },
   "str-part-gate-gateway": {
+   "high.min": 0.8,
+   "high.max": 2.4,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-gate-gateway-torii": {
    "high.min": 0.8,
    "high.max": 2.4,
    "longest.min": 0.05,
@@ -36294,6 +36347,13 @@
    "tpu.max": 10000
   },
   "str-part-gate-gateway scale-small": {
+   "high.min": 0.48,
+   "high.max": 1.44,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-gate-gateway-torii scale-small": {
    "high.min": 0.48,
    "high.max": 1.44,
    "longest.min": 0.05,
@@ -37515,7 +37575,7 @@
    "collection": "3dm",
    "name": "console",
    "hash": "59169a214c",
-   "kind": "obj-leisure-toy",
+   "kind": "obj-leisure-game-console",
    "size": "s",
    "wdh": [
     0.304,
@@ -37549,7 +37609,7 @@
     "3dm",
     "plastic"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.69
   },
   {
    "kit": "3dm-electronics",
@@ -71929,7 +71989,7 @@
    "collection": "fs-buildings",
    "name": "railing-baluster",
    "hash": "ebceca4c7a",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.029,
@@ -72007,21 +72067,14 @@
     "wood-mid"
    ],
    "variant": "fs-house/railing",
-   "thickRel": 0.45,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.45 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.45
   },
   {
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "railing-post",
    "hash": "ddf9f149f3",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.075,
@@ -72062,7 +72115,7 @@
    "collection": "fs-buildings",
    "name": "railing-stairs-curved-inner",
    "hash": "096e04ebe7",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "size": "m",
    "wdh": [
     0.55,
@@ -72105,7 +72158,7 @@
    "collection": "fs-buildings",
    "name": "railing-stairs-curved-outer",
    "hash": "c5ee2acfe4",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "size": "m",
    "wdh": [
     1.05,
@@ -72148,7 +72201,7 @@
    "collection": "fs-buildings",
    "name": "railing-stairs",
    "hash": "0216cf7b82",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "size": "m",
    "wdh": [
     0.05,
@@ -78894,7 +78947,7 @@
    "collection": "fs-buildings",
    "name": "stairs-newel-base",
    "hash": "29844c9b5f",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.176,
@@ -78933,7 +78986,7 @@
    "collection": "fs-buildings",
    "name": "stairs-newel-middle",
    "hash": "5567cb1155",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "m",
    "wdh": [
     0.11,
@@ -78972,7 +79025,7 @@
    "collection": "fs-buildings",
    "name": "stairs-newel-top",
    "hash": "2411050afe",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.176,
@@ -90984,7 +91037,7 @@
    "collection": "fs-modular",
    "name": "wood-railing-stairs",
    "hash": "dbb5c09f4b",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "size": "m",
    "wdh": [
     1.008,
@@ -91116,7 +91169,7 @@
    "collection": "fs-modular",
    "name": "wood-rope-stairs",
    "hash": "11247d4ef8",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "size": "m",
    "wdh": [
     1.009,
@@ -92501,7 +92554,7 @@
     "ct",
     "plastic"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.33
   },
   {
    "kit": "household",
@@ -93820,7 +93873,7 @@
     "ct",
     "plastic"
    ],
-   "thickRel": 1.85
+   "thickRel": 1.83
   },
   {
    "kit": "household",
@@ -101657,7 +101710,7 @@
     "isa",
     "plastic"
    ],
-   "thickRel": 1.46
+   "thickRel": 1.45
   },
   {
    "kit": "isa-bathroom",
@@ -108636,7 +108689,7 @@
     "isa",
     "plastic"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "isa-picnic",
@@ -113092,7 +113145,7 @@
     "plastic"
    ],
    "variant": "isa-playground/shovel",
-   "thickRel": 1.23
+   "thickRel": 1.22
   },
   {
    "kit": "isa-playground",
@@ -113132,7 +113185,7 @@
     "wood-light"
    ],
    "variant": "isa-playground/shovel",
-   "thickRel": 1.26
+   "thickRel": 1.25
   },
   {
    "kit": "isa-playground",
@@ -117428,7 +117481,7 @@
     "plastic"
    ],
    "variant": "kay-blocks/decorative-block-azure",
-   "thickRel": 2.12
+   "thickRel": 2.1
   },
   {
    "kit": "kay-blocks",
@@ -117470,7 +117523,7 @@
     "plastic"
    ],
    "variant": "kay-blocks/decorative-block-azure",
-   "thickRel": 2.12
+   "thickRel": 2.1
   },
   {
    "kit": "kay-builder",
@@ -151394,7 +151447,7 @@
     "kay",
     "plastic"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.58
   },
   {
    "kit": "kay-holiday",
@@ -151885,7 +151938,7 @@
     "kay",
     "textile-cloth-light"
    ],
-   "thickRel": 1.41,
+   "thickRel": 1.56,
    "lint": [
     {
      "level": "warning",
@@ -153024,7 +153077,7 @@
     "metal-iron-dark",
     "wood-mid"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "kay-holiday",
@@ -153102,7 +153155,7 @@
     "special-liquid"
    ],
    "variant": "kay-holiday/snowball",
-   "thickRel": 2.13
+   "thickRel": 2.11
   },
   {
    "kit": "kay-holiday",
@@ -153339,12 +153392,12 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 0.37,
+   "thickRel": 0.36,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.37 wants min 0.5"
+     "text": "I01 thickRel 0.36 wants min 0.5"
     }
    ]
   },
@@ -153727,7 +153780,7 @@
     "plastic",
     "scale-big"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.57
   },
   {
    "kit": "kay-minigame",
@@ -156608,7 +156661,7 @@
    "kit": "kay-mixed",
    "name": "handheld-console",
    "hash": "03310587ea",
-   "kind": "obj-leisure-toy",
+   "kind": "obj-leisure-game-console",
    "size": "s",
    "wdh": [
     0.114,
@@ -156644,7 +156697,7 @@
     "kay",
     "plastic"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.64
   },
   {
    "kit": "kay-mixed",
@@ -156754,7 +156807,7 @@
     "stone-masonry-mid",
     "wood-dark"
    ],
-   "thickRel": 1.19,
+   "thickRel": 1.18,
    "lint": [
     {
      "level": "error",
@@ -157083,7 +157136,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.64
   },
   {
    "kit": "kay-mixed",
@@ -157181,7 +157234,7 @@
     "textile-cloth-light"
    ],
    "variant": "kay-mixed/plushie-chicken-a",
-   "thickRel": 1.7
+   "thickRel": 1.68
   },
   {
    "kit": "kay-mixed",
@@ -157227,7 +157280,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-mixed/plushie-chicken-a",
-   "thickRel": 1.7
+   "thickRel": 1.68
   },
   {
    "kit": "kay-mixed",
@@ -157280,7 +157333,7 @@
     "tba"
    ],
    "variant": "kay-mixed/puzzle-cube-incomplete",
-   "thickRel": 2.31
+   "thickRel": 2.29
   },
   {
    "kit": "kay-mixed",
@@ -157333,7 +157386,7 @@
     "tba"
    ],
    "variant": "kay-mixed/puzzle-cube-incomplete",
-   "thickRel": 2.31
+   "thickRel": 2.29
   },
   {
    "kit": "kay-mixed",
@@ -157544,7 +157597,7 @@
     "kay",
     "wood-light"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.8
   },
   {
    "kit": "kay-mixed",
@@ -157987,7 +158040,7 @@
     "scale-big"
    ],
    "variant": "kay-platformer/ball",
-   "thickRel": 1.41
+   "thickRel": 1.57
   },
   {
    "kit": "kay-platformer",
@@ -158032,7 +158085,7 @@
     "scale-big"
    ],
    "variant": "kay-platformer/ball",
-   "thickRel": 1.41
+   "thickRel": 1.57
   },
   {
    "kit": "kay-platformer",
@@ -204632,7 +204685,7 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.44
   },
   {
    "kit": "ken-holiday",
@@ -204807,7 +204860,7 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "ken-holiday",
@@ -204853,7 +204906,7 @@
     "wood-mid"
    ],
    "variant": "ken-holiday/sled",
-   "thickRel": 0.76
+   "thickRel": 0.75
   },
   {
    "kit": "ken-holiday",
@@ -226948,7 +227001,7 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.21
   },
   {
    "kit": "ken-skate",
@@ -230133,14 +230186,7 @@
     "space"
    ],
    "variant": "ken-space/rail",
-   "thickRel": 0.4,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.4
   },
   {
    "kit": "ken-space",
@@ -233167,7 +233213,7 @@
    "kit": "ken-station",
    "name": "stairs-handrail-single",
    "hash": "0d731a4138",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "size": "m",
    "wdh": [
     0.1,
@@ -233212,7 +233258,7 @@
    "kit": "ken-station",
    "name": "stairs-handrail",
    "hash": "10b222a46b",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "size": "m",
    "wdh": [
     1,
@@ -257574,7 +257620,7 @@
    "kit": "lpa-home",
    "name": "console-c",
    "hash": "25358c43e2",
-   "kind": "obj-leisure-toy",
+   "kind": "obj-leisure-game-console",
    "size": "s",
    "wdh": [
     0.226,
@@ -257609,13 +257655,13 @@
     "plastic"
    ],
    "variant": "lpa-home/console-c",
-   "thickRel": 1.05
+   "thickRel": 0.74
   },
   {
    "kit": "lpa-home",
    "name": "console-d",
    "hash": "42784fe6c8",
-   "kind": "obj-leisure-toy",
+   "kind": "obj-leisure-game-console",
    "size": "s",
    "wdh": [
     0.345,
@@ -257648,7 +257694,7 @@
     "plastic"
    ],
    "variant": "lpa-home/console-c",
-   "thickRel": 1
+   "thickRel": 0.71
   },
   {
    "kit": "lpa-home",
@@ -269564,12 +269610,12 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 0.48,
+   "thickRel": 0.47,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -270530,7 +270576,7 @@
    "kit": "m3-base",
    "name": "baluster-colchester",
    "hash": "408fd266eb",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "m",
    "wdh": [
     0.226,
@@ -270570,7 +270616,7 @@
    "kit": "m3-base",
    "name": "baluster-oxford",
    "hash": "61e3a19725",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "m",
    "wdh": [
     0.158,
@@ -270609,7 +270655,7 @@
    "kit": "m3-base",
    "name": "baluster-pembroke",
    "hash": "37919a9625",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.134,
@@ -271924,7 +271970,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.81
   },
   {
    "kit": "m3-base",
@@ -273322,7 +273368,7 @@
    "kit": "m3-base",
    "name": "cartoon-controller",
    "hash": "0b199abb9f",
-   "kind": "obj-leisure-toy",
+   "kind": "obj-leisure-game-console",
    "size": "s",
    "wdh": [
     0.143,
@@ -273356,7 +273402,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.62
+   "thickRel": 1.14
   },
   {
    "kit": "m3-base",
@@ -276397,7 +276443,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -277196,7 +277242,7 @@
     "mounted",
     "textile-cloth-light"
    ],
-   "thickRel": 0.62,
+   "thickRel": 0.61,
    "lint": [
     {
      "level": "warning",
@@ -277255,7 +277301,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.65,
+   "thickRel": 1.64,
    "lint": [
     {
      "level": "error",
@@ -279061,7 +279107,7 @@
     "tba",
     "wood-mid"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.18
   },
   {
    "kit": "m3-base",
@@ -282368,7 +282414,7 @@
     "pickup",
     "wood-mid"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.42
   },
   {
    "kit": "m3-base",
@@ -284999,7 +285045,7 @@
     "paper-cardboard",
     "pickup"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.55
   },
   {
    "kit": "m3-base",
@@ -290112,7 +290158,7 @@
    "kit": "m3-base",
    "name": "newel-cap-01",
    "hash": "07ffc443a9",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.178,
@@ -290151,7 +290197,7 @@
    "kit": "m3-base",
    "name": "newel-cap-02",
    "hash": "d38369e021",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.173,
@@ -290190,7 +290236,7 @@
    "kit": "m3-base",
    "name": "newel-cap-03",
    "hash": "570e590ac4",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.178,
@@ -290229,7 +290275,7 @@
    "kit": "m3-base",
    "name": "newel-cap-04",
    "hash": "9a701af2ab",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "s",
    "wdh": [
     0.16,
@@ -291416,7 +291462,7 @@
     "plastic"
    ],
    "variant": "m3-base/pacifier-01",
-   "thickRel": 0.88
+   "thickRel": 0.87
   },
   {
    "kit": "m3-base",
@@ -292997,7 +293043,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 2.49
+   "thickRel": 2.47
   },
   {
    "kit": "m3-base",
@@ -295754,7 +295800,7 @@
     "plastic"
    ],
    "variant": "m3-base/rocket-toy-01",
-   "thickRel": 1.68
+   "thickRel": 1.66
   },
   {
    "kit": "m3-base",
@@ -295795,7 +295841,7 @@
     "plastic"
    ],
    "variant": "m3-base/rocket-toy-01",
-   "thickRel": 1.94
+   "thickRel": 1.92
   },
   {
    "kit": "m3-base",
@@ -296866,7 +296912,7 @@
    "kit": "m3-base",
    "name": "round-handrail-bracket",
    "hash": "078625b021",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "size": "s",
    "wdh": [
     0.136,
@@ -298487,7 +298533,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/skateboard-setup",
-   "thickRel": 1.27
+   "thickRel": 1.26
   },
   {
    "kit": "m3-base",
@@ -298534,7 +298580,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/skateboard-setup",
-   "thickRel": 1.31
+   "thickRel": 1.3
   },
   {
    "kit": "m3-base",
@@ -299544,7 +299590,7 @@
    "kit": "m3-base",
    "name": "spindle-03",
    "hash": "637792d06b",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "m",
    "wdh": [
     0.123,
@@ -299583,7 +299629,7 @@
    "kit": "m3-base",
    "name": "spindle-04",
    "hash": "a5d48419f8",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "m",
    "wdh": [
     0.142,
@@ -299622,7 +299668,7 @@
    "kit": "m3-base",
    "name": "spindle-05",
    "hash": "131a9f15d8",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "m",
    "wdh": [
     0.167,
@@ -299661,7 +299707,7 @@
    "kit": "m3-base",
    "name": "spindle-06",
    "hash": "f07a18ec57",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-post",
    "size": "m",
    "wdh": [
     0.177,
@@ -301716,7 +301762,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 0.45
+   "thickRel": 0.5
   },
   {
    "kit": "m3-base",
@@ -302554,7 +302600,7 @@
    "kit": "m3-base",
    "name": "torii-gate-01",
    "hash": "c7a9908d13",
-   "kind": "str-part-gate-gateway",
+   "kind": "str-part-gate-gateway-torii",
    "size": "l",
    "wdh": [
     1.539,
@@ -302595,7 +302641,7 @@
    "kit": "m3-base",
    "name": "torii-gate-02",
    "hash": "d82a37eebb",
-   "kind": "str-part-gate-gateway",
+   "kind": "str-part-gate-gateway-torii",
    "size": "m",
    "wdh": [
     1.176,
@@ -302923,14 +302969,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.39,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.39 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.39
   },
   {
    "kit": "m3-base",
@@ -303816,7 +303855,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.43
+   "thickRel": 1.58
   },
   {
    "kit": "m3-base",
@@ -304232,7 +304271,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -314983,7 +315022,7 @@
    "kit": "pm-store",
    "name": "gateway-board",
    "hash": "b696e277f2",
-   "kind": "str-part-gate-gateway",
+   "kind": "str-part-gate-gateway-torii",
    "size": "m",
    "wdh": [
     1,
@@ -343346,14 +343385,7 @@
     "space"
    ],
    "variant": "quat-megakit/rail-round-big",
-   "thickRel": 0.35,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.35 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.35
   },
   {
    "kit": "quat-megakit",
@@ -343395,14 +343427,7 @@
     "space"
    ],
    "variant": "quat-megakit/rail-round-big",
-   "thickRel": 0.41,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.41 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.41
   },
   {
    "kit": "quat-megakit",
@@ -363158,7 +363183,7 @@
     "qua",
     "tba"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.2
   },
   {
    "kit": "quat-shoot",
@@ -367544,14 +367569,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 0.45,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.45 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.45
   },
   {
    "kit": "quat-sushi",
@@ -370794,7 +370812,7 @@
    "kit": "quat-sushi",
    "name": "torii-gate",
    "hash": "e7a863faa4",
-   "kind": "str-part-gate-gateway",
+   "kind": "str-part-gate-gateway-torii",
    "size": "l",
    "wdh": [
     1.5,
@@ -380814,7 +380832,7 @@
    "kit": "rgp-asia",
    "name": "torii",
    "hash": "4153112074",
-   "kind": "str-part-gate-gateway",
+   "kind": "str-part-gate-gateway-torii",
    "size": "l",
    "wdh": [
     1.869,
@@ -396750,7 +396768,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.42
+   "thickRel": 1.57
   },
   {
    "kit": "sq-bowling",
@@ -396836,7 +396854,7 @@
     "sq"
    ],
    "variant": "sq-bowling/bowling-pin",
-   "thickRel": 1.67
+   "thickRel": 1.86
   },
   {
    "kit": "sq-bowling",
@@ -397289,7 +397307,7 @@
     "sq",
     "wood-mid"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.93
   },
   {
    "kit": "sq-bowling",
@@ -418537,7 +418555,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.33
+   "thickRel": 0.37
   },
   {
    "kit": "styloo-school",
@@ -420965,7 +420983,7 @@
    "tags": [
     "plastic"
    ],
-   "thickRel": 2.28
+   "thickRel": 2.26
   },
   {
    "kit": "taalei-kit",
@@ -422065,7 +422083,7 @@
    "anim": [
     "PropSpin"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.55
   },
   {
    "kit": "taalei-kit",
@@ -425505,7 +425523,7 @@
     "rubber"
    ],
    "variant": "taalei-kit/tricycle-coral",
-   "thickRel": 0.51
+   "thickRel": 0.5
   },
   {
    "kit": "taalei-kit",
@@ -428412,7 +428430,7 @@
     "rubber",
     "wood-dark"
    ],
-   "thickRel": 1
+   "thickRel": 1.11
   },
   {
    "kit": "western",
@@ -432777,7 +432795,7 @@
    "collection": "wizp-eastern",
    "name": "torii",
    "hash": "aa8c822678",
-   "kind": "str-part-gate-gateway",
+   "kind": "str-part-gate-gateway-torii",
    "size": "m",
    "wdh": [
     1.36,
@@ -442001,7 +442019,7 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.53
   },
   {
    "kit": "zombie-weapons",
@@ -442129,7 +442147,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.88
   },
   {
    "kit": "zombie-weapons",
