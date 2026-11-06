@@ -4177,8 +4177,9 @@
     "none": 1
    },
    "scales": {
-    "0.7": 78,
-    "none": 1
+    "0.7": 77,
+    "none": 1,
+    "0.665": 1
    },
    "smooth": {
     "smooth": 74,
@@ -31443,7 +31444,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4147,
+   "count": 4148,
    "derived": true
   },
   {
@@ -31451,7 +31452,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3621,
+   "count": 3620,
    "derived": true
   },
   {
@@ -348922,7 +348923,7 @@
   {
    "kit": "quat-props",
    "name": "barrel",
-   "hash": "7bf8f92a0a",
+   "hash": "bf08c6f18b",
    "kind": "obj-container-barrel-wood",
    "size": "s",
    "wdh": [
@@ -349782,7 +349783,7 @@
   {
    "kit": "quat-props",
    "name": "bucket-metal",
-   "hash": "cca97d00be",
+   "hash": "c91d44457e",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
@@ -350372,7 +350373,7 @@
   {
    "kit": "quat-props",
    "name": "chest",
-   "hash": "b5d628820c",
+   "hash": "da78492c87",
    "kind": "obj-container-chest",
    "size": "m",
    "wdh": [
@@ -350459,7 +350460,7 @@
   {
    "kit": "quat-props",
    "name": "crate-wooden",
-   "hash": "a9dee24992",
+   "hash": "94b8a3cdbd",
    "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
@@ -350728,27 +350729,27 @@
   {
    "kit": "quat-props",
    "name": "lantern-wall",
-   "hash": "33c3a890bb",
+   "hash": "f8ba5f016b",
    "kind": "obj-furnishing-light-lantern",
-   "size": "m",
+   "size": "s",
    "wdh": [
-    0.21,
-    0.46,
-    0.519
+    0.199,
+    0.437,
+    0.493
    ],
    "tris": 1520,
    "tpu": 4431,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 96472,
+   "bytes": 96476,
    "vtx": 2400,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0159,
+   "minTube": 0.0151,
    "thick": 0.0632,
-   "avgTri": 0.00048,
+   "avgTri": 0.00043,
    "anglePct": 83,
    "pieces": 36,
    "vpt": 1.58,
@@ -350765,11 +350766,6 @@
    ],
    "thickRel": 0.3,
    "lint": [
-    {
-     "level": "warning",
-     "check": "size",
-     "text": "longest 0.519 over max 0.5 (obj-furnishing-light-lantern)"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -401563,34 +401559,34 @@
    "kit": "sq-studio",
    "collection": "sq-props",
    "name": "drum-kit",
-   "hash": "f36c189fba",
+   "hash": "37cb5adddd",
    "kind": "obj-leisure-art-instrument-drum",
    "size": "m",
    "wdh": [
-    0.763,
-    0.615,
+    0.76,
+    0.607,
     0.654
    ],
-   "tris": 4372,
-   "tpu": 12746,
+   "tris": 1526,
+   "tpu": 4449,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 204100,
-   "vtx": 4694,
+   "bytes": 80604,
+   "vtx": 1902,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0138,
-   "thick": 0.0805,
-   "avgTri": 0.00043,
-   "anglePct": 45,
-   "pieces": 77,
-   "vpt": 1.07,
+   "minTube": 0.0135,
+   "thick": 0.0811,
+   "avgTri": 0.00118,
+   "anglePct": 71,
+   "pieces": 48,
+   "vpt": 1.25,
    "cells": [
     "8,0",
-    "5,2",
     "15,3",
+    "5,2",
     "13,3",
     "6,0"
    ],
@@ -401607,43 +401603,36 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.5,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 12746 over max 5000 (obj-leisure-art-instrument)"
-    }
-   ]
+   "thickRel": 0.51
   },
   {
    "kit": "sq-studio",
    "collection": "sq-props",
    "name": "mic-stand",
-   "hash": "d71cbc4d3b",
+   "hash": "d6f312ef87",
    "kind": "obj-device-electronics-audio",
    "size": "m",
    "wdh": [
-    0.444,
-    0.312,
-    0.819
+    0.446,
+    0.316,
+    0.821
    ],
-   "tris": 932,
-   "tpu": 2322,
+   "tris": 956,
+   "tpu": 2376,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 44420,
-   "vtx": 994,
+   "bytes": 47012,
+   "vtx": 1066,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minTube": 0.025,
-   "thick": 0.0699,
-   "avgTri": 0.00021,
-   "anglePct": 12,
+   "minTube": 0.03,
+   "thick": 0.0721,
+   "avgTri": 0.00023,
+   "anglePct": 13,
    "pieces": 16,
-   "vpt": 1.07,
+   "vpt": 1.12,
    "cells": [
     "15,3",
     "6,1"
@@ -401657,17 +401646,12 @@
     "metal-steel",
     "sq"
    ],
-   "thickRel": 0.35,
+   "thickRel": 0.37,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.35 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.025 wants min 0.026"
+     "text": "I01 thickRel 0.37 wants min 0.5"
     }
    ]
   },
