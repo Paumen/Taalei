@@ -19440,7 +19440,12 @@
     "m3-base/cleaning-bottle-04",
     "m3-base/pill-bottle",
     "m3-base/plastic-bottle-01",
-    "m3-base/cleaning-bottle-08"
+    "m3-base/cleaning-bottle-08",
+    "m3-base/cosmetic-tube",
+    "m3-base/paint-tube-01",
+    "m3-base/paint-tube-02",
+    "makeup/lotion-tube-azure",
+    "makeup/lotion-tube-amber"
    ]
   },
   {
@@ -22289,7 +22294,9 @@
    "models": [
     "m3-base/sponge",
     "m3-base/dish-sponge",
-    "m3-base/freezer-block"
+    "m3-base/freezer-block",
+    "isa-kitchen/dishrack",
+    "kay-food/dishrack"
    ]
   },
   {
@@ -22312,7 +22319,10 @@
    "description": "grill, spit, mortar and pestle, pepper mill",
    "models": [
     "cooking-assets/trivet",
-    "m3-base/cupcake-case"
+    "m3-base/cupcake-case",
+    "cooking-assets/mortar-and-pestle",
+    "m3-base/mortar-and-pestle-01",
+    "m3-base/mortar-and-pestle-02"
    ]
   },
   {
@@ -22739,17 +22749,6 @@
    ]
   },
   {
-   "id": "obj-kitchenware-cookware-mortar",
-   "name": "Mortar and pestle",
-   "type": "kind",
-   "description": "Bowl with a pestle for grinding.",
-   "models": [
-    "cooking-assets/mortar-and-pestle",
-    "m3-base/mortar-and-pestle-01",
-    "m3-base/mortar-and-pestle-02"
-   ]
-  },
-  {
    "id": "obj-kitchenware-tableware",
    "name": "Tableware",
    "type": "kind",
@@ -22902,7 +22901,9 @@
     "m3-base/octagonal-dish",
     "m3-base/plate",
     "loaf-coffins/ceramic-9",
-    "avra-food/plate"
+    "avra-food/plate",
+    "isa-kitchen/dishrack-plates",
+    "kay-food/dishrack-plates"
    ]
   },
   {
@@ -23134,18 +23135,6 @@
     "ken-food/glass-wine",
     "household/wine-glass",
     "isa-picnic/wine-glass"
-   ]
-  },
-  {
-   "id": "obj-kitchenware-dishrack",
-   "name": "Dish rack",
-   "type": "kind",
-   "description": "Rack that holds dishes or plates to dry, empty or filled.",
-   "models": [
-    "isa-kitchen/dishrack",
-    "kay-food/dishrack",
-    "isa-kitchen/dishrack-plates",
-    "kay-food/dishrack-plates"
    ]
   },
   {
@@ -23473,7 +23462,10 @@
    "description": "compass, hourglass, cigarette packet",
    "color": "#f1976c",
    "models": [
-    "m3-base/cigarette-packet"
+    "m3-base/cigarette-packet",
+    "quat-survival/compass",
+    "quat-survival/compass-anim",
+    "kay-tools/compass-base"
    ]
   },
   {
@@ -23712,17 +23704,6 @@
     "m3-base/hand-mirror",
     "makeup/hand-mirror",
     "makeup/cotton-swab"
-   ]
-  },
-  {
-   "id": "obj-equipment-pocketitem-compass",
-   "name": "Compass",
-   "type": "kind",
-   "description": "Navigation compass with a needle.",
-   "models": [
-    "quat-survival/compass",
-    "quat-survival/compass-anim",
-    "kay-tools/compass-base"
    ]
   },
   {
@@ -24143,19 +24124,6 @@
     "m3-base/large-pallet",
     "m3-base/pallet",
     "kay-resources/pallet-wood-covered-b"
-   ]
-  },
-  {
-   "id": "obj-container-tube",
-   "name": "Tube",
-   "type": "kind",
-   "description": "Squeeze tube with a crimped end: paint, lotion, toothpaste.",
-   "models": [
-    "m3-base/cosmetic-tube",
-    "m3-base/paint-tube-01",
-    "m3-base/paint-tube-02",
-    "makeup/lotion-tube-azure",
-    "makeup/lotion-tube-amber"
    ]
   },
   {
@@ -24723,7 +24691,11 @@
     "m3-base/champagne-cork",
     "m3-base/door-stop-wedge",
     "m3-base/tapered-cork",
-    "styloo-school/cork"
+    "styloo-school/cork",
+    "quat-survival/match",
+    "quat-survival/match-burnt",
+    "quat-survival/matchbox",
+    "m3-base/lighter-01"
    ]
   },
   {
@@ -24813,18 +24785,6 @@
     "lpa-construction/spool-b",
     "quat-megakit/cable-1",
     "quat-megakit/cable-3"
-   ]
-  },
-  {
-   "id": "obj-equipment-tool-supplies-firestarter",
-   "name": "Fire starter",
-   "type": "kind",
-   "description": "Something to light a fire: match, matchbox, lighter.",
-   "models": [
-    "quat-survival/match",
-    "quat-survival/match-burnt",
-    "quat-survival/matchbox",
-    "m3-base/lighter-01"
    ]
   },
   {
@@ -25223,7 +25183,7 @@
    "id": "obj-transport-watercraft-boat",
    "name": "Boat",
    "type": "kind",
-   "description": "Boat with no leaf that fits: houseboat, raft, inflatable lifeboat.",
+   "description": "Boat with no leaf that fits: motorboat, sailboat, tug, houseboat, raft, inflatable lifeboat.",
    "models": [
     "quat-pirate/ship-small",
     "quat-ships/lifeboat",
@@ -25232,36 +25192,7 @@
     "ken-water/boat-house-c",
     "ken-water/boat-house-d",
     "quat-survival/raft",
-    "taalei-kit/raft"
-   ]
-  },
-  {
-   "id": "obj-transport-watercraft-boat-rowboat",
-   "name": "Rowboat",
-   "type": "kind",
-   "description": "Open boat moved by oars or a pole: rowboat, canoe, skiff, sampan.",
-   "models": [
-    "quat-ships/boat",
-    "quat-fishing/rowboat",
-    "rgp-medieval/rowboat",
-    "rgp-asia/boat",
-    "fs-town/boat-a",
-    "fs-town/boat-b",
-    "wizp-fish/boat-oars",
-    "wizp-fish/boat-poles",
-    "wizp-fish/boat-rack",
-    "ken-pirate/boat-row-large",
-    "ken-pirate/boat-row-small",
-    "ken-nature/canoe",
-    "m3-base/skiff-01"
-   ]
-  },
-  {
-   "id": "obj-transport-watercraft-boat-motorboat",
-   "name": "Motorboat",
-   "type": "kind",
-   "description": "Boat driven by a motor: speedboat, airboat, tug, small fishing boat.",
-   "models": [
+    "taalei-kit/raft",
     "ken-water/boat-speed-a",
     "ken-water/boat-speed-b",
     "ken-water/boat-speed-c",
@@ -25283,18 +25214,31 @@
     "ken-water/boat-tow-a",
     "ken-water/boat-tow-a-anim",
     "ken-water/boat-tow-b",
-    "ken-water/boat-tow-b-anim"
-   ]
-  },
-  {
-   "id": "obj-transport-watercraft-boat-sailboat",
-   "name": "Sailboat",
-   "type": "kind",
-   "description": "Boat with a mast and sail.",
-   "models": [
+    "ken-water/boat-tow-b-anim",
     "quat-ships/boat-sail",
     "ken-water/boat-sail-a",
     "ken-water/boat-sail-b"
+   ]
+  },
+  {
+   "id": "obj-transport-watercraft-boat-rowboat",
+   "name": "Rowboat",
+   "type": "kind",
+   "description": "Open boat moved by oars or a pole: rowboat, canoe, skiff, sampan.",
+   "models": [
+    "quat-ships/boat",
+    "quat-fishing/rowboat",
+    "rgp-medieval/rowboat",
+    "rgp-asia/boat",
+    "fs-town/boat-a",
+    "fs-town/boat-b",
+    "wizp-fish/boat-oars",
+    "wizp-fish/boat-poles",
+    "wizp-fish/boat-rack",
+    "ken-pirate/boat-row-large",
+    "ken-pirate/boat-row-small",
+    "ken-nature/canoe",
+    "m3-base/skiff-01"
    ]
   },
   {
