@@ -92,7 +92,6 @@ const SIZES = {
   'obj-device-electronics-computer': 0.5,
   'obj-device-electronics-computer-tower': 0.45,
   'obj-device-electronics-radio': 0.3,
-  'obj-device-electronics-register': 0.45,
   'obj-device-electronics-screen': 0.7,
   'obj-device-electronics-screen-monitor': 0.55,
   'obj-device-electronics-vending': 1.8,
@@ -305,7 +304,6 @@ const SIZES = {
   'obj-transport-land-road-car': 4.5,
   'obj-transport-land-wheelchair': 1,
   'obj-container-pallet': 1.2,
-  'obj-transport-part-paddle': 1.8,
   'obj-transport-watercraft-boat': 4,
   'obj-transport-watercraft-ship': 30,
 

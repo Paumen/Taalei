@@ -2833,6 +2833,11 @@
      "children": [
       {
        "id": "obj-transport-watercraft",
+       "nouns": [
+        "jetski",
+        "jet ski",
+        "boat frame"
+       ],
        "children": [
         {
          "id": "obj-transport-watercraft-ship",
@@ -2869,18 +2874,11 @@
         "sail",
         "rudder",
         "mast",
-        "lifebuoy"
+        "lifebuoy",
+        "paddle",
+        "oar"
        ],
        "children": [
-        {
-         "id": "obj-transport-part-paddle",
-         "longest.min": 0.5,
-         "longest.max": 1,
-         "nouns": [
-          "paddle",
-          "oar"
-         ]
-        },
         {
          "id": "obj-transport-part-wheel",
          "longest.min": 0.25,
@@ -2954,13 +2952,13 @@
           "wagon",
           "carriage"
          ],
+         "bands.max": 6,
          "children": [
           {
            "id": "obj-transport-land-cart-small",
            "longest.min": 0.4,
            "longest.max": 0.85,
            "nouns": [
-            "sled",
             "minecart",
             "small cart"
            ],
@@ -2993,8 +2991,7 @@
             "conestoga"
            ]
           }
-         ],
-         "bands.max": 6
+         ]
         },
         {
          "id": "obj-transport-land-wheelchair",
@@ -3097,7 +3094,8 @@
          "longest.min": 0.08,
          "nouns": [
           "spare part",
-          "gasket"
+          "gasket",
+          "horse bit"
          ],
          "children": [
           {
@@ -3235,6 +3233,10 @@
      "children": [
       {
        "id": "obj-furnishing-light",
+       "nouns": [
+        "string lights",
+        "glow stick"
+       ],
        "children": [
         {
          "id": "obj-furnishing-light-lantern",
@@ -3342,10 +3344,6 @@
           "candelabra"
          ]
         }
-       ],
-       "nouns": [
-        "string lights",
-        "glow stick"
        ]
       },
       {
@@ -3871,6 +3869,13 @@
       {
        "id": "obj-device-appliance",
        "tube.min": 0.008,
+       "nouns": [
+        "soda fountain",
+        "drink dispenser",
+        "shake machine",
+        "water cooler",
+        "soda station"
+       ],
        "children": [
         {
          "id": "obj-device-appliance-blender",
@@ -3981,15 +3986,6 @@
            ]
           }
          ]
-        },
-        {
-         "id": "obj-device-appliance-drink",
-         "nouns": [
-          "soda fountain",
-          "drink dispenser",
-          "shake machine",
-          "water cooler"
-         ]
         }
        ]
       },
@@ -3998,7 +3994,11 @@
        "nouns": [
         "gramophone",
         "jukebox",
-        "typewriter"
+        "typewriter",
+        "cash register",
+        "register",
+        "till",
+        "pos terminal"
        ],
        "tube.min": 0.012,
        "children": [
@@ -4082,18 +4082,6 @@
          ]
         },
         {
-         "id": "obj-device-electronics-register",
-         "tube.min": 0.026,
-         "longest.min": 0.2,
-         "longest.max": 0.6,
-         "nouns": [
-          "cash register",
-          "register",
-          "till",
-          "pos terminal"
-         ]
-        },
-        {
          "id": "obj-device-electronics-computer",
          "tube.min": 0.006,
          "longest.min": 0.2,
@@ -4122,13 +4110,6 @@
            "nouns": [
             "keyboard (computer)",
             "mouse (computer)"
-           ]
-          },
-          {
-           "id": "obj-device-electronics-computer-console",
-           "nouns": [
-            "game console",
-            "game controller"
            ]
           },
           {
@@ -4198,7 +4179,11 @@
         "bunsen burner",
         "microscope",
         "defibrillator",
-        "stasis chamber"
+        "stasis chamber",
+        "petri dish",
+        "pipette",
+        "test tube rack",
+        "funnel stand"
        ],
        "children": [
         {
@@ -4230,15 +4215,6 @@
             "binoculars"
            ]
           }
-         ]
-        },
-        {
-         "id": "obj-device-science-labware",
-         "nouns": [
-          "petri dish",
-          "pipette",
-          "test tube rack",
-          "funnel stand"
          ]
         }
        ]
@@ -4346,7 +4322,11 @@
         "frisbee",
         "plushie",
         "puzzle cube",
-        "pacifier"
+        "pacifier",
+        "sled",
+        "game console",
+        "game controller",
+        "handheld console"
        ]
       },
       {
