@@ -877,7 +877,7 @@
    },
    "kitCheck": {
     "factor": 1.03,
-    "kinds": 58
+    "kinds": 57
    }
   },
   {
@@ -1279,7 +1279,7 @@
    ],
    "kitCheck": {
     "factor": 0.89,
-    "kinds": 103
+    "kinds": 104
    }
   },
   {
@@ -3237,7 +3237,7 @@
    },
    "kitCheck": {
     "factor": 1.04,
-    "kinds": 201
+    "kinds": 202
    }
   },
   {
@@ -3264,7 +3264,7 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.99,
+    "factor": 1,
     "kinds": 7
    }
   },
@@ -3563,8 +3563,8 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.23,
-    "kinds": 12
+    "factor": 1.2,
+    "kinds": 13
    }
   },
   {
@@ -4293,6 +4293,10 @@
    },
    "smooth": {
     "smooth": 6
+   },
+   "kitCheck": {
+    "factor": 0.86,
+    "kinds": 3
    }
   },
   {
@@ -4461,8 +4465,8 @@
     "smooth": 6
    },
    "kitCheck": {
-    "factor": 1.14,
-    "kinds": 4
+    "factor": 1.1,
+    "kinds": 3
    }
   },
   {
@@ -5094,7 +5098,7 @@
    ],
    "kitCheck": {
     "factor": 1,
-    "kinds": 43
+    "kinds": 42
    }
   },
   {
@@ -5440,8 +5444,8 @@
     "none": 16
    },
    "kitCheck": {
-    "factor": 1.24,
-    "kinds": 17
+    "factor": 1.2,
+    "kinds": 18
    }
   },
   {
@@ -25852,7 +25856,7 @@
    "id": "obj",
    "name": "Object",
    "type": "kind",
-   "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
+   "description": "barrel stand, signboard (freestanding), fire extinguisher",
    "count": 4985,
    "color": "#c07c8a"
   },
@@ -25861,7 +25865,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 295
+   "count": 297
   },
   {
    "id": "obj-leisure",
@@ -25875,7 +25879,7 @@
    "name": "Appliance",
    "type": "kind",
    "description": "Powered appliance for kitchen or home: fridge, stove, oven, coffee machine, washer, dryer, ceiling fan, water cooler.",
-   "count": 91
+   "count": 93
   },
   {
    "id": "obj-device-appliance-kitchen",
@@ -26014,15 +26018,29 @@
    "id": "obj-device-electronics-audio",
    "name": "Audio",
    "type": "kind",
-   "description": "Speaker or speaker stack.",
+   "description": "Audio device with no leaf that fits: headphones, turntable, gramophone, mixing desk, DJ booth.",
    "count": 27
+  },
+  {
+   "id": "obj-device-electronics-audio-speaker",
+   "name": "Speaker",
+   "type": "kind",
+   "description": "Loudspeaker, speaker stack, amplifier or jukebox.",
+   "count": 12
+  },
+  {
+   "id": "obj-device-electronics-audio-mic",
+   "name": "Microphone",
+   "type": "kind",
+   "description": "Microphone, on its own or on a stand.",
+   "count": 3
   },
   {
    "id": "obj-device-electronics-computer",
    "name": "Computer",
    "type": "kind",
    "description": "Computer, laptop, keyboard, router or computer desk.",
-   "count": 33
+   "count": 31
   },
   {
    "id": "obj-device-electronics-computer-keyboard",
@@ -26100,6 +26118,13 @@
    "type": "kind",
    "description": "Telephone or mobile phone.",
    "count": 9
+  },
+  {
+   "id": "obj-device-electronics-printer",
+   "name": "Printer",
+   "type": "kind",
+   "description": "Printer, copier or typewriter: a machine that puts text on paper.",
+   "count": 6
   },
   {
    "id": "obj-container",
@@ -26299,18 +26324,18 @@
    "count": 6
   },
   {
-   "id": "obj-container-bottle-sauce",
-   "name": "Sauce",
+   "id": "obj-container-bottle-squeeze",
+   "name": "Squeeze bottle",
    "type": "kind",
-   "description": "squeeze bottle, ketchup bottle, mustard bottle, sauce bottle",
-   "count": 8
+   "description": "Plastic bottle with a cone nozzle: ketchup, mustard, glue, eye drops.",
+   "count": 9
   },
   {
    "id": "obj-container-bottle-pump",
    "name": "Pump",
    "type": "kind",
-   "description": "pump bottle, soap dispenser, lotion pump",
-   "count": 6
+   "description": "Bottle with a pump or spray head: soap, lotion, cleaning spray, perfume.",
+   "count": 8
   },
   {
    "id": "obj-container-bucket",
@@ -26472,7 +26497,7 @@
    "name": "Apparel",
    "type": "kind",
    "description": "Worn or carried personal item: cape, cloak, robe, hat, hood, boots, shoes, belt, glove, umbrella, hand fan.",
-   "count": 120
+   "count": 119
   },
   {
    "id": "obj-equipment-apparel-bag",
@@ -26869,6 +26894,13 @@
    "count": 3
   },
   {
+   "id": "obj-furnishing-decor-wreath",
+   "name": "Wreath",
+   "type": "kind",
+   "description": "Ring of greenery, leaves or flowers, hung on a door or wall.",
+   "count": 4
+  },
+  {
    "id": "obj-furnishing-textile",
    "name": "Textile",
    "type": "kind",
@@ -27181,7 +27213,7 @@
    "name": "Kitchenware",
    "type": "kind",
    "description": "Kitchenware with no leaf that fits.",
-   "count": 431,
+   "count": 429,
    "color": "#9c3f2e"
   },
   {
@@ -27196,7 +27228,7 @@
    "name": "Cookware",
    "type": "kind",
    "description": "grill, spit, mortar and pestle, pepper mill",
-   "count": 192
+   "count": 189
   },
   {
    "id": "obj-device-appliance-extractor",
@@ -27224,7 +27256,7 @@
    "name": "Stove",
    "type": "kind",
    "description": "Appliance with burners or plates to cook on: stove, range, cooktop.",
-   "count": 20
+   "count": 22
   },
   {
    "id": "obj-device-appliance-oven",
@@ -27475,8 +27507,8 @@
    "id": "obj-kitchenware-tableware-drinkware-goblet",
    "name": "Goblet",
    "type": "kind",
-   "description": "Stemmed drinking vessel on a foot.",
-   "count": 28
+   "description": "Metal, wooden or clay cup on a foot: goblet, chalice.",
+   "count": 14
   },
   {
    "id": "obj-kitchenware-tableware-drinkware-tankard",
@@ -27484,6 +27516,13 @@
    "type": "kind",
    "description": "Ale vessel of staves or metal with a handle, lidded or open.",
    "count": 13
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-stemware",
+   "name": "Stemware",
+   "type": "kind",
+   "description": "Glass on a thin stem: wine, champagne, cocktail or cognac glass.",
+   "count": 14
   },
   {
    "id": "obj-furnishing-light",
@@ -27610,7 +27649,7 @@
    "name": "Pocket item",
    "type": "kind",
    "description": "compass, hourglass, cigarette packet",
-   "count": 154,
+   "count": 155,
    "color": "#f1976c"
   },
   {
@@ -27681,7 +27720,7 @@
    "name": "Tag",
    "type": "kind",
    "description": "Flat card or tag: label, ticket, credit card, door hanger, token.",
-   "count": 9
+   "count": 10
   },
   {
    "id": "obj-equipment-pocketitem-cosmetic",
@@ -28201,8 +28240,15 @@
    "id": "obj-transport-watercraft-boat",
    "name": "Boat",
    "type": "kind",
-   "description": "boat, rowboat, canoe, raft, dinghy",
+   "description": "Boat with no leaf that fits: motorboat, sailboat, tug, houseboat, raft, inflatable lifeboat.",
    "count": 46
+  },
+  {
+   "id": "obj-transport-watercraft-boat-rowboat",
+   "name": "Rowboat",
+   "type": "kind",
+   "description": "Open boat moved by oars or a pole: rowboat, canoe, skiff, sampan.",
+   "count": 13
   },
   {
    "id": "obj-transport-land-cart",
@@ -29294,7 +29340,7 @@
    "name": "Pillar",
    "type": "kind",
    "description": "pillar, column, beam, support, bracing",
-   "count": 92
+   "count": 105
   },
   {
    "id": "str-part-roof",
@@ -29336,14 +29382,14 @@
    "name": "Wall",
    "type": "kind",
    "description": "wall, wall segment, corner",
-   "count": 357
+   "count": 356
   },
   {
    "id": "str-part-wall-unit",
    "name": "Unit",
    "type": "kind",
    "description": "Wall piece covering one full module of the kit grid.",
-   "count": 300
+   "count": 301
   },
   {
    "id": "str-part-wall-unit-doorway",
@@ -29422,7 +29468,7 @@
    "name": "Road sign",
    "type": "kind",
    "description": "Road, highway or chevron sign.",
-   "count": 18
+   "count": 19
   },
   {
    "id": "str-fixture-marker-sign-floor",
@@ -29436,7 +29482,7 @@
    "name": "Lettering",
    "type": "kind",
    "description": "Sign spelled out in raised letters, or a marquee.",
-   "count": 47
+   "count": 50
   },
   {
    "id": "str-fixture-marker-sign-signpost",
@@ -29450,14 +29496,14 @@
    "name": "Noticeboard",
    "type": "kind",
    "description": "notice board, noticeboard, corkboard, bulletin board",
-   "count": 6
+   "count": 10
   },
   {
    "id": "str-fixture-marker-sign-menu",
    "name": "Menu",
    "type": "kind",
    "description": "menu board, price board, price totem, rate board",
-   "count": 5
+   "count": 6
   },
   {
    "id": "str-fixture-marker-grave",
@@ -29607,7 +29653,7 @@
    "name": "Picture frame",
    "type": "kind",
    "description": "Framed picture or photo, hung or standing.",
-   "count": 46
+   "count": 43
   },
   {
    "id": "obj-leisure-art-instrument-bell",
@@ -29636,6 +29682,13 @@
    "type": "kind",
    "description": "trophy, prize cup",
    "count": 4
+  },
+  {
+   "id": "obj-leisure-art-easel",
+   "name": "Easel",
+   "type": "kind",
+   "description": "Stand that holds a painting, board or card upright.",
+   "count": 3
   },
   {
    "id": "obj-leisure-toy",
@@ -32413,7 +32466,7 @@
    "longest.max": 0.5,
    "tpu.max": 10000
   },
-  "obj-container-bottle-sauce": {
+  "obj-container-bottle-squeeze": {
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.5,
@@ -32708,6 +32761,18 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "obj-device-electronics-audio-mic": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-device-electronics-audio-speaker": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-device-electronics-camera": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -32754,6 +32819,12 @@
    "high.max": 8,
    "longest.min": 0.1,
    "longest.max": 0.8,
+   "tpu.max": 10000
+  },
+  "obj-device-electronics-printer": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 10000
   },
   "obj-device-electronics-radio": {
@@ -33917,6 +33988,12 @@
    "longest.max": 0.6,
    "tpu.max": 7000
   },
+  "obj-furnishing-decor-wreath": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 7000
+  },
   "obj-furnishing-furniture": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -34402,6 +34479,12 @@
    "longest.max": 0.3,
    "tpu.max": 5000
   },
+  "obj-kitchenware-tableware-drinkware-stemware": {
+   "high.max": 8,
+   "longest.min": 0.1,
+   "longest.max": 0.3,
+   "tpu.max": 5000
+  },
   "obj-kitchenware-tableware-drinkware-takeaway": {
    "high.max": 8,
    "longest.min": 0.1,
@@ -34439,6 +34522,12 @@
    "tpu.max": 5000
   },
   "obj-leisure-art": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "obj-leisure-art-easel": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -34729,6 +34818,12 @@
    "tpu.max": 10000
   },
   "obj-transport-watercraft-boat": {
+   "high.max": 30,
+   "longest.min": 0.9,
+   "longest.max": 3.6,
+   "tpu.max": 10000
+  },
+  "obj-transport-watercraft-boat-rowboat": {
    "high.max": 30,
    "longest.min": 0.9,
    "longest.max": 3.6,
@@ -37707,7 +37802,7 @@
    "collection": "3dm",
    "name": "microphone",
    "hash": "b8cc817e40",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-mic",
    "size": "s",
    "wdh": [
     0.057,
@@ -39887,7 +39982,7 @@
     "gemstone",
     "metal-gold"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.31
   },
   {
    "kit": "3dm-medieval",
@@ -42123,7 +42218,7 @@
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 0.94
+   "thickRel": 0.97
   },
   {
    "kit": "aq-hallow",
@@ -42167,7 +42262,7 @@
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 1.04
+   "thickRel": 1.07
   },
   {
    "kit": "aq-hallow",
@@ -42211,7 +42306,7 @@
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "aq-hallow",
@@ -48265,7 +48360,7 @@
     "metal-gold",
     "textile-cloth-dark"
    ],
-   "thickRel": 3.11
+   "thickRel": 3.06
   },
   {
    "kit": "avra-weapons",
@@ -49314,7 +49409,7 @@
    "kit": "cooking-assets",
    "name": "champagne-flute",
    "hash": "0309e99e27",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.049,
@@ -49347,7 +49442,7 @@
     "mab"
    ],
    "variant": "cooking-assets/wine-glass",
-   "thickRel": 1.67
+   "thickRel": 1.85
   },
   {
    "kit": "cooking-assets",
@@ -49555,7 +49650,7 @@
    "kit": "cooking-assets",
    "name": "cocktail-glass",
    "hash": "19b5d38685",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.119,
@@ -49588,13 +49683,13 @@
     "mab"
    ],
    "variant": "cooking-assets/cocktail-glass",
-   "thickRel": 0.6
+   "thickRel": 0.66
   },
   {
    "kit": "cooking-assets",
    "name": "cognac-glass",
    "hash": "71f2c5fc8a",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.116,
@@ -49626,7 +49721,7 @@
     "glass",
     "mab"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.66
   },
   {
    "kit": "cooking-assets",
@@ -50190,7 +50285,7 @@
    "kit": "cooking-assets",
    "name": "goblet",
    "hash": "231fee453d",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.088,
@@ -50222,13 +50317,13 @@
     "glass",
     "mab"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.92
   },
   {
    "kit": "cooking-assets",
    "name": "hurricane-glass",
    "hash": "b68bf7dcf7",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.07,
@@ -50261,7 +50356,7 @@
     "mab"
    ],
    "variant": "cooking-assets/cocktail-glass",
-   "thickRel": 1.37
+   "thickRel": 1.52
   },
   {
    "kit": "cooking-assets",
@@ -50479,7 +50574,7 @@
    "kit": "cooking-assets",
    "name": "margarita-glass",
    "hash": "3ae9a62227",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.166,
@@ -50512,14 +50607,7 @@
     "mab"
    ],
    "variant": "cooking-assets/cocktail-glass",
-   "thickRel": 0.48,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.53
   },
   {
    "kit": "cooking-assets",
@@ -52017,7 +52105,7 @@
     "scale-small"
    ],
    "variant": "cooking-assets/stove",
-   "thickRel": 0.71
+   "thickRel": 0.75
   },
   {
    "kit": "cooking-assets",
@@ -52117,7 +52205,7 @@
     "scale-small"
    ],
    "variant": "cooking-assets/stove",
-   "thickRel": 0.86
+   "thickRel": 0.9
   },
   {
    "kit": "cooking-assets",
@@ -52542,7 +52630,7 @@
    "kit": "cooking-assets",
    "name": "wine-glass",
    "hash": "b7053e54e4",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.089,
@@ -52575,7 +52663,7 @@
     "mab"
    ],
    "variant": "cooking-assets/wine-glass",
-   "thickRel": 0.76
+   "thickRel": 0.84
   },
   {
    "kit": "cooking-assets",
@@ -53008,7 +53096,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.79
+   "thickRel": 0.81
   },
   {
    "kit": "dungeon",
@@ -53047,7 +53135,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.87
+   "thickRel": 0.9
   },
   {
    "kit": "dungeon",
@@ -53086,7 +53174,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "dungeon",
@@ -57834,7 +57922,7 @@
    "tags": [
     "wood-mid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.13
   },
   {
    "kit": "emace-village",
@@ -71841,7 +71929,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/picture-square-large",
-   "thickRel": 0.71
+   "thickRel": 0.73
   },
   {
    "kit": "fs-house",
@@ -71886,7 +71974,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/picture-square-large",
-   "thickRel": 0.56
+   "thickRel": 0.57
   },
   {
    "kit": "fs-house",
@@ -71931,14 +72019,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/picture-square-large",
-   "thickRel": 0.49,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.5
   },
   {
    "kit": "fs-house",
@@ -71982,7 +72063,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/picture-square-large",
-   "thickRel": 0.62
+   "thickRel": 0.63
   },
   {
    "kit": "fs-house",
@@ -72945,7 +73026,7 @@
     "metal-steel",
     "scale-big"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.89
   },
   {
    "kit": "fs-house",
@@ -83467,7 +83548,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 0.97
+   "thickRel": 1
   },
   {
    "kit": "fs-terrain",
@@ -83508,7 +83589,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 1.02
+   "thickRel": 1.05
   },
   {
    "kit": "fs-terrain",
@@ -83549,7 +83630,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 1.08
+   "thickRel": 1.11
   },
   {
    "kit": "fs-terrain",
@@ -83590,7 +83671,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 0.67
+   "thickRel": 0.69
   },
   {
    "kit": "fs-terrain",
@@ -83632,7 +83713,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 0.52
+   "thickRel": 0.54
   },
   {
    "kit": "fs-terrain",
@@ -84987,7 +85068,7 @@
    "collection": "fs-modular",
    "name": "boat-a",
    "hash": "cd1667b664",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
     0.596,
@@ -85024,7 +85105,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/boat-a",
-   "thickRel": 0.62,
+   "thickRel": 1.01,
    "mark": [
     "grounded"
    ]
@@ -85034,7 +85115,7 @@
    "collection": "fs-modular",
    "name": "boat-b",
    "hash": "741049750c",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
     0.566,
@@ -85071,7 +85152,7 @@
     "wood-mid"
    ],
    "variant": "fs-town/boat-a",
-   "thickRel": 0.67,
+   "thickRel": 1.08,
    "mark": [
     "grounded"
    ]
@@ -85246,7 +85327,7 @@
    "collection": "fs-modular",
    "name": "canopy-beam",
    "hash": "ae7b92025e",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.061,
@@ -89223,7 +89304,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-pillar-a",
    "hash": "abe3b0d53b",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.1,
@@ -89263,7 +89344,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-pillar-b",
    "hash": "1884d1a840",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.1,
@@ -89303,7 +89384,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-pillar-c",
    "hash": "56fd759c8a",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.1,
@@ -91436,7 +91517,7 @@
    "kit": "household",
    "name": "barbecue",
    "hash": "4cdd4e9c17",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-device-appliance-stove",
    "size": "m",
    "wdh": [
     0.516,
@@ -91472,7 +91553,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.07
+   "thickRel": 0.6
   },
   {
    "kit": "household",
@@ -92330,7 +92411,7 @@
     "plastic",
     "wood-dark"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.96
   },
   {
    "kit": "household",
@@ -93185,14 +93266,7 @@
     "ct",
     "plastic"
    ],
-   "thickRel": 0.45,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.45 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.45
   },
   {
    "kit": "household",
@@ -93407,7 +93481,7 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.86
   },
   {
    "kit": "household",
@@ -93649,7 +93723,7 @@
    "kit": "household",
    "name": "printer",
    "hash": "c281b0fa5c",
-   "kind": "obj-device-electronics-computer",
+   "kind": "obj-device-electronics-printer",
    "size": "m",
    "wdh": [
     0.357,
@@ -94136,7 +94210,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 0.99
+   "thickRel": 1.03
   },
   {
    "kit": "household",
@@ -94571,7 +94645,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 2.19
+   "thickRel": 2.16
   },
   {
    "kit": "household",
@@ -94616,7 +94690,7 @@
    "kit": "household",
    "name": "wine-glass",
    "hash": "674e4e2d16",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.072,
@@ -94648,7 +94722,7 @@
     "ct",
     "glass"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.38
   },
   {
    "kit": "household",
@@ -94824,7 +94898,7 @@
    "collection": "ipoly",
    "name": "mic-stand",
    "hash": "dbc7750359",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-mic",
    "size": "m",
    "wdh": [
     0.171,
@@ -94874,7 +94948,7 @@
    "collection": "ipoly",
    "name": "speaker-large",
    "hash": "02dad8ce39",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
     0.353,
@@ -94910,14 +94984,14 @@
     "metal-steel"
    ],
    "variant": "ipoly-concert/speaker-large",
-   "thickRel": 1.14
+   "thickRel": 0.99
   },
   {
    "kit": "ipoly-concert",
    "collection": "ipoly",
    "name": "speaker-small",
    "hash": "96bf29132d",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
     0.23,
@@ -94953,7 +95027,7 @@
     "metal-steel"
    ],
    "variant": "ipoly-concert/speaker-large",
-   "thickRel": 1.07
+   "thickRel": 0.93
   },
   {
    "kit": "ipoly-concert",
@@ -99365,7 +99439,7 @@
    "collection": "isa-tt",
    "name": "pricing-card",
    "hash": "e96d14be45",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-menu",
    "size": "s",
    "wdh": [
     0.072,
@@ -100686,7 +100760,7 @@
    "collection": "isa-tt",
    "name": "wall-sign-large",
    "hash": "c25b9d0e42",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-noticeboard",
    "size": "m",
    "wdh": [
     0.581,
@@ -100723,14 +100797,14 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-sign-large",
-   "thickRel": 0.92
+   "thickRel": 1.49
   },
   {
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "wall-sign-small",
    "hash": "f87c64784c",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-noticeboard",
    "size": "s",
    "wdh": [
     0.261,
@@ -100766,7 +100840,7 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-sign-large",
-   "thickRel": 0.88
+   "thickRel": 1.41
   },
   {
    "kit": "isa-bakery",
@@ -101799,7 +101873,7 @@
     "isa",
     "textile-cloth-light"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "isa-bathroom",
@@ -101841,7 +101915,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "isa-bathroom",
@@ -101883,7 +101957,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "isa-bathroom",
@@ -101925,7 +101999,7 @@
     "plastic"
    ],
    "variant": "isa-bathroom/soap-dispenser-blue",
-   "thickRel": 1.11
+   "thickRel": 1
   },
   {
    "kit": "isa-bathroom",
@@ -105772,7 +105846,7 @@
     "isa",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.62
+   "thickRel": 1.6
   },
   {
    "kit": "isa-kitchen",
@@ -106062,7 +106136,7 @@
     "metal-steel",
     "tba"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.95
   },
   {
    "kit": "isa-kitchen",
@@ -109655,7 +109729,7 @@
    "collection": "isa-tt",
    "name": "wine-glass",
    "hash": "936a0ac5dd",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.084,
@@ -109687,7 +109761,7 @@
     "glass",
     "isa"
    ],
-   "thickRel": 0.95
+   "thickRel": 1.04
   },
   {
    "kit": "isa-plants",
@@ -121248,7 +121322,7 @@
     "metal-gold",
     "scale-big"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.04
   },
   {
    "kit": "kay-dun-1",
@@ -124005,7 +124079,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.13
   },
   {
    "kit": "kay-dun-1",
@@ -128874,7 +128948,7 @@
     "scale-small",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.13
   },
   {
    "kit": "kay-dun-2",
@@ -130570,7 +130644,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.12
   },
   {
    "kit": "kay-dun-2",
@@ -137000,7 +137074,7 @@
    "collection": "kay-interior",
    "name": "ketchup",
    "hash": "4f57d58bb9",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.09,
@@ -137245,7 +137319,7 @@
    "collection": "kay-interior",
    "name": "mustard",
    "hash": "df5ddf2fe0",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.09,
@@ -137374,7 +137448,7 @@
     "tba"
    ],
    "variant": "kay-food/oven",
-   "thickRel": 1.14
+   "thickRel": 1.15
   },
   {
    "kit": "kay-food",
@@ -138355,7 +138429,7 @@
     "scale-small"
    ],
    "variant": "kay-food/stove",
-   "thickRel": 0.89
+   "thickRel": 0.94
   },
   {
    "kit": "kay-food",
@@ -138403,7 +138477,7 @@
     "scale-small"
    ],
    "variant": "kay-food/stove",
-   "thickRel": 0.89
+   "thickRel": 0.93
   },
   {
    "kit": "kay-food",
@@ -143519,7 +143593,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/picture-frame-medium",
-   "thickRel": 1.25
+   "thickRel": 1.29
   },
   {
    "kit": "kay-furniture",
@@ -143567,7 +143641,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/picture-frame-medium",
-   "thickRel": 1.29
+   "thickRel": 1.32
   },
   {
    "kit": "kay-furniture",
@@ -143615,7 +143689,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/picture-frame-medium",
-   "thickRel": 1.68
+   "thickRel": 1.72
   },
   {
    "kit": "kay-furniture",
@@ -143663,7 +143737,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/picture-frame-medium",
-   "thickRel": 2.07
+   "thickRel": 2.12
   },
   {
    "kit": "kay-furniture",
@@ -143711,7 +143785,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/picture-frame-medium",
-   "thickRel": 2.4
+   "thickRel": 2.46
   },
   {
    "kit": "kay-furniture",
@@ -143759,7 +143833,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/picture-frame-medium",
-   "thickRel": 1.97
+   "thickRel": 2.01
   },
   {
    "kit": "kay-furniture",
@@ -143806,7 +143880,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/picture-frame-standing-a",
-   "thickRel": 1.33
+   "thickRel": 1.37
   },
   {
    "kit": "kay-furniture",
@@ -143853,7 +143927,7 @@
     "wood-mid"
    ],
    "variant": "kay-furniture/picture-frame-standing-a",
-   "thickRel": 1.64
+   "thickRel": 1.68
   },
   {
    "kit": "kay-furniture",
@@ -146084,7 +146158,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.33
   },
   {
    "kit": "kay-hallow",
@@ -153443,7 +153517,7 @@
    "kit": "kay-holiday",
    "name": "wreath",
    "hash": "0f691e2248",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-wreath",
    "size": "s",
    "wdh": [
     0.394,
@@ -154931,7 +155005,7 @@
    "kit": "kay-mixed",
    "name": "autumn-wreath",
    "hash": "a949080206",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-wreath",
    "size": "s",
    "wdh": [
     0.442,
@@ -155169,14 +155243,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/cat-headphones-a",
-   "thickRel": 0.4,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.4
   },
   {
    "kit": "kay-mixed",
@@ -155220,14 +155287,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/cat-headphones-a",
-   "thickRel": 0.4,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.4
   },
   {
    "kit": "kay-mixed",
@@ -155273,14 +155333,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/cat-headphones-a",
-   "thickRel": 0.4,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.4
   },
   {
    "kit": "kay-mixed",
@@ -156140,7 +156193,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/frame-a",
-   "thickRel": 0.73
+   "thickRel": 0.75
   },
   {
    "kit": "kay-mixed",
@@ -156183,7 +156236,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/frame-a",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "kay-mixed",
@@ -156226,7 +156279,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/frame-b",
-   "thickRel": 0.59
+   "thickRel": 0.6
   },
   {
    "kit": "kay-mixed",
@@ -156269,7 +156322,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/frame-b",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "kay-mixed",
@@ -156317,7 +156370,7 @@
     "paper-sheet",
     "wood-mid"
    ],
-   "thickRel": 0.78,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "error",
@@ -156953,7 +157006,7 @@
     "kay",
     "paper-sheet"
    ],
-   "thickRel": 0.96,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "warning",
@@ -157430,7 +157483,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/rollerskate-a",
-   "thickRel": 1.86
+   "thickRel": 1.83
   },
   {
    "kit": "kay-mixed",
@@ -157474,7 +157527,7 @@
     "plastic"
    ],
    "variant": "kay-mixed/rollerskate-a",
-   "thickRel": 1.24
+   "thickRel": 1.22
   },
   {
    "kit": "kay-mixed",
@@ -157689,7 +157742,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/umbrella-c",
-   "thickRel": 1.55
+   "thickRel": 1.53
   },
   {
    "kit": "kay-mixed",
@@ -157734,7 +157787,7 @@
     "wood-mid"
    ],
    "variant": "kay-mixed/umbrella-c",
-   "thickRel": 1.55
+   "thickRel": 1.53
   },
   {
    "kit": "kay-mixed",
@@ -157863,7 +157916,7 @@
     "scale-big",
     "tba"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.09
   },
   {
    "kit": "kay-platformer",
@@ -158185,7 +158238,7 @@
    "collection": "kay-play",
    "name": "bracing-large",
    "hash": "c7c3f3626a",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "s",
    "wdh": [
     0.3,
@@ -158228,7 +158281,7 @@
    "collection": "kay-play",
    "name": "bracing-medium",
    "hash": "1cf85417d8",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "s",
    "wdh": [
     0.18,
@@ -158271,7 +158324,7 @@
    "collection": "kay-play",
    "name": "bracing-small",
    "hash": "ac207c8faf",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "s",
    "wdh": [
     0.06,
@@ -159173,7 +159226,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 0.69
+   "thickRel": 0.71
   },
   {
    "kit": "kay-platformer",
@@ -159219,7 +159272,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 0.89
+   "thickRel": 0.92
   },
   {
    "kit": "kay-platformer",
@@ -159264,7 +159317,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 1.14
+   "thickRel": 1.17
   },
   {
    "kit": "kay-platformer",
@@ -159310,7 +159363,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 1.57
+   "thickRel": 1.61
   },
   {
    "kit": "kay-platformer",
@@ -159354,7 +159407,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 0.69
+   "thickRel": 0.71
   },
   {
    "kit": "kay-platformer",
@@ -159398,7 +159451,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 0.87
+   "thickRel": 0.9
   },
   {
    "kit": "kay-platformer",
@@ -159443,7 +159496,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 1.14
+   "thickRel": 1.17
   },
   {
    "kit": "kay-platformer",
@@ -160004,7 +160057,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 0.91
+   "thickRel": 1
   },
   {
    "kit": "kay-platformer",
@@ -160092,7 +160145,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/sign-arrows-left",
-   "thickRel": 1.09
+   "thickRel": 1.21
   },
   {
    "kit": "kay-platformer",
@@ -160138,7 +160191,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/sign-arrows-left",
-   "thickRel": 1.09
+   "thickRel": 1.21
   },
   {
    "kit": "kay-platformer",
@@ -160184,7 +160237,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/sign-arrows-left",
-   "thickRel": 1.09
+   "thickRel": 1.21
   },
   {
    "kit": "kay-platformer",
@@ -160230,7 +160283,7 @@
     "plastic"
    ],
    "variant": "kay-platformer/sign-arrows-left",
-   "thickRel": 1.09
+   "thickRel": 1.21
   },
   {
    "kit": "kay-platformer",
@@ -160402,7 +160455,7 @@
    "collection": "kay-play",
    "name": "strut-horizontal",
    "hash": "37f5fcbbf8",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.6,
@@ -171266,7 +171319,7 @@
    ],
    "alpha": true,
    "pbr": true,
-   "thickRel": 1.25
+   "thickRel": 1.26
   },
   {
    "kit": "kay-tools",
@@ -174742,7 +174795,7 @@
     "plastic",
     "stone-masonry-dark"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.8
   },
   {
    "kit": "ken-arcade",
@@ -175546,7 +175599,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/column",
-   "thickRel": 0.73
+   "thickRel": 0.76
   },
   {
    "kit": "ken-arena",
@@ -175587,7 +175640,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/column",
-   "thickRel": 0.83
+   "thickRel": 0.85
   },
   {
    "kit": "ken-arena",
@@ -188831,7 +188884,7 @@
    "kit": "ken-food",
    "name": "bottle-ketchup",
    "hash": "ed45ee0d04",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.071,
@@ -188870,7 +188923,7 @@
    "kit": "ken-food",
    "name": "bottle-mustard",
    "hash": "f4c5236f2e",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.071,
@@ -189963,7 +190016,7 @@
    "kit": "ken-food",
    "name": "cocktail",
    "hash": "12805aeed4",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.117,
@@ -190006,7 +190059,7 @@
     "special-food",
     "special-liquid"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.96
   },
   {
    "kit": "ken-food",
@@ -190951,7 +191004,7 @@
    "kit": "ken-food",
    "name": "glass-wine",
    "hash": "f5ae6a621f",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.087,
@@ -190984,7 +191037,7 @@
     "glass",
     "ken"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.56
   },
   {
    "kit": "ken-food",
@@ -197521,7 +197574,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-stove",
-   "thickRel": 1.07
+   "thickRel": 1.12
   },
   {
    "kit": "ken-furniture",
@@ -197571,7 +197624,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-stove",
-   "thickRel": 1.07
+   "thickRel": 1.12
   },
   {
    "kit": "ken-furniture",
@@ -198736,7 +198789,7 @@
    "kit": "ken-furniture",
    "name": "speaker-small",
    "hash": "cdefb7ec3b",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
     0.138,
@@ -198772,13 +198825,13 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/speaker",
-   "thickRel": 1.43
+   "thickRel": 1.24
   },
   {
    "kit": "ken-furniture",
    "name": "speaker",
    "hash": "4ca2a46b05",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
     0.106,
@@ -198814,7 +198867,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/speaker",
-   "thickRel": 1.93
+   "thickRel": 1.67
   },
   {
    "kit": "ken-furniture",
@@ -200698,7 +200751,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.97
   },
   {
    "kit": "ken-grave",
@@ -201359,7 +201412,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 1
+   "thickRel": 0.96
   },
   {
    "kit": "ken-grave",
@@ -202596,7 +202649,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.32
   },
   {
    "kit": "ken-grave",
@@ -202639,7 +202692,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.21
   },
   {
    "kit": "ken-grave",
@@ -205331,7 +205384,7 @@
    "kit": "ken-holiday",
    "name": "wreath-decorated",
    "hash": "16489982c9",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-wreath",
    "size": "s",
    "wdh": [
     0.352,
@@ -205377,7 +205430,7 @@
    "kit": "ken-holiday",
    "name": "wreath",
    "hash": "9a9f997645",
-   "kind": "obj-furnishing-decor",
+   "kind": "obj-furnishing-decor-wreath",
    "size": "s",
    "wdh": [
     0.352,
@@ -208243,7 +208296,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.93
   },
   {
    "kit": "ken-mini-dun",
@@ -210292,7 +210345,7 @@
    "kit": "ken-nature",
    "name": "canoe",
    "hash": "168431c126",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
     0.36,
@@ -210328,7 +210381,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.29
+   "thickRel": 2.09
   },
   {
    "kit": "ken-nature",
@@ -211611,7 +211664,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-nature/statue-column",
-   "thickRel": 0.93
+   "thickRel": 0.96
   },
   {
    "kit": "ken-nature",
@@ -211650,7 +211703,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-nature/statue-column",
-   "thickRel": 1.08
+   "thickRel": 1.11
   },
   {
    "kit": "ken-nature",
@@ -213715,7 +213768,7 @@
    "kit": "ken-pirate",
    "name": "boat-row-large",
    "hash": "c87cb5c6a8",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "l",
    "wdh": [
     1.512,
@@ -213754,20 +213807,13 @@
     "wood-dark"
    ],
    "variant": "ken-pirate/boat-row-large",
-   "thickRel": 0.46,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "ken-pirate",
    "name": "boat-row-small",
    "hash": "c28efc1193",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "l",
    "wdh": [
     1.512,
@@ -213806,7 +213852,7 @@
     "wood-mid"
    ],
    "variant": "ken-pirate/boat-row-large",
-   "thickRel": 0.5
+   "thickRel": 0.82
   },
   {
    "kit": "ken-pirate",
@@ -218648,7 +218694,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.17
+   "thickRel": 1.2
   },
   {
    "kit": "ken-proto",
@@ -218690,7 +218736,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.7
+   "thickRel": 1.74
   },
   {
    "kit": "ken-proto",
@@ -218732,7 +218778,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.14
+   "thickRel": 1.17
   },
   {
    "kit": "ken-proto",
@@ -218774,7 +218820,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.15
+   "thickRel": 1.17
   },
   {
    "kit": "ken-proto",
@@ -218816,7 +218862,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.14
+   "thickRel": 1.17
   },
   {
    "kit": "ken-proto",
@@ -218858,7 +218904,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.15
+   "thickRel": 1.17
   },
   {
    "kit": "ken-proto",
@@ -218900,7 +218946,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.19
+   "thickRel": 1.22
   },
   {
    "kit": "ken-proto",
@@ -218942,7 +218988,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.08
+   "thickRel": 1.1
   },
   {
    "kit": "ken-proto",
@@ -218984,7 +219030,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.22
+   "thickRel": 1.25
   },
   {
    "kit": "ken-proto",
@@ -219026,7 +219072,7 @@
     "plastic"
    ],
    "variant": "ken-proto/number-0",
-   "thickRel": 1.17
+   "thickRel": 1.2
   },
   {
    "kit": "ken-proto",
@@ -219314,12 +219360,12 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-cylinder",
-   "thickRel": 0.47,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.47 wants min 0.5"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -219363,7 +219409,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-cylinder",
-   "thickRel": 0.5
+   "thickRel": 0.51
   },
   {
    "kit": "ken-proto",
@@ -219404,12 +219450,12 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-hexagon",
-   "thickRel": 0.48,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
+     "text": "I01 thickRel 0.49 wants min 0.5"
     }
    ]
   },
@@ -219452,7 +219498,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-hexagon",
-   "thickRel": 0.52
+   "thickRel": 0.54
   },
   {
    "kit": "ken-proto",
@@ -222850,7 +222896,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.16
+   "thickRel": 1.19
   },
   {
    "kit": "ken-roads",
@@ -222893,7 +222939,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.2
+   "thickRel": 1.23
   },
   {
    "kit": "ken-roads",
@@ -224578,14 +224624,7 @@
     "metal-steel"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 0.49,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.54
   },
   {
    "kit": "ken-roads",
@@ -224626,7 +224665,7 @@
     "metal-steel"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 2.84
+   "thickRel": 3.13
   },
   {
    "kit": "ken-roads",
@@ -224808,7 +224847,7 @@
     "plastic"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 1.25
+   "thickRel": 1.37
   },
   {
    "kit": "ken-roads",
@@ -224852,7 +224891,7 @@
     "plastic"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 0.71
+   "thickRel": 0.79
   },
   {
    "kit": "ken-roads",
@@ -224898,7 +224937,7 @@
     "plastic"
    ],
    "variant": "ken-roads/road-sign-stop",
-   "thickRel": 1.17
+   "thickRel": 1.29
   },
   {
    "kit": "ken-roads",
@@ -225173,12 +225212,12 @@
     "plastic"
    ],
    "variant": "ken-roads/sign-highway",
-   "thickRel": 0.32,
+   "thickRel": 0.35,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.32 wants min 0.5"
+     "text": "I01 thickRel 0.35 wants min 0.5"
     }
    ]
   },
@@ -225233,7 +225272,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.37,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
@@ -225243,7 +225282,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.37 wants min 0.5"
+     "text": "I01 thickRel 0.41 wants min 0.5"
     }
    ]
   },
@@ -225298,7 +225337,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.37,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
@@ -225308,7 +225347,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.37 wants min 0.5"
+     "text": "I01 thickRel 0.41 wants min 0.5"
     }
    ]
   },
@@ -229569,7 +229608,7 @@
     "space"
    ],
    "variant": "ken-space/monorail-track-support",
-   "thickRel": 0.61
+   "thickRel": 0.63
   },
   {
    "kit": "ken-space",
@@ -229612,7 +229651,7 @@
     "space"
    ],
    "variant": "ken-space/monorail-track-support",
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "ken-space",
@@ -240490,7 +240529,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-town/pillar-stone",
-   "thickRel": 1.47
+   "thickRel": 1.52
   },
   {
    "kit": "ken-town",
@@ -240535,7 +240574,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/pillar-stone",
-   "thickRel": 1.42
+   "thickRel": 1.46
   },
   {
    "kit": "ken-town",
@@ -259393,7 +259432,7 @@
    "kit": "lpa-home",
    "name": "speaker",
    "hash": "2937841c97",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
     0.16,
@@ -259431,7 +259470,7 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.28
   },
   {
    "kit": "lpa-home",
@@ -259521,7 +259560,7 @@
     "metal-steel",
     "tba"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-home",
@@ -263807,7 +263846,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -263855,7 +263894,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-west",
@@ -263903,7 +263942,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-west",
@@ -264863,7 +264902,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -264911,7 +264950,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-west",
@@ -264959,7 +264998,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-west",
@@ -265834,7 +265873,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/general-sign-a",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-west",
@@ -265882,7 +265921,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/general-sign-a",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-west",
@@ -265968,7 +266007,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -266016,7 +266055,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-west",
@@ -266064,7 +266103,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/bank-sign-a",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-west",
@@ -266320,7 +266359,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -266368,7 +266407,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-west",
@@ -266416,7 +266455,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-west",
@@ -267075,7 +267114,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -267123,7 +267162,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-west",
@@ -267171,7 +267210,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -267219,7 +267258,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
@@ -267267,7 +267306,7 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-west",
@@ -267315,13 +267354,13 @@
     "wood-mid"
    ],
    "variant": "lpa-west/hotel-sign-a",
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-west",
    "name": "sign-a",
    "hash": "cfb6825ee7",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-lettering",
    "size": "m",
    "wdh": [
     1.15,
@@ -267360,13 +267399,13 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.8
+   "thickRel": 1.22
   },
   {
    "kit": "lpa-west",
    "name": "sign-b",
    "hash": "3f5235f9f7",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-lettering",
    "size": "m",
    "wdh": [
     1.15,
@@ -267405,13 +267444,13 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.16
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-west",
    "name": "sign-c",
    "hash": "d427f61c72",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-lettering",
    "size": "m",
    "wdh": [
     1.15,
@@ -267450,7 +267489,7 @@
     "wood-light"
    ],
    "variant": "lpa-west/sign-a",
-   "thickRel": 1.22
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-west",
@@ -269704,7 +269743,7 @@
    "kit": "m3-base",
    "name": "adhesive-bottle",
    "hash": "ce56d6672b",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.108,
@@ -272001,7 +272040,7 @@
     "m3",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.43
+   "thickRel": 1.4
   },
   {
    "kit": "m3-base",
@@ -272914,7 +272953,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 1.52
+   "thickRel": 1.5
   },
   {
    "kit": "m3-base",
@@ -273594,7 +273633,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.09
   },
   {
    "kit": "m3-base",
@@ -273885,7 +273924,7 @@
    "kit": "m3-base",
    "name": "champagne-glass",
    "hash": "ff4c0b2d99",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.069,
@@ -273918,7 +273957,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-glass",
-   "thickRel": 1.44
+   "thickRel": 1.59
   },
   {
    "kit": "m3-base",
@@ -274383,7 +274422,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.72,
+   "thickRel": 1.69,
    "lint": [
     {
      "level": "warning",
@@ -274472,7 +274511,7 @@
     "paper-cardboard",
     "paper-sheet"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.46
   },
   {
    "kit": "m3-base",
@@ -274854,7 +274893,7 @@
    "kit": "m3-base",
    "name": "cleaning-spray",
    "hash": "b3061f1bf1",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-pump",
    "size": "s",
    "wdh": [
     0.07,
@@ -274888,7 +274927,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.87
   },
   {
    "kit": "m3-base",
@@ -275188,7 +275227,7 @@
     "pickup"
    ],
    "variant": "m3-base/clothing-tag-01",
-   "thickRel": 1.5
+   "thickRel": 1.68
   },
   {
    "kit": "m3-base",
@@ -275228,7 +275267,7 @@
     "pickup"
    ],
    "variant": "m3-base/clothing-tag-01",
-   "thickRel": 1.5
+   "thickRel": 1.68
   },
   {
    "kit": "m3-base",
@@ -275268,7 +275307,7 @@
     "pickup"
    ],
    "variant": "m3-base/clothing-tag-01",
-   "thickRel": 1
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -275393,7 +275432,7 @@
    "kit": "m3-base",
    "name": "cocktail-glass",
    "hash": "b7b4ec221b",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.155,
@@ -275425,7 +275464,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.85
   },
   {
    "kit": "m3-base",
@@ -275919,7 +275958,7 @@
    "kit": "m3-base",
    "name": "computer-speaker",
    "hash": "9fc13dbe88",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
     0.141,
@@ -275954,7 +275993,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.05
   },
   {
    "kit": "m3-base",
@@ -276317,7 +276356,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.76
   },
   {
    "kit": "m3-base",
@@ -277510,7 +277549,7 @@
     "mounted",
     "paper-sheet"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.93
   },
   {
    "kit": "m3-base",
@@ -278362,7 +278401,7 @@
     "mounted",
     "paper-sheet"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.63
   },
   {
    "kit": "m3-base",
@@ -279398,7 +279437,7 @@
    "kit": "m3-base",
    "name": "eye-drop-bottle",
    "hash": "398a0c0b36",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.089,
@@ -279432,7 +279471,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.14
+   "thickRel": 0.94
   },
   {
    "kit": "m3-base",
@@ -280945,13 +280984,13 @@
     "plastic"
    ],
    "variant": "m3-base/framed-poster",
-   "thickRel": 0.92
+   "thickRel": 0.94
   },
   {
    "kit": "m3-base",
    "name": "freezer-block",
    "hash": "be508b4048",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-kitchenware",
    "size": "s",
    "wdh": [
     0.18,
@@ -280983,7 +281022,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1
+   "thickRel": 1.27
   },
   {
    "kit": "m3-base",
@@ -282054,7 +282093,7 @@
    "kit": "m3-base",
    "name": "glue-bottle-01",
    "hash": "53ef1705a4",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.092,
@@ -282127,7 +282166,7 @@
     "metal-gold"
    ],
    "variant": "m3-base/goblet-01",
-   "thickRel": 0.84
+   "thickRel": 0.81
   },
   {
    "kit": "m3-base",
@@ -282166,7 +282205,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/goblet-01",
-   "thickRel": 1.03
+   "thickRel": 0.98
   },
   {
    "kit": "m3-base",
@@ -282205,7 +282244,7 @@
     "metal-gold"
    ],
    "variant": "m3-base/goblet-01",
-   "thickRel": 0.96
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -282244,7 +282283,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/goblet-01",
-   "thickRel": 1.1
+   "thickRel": 1.05
   },
   {
    "kit": "m3-base",
@@ -282283,7 +282322,7 @@
     "metal-gold"
    ],
    "variant": "m3-base/goblet-01",
-   "thickRel": 1.06
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -282322,7 +282361,7 @@
     "metal-gold"
    ],
    "variant": "m3-base/goblet-01",
-   "thickRel": 0.91
+   "thickRel": 0.87
   },
   {
    "kit": "m3-base",
@@ -282440,7 +282479,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/greek-column-01",
-   "thickRel": 1.03
+   "thickRel": 1.06
   },
   {
    "kit": "m3-base",
@@ -282480,7 +282519,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/greek-column-01",
-   "thickRel": 1.05
+   "thickRel": 1.08
   },
   {
    "kit": "m3-base",
@@ -282518,7 +282557,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.77
   },
   {
    "kit": "m3-base",
@@ -284221,7 +284260,7 @@
    "kit": "m3-base",
    "name": "i-beam",
    "hash": "b3535c80dc",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.048,
@@ -284375,7 +284414,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.9
   },
   {
    "kit": "m3-base",
@@ -284595,7 +284634,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 0.73
+   "thickRel": 1.18
   },
   {
    "kit": "m3-base",
@@ -288835,7 +288874,7 @@
     "paper-sheet",
     "pickup"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.82
   },
   {
    "kit": "m3-base",
@@ -289420,7 +289459,7 @@
    "kit": "m3-base",
    "name": "military-dog-tag",
    "hash": "2826c2984e",
-   "kind": "obj-equipment-apparel",
+   "kind": "obj-equipment-pocketitem-tag",
    "size": "s",
    "wdh": [
     0.053,
@@ -289816,7 +289855,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/framed-poster",
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "m3-base",
@@ -290380,7 +290419,7 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.85
   },
   {
    "kit": "m3-base",
@@ -291364,7 +291403,7 @@
     "textile-cloth-dark",
     "textile-cloth-light"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.23
   },
   {
    "kit": "m3-base",
@@ -291572,7 +291611,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -291978,7 +292017,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 0.86
+   "thickRel": 0.89
   },
   {
    "kit": "m3-base",
@@ -292022,7 +292061,7 @@
     "textile-cloth-light"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 0.98
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -292066,7 +292105,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "m3-base",
@@ -292109,7 +292148,7 @@
     "textile-cloth-light"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 1.1
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -292153,7 +292192,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 0.75
+   "thickRel": 0.77
   },
   {
    "kit": "m3-base",
@@ -292197,7 +292236,7 @@
     "textile-cloth-light"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 1.05
+   "thickRel": 1.08
   },
   {
    "kit": "m3-base",
@@ -292240,7 +292279,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "m3-base",
@@ -292284,7 +292323,7 @@
     "textile-cloth-light"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 1.2
+   "thickRel": 1.23
   },
   {
    "kit": "m3-base",
@@ -292327,7 +292366,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 1.02
+   "thickRel": 1.05
   },
   {
    "kit": "m3-base",
@@ -292370,7 +292409,7 @@
     "textile-cloth-light"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 1.11
+   "thickRel": 1.14
   },
   {
    "kit": "m3-base",
@@ -292414,7 +292453,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 1.08
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -292457,7 +292496,7 @@
     "textile-cloth-light"
    ],
    "variant": "m3-base/painting-frame-01",
-   "thickRel": 0.93
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -293283,7 +293322,7 @@
     "paper-sheet",
     "wood-mid"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -294288,7 +294327,7 @@
     "mounted",
     "paper-sheet"
    ],
-   "thickRel": 0.71
+   "thickRel": 0.72
   },
   {
    "kit": "m3-base",
@@ -297544,7 +297583,7 @@
    "kit": "m3-base",
    "name": "sauce-bottle",
    "hash": "c8ddcabc34",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.123,
@@ -298030,7 +298069,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "m3-base",
@@ -298358,7 +298397,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.93
   },
   {
    "kit": "m3-base",
@@ -298747,7 +298786,7 @@
    "kit": "m3-base",
    "name": "skiff-01",
    "hash": "b4c0e73161",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "l",
    "wdh": [
     0.524,
@@ -298783,7 +298822,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.94
+   "thickRel": 1.53
   },
   {
    "kit": "m3-base",
@@ -299283,7 +299322,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.73
   },
   {
    "kit": "m3-base",
@@ -299804,7 +299843,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.17
   },
   {
    "kit": "m3-base",
@@ -301507,7 +301546,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.29
   },
   {
    "kit": "m3-base",
@@ -302297,7 +302336,7 @@
     "paper-sheet",
     "pickup"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.83
   },
   {
    "kit": "m3-base",
@@ -302380,7 +302419,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -302994,7 +303033,7 @@
     "m3",
     "stone-masonry-light"
    ],
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
@@ -303517,7 +303556,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 2.56
+   "thickRel": 2.52
   },
   {
    "kit": "m3-base",
@@ -304097,7 +304136,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.67
   },
   {
    "kit": "m3-base",
@@ -304453,7 +304492,7 @@
     "m3",
     "rubber"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -304931,7 +304970,7 @@
    "kit": "m3-base",
    "name": "wine-glass",
    "hash": "063c6b0e8e",
-   "kind": "obj-kitchenware-tableware-drinkware-goblet",
+   "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.118,
@@ -304964,7 +305003,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-glass",
-   "thickRel": 1
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -305290,7 +305329,7 @@
    "kit": "m3-base",
    "name": "wood-wall-panel",
    "hash": "081ad35d0c",
-   "kind": "str-part-wall",
+   "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
     0.641,
@@ -306737,7 +306776,7 @@
     "plastic"
    ],
    "variant": "makeup/lotion-pump-large",
-   "thickRel": 1.18
+   "thickRel": 1.07
   },
   {
    "kit": "makeup",
@@ -306779,7 +306818,7 @@
     "plastic"
    ],
    "variant": "makeup/lotion-pump-large",
-   "thickRel": 0.99
+   "thickRel": 0.89
   },
   {
    "kit": "makeup",
@@ -307182,7 +307221,7 @@
    "kit": "makeup",
    "name": "perfume-bottle",
    "hash": "0e7ace93ea",
-   "kind": "obj-container-bottle",
+   "kind": "obj-container-bottle-pump",
    "size": "s",
    "wdh": [
     0.036,
@@ -307218,7 +307257,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 1.58
+   "thickRel": 1.42
   },
   {
    "kit": "makeup",
@@ -314910,12 +314949,12 @@
     "mounted",
     "pm"
    ],
-   "thickRel": 0.45,
+   "thickRel": 0.46,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.45 wants min 0.5"
+     "text": "I01 thickRel 0.46 wants min 0.5"
     }
    ]
   },
@@ -315199,7 +315238,7 @@
     "pm",
     "wood-dark"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.95
   },
   {
    "kit": "pm-store",
@@ -315242,7 +315281,7 @@
     "pm",
     "wood-dark"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.08
   },
   {
    "kit": "pm-store",
@@ -315287,7 +315326,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.16
   },
   {
    "kit": "pm-store",
@@ -318285,7 +318324,7 @@
     "metal-steel",
     "special-liquid"
    ],
-   "thickRel": 1.82
+   "thickRel": 1.74
   },
   {
    "kit": "props",
@@ -320537,12 +320576,12 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.26,
+   "thickRel": 0.29,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.26 wants min 0.5"
+     "text": "I01 thickRel 0.29 wants min 0.5"
     }
    ]
   },
@@ -324158,7 +324197,7 @@
    "kit": "quat-cyberpunk",
    "name": "support-short",
    "hash": "f7d2bf70fd",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.444,
@@ -324192,13 +324231,20 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/support",
-   "thickRel": 0.93
+   "thickRel": 0.33,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.33 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-cyberpunk",
    "name": "support",
    "hash": "49f004e2e8",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.358,
@@ -324232,7 +324278,14 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/support",
-   "thickRel": 1.13
+   "thickRel": 0.4,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.4 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-cyberpunk",
@@ -325142,7 +325195,7 @@
     "scale-big",
     "stone-masonry-dark"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.14
   },
   {
    "kit": "quat-dun-1",
@@ -325974,7 +326027,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-dun-2/column",
-   "thickRel": 1.06
+   "thickRel": 1.09
   },
   {
    "kit": "quat-dun-2",
@@ -326017,7 +326070,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-dun-2/column",
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "quat-dun-2",
@@ -330152,7 +330205,7 @@
    "collection": "quat-sea",
    "name": "rowboat",
    "hash": "1866c1fe5a",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
     0.514,
@@ -330189,7 +330242,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.54
+   "thickRel": 0.87
   },
   {
    "kit": "quat-fishing",
@@ -332515,7 +332568,7 @@
    "kit": "quat-food",
    "name": "ketchup-bottle",
    "hash": "57be6846c8",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
     0.085,
@@ -336052,7 +336105,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-round",
-   "thickRel": 0.81
+   "thickRel": 0.84
   },
   {
    "kit": "quat-interior",
@@ -336092,7 +336145,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-round",
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "quat-interior",
@@ -336131,7 +336184,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-round",
-   "thickRel": 0.65
+   "thickRel": 0.67
   },
   {
    "kit": "quat-interior",
@@ -336170,7 +336223,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-square-tall",
-   "thickRel": 0.97
+   "thickRel": 1
   },
   {
    "kit": "quat-interior",
@@ -336209,7 +336262,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-square-tall",
-   "thickRel": 1.23
+   "thickRel": 1.27
   },
   {
    "kit": "quat-interior",
@@ -337781,7 +337834,7 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.09,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "error",
@@ -338113,7 +338166,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.2
   },
   {
    "kit": "quat-interior",
@@ -341641,7 +341694,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.52,
+   "thickRel": 0.54,
    "lint": [
     {
      "level": "warning",
@@ -341694,7 +341747,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.16
   },
   {
    "kit": "quat-megakit",
@@ -341828,7 +341881,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.05
   },
   {
    "kit": "quat-megakit",
@@ -341873,7 +341926,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.49
   },
   {
    "kit": "quat-megakit",
@@ -341917,7 +341970,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.06
   },
   {
    "kit": "quat-megakit",
@@ -351641,7 +351694,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.89
   },
   {
    "kit": "quat-props",
@@ -354496,7 +354549,7 @@
     "metal-gold",
     "qua"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.17
   },
   {
    "kit": "quat-rpg",
@@ -354972,7 +355025,7 @@
     "leather",
     "qua"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.18
   },
   {
    "kit": "quat-rpg",
@@ -357770,7 +357823,7 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "quat-ruins",
@@ -357813,7 +357866,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-ruins/column-round",
-   "thickRel": 1.18
+   "thickRel": 1.22
   },
   {
    "kit": "quat-ruins",
@@ -357854,7 +357907,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-ruins/column-round",
-   "thickRel": 1.37
+   "thickRel": 1.41
   },
   {
    "kit": "quat-ruins",
@@ -357894,7 +357947,7 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.38
   },
   {
    "kit": "quat-ruins",
@@ -360539,20 +360592,13 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.42,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.42
   },
   {
    "kit": "quat-ships",
    "name": "boat",
    "hash": "8c8bad0436",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
     0.493,
@@ -360589,7 +360635,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.9
   },
   {
    "kit": "quat-ships",
@@ -369636,7 +369682,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.06
   },
   {
    "kit": "quat-sushi",
@@ -377178,7 +377224,7 @@
    "kit": "rey-studio",
    "name": "easel-leaning",
    "hash": "d03fa171e5",
-   "kind": "obj-leisure-art-frame",
+   "kind": "obj-leisure-art-easel",
    "size": "m",
    "wdh": [
     0.259,
@@ -377211,7 +377257,7 @@
     "rey",
     "wood-mid"
    ],
-   "thickRel": 1.33
+   "thickRel": 0.9
   },
   {
    "kit": "rey-studio",
@@ -377450,7 +377496,7 @@
    "kit": "rgp-asia",
    "name": "boat",
    "hash": "e6f1edf2ef",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "l",
    "wdh": [
     0.725,
@@ -377493,7 +377539,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.97
   },
   {
    "kit": "rgp-asia",
@@ -377899,7 +377945,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.8
   },
   {
    "kit": "rgp-asia",
@@ -379239,7 +379285,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.65
+   "thickRel": 1.04
   },
   {
    "kit": "rgp-asia",
@@ -379388,7 +379434,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.66
   },
   {
    "kit": "rgp-asia",
@@ -379600,7 +379646,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.11
   },
   {
    "kit": "rgp-asia",
@@ -380771,7 +380817,7 @@
     "wood-mid"
    ],
    "variant": "rgp-asia/token",
-   "thickRel": 1.56
+   "thickRel": 1.74
   },
   {
    "kit": "rgp-asia",
@@ -380812,7 +380858,7 @@
     "wood-mid"
    ],
    "variant": "rgp-asia/token",
-   "thickRel": 1.57
+   "thickRel": 1.75
   },
   {
    "kit": "rgp-asia",
@@ -387129,7 +387175,7 @@
     "wood-dark"
    ],
    "variant": "rgp-medieval/post-a",
-   "thickRel": 1.55
+   "thickRel": 1.6
   },
   {
    "kit": "rgp-medieval",
@@ -387173,7 +387219,7 @@
     "wood-dark"
    ],
    "variant": "rgp-medieval/post-a",
-   "thickRel": 1.61
+   "thickRel": 1.65
   },
   {
    "kit": "rgp-medieval",
@@ -388209,7 +388255,7 @@
    "collection": "rgp",
    "name": "rowboat",
    "hash": "9fb0497a61",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "l",
    "wdh": [
     0.908,
@@ -388248,7 +388294,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.61
+   "thickRel": 1
   },
   {
    "kit": "rgp-medieval",
@@ -391785,7 +391831,7 @@
    "collection": "rgp",
    "name": "beam",
    "hash": "69e73c4ba1",
-   "kind": "str-part",
+   "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
     0.076,
@@ -391819,7 +391865,14 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 1.07
+   "thickRel": 0.38,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.38 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "rgp-vintage",
@@ -392428,7 +392481,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 1.83
+   "thickRel": 1.8
   },
   {
    "kit": "rgp-vintage",
@@ -395905,7 +395958,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.77
   },
   {
    "kit": "sq-arcade",
@@ -396618,7 +396671,7 @@
    "collection": "sq-props",
    "name": "arrow-sign",
    "hash": "166fd8b651",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-road",
    "size": "m",
    "wdh": [
     0.52,
@@ -396656,7 +396709,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.12
+   "thickRel": 0.79
   },
   {
    "kit": "sq-bowling",
@@ -396798,7 +396851,7 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.05
   },
   {
    "kit": "sq-bowling",
@@ -397399,7 +397452,7 @@
    "collection": "sq-props",
    "name": "display-easel",
    "hash": "8e8098ea2a",
-   "kind": "obj-leisure-art-frame",
+   "kind": "obj-leisure-art-easel",
    "size": "s",
    "wdh": [
     0.078,
@@ -397439,7 +397492,7 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 1.2
+   "thickRel": 0.81
   },
   {
    "kit": "sq-cards",
@@ -398605,12 +398658,12 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 0.41,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.41 wants min 0.5"
+     "text": "I01 thickRel 0.42 wants min 0.5"
     }
    ]
   },
@@ -398940,7 +398993,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.51
+   "thickRel": 1.54
   },
   {
    "kit": "sq-cinema",
@@ -398988,7 +399041,7 @@
     "wood-light"
    ],
    "variant": "sq-cinema/now-sign",
-   "thickRel": 0.66
+   "thickRel": 0.67
   },
   {
    "kit": "sq-cinema",
@@ -399036,7 +399089,7 @@
     "wood-light"
    ],
    "variant": "sq-cinema/now-sign",
-   "thickRel": 0.72
+   "thickRel": 0.74
   },
   {
    "kit": "sq-cinema",
@@ -399485,7 +399538,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.97
   },
   {
    "kit": "sq-fastfood",
@@ -399637,7 +399690,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.79
   },
   {
    "kit": "sq-fastfood",
@@ -401214,7 +401267,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.83
   },
   {
    "kit": "sq-laundry",
@@ -402091,7 +402144,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.98
+   "thickRel": 1
   },
   {
    "kit": "sq-rink",
@@ -402608,7 +402661,7 @@
     "sq",
     "wood-dark"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.35
   },
   {
    "kit": "sq-rink",
@@ -402721,7 +402774,7 @@
    "collection": "sq-props",
    "name": "speaker-stack",
    "hash": "c1e8ea9998",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "m",
    "wdh": [
     0.258,
@@ -402758,7 +402811,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.66
+   "thickRel": 1.44
   },
   {
    "kit": "sq-rink",
@@ -402815,7 +402868,7 @@
    "collection": "sq-props",
    "name": "amp-stack",
    "hash": "0237371876",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "m",
    "wdh": [
     0.42,
@@ -402858,7 +402911,7 @@
     "sq",
     "textile-cloth-light"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.86
   },
   {
    "kit": "sq-studio",
@@ -402929,7 +402982,7 @@
    "collection": "sq-props",
    "name": "mic-stand",
    "hash": "d6f312ef87",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-mic",
    "size": "m",
    "wdh": [
     0.446,
@@ -403030,7 +403083,7 @@
    "collection": "sq-props",
    "name": "studio-monitors",
    "hash": "b93fd03f4d",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
     0.341,
@@ -414816,7 +414869,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.06,
+   "thickRel": 1.09,
    "lint": [
     {
      "level": "warning",
@@ -414877,7 +414930,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.59,
+   "thickRel": 1.63,
    "lint": [
     {
      "level": "warning",
@@ -414931,7 +414984,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/canvas-wide",
-   "thickRel": 1.32
+   "thickRel": 1.36
   },
   {
    "kit": "styloo-school",
@@ -415104,7 +415157,7 @@
    "kit": "styloo-school",
    "name": "chalkboard-large",
    "hash": "17c7188d56",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-noticeboard",
    "size": "m",
    "wdh": [
     1.044,
@@ -415143,13 +415196,13 @@
     "wood-mid"
    ],
    "variant": "styloo-school/chalkboard",
-   "thickRel": 1.18
+   "thickRel": 1.9
   },
   {
    "kit": "styloo-school",
    "name": "chalkboard",
    "hash": "6eaf0297fd",
-   "kind": "str-fixture-marker-sign",
+   "kind": "str-fixture-marker-sign-noticeboard",
    "size": "m",
    "wdh": [
     0.596,
@@ -415187,7 +415240,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/chalkboard",
-   "thickRel": 0.59
+   "thickRel": 0.94
   },
   {
    "kit": "styloo-school",
@@ -415666,7 +415719,7 @@
    "kit": "styloo-school",
    "name": "easel",
    "hash": "d2cd128cf5",
-   "kind": "obj-leisure-art-frame",
+   "kind": "obj-leisure-art-easel",
    "size": "s",
    "wdh": [
     0.353,
@@ -415701,7 +415754,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.56
   },
   {
    "kit": "styloo-school",
@@ -417625,7 +417678,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.92
   },
   {
    "kit": "styloo-school",
@@ -417748,7 +417801,7 @@
    "kit": "styloo-school",
    "name": "printer",
    "hash": "fd2472b47c",
-   "kind": "obj-device-electronics-computer",
+   "kind": "obj-device-electronics-printer",
    "size": "s",
    "wdh": [
     0.293,
@@ -421314,7 +421367,7 @@
    "kit": "taalei-kit",
    "name": "barbecue",
    "hash": "486a7a8f62",
-   "kind": "obj-kitchenware-cookware",
+   "kind": "obj-device-appliance-stove",
    "size": "m",
    "wdh": [
     0.376,
@@ -421352,7 +421405,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.54
+   "thickRel": 0.87
   },
   {
    "kit": "taalei-kit",
@@ -421599,7 +421652,7 @@
    "kit": "taalei-kit",
    "name": "copier",
    "hash": "b495bc0bf7",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-printer",
    "size": "m",
    "wdh": [
     0.594,
@@ -422861,7 +422914,7 @@
    "kit": "taalei-kit",
    "name": "jukebox-diner",
    "hash": "4a2e2655d6",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "m",
    "wdh": [
     0.602,
@@ -422903,13 +422956,13 @@
     "plastic"
    ],
    "variant": "taalei-kit/jukebox",
-   "thickRel": 1.01
+   "thickRel": 0.87
   },
   {
    "kit": "taalei-kit",
    "name": "jukebox-space",
    "hash": "fe947e8ad8",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "m",
    "wdh": [
     0.648,
@@ -422951,13 +423004,13 @@
     "plastic"
    ],
    "variant": "taalei-kit/jukebox",
-   "thickRel": 1.09
+   "thickRel": 0.95
   },
   {
    "kit": "taalei-kit",
    "name": "jukebox",
    "hash": "d28580073a",
-   "kind": "obj-device-electronics-audio",
+   "kind": "obj-device-electronics-audio-speaker",
    "size": "m",
    "wdh": [
     0.576,
@@ -423000,7 +423053,7 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/jukebox",
-   "thickRel": 1.15,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -425911,7 +425964,7 @@
    "kit": "taalei-kit",
    "name": "typewriter-office",
    "hash": "3507714f5a",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-printer",
    "size": "s",
    "wdh": [
     0.47,
@@ -425958,7 +426011,7 @@
    "kit": "taalei-kit",
    "name": "typewriter-portable",
    "hash": "461819ce0e",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-printer",
    "size": "s",
    "wdh": [
     0.376,
@@ -426005,7 +426058,7 @@
    "kit": "taalei-kit",
    "name": "typewriter",
    "hash": "6d2fcc37ce",
-   "kind": "obj-device-electronics",
+   "kind": "obj-device-electronics-printer",
    "size": "s",
    "wdh": [
     0.417,
@@ -428797,7 +428850,7 @@
    "collection": "wizp-eastern",
    "name": "arch-beam",
    "hash": "831c7fca70",
-   "kind": "str-part-wall",
+   "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
     1.715,
@@ -431086,7 +431139,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.92
+   "thickRel": 0.95
   },
   {
    "kit": "wizp-asia",
@@ -431131,7 +431184,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "wizp-asia",
@@ -431176,7 +431229,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-b",
-   "thickRel": 0.93
+   "thickRel": 0.96
   },
   {
    "kit": "wizp-asia",
@@ -431221,7 +431274,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-b",
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "wizp-asia",
@@ -431263,7 +431316,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.91
+   "thickRel": 0.94
   },
   {
    "kit": "wizp-asia",
@@ -431305,7 +431358,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.88
+   "thickRel": 0.91
   },
   {
    "kit": "wizp-asia",
@@ -431349,7 +431402,7 @@
     "wood-dark"
    ],
    "variant": "wizp-asia/pillar-wood",
-   "thickRel": 1.29
+   "thickRel": 1.33
   },
   {
    "kit": "wizp-asia",
@@ -433353,7 +433406,7 @@
    "collection": "wizp-western",
    "name": "boat-oars",
    "hash": "2986dbb5ae",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "l",
    "wdh": [
     0.927,
@@ -433397,14 +433450,14 @@
     "wood-mid"
    ],
    "variant": "wizp-fish/boat-oars",
-   "thickRel": 0.75
+   "thickRel": 1.23
   },
   {
    "kit": "wizp-fish",
    "collection": "wizp-western",
    "name": "boat-poles",
    "hash": "df9beaf4ba",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "l",
    "wdh": [
     1.318,
@@ -433448,14 +433501,14 @@
     "wood-mid"
    ],
    "variant": "wizp-fish/boat-oars",
-   "thickRel": 0.5
+   "thickRel": 0.82
   },
   {
    "kit": "wizp-fish",
    "collection": "wizp-western",
    "name": "boat-rack",
    "hash": "1c3847444f",
-   "kind": "obj-transport-watercraft-boat",
+   "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "l",
    "wdh": [
     1.447,
@@ -433502,14 +433555,7 @@
     "wood-mid"
    ],
    "variant": "wizp-fish/boat-oars",
-   "thickRel": 0.46,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.74
   },
   {
    "kit": "wizp-fish",
@@ -434321,7 +434367,7 @@
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "wizp-grave",
@@ -434363,7 +434409,7 @@
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 0.92
+   "thickRel": 0.95
   },
   {
    "kit": "wizp-grave",
@@ -434405,7 +434451,7 @@
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 1.01
+   "thickRel": 1.04
   },
   {
    "kit": "wizp-grave",

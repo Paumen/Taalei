@@ -18386,7 +18386,7 @@
    "id": "obj",
    "name": "Object",
    "type": "kind",
-   "description": "barrel stand, easel, signboard (freestanding), fire extinguisher",
+   "description": "barrel stand, signboard (freestanding), fire extinguisher",
    "color": "#c07c8a",
    "models": []
   },
@@ -18668,11 +18668,7 @@
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, cash register, console.",
    "models": [
-    "taalei-kit/typewriter",
-    "taalei-kit/typewriter-office",
-    "taalei-kit/typewriter-portable",
     "3dm-industrial-2/generator",
-    "taalei-kit/copier",
     "isa-bakery/cash-register",
     "isa-bakery/cash-register-anim"
    ]
@@ -18757,35 +18753,51 @@
    "id": "obj-device-electronics-audio",
    "name": "Audio",
    "type": "kind",
-   "description": "Speaker or speaker stack.",
+   "description": "Audio device with no leaf that fits: headphones, turntable, gramophone, mixing desk, DJ booth.",
    "models": [
-    "ken-furniture/speaker",
-    "sq-rink/speaker-stack",
-    "sq-studio/studio-monitors",
-    "ken-furniture/speaker-small",
     "sq-rink/dj-booth",
-    "ipoly-concert/speaker-large",
-    "ipoly-concert/speaker-small",
     "household/headphones",
-    "lpa-home/speaker",
     "pm-store/dj-booth",
-    "3dm-electronics/microphone",
-    "m3-base/computer-speaker",
-    "sq-studio/amp-stack",
     "sq-studio/mixing-console",
-    "ipoly-concert/mic-stand",
     "rgp-vintage/gramophone",
     "rgp-vintage/gramophone-record",
-    "taalei-kit/jukebox",
-    "taalei-kit/jukebox-diner",
-    "taalei-kit/jukebox-space",
     "taalei-kit/turntable",
     "taalei-kit/turntable-dj",
     "taalei-kit/turntable-retro",
-    "sq-studio/mic-stand",
     "kay-mixed/cat-headphones-a",
     "kay-mixed/cat-headphones-b",
     "kay-mixed/cat-headphones-c"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-audio-speaker",
+   "name": "Speaker",
+   "type": "kind",
+   "description": "Loudspeaker, speaker stack, amplifier or jukebox.",
+   "models": [
+    "sq-studio/studio-monitors",
+    "sq-rink/speaker-stack",
+    "ipoly-concert/speaker-large",
+    "ipoly-concert/speaker-small",
+    "lpa-home/speaker",
+    "ken-furniture/speaker",
+    "ken-furniture/speaker-small",
+    "sq-studio/amp-stack",
+    "taalei-kit/jukebox",
+    "taalei-kit/jukebox-diner",
+    "taalei-kit/jukebox-space",
+    "m3-base/computer-speaker"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-audio-mic",
+   "name": "Microphone",
+   "type": "kind",
+   "description": "Microphone, on its own or on a stand.",
+   "models": [
+    "ipoly-concert/mic-stand",
+    "sq-studio/mic-stand",
+    "3dm-electronics/microphone"
    ]
   },
   {
@@ -18796,8 +18808,6 @@
    "models": [
     "ken-furniture/laptop",
     "lpa-home/laptop",
-    "styloo-school/printer",
-    "household/printer",
     "3dm-electronics/router",
     "styloo-school/router",
     "taalei-kit/retro-laptop",
@@ -19000,6 +19010,20 @@
     "taalei-kit/desk-phone",
     "taalei-kit/desk-phone-retro",
     "taalei-kit/desk-phone-sleek"
+   ]
+  },
+  {
+   "id": "obj-device-electronics-printer",
+   "name": "Printer",
+   "type": "kind",
+   "description": "Printer, copier or typewriter: a machine that puts text on paper.",
+   "models": [
+    "styloo-school/printer",
+    "household/printer",
+    "taalei-kit/copier",
+    "taalei-kit/typewriter",
+    "taalei-kit/typewriter-office",
+    "taalei-kit/typewriter-portable"
    ]
   },
   {
@@ -19402,9 +19426,6 @@
    "description": "bottle, flask, vial",
    "models": [
     "makeup/nail-polish",
-    "makeup/perfume-bottle",
-    "makeup/lotion-tube-azure",
-    "makeup/lotion-tube-amber",
     "isa-bathroom/bottle-a-yellow",
     "isa-bathroom/bottle-a-pink",
     "isa-bathroom/bottle-a-blue",
@@ -19417,14 +19438,14 @@
     "m3-base/cleaning-bottle-02",
     "m3-base/cleaning-bottle-03",
     "m3-base/cleaning-bottle-04",
-    "m3-base/cleaning-spray",
-    "m3-base/cosmetic-tube",
-    "m3-base/eye-drop-bottle",
     "m3-base/pill-bottle",
     "m3-base/plastic-bottle-01",
     "m3-base/cleaning-bottle-08",
+    "m3-base/cosmetic-tube",
     "m3-base/paint-tube-01",
-    "m3-base/paint-tube-02"
+    "m3-base/paint-tube-02",
+    "makeup/lotion-tube-azure",
+    "makeup/lotion-tube-amber"
    ]
   },
   {
@@ -19576,10 +19597,10 @@
    ]
   },
   {
-   "id": "obj-container-bottle-sauce",
-   "name": "Sauce",
+   "id": "obj-container-bottle-squeeze",
+   "name": "Squeeze bottle",
    "type": "kind",
-   "description": "squeeze bottle, ketchup bottle, mustard bottle, sauce bottle",
+   "description": "Plastic bottle with a cone nozzle: ketchup, mustard, glue, eye drops.",
    "models": [
     "kay-food/ketchup",
     "kay-food/mustard",
@@ -19588,21 +19609,24 @@
     "quat-food/ketchup-bottle",
     "m3-base/sauce-bottle",
     "m3-base/adhesive-bottle",
-    "m3-base/glue-bottle-01"
+    "m3-base/glue-bottle-01",
+    "m3-base/eye-drop-bottle"
    ]
   },
   {
    "id": "obj-container-bottle-pump",
    "name": "Pump",
    "type": "kind",
-   "description": "pump bottle, soap dispenser, lotion pump",
+   "description": "Bottle with a pump or spray head: soap, lotion, cleaning spray, perfume.",
    "models": [
     "isa-bathroom/soap-dispenser-blue",
     "isa-bathroom/soap-dispenser-pink",
     "isa-bathroom/soap-dispenser-yellow",
     "m3-base/soap-dispenser",
     "makeup/lotion-pump-large",
-    "makeup/lotion-pump-small"
+    "makeup/lotion-pump-small",
+    "m3-base/cleaning-spray",
+    "makeup/perfume-bottle"
    ]
   },
   {
@@ -20196,7 +20220,6 @@
     "m3-base/bowtie",
     "m3-base/cane",
     "m3-base/watch-strap",
-    "m3-base/military-dog-tag",
     "avra-weapons/scabbard",
     "m3-base/vintage-crutch"
    ]
@@ -21196,9 +21219,6 @@
    "type": "kind",
    "description": "Hung or laid decoration: wreath, garland, stocking.",
    "models": [
-    "ken-holiday/wreath",
-    "kay-holiday/wreath",
-    "ken-holiday/wreath-decorated",
     "kay-holiday/mistletoe-a",
     "kay-holiday/mistletoe-b",
     "pm-store/frieze",
@@ -21211,8 +21231,7 @@
     "ken-holiday/stocking-cane",
     "m3-base/cubed-trellis",
     "lpa-west/horseshoe",
-    "m3-base/horse-shoe",
-    "kay-mixed/autumn-wreath"
+    "m3-base/horse-shoe"
    ]
   },
   {
@@ -21239,6 +21258,18 @@
     "household/birdhouse",
     "m3-base/birdhouse",
     "taalei-kit/birdhouse"
+   ]
+  },
+  {
+   "id": "obj-furnishing-decor-wreath",
+   "name": "Wreath",
+   "type": "kind",
+   "description": "Ring of greenery, leaves or flowers, hung on a door or wall.",
+   "models": [
+    "kay-mixed/autumn-wreath",
+    "kay-holiday/wreath",
+    "ken-holiday/wreath",
+    "ken-holiday/wreath-decorated"
    ]
   },
   {
@@ -22260,10 +22291,11 @@
    "description": "Kitchenware with no leaf that fits.",
    "color": "#9c3f2e",
    "models": [
-    "isa-kitchen/dishrack",
-    "kay-food/dishrack",
     "m3-base/sponge",
-    "m3-base/dish-sponge"
+    "m3-base/dish-sponge",
+    "m3-base/freezer-block",
+    "isa-kitchen/dishrack",
+    "kay-food/dishrack"
    ]
   },
   {
@@ -22285,12 +22317,9 @@
    "type": "kind",
    "description": "grill, spit, mortar and pestle, pepper mill",
    "models": [
-    "cooking-assets/mortar-and-pestle",
     "cooking-assets/trivet",
-    "taalei-kit/barbecue",
-    "household/barbecue",
     "m3-base/cupcake-case",
-    "m3-base/freezer-block",
+    "cooking-assets/mortar-and-pestle",
     "m3-base/mortar-and-pestle-01",
     "m3-base/mortar-and-pestle-02"
    ]
@@ -22360,7 +22389,9 @@
     "m3-base/cast-iron-log-burner",
     "m3-base/cast-iron-stove-door",
     "fs-house/stove-hood",
-    "quat-interior/kitchen-stove"
+    "quat-interior/kitchen-stove",
+    "household/barbecue",
+    "taalei-kit/barbecue"
    ]
   },
   {
@@ -22424,8 +22455,8 @@
     "m3-base/toasting-fork",
     "m3-base/funnel",
     "emace-village/scoop",
-    "isa-kitchen/utensil-crock",
-    "cooking-assets/pizza-cutter"
+    "cooking-assets/pizza-cutter",
+    "isa-kitchen/utensil-crock"
    ]
   },
   {
@@ -22870,9 +22901,9 @@
     "m3-base/octagonal-dish",
     "m3-base/plate",
     "loaf-coffins/ceramic-9",
+    "avra-food/plate",
     "isa-kitchen/dishrack-plates",
-    "kay-food/dishrack-plates",
-    "avra-food/plate"
+    "kay-food/dishrack-plates"
    ]
   },
   {
@@ -23045,36 +23076,22 @@
    "id": "obj-kitchenware-tableware-drinkware-goblet",
    "name": "Goblet",
    "type": "kind",
-   "description": "Stemmed drinking vessel on a foot.",
+   "description": "Metal, wooden or clay cup on a foot: goblet, chalice.",
    "models": [
     "ken-grave/detail-chalice",
     "quat-props/chalice",
     "kay-dun-1/artifact",
     "props/goblet-a",
-    "isa-picnic/wine-glass",
     "quat-rpg/chalice",
-    "ken-food/glass-wine",
-    "cooking-assets/champagne-flute",
-    "cooking-assets/cocktail-glass",
-    "cooking-assets/cognac-glass",
-    "cooking-assets/goblet",
-    "cooking-assets/hurricane-glass",
-    "cooking-assets/margarita-glass",
-    "cooking-assets/wine-glass",
-    "household/wine-glass",
     "3dm-medieval/goblet-gold",
     "emace-village/goblet-wooden",
-    "m3-base/cocktail-glass",
     "m3-base/goblet-01",
     "m3-base/goblet-02",
     "m3-base/goblet-03",
     "m3-base/goblet-04",
     "m3-base/goblet-05",
-    "m3-base/wine-glass",
-    "m3-base/champagne-glass",
     "m3-base/goblet-06",
-    "m3-base/greek-cup",
-    "ken-food/cocktail"
+    "m3-base/greek-cup"
    ]
   },
   {
@@ -23096,6 +23113,28 @@
     "emace-village/tankard-metal",
     "emace-village/tankard-blue",
     "avra-food/ale-mug"
+   ]
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-stemware",
+   "name": "Stemware",
+   "type": "kind",
+   "description": "Glass on a thin stem: wine, champagne, cocktail or cognac glass.",
+   "models": [
+    "cooking-assets/wine-glass",
+    "cooking-assets/champagne-flute",
+    "cooking-assets/cocktail-glass",
+    "cooking-assets/hurricane-glass",
+    "cooking-assets/margarita-glass",
+    "cooking-assets/cognac-glass",
+    "cooking-assets/goblet",
+    "m3-base/wine-glass",
+    "m3-base/champagne-glass",
+    "m3-base/cocktail-glass",
+    "ken-food/cocktail",
+    "ken-food/glass-wine",
+    "household/wine-glass",
+    "isa-picnic/wine-glass"
    ]
   },
   {
@@ -23423,10 +23462,10 @@
    "description": "compass, hourglass, cigarette packet",
    "color": "#f1976c",
    "models": [
-    "kay-tools/compass-base",
+    "m3-base/cigarette-packet",
     "quat-survival/compass",
     "quat-survival/compass-anim",
-    "m3-base/cigarette-packet"
+    "kay-tools/compass-base"
    ]
   },
   {
@@ -23647,7 +23686,8 @@
     "m3-base/ticket-stub",
     "m3-base/credit-card",
     "rgp-asia/token",
-    "rgp-asia/token-hanging"
+    "rgp-asia/token-hanging",
+    "m3-base/military-dog-tag"
    ]
   },
   {
@@ -24234,12 +24274,12 @@
     "styloo-school/scissors",
     "m3-base/bulldog-clip",
     "m3-base/paperclip",
-    "m3-base/push-pin",
     "m3-base/stapler",
     "m3-base/wax-melting-spoon",
     "m3-base/wax-seal-stamp",
     "m3-base/magnifying-glass",
-    "kay-tools/magnifying-glass"
+    "kay-tools/magnifying-glass",
+    "m3-base/push-pin"
    ]
   },
   {
@@ -24648,14 +24688,14 @@
    "type": "kind",
    "description": "rope, chain, hook, wire, lighter",
    "models": [
-    "quat-survival/matchbox",
-    "quat-survival/match",
-    "quat-survival/match-burnt",
     "m3-base/champagne-cork",
     "m3-base/door-stop-wedge",
     "m3-base/tapered-cork",
-    "m3-base/lighter-01",
-    "styloo-school/cork"
+    "styloo-school/cork",
+    "quat-survival/match",
+    "quat-survival/match-burnt",
+    "quat-survival/matchbox",
+    "m3-base/lighter-01"
    ]
   },
   {
@@ -25143,29 +25183,16 @@
    "id": "obj-transport-watercraft-boat",
    "name": "Boat",
    "type": "kind",
-   "description": "boat, rowboat, canoe, raft, dinghy",
+   "description": "Boat with no leaf that fits: motorboat, sailboat, tug, houseboat, raft, inflatable lifeboat.",
    "models": [
-    "fs-town/boat-a",
-    "fs-town/boat-b",
-    "ken-pirate/boat-row-large",
-    "ken-pirate/boat-row-small",
     "quat-pirate/ship-small",
-    "quat-ships/boat",
-    "quat-ships/boat-sail",
-    "wizp-fish/boat-oars",
-    "wizp-fish/boat-rack",
-    "wizp-fish/boat-poles",
-    "ken-nature/canoe",
     "quat-ships/lifeboat",
-    "ken-water/boat-fan",
-    "ken-water/boat-fan-anim",
-    "ken-water/boat-fishing-small",
     "ken-water/boat-house-a",
     "ken-water/boat-house-b",
     "ken-water/boat-house-c",
     "ken-water/boat-house-d",
-    "ken-water/boat-sail-a",
-    "ken-water/boat-sail-b",
+    "quat-survival/raft",
+    "taalei-kit/raft",
     "ken-water/boat-speed-a",
     "ken-water/boat-speed-b",
     "ken-water/boat-speed-c",
@@ -25176,21 +25203,42 @@
     "ken-water/boat-speed-h",
     "ken-water/boat-speed-i",
     "ken-water/boat-speed-j",
-    "ken-water/boat-tow-b",
-    "ken-water/boat-tow-b-anim",
+    "ken-water/boat-fan",
+    "ken-water/boat-fan-anim",
+    "ken-water/boat-fishing-small",
     "ken-water/boat-tug-a",
     "ken-water/boat-tug-a-anim",
     "ken-water/boat-tug-b",
     "ken-water/boat-tug-b-anim",
     "ken-water/boat-tug-c",
-    "quat-survival/raft",
-    "quat-fishing/rowboat",
     "ken-water/boat-tow-a",
     "ken-water/boat-tow-a-anim",
+    "ken-water/boat-tow-b",
+    "ken-water/boat-tow-b-anim",
+    "quat-ships/boat-sail",
+    "ken-water/boat-sail-a",
+    "ken-water/boat-sail-b"
+   ]
+  },
+  {
+   "id": "obj-transport-watercraft-boat-rowboat",
+   "name": "Rowboat",
+   "type": "kind",
+   "description": "Open boat moved by oars or a pole: rowboat, canoe, skiff, sampan.",
+   "models": [
+    "quat-ships/boat",
+    "quat-fishing/rowboat",
     "rgp-medieval/rowboat",
-    "taalei-kit/raft",
-    "m3-base/skiff-01",
-    "rgp-asia/boat"
+    "rgp-asia/boat",
+    "fs-town/boat-a",
+    "fs-town/boat-b",
+    "wizp-fish/boat-oars",
+    "wizp-fish/boat-poles",
+    "wizp-fish/boat-rack",
+    "ken-pirate/boat-row-large",
+    "ken-pirate/boat-row-small",
+    "ken-nature/canoe",
+    "m3-base/skiff-01"
    ]
   },
   {
@@ -28028,8 +28076,6 @@
    "description": "barricade, curb, kerb, buffer stop",
    "color": "#b08968",
    "models": [
-    "rgp-medieval/stakes-a",
-    "rgp-medieval/stakes-b",
     "sq-bowling/lane-bumpers",
     "sq-pool/lane-ropes",
     "fs-town/stone-curb-a",
@@ -28038,7 +28084,9 @@
     "fs-town/stone-curb-d",
     "fs-terrain/cave-prop-railway-bumpstop",
     "m3-base/t-wall",
-    "ken-racing/fence-curved"
+    "ken-racing/fence-curved",
+    "rgp-medieval/stakes-a",
+    "rgp-medieval/stakes-b"
    ]
   },
   {
@@ -28255,7 +28303,6 @@
    "models": [
     "styloo-school/cafeteria-room",
     "emace-village/beam",
-    "fs-town/canopy-beam",
     "fs-town/canopy-beam-short",
     "fs-town/stucco-support-angled-large",
     "fs-town/stucco-support-angled-low",
@@ -28263,20 +28310,9 @@
     "fs-town/stucco-support-beam-a",
     "fs-town/stucco-support-beam-b",
     "fs-town/stucco-support-beam-c",
-    "fs-town/stucco-support-pillar-a",
-    "fs-town/stucco-support-pillar-b",
-    "fs-town/stucco-support-pillar-c",
     "fs-town/wood-baseboard",
-    "kay-platformer/bracing-large",
-    "kay-platformer/bracing-medium",
-    "kay-platformer/bracing-small",
-    "kay-platformer/strut-horizontal",
-    "m3-base/i-beam",
-    "quat-cyberpunk/support",
-    "quat-cyberpunk/support-short",
     "quat-megakit/column-metal-support",
-    "quat-megakit/column-metal-support-curve",
-    "rgp-vintage/beam"
+    "quat-megakit/column-metal-support-curve"
    ]
   },
   {
@@ -29007,7 +29043,20 @@
     "quat-interior/column-round-b",
     "quat-interior/column-round-c",
     "quat-interior/column-square-tall",
-    "quat-interior/column-square-short"
+    "quat-interior/column-square-short",
+    "wizp-asia/arch-beam",
+    "m3-base/i-beam",
+    "kay-platformer/bracing-large",
+    "kay-platformer/bracing-medium",
+    "kay-platformer/bracing-small",
+    "kay-platformer/strut-horizontal",
+    "quat-cyberpunk/support",
+    "quat-cyberpunk/support-short",
+    "fs-town/stucco-support-pillar-a",
+    "fs-town/stucco-support-pillar-b",
+    "fs-town/stucco-support-pillar-c",
+    "fs-town/canopy-beam",
+    "rgp-vintage/beam"
    ]
   },
   {
@@ -29154,9 +29203,7 @@
    "type": "kind",
    "description": "wall, wall segment, corner",
    "models": [
-    "wizp-asia/arch-beam",
     "m3-base/office-cubicle-wall",
-    "m3-base/wood-wall-panel",
     "quat-ruins/curve-1",
     "quat-ruins/curve-2"
    ]
@@ -29302,7 +29349,8 @@
     "quat-ruins/wall-double-broken",
     "quat-ruins/wall-double-hole",
     "quat-ruins/wall-half",
-    "quat-ruins/wall-hole"
+    "quat-ruins/wall-hole",
+    "m3-base/wood-wall-panel"
    ]
   },
   {
@@ -29604,9 +29652,9 @@
    "models": [
     "ken-water/buoy-flag",
     "ken-water/buoy",
-    "ken-racing/banner-tower-red",
     "ken-water/gate",
     "ken-water/gate-finish",
+    "ken-racing/banner-tower-red",
     "ken-racing/banner-tower-green"
    ]
   },
@@ -29674,20 +29722,11 @@
    "type": "kind",
    "description": "sign, signpost, direction arrow",
    "models": [
-    "isa-bakery/wall-sign-large",
-    "isa-bakery/wall-sign-small",
     "ken-racing/billboard-double-exclusive",
     "ken-racing/billboard-low",
     "ken-racing/billboard-lower",
     "ken-racing/billboard",
-    "styloo-school/chalkboard-large",
-    "styloo-school/chalkboard",
-    "lpa-west/sign-a",
-    "lpa-west/sign-b",
-    "lpa-west/sign-c",
-    "lpa-west/sign-f",
-    "isa-bakery/pricing-card",
-    "sq-bowling/arrow-sign"
+    "lpa-west/sign-f"
    ]
   },
   {
@@ -29713,7 +29752,8 @@
     "kay-platformer/sign-arrows-left-azure",
     "kay-platformer/sign-arrows-right",
     "kay-platformer/sign-arrows-right-azure",
-    "quat-apocalypse/town-sign"
+    "quat-apocalypse/town-sign",
+    "sq-bowling/arrow-sign"
    ]
   },
   {
@@ -29784,7 +29824,10 @@
     "quat-textured/sign-pharmacy",
     "quat-textured/sign-hardware",
     "quat-textured/sign-bookshop",
-    "quat-textured/sign-barbershop"
+    "quat-textured/sign-barbershop",
+    "lpa-west/sign-a",
+    "lpa-west/sign-b",
+    "lpa-west/sign-c"
    ]
   },
   {
@@ -29843,7 +29886,11 @@
     "m3-base/noticeboard",
     "m3-base/sign-shelter-01",
     "pm-store/notice-board",
-    "rgp-asia/notice-board"
+    "rgp-asia/notice-board",
+    "styloo-school/chalkboard",
+    "styloo-school/chalkboard-large",
+    "isa-bakery/wall-sign-large",
+    "isa-bakery/wall-sign-small"
    ]
   },
   {
@@ -29856,7 +29903,8 @@
     "m3-base/menu-stand",
     "sq-fastfood/menu-board",
     "sq-bank/rate-board",
-    "sq-carwash/price-totem"
+    "sq-carwash/price-totem",
+    "isa-bakery/pricing-card"
    ]
   },
   {
@@ -30373,8 +30421,6 @@
     "sq-cinema/poster-lightboxes",
     "sq-rink/stripe-panels",
     "household/painting",
-    "rey-studio/easel-leaning",
-    "styloo-school/easel",
     "styloo-school/canvas-wide",
     "styloo-school/canvas-square",
     "styloo-school/canvas-tall",
@@ -30401,7 +30447,6 @@
     "m3-base/painting-frame-12",
     "m3-base/photo-frame",
     "m3-base/poster",
-    "sq-cards/display-easel",
     "kay-mixed/frame-a",
     "kay-mixed/frame-a-large",
     "kay-mixed/frame-b",
@@ -30488,6 +30533,17 @@
     "ken-arena/trophy",
     "household/trophy",
     "m3-base/trophy"
+   ]
+  },
+  {
+   "id": "obj-leisure-art-easel",
+   "name": "Easel",
+   "type": "kind",
+   "description": "Stand that holds a painting, board or card upright.",
+   "models": [
+    "rey-studio/easel-leaning",
+    "styloo-school/easel",
+    "sq-cards/display-easel"
    ]
   },
   {

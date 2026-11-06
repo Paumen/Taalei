@@ -255,7 +255,12 @@
        ],
        "nouns": [
         "bottle",
-        "flask"
+        "flask",
+        "squeeze tube",
+        "paint tube",
+        "toothpaste tube",
+        "lotion tube",
+        "cosmetic tube"
        ],
        "children": [
         {
@@ -299,12 +304,14 @@
          ]
         },
         {
-         "id": "obj-container-bottle-sauce",
+         "id": "obj-container-bottle-squeeze",
          "nouns": [
           "squeeze bottle",
           "ketchup bottle",
           "mustard bottle",
-          "sauce bottle"
+          "sauce bottle",
+          "glue bottle",
+          "eye-drop bottle"
          ]
         },
         {
@@ -312,7 +319,10 @@
          "nouns": [
           "pump bottle",
           "soap dispenser",
-          "lotion pump"
+          "lotion pump",
+          "spray bottle",
+          "trigger spray",
+          "perfume bottle"
          ]
         }
        ]
@@ -745,8 +755,7 @@
            },
            "nouns": [
             "goblet",
-            "chalice",
-            "wine glass"
+            "chalice"
            ]
           },
           {
@@ -793,6 +802,22 @@
             "frappe",
             "iced coffee"
            ]
+          },
+          {
+           "id": "obj-kitchenware-tableware-drinkware-stemware",
+           "tube.min": 0.012,
+           "nouns": [
+            "stemware",
+            "wine glass",
+            "champagne glass",
+            "champagne flute",
+            "cocktail glass",
+            "martini glass",
+            "margarita glass",
+            "hurricane glass",
+            "cognac glass",
+            "brandy snifter"
+           ]
           }
          ]
         },
@@ -819,10 +844,12 @@
         "sienna"
        ],
        "nouns": [
-        "grill",
         "spit",
         "trivet",
-        "pot holder"
+        "pot holder",
+        "mortar and pestle",
+        "mortar",
+        "pestle"
        ],
        "children": [
         {
@@ -989,6 +1016,12 @@
         "paper towel holder"
        ]
       }
+     ],
+     "nouns": [
+      "dish rack",
+      "dishrack",
+      "dish drainer",
+      "plate rack"
      ]
     },
     {
@@ -2269,9 +2302,6 @@
        "band.textile-cloth": [
         "ivory"
        ],
-       "nouns": [
-        "compass"
-       ],
        "children": [
         {
          "id": "obj-equipment-pocketitem-coin",
@@ -2389,7 +2419,8 @@
           "door hanger",
           "ticket",
           "credit card",
-          "token"
+          "token",
+          "dog tag"
          ]
         },
         {
@@ -2401,6 +2432,10 @@
           "mirror (hand)"
          ]
         }
+       ],
+       "nouns": [
+        "compass",
+        "pocket compass"
        ]
       },
       {
@@ -2432,8 +2467,7 @@
             "paintbrush",
             "makeup brush",
             "comb",
-            "painter's palette",
-            "paint tube"
+            "painter's palette"
            ]
           },
           {
@@ -2620,8 +2654,8 @@
          ],
          "nouns": [
           "wire",
-          "matchbox",
           "match",
+          "matchbox",
           "lighter"
          ],
          "children": [
@@ -2754,8 +2788,8 @@
           "ruler",
           "ink bottle",
           "inkwell",
-          "card easel",
-          "magnifying glass"
+          "magnifying glass",
+          "push pin"
          ],
          "children": [
           {
@@ -2860,10 +2894,30 @@
          "longest.max": 3.6,
          "nouns": [
           "boat",
-          "rowboat",
-          "canoe",
           "raft",
-          "dinghy"
+          "houseboat",
+          "lifeboat",
+          "motorboat",
+          "speedboat",
+          "tugboat",
+          "airboat",
+          "fishing boat",
+          "sailboat",
+          "sailing boat",
+          "yacht"
+         ],
+         "children": [
+          {
+           "id": "obj-transport-watercraft-boat-rowboat",
+           "nouns": [
+            "rowboat",
+            "canoe",
+            "dinghy",
+            "skiff",
+            "sampan",
+            "punt"
+           ]
+          }
          ]
         }
        ]
@@ -3762,7 +3816,6 @@
        "id": "obj-furnishing-decor",
        "tpu.max": 7000,
        "nouns": [
-        "wreath",
         "garland",
         "stocking"
        ],
@@ -3783,6 +3836,12 @@
          "id": "obj-furnishing-decor-birdhouse",
          "nouns": [
           "birdhouse"
+         ]
+        },
+        {
+         "id": "obj-furnishing-decor-wreath",
+         "nouns": [
+          "wreath"
          ]
         }
        ]
@@ -3934,7 +3993,10 @@
          "nouns": [
           "stove",
           "range",
-          "cooktop"
+          "cooktop",
+          "barbecue",
+          "bbq",
+          "grill"
          ]
         },
         {
@@ -3994,8 +4056,6 @@
        "id": "obj-device-electronics",
        "nouns": [
         "gramophone",
-        "jukebox",
-        "typewriter",
         "cash register",
         "register",
         "till",
@@ -4091,7 +4151,6 @@
           "computer",
           "laptop",
           "computer desk",
-          "printer",
           "router"
          ],
          "children": [
@@ -4129,11 +4188,29 @@
          "tube.min": 0.026,
          "longest.min": 0.15,
          "nouns": [
-          "speaker",
-          "loudspeaker",
-          "studio monitor",
-          "dj booth",
-          "microphone"
+          "dj booth"
+         ],
+         "children": [
+          {
+           "id": "obj-device-electronics-audio-speaker",
+           "nouns": [
+            "speaker",
+            "loudspeaker",
+            "studio monitor",
+            "speaker stack",
+            "amplifier",
+            "amp stack",
+            "jukebox"
+           ]
+          },
+          {
+           "id": "obj-device-electronics-audio-mic",
+           "nouns": [
+            "microphone",
+            "mic",
+            "mic stand"
+           ]
+          }
          ]
         },
         {
@@ -4167,6 +4244,15 @@
           "microchip",
           "memory module",
           "ssd"
+         ]
+        },
+        {
+         "id": "obj-device-electronics-printer",
+         "nouns": [
+          "printer",
+          "copier",
+          "photocopier",
+          "typewriter"
          ]
         }
        ]
@@ -4307,8 +4393,15 @@
          "nouns": [
           "picture frame",
           "painting",
-          "photo",
-          "easel"
+          "photo"
+         ]
+        },
+        {
+         "id": "obj-leisure-art-easel",
+         "nouns": [
+          "easel",
+          "card easel",
+          "display easel"
          ]
         }
        ]
@@ -5425,7 +5518,7 @@
          },
          "nouns": [
           "sign",
-          "price card"
+          "billboard"
          ],
          "children": [
           {
@@ -5476,7 +5569,9 @@
             "notice board",
             "noticeboard",
             "corkboard",
-            "bulletin board"
+            "bulletin board",
+            "chalkboard",
+            "blackboard"
            ]
           },
           {
@@ -5485,7 +5580,8 @@
             "menu board",
             "price board",
             "price totem",
-            "rate board"
+            "rate board",
+            "price card"
            ]
           }
          ]
