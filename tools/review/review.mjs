@@ -20,8 +20,10 @@ build   renders every listed model before (at --base, default the list's
         { "title": "short name", "base": "<git ref>",
           "items": [ { "model": "kit/name", "group": "heading",
                        "change": "what was done", "note": "why it is doubtful",
-                       "doubt": "high" | "low", "types": ["size", …] } ] }
+                       "doubt": "high" | "low", "types": ["size", …], "before": "<glb>" } ] }
         types is optional: size, tag, recolour, shape, geometry; derived when left out.
+        before is optional: a glb shown as before instead of the one at base,
+        such as the rejected source of a model new in the catalogue.
 
 apply   takes the page's copied verdicts, or lines of "kit/name: verdict".
         revert, retry and relax put the model's file and its tags back as they
@@ -272,8 +274,14 @@ function build() {
   const key = (model) => model.replace('/', '__');
   for (const item of list.items) {
     const path = `${WORK}/${item.model}.glb`;
-    const old = atRef(base, path);
+    const old = item.before ? readFileSync(resolve(ROOT, item.before)) : atRef(base, path);
     if (old) writeFileSync(join(out, 'before', `${key(item.model)}.glb`), old);
+    if (item.before) {
+      for (const image of parseGlb(old).json.images ?? []) {
+        const uri = image.uri && decodeURIComponent(image.uri);
+        if (uri && !existsSync(join(out, 'before', uri))) copyFileSync(resolve(ROOT, dirname(item.before), uri), join(out, 'before', uri));
+      }
+    }
     if (existsSync(join(ROOT, path))) copyFileSync(join(ROOT, path), join(out, 'after', `${key(item.model)}.glb`));
   }
   for (const side of ['before', 'after']) {
