@@ -18574,6 +18574,19 @@
    ]
   },
   {
+   "id": "obj-leisure-game-console",
+   "name": "Game console",
+   "type": "kind",
+   "description": "Video game console, handheld console or game controller.",
+   "models": [
+    "3dm-electronics/console",
+    "kay-mixed/handheld-console",
+    "lpa-home/console-c",
+    "lpa-home/console-d",
+    "m3-base/cartoon-controller"
+   ]
+  },
+  {
    "id": "obj-leisure-game-gym",
    "name": "Gym",
    "type": "kind",
@@ -23902,7 +23915,6 @@
     "rgp-medieval/cloth-roll",
     "emace-village/sheet-stand",
     "m3-base/cotton-reel",
-    "kay-resources/pallet-wood-covered-b",
     "m3-base/button",
     "m3-base/button-02",
     "m3-base/button-07"
@@ -24063,7 +24075,8 @@
     "lpa-construction/pallet",
     "3dm-industrial-2/pallet",
     "m3-base/large-pallet",
-    "m3-base/pallet"
+    "m3-base/pallet",
+    "kay-resources/pallet-wood-covered-b"
    ]
   },
   {
@@ -27610,7 +27623,6 @@
    "description": "fireplace, hearth, fire grate",
    "models": [
     "fs-house/fireplace",
-    "fs-house/fireplace-chimney",
     "pm-store/fireplace",
     "quat-interior/fireplace",
     "emace-village/hearth",
@@ -28401,10 +28413,7 @@
     "rgp-asia/garden-wall-gate-a",
     "rgp-asia/garden-wall-gate-b",
     "rgp-asia/gate",
-    "rgp-asia/torii",
-    "wizp-asia/torii",
     "kay-hexagon/wall-corner-a-gate",
-    "ken-castle/wall-doorway",
     "ken-castle/wall-narrow-gate",
     "kay-builder/wall-gate",
     "kay-builder/wall-gate-closed",
@@ -28413,12 +28422,8 @@
     "quat-town/wall-towers-gate-1",
     "quat-town/wall-towers-door-2",
     "quat-town/wall-towers-gate-2",
-    "kay-minigame/gate-large",
-    "kay-minigame/gate-small",
     "ken-pirate/castle-door",
     "ken-pirate/castle-gate",
-    "kay-platformer/arch",
-    "kay-platformer/arch-wide",
     "kay-platformer/finish-line",
     "kay-platformer/finish-line-wide",
     "ken-racing/overhead",
@@ -28427,23 +28432,26 @@
     "ken-racing/overhead-round-colored",
     "ken-space/gate-complex",
     "ken-space/gate-simple",
-    "quat-sushi/torii-gate",
-    "ken-cave/gate",
     "ken-cave/gate-metal-bars",
-    "quat-dun-1/arch",
     "quat-sushi/arch",
     "ken-arena/wall-gate",
-    "kay-platformer/arch-tall",
-    "fs-temple/wall-straight-doorway-large",
-    "fs-temple/wall-straight-doorway-large-extension",
-    "fs-temple/wall-straight-doorway-large-pocket",
-    "pm-store/gateway-board",
     "emace-village/stone-gateway",
     "emace-village/timber-gateway",
-    "m3-base/pagoda-arch",
+    "mali/wall-gate"
+   ]
+  },
+  {
+   "id": "str-part-gate-gateway-torii",
+   "name": "Torii",
+   "type": "kind",
+   "description": "Freestanding shrine gateway of two posts under crossbeams.",
+   "models": [
     "m3-base/torii-gate-01",
     "m3-base/torii-gate-02",
-    "mali/wall-gate"
+    "quat-sushi/torii-gate",
+    "rgp-asia/torii",
+    "wizp-asia/torii",
+    "pm-store/gateway-board"
    ]
   },
   {
@@ -29072,7 +29080,8 @@
     "m3-base/crown-chimney",
     "rgp-medieval/forge-chimney",
     "m3-base/roll-top-chimney",
-    "m3-base/weathertop-chimney"
+    "m3-base/weathertop-chimney",
+    "fs-house/fireplace-chimney"
    ]
   },
   {
@@ -29368,7 +29377,11 @@
     "ken-arena/wall-corner",
     "quat-megakit/door-frame-square",
     "quat-megakit/door-frame-square-tall",
-    "dungeon-2/doorway-cell"
+    "dungeon-2/doorway-cell",
+    "fs-temple/wall-straight-doorway-large",
+    "fs-temple/wall-straight-doorway-large-extension",
+    "fs-temple/wall-straight-doorway-large-pocket",
+    "ken-castle/wall-doorway"
    ]
   },
   {
@@ -29522,7 +29535,15 @@
     "quat-ruins/arch-gothic-round",
     "quat-ruins/arch-round",
     "quat-ruins/arch-round-round",
-    "fs-town/stone-arch-outer"
+    "fs-town/stone-arch-outer",
+    "ken-cave/gate",
+    "kay-platformer/arch",
+    "kay-platformer/arch-tall",
+    "kay-platformer/arch-wide",
+    "quat-dun-1/arch",
+    "m3-base/pagoda-arch",
+    "kay-minigame/gate-large",
+    "kay-minigame/gate-small"
    ]
   },
   {
@@ -30517,16 +30538,11 @@
     "taalei-kit/newtons-cradle",
     "taalei-kit/tricycle-coral",
     "taalei-kit/tricycle-coral-b",
-    "3dm-electronics/console",
     "ken-holiday/sled",
     "ken-holiday/sled-long",
-    "lpa-home/console-c",
-    "lpa-home/console-d",
-    "m3-base/cartoon-controller",
     "m3-base/dart",
     "m3-base/dart-board",
     "kay-mixed/haunted-manor",
-    "kay-mixed/handheld-console",
     "kay-mixed/sled"
    ]
   },
@@ -31575,21 +31591,14 @@
    "id": "str-barrier-railing",
    "name": "Railing",
    "type": "kind",
-   "description": "railing, balustrade, baluster, handrail, banister",
+   "description": "railing, balustrade",
    "models": [
     "fs-town/wood-railing-corner",
-    "fs-town/wood-railing-stairs",
     "fs-town/wood-railing-straight",
     "fs-town/wood-rope-corner",
-    "fs-town/wood-rope-stairs",
     "fs-town/wood-rope-straight",
     "fs-house/railing-corner",
     "fs-house/railing",
-    "fs-house/railing-baluster",
-    "fs-house/railing-post",
-    "fs-house/railing-stairs-curved-inner",
-    "fs-house/railing-stairs-curved-outer",
-    "fs-house/railing-stairs",
     "ken-market/railing",
     "kay-platformer/railing-single",
     "kay-platformer/railing-padded",
@@ -31597,27 +31606,10 @@
     "kay-platformer/railing-corner-single",
     "kay-platformer/railing-corner-padded",
     "kay-platformer/railing-corner-double",
-    "ken-station/stairs-handrail-single",
-    "m3-base/newel-cap-01",
-    "m3-base/newel-cap-02",
-    "m3-base/newel-cap-03",
-    "m3-base/newel-cap-04",
     "m3-base/pedestrian-guardrail",
-    "m3-base/round-handrail-bracket",
-    "m3-base/spindle-03",
-    "m3-base/spindle-04",
-    "m3-base/spindle-05",
-    "m3-base/spindle-06",
     "m3-base/trunk-protection-railing",
-    "m3-base/baluster-colchester",
-    "m3-base/baluster-oxford",
-    "m3-base/baluster-pembroke",
-    "ken-station/stairs-handrail",
     "ken-racing/rail",
     "ken-racing/rail-double",
-    "fs-temple/stairs-newel-top",
-    "fs-temple/stairs-newel-middle",
-    "fs-temple/stairs-newel-base",
     "ken-space/rail",
     "ken-space/rail-corner",
     "ken-station/rail",
@@ -31632,6 +31624,46 @@
     "quat-megakit/rail-round-small",
     "quat-cyberpunk/rail",
     "quat-textured/balcony"
+   ]
+  },
+  {
+   "id": "str-barrier-railing-stairs",
+   "name": "Stair railing",
+   "type": "kind",
+   "description": "Railing or handrail that runs along a stair, and its brackets.",
+   "models": [
+    "fs-house/railing-stairs",
+    "fs-house/railing-stairs-curved-inner",
+    "fs-house/railing-stairs-curved-outer",
+    "fs-town/wood-railing-stairs",
+    "fs-town/wood-rope-stairs",
+    "ken-station/stairs-handrail",
+    "ken-station/stairs-handrail-single",
+    "m3-base/round-handrail-bracket"
+   ]
+  },
+  {
+   "id": "str-barrier-railing-post",
+   "name": "Railing post",
+   "type": "kind",
+   "description": "Single post of a railing: baluster, spindle, newel post or newel cap.",
+   "models": [
+    "fs-house/railing-baluster",
+    "fs-house/railing-post",
+    "fs-temple/stairs-newel-base",
+    "fs-temple/stairs-newel-middle",
+    "fs-temple/stairs-newel-top",
+    "m3-base/baluster-colchester",
+    "m3-base/baluster-oxford",
+    "m3-base/baluster-pembroke",
+    "m3-base/newel-cap-01",
+    "m3-base/newel-cap-02",
+    "m3-base/newel-cap-03",
+    "m3-base/newel-cap-04",
+    "m3-base/spindle-03",
+    "m3-base/spindle-04",
+    "m3-base/spindle-05",
+    "m3-base/spindle-06"
    ]
   },
   {

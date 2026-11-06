@@ -572,7 +572,8 @@
         "chestnut"
        ],
        "nouns": [
-        "pallet"
+        "pallet",
+        "covered pallet"
        ]
       },
       {
@@ -4323,10 +4324,7 @@
         "plushie",
         "puzzle cube",
         "pacifier",
-        "sled",
-        "game console",
-        "game controller",
-        "handheld console"
+        "sled"
        ]
       },
       {
@@ -4413,6 +4411,15 @@
           "dance machine",
           "basketball game"
          ]
+        },
+        {
+         "id": "obj-leisure-game-console",
+         "nouns": [
+          "game console",
+          "handheld console",
+          "game controller",
+          "joystick"
+         ]
         }
        ]
       }
@@ -4497,8 +4504,16 @@
           "small": 0.6
          },
          "nouns": [
-          "gateway",
-          "torii"
+          "gateway"
+         ],
+         "children": [
+          {
+           "id": "str-part-gate-gateway-torii",
+           "nouns": [
+            "torii",
+            "shrine gate"
+           ]
+          }
          ]
         }
        ]
@@ -4602,7 +4617,8 @@
         "chimney",
         "roof chimney",
         "smokestack",
-        "chimney stack"
+        "chimney stack",
+        "fireplace chimney"
        ]
       },
       {
@@ -4631,7 +4647,8 @@
            "id": "str-part-wall-unit-doorway",
            "nouns": [
             "wall with doorway",
-            "door wall"
+            "door wall",
+            "doorway wall"
            ]
           },
           {
@@ -4659,7 +4676,9 @@
          "id": "str-part-wall-arch",
          "nouns": [
           "arch (building)",
-          "archway"
+          "archway",
+          "freestanding arch",
+          "hoop arch"
          ]
         }
        ]
@@ -5030,10 +5049,28 @@
        "id": "str-barrier-railing",
        "nouns": [
         "railing",
-        "balustrade",
-        "baluster",
-        "handrail",
-        "banister"
+        "balustrade"
+       ],
+       "children": [
+        {
+         "id": "str-barrier-railing-post",
+         "nouns": [
+          "baluster",
+          "spindle",
+          "newel post",
+          "newel cap",
+          "railing post"
+         ]
+        },
+        {
+         "id": "str-barrier-railing-stairs",
+         "nouns": [
+          "stair railing",
+          "handrail",
+          "banister",
+          "handrail bracket"
+         ]
+        }
        ]
       },
       {
