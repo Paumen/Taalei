@@ -20,10 +20,15 @@ build   renders every listed model before (at --base, default the list's
         { "title": "short name", "base": "<git ref>",
           "items": [ { "model": "kit/name", "group": "heading",
                        "change": "what was done", "note": "why it is doubtful",
-                       "doubt": "high" | "low", "types": ["size", …], "before": "<glb>" } ] }
+                       "doubt": "high" | "low", "types": ["size", …], "before": "<glb>",
+                       "after": "<glb>", "options": [["value", "Label"], …] } ] }
         types is optional: size, tag, recolour, shape, geometry; derived when left out.
         before is optional: a glb shown as before instead of the one at base,
         such as the rejected source of a model new in the catalogue.
+        after is optional: a glb shown as after instead of the working tree,
+        such as a copy marking the faces a lint flags.
+        options is optional: answer buttons shown instead of Revert, Fail and
+        Keep; the chosen value is the item's verdict.
 
 apply   takes the page's copied verdicts, or lines of "kit/name: verdict".
         revert, retry and relax put the model's file and its tags back as they
@@ -282,7 +287,8 @@ function build() {
         if (uri && !existsSync(join(out, 'before', uri))) copyFileSync(resolve(ROOT, dirname(item.before), uri), join(out, 'before', uri));
       }
     }
-    if (existsSync(join(ROOT, path))) copyFileSync(join(ROOT, path), join(out, 'after', `${key(item.model)}.glb`));
+    const now = item.after ? resolve(ROOT, item.after) : join(ROOT, path);
+    if (existsSync(now)) copyFileSync(now, join(out, 'after', `${key(item.model)}.glb`));
   }
   for (const side of ['before', 'after']) {
     if (readdirSync(join(out, side)).some((f) => f.endsWith('.glb'))) render(join(out, side), join(out, `r-${side}`), size);
@@ -317,6 +323,7 @@ function build() {
       note: item.note ?? '',
       doubt: item.doubt ?? 'low',
       types: item.types ?? d.types,
+      ...(item.options ? { options: item.options } : {}),
       facts: d.facts,
       pixels,
       visual,
