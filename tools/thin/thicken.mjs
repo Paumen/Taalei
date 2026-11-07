@@ -17,6 +17,7 @@ catalogue units (default: the kind's thin.min, at least 0.006).
            back that way are listed as short. A part lying on a
            thickened part (a pattern, clock hands) moves out with it
            base: the side touching another part stays, the other side grows
+           inside: the outside stays, the side facing the part's middle grows
 A closed part is offset face by face, a flat one straight through. An open
 sheet (a card, or a two-sided card) becomes a closed slab of --to, its sides
 keeping the edge's colour; one lying flat on another part is a layer and is
@@ -252,10 +253,11 @@ for (const prim of editablePrimitives(json)) {
       const delta = Math.max(0, want - part.wall);
       const base = mode === 'base' ? part.own.filter((f) => touching(f, others, reach)) : [];
       const move = new Map(part.own.map((f) => {
-        const d = base.length ? (base.includes(f) ? 0 : delta) : delta / 2;
+        const inner = dot(f.n, sub(part.centre, scale3(add3(add3(f.p[0], f.p[1]), f.p[2]), 1 / 3))) > 0;
+        const d = mode === 'inside' ? (inner ? delta : 0) : base.length ? (base.includes(f) ? 0 : delta) : delta / 2;
         return [f, Math.min(d, Math.max(0, gap(f, others, f.n, Infinity) / 2 - room))];
       }));
-      report(part, move, base.length ? delta : delta / 2);
+      report(part, move, base.length || mode === 'inside' ? delta : delta / 2);
       for (const f of part.own) shift.set(f, { front: scale3(f.n, move.get(f)), back: [0, 0, 0] });
       const axis = flatAxis(part.own);
       if (axis) {
