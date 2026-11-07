@@ -11,12 +11,13 @@ stays as it is, so small points and tips keep their shape. Both sides of a thin
 wall move outward along their normals, each connected part by one amount, so
 a sheet stays flat; a sheet of two faces back to back opens into a slab, and
 the gap left along its edge is closed with side faces in the colour of the
-edge. A part that would cut into another part is left as it is. Prints wall
+edge. A point stops well short of any surface in its way, so a
+sheet never passes through a part beside it. Prints wall
 before and after per file, as JSON. --miter caps how far a corner may move, as
 a factor of its push (1.5 by default).`;
 
 const POINTS = [[1 / 3, 1 / 3], [2 / 3, 1 / 6], [1 / 6, 2 / 3], [1 / 6, 1 / 6]];
-const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4, LEFT = 0.15, GRID = 24;
+const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4, LEFT = 0.15, GAP = 3;
 let MITER = 1.5;
 
 const unit = (v) => { const l = Math.hypot(...v) || 1; return v.map((x) => x / l); };
@@ -64,41 +65,6 @@ function needs(glb, to) {
     left -= f.area;
   }
   return out;
-}
-
-function crossings(index, tris, shell, wid, at) {
-  const box = (t) => [0, 1, 2].map((q) => { const v = [0, 1, 2].map((k) => at(index[t + k])[q]); return [Math.min(...v), Math.max(...v)]; });
-  const all = [];
-  for (let t = 0; t < index.length; t += 3) all.push(t);
-  const lo = [0, 1, 2].map((q) => Math.min(...all.map((t) => box(t)[q][0])));
-  const hi = [0, 1, 2].map((q) => Math.max(...all.map((t) => box(t)[q][1])));
-  const ext = Math.max(...sub(hi, lo)) || 1, cell = ext / GRID + 1e-12, tol = ext * 1e-6;
-  const boxes = new Map(all.map((t) => [t, box(t)]));
-  const cellsOf = (b) => { const r = b.map(([l, h], q) => [Math.floor((l - lo[q]) / cell), Math.floor((h - lo[q]) / cell)]); const out = []; for (let x = r[0][0]; x <= r[0][1]; x++) for (let y = r[1][0]; y <= r[1][1]; y++) for (let z = r[2][0]; z <= r[2][1]; z++) out.push(`${x},${y},${z}`); return out; };
-  const grid = new Map();
-  for (const t of all) for (const c of cellsOf(boxes.get(t))) { if (!grid.has(c)) grid.set(c, []); grid.get(c).push(t); }
-  const pts = (t) => [0, 1, 2].map((k) => at(index[t + k]));
-  const hits = (p, q, [a, b, c]) => {
-    const n = cross(sub(b, a), sub(c, a)), nl = Math.hypot(...n);
-    if (nl < 1e-18) return false;
-    const dp = dotOf(n, sub(p, a)) / nl, dq = dotOf(n, sub(q, a)) / nl;
-    if ((dp > -tol && dq > -tol) || (dp < tol && dq < tol)) return false;
-    const x = p.map((v, i) => v + (q[i] - v) * (dp / (dp - dq)));
-    return [[a, b], [b, c], [c, a]].every(([u, w]) => dotOf(cross(sub(w, u), sub(x, u)), n) / nl / Math.hypot(...sub(w, u)) > tol * 10);
-  };
-  const edges = (T) => [[T[0], T[1]], [T[1], T[2]], [T[2], T[0]]];
-  let count = 0;
-  const seen = new Set();
-  for (const t of tris) for (const c of cellsOf(boxes.get(t))) for (const o of grid.get(c) ?? []) {
-    if (o === t || seen.has(`${t},${o}`) || seen.has(`${o},${t}`)) continue;
-    if (shell[index[o]] === shell[index[t]] && [0, 1, 2].some((k) => [0, 1, 2].some((m) => wid[index[t + k]] === wid[index[o + m]]))) continue;
-    seen.add(`${t},${o}`);
-    const A = boxes.get(t), B = boxes.get(o);
-    if (A.some(([l, h], q) => h < B[q][0] || B[q][1] < l)) continue;
-    const TA = pts(t), TB = pts(o);
-    if (edges(TA).some(([p, q]) => hits(p, q, TB)) || edges(TB).some(([p, q]) => hits(p, q, TA))) count++;
-  }
-  return count;
 }
 
 function isPlain(m) {
@@ -173,17 +139,41 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   }
 
   const moved = (v) => Math.hypot(...move[v]) > MOVED;
-  const blocked = [];
   const wid = Array.from({ length: count }, (_, v) => weld(v));
-  for (const sh of new Set(shell.filter((_, v) => moved(v)))) {
-    const tris = [];
-    for (let t = 0; t < index.length; t += 3) if (shell[index[t]] === sh) tris.push(t);
-    const start = (v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
-    const end = (v) => (shell[v] === sh ? start(v).map((x, q) => x + move[v][q]) : start(v));
-    if (crossings(index, tris, shell, wid, end) > crossings(index, tris, shell, wid, start)) {
-      blocked.push(sh);
-      for (let v = 0; v < count; v++) if (shell[v] === sh) move[v] = [0, 0, 0];
+  const start = (v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
+  const tri = [];
+  for (let t = 0; t < index.length; t += 3) {
+    const p3 = [0, 1, 2].map((k) => start(index[t + k]));
+    tri.push({ p3, w: [0, 1, 2].map((k) => wid[index[t + k]]), lo: [0, 1, 2].map((q) => Math.min(...p3.map((p) => p[q]))), hi: [0, 1, 2].map((q) => Math.max(...p3.map((p) => p[q]))) });
+  }
+  const hit = (o, d, far, w) => {
+    let best = far;
+    for (const T of tri) {
+      if (T.w.includes(w)) continue;
+      if ([0, 1, 2].some((q) => Math.max(o[q], o[q] + d[q] * best) < T.lo[q] || Math.min(o[q], o[q] + d[q] * best) > T.hi[q])) continue;
+      const [a, b, c] = T.p3, e1 = sub(b, a), e2 = sub(c, a), h = cross(d, e2), det = dotOf(e1, h);
+      if (Math.abs(det) < 1e-18) continue;
+      const f = 1 / det, s0 = sub(o, a), u = f * dotOf(s0, h);
+      if (u < 0 || u > 1) continue;
+      const q = cross(s0, e1), v = f * dotOf(d, q);
+      if (v < 0 || u + v > 1) continue;
+      const t = f * dotOf(e2, q);
+      if (t > 0 && t < best) best = t;
     }
+    return best;
+  };
+  let held = 0;
+  const reach = new Map();
+  for (let v = 0; v < count; v++) {
+    const l = Math.hypot(...move[v]);
+    if (l <= MOVED) continue;
+    const key = `${wid[v]}|${move[v].map((x) => x.toFixed(9)).join(',')}`;
+    if (!reach.has(key)) {
+      const d = move[v].map((x) => x / l), far = l * GAP;
+      reach.set(key, Math.min(1, hit(start(v), d, far, wid[v]) / far));
+    }
+    const k = reach.get(key);
+    if (k < 1) { held++; move[v] = move[v].map((x) => x * k); }
   }
   const edges = new Map();
   for (let t = 0; t < index.length; t += 3) for (let k = 0; k < 3; k++) {
@@ -195,7 +185,6 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   }
   const adder = vertexAdder(glb, prim);
   const after = (v) => [0, 1, 2].map((q) => pos[v * 3 + q] + move[v][q]);
-  const start = (v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
   const near = (p, q) => Math.hypot(...sub(p, q)) < MOVED;
   const span = Math.max(...[0, 1, 2].map((q) => { let lo = Infinity, hi = -Infinity; for (let v = 0; v < count; v++) { lo = Math.min(lo, pos[v * 3 + q]); hi = Math.max(hi, pos[v * 3 + q]); } return hi - lo; }));
   const sliver = Math.max(1e-7, span * 1e-5) ** 2;
@@ -234,7 +223,7 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   }
   for (let v = 0; v < count; v++) if (moved(v)) posAt(v).set(after(v));
   adder.commit(index, replaced);
-  return { faces: [...need.keys()].filter((k) => k.startsWith(`${meshNode}/${primIndex}/`)).length, sides, blocked: blocked.length };
+  return { faces: [...need.keys()].filter((k) => k.startsWith(`${meshNode}/${primIndex}/`)).length, sides, held };
 }
 
 const args = process.argv.slice(2);
