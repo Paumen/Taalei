@@ -802,6 +802,70 @@ export function thinnestPart(glb) {
   return null;
 }
 
+const sub3 = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+const cross3 = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+
+const WALL_SAMPLES = 400;
+const WALL_SHARE = 0.2;
+const WALL_MIN_PART = 0.002;
+const WALL_FACING = -0.9;
+
+export function thinnestWall(glb) {
+  const key = (q) => q.map((x) => Math.round(x * 1e4)).join(',');
+  const tris = [];
+  for (const t of sceneTriangles(glb)) {
+    const n = cross3(sub3(t.p[1], t.p[0]), sub3(t.p[2], t.p[0]));
+    const len = Math.hypot(...n);
+    if (len < 1e-12) continue;
+    tris.push({ p: t.p, n: n.map((x) => x / len), area: len / 2, keys: t.p.map(key) });
+  }
+  const parent = tris.map((_, i) => i);
+  const find = (i) => { while (parent[i] !== i) i = parent[i] = parent[parent[i]]; return i; };
+  const owner = new Map();
+  tris.forEach((t, i) => t.keys.forEach((k) => {
+    if (!owner.has(k)) return owner.set(k, i);
+    const a = find(owner.get(k)), b = find(i);
+    if (a !== b) parent[Math.max(a, b)] = Math.min(a, b);
+  }));
+  const parts = new Map();
+  tris.forEach((t, i) => {
+    t.part = find(i);
+    if (!parts.has(t.part)) parts.set(t.part, []);
+    parts.get(t.part).push(t);
+  });
+  const total = tris.reduce((s, t) => s + t.area, 0);
+  const step = Math.max(1, Math.ceil(tris.length / WALL_SAMPLES));
+  let best = null;
+  for (const own of parts.values()) {
+    if (own.reduce((s, t) => s + t.area, 0) < WALL_MIN_PART * total) continue;
+    const hits = [];
+    for (let i = 0; i < own.length; i += Math.min(step, Math.max(1, Math.floor(own.length / 8)))) {
+      const t = own[i];
+      const o = [0, 1, 2].map((k) => (t.p[0][k] + t.p[1][k] + t.p[2][k]) / 3);
+      const d = t.n.map((x) => -x);
+      let wall = Infinity;
+      for (const b of own) {
+        if (b === t || dot3(b.n, t.n) > WALL_FACING || b.keys.some((k) => t.keys.includes(k))) continue;
+        const r = rayDistance(o, d, b.p);
+        if (r !== null && r > 1e-5 && r < wall) wall = r;
+      }
+      if (wall === Infinity) continue;
+      if (wall < LAYER_WIDTH && tris.some((b) => b.part !== t.part && [[t.n, 0], [d, wall]].some(([dir, from]) => {
+        const r = rayDistance(o, dir, b.p);
+        return r !== null && r > from - 1e-5 && r < from + LAYER_GAP;
+      }))) continue;
+      hits.push({ wall, area: t.area });
+    }
+    if (!hits.length) continue;
+    hits.sort((a, b) => a.wall - b.wall);
+    const sum = hits.reduce((s, h) => s + h.area, 0);
+    let acc = 0, wall = hits[hits.length - 1].wall;
+    for (const h of hits) { acc += h.area; if (acc >= WALL_SHARE * sum) { wall = h.wall; break; } }
+    if (best === null || wall < best) best = wall;
+  }
+  return best;
+}
+
 const THICK_CELLS = 60;
 const THICK_PAD = 4;
 const THICK_SEAL = 2;

@@ -591,6 +591,7 @@ const rows = models.map((m) => {
     centered: m.pivotIsCenter || undefined,
     minEdge: round(m.minEdgeLength, 4),
     minTube: m.minTube === null ? undefined : Math.floor(m.minTube * 1e4) / 1e4,
+    minWall: m.minWall == null ? undefined : Math.floor(m.minWall * 1e4) / 1e4,
     badNormals: m.badNormals || undefined,
     thick: m.thickness == null ? undefined : round(m.thickness, 4),
     avgTri: round(m.averageTriangleArea, 5),
