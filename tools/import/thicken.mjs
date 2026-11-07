@@ -5,17 +5,19 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, vec3View, welder, p
 const HELP = `thicken.mjs [--to <thickness>] [--miter <factor>] [--dry] <model.glb> [...]
 
 Thickens walls thinner than <thickness> (0.0062 by default) to <thickness>.
-Each face is measured at four points as G33 measures wall, and both sides of a
-thin wall move outward along their normals by half of what is missing, so the
-wall grows evenly around its middle. A sheet of two faces back to back opens
-into a slab, and the gap left along its edge is closed with side faces in the
-colour of the edge. Nothing else moves. Prints wall before and after per file,
-as JSON. --miter caps how far a corner may move, as a factor of its push
-(4 by default); a lower value keeps sharp points, such as leaf tips.`;
+Each face is measured at four points as G33 measures wall. Even, large thin
+faces go first, and once less than 15% of the surface is left thin the rest
+stays as it is, so small points and tips keep their shape. Both sides of a thin
+wall move outward along their normals, each connected part by one amount, so
+a sheet stays flat; a sheet of two faces back to back opens into a slab, and
+the gap left along its edge is closed with side faces in the colour of the
+edge. A part that would cut into another part is left as it is. Prints wall
+before and after per file, as JSON. --miter caps how far a corner may move, as
+a factor of its push (1.5 by default).`;
 
 const POINTS = [[1 / 3, 1 / 3], [2 / 3, 1 / 6], [1 / 6, 2 / 3], [1 / 6, 1 / 6]];
-const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4;
-let MITER = 4;
+const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4, LEFT = 0.15, GRID = 24;
+let MITER = 1.5;
 
 const unit = (v) => { const l = Math.hypot(...v) || 1; return v.map((x) => x / l); };
 const dotOf = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -36,18 +38,67 @@ function miter(list) {
 function needs(glb, to) {
   const list = worldTriangles(glb);
   const scene = rayScene(list);
-  const out = new Map();
+  const thin = [];
+  let valid = 0;
   list.forEach(({ prim, node, first }, t) => {
-    let least = Infinity;
+    const ws = [];
+    const j = t * 9, P = scene.P;
     for (const [u, v] of POINTS) {
-      const j = t * 9, P = scene.P;
       const o = [0, 1, 2].map((q) => P[j + q] + u * (P[j + 3 + q] - P[j + q]) + v * (P[j + 6 + q] - P[j + q]));
       const w = wallAt(scene, t, o);
-      if (w !== null) least = Math.min(least, w);
+      if (w !== null) ws.push(w);
     }
-    if (least < to) out.set(`${node}/${prim}/${first}`, (to - least) / 2);
+    if (!ws.length) return;
+    const a = [0, 1, 2].map((k) => [0, 1, 2].map((q) => P[j + k * 3 + q]));
+    const area = Math.hypot(...cross(sub(a[1], a[0]), sub(a[2], a[0]))) / 2;
+    valid += area;
+    const least = Math.min(...ws);
+    if (least < to) thin.push({ key: `${node}/${prim}/${first}`, need: (to - least) / 2, area, even: least / Math.max(...ws) });
   });
+  thin.sort((x, y) => y.area * y.even - x.area * x.even);
+  let left = thin.reduce((sum, f) => sum + f.area, 0);
+  const out = new Map();
+  for (const f of thin) {
+    if (left <= LEFT * valid) break;
+    out.set(f.key, f.need);
+    left -= f.area;
+  }
   return out;
+}
+
+function crossings(index, tris, shell, wid, at) {
+  const box = (t) => [0, 1, 2].map((q) => { const v = [0, 1, 2].map((k) => at(index[t + k])[q]); return [Math.min(...v), Math.max(...v)]; });
+  const all = [];
+  for (let t = 0; t < index.length; t += 3) all.push(t);
+  const lo = [0, 1, 2].map((q) => Math.min(...all.map((t) => box(t)[q][0])));
+  const hi = [0, 1, 2].map((q) => Math.max(...all.map((t) => box(t)[q][1])));
+  const ext = Math.max(...sub(hi, lo)) || 1, cell = ext / GRID + 1e-12, tol = ext * 1e-6;
+  const boxes = new Map(all.map((t) => [t, box(t)]));
+  const cellsOf = (b) => { const r = b.map(([l, h], q) => [Math.floor((l - lo[q]) / cell), Math.floor((h - lo[q]) / cell)]); const out = []; for (let x = r[0][0]; x <= r[0][1]; x++) for (let y = r[1][0]; y <= r[1][1]; y++) for (let z = r[2][0]; z <= r[2][1]; z++) out.push(`${x},${y},${z}`); return out; };
+  const grid = new Map();
+  for (const t of all) for (const c of cellsOf(boxes.get(t))) { if (!grid.has(c)) grid.set(c, []); grid.get(c).push(t); }
+  const pts = (t) => [0, 1, 2].map((k) => at(index[t + k]));
+  const hits = (p, q, [a, b, c]) => {
+    const n = cross(sub(b, a), sub(c, a)), nl = Math.hypot(...n);
+    if (nl < 1e-18) return false;
+    const dp = dotOf(n, sub(p, a)) / nl, dq = dotOf(n, sub(q, a)) / nl;
+    if ((dp > -tol && dq > -tol) || (dp < tol && dq < tol)) return false;
+    const x = p.map((v, i) => v + (q[i] - v) * (dp / (dp - dq)));
+    return [[a, b], [b, c], [c, a]].every(([u, w]) => dotOf(cross(sub(w, u), sub(x, u)), n) / nl / Math.hypot(...sub(w, u)) > tol * 10);
+  };
+  const edges = (T) => [[T[0], T[1]], [T[1], T[2]], [T[2], T[0]]];
+  let count = 0;
+  const seen = new Set();
+  for (const t of tris) for (const c of cellsOf(boxes.get(t))) for (const o of grid.get(c) ?? []) {
+    if (o === t || seen.has(`${t},${o}`) || seen.has(`${o},${t}`)) continue;
+    if (shell[index[o]] === shell[index[t]] && [0, 1, 2].some((k) => [0, 1, 2].some((m) => wid[index[t + k]] === wid[index[o + m]]))) continue;
+    seen.add(`${t},${o}`);
+    const A = boxes.get(t), B = boxes.get(o);
+    if (A.some(([l, h], q) => h < B[q][0] || B[q][1] < l)) continue;
+    const TA = pts(t), TB = pts(o);
+    if (edges(TA).some(([p, q]) => hits(p, q, TB)) || edges(TB).some(([p, q]) => hits(p, q, TA))) count++;
+  }
+  return count;
 }
 
 function isPlain(m) {
@@ -68,10 +119,22 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
     const [a, b, c] = [index[t], index[t + 1], index[t + 2]].map((i) => [pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]]);
     faceN.push(unit(cross(sub(b, a), sub(c, a))));
   }
+  const { weld } = welder(pos);
+  const root = Array.from({ length: count }, (_, v) => v);
+  const find = (x) => { while (root[x] !== x) x = root[x] = root[root[x]]; return x; };
+  const first = new Map();
+  for (let v = 0; v < count; v++) { const w = weld(v); if (first.has(w)) root[find(v)] = find(first.get(w)); else first.set(w, v); }
+  for (let t = 0; t < index.length; t += 3) { root[find(index[t + 1])] = find(index[t]); root[find(index[t + 2])] = find(index[t]); }
+  const shell = Array.from({ length: count }, (_, v) => find(v));
+  const most = new Map();
+  for (let t = 0; t < index.length; t += 3) {
+    const p = need.get(`${meshNode}/${primIndex}/${t}`) ?? 0;
+    if (p > (most.get(shell[index[t]]) ?? 0)) most.set(shell[index[t]], p);
+  }
   const push = new Float64Array(count);
   const dir = Array.from({ length: count }, () => [0, 0, 0]);
   for (let t = 0; t < index.length; t += 3) {
-    const p = need.get(`${meshNode}/${primIndex}/${t}`) ?? 0;
+    const p = need.has(`${meshNode}/${primIndex}/${t}`) ? most.get(shell[index[t]]) : 0;
     for (let k = 0; k < 3; k++) {
       const v = index[t + k];
       push[v] = Math.max(push[v], p);
@@ -81,7 +144,6 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   for (let v = 0; v < count; v++) dir[v] = unit(dir[v]);
   if (!push.some((p) => p > 0)) return { faces: 0 };
 
-  const { weld } = welder(pos);
   const at = new Map();
   for (let v = 0; v < count; v++) {
     const w = weld(v);
@@ -111,6 +173,18 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   }
 
   const moved = (v) => Math.hypot(...move[v]) > MOVED;
+  const blocked = [];
+  const wid = Array.from({ length: count }, (_, v) => weld(v));
+  for (const sh of new Set(shell.filter((_, v) => moved(v)))) {
+    const tris = [];
+    for (let t = 0; t < index.length; t += 3) if (shell[index[t]] === sh) tris.push(t);
+    const start = (v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
+    const end = (v) => (shell[v] === sh ? start(v).map((x, q) => x + move[v][q]) : start(v));
+    if (crossings(index, tris, shell, wid, end) > crossings(index, tris, shell, wid, start)) {
+      blocked.push(sh);
+      for (let v = 0; v < count; v++) if (shell[v] === sh) move[v] = [0, 0, 0];
+    }
+  }
   const edges = new Map();
   for (let t = 0; t < index.length; t += 3) for (let k = 0; k < 3; k++) {
     const a = index[t + k], b = index[t + (k + 1) % 3];
@@ -160,7 +234,7 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   }
   for (let v = 0; v < count; v++) if (moved(v)) posAt(v).set(after(v));
   adder.commit(index, replaced);
-  return { faces: [...need.keys()].filter((k) => k.startsWith(`${meshNode}/${primIndex}/`)).length, sides };
+  return { faces: [...need.keys()].filter((k) => k.startsWith(`${meshNode}/${primIndex}/`)).length, sides, blocked: blocked.length };
 }
 
 const args = process.argv.slice(2);
