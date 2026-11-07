@@ -29433,8 +29433,15 @@
    "id": "str-part-beam",
    "name": "Beam",
    "type": "kind",
-   "description": "Long structural member, straight or angled: beam, girder, truss, strut, brace.",
-   "count": 20
+   "description": "Long structural member, straight or angled: beam, girder, truss, strut.",
+   "count": 11
+  },
+  {
+   "id": "str-part-bracket",
+   "name": "Bracket",
+   "type": "kind",
+   "description": "Bracket or brace plate fixed to a wall, post or beam.",
+   "count": 7
   },
   {
    "id": "str-fixture-marker",
@@ -35489,6 +35496,12 @@
    "tpu.max": 5000
   },
   "str-part-beam": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-bracket": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -85303,7 +85316,7 @@
    "collection": "fs-modular",
    "name": "canopy-beam-short",
    "hash": "4ea2481b87",
-   "kind": "str-part-beam",
+   "kind": "str-part",
    "size": "m",
    "wdh": [
     0.061,
@@ -85343,7 +85356,7 @@
    "collection": "fs-modular",
    "name": "canopy-beam",
    "hash": "ae7b92025e",
-   "kind": "str-part-beam",
+   "kind": "str-part",
    "size": "m",
    "wdh": [
     0.061,
@@ -158253,7 +158266,7 @@
    "collection": "kay-play",
    "name": "bracing-large",
    "hash": "c7c3f3626a",
-   "kind": "str-part-beam",
+   "kind": "str-part-bracket",
    "size": "s",
    "wdh": [
     0.3,
@@ -158296,7 +158309,7 @@
    "collection": "kay-play",
    "name": "bracing-medium",
    "hash": "1cf85417d8",
-   "kind": "str-part-beam",
+   "kind": "str-part-bracket",
    "size": "s",
    "wdh": [
     0.18,
@@ -158339,7 +158352,7 @@
    "collection": "kay-play",
    "name": "bracing-small",
    "hash": "ac207c8faf",
-   "kind": "str-part-beam",
+   "kind": "str-part-bracket",
    "size": "s",
    "wdh": [
     0.06,
@@ -324201,7 +324214,7 @@
    "kit": "quat-cyberpunk",
    "name": "support-short",
    "hash": "f7d2bf70fd",
-   "kind": "str-part-beam",
+   "kind": "str-part-bracket",
    "size": "m",
    "wdh": [
     0.444,
@@ -324241,7 +324254,7 @@
    "kit": "quat-cyberpunk",
    "name": "support",
    "hash": "49f004e2e8",
-   "kind": "str-part-beam",
+   "kind": "str-part-bracket",
    "size": "m",
    "wdh": [
     0.358,
@@ -391821,7 +391834,7 @@
    "collection": "rgp",
    "name": "beam",
    "hash": "69e73c4ba1",
-   "kind": "str-part-beam",
+   "kind": "str-part-bracket",
    "size": "m",
    "wdh": [
     0.076,
@@ -428832,7 +428845,7 @@
    "collection": "wizp-eastern",
    "name": "arch-beam",
    "hash": "831c7fca70",
-   "kind": "str-part-beam",
+   "kind": "str-part-bracket",
    "size": "l",
    "wdh": [
     1.715,
