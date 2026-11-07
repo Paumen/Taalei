@@ -5,19 +5,20 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, vec3View, welder, p
 const HELP = `thicken.mjs [--to <thickness>] [--miter <factor>] [--dry] <model.glb> [...]
 
 Thickens walls thinner than <thickness> (0.0062 by default) to <thickness>.
-Each face is measured at four points as G33 measures wall. Even, large thin
-faces go first, and once less than 15% of the surface is left thin the rest
-stays as it is, so small points and tips keep their shape. Both sides of a thin
+Each face is measured at four points as G33 measures wall. A face that
+tapers, less than half as thick at one point as at another, stays as it is,
+so points and tips keep their shape. Both sides of a thin
 wall move outward along their normals, each connected part by one amount, so
 a sheet stays flat; a sheet of two faces back to back opens into a slab, and
 the gap left along its edge is closed with side faces in the colour of the
-edge. A point stops well short of any surface in its way, so a
-sheet never passes through a part beside it. Prints wall
+edge. A part moves less where a surface is in its way, all by one
+amount except the few points closest to it, so a sheet never passes through a
+part beside it and its rim stays even. Prints wall
 before and after per file, as JSON. --miter caps how far a corner may move, as
 a factor of its push (1.5 by default).`;
 
 const POINTS = [[1 / 3, 1 / 3], [2 / 3, 1 / 6], [1 / 6, 2 / 3], [1 / 6, 1 / 6]];
-const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4, LEFT = 0.15, GAP = 3;
+const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4, TAPER = 0.5, GAP = 3, EVEN = 0.1;
 let MITER = 1.5;
 
 const unit = (v) => { const l = Math.hypot(...v) || 1; return v.map((x) => x / l); };
@@ -40,7 +41,6 @@ function needs(glb, to) {
   const list = worldTriangles(glb);
   const scene = rayScene(list);
   const thin = [];
-  let valid = 0;
   list.forEach(({ prim, node, first }, t) => {
     const ws = [];
     const j = t * 9, P = scene.P;
@@ -52,18 +52,11 @@ function needs(glb, to) {
     if (!ws.length) return;
     const a = [0, 1, 2].map((k) => [0, 1, 2].map((q) => P[j + k * 3 + q]));
     const area = Math.hypot(...cross(sub(a[1], a[0]), sub(a[2], a[0]))) / 2;
-    valid += area;
     const least = Math.min(...ws);
     if (least < to) thin.push({ key: `${node}/${prim}/${first}`, need: (to - least) / 2, area, even: least / Math.max(...ws) });
   });
-  thin.sort((x, y) => y.area * y.even - x.area * x.even);
-  let left = thin.reduce((sum, f) => sum + f.area, 0);
   const out = new Map();
-  for (const f of thin) {
-    if (left <= LEFT * valid) break;
-    out.set(f.key, f.need);
-    left -= f.area;
-  }
+  for (const f of thin) if (f.even >= TAPER) out.set(f.key, f.need);
   return out;
 }
 
@@ -163,7 +156,7 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
     return best;
   };
   let held = 0;
-  const reach = new Map();
+  const reach = new Map(), room = new Float64Array(count).fill(1), byShell = new Map();
   for (let v = 0; v < count; v++) {
     const l = Math.hypot(...move[v]);
     if (l <= MOVED) continue;
@@ -172,7 +165,14 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
       const d = move[v].map((x) => x / l), far = l * GAP;
       reach.set(key, Math.min(1, hit(start(v), d, far, wid[v]) / far));
     }
-    const k = reach.get(key);
+    room[v] = reach.get(key);
+    if (!byShell.has(shell[v])) byShell.set(shell[v], []);
+    byShell.get(shell[v]).push(room[v]);
+  }
+  const even = new Map([...byShell].map(([sh, list]) => { list.sort((a, b) => a - b); return [sh, list[Math.floor(list.length * EVEN)]]; }));
+  for (let v = 0; v < count; v++) {
+    if (!byShell.has(shell[v])) continue;
+    const k = Math.min(room[v], even.get(shell[v]));
     if (k < 1) { held++; move[v] = move[v].map((x) => x * k); }
   }
   const edges = new Map();
