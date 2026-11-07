@@ -3,7 +3,7 @@ import { join, dirname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { isMainThread, parentPort } from 'node:worker_threads';
-import { readGlb, readAccessor, measureScene, thinnestPart, thickness, trianglesPerUnit, smoothShare, badNormals, toSrgb, meshParts } from './glb.mjs';
+import { readGlb, readAccessor, measureScene, thinnestPart, thickness, wall, trianglesPerUnit, smoothShare, badNormals, toSrgb, meshParts } from './glb.mjs';
 import { readPng } from './png.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -108,6 +108,7 @@ function measureFile(dir, file) {
       minTube: thinnest,
       badNormals: badNormals(glb),
       thickness: thickness(glb),
+      wall: wall(glb),
       averageTriangleArea: scene.averageTriangleArea,
       strictAnglePercent: scene.strictAnglePercent,
       pieces: meshParts(glb, Infinity).length,

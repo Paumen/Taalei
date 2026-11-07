@@ -938,3 +938,145 @@ export function thickness(glb) {
   }
   return solid ? (2 * (sum / solid) * cell) / middle : null;
 }
+
+const WALL_SAMPLES = 3000, WALL_TOUCH = 0.002, WALL_FLUSH = 1e-5, WALL_SHARE = 0.2;
+
+export function worldTriangles(glb) {
+  const { json } = glb, world = worldMatrices(json), out = [];
+  json.nodes?.forEach((node, n) => {
+    if (node.mesh === undefined || !world[n]) return;
+    json.meshes[node.mesh].primitives?.forEach((prim, p) => {
+      if ((prim.mode ?? 4) !== 4 || prim.attributes.POSITION === undefined) return;
+      const pos = readAccessor(glb, prim.attributes.POSITION).data;
+      const idx = prim.indices !== undefined ? readAccessor(glb, prim.indices).data : null;
+      const count = idx ? idx.length : pos.length / 3;
+      for (let t = 0; t + 2 < count; t += 3) {
+        const tri = [0, 1, 2].map((k) => {
+          const i = idx ? idx[t + k] : t + k;
+          return multiplyPoint(world[n], pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]);
+        });
+        out.push({ tri, node: n, prim: p, first: t });
+      }
+    });
+  });
+  return out;
+}
+
+export function rayScene(list) {
+  const n = list.length, P = new Float64Array(n * 9);
+  list.forEach(({ tri }, t) => { for (let k = 0; k < 3; k++) for (let q = 0; q < 3; q++) P[t * 9 + k * 3 + q] = tri[k][q]; });
+  const order = new Int32Array(n).map((_, i) => i);
+  const cen = new Float64Array(n * 3), box = new Float64Array(n * 6);
+  for (let t = 0; t < n; t++) for (let k = 0; k < 3; k++) {
+    const a = P[t * 9 + k], b = P[t * 9 + 3 + k], c = P[t * 9 + 6 + k];
+    box[t * 6 + k] = Math.min(a, b, c);
+    box[t * 6 + 3 + k] = Math.max(a, b, c);
+    cen[t * 3 + k] = (a + b + c) / 3;
+  }
+  const nodes = [];
+  const build = (lo, hi) => {
+    const b = [Infinity, Infinity, Infinity, -Infinity, -Infinity, -Infinity];
+    for (let i = lo; i < hi; i++) {
+      const t = order[i];
+      for (let k = 0; k < 3; k++) { b[k] = Math.min(b[k], box[t * 6 + k]); b[3 + k] = Math.max(b[3 + k], box[t * 6 + 3 + k]); }
+    }
+    const id = nodes.length;
+    nodes.push({ b, lo, hi, l: -1, r: -1 });
+    if (hi - lo <= 4) return id;
+    let axis = 0, span = -1;
+    for (let k = 0; k < 3; k++) if (b[3 + k] - b[k] > span) { span = b[3 + k] - b[k]; axis = k; }
+    order.set(Array.from(order.subarray(lo, hi)).sort((p, q) => cen[p * 3 + axis] - cen[q * 3 + axis]), lo);
+    const mid = (lo + hi) >> 1;
+    nodes[id].l = build(lo, mid);
+    nodes[id].r = build(mid, hi);
+    return id;
+  };
+  if (n) build(0, n);
+  const normals = Array.from({ length: n }, (_, t) => {
+    const j = t * 9;
+    const ax = P[j + 3] - P[j], ay = P[j + 4] - P[j + 1], az = P[j + 5] - P[j + 2];
+    const bx = P[j + 6] - P[j], by = P[j + 7] - P[j + 1], bz = P[j + 8] - P[j + 2];
+    const nx = ay * bz - az * by, ny = az * bx - ax * bz, nz = ax * by - ay * bx, l = Math.hypot(nx, ny, nz);
+    return { n: l ? [nx / l, ny / l, nz / l] : null, area: l / 2 };
+  });
+  return { P, nodes, order, normals, n };
+}
+
+function castRay(scene, o, d, skip, tmin) {
+  const { P, nodes, order } = scene;
+  let best = Infinity, hit = -1;
+  const inv = [1 / d[0], 1 / d[1], 1 / d[2]], stack = nodes.length ? [0] : [];
+  while (stack.length) {
+    const nd = nodes[stack.pop()], b = nd.b;
+    let t0 = tmin, t1 = best, miss = false;
+    for (let k = 0; k < 3 && !miss; k++) {
+      let a = (b[k] - o[k]) * inv[k], c = (b[3 + k] - o[k]) * inv[k];
+      if (a > c) [a, c] = [c, a];
+      t0 = Math.max(t0, a);
+      t1 = Math.min(t1, c);
+      miss = t0 > t1 + 1e-12;
+    }
+    if (miss) continue;
+    if (nd.l >= 0) { stack.push(nd.l, nd.r); continue; }
+    for (let i = nd.lo; i < nd.hi; i++) {
+      const t = order[i];
+      if (t === skip) continue;
+      const j = t * 9;
+      const e1x = P[j + 3] - P[j], e1y = P[j + 4] - P[j + 1], e1z = P[j + 5] - P[j + 2];
+      const e2x = P[j + 6] - P[j], e2y = P[j + 7] - P[j + 1], e2z = P[j + 8] - P[j + 2];
+      const px = d[1] * e2z - d[2] * e2y, py = d[2] * e2x - d[0] * e2z, pz = d[0] * e2y - d[1] * e2x;
+      const det = e1x * px + e1y * py + e1z * pz;
+      if (Math.abs(det) < 1e-18) continue;
+      const f = 1 / det, sx = o[0] - P[j], sy = o[1] - P[j + 1], sz = o[2] - P[j + 2];
+      const u = f * (sx * px + sy * py + sz * pz);
+      if (u < 0 || u > 1) continue;
+      const qx = sy * e1z - sz * e1y, qy = sz * e1x - sx * e1z, qz = sx * e1y - sy * e1x;
+      const v = f * (d[0] * qx + d[1] * qy + d[2] * qz);
+      if (v < 0 || u + v > 1) continue;
+      const tt = f * (e2x * qx + e2y * qy + e2z * qz);
+      if (tt > tmin && tt < best) { best = tt; hit = t; }
+    }
+  }
+  return hit < 0 ? null : { t: best, tri: hit };
+}
+
+const along = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+
+export function wallAt(scene, t, o) {
+  const nn = scene.normals[t].n;
+  if (!nn) return null;
+  const cover = castRay(scene, o, nn, t, WALL_FLUSH);
+  if (cover && along(scene.normals[cover.tri].n ?? [0, 0, 0], nn) > 0) return null;
+  const d = [-nn[0], -nn[1], -nn[2]];
+  const hit = castRay(scene, o, d, t, 1e-7);
+  if (!hit || !(along(scene.normals[hit.tri].n ?? [0, 0, 0], d) > 0)) return null;
+  const exit = [o[0] + d[0] * hit.t, o[1] + d[1] * hit.t, o[2] + d[2] * hit.t];
+  const next = castRay(scene, exit, d, hit.tri, 1e-7);
+  if (next && next.t <= WALL_TOUCH) return null;
+  return hit.t;
+}
+
+export function wall(glb) {
+  const scene = rayScene(worldTriangles(glb));
+  const total = scene.normals.reduce((s, x) => s + x.area, 0);
+  if (!(total > 0)) return null;
+  let seed = 12345, carry = 0;
+  const rnd = () => (seed = (seed * 1103515245 + 12345) >>> 0) / 4294967296;
+  const found = [];
+  for (let t = 0; t < scene.n; t++) {
+    carry += (scene.normals[t].area / total) * WALL_SAMPLES;
+    const k = Math.floor(carry);
+    carry -= k;
+    const j = t * 9, P = scene.P;
+    for (let s = 0; s < k; s++) {
+      let u = rnd(), v = rnd();
+      if (u + v > 1) { u = 1 - u; v = 1 - v; }
+      const o = [0, 1, 2].map((q) => P[j + q] + u * (P[j + 3 + q] - P[j + q]) + v * (P[j + 6 + q] - P[j + q]));
+      const w = wallAt(scene, t, o);
+      if (w !== null) found.push(w);
+    }
+  }
+  found.sort((a, b) => a - b);
+  const at = Math.floor(WALL_SHARE * WALL_SAMPLES);
+  return found.length > at ? found[at] : null;
+}

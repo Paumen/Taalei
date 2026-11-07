@@ -1,5 +1,5 @@
 const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
-export const KIND_FIELDS = ['bands.max', 'tube.min'];
+export const KIND_FIELDS = ['bands.max', 'tube.min', 'wall.min'];
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
