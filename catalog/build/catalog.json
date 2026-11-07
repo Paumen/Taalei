@@ -905,7 +905,7 @@
    "scales": {
     "0.5": 32,
     "0.0337": 1,
-    "0.01752": 1,
+    "0.0146": 1,
     "0.0316": 1,
     "0.0434": 1,
     "0.14": 23
@@ -950,7 +950,7 @@
      },
      "scales": {
       "0.0337": 1,
-      "0.01752": 1,
+      "0.0146": 1,
       "0.0316": 1,
       "0.0434": 1
      },
@@ -97592,13 +97592,13 @@
    "kit": "ipoly-electronics",
    "collection": "ipoly",
    "name": "microchip",
-   "hash": "165a8463be",
+   "hash": "2c27edf634",
    "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
-    0.087,
-    0.034,
-    0.025
+    0.071,
+    0.023,
+    0.019
    ],
    "tris": 984,
    "tpu": 2869,
@@ -97609,11 +97609,11 @@
    "vtx": 1204,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0063,
-   "thick": 0.2216,
-   "avgTri": 0.00002,
-   "anglePct": 58,
+   "minEdge": 0,
+   "wall": 0.0005,
+   "thick": 0.2632,
+   "avgTri": 0.00001,
+   "anglePct": 62,
    "pieces": 17,
    "vpt": 1.22,
    "cells": [
@@ -97629,7 +97629,14 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.4
+   "thickRel": 1.67,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G33 wall 0.0005 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "ipoly-electronics",
@@ -402108,7 +402115,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "window-round",
-   "hash": "16d0762fcb",
+   "hash": "d1324dc183",
    "kind": "str-part-window",
    "size": "s",
    "wdh": [
@@ -402126,11 +402133,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0339,
-   "wall": 0.0062,
-   "thick": 0.0444,
-   "avgTri": 0.00088,
-   "anglePct": 45,
+   "wall": 0.0061,
+   "thick": 0.0437,
+   "avgTri": 0.00087,
+   "anglePct": 53,
    "pieces": 4,
    "vpt": 0.91,
    "cells": [
