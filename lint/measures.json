@@ -14,7 +14,8 @@
   { "id": "G31", "when": "size:s", "except": "mat:earth-soil | kind:obj-equipment-target-bullseye | tag:plural | kind:set", "field": "band:taupe-dark", "assert": "is", "value": false },
   { "id": "G19", "when": "kind:obj-container-barrel", "except": "kind:obj-container-barrel-metal | tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–1500" },
   { "id": "G32", "when": "kind:obj-container-barrel-metal", "except": "tag:plural | kind:set", "field": "tris", "assert": "range", "value": "100–2200" },
-  { "id": "G27", "when": "minTube>0", "field": "minTube", "assert": "min", "value": "tubeneed" },
-  { "id": "G33", "when": "minWall>0", "field": "minWall", "assert": "min", "value": 0.006 }
+  { "id": "G27", "when": "minTube>0", "field": "minTube", "assert": "min", "value": "thinneed" },
+  { "id": "G27", "when": "minWall>0", "field": "minWall", "assert": "min", "value": 0.006 },
+  { "id": "G27", "when": "minWall>=0.006", "field": "minWall", "assert": "min", "value": "thinneed", "level": "warning" }
  ]
 }
