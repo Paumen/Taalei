@@ -5,20 +5,18 @@ import { repack, fixBounds, editablePrimitives, vertexAdder, vec3View, welder, p
 const HELP = `thicken.mjs [--to <thickness>] [--miter <factor>] [--dry] <model.glb> [...]
 
 Thickens walls thinner than <thickness> (0.0062 by default) to <thickness>.
-Each face is measured at four points as G33 measures wall. A face that
-tapers, less than half as thick at one point as at another, stays as it is,
-so points and tips keep their shape. Both sides of a thin
-wall move outward along their normals, each connected part by one amount, so
-a sheet stays flat; a sheet of two faces back to back opens into a slab, and
-the gap left along its edge is closed with side faces in the colour of the
-edge. A part moves less where a surface is in its way, all by one
-amount except the few points closest to it, so a sheet never passes through a
-part beside it and its rim stays even. Prints wall
+Each face is measured at four points as G33 measures wall. A connected part
+whose thinnest 15% of surface is under <thickness> grows as a whole: every
+point of it moves outward along its normal by the same amount, just enough for
+that 15%, so the part keeps its shape with no steps. A sheet of two faces back
+to back opens into a slab, and the gap left along its edge is closed with side
+faces in the colour of the edge. Where another surface is in the way the whole
+part grows less, so it never passes through a part beside it. Prints wall
 before and after per file, as JSON. --miter caps how far a corner may move, as
 a factor of its push (1.5 by default).`;
 
 const POINTS = [[1 / 3, 1 / 3], [2 / 3, 1 / 6], [1 / 6, 2 / 3], [1 / 6, 1 / 6]];
-const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4, TAPER = 0.5, GAP = 3, EVEN = 0.1;
+const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4, SHARE = 0.15, GAP = 3, EVEN = 0.05;
 let MITER = 1.5;
 
 const unit = (v) => { const l = Math.hypot(...v) || 1; return v.map((x) => x / l); };
@@ -37,10 +35,10 @@ function miter(list) {
   return l > most ? d.map((x) => (x * most) / l) : d;
 }
 
-function needs(glb, to) {
+function needs(glb) {
   const list = worldTriangles(glb);
   const scene = rayScene(list);
-  const thin = [];
+  const out = new Map();
   list.forEach(({ prim, node, first }, t) => {
     const ws = [];
     const j = t * 9, P = scene.P;
@@ -52,11 +50,8 @@ function needs(glb, to) {
     if (!ws.length) return;
     const a = [0, 1, 2].map((k) => [0, 1, 2].map((q) => P[j + k * 3 + q]));
     const area = Math.hypot(...cross(sub(a[1], a[0]), sub(a[2], a[0]))) / 2;
-    const least = Math.min(...ws);
-    if (least < to) thin.push({ key: `${node}/${prim}/${first}`, need: (to - least) / 2, area, even: least / Math.max(...ws) });
+    out.set(`${node}/${prim}/${first}`, { least: Math.min(...ws), area });
   });
-  const out = new Map();
-  for (const f of thin) if (f.even >= TAPER) out.set(f.key, f.need);
   return out;
 }
 
@@ -85,15 +80,25 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   for (let v = 0; v < count; v++) { const w = weld(v); if (first.has(w)) root[find(v)] = find(first.get(w)); else first.set(w, v); }
   for (let t = 0; t < index.length; t += 3) { root[find(index[t + 1])] = find(index[t]); root[find(index[t + 2])] = find(index[t]); }
   const shell = Array.from({ length: count }, (_, v) => find(v));
-  const most = new Map();
+  const faces = new Map();
   for (let t = 0; t < index.length; t += 3) {
-    const p = need.get(`${meshNode}/${primIndex}/${t}`) ?? 0;
-    if (p > (most.get(shell[index[t]]) ?? 0)) most.set(shell[index[t]], p);
+    const f = need.get(`${meshNode}/${primIndex}/${t}`);
+    if (!f) continue;
+    if (!faces.has(shell[index[t]])) faces.set(shell[index[t]], []);
+    faces.get(shell[index[t]]).push(f);
+  }
+  const grow = new Map();
+  for (const [sh, list] of faces) {
+    list.sort((a, b) => a.least - b.least);
+    const all = list.reduce((sum, f) => sum + f.area, 0);
+    let acc = 0, low = list[0].least;
+    for (const f of list) { acc += f.area; low = f.least; if (acc >= SHARE * all) break; }
+    if (low < to) grow.set(sh, (to - low) / 2);
   }
   const push = new Float64Array(count);
   const dir = Array.from({ length: count }, () => [0, 0, 0]);
   for (let t = 0; t < index.length; t += 3) {
-    const p = need.has(`${meshNode}/${primIndex}/${t}`) ? most.get(shell[index[t]]) : 0;
+    const p = grow.get(shell[index[t]]) ?? 0;
     for (let k = 0; k < 3; k++) {
       const v = index[t + k];
       push[v] = Math.max(push[v], p);
@@ -223,7 +228,7 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   }
   for (let v = 0; v < count; v++) if (moved(v)) posAt(v).set(after(v));
   adder.commit(index, replaced);
-  return { faces: [...need.keys()].filter((k) => k.startsWith(`${meshNode}/${primIndex}/`)).length, sides, held };
+  return { parts: grow.size, sides, held };
 }
 
 const args = process.argv.slice(2);
@@ -241,7 +246,7 @@ if (!(to > 0)) { console.error('--to needs a positive number'); process.exit(1);
 for (const file of files) {
   const glb = readGlb(file);
   const before = wall(glb);
-  const need = needs(glb, to);
+  const need = needs(glb);
   const editable = new Set(editablePrimitives(glb.json));
   const replaced = new Map();
   const report = [];
