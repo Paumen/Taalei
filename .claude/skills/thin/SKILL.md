@@ -42,6 +42,29 @@ When a model is far off, a bigger measure is likely best.
 
 A fix may combine these.
 
+### Sensible limits
+
+`thin.min` takes one of the existing steps: 0.026 (default), 0.012, 0.008,
+0.006. 0.006 is the floor and is never asked lower. A kind sits on a lower
+step only when the thin part is what the thing is: a string, wire, needle,
+stem, blade edge, leaf, cord, lens or rim that real-world things of that kind
+all have, and that would stop reading as itself if thicker. The kinds on
+0.006 and 0.012 in the style guide's G27 text are the precedent.
+
+Propose a lower step only when all of these hold:
+
+- Every other fix in §2 was tried on the model and failed §3, shown as
+  renders.
+- It holds for the kind, not one model: at least three models of the kind,
+  from two kits or more, need it for the same part.
+- The part is one the kind's real-world things all share, not a detail of
+  one model.
+- It is one step down, not a new number.
+
+One model that won't fit is not a limit problem: show it on the review as
+failed, with the fixes tried. Never ask to raise a limit's floor away, to
+exempt a model, or for a number between the steps.
+
 ## 3. Check every fix
 
 Before the PO sees a result, compare it with the original. Any of these is a
