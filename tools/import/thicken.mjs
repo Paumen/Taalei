@@ -2,7 +2,7 @@ import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor, worldTriangles, rayScene, wallAt, wall } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds, editablePrimitives, vertexAdder, vec3View, welder, primitiveMatrix, sub, cross } from './mesh-edit.mjs';
 
-const HELP = `thicken.mjs [--to <thickness>] [--dry] <model.glb> [...]
+const HELP = `thicken.mjs [--to <thickness>] [--miter <factor>] [--dry] <model.glb> [...]
 
 Thickens walls thinner than <thickness> (0.0062 by default) to <thickness>.
 Each face is measured at four points as G33 measures wall, and both sides of a
@@ -10,10 +10,12 @@ thin wall move outward along their normals by half of what is missing, so the
 wall grows evenly around its middle. A sheet of two faces back to back opens
 into a slab, and the gap left along its edge is closed with side faces in the
 colour of the edge. Nothing else moves. Prints wall before and after per file,
-as JSON.`;
+as JSON. --miter caps how far a corner may move, as a factor of its push
+(4 by default); a lower value keeps sharp points, such as leaf tips.`;
 
 const POINTS = [[1 / 3, 1 / 3], [2 / 3, 1 / 6], [1 / 6, 2 / 3], [1 / 6, 1 / 6]];
-const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4, MITER = 4;
+const SAME_SIDE = 0.5, NOT_OPPOSITE = -0.2, MOVED = 1e-7, RIDGE = 1e-4;
+let MITER = 4;
 
 const unit = (v) => { const l = Math.hypot(...v) || 1; return v.map((x) => x / l); };
 const dotOf = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -162,6 +164,7 @@ const files = [];
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--to') to = Number(args[++i]);
   else if (args[i] === '--dry') dry = true;
+  else if (args[i] === '--miter') MITER = Number(args[++i]);
   else files.push(args[i]);
 }
 if (!(to > 0)) { console.error('--to needs a positive number'); process.exit(1); }
