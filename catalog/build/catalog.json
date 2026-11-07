@@ -25444,7 +25444,7 @@
    "name": "Masonry mid",
    "type": "material",
    "description": "Mid-grey stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 1003,
+   "count": 1005,
    "parent": "stone"
   },
   {
@@ -25532,7 +25532,7 @@
    "name": "Ceramic dark",
    "type": "material",
    "description": "Dark fired clay: brick-red roof tiles, glazed pots and vases.",
-   "count": 335,
+   "count": 333,
    "parent": "ceramic"
   },
   {
@@ -25595,7 +25595,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 790,
+   "count": 791,
    "parent": "wood"
   },
   {
@@ -25603,7 +25603,7 @@
    "name": "Wood mid",
    "type": "material",
    "description": "Mid wood: barrels, kegs, buckets, crates, chests, furniture.",
-   "count": 1308,
+   "count": 1307,
    "parent": "wood"
   },
   {
@@ -279181,17 +279181,10 @@
     "#88735f"
    ],
    "tags": [
-    "ceramic-dark",
-    "m3"
+    "m3",
+    "stone-masonry-mid"
    ],
-   "thickRel": 1.04,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "ceramic-dark wants sienna, has taupe"
-    }
-   ]
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -280059,16 +280052,9 @@
    "tags": [
     "bark",
     "m3",
-    "wood-mid"
+    "wood-light"
    ],
-   "thickRel": 0.85,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "wood-mid wants camel, has bark tan"
-    }
-   ]
+   "thickRel": 0.85
   },
   {
    "kit": "m3-base",
@@ -372019,16 +372005,9 @@
     "#88735f"
    ],
    "tags": [
-    "ceramic-dark",
     "plural",
-    "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "ceramic-dark wants sienna, has taupe"
-    }
+    "qua",
+    "stone-masonry-mid"
    ]
   },
   {
