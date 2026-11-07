@@ -129032,5 +129032,19 @@
   "verdict": "keep",
   "change": "Thin walls opened by thicken.mjs (one pass aimed at 0.0068, a second only where still under), edges closed.",
   "comment": ""
+ },
+ {
+  "at": "2026-11-07",
+  "review": "Wall thickness: retry styloo strawberry",
+  "model": "styloo-food/strawberry",
+  "kind": "obj-food-fruit",
+  "types": [
+   "recolour",
+   "shape"
+  ],
+  "doubt": "high",
+  "verdict": "revert",
+  "change": "One pass with corners capped at 1× the push (new --miter option), so leaf points stay sharp. Before, a second pass bloated the leaves to 13 mm slabs. Leaves now 6.4 mm.",
+  "comment": ""
  }
 ]
