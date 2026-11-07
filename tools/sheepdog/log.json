@@ -51452,7 +51452,7 @@
     "doubt": false,
     "why": null,
     "lint": [],
-    "verdict": null
+    "verdict": "ok"
    },
    {
     "id": "ken-furniture/laptop",
@@ -144269,6 +144269,1120 @@
   "notes": [
    "sq-cards and sq-arcade racks stand about 0.7 high against ken shelves at 0.94; that is the sq kit factor, left",
    "m3 display tables are one flat wood band, unlike the coloured shop racks; left as plain wood"
+  ]
+ },
+ {
+  "kind": "obj-container-bottle-squeeze",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "kay-food/ketchup",
+    "before": "7a018803fd958020278d6df1cff173fe483cf509",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   },
+   {
+    "id": "kay-food/mustard",
+    "before": "8a707ecd2c6eaf18322eb1cef1557770119e192e",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   },
+   {
+    "id": "ken-food/bottle-ketchup",
+    "before": "c174f282c1e8c635df26ec4f5048b02172ceea4b",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   },
+   {
+    "id": "ken-food/bottle-mustard",
+    "before": "91ea20c9f88461806d8b1696773f5f94759f0517",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   },
+   {
+    "id": "m3-base/adhesive-bottle",
+    "before": "43f3dba0b2235e345fe7becbc45ab3f6a9cfd2bf",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   },
+   {
+    "id": "m3-base/eye-drop-bottle",
+    "before": "41e0a927cd23e2ebbd75a155886d93c94d362066",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   },
+   {
+    "id": "m3-base/glue-bottle-01",
+    "before": "7bfe34f86f17fb012f94729cdfd3b9b9561f2436",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   },
+   {
+    "id": "m3-base/sauce-bottle",
+    "before": "f4fd61103901f6b97d76cfc24d20057af13cd6f2",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   },
+   {
+    "id": "quat-food/ketchup-bottle",
+    "before": "1a87519233b7021038b4e041550cb3a20a84f415",
+    "tags": [
+     "plastic",
+     "obj-container-bottle-squeeze"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/glue-bottle-01",
+    "category": "colour",
+    "change": "red body to white, so it reads as glue, not sauce",
+    "doubt": true,
+    "why": "a red glue bottle may be meant",
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "m3-base/eye-drop-bottle",
+    "category": "scale",
+    "change": "scaled 0.75x: was as big as the sauce bottles",
+    "doubt": true,
+    "why": "kit may mean a big, readable bottle",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": []
+ },
+ {
+  "kind": "obj-device-electronics-audio-mic",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "3dm-electronics/microphone",
+    "before": "af64ba81f34af0695981e9a83f1c91de5c3d09f9",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-device-electronics-audio-mic"
+    ]
+   },
+   {
+    "id": "ipoly-concert/mic-stand",
+    "before": "5598a3dd2954fdce9bbd62b91bbe7dd166b26e2a",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "obj-device-electronics-audio-mic"
+    ]
+   },
+   {
+    "id": "sq-studio/mic-stand",
+    "before": "20c509750e73acfcfd28606c8a2d55d65974a2b4",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "obj-device-electronics-audio-mic"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "ipoly-concert/mic-stand",
+    "category": "shape",
+    "change": "pole made 1.12x thicker, was under the min tube",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "Both mic stands are short (0.61 and 0.82 m against a real 1.5 m); P10 allows no per-model factor, so left at their kit size.",
+   "3dm-electronics/microphone keeps its basalt handle: plastic may not take slate like the stands' mic bodies."
+  ]
+ },
+ {
+  "kind": "obj-device-electronics-audio-speaker",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "ipoly-concert/speaker-large",
+    "before": "1bfc5a1d22791ec97586de8bbf0a1871b9c49fcd",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "ipoly-concert/speaker-small",
+    "before": "4c54046bd8570474178d6b845774574a739eca21",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "ken-furniture/speaker",
+    "before": "9e85d286e8c186697776afd3e12d4b5f12261141",
+    "tags": [
+     "wood-mid",
+     "rubber",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "ken-furniture/speaker-small",
+    "before": "a2af8a753e93e9439909ee0afd2157e4cf2b5227",
+    "tags": [
+     "wood-mid",
+     "rubber",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "lpa-home/speaker",
+    "before": "328a8040e130bfd18f000e9bfc97852f913f0cae",
+    "tags": [
+     "metal-iron-mid",
+     "wood-mid",
+     "plastic",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "m3-base/computer-speaker",
+    "before": "82ef48d713dfcf42d1013e5fbe806c967d532013",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "sq-rink/speaker-stack",
+    "before": "396bc2828ac7117bb2500f658794f2a0960f34da",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "sq-studio/amp-stack",
+    "before": "81a6b002db9356de106a8a01c5668102e66d749e",
+    "tags": [
+     "metal-iron-mid",
+     "metal-iron-dark",
+     "textile-cloth-light",
+     "plastic",
+     "obj-device-electronics-audio-speaker",
+     "hero"
+    ]
+   },
+   {
+    "id": "sq-studio/studio-monitors",
+    "before": "12335db0e2872a0b9df2fe4891808ad73fac049f",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "obj-device-electronics-audio-speaker",
+     "plural"
+    ]
+   },
+   {
+    "id": "taalei-kit/jukebox",
+    "before": "7f9f10ba1b3a63bdc06e42f22f5b8cb705d01d28",
+    "tags": [
+     "metal-steel",
+     "wood-dark",
+     "plastic",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "taalei-kit/jukebox-diner",
+    "before": "f4158cdc90547e63c85efd9ec279abd577642a9e",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-device-electronics-audio-speaker"
+    ]
+   },
+   {
+    "id": "taalei-kit/jukebox-space",
+    "before": "32ac12f4c834f823a5d66a3084bf8aa5e1af7218",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-device-electronics-audio-speaker"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "ken-furniture/speaker-small",
+    "category": "colour",
+    "change": "cones to dark slate, so drivers read apart from the front",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "ken-furniture/speaker",
+    "category": "colour",
+    "change": "cones to dark slate, so drivers read apart from the front",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "ken-furniture/speaker-small",
+    "category": "tag",
+    "change": "add metal-iron-dark for the slate cones",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "ken-furniture/speaker",
+    "category": "tag",
+    "change": "add metal-iron-dark for the slate cones",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "taalei-kit/jukebox",
+    "category": "shape",
+    "change": "tonearm made 2.25x thicker, was under the min tube",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "m3-base/computer-speaker: drivers merge with the basalt body; the box leans back, so no axis test picks the cones apart. Left."
+  ]
+ },
+ {
+  "kind": "obj-device-electronics-printer",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "household/printer",
+    "before": "0d4ad12424996184f5c4931c9822954120b2de24",
+    "tags": [
+     "paper-sheet",
+     "plastic",
+     "obj-device-electronics-printer"
+    ]
+   },
+   {
+    "id": "styloo-school/printer",
+    "before": "764bd5aa98983b2bf7126588a6ad45f1d74d2100",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-device-electronics-printer"
+    ]
+   },
+   {
+    "id": "taalei-kit/copier",
+    "before": "9a35bbd481ad06bd024fe5f671f692f158b956e6",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-device-electronics-printer"
+    ]
+   },
+   {
+    "id": "taalei-kit/typewriter",
+    "before": "37f5b656c795114fb715c2db89d8731584e65af2",
+    "tags": [
+     "metal-steel",
+     "paper-sheet",
+     "plastic",
+     "obj-device-electronics-printer"
+    ]
+   },
+   {
+    "id": "taalei-kit/typewriter-office",
+    "before": "32136fb4771a84490f34f4730f2c1cca700b4a24",
+    "tags": [
+     "metal-steel",
+     "paper-sheet",
+     "plastic",
+     "obj-device-electronics-printer"
+    ]
+   },
+   {
+    "id": "taalei-kit/typewriter-portable",
+    "before": "85f0244f1934b5e47cf1eb17e9dfb0a959699084",
+    "tags": [
+     "metal-steel",
+     "paper-sheet",
+     "plastic",
+     "obj-device-electronics-printer"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "household/printer",
+    "category": "glitch",
+    "change": "normals turned to match their faces",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": []
+ },
+ {
+  "kind": "obj-furnishing-decor-wreath",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "kay-holiday/wreath",
+    "before": "8b57dac7c3a79006b90d1459e003073ad6a5df25",
+    "tags": [
+     "metal-gold",
+     "leaf-dark",
+     "textile-cloth-dark",
+     "special-food",
+     "obj-furnishing-decor-wreath",
+     "mounted"
+    ]
+   },
+   {
+    "id": "kay-mixed/autumn-wreath",
+    "before": "b8e273df11890a0234d239b7b0371b57af3e9c90",
+    "tags": [
+     "bark",
+     "special-organic",
+     "obj-furnishing-decor-wreath",
+     "mounted"
+    ]
+   },
+   {
+    "id": "ken-holiday/wreath",
+    "before": "63adabbaad18e850f8a27315f0ee08371e140bc3",
+    "tags": [
+     "leaf-dark",
+     "textile-cloth-dark",
+     "obj-furnishing-decor-wreath",
+     "mounted"
+    ]
+   },
+   {
+    "id": "ken-holiday/wreath-decorated",
+    "before": "376f58d40928136154ccd46eb3425748e50d4c71",
+    "tags": [
+     "metal-gold",
+     "leaf-dark",
+     "textile-cloth-dark",
+     "obj-furnishing-decor-wreath",
+     "mounted"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "kay-mixed/autumn-wreath",
+    "category": "glitch",
+    "change": "one-sided leaves given a back side, no holes from behind",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "kay-mixed/autumn-wreath",
+    "category": "detail",
+    "change": "15 berries made plain 8-sided spheres, to offset new tris",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "kay-mixed/autumn-wreath is still over the decor tri budget (4136 to 4456 tris); its ribbed pumpkins and pine cones are what make it, so left dense"
+  ]
+ },
+ {
+  "kind": "obj-kitchenware-tableware-drinkware-stemware",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "cooking-assets/champagne-flute",
+    "before": "932c807b543c13234d60c0f42fb3cde063e16999",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "cooking-assets/cocktail-glass",
+    "before": "1a87e512cdf3b40c2b85f0750d22f3bdb939f261",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "cooking-assets/cognac-glass",
+    "before": "3b09901880d24da7f44bb82552a8924f10afaf93",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "cooking-assets/goblet",
+    "before": "cfdea795bef9d217ff22a351d30c574515841ebb",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "cooking-assets/hurricane-glass",
+    "before": "8de276be6ce40802952e95316f315f2216a5109b",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "cooking-assets/margarita-glass",
+    "before": "bb71f3c0d2606b18d031680a0529536281eedf8f",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "cooking-assets/wine-glass",
+    "before": "a303e2da29ce8bb37486124fcdc8cf71d107d909",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "household/wine-glass",
+    "before": "e9b91938278b5e27796650fb0e9c9e23d32edba5",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "isa-picnic/wine-glass",
+    "before": "758aa018247f4fb44de4c778f981ea50f768b0a7",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "ken-food/cocktail",
+    "before": "6dfc978b273a86ffd75a4329fea2b84d0a6902bb",
+    "tags": [
+     "glass",
+     "special-liquid",
+     "special-food",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "ken-food/glass-wine",
+    "before": "18bc2e0dbb3caac1b6a40c1875fbe4f495509fde",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "m3-base/champagne-glass",
+    "before": "2dd0f793e23c86fe0a71f946bc1a20fb1e6fbad3",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "m3-base/cocktail-glass",
+    "before": "25893d030e88574ce1dd814a9065fac03067d645",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   },
+   {
+    "id": "m3-base/wine-glass",
+    "before": "c70f6379c477e101eb588cbd91bc8a2b85c0807d",
+    "tags": [
+     "glass",
+     "obj-kitchenware-tableware-drinkware-stemware"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "household/wine-glass",
+    "category": "shape",
+    "change": "stem made thicker, was far thinner than its peers",
+    "doubt": true,
+    "why": "a thin real stem may be meant",
+    "lint": [],
+    "verdict": "nok"
+   },
+   {
+    "id": "m3-base/champagne-glass",
+    "category": "shape",
+    "change": "stem a bit thicker, was under the kind's min tube",
+    "doubt": true,
+    "why": "a fine stem may be the m3 look",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "m3-base/wine-glass",
+    "category": "shape",
+    "change": "stem a bit thicker, was under the kind's min tube",
+    "doubt": true,
+    "why": "a fine stem may be the m3 look",
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "Sheet lines in the brief came through as [object Object]; used c01.png and c02.png from the run dir."
+  ]
+ },
+ {
+  "kind": "obj-leisure-art-easel",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "rey-studio/easel-leaning",
+    "before": "fe3eda50d9bc15c703479269c27eef92521a0866",
+    "tags": [
+     "wood-mid",
+     "obj-leisure-art-easel"
+    ]
+   },
+   {
+    "id": "sq-cards/display-easel",
+    "before": "1d029c929d2e03288ba2dbb25f355061f29007d6",
+    "tags": [
+     "wood-dark",
+     "paper-sheet",
+     "obj-leisure-art-easel"
+    ]
+   },
+   {
+    "id": "styloo-school/easel",
+    "before": "2f6b9dbbbbe899f03d027c9ed4e6e6c93b531d43",
+    "tags": [
+     "wood-mid",
+     "obj-leisure-art-easel"
+    ]
+   }
+  ],
+  "changes": [],
+  "notes": [
+   "All three easels read clean: no glitches, wood colours match their kits, tags fit.",
+   "sq-cards/display-easel is a small tabletop card stand (0.15); its size follows its kit factor, left as is."
+  ]
+ },
+ {
+  "kind": "obj-transport-watercraft-boat-rowboat",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "fs-town/boat-a",
+    "before": "2668b3e8fe79786498db7cc4538e915a4002d2f7",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-transport-watercraft-boat-rowboat",
+     "sailing"
+    ]
+   },
+   {
+    "id": "fs-town/boat-b",
+    "before": "ac3427ab7fba5a6dd865253e15fe83357afba29f",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-transport-watercraft-boat-rowboat",
+     "sailing"
+    ]
+   },
+   {
+    "id": "ken-nature/canoe",
+    "before": "0394f90a6fec9de92f5ac9418a2b44e3b3a95a70",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-transport-watercraft-boat-rowboat",
+     "sailing"
+    ]
+   },
+   {
+    "id": "ken-pirate/boat-row-large",
+    "before": "b243901f93474a51c6ce4476b560c04c0a11e5e7",
+    "tags": [
+     "wood-dark",
+     "plastic",
+     "obj-transport-watercraft-boat-rowboat",
+     "pirate",
+     "tba",
+     "sailing"
+    ]
+   },
+   {
+    "id": "ken-pirate/boat-row-small",
+    "before": "bc0894cff98b8631fb4dfa244ed0ddf61dba85bd",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "obj-transport-watercraft-boat-rowboat",
+     "pirate",
+     "tba",
+     "sailing"
+    ]
+   },
+   {
+    "id": "m3-base/skiff-01",
+    "before": "ccbf6ba7c52e4ea90c779acaee2bc7adbacc017c",
+    "tags": [
+     "wood-light",
+     "wood-dark",
+     "obj-transport-watercraft-boat-rowboat"
+    ]
+   },
+   {
+    "id": "quat-fishing/rowboat",
+    "before": "9cd61420ceb0db94e9a3aae34a44cd62e3bb0e84",
+    "tags": [
+     "wood-light",
+     "wood-dark",
+     "obj-transport-watercraft-boat-rowboat",
+     "sailing"
+    ]
+   },
+   {
+    "id": "quat-ships/boat",
+    "before": "f8b74bbb193a3c9f93854b3ca1c418972730d120",
+    "tags": [
+     "wood-light",
+     "wood-dark",
+     "obj-transport-watercraft-boat-rowboat",
+     "pirate",
+     "sailing"
+    ]
+   },
+   {
+    "id": "rgp-asia/boat",
+    "before": "1bf362378cce0edd71c3e31f84f6101f6b8ce56a",
+    "tags": [
+     "wood-mid",
+     "wood-dark",
+     "paper-sheet",
+     "textile-rope",
+     "obj-transport-watercraft-boat-rowboat",
+     "asia"
+    ]
+   },
+   {
+    "id": "rgp-medieval/rowboat",
+    "before": "a431e117bf375a9bf04e7309d98f2d8e5757c77f",
+    "tags": [
+     "metal-iron-dark",
+     "wood-mid",
+     "wood-dark",
+     "obj-transport-watercraft-boat-rowboat"
+    ]
+   },
+   {
+    "id": "wizp-fish/boat-oars",
+    "before": "a7aba180296c5914cbf6bcd6afbcb6db65e78f46",
+    "tags": [
+     "metal-iron-dark",
+     "wood-mid",
+     "wood-dark",
+     "textile-rope",
+     "obj-transport-watercraft-boat-rowboat",
+     "sailing"
+    ]
+   },
+   {
+    "id": "wizp-fish/boat-poles",
+    "before": "52c315804c2a7197de3578a7d6ad192ff2bcb9a9",
+    "tags": [
+     "metal-iron-dark",
+     "wood-mid",
+     "wood-dark",
+     "textile-rope",
+     "obj-transport-watercraft-boat-rowboat",
+     "sailing"
+    ]
+   },
+   {
+    "id": "wizp-fish/boat-rack",
+    "before": "cea7ca2486bc69a552846cdedf971eef2d384ba7",
+    "tags": [
+     "metal-iron-dark",
+     "wood-mid",
+     "wood-dark",
+     "textile-cloth-mid",
+     "textile-rope",
+     "obj-transport-watercraft-boat-rowboat",
+     "sailing"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "quat-fishing/rowboat",
+    "category": "shape",
+    "change": "two dark wood seats added; empty hull read as a tub",
+    "doubt": true,
+    "why": "icon kit may mean a plain hull",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-ships/boat",
+    "category": "shape",
+    "change": "two dark wood seats added; empty hull read as a tub",
+    "doubt": true,
+    "why": "icon kit may mean a plain hull",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "rgp-asia/boat",
+    "category": "tag",
+    "change": "add sailing theme, like its peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "rgp-medieval/rowboat",
+    "category": "tag",
+    "change": "add sailing theme, like its peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "m3-base/skiff-01",
+    "category": "tag",
+    "change": "add sailing theme, like its peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "m3-base/skiff-01 is ~6x the kind's triangles, almost all in its smooth hull; no detail method fits a hull short of decimation.",
+   "ken-pirate/boat-row-large keeps its white painted hull; read as the kit's look, not a fault.",
+   "ken-pirate rowboats are two meshes (oars node); allowed by the tba exception to R09."
+  ]
+ },
+ {
+  "kind": "str-part-beam",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "emace-village/beam",
+    "before": "094b97e2afce7cd335e1b7c515c4206495b235e3",
+    "tags": [
+     "wood-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "fs-town/stucco-support-angled-large",
+    "before": "c1ed9edce6001250586e1a5d837b0aeb72f3d208",
+    "tags": [
+     "wood-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "fs-town/stucco-support-angled-low",
+    "before": "f23c0fd7980d9bf9e7ec485097144175e5fed850",
+    "tags": [
+     "wood-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "fs-town/stucco-support-angled-small",
+    "before": "2ca524581dfc9d5a04bc0d327c0a261be2b5ae63",
+    "tags": [
+     "wood-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "fs-town/stucco-support-beam-a",
+    "before": "431e27c3ce1b59a9f8d30dd74fb15108823193b0",
+    "tags": [
+     "wood-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "fs-town/stucco-support-beam-b",
+    "before": "2467361ea1c77183f572168f2c0458fff10918d6",
+    "tags": [
+     "wood-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "fs-town/stucco-support-beam-c",
+    "before": "c3a6e59b9f0f43371ee6e087029fd561487921e7",
+    "tags": [
+     "wood-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "kay-platformer/strut-horizontal",
+    "before": "2eec624896a75c385918d6c58989a2c021e7d398",
+    "tags": [
+     "metal-iron-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "m3-base/i-beam",
+    "before": "530c847217567b649f24a83e8e3b945041ac2794",
+    "tags": [
+     "metal-iron-dark",
+     "str-part-beam",
+     "comp"
+    ]
+   },
+   {
+    "id": "quat-megakit/column-metal-support",
+    "before": "33bf8434e39c39f6d425c8188a3fcf75c6b9fce0",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "str-part-beam",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-megakit/column-metal-support-curve",
+    "before": "6faf4d3458fd9bac5fd54755274adeab178c89a0",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "str-part-beam",
+     "space"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "quat-megakit/column-metal-support",
+    "category": "shape",
+    "change": "truss made twice as deep, was a thin flat plate",
+    "doubt": true,
+    "why": "a slim sci-fi truss may be meant",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-megakit/column-metal-support",
+    "category": "placement",
+    "change": "stood on its edge, web upright, was lying flat",
+    "doubt": true,
+    "why": "may be meant to lie on a column face",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-megakit/column-metal-support-curve",
+    "category": "shape",
+    "change": "truss made twice as deep, was a thin flat plate",
+    "doubt": true,
+    "why": "a slim sci-fi truss may be meant",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-megakit/column-metal-support-curve",
+    "category": "placement",
+    "change": "stood up as an arch rib, was lying flat",
+    "doubt": true,
+    "why": "may be meant to lie on a column face",
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-megakit/column-metal-support",
+    "category": "tag",
+    "change": "add comp: a kit part, like the other beams",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-megakit/column-metal-support-curve",
+    "category": "tag",
+    "change": "add comp: a kit part, like the other beams",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "quat trusses are 748 and 1260 tris, one welded part; slim cannot thin it, left as is",
+   "fs stucco beam-b and -c take a darker chestnut tone than beam-a; read as plank variety, left"
+  ]
+ },
+ {
+  "kind": "str-part-bracket",
+  "run": "2026-11-07-0153",
+  "models": [
+   {
+    "id": "kay-platformer/bracing-large",
+    "before": "8debf51c5a2f588244f796eca9457022fad7cf9d",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "str-part-bracket",
+     "comp"
+    ]
+   },
+   {
+    "id": "kay-platformer/bracing-medium",
+    "before": "ad2c9d304a592d86095dedf446cb4c04b20751dd",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "str-part-bracket",
+     "comp"
+    ]
+   },
+   {
+    "id": "kay-platformer/bracing-small",
+    "before": "030003787ec56546441bb3eb68bf50dfb82b34db",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "str-part-bracket",
+     "comp"
+    ]
+   },
+   {
+    "id": "quat-cyberpunk/support",
+    "before": "012bad657902d1d0f8bd07bc7ee02c98f951bb56",
+    "tags": [
+     "metal-steel",
+     "str-part-bracket"
+    ]
+   },
+   {
+    "id": "quat-cyberpunk/support-short",
+    "before": "f1113c46ab006b15a1871c5757956bb3ee0a2f48",
+    "tags": [
+     "metal-steel",
+     "str-part-bracket"
+    ]
+   },
+   {
+    "id": "rgp-vintage/beam",
+    "before": "487cf30188962ba7c98ad58761204e2386719ed8",
+    "tags": [
+     "wood-dark",
+     "str-part-bracket"
+    ]
+   },
+   {
+    "id": "wizp-asia/arch-beam",
+    "before": "5a2de16c95afe097f4fa74b4ceaea037d17d8ce0",
+    "tags": [
+     "wood-dark",
+     "str-part-bracket",
+     "comp",
+     "asia"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "quat-cyberpunk/support",
+    "category": "tag",
+    "change": "add comp: a truss brace built into a larger frame",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   },
+   {
+    "id": "quat-cyberpunk/support-short",
+    "category": "tag",
+    "change": "add comp, like its long twin and the other braces",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": "ok"
+   }
+  ],
+  "notes": [
+   "All seven models render clean: no glitches, back faces or off bands; kay blue plastic with dark bolts is the kit's look, left.",
+   "rgp-vintage/beam is a free-standing post with a hanger arm, not a part; left without comp."
   ]
  }
 ]

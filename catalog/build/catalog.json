@@ -3215,10 +3215,10 @@
     "The Base Mesh Kitbash": 46
    },
    "scales": {
-    "0.87": 867,
+    "0.87": 866,
     "2.088": 2,
     "1.827": 1,
-    "0.6525": 3,
+    "0.6525": 4,
     "none": 2,
     "2.61": 1,
     "0.7395": 1,
@@ -3565,8 +3565,8 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.2,
-    "kinds": 13
+    "factor": 1.23,
+    "kinds": 12
    }
   },
   {
@@ -29342,8 +29342,8 @@
    "id": "str-part-pillar",
    "name": "Pillar",
    "type": "kind",
-   "description": "pillar, column, beam, support, bracing",
-   "count": 105
+   "description": "Upright pillar or column.",
+   "count": 95
   },
   {
    "id": "str-part-roof",
@@ -29428,6 +29428,20 @@
    "type": "kind",
    "description": "window, shutter",
    "count": 34
+  },
+  {
+   "id": "str-part-beam",
+   "name": "Beam",
+   "type": "kind",
+   "description": "Long structural member, straight or angled: beam, girder, truss, strut.",
+   "count": 11
+  },
+  {
+   "id": "str-part-bracket",
+   "name": "Bracket",
+   "type": "kind",
+   "description": "Bracket or brace plate fixed to a wall, post or beam.",
+   "count": 7
   },
   {
    "id": "str-fixture-marker",
@@ -30386,7 +30400,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 520
+   "count": 524
   },
   {
    "id": "plural",
@@ -30449,7 +30463,7 @@
    "name": "Sailing",
    "type": "theme",
    "description": "Sailing/seafaring theme set: boats, ships, rigging, dockside cargo and navigation props.",
-   "count": 146
+   "count": 149
   },
   {
    "id": "space",
@@ -31357,7 +31371,7 @@
    "name": "1 high grid",
    "type": "attribute",
    "description": "Height on the building grid: 1 storey high; width free. For pillars.",
-   "count": 24,
+   "count": 22,
    "kinds": [
     "str-part-floor-unit",
     "str-part-wall-unit",
@@ -35476,6 +35490,18 @@
    "tpu.max": 5000
   },
   "str-part": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-beam": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-bracket": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -42221,7 +42247,7 @@
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 0.97
+   "thickRel": 0.94
   },
   {
    "kit": "aq-hallow",
@@ -42265,7 +42291,7 @@
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 1.07
+   "thickRel": 1.04
   },
   {
    "kit": "aq-hallow",
@@ -42309,7 +42335,7 @@
     "stone-masonry-mid"
    ],
    "variant": "aq-hallow/pillar-a",
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "aq-hallow",
@@ -53099,7 +53125,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.81
+   "thickRel": 0.79
   },
   {
    "kit": "dungeon",
@@ -53138,7 +53164,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "dungeon",
@@ -53177,7 +53203,7 @@
     "stone-masonry-mid"
    ],
    "variant": "dungeon/beam",
-   "thickRel": 0.79
+   "thickRel": 0.77
   },
   {
    "kit": "dungeon",
@@ -56123,7 +56149,7 @@
    "collection": "emace",
    "name": "beam",
    "hash": "3a14f58ae7",
-   "kind": "str-part",
+   "kind": "str-part-beam",
    "size": "l",
    "wdh": [
     0.198,
@@ -83551,7 +83577,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 1
+   "thickRel": 0.97
   },
   {
    "kit": "fs-terrain",
@@ -83592,7 +83618,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 1.05
+   "thickRel": 1.02
   },
   {
    "kit": "fs-terrain",
@@ -83633,7 +83659,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 1.11
+   "thickRel": 1.08
   },
   {
    "kit": "fs-terrain",
@@ -83674,7 +83700,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 0.69
+   "thickRel": 0.67
   },
   {
    "kit": "fs-terrain",
@@ -83716,7 +83742,7 @@
     "stone-masonry-mid"
    ],
    "variant": "fs-terrain/hilly-prop-ruins-pillar-a",
-   "thickRel": 0.54
+   "thickRel": 0.52
   },
   {
    "kit": "fs-terrain",
@@ -85330,7 +85356,7 @@
    "collection": "fs-modular",
    "name": "canopy-beam",
    "hash": "ae7b92025e",
-   "kind": "str-part-pillar",
+   "kind": "str-part",
    "size": "m",
    "wdh": [
     0.061,
@@ -85361,7 +85387,6 @@
    "tags": [
     "comp",
     "fs",
-    "grid-h1",
     "wood-light"
    ],
    "variant": "fs-town/canopy-beam"
@@ -89060,7 +89085,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-angled-large",
    "hash": "c7d8fc305a",
-   "kind": "str-part",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     0.061,
@@ -89102,7 +89127,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-angled-low",
    "hash": "aa38b6addf",
-   "kind": "str-part",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     0.061,
@@ -89144,7 +89169,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-angled-small",
    "hash": "df0ee7dba9",
-   "kind": "str-part",
+   "kind": "str-part-beam",
    "size": "s",
    "wdh": [
     0.061,
@@ -89184,7 +89209,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-beam-a",
    "hash": "5867c1c711",
-   "kind": "str-part",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     0.1,
@@ -89225,7 +89250,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-beam-b",
    "hash": "b6b23ad2c1",
-   "kind": "str-part",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     0.1,
@@ -89266,7 +89291,7 @@
    "collection": "fs-modular",
    "name": "stucco-support-beam-c",
    "hash": "32d74ddf81",
-   "kind": "str-part",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     0.1,
@@ -93725,7 +93750,7 @@
   {
    "kit": "household",
    "name": "printer",
-   "hash": "c281b0fa5c",
+   "hash": "88fa9df6a7",
    "kind": "obj-device-electronics-printer",
    "size": "m",
    "wdh": [
@@ -94900,7 +94925,7 @@
    "kit": "ipoly-concert",
    "collection": "ipoly",
    "name": "mic-stand",
-   "hash": "dbc7750359",
+   "hash": "84723b50bf",
    "kind": "obj-device-electronics-audio-mic",
    "size": "m",
    "wdh": [
@@ -94918,11 +94943,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0253,
-   "thick": 0.1348,
-   "avgTri": 0.00015,
+   "minTube": 0.0284,
+   "thick": 0.1352,
+   "avgTri": 0.00016,
    "anglePct": 39,
-   "pieces": 3,
+   "pieces": 4,
    "vpt": 1.11,
    "cells": [
     "6,1",
@@ -94937,14 +94962,7 @@
     "metal-iron-dark",
     "metal-steel"
    ],
-   "thickRel": 0.71,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0253 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.72
   },
   {
    "kit": "ipoly-concert",
@@ -124082,7 +124100,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.09
   },
   {
    "kit": "kay-dun-1",
@@ -128951,7 +128969,7 @@
     "scale-small",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.09
   },
   {
    "kit": "kay-dun-2",
@@ -130647,7 +130665,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.09
   },
   {
    "kit": "kay-dun-2",
@@ -146161,7 +146179,7 @@
     "kay",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.29
   },
   {
    "kit": "kay-hallow",
@@ -155007,7 +155025,7 @@
   {
    "kit": "kay-mixed",
    "name": "autumn-wreath",
-   "hash": "a949080206",
+   "hash": "4ab96e9dd3",
    "kind": "obj-furnishing-decor-wreath",
    "size": "s",
    "wdh": [
@@ -155015,21 +155033,21 @@
     0.108,
     0.44
    ],
-   "tris": 4136,
-   "tpu": 12058,
+   "tris": 4456,
+   "tpu": 12991,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 215268,
-   "vtx": 5903,
+   "bytes": 314148,
+   "vtx": 8933,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.0729,
-   "avgTri": 0.00012,
+   "avgTri": 0.00015,
    "anglePct": 2,
-   "pieces": 71,
-   "vpt": 1.43,
+   "pieces": 135,
+   "vpt": 2,
    "cells": [
     "3,0",
     "5,0",
@@ -155049,11 +155067,11 @@
     "special-organic"
    ],
    "backface": {
-    "share": 0.255,
-    "view": "180/20",
+    "share": 0.0086,
+    "view": "90/20",
     "causes": {
-     "open": 0.97,
-     "inverted": 0.03
+     "open": 0.98,
+     "inverted": 0.02
     }
    },
    "thickRel": 0.59,
@@ -155061,12 +155079,12 @@
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 12058 over max 7000 (obj-furnishing-decor)"
+     "text": "tpu 12991 over max 7000 (obj-furnishing-decor)"
     },
     {
      "level": "error",
      "check": "backface",
-     "text": "25.5% of view 180/20 over 0.5%: open 97.0%, inverted 3.0%"
+     "text": "0.9% of view 90/20 over 0.5%: open 98.0%, inverted 2.0%"
     }
    ]
   },
@@ -158241,7 +158259,7 @@
    "collection": "kay-play",
    "name": "bracing-large",
    "hash": "c7c3f3626a",
-   "kind": "str-part-pillar",
+   "kind": "str-part-bracket",
    "size": "s",
    "wdh": [
     0.3,
@@ -158284,7 +158302,7 @@
    "collection": "kay-play",
    "name": "bracing-medium",
    "hash": "1cf85417d8",
-   "kind": "str-part-pillar",
+   "kind": "str-part-bracket",
    "size": "s",
    "wdh": [
     0.18,
@@ -158327,7 +158345,7 @@
    "collection": "kay-play",
    "name": "bracing-small",
    "hash": "ac207c8faf",
-   "kind": "str-part-pillar",
+   "kind": "str-part-bracket",
    "size": "s",
    "wdh": [
     0.06,
@@ -159229,7 +159247,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 0.71
+   "thickRel": 0.69
   },
   {
    "kit": "kay-platformer",
@@ -159275,7 +159293,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 0.92
+   "thickRel": 0.89
   },
   {
    "kit": "kay-platformer",
@@ -159320,7 +159338,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 1.17
+   "thickRel": 1.14
   },
   {
    "kit": "kay-platformer",
@@ -159366,7 +159384,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 1.61
+   "thickRel": 1.57
   },
   {
    "kit": "kay-platformer",
@@ -159410,7 +159428,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 0.71
+   "thickRel": 0.69
   },
   {
    "kit": "kay-platformer",
@@ -159454,7 +159472,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 0.9
+   "thickRel": 0.87
   },
   {
    "kit": "kay-platformer",
@@ -159499,7 +159517,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-platformer/pillar-1x1x4",
-   "thickRel": 1.17
+   "thickRel": 1.14
   },
   {
    "kit": "kay-platformer",
@@ -160458,7 +160476,7 @@
    "collection": "kay-play",
    "name": "strut-horizontal",
    "hash": "37f5fcbbf8",
-   "kind": "str-part-pillar",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     0.6,
@@ -174798,7 +174816,7 @@
     "plastic",
     "stone-masonry-dark"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.78
   },
   {
    "kit": "ken-arcade",
@@ -175602,7 +175620,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/column",
-   "thickRel": 0.76
+   "thickRel": 0.73
   },
   {
    "kit": "ken-arena",
@@ -175643,7 +175661,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-arena/column",
-   "thickRel": 0.85
+   "thickRel": 0.83
   },
   {
    "kit": "ken-arena",
@@ -198828,7 +198846,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/speaker",
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "ken-furniture",
@@ -200754,7 +200772,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "ken-grave",
@@ -202652,7 +202670,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.28
   },
   {
    "kit": "ken-grave",
@@ -202695,7 +202713,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.17
   },
   {
    "kit": "ken-grave",
@@ -208299,7 +208317,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.91
   },
   {
    "kit": "ken-mini-dun",
@@ -211667,7 +211685,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-nature/statue-column",
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "ken-nature",
@@ -211706,7 +211724,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-nature/statue-column",
-   "thickRel": 1.11
+   "thickRel": 1.08
   },
   {
    "kit": "ken-nature",
@@ -219363,12 +219381,12 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-cylinder",
-   "thickRel": 0.48,
+   "thickRel": 0.47,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
+     "text": "I01 thickRel 0.47 wants min 0.5"
     }
    ]
   },
@@ -219412,7 +219430,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-cylinder",
-   "thickRel": 0.51
+   "thickRel": 0.5
   },
   {
    "kit": "ken-proto",
@@ -219453,12 +219471,12 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-hexagon",
-   "thickRel": 0.49,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -219501,7 +219519,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/shape-hollow-hexagon",
-   "thickRel": 0.54
+   "thickRel": 0.52
   },
   {
    "kit": "ken-proto",
@@ -222899,7 +222917,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.19
+   "thickRel": 1.16
   },
   {
    "kit": "ken-roads",
@@ -222942,7 +222960,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-roads/bridge-pillar",
-   "thickRel": 1.23
+   "thickRel": 1.2
   },
   {
    "kit": "ken-roads",
@@ -229611,7 +229629,7 @@
     "space"
    ],
    "variant": "ken-space/monorail-track-support",
-   "thickRel": 0.63
+   "thickRel": 0.61
   },
   {
    "kit": "ken-space",
@@ -229654,7 +229672,7 @@
     "space"
    ],
    "variant": "ken-space/monorail-track-support",
-   "thickRel": 0.62
+   "thickRel": 0.6
   },
   {
    "kit": "ken-space",
@@ -240532,7 +240550,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-town/pillar-stone",
-   "thickRel": 1.52
+   "thickRel": 1.47
   },
   {
    "kit": "ken-town",
@@ -240577,7 +240595,7 @@
     "wood-dark"
    ],
    "variant": "ken-town/pillar-stone",
-   "thickRel": 1.46
+   "thickRel": 1.42
   },
   {
    "kit": "ken-town",
@@ -273926,7 +273944,7 @@
   {
    "kit": "m3-base",
    "name": "champagne-glass",
-   "hash": "ff4c0b2d99",
+   "hash": "2727c75d09",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -273944,9 +273962,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.1312,
-   "avgTri": 0.00007,
-   "anglePct": 8,
+   "thick": 0.1327,
+   "avgTri": 0.00008,
+   "anglePct": 9,
    "pieces": 1,
    "vpt": 0.58,
    "cells": [
@@ -273960,7 +273978,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-glass",
-   "thickRel": 1.59
+   "thickRel": 1.61
   },
   {
    "kit": "m3-base",
@@ -275996,7 +276014,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -279432,26 +279450,26 @@
   {
    "kit": "m3-base",
    "name": "eye-drop-bottle",
-   "hash": "398a0c0b36",
+   "hash": "2738ea0677",
    "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
-    0.089,
-    0.089,
-    0.179
+    0.066,
+    0.066,
+    0.134
    ],
    "tris": 702,
    "tpu": 2047,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23712,
+   "bytes": 23708,
    "vtx": 561,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.29,
-   "avgTri": 0.00007,
+   "minEdge": 0.001,
+   "thick": 0.2899,
+   "avgTri": 0.00004,
    "anglePct": 7,
    "pieces": 1,
    "vpt": 0.8,
@@ -282475,7 +282493,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/greek-column-01",
-   "thickRel": 1.06
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
@@ -282515,7 +282533,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/greek-column-01",
-   "thickRel": 1.08
+   "thickRel": 1.05
   },
   {
    "kit": "m3-base",
@@ -284256,7 +284274,7 @@
    "kit": "m3-base",
    "name": "i-beam",
    "hash": "b3535c80dc",
-   "kind": "str-part-pillar",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     0.048,
@@ -284410,7 +284428,7 @@
     "m3",
     "metal-iron-dark"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.88
   },
   {
    "kit": "m3-base",
@@ -291607,7 +291625,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -298815,6 +298833,7 @@
    ],
    "tags": [
     "m3",
+    "sailing",
     "wood-dark",
     "wood-light"
    ],
@@ -299839,7 +299858,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.13
   },
   {
    "kit": "m3-base",
@@ -303029,7 +303048,7 @@
     "m3",
     "stone-masonry-light"
    ],
-   "thickRel": 1.03
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -304965,7 +304984,7 @@
   {
    "kit": "m3-base",
    "name": "wine-glass",
-   "hash": "063c6b0e8e",
+   "hash": "bbd7de7fe2",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -304983,7 +305002,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.0913,
+   "thick": 0.0914,
    "avgTri": 0.00012,
    "anglePct": 15,
    "pieces": 1,
@@ -315322,7 +315341,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.12
   },
   {
    "kit": "pm-store",
@@ -324189,7 +324208,7 @@
    "kit": "quat-cyberpunk",
    "name": "support-short",
    "hash": "f7d2bf70fd",
-   "kind": "str-part-pillar",
+   "kind": "str-part-bracket",
    "size": "m",
    "wdh": [
     0.444,
@@ -324219,24 +324238,17 @@
     "#7a8491"
    ],
    "tags": [
+    "comp",
     "metal-steel",
     "qua"
    ],
-   "variant": "quat-cyberpunk/support",
-   "thickRel": 0.33,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.33 wants min 0.5"
-    }
-   ]
+   "variant": "quat-cyberpunk/support"
   },
   {
    "kit": "quat-cyberpunk",
    "name": "support",
    "hash": "49f004e2e8",
-   "kind": "str-part-pillar",
+   "kind": "str-part-bracket",
    "size": "m",
    "wdh": [
     0.358,
@@ -324266,18 +324278,11 @@
     "#7a8491"
    ],
    "tags": [
+    "comp",
     "metal-steel",
     "qua"
    ],
-   "variant": "quat-cyberpunk/support",
-   "thickRel": 0.4,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
-    }
-   ]
+   "variant": "quat-cyberpunk/support"
   },
   {
    "kit": "quat-cyberpunk",
@@ -325187,7 +325192,7 @@
     "scale-big",
     "stone-masonry-dark"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.1
   },
   {
    "kit": "quat-dun-1",
@@ -326019,7 +326024,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-dun-2/column",
-   "thickRel": 1.09
+   "thickRel": 1.06
   },
   {
    "kit": "quat-dun-2",
@@ -326062,7 +326067,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-dun-2/column",
-   "thickRel": 1.15
+   "thickRel": 1.12
   },
   {
    "kit": "quat-dun-2",
@@ -330189,7 +330194,7 @@
    "kit": "quat-fishing",
    "collection": "quat-sea",
    "name": "rowboat",
-   "hash": "1866c1fe5a",
+   "hash": "de04228e45",
    "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
@@ -330197,22 +330202,22 @@
     0.991,
     0.221
    ],
-   "tris": 184,
-   "tpu": 516,
+   "tris": 208,
+   "tpu": 583,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13376,
-   "vtx": 340,
+   "bytes": 15056,
+   "vtx": 388,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.022,
-   "thick": 0.0863,
-   "avgTri": 0.0072,
-   "anglePct": 35,
-   "pieces": 1,
-   "vpt": 1.85,
+   "thick": 0.0915,
+   "avgTri": 0.00732,
+   "anglePct": 44,
+   "pieces": 3,
+   "vpt": 1.87,
    "cells": [
     "2,0",
     "0,0"
@@ -330227,7 +330232,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.93
   },
   {
    "kit": "quat-fishing",
@@ -336090,7 +336095,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-round",
-   "thickRel": 0.84
+   "thickRel": 0.81
   },
   {
    "kit": "quat-interior",
@@ -336130,7 +336135,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-round",
-   "thickRel": 0.93
+   "thickRel": 0.9
   },
   {
    "kit": "quat-interior",
@@ -336169,7 +336174,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-round",
-   "thickRel": 0.67
+   "thickRel": 0.65
   },
   {
    "kit": "quat-interior",
@@ -336208,7 +336213,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-square-tall",
-   "thickRel": 1
+   "thickRel": 0.97
   },
   {
    "kit": "quat-interior",
@@ -336247,7 +336252,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-interior/column-square-tall",
-   "thickRel": 1.27
+   "thickRel": 1.23
   },
   {
    "kit": "quat-interior",
@@ -341679,7 +341684,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.54,
+   "thickRel": 0.52,
    "lint": [
     {
      "level": "warning",
@@ -341732,32 +341737,32 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.12
   },
   {
    "kit": "quat-megakit",
    "name": "column-metal-support-curve",
-   "hash": "0c6d8c6653",
-   "kind": "str-part",
+   "hash": "97c39f1545",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     1.118,
-    1.118,
-    0.029
+    0.058,
+    1.118
    ],
    "tris": 1260,
-   "tpu": 1440,
+   "tpu": 2300,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 203736,
+   "bytes": 203732,
    "vtx": 5844,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.0333,
-   "avgTri": 0.00057,
-   "anglePct": 63,
+   "thick": 0.0408,
+   "avgTri": 0.00083,
+   "anglePct": 44,
    "pieces": 1,
    "vpt": 4.64,
    "cells": [
@@ -341769,23 +341774,23 @@
     "#7a8491"
    ],
    "tags": [
+    "comp",
     "metal-iron-dark",
     "metal-steel",
     "qua",
     "space"
-   ],
-   "thickRel": 0.36
+   ]
   },
   {
    "kit": "quat-megakit",
    "name": "column-metal-support",
-   "hash": "32112a0b00",
-   "kind": "str-part",
+   "hash": "eae2f7762d",
+   "kind": "str-part-beam",
    "size": "m",
    "wdh": [
-    0.252,
     1,
-    0.029
+    0.058,
+    0.252
    ],
    "tris": 748,
    "tpu": 2181,
@@ -341794,14 +341799,13 @@
    "calls": 1,
    "bytes": 35756,
    "vtx": 788,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0291,
-   "thick": 0.1323,
-   "avgTri": 0.00064,
-   "anglePct": 95,
+   "minTube": 0.0309,
+   "thick": 0.162,
+   "avgTri": 0.00092,
+   "anglePct": 91,
    "pieces": 1,
    "vpt": 1.05,
    "cells": [
@@ -341813,12 +341817,12 @@
     "#7a8491"
    ],
    "tags": [
+    "comp",
     "metal-iron-dark",
     "metal-steel",
     "qua",
     "space"
-   ],
-   "thickRel": 1.43
+   ]
   },
   {
    "kit": "quat-megakit",
@@ -341866,7 +341870,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.02
   },
   {
    "kit": "quat-megakit",
@@ -341911,7 +341915,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.45
   },
   {
    "kit": "quat-megakit",
@@ -341955,7 +341959,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.03
   },
   {
    "kit": "quat-megakit",
@@ -357808,7 +357812,7 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.12
   },
   {
    "kit": "quat-ruins",
@@ -357851,7 +357855,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-ruins/column-round",
-   "thickRel": 1.22
+   "thickRel": 1.18
   },
   {
    "kit": "quat-ruins",
@@ -357892,7 +357896,7 @@
     "stone-masonry-mid"
    ],
    "variant": "quat-ruins/column-round",
-   "thickRel": 1.41
+   "thickRel": 1.37
   },
   {
    "kit": "quat-ruins",
@@ -357932,7 +357936,7 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.34
   },
   {
    "kit": "quat-ruins",
@@ -360582,7 +360586,7 @@
   {
    "kit": "quat-ships",
    "name": "boat",
-   "hash": "8c8bad0436",
+   "hash": "dae362d091",
    "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
@@ -360590,21 +360594,21 @@
     0.904,
     0.212
    ],
-   "tris": 172,
-   "tpu": 501,
+   "tris": 196,
+   "tpu": 571,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12616,
-   "vtx": 319,
+   "bytes": 14296,
+   "vtx": 367,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "thick": 0.0894,
-   "avgTri": 0.00696,
-   "anglePct": 50,
-   "pieces": 1,
-   "vpt": 1.85,
+   "thick": 0.09,
+   "avgTri": 0.007,
+   "anglePct": 57,
+   "pieces": 3,
+   "vpt": 1.87,
    "cells": [
     "2,0",
     "0,0"
@@ -360620,7 +360624,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "quat-ships",
@@ -377520,6 +377524,7 @@
     "asia",
     "paper-sheet",
     "rgp",
+    "sailing",
     "textile-rope",
     "wood-dark",
     "wood-mid"
@@ -379631,7 +379636,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.07
   },
   {
    "kit": "rgp-asia",
@@ -387160,7 +387165,7 @@
     "wood-dark"
    ],
    "variant": "rgp-medieval/post-a",
-   "thickRel": 1.6
+   "thickRel": 1.55
   },
   {
    "kit": "rgp-medieval",
@@ -387204,7 +387209,7 @@
     "wood-dark"
    ],
    "variant": "rgp-medieval/post-a",
-   "thickRel": 1.65
+   "thickRel": 1.61
   },
   {
    "kit": "rgp-medieval",
@@ -388276,6 +388281,7 @@
    "tags": [
     "metal-iron-dark",
     "rgp",
+    "sailing",
     "wood-dark",
     "wood-mid"
    ],
@@ -391816,7 +391822,7 @@
    "collection": "rgp",
    "name": "beam",
    "hash": "69e73c4ba1",
-   "kind": "str-part-pillar",
+   "kind": "str-part-bracket",
    "size": "m",
    "wdh": [
     0.076,
@@ -391846,18 +391852,10 @@
     "#713e14"
    ],
    "tags": [
-    "grid-h1",
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.38,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.38 wants min 0.5"
-    }
-   ]
+   "thickRel": 1.07
   },
   {
    "kit": "rgp-vintage",
@@ -422989,12 +422987,12 @@
     "plastic"
    ],
    "variant": "taalei-kit/jukebox",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "taalei-kit",
    "name": "jukebox",
-   "hash": "d28580073a",
+   "hash": "5ca156ce73",
    "kind": "obj-device-electronics-audio-speaker",
    "size": "m",
    "wdh": [
@@ -423012,8 +423010,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.012,
-   "thick": 0.2178,
+   "thick": 0.2185,
    "avgTri": 0.0021,
    "anglePct": 80,
    "pieces": 66,
@@ -423038,14 +423035,7 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/jukebox",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.012 wants min 0.026"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "taalei-kit",
@@ -428835,7 +428825,7 @@
    "collection": "wizp-eastern",
    "name": "arch-beam",
    "hash": "831c7fca70",
-   "kind": "str-part-pillar",
+   "kind": "str-part-bracket",
    "size": "l",
    "wdh": [
     1.715,
@@ -431124,7 +431114,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.95
+   "thickRel": 0.92
   },
   {
    "kit": "wizp-asia",
@@ -431169,7 +431159,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.91
+   "thickRel": 0.89
   },
   {
    "kit": "wizp-asia",
@@ -431214,7 +431204,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-b",
-   "thickRel": 0.96
+   "thickRel": 0.93
   },
   {
    "kit": "wizp-asia",
@@ -431259,7 +431249,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-b",
-   "thickRel": 0.93
+   "thickRel": 0.9
   },
   {
    "kit": "wizp-asia",
@@ -431301,7 +431291,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.94
+   "thickRel": 0.91
   },
   {
    "kit": "wizp-asia",
@@ -431343,7 +431333,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/pillar-a",
-   "thickRel": 0.91
+   "thickRel": 0.88
   },
   {
    "kit": "wizp-asia",
@@ -431387,7 +431377,7 @@
     "wood-dark"
    ],
    "variant": "wizp-asia/pillar-wood",
-   "thickRel": 1.33
+   "thickRel": 1.29
   },
   {
    "kit": "wizp-asia",
@@ -434352,7 +434342,7 @@
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 0.91
+   "thickRel": 0.89
   },
   {
    "kit": "wizp-grave",
@@ -434394,7 +434384,7 @@
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 0.95
+   "thickRel": 0.92
   },
   {
    "kit": "wizp-grave",
@@ -434436,7 +434426,7 @@
     "wizp"
    ],
    "variant": "wizp-grave/column-short",
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "wizp-grave",
