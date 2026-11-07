@@ -122,17 +122,33 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   const start = (v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
   const near = (p, q) => Math.hypot(...sub(p, q)) < MOVED;
   let sides = 0;
+  const built = new Set(), walls = new Map();
+  const wall = (ids, pts) => {
+    const key = pts.map((p) => p.map((q) => Math.round(q * 2e4)).join(',')).sort().join('|');
+    if (!walls.has(key)) walls.set(key, []);
+    walls.get(key).push({ ids, n: unit(cross(sub(pts[1], pts[0]), sub(pts[2], pts[0]))) });
+  };
   for (const list of edges.values()) for (const x of list) {
     if (!moved(x.a) && !moved(x.b)) continue;
-    const joined = list.some((y) => y !== x && weld(y.a) === weld(x.b) && near(after(y.a), after(x.b)) && near(after(y.b), after(x.a)));
+    const joined = list.some((y) => y !== x && (weld(y.a) === weld(x.b)
+      ? near(after(y.a), after(x.b)) && near(after(y.b), after(x.a))
+      : near(after(y.a), after(x.a)) && near(after(y.b), after(x.b))));
     if (joined) continue;
+    const wallKey = [x.a, x.b].map((v) => after(v).map((q) => Math.round(q * 1e6)).join(',')).sort().join('|');
+    if (built.has(wallKey)) continue;
+    built.add(wallKey);
     const from = [x.b, x.a, x.a, x.b];
     const quad = [after(x.b), after(x.a), start(x.a), start(x.b)];
     const n = unit(cross(sub(quad[1], quad[0]), sub(quad[2], quad[0])).map((v, q) => v + cross(sub(quad[2], quad[0]), sub(quad[3], quad[0]))[q]));
     const ids = from.map((v, k) => adder.add(v, { POSITION: quad[k], NORMAL: n }));
-    if (moved(x.a)) index.push(ids[0], ids[1], ids[2]);
-    if (moved(x.b)) index.push(ids[0], ids[2], ids[3]);
+    if (moved(x.a)) wall([ids[0], ids[1], ids[2]], [quad[0], quad[1], quad[2]]);
+    if (moved(x.b)) wall([ids[0], ids[2], ids[3]], [quad[0], quad[2], quad[3]]);
     sides++;
+  }
+  for (const list of walls.values()) {
+    index.push(...list[0].ids);
+    const back = list.find((w) => dotOf(w.n, list[0].n) < 0);
+    if (back) index.push(...back.ids);
   }
   for (let v = 0; v < count; v++) if (moved(v)) posAt(v).set(after(v));
   adder.commit(index, replaced);

@@ -688,12 +688,13 @@
     "Food Pack": 164
    },
    "scales": {
-    "0.9": 151,
+    "0.9": 150,
     "1.21": 2,
     "1.8": 2,
     "1.035": 5,
     "0.774": 3,
-    "1.125": 1
+    "1.125": 1,
+    "1.08": 1
    },
    "smooth": {
     "smooth": 164
@@ -904,7 +905,7 @@
    "scales": {
     "0.5": 32,
     "0.0337": 1,
-    "0.0146": 1,
+    "0.01752": 1,
     "0.0316": 1,
     "0.0434": 1,
     "0.14": 23
@@ -949,7 +950,7 @@
      },
      "scales": {
       "0.0337": 1,
-      "0.0146": 1,
+      "0.01752": 1,
       "0.0316": 1,
       "0.0434": 1
      },
@@ -3698,8 +3699,8 @@
     "1.76": 1
    },
    "smooth": {
-    "smooth": 125,
-    "none": 17
+    "smooth": 126,
+    "none": 16
    },
    "members": [
     {
@@ -3742,8 +3743,8 @@
       "1.76": 1
      },
      "smooth": {
-      "smooth": 33,
-      "none": 4
+      "smooth": 34,
+      "none": 3
      }
     },
     {
@@ -50831,7 +50832,7 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/cutlery-set",
-   "thickRel": 1.2,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "error",
@@ -71334,30 +71335,30 @@
   {
    "kit": "food-pack-2",
    "name": "strawberry",
-   "hash": "ae095989a1",
+   "hash": "05ad755be8",
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.05,
-    0.049,
-    0.051
+    0.064,
+    0.067,
+    0.064
    ],
-   "tris": 638,
-   "tpu": 1860,
+   "tris": 1042,
+   "tpu": 3038,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25484,
-   "vtx": 633,
+   "bytes": 54540,
+   "vtx": 1465,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0001,
-   "thick": 0.2173,
+   "minEdge": 0,
+   "wall": 0.0497,
+   "thick": 0.206,
    "avgTri": 0.00002,
-   "anglePct": 6,
-   "pieces": 5,
-   "vpt": 0.99,
+   "anglePct": 5,
+   "pieces": 21,
+   "vpt": 1.41,
    "cells": [
     "8,0",
     "3,1"
@@ -71371,24 +71372,19 @@
     "special-food"
    ],
    "backface": {
-    "share": 0.0035,
-    "view": "315/50",
+    "share": 0.0022,
+    "view": "45/50",
     "causes": {
-     "open": 1,
-     "inverted": 0
+     "inverted": 0.31,
+     "open": 0.69
     }
    },
-   "thickRel": 0.9,
+   "thickRel": 0.86,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 315/50 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0001 wants min 0.006"
+     "text": "0.2% of view 45/50 over 0.1%: open 69.0%, inverted 31.0%"
     }
    ]
   },
@@ -88410,7 +88406,7 @@
     "fs"
    ],
    "variant": "fs-town/dirt-fading",
-   "thickRel": 1.42,
+   "thickRel": 1.41,
    "mark": [
     "grounded"
    ]
@@ -88455,7 +88451,7 @@
     "grid-1x0-5"
    ],
    "variant": "fs-town/dirt-fading",
-   "thickRel": 1.61,
+   "thickRel": 1.6,
    "mark": [
     "grounded"
    ]
@@ -88541,7 +88537,7 @@
     "fs",
     "grid-0-5x0-5"
    ],
-   "thickRel": 1.17,
+   "thickRel": 1.16,
    "mark": [
     "grounded"
    ]
@@ -97596,13 +97592,13 @@
    "kit": "ipoly-electronics",
    "collection": "ipoly",
    "name": "microchip",
-   "hash": "2c27edf634",
+   "hash": "165a8463be",
    "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
-    0.071,
-    0.023,
-    0.019
+    0.087,
+    0.034,
+    0.025
    ],
    "tris": 984,
    "tpu": 2869,
@@ -97613,11 +97609,11 @@
    "vtx": 1204,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "wall": 0.0005,
-   "thick": 0.2632,
-   "avgTri": 0.00001,
-   "anglePct": 62,
+   "minEdge": 0.001,
+   "wall": 0.0063,
+   "thick": 0.2216,
+   "avgTri": 0.00002,
+   "anglePct": 58,
    "pieces": 17,
    "vpt": 1.22,
    "cells": [
@@ -97633,14 +97629,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.67,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0005 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.4
   },
   {
    "kit": "ipoly-electronics",
@@ -97793,7 +97782,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-rect-hunter",
-   "thickRel": 0.86,
+   "thickRel": 0.87,
    "lint": [
     {
      "level": "error",
@@ -97846,7 +97835,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/glasses-round-azure",
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -97859,7 +97848,7 @@
    "kit": "ipoly-glasses",
    "collection": "ipoly",
    "name": "glasses-round-sienna",
-   "hash": "a14ed107be",
+   "hash": "01f3fceefa",
    "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
@@ -97867,22 +97856,22 @@
     0.213,
     0.104
    ],
-   "tris": 636,
-   "tpu": 1854,
+   "tris": 786,
+   "tpu": 2292,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27716,
-   "vtx": 700,
+   "bytes": 39756,
+   "vtx": 1048,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "wall": 0.0006,
-   "thick": 0.0534,
-   "avgTri": 0.00012,
-   "anglePct": 48,
+   "minEdge": 0.001,
+   "wall": 0.0061,
+   "thick": 0.053,
+   "avgTri": 0.0001,
+   "anglePct": 45,
    "pieces": 7,
-   "vpt": 1.1,
+   "vpt": 1.33,
    "cells": [
     "8,0",
     "3,2",
@@ -97899,14 +97888,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/glasses-round-azure",
-   "thickRel": 1.11,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0006 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "ipoly-glasses",
@@ -97993,7 +97975,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-shield-azure",
-   "thickRel": 0.95,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "error",
@@ -98058,7 +98040,7 @@
    "kit": "ipoly-glasses",
    "collection": "ipoly",
    "name": "sunglasses-aviator-sienna",
-   "hash": "387140195b",
+   "hash": "7a45a4c1c5",
    "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
@@ -98066,22 +98048,22 @@
     0.205,
     0.08
    ],
-   "tris": 1032,
-   "tpu": 3009,
+   "tris": 1172,
+   "tpu": 3417,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 43160,
-   "vtx": 1108,
+   "bytes": 53472,
+   "vtx": 1404,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "wall": 0.0006,
-   "thick": 0.0496,
-   "avgTri": 0.00006,
-   "anglePct": 51,
+   "wall": 0.0061,
+   "thick": 0.0483,
+   "avgTri": 0.00005,
+   "anglePct": 48,
    "pieces": 12,
-   "vpt": 1.07,
+   "vpt": 1.2,
    "cells": [
     "8,0",
     "13,3"
@@ -98096,14 +98078,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-aviator-nickel",
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0006 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ipoly-glasses",
@@ -98296,7 +98271,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-halfrim-azure",
-   "thickRel": 0.96,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "error",
@@ -98398,7 +98373,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-oval-amber",
-   "thickRel": 0.87,
+   "thickRel": 0.88,
    "lint": [
     {
      "level": "error",
@@ -98506,30 +98481,30 @@
    "kit": "ipoly-glasses",
    "collection": "ipoly",
    "name": "sunglasses-round-amber",
-   "hash": "e4eb2f8843",
+   "hash": "5e1e423e27",
    "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.299,
-    0.2,
+    0.201,
     0.084
    ],
-   "tris": 1066,
-   "tpu": 3108,
+   "tris": 1090,
+   "tpu": 3178,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 43736,
-   "vtx": 1120,
+   "bytes": 46948,
+   "vtx": 1216,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "wall": 0.0003,
-   "thick": 0.0516,
+   "wall": 0.0061,
+   "thick": 0.0531,
    "avgTri": 0.00005,
-   "anglePct": 54,
+   "anglePct": 52,
    "pieces": 7,
-   "vpt": 1.05,
+   "vpt": 1.12,
    "cells": [
     "6,0",
     "13,3"
@@ -98544,14 +98519,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/glasses-round-azure",
-   "thickRel": 1.07,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0003 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "ipoly-glasses",
@@ -98595,7 +98563,7 @@
     "metal-gold"
    ],
    "variant": "ipoly-glasses/glasses-round-azure",
-   "thickRel": 0.92,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "error",
@@ -98608,30 +98576,30 @@
    "kit": "ipoly-glasses",
    "collection": "ipoly",
    "name": "sunglasses-round-terracotta",
-   "hash": "44af18ec44",
+   "hash": "d86ccf6b60",
    "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
     0.276,
-    0.234,
+    0.235,
     0.09
    ],
-   "tris": 650,
-   "tpu": 1895,
+   "tris": 818,
+   "tpu": 2385,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27484,
-   "vtx": 690,
+   "bytes": 40276,
+   "vtx": 1058,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "wall": 0.0006,
-   "thick": 0.0442,
-   "avgTri": 0.0001,
+   "minEdge": 0,
+   "wall": 0.0062,
+   "thick": 0.0453,
+   "avgTri": 0.00009,
    "anglePct": 9,
    "pieces": 9,
-   "vpt": 1.06,
+   "vpt": 1.29,
    "cells": [
     "5,0",
     "13,3"
@@ -98646,14 +98614,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/glasses-round-azure",
-   "thickRel": 0.92,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0006 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.94
   },
   {
    "kit": "ipoly-glasses",
@@ -98764,7 +98725,7 @@
    "kit": "ipoly-glasses",
    "collection": "ipoly",
    "name": "sunglasses-square-ivory",
-   "hash": "031a015193",
+   "hash": "40b37a4116",
    "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
@@ -98772,23 +98733,23 @@
     0.22,
     0.098
    ],
-   "tris": 484,
-   "tpu": 1411,
+   "tris": 596,
+   "tpu": 1738,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20832,
-   "vtx": 514,
+   "bytes": 28672,
+   "vtx": 738,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0139,
-   "wall": 0.0005,
-   "thick": 0.0494,
-   "avgTri": 0.00015,
-   "anglePct": 42,
+   "wall": 0.0061,
+   "thick": 0.049,
+   "avgTri": 0.00013,
+   "anglePct": 40,
    "pieces": 9,
-   "vpt": 1.06,
+   "vpt": 1.24,
    "cells": [
     "5,2",
     "13,3"
@@ -98803,14 +98764,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-rect-hunter",
-   "thickRel": 1.02,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0005 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.02
   },
   {
    "kit": "ipoly-glasses",
@@ -98907,7 +98861,7 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/sunglasses-halfrim-azure",
-   "thickRel": 1.03,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "error",
@@ -102223,7 +102177,7 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "isa-bakery",
@@ -102997,16 +102951,16 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "wall-panelled-modular",
-   "hash": "33bcbc0440",
+   "hash": "e771311c3f",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.502,
+    0.507,
     0.075,
-    1.002
+    1.008
    ],
    "tris": 130,
-   "tpu": 265,
+   "tpu": 263,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -103014,10 +102968,11 @@
    "vtx": 228,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0004,
-   "thick": 0.0725,
-   "avgTri": 0.01225,
+   "minEdge": 0.007,
+   "minTube": 0.0064,
+   "wall": 0.0062,
+   "thick": 0.072,
+   "avgTri": 0.01237,
    "anglePct": 100,
    "pieces": 2,
    "vpt": 1.75,
@@ -103036,12 +102991,12 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled",
-   "thickRel": 0.74,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G33 wall 0.0004 wants min 0.006"
+     "text": "G27 minTube 0.0064 wants min 0.026"
     }
    ]
   },
@@ -109946,16 +109901,16 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-modular",
-   "hash": "b59a04b63b",
+   "hash": "bd184d691b",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
-    0.502,
-    0.063,
-    1.002
+    0.507,
+    0.066,
+    1.008
    ],
    "tris": 380,
-   "tpu": 774,
+   "tpu": 769,
    "mat": 1,
    "bands": 2,
    "calls": 1,
@@ -109963,10 +109918,11 @@
    "vtx": 748,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0004,
-   "thick": 0.0693,
-   "avgTri": 0.00436,
+   "minEdge": 0.006,
+   "minTube": 0.0065,
+   "wall": 0.0061,
+   "thick": 0.0689,
+   "avgTri": 0.00439,
    "anglePct": 87,
    "pieces": 2,
    "vpt": 1.97,
@@ -109985,12 +109941,12 @@
     "stone-masonry-mid"
    ],
    "variant": "isa-kitchen/wall-tiles",
-   "thickRel": 0.71,
+   "thickRel": 0.7,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G33 wall 0.0004 wants min 0.006"
+     "text": "G27 minTube 0.0065 wants min 0.026"
     }
    ]
   },
@@ -110147,7 +110103,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "window-large",
-   "hash": "cd188b85cb",
+   "hash": "be477800d9",
    "kind": "str-part-window",
    "size": "m",
    "wdh": [
@@ -110155,23 +110111,23 @@
     0.15,
     0.757
    ],
-   "tris": 388,
-   "tpu": 1046,
+   "tris": 398,
+   "tpu": 1073,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27268,
-   "vtx": 735,
+   "bytes": 28096,
+   "vtx": 759,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.05,
-   "wall": 0.0007,
-   "thick": 0.0928,
-   "avgTri": 0.00531,
-   "anglePct": 97,
+   "minTube": 0.031,
+   "wall": 0.0063,
+   "thick": 0.0949,
+   "avgTri": 0.00524,
+   "anglePct": 96,
    "pieces": 6,
-   "vpt": 1.89,
+   "vpt": 1.91,
    "cells": [
     "1,0",
     "3,2"
@@ -110187,20 +110143,13 @@
     "mounted",
     "wood-mid"
    ],
-   "variant": "isa-kitchen/window-small",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "variant": "isa-kitchen/window-small"
   },
   {
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "window-small",
-   "hash": "cfd8ad3f94",
+   "hash": "d64a5b1fe9",
    "kind": "str-part-window",
    "size": "m",
    "wdh": [
@@ -110208,23 +110157,23 @@
     0.15,
     0.507
    ],
-   "tris": 388,
-   "tpu": 1131,
+   "tris": 402,
+   "tpu": 1172,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27332,
-   "vtx": 737,
+   "bytes": 28440,
+   "vtx": 769,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0304,
-   "wall": 0.0007,
-   "thick": 0.0764,
-   "avgTri": 0.00377,
-   "anglePct": 96,
+   "minTube": 0.0309,
+   "wall": 0.0063,
+   "thick": 0.078,
+   "avgTri": 0.00369,
+   "anglePct": 95,
    "pieces": 6,
-   "vpt": 1.9,
+   "vpt": 1.91,
    "cells": [
     "1,0",
     "3,2"
@@ -110240,14 +110189,7 @@
     "mounted",
     "wood-mid"
    ],
-   "variant": "isa-kitchen/window-small",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "variant": "isa-kitchen/window-small"
   },
   {
    "kit": "isa-park",
@@ -111574,7 +111516,7 @@
     "wood-mid"
    ],
    "variant": "isa-picnic/cutlery-set",
-   "thickRel": 0.93,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "error",
@@ -112572,7 +112514,7 @@
     "wood-mid"
    ],
    "variant": "isa-picnic/tray-round",
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "isa-picnic",
@@ -132661,7 +132603,7 @@
     "kay"
    ],
    "variant": "kay-dun-2/floor-tile-small",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "kay-dun-2",
@@ -132982,32 +132924,32 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-tile-big-grate-open",
-   "hash": "959013b6b9",
+   "hash": "cde7671515",
    "kind": "str-part-floor-unit-stone",
    "size": "m",
    "wdh": [
-    1,
-    1,
-    0.263
+    1.006,
+    1.006,
+    0.269
    ],
-   "tris": 414,
-   "tpu": 591,
+   "tris": 450,
+   "tpu": 635,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 42460,
-   "vtx": 1200,
+   "bytes": 45056,
+   "vtx": 1276,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minTube": 0.0508,
-   "wall": 0.0006,
-   "thick": 0.1021,
-   "avgTri": 0.0105,
-   "anglePct": 37,
+   "wall": 0.0064,
+   "thick": 0.1009,
+   "avgTri": 0.00985,
+   "anglePct": 36,
    "pieces": 15,
-   "vpt": 2.9,
+   "vpt": 2.84,
    "cells": [
     "14,3",
     "6,1"
@@ -133024,23 +132966,18 @@
     "stone-masonry-mid"
    ],
    "backface": {
-    "share": 0.0021,
+    "share": 0.0018,
     "view": "90/20",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.66,
+   "thickRel": 1.64,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
      "text": "0.2% of view 90/20 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0006 wants min 0.006"
     }
    ]
   },
@@ -133096,32 +133033,32 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-tile-extralarge-grates-open",
-   "hash": "1fdabf5224",
+   "hash": "f01c741aa9",
    "kind": "str-part-floor-unit-stone",
    "size": "l",
    "wdh": [
-    2,
-    2,
-    0.283
+    2.006,
+    2.003,
+    0.29
    ],
-   "tris": 2160,
-   "tpu": 771,
+   "tris": 2170,
+   "tpu": 772,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 161200,
-   "vtx": 4584,
+   "bytes": 162416,
+   "vtx": 4620,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0516,
-   "wall": 0.0005,
-   "thick": 0.0577,
-   "avgTri": 0.00982,
-   "anglePct": 71,
+   "minEdge": 0.003,
+   "minTube": 0.0582,
+   "wall": 0.0062,
+   "thick": 0.0584,
+   "avgTri": 0.0102,
+   "anglePct": 47,
    "pieces": 25,
-   "vpt": 2.12,
+   "vpt": 2.13,
    "cells": [
     "14,3",
     "6,1"
@@ -133137,42 +133074,35 @@
     "metal-iron-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0005 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "floor-tile-grate-open",
-   "hash": "fa5daba1d8",
+   "hash": "13b9ca4747",
    "kind": "str-part-floor-unit-stone",
    "size": "m",
    "wdh": [
-    1,
-    0.501,
-    0.258
+    1.008,
+    0.509,
+    0.265
    ],
    "tris": 288,
-   "tpu": 821,
+   "tpu": 802,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25556,
+   "bytes": 25564,
    "vtx": 696,
    "gridMod": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.007,
    "minTube": 0.0508,
-   "wall": 0.0004,
-   "thick": 0.1819,
-   "avgTri": 0.00981,
-   "anglePct": 50,
+   "wall": 0.0062,
+   "thick": 0.1808,
+   "avgTri": 0.01002,
+   "anglePct": 46,
    "pieces": 10,
    "vpt": 2.42,
    "cells": [
@@ -133190,14 +133120,7 @@
     "metal-iron-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 2.95,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0004 wants min 0.006"
-    }
-   ],
+   "thickRel": 2.94,
    "mark": [
     "grounded"
    ]
@@ -149310,30 +149233,31 @@
   {
    "kit": "kay-hallow",
    "name": "floor-dirt-grave",
-   "hash": "2b43210b34",
+   "hash": "6a0e70d7b8",
    "kind": "str-part-floor-unit-dirt",
    "size": "m",
    "wdh": [
-    1,
-    1,
-    0.383
+    1.007,
+    1.007,
+    0.389
    ],
-   "tris": 320,
-   "tpu": 457,
+   "tris": 332,
+   "tpu": 468,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19532,
-   "vtx": 502,
+   "bytes": 20888,
+   "vtx": 542,
    "gridMod": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0005,
-   "thick": 0.0602,
-   "avgTri": 0.01409,
-   "anglePct": 55,
+   "minEdge": 0.003,
+   "minTube": 0.0075,
+   "wall": 0.0061,
+   "thick": 0.0646,
+   "avgTri": 0.01379,
+   "anglePct": 51,
    "pieces": 7,
-   "vpt": 1.57,
+   "vpt": 1.63,
    "cells": [
     "12,3"
    ],
@@ -149347,12 +149271,12 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 0.95,
+   "thickRel": 1.01,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G33 wall 0.0005 wants min 0.006"
+     "text": "G27 minTube 0.0075 wants min 0.026"
     }
    ],
    "mark": [
@@ -149401,7 +149325,7 @@
     "kay"
    ],
    "variant": "kay-hallow/floor-dirt",
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "kay-hallow",
@@ -174761,7 +174685,7 @@
     "halloween",
     "kay"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "kay-spook",
@@ -179985,7 +179909,7 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "thickRel": 3.1
+   "thickRel": 3.08
   },
   {
    "kit": "ken-arena",
@@ -186026,32 +185950,32 @@
   {
    "kit": "ken-cave",
    "name": "template-floor-layer-hole",
-   "hash": "4e6a5410ec",
+   "hash": "3d05c241d4",
    "kind": "str-part-frame",
    "size": "m",
    "wdh": [
     1.014,
     1.004,
-    0.776
+    0.778
    ],
-   "tris": 360,
-   "tpu": 456,
+   "tris": 456,
+   "tpu": 576,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27324,
-   "vtx": 735,
+   "bytes": 34048,
+   "vtx": 927,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.003,
    "minTube": 0.0501,
-   "wall": 0.0007,
-   "thick": 0.056,
-   "avgTri": 0.01308,
-   "anglePct": 70,
+   "wall": 0.0062,
+   "thick": 0.0576,
+   "avgTri": 0.01045,
+   "anglePct": 69,
    "pieces": 18,
-   "vpt": 2.04,
+   "vpt": 2.03,
    "cells": [
     "0,0",
     "2,0"
@@ -186065,14 +185989,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.87,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.9
   },
   {
    "kit": "ken-cave",
@@ -194233,30 +194150,30 @@
   {
    "kit": "ken-food",
    "name": "cabbage",
-   "hash": "4c67e8634b",
+   "hash": "8801d2b0b0",
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.171,
-    0.182,
-    0.147
+    0.177,
+    0.191,
+    0.149
    ],
-   "tris": 620,
-   "tpu": 1808,
+   "tris": 750,
+   "tpu": 2187,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 28996,
-   "vtx": 744,
+   "bytes": 38872,
+   "vtx": 1028,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "wall": 0.0004,
-   "thick": 0.172,
-   "avgTri": 0.00034,
-   "anglePct": 19,
+   "minEdge": 0.001,
+   "wall": 0.006,
+   "thick": 0.1744,
+   "avgTri": 0.00032,
+   "anglePct": 12,
    "pieces": 7,
-   "vpt": 1.2,
+   "vpt": 1.37,
    "cells": [
     "3,1",
     "5,2"
@@ -194270,14 +194187,7 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0004 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "ken-food",
@@ -194726,30 +194636,31 @@
   {
    "kit": "ken-food",
    "name": "cauliflower",
-   "hash": "e0328811aa",
+   "hash": "b408ac68d3",
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.171,
-    0.182,
-    0.147
+    0.177,
+    0.191,
+    0.149
    ],
-   "tris": 648,
-   "tpu": 1889,
+   "tris": 794,
+   "tpu": 2315,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30232,
-   "vtx": 777,
+   "bytes": 41740,
+   "vtx": 1109,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "wall": 0.0004,
-   "thick": 0.1825,
-   "avgTri": 0.00033,
-   "anglePct": 19,
+   "minEdge": 0.001,
+   "minTube": 0.059,
+   "wall": 0.006,
+   "thick": 0.1906,
+   "avgTri": 0.00031,
+   "anglePct": 13,
    "pieces": 7,
-   "vpt": 1.2,
+   "vpt": 1.4,
    "cells": [
     "3,1",
     "5,2"
@@ -194763,14 +194674,7 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 0.79,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0004 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.82
   },
   {
    "kit": "ken-food",
@@ -195238,12 +195142,12 @@
   {
    "kit": "ken-food",
    "name": "cookie-cutter",
-   "hash": "4639c2cdaf",
+   "hash": "033c0c7962",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.145,
-    0.023,
+    0.026,
     0.157
    ],
    "tris": 204,
@@ -195251,15 +195155,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12940,
+   "bytes": 12956,
    "vtx": 320,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0004,
-   "thick": 0.0377,
-   "avgTri": 0.00017,
-   "anglePct": 57,
+   "minEdge": 0.004,
+   "wall": 0.0063,
+   "thick": 0.0508,
+   "avgTri": 0.0002,
+   "anglePct": 58,
    "pieces": 1,
    "vpt": 1.57,
    "cells": [
@@ -195272,14 +195176,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 0.26,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0004 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.35
   },
   {
    "kit": "ken-food",
@@ -195636,29 +195533,29 @@
   {
    "kit": "ken-food",
    "name": "cutlery-set",
-   "hash": "4e89a607ec",
+   "hash": "8914fe585e",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.151,
-    0.269,
-    0.013
+    0.154,
+    0.272,
+    0.019
    ],
    "tris": 204,
    "tpu": 595,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10036,
+   "bytes": 10056,
    "vtx": 234,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0115,
-   "wall": 0.0007,
-   "thick": 0.0596,
-   "avgTri": 0.00017,
-   "anglePct": 33,
+   "minEdge": 0.004,
+   "minTube": 0.0147,
+   "wall": 0.0061,
+   "thick": 0.0627,
+   "avgTri": 0.00022,
+   "anglePct": 29,
    "pieces": 3,
    "vpt": 1.15,
    "cells": [
@@ -195672,14 +195569,7 @@
     "metal-steel"
    ],
    "variant": "ken-food/cutlery-set",
-   "thickRel": 0.32,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.34
   },
   {
    "kit": "ken-food",
@@ -195970,28 +195860,28 @@
   {
    "kit": "ken-food",
    "name": "fork",
-   "hash": "c4a9f518ad",
+   "hash": "aa7875c2d5",
    "kind": "obj-kitchenware-tableware-cutlery-fork",
    "size": "s",
    "wdh": [
     0.038,
-    0.009,
-    0.226
+    0.014,
+    0.229
    ],
    "tris": 92,
    "tpu": 268,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5260,
+   "bytes": 5284,
    "vtx": 102,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0007,
-   "thick": 0.1998,
-   "avgTri": 0.00011,
-   "anglePct": 42,
+   "minEdge": 0.004,
+   "wall": 0.0061,
+   "thick": 0.2158,
+   "avgTri": 0.00016,
+   "anglePct": 36,
    "pieces": 1,
    "vpt": 1.11,
    "cells": [
@@ -196005,14 +195895,7 @@
     "metal-steel"
    ],
    "variant": "ken-food/cutlery-set",
-   "thickRel": 0.96,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-food",
@@ -198544,13 +198427,13 @@
   {
    "kit": "ken-food",
    "name": "spoon",
-   "hash": "f827882df5",
+   "hash": "a91475fd32",
    "kind": "obj-kitchenware-tableware-cutlery-spoon",
    "size": "s",
    "wdh": [
-    0.054,
-    0.013,
-    0.215
+    0.06,
+    0.019,
+    0.22
    ],
    "tris": 72,
    "tpu": 210,
@@ -198561,11 +198444,11 @@
    "vtx": 86,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0007,
-   "thick": 0.1327,
-   "avgTri": 0.00017,
-   "anglePct": 13,
+   "minEdge": 0.006,
+   "wall": 0.0061,
+   "thick": 0.1395,
+   "avgTri": 0.00022,
+   "anglePct": 10,
    "pieces": 1,
    "vpt": 1.19,
    "cells": [
@@ -198579,14 +198462,7 @@
     "metal-steel"
    ],
    "variant": "ken-food/cutlery-set",
-   "thickRel": 0.83,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.88
   },
   {
    "kit": "ken-food",
@@ -202371,30 +202247,30 @@
   {
    "kit": "ken-furniture",
    "name": "kitchen-cabinet-upper-double",
-   "hash": "099faa81e2",
+   "hash": "d931ceaa3e",
    "kind": "obj-furnishing-furniture-storage-cabinet-wall",
    "size": "s",
    "wdh": [
-    0.448,
+    0.454,
     0.229,
-    0.407
+    0.412
    ],
-   "tris": 238,
-   "tpu": 694,
+   "tris": 286,
+   "tpu": 834,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 14664,
-   "vtx": 364,
+   "bytes": 18024,
+   "vtx": 460,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0006,
-   "thick": 0.2106,
-   "avgTri": 0.01004,
-   "anglePct": 100,
+   "minEdge": 0.004,
+   "wall": 0.0062,
+   "thick": 0.2048,
+   "avgTri": 0.00847,
+   "anglePct": 99,
    "pieces": 5,
-   "vpt": 1.53,
+   "vpt": 1.61,
    "cells": [
     "1,0",
     "2,0",
@@ -202416,23 +202292,23 @@
    ],
    "variant": "ken-furniture/kitchen-cabinet-upper",
    "backface": {
-    "share": 0.0023,
-    "view": "135/20",
+    "share": 0.0027,
+    "view": "225/20",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 0.94,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 135/20 over 0.1%: open 100.0%"
+     "check": "size",
+     "text": "longest 0.454 over max 0.45 (obj-furnishing-furniture-storage-cabinet scale-small)"
     },
     {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0006 wants min 0.006"
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 225/20 over 0.1%: open 100.0%"
     }
    ]
   },
@@ -218764,28 +218640,28 @@
   {
    "kit": "ken-nature",
    "name": "tent-large-closed",
-   "hash": "395455f48f",
+   "hash": "c898747eb4",
    "kind": "str-canopy-tent-camping",
    "size": "m",
    "wdh": [
     1.05,
-    0.765,
+    0.771,
     0.673
    ],
-   "tris": 200,
-   "tpu": 356,
+   "tris": 256,
+   "tpu": 452,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 15392,
-   "vtx": 399,
+   "bytes": 19316,
+   "vtx": 511,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.003,
    "minTube": 0.0611,
-   "wall": 0.0007,
-   "thick": 0.2089,
-   "avgTri": 0.02807,
+   "wall": 0.0063,
+   "thick": 0.2083,
+   "avgTri": 0.02205,
    "anglePct": 68,
    "pieces": 9,
    "vpt": 2,
@@ -218803,14 +218679,7 @@
     "wood-dark"
    ],
    "variant": "ken-nature/tent-large-closed",
-   "thickRel": 2.22,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 2.21
   },
   {
    "kit": "ken-nature",
@@ -218866,31 +218735,31 @@
   {
    "kit": "ken-nature",
    "name": "tent-small-closed",
-   "hash": "1a90137a25",
+   "hash": "c1ba03b719",
    "kind": "str-canopy-tent-camping",
    "size": "m",
    "wdh": [
-    0.691,
-    0.803,
+    0.696,
+    0.809,
     0.707
    ],
-   "tris": 240,
-   "tpu": 612,
+   "tris": 304,
+   "tpu": 764,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10924,
-   "vtx": 252,
+   "bytes": 15536,
+   "vtx": 384,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.003,
    "minTube": 0.0642,
-   "wall": 0.0007,
-   "thick": 0.2113,
-   "avgTri": 0.01613,
+   "wall": 0.0062,
+   "thick": 0.2124,
+   "avgTri": 0.01285,
    "anglePct": 49,
    "pieces": 3,
-   "vpt": 1.05,
+   "vpt": 1.26,
    "cells": [
     "5,2",
     "2,0"
@@ -218905,43 +218774,36 @@
     "wood-dark"
    ],
    "variant": "ken-nature/tent-small-closed",
-   "thickRel": 2.24,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 2.25
   },
   {
    "kit": "ken-nature",
    "name": "tent-small-open",
-   "hash": "08dea6095c",
+   "hash": "f2361733d9",
    "kind": "str-canopy-tent-camping",
    "size": "m",
    "wdh": [
-    0.691,
-    0.84,
+    0.696,
+    0.843,
     0.707
    ],
-   "tris": 242,
-   "tpu": 590,
+   "tris": 318,
+   "tpu": 767,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11316,
-   "vtx": 264,
+   "bytes": 17148,
+   "vtx": 432,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0642,
-   "wall": 0.0007,
-   "thick": 0.128,
-   "avgTri": 0.01552,
+   "wall": 0.0062,
+   "thick": 0.137,
+   "avgTri": 0.01192,
    "anglePct": 45,
    "pieces": 3,
-   "vpt": 1.09,
+   "vpt": 1.36,
    "cells": [
     "5,2",
     "2,0"
@@ -218956,42 +218818,35 @@
     "wood-dark"
    ],
    "variant": "ken-nature/tent-small-closed",
-   "thickRel": 1.36,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.45
   },
   {
    "kit": "ken-nature",
    "name": "tree-cone-dark",
-   "hash": "72176bd84b",
+   "hash": "782136c68c",
    "kind": "env-flora-tree-poplar",
    "size": "l",
    "wdh": [
     0.64,
     0.64,
-    1.719
+    1.722
    ],
-   "tris": 186,
-   "tpu": 221,
+   "tris": 218,
+   "tpu": 258,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9572,
-   "vtx": 220,
+   "bytes": 11812,
+   "vtx": 284,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.023,
-   "wall": 0.0007,
-   "thick": 0.2727,
-   "avgTri": 0.01326,
+   "minEdge": 0.003,
+   "wall": 0.0063,
+   "thick": 0.2726,
+   "avgTri": 0.01135,
    "anglePct": 10,
    "pieces": 3,
-   "vpt": 1.18,
+   "vpt": 1.3,
    "cells": [
     "3,0",
     "1,1"
@@ -219005,14 +218860,7 @@
     "ken",
     "leaf-dark"
    ],
-   "thickRel": 1.46,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.46
   },
   {
    "kit": "ken-nature",
@@ -222658,31 +222506,31 @@
    "kit": "ken-platformer",
    "collection": "ken-mini",
    "name": "door",
-   "hash": "a1d9d37ffa",
+   "hash": "dfca51dda4",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
     0.718,
     0.12,
-    1.197
+    1.2
    ],
-   "tris": 301,
-   "tpu": 513,
+   "tris": 311,
+   "tpu": 529,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 15224,
-   "vtx": 375,
+   "bytes": 16304,
+   "vtx": 407,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
+   "minEdge": 0.003,
    "minTube": 0.0679,
-   "wall": 0.0004,
-   "thick": 0.0825,
-   "avgTri": 0.01409,
+   "wall": 0.0062,
+   "thick": 0.0826,
+   "avgTri": 0.01366,
    "anglePct": 91,
    "pieces": 5,
-   "vpt": 1.25,
+   "vpt": 1.31,
    "cells": [
     "6,0",
     "14,3",
@@ -222699,12 +222547,19 @@
     "wood-dark"
    ],
    "variant": "ken-platformer/door",
-   "thickRel": 0.89,
+   "backface": {
+    "share": 0.001,
+    "view": "180/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 0.9,
    "lint": [
     {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0004 wants min 0.006"
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/20 over 0.1%: inverted 100.0%"
     }
    ]
   },
@@ -237480,31 +237335,31 @@
   {
    "kit": "ken-space",
    "name": "structure-closed",
-   "hash": "61f935231c",
+   "hash": "b619548e32",
    "kind": "str-part-frame",
    "size": "l",
    "wdh": [
     1.002,
     1.002,
-    1.5
+    1.504
    ],
-   "tris": 293,
-   "tpu": 195,
+   "tris": 381,
+   "tpu": 252,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 15680,
-   "vtx": 387,
+   "bytes": 21840,
+   "vtx": 563,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "wall": 0.0007,
-   "thick": 0.072,
-   "avgTri": 0.04179,
+   "wall": 0.0067,
+   "thick": 0.0704,
+   "avgTri": 0.03254,
    "anglePct": 100,
    "pieces": 5,
-   "vpt": 1.32,
+   "vpt": 1.48,
    "cells": [
     "6,0",
     "5,2",
@@ -237523,14 +237378,7 @@
     "space"
    ],
    "variant": "ken-space/structure",
-   "thickRel": 1.12,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.1
   },
   {
    "kit": "ken-space",
@@ -260388,7 +260236,7 @@
     "lpa",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "lpa-construction",
@@ -287818,30 +287666,30 @@
   {
    "kit": "m3-base",
    "name": "fireplace-shovel",
-   "hash": "de632b2faa",
+   "hash": "ddac1a2014",
    "kind": "obj-equipment-tool-hand",
    "size": "s",
    "wdh": [
-    0.102,
-    0.024,
-    0.344
+    0.109,
+    0.027,
+    0.347
    ],
-   "tris": 474,
-   "tpu": 1382,
+   "tris": 518,
+   "tpu": 1510,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 23836,
-   "vtx": 607,
+   "bytes": 27556,
+   "vtx": 715,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "wall": 0.0005,
-   "thick": 0.1207,
+   "minEdge": 0,
+   "wall": 0.006,
+   "thick": 0.1167,
    "avgTri": 0.00009,
-   "anglePct": 59,
+   "anglePct": 53,
    "pieces": 6,
-   "vpt": 1.28,
+   "vpt": 1.38,
    "cells": [
     "15,3"
    ],
@@ -287852,14 +287700,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.71,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0005 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
@@ -288852,7 +288693,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/cutlery-set",
-   "thickRel": 1.15,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "error",
@@ -310985,30 +310826,30 @@
   {
    "kit": "m3-base",
    "name": "tea-tray-02",
-   "hash": "92d52f7376",
+   "hash": "563caa6e22",
    "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
     0.224,
     0.365,
-    0.089
+    0.092
    ],
-   "tris": 244,
-   "tpu": 711,
+   "tris": 276,
+   "tpu": 805,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11800,
-   "vtx": 276,
+   "bytes": 14040,
+   "vtx": 340,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "wall": 0.0007,
-   "thick": 0.0829,
-   "avgTri": 0.00178,
-   "anglePct": 54,
+   "wall": 0.0061,
+   "thick": 0.0834,
+   "avgTri": 0.00161,
+   "anglePct": 56,
    "pieces": 5,
-   "vpt": 1.13,
+   "vpt": 1.23,
    "cells": [
     "1,0"
    ],
@@ -311020,14 +310861,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/tea-tray-01",
-   "thickRel": 1.04,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -316382,28 +316216,28 @@
   {
    "kit": "makeup",
    "name": "palette-open-small",
-   "hash": "476732b148",
+   "hash": "476ba67cd8",
    "kind": "obj-equipment-pocketitem-cosmetic",
    "size": "s",
    "wdh": [
-    0.215,
-    0.143,
-    0.138
+    0.217,
+    0.145,
+    0.141
    ],
    "tris": 248,
    "tpu": 723,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 13276,
+   "bytes": 13296,
    "vtx": 324,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "wall": 0.0005,
-   "thick": 0.0507,
-   "avgTri": 0.00051,
-   "anglePct": 94,
+   "wall": 0.0061,
+   "thick": 0.0531,
+   "avgTri": 0.00053,
+   "anglePct": 91,
    "pieces": 4,
    "vpt": 1.31,
    "cells": [
@@ -316426,14 +316260,7 @@
     "plastic"
    ],
    "variant": "makeup/palette-open-large",
-   "thickRel": 0.5,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0005 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.52
   },
   {
    "kit": "makeup",
@@ -342161,7 +341988,7 @@
     "qua"
    ],
    "variant": "quat-food/cutlery-set",
-   "thickRel": 1.06,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "error",
@@ -347506,7 +347333,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.45,
+   "thickRel": 1.39,
    "lint": [
     {
      "level": "error",
@@ -351698,31 +351525,31 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "window-2",
-   "hash": "a0f0214853",
+   "hash": "8213b1a36a",
    "kind": "str-part-window",
    "size": "m",
    "wdh": [
-    0.493,
-    0.169,
-    0.615
+    0.5,
+    0.178,
+    0.622
    ],
-   "tris": 300,
-   "tpu": 875,
+   "tris": 306,
+   "tpu": 892,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 21528,
-   "vtx": 572,
+   "bytes": 22076,
+   "vtx": 588,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.026,
-   "wall": 0.0006,
-   "thick": 0.0725,
-   "avgTri": 0.00659,
-   "anglePct": 86,
+   "minTube": 0.0067,
+   "wall": 0.0062,
+   "thick": 0.0741,
+   "avgTri": 0.00669,
+   "anglePct": 85,
    "pieces": 7,
-   "vpt": 1.91,
+   "vpt": 1.92,
    "cells": [
     "3,2",
     "1,0",
@@ -351743,12 +351570,12 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.81,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G33 wall 0.0006 wants min 0.006"
+     "text": "G27 minTube 0.0067 wants min 0.026"
     }
    ]
   },
@@ -361422,30 +361249,30 @@
   {
    "kit": "quat-props",
    "name": "book-group-small-1",
-   "hash": "94866cbebf",
+   "hash": "b227fc782a",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
    "wdh": [
-    0.203,
-    0.158,
-    0.209
+    0.209,
+    0.167,
+    0.216
    ],
-   "tris": 304,
-   "tpu": 886,
+   "tris": 312,
+   "tpu": 910,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 14744,
-   "vtx": 359,
+   "bytes": 15304,
+   "vtx": 375,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "wall": 0.0007,
-   "thick": 0.0382,
-   "avgTri": 0.00186,
-   "anglePct": 73,
+   "wall": 0.0062,
+   "thick": 0.0513,
+   "avgTri": 0.00191,
+   "anglePct": 65,
    "pieces": 4,
-   "vpt": 1.18,
+   "vpt": 1.2,
    "cells": [
     "1,1",
     "5,2",
@@ -361465,14 +361292,7 @@
     "qua",
     "textile-cloth-dark"
    ],
-   "variant": "quat-props/book-group-small-1",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0007 wants min 0.006"
-    }
-   ]
+   "variant": "quat-props/book-group-small-1"
   },
   {
    "kit": "quat-props",
@@ -363785,7 +363605,7 @@
     "qua"
    ],
    "variant": "quat-props/cutlery-set",
-   "thickRel": 1
+   "thickRel": 0.96
   },
   {
    "kit": "quat-props",
@@ -380966,7 +380786,7 @@
     "qua",
     "special-food"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "quat-sushi",
@@ -381620,7 +381440,7 @@
     "special-food"
    ],
    "variant": "quat-sushi/sea-urchin",
-   "thickRel": 0.75
+   "thickRel": 0.76
   },
   {
    "kit": "quat-sushi",
@@ -402288,29 +402108,29 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "window-round",
-   "hash": "070b655a06",
+   "hash": "16d0762fcb",
    "kind": "str-part-window",
    "size": "s",
    "wdh": [
-    0.319,
-    0.05,
-    0.315
+    0.325,
+    0.056,
+    0.32
    ],
    "tris": 376,
    "tpu": 1096,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14636,
+   "bytes": 14632,
    "vtx": 342,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0325,
-   "wall": 0.0006,
-   "thick": 0.0374,
-   "avgTri": 0.0008,
-   "anglePct": 57,
+   "minEdge": 0.004,
+   "minTube": 0.0339,
+   "wall": 0.0062,
+   "thick": 0.0444,
+   "avgTri": 0.00088,
+   "anglePct": 45,
    "pieces": 4,
    "vpt": 0.91,
    "cells": [
@@ -402327,22 +402147,17 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 0.42,
+   "thickRel": 0.49,
    "lint": [
     {
      "level": "warning",
      "check": "size",
-     "text": "longest 0.319 under min 0.35 (str-part-window)"
+     "text": "longest 0.325 under min 0.35 (str-part-window)"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G33 wall 0.0006 wants min 0.006"
+     "text": "I01 thickRel 0.49 wants min 0.5"
     }
    ]
   },
@@ -422836,7 +422651,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.63,
+   "thickRel": 0.61,
    "lint": [
     {
      "level": "error",
@@ -424782,7 +424597,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/cutlery-set",
-   "thickRel": 0.89,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "error",
@@ -438401,31 +438216,31 @@
   {
    "kit": "taalei-kit",
    "name": "tipi-c",
-   "hash": "da6b1edcbf",
+   "hash": "02b27949ff",
    "kind": "str-canopy-tent",
    "size": "l",
    "wdh": [
     1.78,
-    1.671,
+    1.673,
     2.304
    ],
-   "tris": 894,
-   "tpu": 130,
+   "tris": 1946,
+   "tpu": 284,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 60556,
-   "vtx": 1681,
+   "bytes": 141624,
+   "vtx": 4017,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "minTube": 0.0134,
-   "wall": 0.0003,
-   "thick": 0.1008,
-   "avgTri": 0.01822,
+   "minEdge": 0.003,
+   "minTube": 0.0029,
+   "wall": 0.0061,
+   "thick": 0.101,
+   "avgTri": 0.00859,
    "anglePct": 6,
    "pieces": 87,
-   "vpt": 1.88,
+   "vpt": 2.06,
    "cells": [
     "3,0",
     "5,2",
@@ -438443,25 +438258,12 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/tipi-a",
-   "backface": {
-    "share": 0.0011,
-    "view": "45/20",
-    "causes": {
-     "open": 0.97,
-     "inverted": 0.03
-    }
-   },
    "thickRel": 0.97,
    "lint": [
     {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.1% of view 45/20 over 0.1%: open 97.0%, inverted 3.0%"
-    },
-    {
      "level": "error",
      "check": "measures",
-     "text": "G33 wall 0.0003 wants min 0.006"
+     "text": "G27 minTube 0.0029 wants min 0.012"
     }
    ]
   },
