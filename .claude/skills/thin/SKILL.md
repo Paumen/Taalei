@@ -103,7 +103,9 @@ a render (C18).
 
 ## 4. Review
 
-Put every changed model on a `review` page titled `Thin: …`, with the fix
+Put every changed model on a review page titled `Thin: …`, built with
+`tools/thin/review/review.mjs` (the review tool plus Limit 0.012 and Limit
+0.006 buttons, for a kind whose limit looks wrong), with the fix
 chosen and why, and apply the verdicts.
 
 ## 5. Learn

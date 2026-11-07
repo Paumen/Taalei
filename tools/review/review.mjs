@@ -17,18 +17,13 @@ build   renders every listed model before (at --base, default the list's
         page to publish as an artifact.
 
         list.json:
-        { "title": "short name", "base": "<git ref>", "views": ["iso", "iso-back"],
+        { "title": "short name", "base": "<git ref>",
           "items": [ { "model": "kit/name", "group": "heading",
                        "change": "what was done", "note": "why it is doubtful",
-                       "doubt": "high" | "low", "types": ["size", …], "before": "<glb>",
-                       "after": "<glb>", "options": [["value", "Label"], …] } ] }
+                       "doubt": "high" | "low", "types": ["size", …], "before": "<glb>" } ] }
         types is optional: size, tag, recolour, shape, geometry; derived when left out.
         before is optional: a glb shown as before instead of the one at base,
         such as the rejected source of a model new in the catalogue.
-        after is optional: a glb shown as after instead of the working tree,
-        such as a copy marking the faces a lint flags.
-        options is optional: answer buttons shown instead of Revert, Fail and
-        Keep; the chosen value is the item's verdict.
 
 apply   takes the page's copied verdicts, or lines of "kit/name: verdict".
         revert, retry and relax put the model's file and its tags back as they
@@ -225,8 +220,8 @@ const trimmed = (png) => {
   return `data:image/webp;base64,${execFileSync('convert', [png, '-trim', '+repage', '-resize', '480x480>', '-quality', '82', 'webp:-']).toString('base64')}`;
 };
 
-function render(dir, out, size, views) {
-  execFileSync('node', [join(ROOT, 'tools/renders/render.mjs'), dir, '--out', out, '--views', views.join(','),
+function render(dir, out, size) {
+  execFileSync('node', [join(ROOT, 'tools/renders/render.mjs'), dir, '--out', out, '--views', 'iso,iso-back',
     '--width', String(size), '--height', String(size)], { cwd: ROOT, stdio: 'ignore' });
 }
 
@@ -269,7 +264,6 @@ function build() {
   const tagsBefore = JSON.parse(atRef(base, TAGS));
   const tagsAfter = JSON.parse(readFileSync(join(ROOT, TAGS), 'utf8'));
 
-  const views = list.views ?? ['iso', 'iso-back'];
   rmSync(out, { recursive: true, force: true });
   for (const side of ['before', 'after']) {
     mkdirSync(join(out, side, 'Textures'), { recursive: true });
@@ -288,11 +282,10 @@ function build() {
         if (uri && !existsSync(join(out, 'before', uri))) copyFileSync(resolve(ROOT, dirname(item.before), uri), join(out, 'before', uri));
       }
     }
-    const now = item.after ? resolve(ROOT, item.after) : join(ROOT, path);
-    if (existsSync(now)) copyFileSync(now, join(out, 'after', `${key(item.model)}.glb`));
+    if (existsSync(join(ROOT, path))) copyFileSync(join(ROOT, path), join(out, 'after', `${key(item.model)}.glb`));
   }
   for (const side of ['before', 'after']) {
-    if (readdirSync(join(out, side)).some((f) => f.endsWith('.glb'))) render(join(out, side), join(out, `r-${side}`), size, views);
+    if (readdirSync(join(out, side)).some((f) => f.endsWith('.glb'))) render(join(out, side), join(out, `r-${side}`), size);
   }
   const atScale = (d) => d.facts.some((f) => f.f === 'size' && Math.abs(f.to / f.from - 1) >= 0.2);
   const sized = list.items.filter((item) => atScale(diff(item.model, base, tagsBefore, tagsAfter)));
@@ -313,8 +306,8 @@ function build() {
     const d = diff(item.model, base, tagsBefore, tagsAfter);
     const png = (side, view) => join(out, `r-${side}`, key(item.model), `pbr_${view}.png`);
     const img = (side, view) => webp(png(side, view));
-    const d1 = pixelDiff(png('before', views[0]), png('after', views[0]), join(out, 'diff', `${key(item.model)}-iso.png`));
-    const d2 = pixelDiff(png('before', views[1]), png('after', views[1]), join(out, 'diff', `${key(item.model)}-back.png`));
+    const d1 = pixelDiff(png('before', 'iso'), png('after', 'iso'), join(out, 'diff', `${key(item.model)}-iso.png`));
+    const d2 = pixelDiff(png('before', 'iso-back'), png('after', 'iso-back'), join(out, 'diff', `${key(item.model)}-back.png`));
     const pixels = Math.max(d1.share ?? 0, d2.share ?? 0);
     const visual = (item.types ?? d.types).includes('recolour') || d1.boxes.length + d2.boxes.length > 0;
     return {
@@ -324,7 +317,6 @@ function build() {
       note: item.note ?? '',
       doubt: item.doubt ?? 'low',
       types: item.types ?? d.types,
-      ...(item.options ? { options: item.options } : {}),
       facts: d.facts,
       pixels,
       visual,
@@ -335,8 +327,8 @@ function build() {
       } : null,
       boxes: { front: d1.boxes, back: d2.boxes },
       img: visual
-        ? { b1: img('before', views[0]), a1: img('after', views[0]), b2: img('before', views[1]), a2: img('after', views[1]) }
-        : { a1: img('after', views[0]), a2: img('after', views[1]) },
+        ? { b1: img('before', 'iso'), a1: img('after', 'iso'), b2: img('before', 'iso-back'), a2: img('after', 'iso-back') }
+        : { a1: img('after', 'iso'), a2: img('after', 'iso-back') },
     };
   });
   const data = JSON.stringify({ title: list.title, base, items }).replace(/</g, '\\u003c');
