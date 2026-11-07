@@ -48,6 +48,16 @@ Models that belong together get the same edit: colour variants sharing
 geometry, and modular pieces that fit each other (walls, floors, doors,
 rails, fences of one kit), which must still fit after.
 
+### Tools
+
+- Thicken a part or make a card a slab: `node tools/thin/thicken.mjs <glb>
+  [--to n] [--parts i,j] [--mode around|base]`; `--list` shows the parts.
+  It keeps gaps to other parts, moves parts lying on a grown surface out
+  with it, and lists parts left `short` or `under` the target: those need
+  another fix.
+- Scale up: `tools/import/scale.mjs`.
+- Fewer repeats, drop or rebuild a part: `tools/detail/slim.mjs`.
+
 ### Sensible limits
 
 0.006 is the floor and is never asked lower. Propose a lower `thin.min` for
