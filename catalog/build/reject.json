@@ -2124,8 +2124,8 @@
    "name": "Taalei",
    "kit": "taalei-kit",
    "format": "glb",
-   "inSource": 88,
-   "inCatalog": 101,
+   "inSource": 94,
+   "inCatalog": 107,
    "listed": 2,
    "scale": 1
   },
@@ -2613,8 +2613,8 @@
    "name": "Drink"
   },
   {
-   "id": "obj-container-bottle-sauce",
-   "name": "Sauce"
+   "id": "obj-container-bottle-squeeze",
+   "name": "Squeeze"
   },
   {
    "id": "obj-container-bottle-pump",
@@ -2807,6 +2807,10 @@
   {
    "id": "obj-kitchenware-tableware-drinkware-takeaway",
    "name": "Takeaway"
+  },
+  {
+   "id": "obj-kitchenware-tableware-drinkware-stemware",
+   "name": "Stemware"
   },
   {
    "id": "obj-kitchenware-tableware-condiment",
@@ -3609,6 +3613,10 @@
    "name": "Boat"
   },
   {
+   "id": "obj-transport-watercraft-boat-rowboat",
+   "name": "Rowboat"
+  },
+  {
    "id": "obj-transport-part",
    "name": "Part"
   },
@@ -3977,6 +3985,10 @@
    "name": "Birdhouse"
   },
   {
+   "id": "obj-furnishing-decor-wreath",
+   "name": "Wreath"
+  },
+  {
    "id": "obj-furnishing-textile",
    "name": "Textile"
   },
@@ -4109,6 +4121,14 @@
    "name": "Audio"
   },
   {
+   "id": "obj-device-electronics-audio-speaker",
+   "name": "Speaker"
+  },
+  {
+   "id": "obj-device-electronics-audio-mic",
+   "name": "Microphone"
+  },
+  {
    "id": "obj-device-electronics-camera",
    "name": "Camera"
   },
@@ -4119,6 +4139,10 @@
   {
    "id": "obj-device-electronics-component",
    "name": "Component"
+  },
+  {
+   "id": "obj-device-electronics-printer",
+   "name": "Printer"
   },
   {
    "id": "obj-device-science",
@@ -4177,6 +4201,10 @@
    "name": "Picture frame"
   },
   {
+   "id": "obj-leisure-art-easel",
+   "name": "Easel"
+  },
+  {
    "id": "obj-leisure-toy",
    "name": "Toy"
   },
@@ -4203,6 +4231,10 @@
   {
    "id": "obj-leisure-game-arcade",
    "name": "Arcade"
+  },
+  {
+   "id": "obj-leisure-game-console",
+   "name": "Console"
   },
   {
    "id": "str",
@@ -4243,6 +4275,10 @@
   {
    "id": "str-part-gate-gateway",
    "name": "Gateway"
+  },
+  {
+   "id": "str-part-gate-gateway-torii",
+   "name": "Torii"
   },
   {
    "id": "str-part-floor",
@@ -4335,6 +4371,14 @@
   {
    "id": "str-part-puzzle",
    "name": "Puzzle"
+  },
+  {
+   "id": "str-part-beam",
+   "name": "Beam"
+  },
+  {
+   "id": "str-part-bracket",
+   "name": "Bracket"
   },
   {
    "id": "str-building",
@@ -4471,6 +4515,14 @@
   {
    "id": "str-barrier-railing",
    "name": "Railing"
+  },
+  {
+   "id": "str-barrier-railing-post",
+   "name": "Post"
+  },
+  {
+   "id": "str-barrier-railing-stairs",
+   "name": "Stairs"
   },
   {
    "id": "str-barrier-post",
@@ -23713,6 +23765,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Cave_Prop_Support_Corner_Brace_1",
+   "kind": "str-part-wall",
    "wdh": [
     0.3,
     0.3,
@@ -23730,6 +23783,7 @@
   {
    "kit": "modular_terrain_collection",
    "name": "Cave_Prop_Support_Corner_Brace_2",
+   "kind": "str-part-wall",
    "wdh": [
     0.3,
     0.3,
@@ -33981,7 +34035,7 @@
   {
    "kit": "Ultimate_Food_Pack_by_Quaternius_OBJ",
    "name": "MustardBottle",
-   "kind": "obj-container-bottle-sauce",
+   "kind": "obj-container-bottle-squeeze",
    "wdh": [
     0.1,
     0.3,
@@ -71890,7 +71944,7 @@
   {
    "kit": "KayKit_Prototype_Bits_1.1_FREE",
    "name": "Primitive_Beam",
-   "kind": "str-part-pillar",
+   "kind": "str-part-beam",
    "wdh": [
     1.2,
     0.3,
@@ -74047,7 +74101,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_large_green",
-   "kind": "str-part-pillar",
    "wdh": [
     0.3,
     0.3,
@@ -74066,7 +74119,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_medium_green",
-   "kind": "str-part-pillar",
    "wdh": [
     0.2,
     0.2,
@@ -74085,7 +74137,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_small_green",
-   "kind": "str-part-pillar",
    "wdh": [
     0.1,
     0.2,
@@ -75847,7 +75898,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_large_red",
-   "kind": "str-part-pillar",
    "wdh": [
     0.3,
     0.3,
@@ -75866,7 +75916,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_medium_red",
-   "kind": "str-part-pillar",
    "wdh": [
     0.2,
     0.2,
@@ -75885,7 +75934,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_small_red",
-   "kind": "str-part-pillar",
    "wdh": [
     0.1,
     0.2,
@@ -77351,7 +77399,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_large_yellow",
-   "kind": "str-part-pillar",
    "wdh": [
     0.3,
     0.3,
@@ -77370,7 +77417,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_medium_yellow",
-   "kind": "str-part-pillar",
    "wdh": [
     0.2,
     0.2,
@@ -77389,7 +77435,6 @@
   {
    "kit": "KayKit_Platformer_Pack_1.0_FREE",
    "name": "bracing_small_yellow",
-   "kind": "str-part-pillar",
    "wdh": [
     0.1,
     0.2,
@@ -81083,6 +81128,7 @@
   {
    "kit": "Makeup_Assets",
    "name": "Lotion Tube",
+   "kind": "obj-container-bottle",
    "wdh": [
     0.1,
     0.2,
@@ -84223,7 +84269,7 @@
   {
    "kit": "School_Styloo",
    "name": "easel_001",
-   "kind": "obj-leisure-art-frame",
+   "kind": "obj-leisure-art-easel",
    "wdh": [
     0.7,
     0.8,
@@ -98499,7 +98545,6 @@
   {
    "kit": "Ultimate_Space_Kit",
    "name": "Metal Support",
-   "kind": "str-part-pillar",
    "wdh": [
     0.1,
     0.3,
@@ -105400,6 +105445,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "spindle_01",
+   "kind": "str-barrier-railing-post",
    "wdh": [
     0.1,
     1,
@@ -105417,6 +105463,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "spindle_02",
+   "kind": "str-barrier-railing-post",
    "wdh": [
     0.1,
     1,
@@ -105470,7 +105517,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "stair_handrail_profile_01",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "wdh": [
     0.1,
     0.1,
@@ -105488,7 +105535,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "stair_handrail_profile_02",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "wdh": [
     0.1,
     0.1,
@@ -105506,7 +105553,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "stair_handrail_profile_03",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "wdh": [
     0.1,
     0.1,
@@ -105524,7 +105571,7 @@
   {
    "kit": "Base_Meshes_M3-org",
    "name": "stair_handrail_profile_04",
-   "kind": "str-barrier-railing",
+   "kind": "str-barrier-railing-stairs",
    "wdh": [
     0.1,
     0.1,
