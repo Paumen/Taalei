@@ -5,9 +5,10 @@ description: Fix catalogue models whose parts are too thin — tubes, sticks, pl
 
 # Thin parts
 
-Goal: G27 passes (no wall under 0.006, no tube under its kind's
-`thin.min`, and walls toward `thin.min`, which warns), while every model
-still reads as itself. Thin parts break the chunky style
+Goal: every part meets its kind's `thin.min`, while every model still reads
+as itself. Where there is a good reason not to, a wall falls back to 0.006,
+the bare minimum, and the review says why. A tube under `thin.min` stays an
+error. Thin parts break the chunky style
 (`I01`); that is the reason, not the number.
 
 `docs/asset_style_guide.md` decides; this skill only says how. G27 there
@@ -42,6 +43,10 @@ When a model is far off, a bigger measure is likely best.
   at least 0.006.
 
 A fix may combine these.
+
+Models that belong together get the same edit: colour variants sharing
+geometry, and modular pieces that fit each other (walls, floors, doors,
+rails, fences of one kit), which must still fit after.
 
 ### Sensible limits
 
