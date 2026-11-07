@@ -144348,7 +144348,26 @@
     ]
    }
   ],
-  "changes": [],
+  "changes": [
+   {
+    "id": "m3-base/glue-bottle-01",
+    "category": "colour",
+    "change": "red body to white, so it reads as glue, not sauce",
+    "doubt": true,
+    "why": "a red glue bottle may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/eye-drop-bottle",
+    "category": "scale",
+    "change": "scaled 0.75x: was as big as the sauce bottles",
+    "doubt": true,
+    "why": "kit may mean a big, readable bottle",
+    "lint": [],
+    "verdict": null
+   }
+  ],
   "notes": []
  },
  {
@@ -144383,8 +144402,21 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "ipoly-concert/mic-stand",
+    "category": "shape",
+    "change": "pole made 1.12x thicker, was under the min tube",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "Both mic stands are short (0.61 and 0.82 m against a real 1.5 m); P10 allows no per-model factor, so left at their kit size.",
+   "3dm-electronics/microphone keeps its basalt handle: plastic may not take slate like the stands' mic bodies."
+  ]
  },
  {
   "kind": "obj-device-electronics-audio-speaker",
@@ -144505,8 +144537,56 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "ken-furniture/speaker-small",
+    "category": "colour",
+    "change": "cones to dark slate, so drivers read apart from the front",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-furniture/speaker",
+    "category": "colour",
+    "change": "cones to dark slate, so drivers read apart from the front",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-furniture/speaker-small",
+    "category": "tag",
+    "change": "add metal-iron-dark for the slate cones",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-furniture/speaker",
+    "category": "tag",
+    "change": "add metal-iron-dark for the slate cones",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "taalei-kit/jukebox",
+    "category": "shape",
+    "change": "tonearm made 2.25x thicker, was under the min tube",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "m3-base/computer-speaker: drivers merge with the basalt body; the box leans back, so no axis test picks the cones apart. Left."
+  ]
  },
  {
   "kind": "obj-device-electronics-printer",
@@ -144570,7 +144650,17 @@
     ]
    }
   ],
-  "changes": [],
+  "changes": [
+   {
+    "id": "household/printer",
+    "category": "glitch",
+    "change": "normals turned to match their faces",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
   "notes": []
  },
  {
@@ -144621,8 +144711,29 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "kay-mixed/autumn-wreath",
+    "category": "glitch",
+    "change": "one-sided leaves given a back side, no holes from behind",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-mixed/autumn-wreath",
+    "category": "detail",
+    "change": "15 berries made plain 8-sided spheres, to offset new tris",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "kay-mixed/autumn-wreath is still over the decor tri budget (4136 to 4456 tris); its ribbed pumpkins and pine cones are what make it, so left dense"
+  ]
  },
  {
   "kind": "obj-kitchenware-tableware-drinkware-stemware",
@@ -144743,8 +144854,38 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "household/wine-glass",
+    "category": "shape",
+    "change": "stem made thicker, was far thinner than its peers",
+    "doubt": true,
+    "why": "a thin real stem may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/champagne-glass",
+    "category": "shape",
+    "change": "stem a bit thicker, was under the kind's min tube",
+    "doubt": true,
+    "why": "a fine stem may be the m3 look",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/wine-glass",
+    "category": "shape",
+    "change": "stem a bit thicker, was under the kind's min tube",
+    "doubt": true,
+    "why": "a fine stem may be the m3 look",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "Sheet lines in the brief came through as [object Object]; used c01.png and c02.png from the run dir."
+  ]
  },
  {
   "kind": "obj-leisure-art-easel",
@@ -144777,7 +144918,10 @@
    }
   ],
   "changes": [],
-  "notes": []
+  "notes": [
+   "All three easels read clean: no glitches, wood colours match their kits, tags fit.",
+   "sq-cards/display-easel is a small tabletop card stand (0.15); its size follows its kit factor, left as is."
+  ]
  },
  {
   "kind": "obj-transport-watercraft-boat-rowboat",
@@ -144927,8 +145071,58 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "quat-fishing/rowboat",
+    "category": "shape",
+    "change": "two dark wood seats added; empty hull read as a tub",
+    "doubt": true,
+    "why": "icon kit may mean a plain hull",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-ships/boat",
+    "category": "shape",
+    "change": "two dark wood seats added; empty hull read as a tub",
+    "doubt": true,
+    "why": "icon kit may mean a plain hull",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-asia/boat",
+    "category": "tag",
+    "change": "add sailing theme, like its peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-medieval/rowboat",
+    "category": "tag",
+    "change": "add sailing theme, like its peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/skiff-01",
+    "category": "tag",
+    "change": "add sailing theme, like its peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "m3-base/skiff-01 is ~6x the kind's triangles, almost all in its smooth hull; no detail method fits a hull short of decimation.",
+   "ken-pirate/boat-row-large keeps its white painted hull; read as the kit's look, not a fault.",
+   "ken-pirate rowboats are two meshes (oars node); allowed by the tba exception to R09."
+  ]
  },
  {
   "kind": "str-part-beam",
@@ -145036,8 +145230,66 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "quat-megakit/column-metal-support",
+    "category": "shape",
+    "change": "truss made twice as deep, was a thin flat plate",
+    "doubt": true,
+    "why": "a slim sci-fi truss may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-megakit/column-metal-support",
+    "category": "placement",
+    "change": "stood on its edge, web upright, was lying flat",
+    "doubt": true,
+    "why": "may be meant to lie on a column face",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-megakit/column-metal-support-curve",
+    "category": "shape",
+    "change": "truss made twice as deep, was a thin flat plate",
+    "doubt": true,
+    "why": "a slim sci-fi truss may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-megakit/column-metal-support-curve",
+    "category": "placement",
+    "change": "stood up as an arch rib, was lying flat",
+    "doubt": true,
+    "why": "may be meant to lie on a column face",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-megakit/column-metal-support",
+    "category": "tag",
+    "change": "add comp: a kit part, like the other beams",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-megakit/column-metal-support-curve",
+    "category": "tag",
+    "change": "add comp: a kit part, like the other beams",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "quat trusses are 748 and 1260 tris, one welded part; slim cannot thin it, left as is",
+   "fs stucco beam-b and -c take a darker chestnut tone than beam-a; read as plank variety, left"
+  ]
  },
  {
   "kind": "str-part-bracket",
@@ -145108,7 +145360,29 @@
     ]
    }
   ],
-  "changes": [],
-  "notes": []
+  "changes": [
+   {
+    "id": "quat-cyberpunk/support",
+    "category": "tag",
+    "change": "add comp: a truss brace built into a larger frame",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-cyberpunk/support-short",
+    "category": "tag",
+    "change": "add comp, like its long twin and the other braces",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "All seven models render clean: no glitches, back faces or off bands; kay blue plastic with dark bolts is the kit's look, left.",
+   "rgp-vintage/beam is a free-standing post with a hanger arm, not a part; left without comp."
+  ]
  }
 ]

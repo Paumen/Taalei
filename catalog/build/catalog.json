@@ -3215,10 +3215,10 @@
     "The Base Mesh Kitbash": 46
    },
    "scales": {
-    "0.87": 867,
+    "0.87": 866,
     "2.088": 2,
     "1.827": 1,
-    "0.6525": 3,
+    "0.6525": 4,
     "none": 2,
     "2.61": 1,
     "0.7395": 1,
@@ -25396,7 +25396,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 932,
+   "count": 934,
    "parent": "metal"
   },
   {
@@ -30400,7 +30400,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 520
+   "count": 524
   },
   {
    "id": "plural",
@@ -30463,7 +30463,7 @@
    "name": "Sailing",
    "type": "theme",
    "description": "Sailing/seafaring theme set: boats, ships, rigging, dockside cargo and navigation props.",
-   "count": 146
+   "count": 149
   },
   {
    "id": "space",
@@ -93750,7 +93750,7 @@
   {
    "kit": "household",
    "name": "printer",
-   "hash": "c281b0fa5c",
+   "hash": "88fa9df6a7",
    "kind": "obj-device-electronics-printer",
    "size": "m",
    "wdh": [
@@ -94717,7 +94717,7 @@
   {
    "kit": "household",
    "name": "wine-glass",
-   "hash": "674e4e2d16",
+   "hash": "c723786d26",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -94734,8 +94734,8 @@
    "vtx": 541,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "thick": 0.1139,
+   "minEdge": 0.003,
+   "thick": 0.1143,
    "avgTri": 0.00012,
    "anglePct": 6,
    "pieces": 1,
@@ -94925,7 +94925,7 @@
    "kit": "ipoly-concert",
    "collection": "ipoly",
    "name": "mic-stand",
-   "hash": "dbc7750359",
+   "hash": "84723b50bf",
    "kind": "obj-device-electronics-audio-mic",
    "size": "m",
    "wdh": [
@@ -94943,11 +94943,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0253,
-   "thick": 0.1348,
-   "avgTri": 0.00015,
+   "minTube": 0.0284,
+   "thick": 0.1352,
+   "avgTri": 0.00016,
    "anglePct": 39,
-   "pieces": 3,
+   "pieces": 4,
    "vpt": 1.11,
    "cells": [
     "6,1",
@@ -94962,14 +94962,7 @@
     "metal-iron-dark",
     "metal-steel"
    ],
-   "thickRel": 0.71,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0253 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.72
   },
   {
    "kit": "ipoly-concert",
@@ -155032,7 +155025,7 @@
   {
    "kit": "kay-mixed",
    "name": "autumn-wreath",
-   "hash": "a949080206",
+   "hash": "4ab96e9dd3",
    "kind": "obj-furnishing-decor-wreath",
    "size": "s",
    "wdh": [
@@ -155040,21 +155033,21 @@
     0.108,
     0.44
    ],
-   "tris": 4136,
-   "tpu": 12058,
+   "tris": 4456,
+   "tpu": 12991,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 215268,
-   "vtx": 5903,
+   "bytes": 314148,
+   "vtx": 8933,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.0729,
-   "avgTri": 0.00012,
+   "avgTri": 0.00015,
    "anglePct": 2,
-   "pieces": 71,
-   "vpt": 1.43,
+   "pieces": 135,
+   "vpt": 2,
    "cells": [
     "3,0",
     "5,0",
@@ -155074,11 +155067,11 @@
     "special-organic"
    ],
    "backface": {
-    "share": 0.255,
-    "view": "180/20",
+    "share": 0.0086,
+    "view": "90/20",
     "causes": {
-     "open": 0.97,
-     "inverted": 0.03
+     "open": 0.98,
+     "inverted": 0.02
     }
    },
    "thickRel": 0.59,
@@ -155086,12 +155079,12 @@
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 12058 over max 7000 (obj-furnishing-decor)"
+     "text": "tpu 12991 over max 7000 (obj-furnishing-decor)"
     },
     {
      "level": "error",
      "check": "backface",
-     "text": "25.5% of view 180/20 over 0.5%: open 97.0%, inverted 3.0%"
+     "text": "0.9% of view 90/20 over 0.5%: open 98.0%, inverted 2.0%"
     }
    ]
   },
@@ -198816,7 +198809,7 @@
   {
    "kit": "ken-furniture",
    "name": "speaker-small",
-   "hash": "cdefb7ec3b",
+   "hash": "10c7a67391",
    "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
@@ -198827,10 +198820,10 @@
    "tris": 200,
    "tpu": 583,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 9508,
-   "vtx": 212,
+   "bytes": 9636,
+   "vtx": 216,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -198838,27 +198831,30 @@
    "avgTri": 0.00105,
    "anglePct": 72,
    "pieces": 1,
-   "vpt": 1.06,
+   "vpt": 1.08,
    "cells": [
     "1,0",
+    "6,1",
     "13,3"
    ],
    "colors": [
+    "#3a3e4b",
     "#59534e",
     "#9e6d44"
    ],
    "tags": [
     "ken",
+    "metal-iron-dark",
     "rubber",
     "wood-mid"
    ],
    "variant": "ken-furniture/speaker",
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "ken-furniture",
    "name": "speaker",
-   "hash": "4ca2a46b05",
+   "hash": "913589e7e3",
    "kind": "obj-device-electronics-audio-speaker",
    "size": "s",
    "wdh": [
@@ -198869,10 +198865,10 @@
    "tris": 146,
    "tpu": 426,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 7588,
-   "vtx": 162,
+   "bytes": 7716,
+   "vtx": 166,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
@@ -198880,17 +198876,20 @@
    "avgTri": 0.00135,
    "anglePct": 81,
    "pieces": 1,
-   "vpt": 1.11,
+   "vpt": 1.14,
    "cells": [
     "1,0",
-    "13,3"
+    "13,3",
+    "6,1"
    ],
    "colors": [
+    "#3a3e4b",
     "#59534e",
     "#9e6d44"
    ],
    "tags": [
     "ken",
+    "metal-iron-dark",
     "rubber",
     "wood-mid"
    ],
@@ -273951,7 +273950,7 @@
   {
    "kit": "m3-base",
    "name": "champagne-glass",
-   "hash": "ff4c0b2d99",
+   "hash": "2727c75d09",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -273969,9 +273968,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.1312,
-   "avgTri": 0.00007,
-   "anglePct": 8,
+   "thick": 0.1327,
+   "avgTri": 0.00008,
+   "anglePct": 9,
    "pieces": 1,
    "vpt": 0.58,
    "cells": [
@@ -273985,7 +273984,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-glass",
-   "thickRel": 1.59
+   "thickRel": 1.61
   },
   {
    "kit": "m3-base",
@@ -276021,7 +276020,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -279457,26 +279456,26 @@
   {
    "kit": "m3-base",
    "name": "eye-drop-bottle",
-   "hash": "398a0c0b36",
+   "hash": "2738ea0677",
    "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
-    0.089,
-    0.089,
-    0.179
+    0.066,
+    0.066,
+    0.134
    ],
    "tris": 702,
    "tpu": 2047,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23712,
+   "bytes": 23708,
    "vtx": 561,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "thick": 0.29,
-   "avgTri": 0.00007,
+   "minEdge": 0.001,
+   "thick": 0.2899,
+   "avgTri": 0.00004,
    "anglePct": 7,
    "pieces": 1,
    "vpt": 0.8,
@@ -282113,7 +282112,7 @@
   {
    "kit": "m3-base",
    "name": "glue-bottle-01",
-   "hash": "53ef1705a4",
+   "hash": "9a55857857",
    "kind": "obj-container-bottle-squeeze",
    "size": "s",
    "wdh": [
@@ -282137,12 +282136,12 @@
    "pieces": 1,
    "vpt": 0.86,
    "cells": [
-    "8,0",
+    "5,2",
     "13,3"
    ],
    "colors": [
     "#59534e",
-    "#873a27"
+    "#d8cfb7"
    ],
    "tags": [
     "m3",
@@ -298840,6 +298839,7 @@
    ],
    "tags": [
     "m3",
+    "sailing",
     "wood-dark",
     "wood-light"
    ],
@@ -304990,7 +304990,7 @@
   {
    "kit": "m3-base",
    "name": "wine-glass",
-   "hash": "063c6b0e8e",
+   "hash": "bbd7de7fe2",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -305008,7 +305008,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "thick": 0.0913,
+   "thick": 0.0914,
    "avgTri": 0.00012,
    "anglePct": 15,
    "pieces": 1,
@@ -324244,11 +324244,11 @@
     "#7a8491"
    ],
    "tags": [
+    "comp",
     "metal-steel",
     "qua"
    ],
-   "variant": "quat-cyberpunk/support",
-   "thickRel": 0.93
+   "variant": "quat-cyberpunk/support"
   },
   {
    "kit": "quat-cyberpunk",
@@ -324284,11 +324284,11 @@
     "#7a8491"
    ],
    "tags": [
+    "comp",
     "metal-steel",
     "qua"
    ],
-   "variant": "quat-cyberpunk/support",
-   "thickRel": 1.13
+   "variant": "quat-cyberpunk/support"
   },
   {
    "kit": "quat-cyberpunk",
@@ -330200,7 +330200,7 @@
    "kit": "quat-fishing",
    "collection": "quat-sea",
    "name": "rowboat",
-   "hash": "1866c1fe5a",
+   "hash": "de04228e45",
    "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
@@ -330208,22 +330208,22 @@
     0.991,
     0.221
    ],
-   "tris": 184,
-   "tpu": 516,
+   "tris": 208,
+   "tpu": 583,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13376,
-   "vtx": 340,
+   "bytes": 15056,
+   "vtx": 388,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.022,
-   "thick": 0.0863,
-   "avgTri": 0.0072,
-   "anglePct": 35,
-   "pieces": 1,
-   "vpt": 1.85,
+   "thick": 0.0915,
+   "avgTri": 0.00732,
+   "anglePct": 44,
+   "pieces": 3,
+   "vpt": 1.87,
    "cells": [
     "2,0",
     "0,0"
@@ -330238,7 +330238,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.93
   },
   {
    "kit": "quat-fishing",
@@ -341748,27 +341748,27 @@
   {
    "kit": "quat-megakit",
    "name": "column-metal-support-curve",
-   "hash": "0c6d8c6653",
+   "hash": "97c39f1545",
    "kind": "str-part-beam",
    "size": "m",
    "wdh": [
     1.118,
-    1.118,
-    0.029
+    0.058,
+    1.118
    ],
    "tris": 1260,
-   "tpu": 1440,
+   "tpu": 2300,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 203736,
+   "bytes": 203732,
    "vtx": 5844,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "thick": 0.0333,
-   "avgTri": 0.00057,
-   "anglePct": 63,
+   "thick": 0.0408,
+   "avgTri": 0.00083,
+   "anglePct": 44,
    "pieces": 1,
    "vpt": 4.64,
    "cells": [
@@ -341780,30 +341780,23 @@
     "#7a8491"
    ],
    "tags": [
+    "comp",
     "metal-iron-dark",
     "metal-steel",
     "qua",
     "space"
-   ],
-   "thickRel": 0.36,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.36 wants min 0.5"
-    }
    ]
   },
   {
    "kit": "quat-megakit",
    "name": "column-metal-support",
-   "hash": "32112a0b00",
+   "hash": "eae2f7762d",
    "kind": "str-part-beam",
    "size": "m",
    "wdh": [
-    0.252,
     1,
-    0.029
+    0.058,
+    0.252
    ],
    "tris": 748,
    "tpu": 2181,
@@ -341812,14 +341805,13 @@
    "calls": 1,
    "bytes": 35756,
    "vtx": 788,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0291,
-   "thick": 0.1323,
-   "avgTri": 0.00064,
-   "anglePct": 95,
+   "minTube": 0.0309,
+   "thick": 0.162,
+   "avgTri": 0.00092,
+   "anglePct": 91,
    "pieces": 1,
    "vpt": 1.05,
    "cells": [
@@ -341831,12 +341823,12 @@
     "#7a8491"
    ],
    "tags": [
+    "comp",
     "metal-iron-dark",
     "metal-steel",
     "qua",
     "space"
-   ],
-   "thickRel": 1.43
+   ]
   },
   {
    "kit": "quat-megakit",
@@ -360600,7 +360592,7 @@
   {
    "kit": "quat-ships",
    "name": "boat",
-   "hash": "8c8bad0436",
+   "hash": "dae362d091",
    "kind": "obj-transport-watercraft-boat-rowboat",
    "size": "m",
    "wdh": [
@@ -360608,21 +360600,21 @@
     0.904,
     0.212
    ],
-   "tris": 172,
-   "tpu": 501,
+   "tris": 196,
+   "tpu": 571,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12616,
-   "vtx": 319,
+   "bytes": 14296,
+   "vtx": 367,
    "grounded": true,
    "centered": true,
    "minEdge": 0.012,
-   "thick": 0.0894,
-   "avgTri": 0.00696,
-   "anglePct": 50,
-   "pieces": 1,
-   "vpt": 1.85,
+   "thick": 0.09,
+   "avgTri": 0.007,
+   "anglePct": 57,
+   "pieces": 3,
+   "vpt": 1.87,
    "cells": [
     "2,0",
     "0,0"
@@ -360638,7 +360630,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.91
   },
   {
    "kit": "quat-ships",
@@ -377538,6 +377530,7 @@
     "asia",
     "paper-sheet",
     "rgp",
+    "sailing",
     "textile-rope",
     "wood-dark",
     "wood-mid"
@@ -388294,6 +388287,7 @@
    "tags": [
     "metal-iron-dark",
     "rgp",
+    "sailing",
     "wood-dark",
     "wood-mid"
    ],
@@ -422999,12 +422993,12 @@
     "plastic"
    ],
    "variant": "taalei-kit/jukebox",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "taalei-kit",
    "name": "jukebox",
-   "hash": "d28580073a",
+   "hash": "5ca156ce73",
    "kind": "obj-device-electronics-audio-speaker",
    "size": "m",
    "wdh": [
@@ -423022,8 +423016,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.012,
-   "thick": 0.2178,
+   "thick": 0.2185,
    "avgTri": 0.0021,
    "anglePct": 80,
    "pieces": 66,
@@ -423048,14 +423041,7 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/jukebox",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.012 wants min 0.026"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "taalei-kit",
