@@ -143848,5 +143848,427 @@
    "quat-space/pickup-sphere: red ball with floating rock chunks, 1524 tris; reads odd as a pickup, left",
    "quat-rpg/star: lumpy, uneven arms, left as the kit's sculpted look"
   ]
+ },
+ {
+  "kind": "char-robot",
+  "run": "2026-11-06-2350",
+  "models": [
+   {
+    "id": "pm-store/robot",
+    "before": "bd03811ea67cbb93ff332f96f4edac4c755e87b8",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "char-robot"
+    ]
+   },
+   {
+    "id": "quat-cyberpunk/robot-flying",
+    "before": "ae3d3d3a0814be763c85569c60ba62e94c1da1f4",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "char-robot"
+    ]
+   },
+   {
+    "id": "quat-cyberpunk/robot-flying-gun",
+    "before": "e37905c6ffd099f0f3c64620ff7c48a42ae87de7",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "char-robot"
+    ]
+   },
+   {
+    "id": "quat-cyberpunk/robot-large",
+    "before": "ea6ca42637aa4eebec5e37a3ceddd260a286efbc",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "char-robot"
+    ]
+   },
+   {
+    "id": "quat-cyberpunk/robot-large-gun",
+    "before": "fa76de849ab09f884536c270c6c01c7021e867a5",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "char-robot"
+    ]
+   },
+   {
+    "id": "quat-cyberpunk/robot-legs",
+    "before": "b6dcb4a7687fbf21798db78d484a51f563ebf342",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "char-robot"
+    ]
+   },
+   {
+    "id": "quat-cyberpunk/robot-legs-gun",
+    "before": "f4e7b0568f1b28ac2ea5abd327258f8b91d77211",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "char-robot"
+    ]
+   },
+   {
+    "id": "quat-essentials/eye-drone",
+    "before": "a528936dd32cd2c908020be65832735bf4899378",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "char-robot",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-essentials/quad-shell",
+    "before": "0104222736503e21741a6caed5679ecb39e485fa",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "plastic",
+     "char-robot",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-essentials/trilobite",
+    "before": "4824524f04e3a17285272d44217229565df36e0b",
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "char-robot",
+     "space"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "pm-store/robot",
+    "category": "colour",
+    "change": "dark face screen to ivory, so it reads as a lit screen",
+    "doubt": true,
+    "why": "a dark, switched-off screen may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "pm-store/robot",
+    "category": "tag",
+    "change": "add glass-screen for the face screen",
+    "doubt": true,
+    "why": "follows the doubted screen recolour",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-cyberpunk/robot-legs",
+    "category": "scale",
+    "change": "scaled 1.18x: was under the robot min height",
+    "doubt": true,
+    "why": "now as wide as the large robot",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-cyberpunk/robot-legs-gun",
+    "category": "scale",
+    "change": "scaled 1.18x, like its twin without the gun",
+    "doubt": true,
+    "why": "was already tall enough with its gun",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-essentials/eye-drone",
+    "category": "scale",
+    "change": "scaled 1.01x, was a hair under the robot min height",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": []
+ },
+ {
+  "kind": "obj-equipment-weapon-explosive-dynamite",
+  "run": "2026-11-06-2350",
+  "models": [
+   {
+    "id": "lpa-west/dynamite-a",
+    "before": "8635f5be75f37e4ed21e11d03305cfd20d066e80",
+    "tags": [
+     "paper-sheet",
+     "wick",
+     "obj-equipment-weapon-explosive-dynamite"
+    ]
+   },
+   {
+    "id": "lpa-west/dynamite-b",
+    "before": "7843ae54e36aa47d618ed77130679cba6a2bd754",
+    "tags": [
+     "metal-iron-dark",
+     "paper-sheet",
+     "obj-equipment-weapon-explosive-dynamite",
+     "plural"
+    ]
+   },
+   {
+    "id": "m3-base/dynamite-stick",
+    "before": "8ab82fab6b78ac338af969b76258212d230e9e35",
+    "tags": [
+     "wick",
+     "plastic",
+     "obj-equipment-weapon-explosive-dynamite"
+    ]
+   },
+   {
+    "id": "m3-base/dynamite-stick-bundle",
+    "before": "65b2db0b8a4e7f5e35b8323360b1972283259ba9",
+    "tags": [
+     "textile-rope",
+     "wick",
+     "plastic",
+     "obj-equipment-weapon-explosive-dynamite"
+    ]
+   },
+   {
+    "id": "rgp-explosives/dynamite-a",
+    "before": "6d5b8bebc22f1d4e5d76c29ecd1808a59dd76163",
+    "tags": [
+     "paper-sheet",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-dynamite"
+    ]
+   },
+   {
+    "id": "rgp-explosives/dynamite-b",
+    "before": "0ec8fd5a50808b770db402e5b38eacbdb6be177d",
+    "tags": [
+     "paper-sheet",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-dynamite"
+    ]
+   },
+   {
+    "id": "rgp-explosives/dynamite-bundle-a",
+    "before": "a3b3de9f9ebddbb821be6925da35cca17f505a84",
+    "tags": [
+     "paper-sheet",
+     "textile-rope",
+     "leather",
+     "obj-equipment-weapon-explosive-dynamite",
+     "plural"
+    ]
+   },
+   {
+    "id": "rgp-explosives/dynamite-bundle-b",
+    "before": "8df7fd0685bee06a9ea5865674871a422a8ee2ea",
+    "tags": [
+     "metal-steel",
+     "paper-sheet",
+     "leather",
+     "plastic",
+     "obj-equipment-weapon-explosive-dynamite",
+     "plural"
+    ]
+   },
+   {
+    "id": "rgp-explosives/dynamite-c",
+    "before": "59c2fd721ba5d63b286352f1e1fd70c6b4bbd45e",
+    "tags": [
+     "paper-sheet",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-dynamite"
+    ]
+   },
+   {
+    "id": "rgp-explosives/dynamite-d",
+    "before": "e3df519386aa9192195af6a11d8945a3532a795f",
+    "tags": [
+     "paper-sheet",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-dynamite"
+    ]
+   },
+   {
+    "id": "zombie-weapons/time-bomb",
+    "before": "9f315f111193b3ffc6fdec784bba856d2b400ef4",
+    "tags": [
+     "metal-steel",
+     "paper-sheet",
+     "obj-equipment-weapon-explosive-dynamite",
+     "tba"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/dynamite-stick",
+    "category": "scale",
+    "change": "scaled 1.3x: stick was small and thin beside its peers",
+    "doubt": true,
+    "why": "m3 may mean a true-size stick",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/dynamite-stick-bundle",
+    "category": "scale",
+    "change": "scaled 1.3x, like its single stick",
+    "doubt": true,
+    "why": "m3 may mean a true-size bundle",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/dynamite-stick-bundle",
+    "category": "tag",
+    "change": "add plural: a bundle of sticks, like the other bundles",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "zombie-weapons/time-bomb",
+    "category": "tag",
+    "change": "add plural: a bundle of sticks, like the other bundles",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "m3-base/dynamite-stick-bundle: tiny holes in the stick tops show magenta from above; backface-fix and caps did not close them, left",
+   "Red sienna wrap is legal only for plastic; m3 and rgp bundle-b tag plastic, the other dynamite tag only paper-sheet (ivory ends), so the red is untagged there",
+   "lpa-west/dynamite-a is a square-ish stick, low poly for the kit; left as the kit's look"
+  ]
+ },
+ {
+  "kind": "obj-furnishing-furniture-storage-display",
+  "run": "2026-11-06-2350",
+  "models": [
+   {
+    "id": "ken-arcade/prize-shelf",
+    "before": "5cee13ae5d0022f86e17f40f73588c89e66b21ac",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   },
+   {
+    "id": "ken-market/shelf-bags",
+    "before": "b93a2533243dd956fa55abd574704c9f28a1c4c4",
+    "tags": [
+     "metal-steel",
+     "paper-sheet",
+     "plastic",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   },
+   {
+    "id": "ken-market/shelf-boxes",
+    "before": "4de25a7a4be020d2142b1b881b04d6ebe4a12f1c",
+    "tags": [
+     "metal-steel",
+     "paper-sheet",
+     "plastic",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   },
+   {
+    "id": "m3-base/display-table-01",
+    "before": "d1b52387346095b1d6f444e2f6b8135813c21686",
+    "tags": [
+     "wood-mid",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   },
+   {
+    "id": "m3-base/display-table-04",
+    "before": "389d8535a9051ef4118ec4467b4e1eb5ca54af19",
+    "tags": [
+     "wood-mid",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   },
+   {
+    "id": "sq-arcade/prize-wall",
+    "before": "faa32f4770094c62baa77934f38d261dab1987dc",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   },
+   {
+    "id": "sq-cards/display-tower",
+    "before": "3ceb46f12e590ec9bc775d27c843686c74d107de",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   },
+   {
+    "id": "sq-cards/spinner-rack",
+    "before": "cf0d1c872e192e144a3caf22b67c62a2fe432f05",
+    "tags": [
+     "metal-iron-dark",
+     "paper-sheet",
+     "plastic",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   },
+   {
+    "id": "styloo-school/display-rack",
+    "before": "1f8c348632d613682feef41caa52565fd8343dd9",
+    "tags": [
+     "wood-mid",
+     "obj-furnishing-furniture-storage-display"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "ken-arcade/prize-shelf",
+    "category": "colour",
+    "change": "dark shelf trays to steel, like its market twins",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/display-table-04",
+    "category": "glitch",
+    "change": "dropped rim corner on each tier put back on the rim",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "sq-cards and sq-arcade racks stand about 0.7 high against ken shelves at 0.94; that is the sq kit factor, left",
+   "m3 display tables are one flat wood band, unlike the coloured shop racks; left as plain wood"
+  ]
  }
 ]
