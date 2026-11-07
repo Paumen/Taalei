@@ -17,8 +17,10 @@ catalogue units (default: the kind's thin.min, at least 0.006).
            back that way are listed as short. A part lying on a
            thickened part (a pattern, clock hands) moves out with it
            base: the side touching another part stays, the other side grows
-A closed part is offset face by face. An open sheet (a card, or a two-sided
-card) becomes a closed slab of --to, its sides keeping the edge's colour.
+A closed part is offset face by face, a flat one straight through. An open
+sheet (a card, or a two-sided card) becomes a closed slab of --to, its sides
+keeping the edge's colour; one lying flat on another part is a layer and is
+left.
 Writes --out (default: overwrites in.glb) and prints each part's wall before
 and the model's minWall after.`;
 
@@ -142,6 +144,16 @@ function flatAxis(faces) {
   return along >= 0.9 * area ? v : null;
 }
 
+function layered(part, faces, reach) {
+  const others = faces.filter((f) => !part.own.includes(f));
+  let held = 0;
+  for (const f of part.kept) {
+    const o = scale3(add3(add3(f.p[0], f.p[1]), f.p[2]), 1 / 3);
+    if ([f.n, scale3(f.n, -1)].some((d) => others.some((b) => { const r = ray(o, d, b.p); return r !== null && r > -1e-5 && r < reach; }))) held += f.area;
+  }
+  return held >= 0.5 * part.kept.reduce((sum, f) => sum + f.area, 0);
+}
+
 function touching(face, others, reach) {
   const o = scale3(add3(add3(face.p[0], face.p[1]), face.p[2]), 1 / 3);
   return others.some((b) => { const r = ray(o, face.n, b.p); return r !== null && r > -1e-5 && r < reach; });
@@ -192,6 +204,7 @@ for (const prim of editablePrimitives(json)) {
       console.log(`part ${part.number}  wall ${part.open ? 'open sheet' : (part.wall * s).toFixed(4)}  area ${(part.area * s * s).toFixed(5)}  centre ${part.centre.map((v) => (v * s).toFixed(3)).join(' ')}${part.small ? '  (tiny, not linted)' : ''}`);
       continue;
     }
+    if (!only && part.open && layered(part, a.faces, 0.01 / s)) { console.log(`part ${part.number}: open sheet lying on another part, left as a layer`); continue; }
     if (only ? only.includes(part.number) : !part.small && part.wall < want) picked.push(part);
   }
   for (const part of picked) { picks.set(part.number, want); picks.set(part.number + 0.5, s); }
