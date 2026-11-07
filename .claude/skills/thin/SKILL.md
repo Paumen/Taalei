@@ -5,8 +5,9 @@ description: Fix catalogue models whose parts are too thin — tubes, sticks, pl
 
 # Thin parts
 
-Goal: no part under 0.006, and parts as thick as their kind's `thin.min`,
-while every model still reads as itself. Thin parts break the chunky style
+Goal: G27 passes (no wall under 0.006, no tube under its kind's
+`thin.min`, and walls toward `thin.min`, which warns), while every model
+still reads as itself. Thin parts break the chunky style
 (`I01`); that is the reason, not the number.
 
 `docs/asset_style_guide.md` decides; this skill only says how. G27 there
@@ -68,17 +69,17 @@ exempt a model, or for a number between the steps.
 ## 3. Check every fix
 
 Before the PO sees a result, compare it with the original. Any of these is a
-failed fix: retry it, and only show it when it passes or when retries keep
-failing, marked as such. Every model in the run is always shown.
+failed fix: retry it before showing. Every model in the run is always
+shown.
 
 - **Tool bugs**: holes, stray or spiked vertices, parts moved off, missing
   or doubled geometry.
 - **Misformed model**: the outline or shape no longer matches the original
-  from iso, front and side.
+  from iso, front and right.
 - **Colours flipped**: faces or parts took another colour or band than
   before.
 - **Glitchy triangles**: slivers, z-fighting, flipped faces, new back faces
-  (new magenta in `faceorient`).
+  (new red in `faceorient`, magenta in `claywire`).
 - **Round things lost**: round, curved or smooth parts went flat, square or
   faceted.
 - **Proportions off**: parts or the whole model in odd proportions to each
@@ -89,10 +90,10 @@ failing, marked as such. Every model in the run is always shown.
   itself in a way the original did not.
 - **Gaps closed**: holes, slots, tines and joints that were open now shut.
 - **Lint**: `node lint/glb-lint.mjs <file> --only-problems`, the seven lints
-  and `golden` show nothing new.
+  (size, tpu, measures, mat, palette, bands, backface) and `golden` show nothing new.
 
-Look at renders for each: `pbr` and `matcap` from at least iso, front and
-side next to the original, and `faceorient`. Judge colour only after viewing
+Look at renders for each: `pbr` and `matcap` with `--views iso,front,right` next to the
+original, and `faceorient`. Judge colour only after viewing
 a render (C18).
 
 ## 4. Review
@@ -105,7 +106,7 @@ chosen and why, and apply the verdicts.
 Every verdict on a `Thin:` review is the skill's memory. Before any round,
 and in every sub agent's brief, run
 
-    node tools/review/review.mjs brief --review thin
+    node tools/review/review.mjs brief --review "thin:"
 
 and match a new case to the closest past ones per kind and per fix: copy what
 was kept, avoid what was reverted. Only PO verdicts count; notes by Claude in
