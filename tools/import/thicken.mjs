@@ -123,12 +123,16 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
   const after = (v) => [0, 1, 2].map((q) => pos[v * 3 + q] + move[v][q]);
   const start = (v) => [pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]];
   const near = (p, q) => Math.hypot(...sub(p, q)) < MOVED;
+  const span = Math.max(...[0, 1, 2].map((q) => { let lo = Infinity, hi = -Infinity; for (let v = 0; v < count; v++) { lo = Math.min(lo, pos[v * 3 + q]); hi = Math.max(hi, pos[v * 3 + q]); } return hi - lo; }));
+  const sliver = Math.max(1e-7, span * 1e-5) ** 2;
   let sides = 0;
   const built = new Set(), walls = new Map();
   const wall = (ids, pts) => {
     const key = pts.map((p) => p.map((q) => Math.round(q * 2e4)).join(',')).sort().join('|');
+    const raw = cross(sub(pts[1], pts[0]), sub(pts[2], pts[0]));
+    if (Math.hypot(...raw) < sliver) return;
     if (!walls.has(key)) walls.set(key, []);
-    walls.get(key).push({ ids, n: unit(cross(sub(pts[1], pts[0]), sub(pts[2], pts[0]))) });
+    walls.get(key).push({ ids, n: unit(raw) });
   };
   for (const list of edges.values()) for (const x of list) {
     if (!moved(x.a) && !moved(x.b)) continue;
@@ -141,7 +145,9 @@ function thickenPrimitive(glb, prim, meshNode, primIndex, need, replaced) {
     built.add(wallKey);
     const from = [x.b, x.a, x.a, x.b];
     const quad = [after(x.b), after(x.a), start(x.a), start(x.b)];
-    const n = unit(cross(sub(quad[1], quad[0]), sub(quad[2], quad[0])).map((v, q) => v + cross(sub(quad[2], quad[0]), sub(quad[3], quad[0]))[q]));
+    const raw = cross(sub(quad[1], quad[0]), sub(quad[2], quad[0])).map((v, q) => v + cross(sub(quad[2], quad[0]), sub(quad[3], quad[0]))[q]);
+    if (Math.hypot(...raw) < sliver) continue;
+    const n = unit(raw);
     const ids = from.map((v, k) => adder.add(v, { POSITION: quad[k], NORMAL: n }));
     if (moved(x.a)) wall([ids[0], ids[1], ids[2]], [quad[0], quad[1], quad[2]]);
     if (moved(x.b)) wall([ids[0], ids[2], ids[3]], [quad[0], quad[2], quad[3]]);
