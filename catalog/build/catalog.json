@@ -72112,27 +72112,27 @@
   {
    "kit": "food-pack-2",
    "name": "orange",
-   "hash": "b31dc42a60",
+   "hash": "723df9c1b1",
    "kind": "obj-food-fruit-orange",
    "size": "s",
    "wdh": [
-    0.165,
-    0.113,
-    0.125
+    0.161,
+    0.108,
+    0.12
    ],
    "tris": 390,
    "tpu": 1137,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10340,
+   "bytes": 10320,
    "vtx": 206,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0063,
-   "thick": 0.225,
-   "avgTri": 0.00014,
+   "minWall": 0.0008,
+   "thick": 0.2274,
+   "avgTri": 0.00013,
    "anglePct": 0,
    "pieces": 1,
    "vpt": 0.53,
@@ -72149,12 +72149,12 @@
     "special-food"
    ],
    "variant": "food-pack-2/orange",
-   "thickRel": 0.94,
+   "thickRel": 0.95,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0063 wants min 0.012"
+     "text": "G27 minWall 0.0008 wants min 0.006"
     }
    ]
   },
@@ -267674,7 +267674,7 @@
     "paper-sheet",
     "wood-mid"
    ],
-   "thickRel": 1.63
+   "thickRel": 1.64
   },
   {
    "kit": "lpa-construction",
@@ -291091,7 +291091,7 @@
   {
    "kit": "m3-base",
    "name": "clipboard",
-   "hash": "456c2f5f57",
+   "hash": "16d7bcd322",
    "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
@@ -291108,11 +291108,11 @@
    "vtx": 809,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0061,
-   "thick": 0.0694,
+   "minEdge": 0.001,
+   "minWall": 0.0027,
+   "thick": 0.0692,
    "avgTri": 0.00018,
-   "anglePct": 72,
+   "anglePct": 73,
    "pieces": 4,
    "vpt": 1.21,
    "cells": [
@@ -291128,7 +291128,14 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.07,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0027 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -299432,13 +299439,13 @@
   {
    "kit": "m3-base",
    "name": "greek-spear-head-01",
-   "hash": "75eaa77aba",
+   "hash": "5b9e75bc21",
    "kind": "obj-equipment-weapon-melee-spear",
    "size": "s",
    "wdh": [
-    0.055,
-    0.034,
-    0.19
+    0.051,
+    0.03,
+    0.189
    ],
    "tris": 286,
    "tpu": 834,
@@ -299449,10 +299456,10 @@
    "vtx": 333,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0064,
-   "thick": 0.2068,
-   "avgTri": 0.00007,
+   "minEdge": 0.001,
+   "minWall": 0.0023,
+   "thick": 0.1992,
+   "avgTri": 0.00006,
    "anglePct": 2,
    "pieces": 1,
    "vpt": 1.16,
@@ -299470,9 +299477,9 @@
    "variant": "m3-base/greek-spear-head-01",
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0064 wants min 0.012"
+     "text": "G27 minWall 0.0023 wants min 0.006"
     }
    ]
   },
@@ -305787,7 +305794,7 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 1.7,
+   "thickRel": 1.71,
    "lint": [
     {
      "level": "error",
@@ -308628,7 +308635,7 @@
     "plastic"
    ],
    "variant": "m3-base/organizer-drawers-01",
-   "thickRel": 4.02
+   "thickRel": 4.03
   },
   {
    "kit": "m3-base",
@@ -310621,12 +310628,12 @@
   {
    "kit": "m3-base",
    "name": "paper-tidy",
-   "hash": "29ab6c703b",
+   "hash": "c7f0025c05",
    "kind": "obj-equipment-tool-stationery-filing",
    "size": "s",
    "wdh": [
     0.08,
-    0.202,
+    0.2,
     0.215
    ],
    "tris": 278,
@@ -310638,11 +310645,11 @@
    "vtx": 348,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0063,
-   "thick": 0.0587,
-   "avgTri": 0.0007,
-   "anglePct": 70,
+   "minEdge": 0,
+   "minWall": 0.0017,
+   "thick": 0.0594,
+   "avgTri": 0.00069,
+   "anglePct": 71,
    "pieces": 3,
    "vpt": 1.25,
    "cells": [
@@ -310655,7 +310662,14 @@
     "m3",
     "paper-cardboard"
    ],
-   "thickRel": 0.91
+   "thickRel": 0.92,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0017 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -313610,7 +313624,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 0.92,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "error",
@@ -314052,13 +314066,13 @@
   {
    "kit": "m3-base",
    "name": "roller-chain",
-   "hash": "4040b8bd0d",
+   "hash": "53cfb43615",
    "kind": "obj-equipment-tool-supplies-chain",
    "size": "s",
    "wdh": [
-    0.197,
+    0.195,
     0.085,
-    0.064
+    0.06
    ],
    "tris": 1466,
    "tpu": 4274,
@@ -314070,11 +314084,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minTube": 0.0682,
-   "minWall": 0.0062,
-   "thick": 0.1611,
-   "avgTri": 0.00007,
-   "anglePct": 20,
+   "minWall": 0.0018,
+   "thick": 0.1504,
+   "avgTri": 0.00006,
+   "anglePct": 41,
    "pieces": 3,
    "vpt": 0.95,
    "cells": [
@@ -314087,7 +314100,14 @@
     "m3",
     "metal-iron-mid"
    ],
-   "thickRel": 1.64
+   "thickRel": 1.53,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0018 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -317057,28 +317077,28 @@
   {
    "kit": "m3-base",
    "name": "skateboard-truck",
-   "hash": "05115c59c8",
+   "hash": "85dc8b3e2d",
    "kind": "obj-leisure-game",
    "size": "s",
    "wdh": [
     0.147,
-    0.058,
-    0.044
+    0.055,
+    0.042
    ],
    "tris": 2844,
    "tpu": 8292,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 116568,
+   "bytes": 116572,
    "vtx": 3061,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0063,
-   "thick": 0.1536,
+   "minWall": 0.0014,
+   "thick": 0.1515,
    "avgTri": 0.00001,
-   "anglePct": 13,
+   "anglePct": 24,
    "pieces": 9,
    "vpt": 1.08,
    "cells": [
@@ -317093,18 +317113,11 @@
     "metal-steel"
    ],
    "variant": "m3-base/skateboard-setup",
-   "backface": {
-    "share": 0.0301,
-    "view": "0/-89.9",
-    "causes": {
-     "open": 1
-    }
-   },
    "lint": [
     {
      "level": "error",
-     "check": "backface",
-     "text": "3.0% of view 0/-89.9 over 0.5%: open 100.0%"
+     "check": "measures",
+     "text": "G27 minWall 0.0014 wants min 0.006"
     }
    ]
   },
@@ -322030,12 +322043,12 @@
   {
    "kit": "m3-base",
    "name": "u-arrowhead",
-   "hash": "ebc522361b",
+   "hash": "c2a473443b",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.114,
-    0.029,
+    0.11,
+    0.024,
     0.2
    ],
    "tris": 284,
@@ -322043,15 +322056,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12744,
+   "bytes": 12748,
    "vtx": 298,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0062,
-   "thick": 0.0851,
-   "avgTri": 0.00008,
-   "anglePct": 38,
+   "minEdge": 0.001,
+   "minWall": 0.0016,
+   "thick": 0.0792,
+   "avgTri": 0.00007,
+   "anglePct": 50,
    "pieces": 1,
    "vpt": 1.05,
    "cells": [
@@ -322064,6 +322077,13 @@
     "comp",
     "m3",
     "metal-steel"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0016 wants min 0.006"
+    }
    ]
   },
   {
@@ -354998,13 +355018,13 @@
   {
    "kit": "quat-food",
    "name": "soda",
-   "hash": "143d0f8099",
+   "hash": "8c9cc08568",
    "kind": "obj-kitchenware-tableware-drinkware-takeaway",
    "size": "s",
    "wdh": [
     0.14,
     0.14,
-    0.292
+    0.294
    ],
    "tris": 448,
    "tpu": 1306,
@@ -355015,11 +355035,11 @@
    "vtx": 561,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0129,
-   "thick": 0.2468,
-   "avgTri": 0.00022,
-   "anglePct": 20,
+   "minEdge": 0.002,
+   "minWall": 0.0005,
+   "thick": 0.2498,
+   "avgTri": 0.00021,
+   "anglePct": 19,
    "pieces": 2,
    "vpt": 1.25,
    "cells": [
@@ -355035,7 +355055,14 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 2.62
+   "thickRel": 2.66,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0005 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-food",
@@ -437010,7 +437037,7 @@
   {
    "kit": "styloo-food",
    "name": "burger",
-   "hash": "bb6db3709d",
+   "hash": "6f58feaaa1",
    "kind": "obj-food-meal-burger",
    "size": "s",
    "wdh": [
@@ -437027,11 +437054,11 @@
    "vtx": 658,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0063,
-   "thick": 0.2208,
-   "avgTri": 0.0003,
-   "anglePct": 41,
+   "minEdge": 0.001,
+   "minWall": 0.0007,
+   "thick": 0.2178,
+   "avgTri": 0.00029,
+   "anglePct": 42,
    "pieces": 10,
    "vpt": 0.66,
    "cells": [
@@ -437055,13 +437082,13 @@
     "sty"
    ],
    "backface": {
-    "share": 0.0053,
+    "share": 0.0052,
     "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.04,
+   "thickRel": 1.03,
    "lint": [
     {
      "level": "error",
@@ -437069,9 +437096,9 @@
      "text": "0.5% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0063 wants min 0.012"
+     "text": "G27 minWall 0.0007 wants min 0.006"
     }
    ]
   },
