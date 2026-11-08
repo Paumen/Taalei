@@ -8,7 +8,8 @@ along its normal, so the part keeps its triangles and shape. Single sheets and
 thin layers lying on another part are left alone and listed.
 --list prints parts and walls only. --parts limits the change to those ids.
 --away grows only the faces turned away from the model's centre, so inner
-parts are not covered.
+parts are not covered. --inward grows only the faces turned towards it, so
+a hollow shell gets thicker without its outline growing.
 --sheet moves each point only along its biggest face's normal, so thin
 sheets and blades get thicker without growing wider or losing sharp edges.`;
 
@@ -139,7 +140,8 @@ function grow(m, list, to, only, away, sheet) {
     const normals = new Map();
     for (const t of parts.get(p.key)) {
       const mid = [0, 1, 2].map((k) => (P[t.w[0]][k] + P[t.w[1]][k] + P[t.w[2]][k]) / 3);
-      const d = away ? (dot(t.n, sub(mid, centre)) > 0 ? 2 * delta : 0) : delta;
+      const side = dot(t.n, sub(mid, centre));
+      const d = away === 'away' ? (side > 0 ? 2 * delta : 0) : away === 'inward' ? (side < 0 ? 2 * delta : 0) : delta;
       for (const w of t.w) {
         const list = normals.get(w) ?? [];
         if (!list.some((x) => dot(x.n, t.n) > 0.999)) list.push({ n: t.n, d, area: t.area });
@@ -171,7 +173,8 @@ for (const p of list.filter((p) => p.counts).sort((a, b) => (a.wall ?? 9) - (b.w
 }
 if (args.includes('--list')) process.exit(0);
 const only = opt('--parts')?.split(',').map(Number) ?? null;
-const { next, done } = grow(m, list, to, only, args.includes('--away'), args.includes('--sheet'));
+const side = args.includes('--away') ? 'away' : args.includes('--inward') ? 'inward' : null;
+const { next, done } = grow(m, list, to, only, side, args.includes('--sheet'));
 const { prim, vid, M } = m;
 const accessor = glb.json.accessors[prim.attributes.POSITION];
 const bytes = Buffer.alloc(accessor.count * 12);
