@@ -200454,13 +200454,13 @@
   {
    "kit": "ken-food",
    "name": "cabbage",
-   "hash": "f05e0d9991",
+   "hash": "4c67e8634b",
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
+    0.171,
     0.182,
-    0.194,
-    0.154
+    0.147
    ],
    "tris": 620,
    "tpu": 1808,
@@ -200471,11 +200471,11 @@
    "vtx": 744,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minWall": 0.006,
-   "thick": 0.1736,
-   "avgTri": 0.00044,
-   "anglePct": 8,
+   "minEdge": 0,
+   "minWall": 0.0003,
+   "thick": 0.172,
+   "avgTri": 0.00034,
+   "anglePct": 19,
    "pieces": 7,
    "vpt": 1.2,
    "cells": [
@@ -200491,7 +200491,14 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.74,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0003 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -200982,13 +200989,13 @@
   {
    "kit": "ken-food",
    "name": "cauliflower",
-   "hash": "69be3a99e8",
+   "hash": "e0328811aa",
    "kind": "obj-food-vegetable-leafy",
    "size": "s",
    "wdh": [
-    0.195,
-    0.206,
-    0.164
+    0.171,
+    0.182,
+    0.147
    ],
    "tris": 648,
    "tpu": 1889,
@@ -200999,11 +201006,11 @@
    "vtx": 777,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minWall": 0.0062,
-   "thick": 0.1745,
-   "avgTri": 0.00048,
-   "anglePct": 9,
+   "minEdge": 0,
+   "minWall": 0.0003,
+   "thick": 0.1825,
+   "avgTri": 0.00033,
+   "anglePct": 19,
    "pieces": 7,
    "vpt": 1.2,
    "cells": [
@@ -201019,7 +201026,14 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.79,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0003 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "ken-food",
@@ -290444,13 +290458,13 @@
   {
    "kit": "m3-base",
    "name": "chocolate-bar",
-   "hash": "fe4d748d99",
+   "hash": "34274a18a0",
    "kind": "obj-food-sweet-chocolate",
    "size": "s",
    "wdh": [
-    0.226,
-    0.068,
-    0.036
+    0.217,
+    0.062,
+    0.03
    ],
    "tris": 396,
    "tpu": 1155,
@@ -290462,10 +290476,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0125,
-   "thick": 0.2447,
-   "avgTri": 0.0001,
-   "anglePct": 55,
+   "minWall": 0.0064,
+   "thick": 0.2404,
+   "avgTri": 0.00008,
+   "anglePct": 56,
    "pieces": 1,
    "vpt": 1.27,
    "cells": [
@@ -290481,7 +290495,14 @@
     "paper-sheet",
     "special-food"
    ],
-   "thickRel": 1.06
+   "thickRel": 1.04,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0064 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -295496,13 +295517,13 @@
   {
    "kit": "m3-base",
    "name": "dynamite-stick",
-   "hash": "cd65aefd10",
+   "hash": "cd1f159ec3",
    "kind": "obj-equipment-weapon-explosive-dynamite",
    "size": "s",
    "wdh": [
-    0.116,
+    0.112,
     0.035,
-    0.234
+    0.23
    ],
    "tris": 310,
    "tpu": 904,
@@ -295515,9 +295536,9 @@
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0181,
-   "minWall": 0.0123,
-   "thick": 0.1264,
-   "avgTri": 0.00009,
+   "minWall": 0.0064,
+   "thick": 0.1337,
+   "avgTri": 0.00008,
    "anglePct": 0,
    "pieces": 2,
    "vpt": 1.07,
@@ -295535,7 +295556,14 @@
     "wick"
    ],
    "variant": "m3-base/dynamite-stick",
-   "thickRel": 0.52
+   "thickRel": 0.55,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0064 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "m3-base",
