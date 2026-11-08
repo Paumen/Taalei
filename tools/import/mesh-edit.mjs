@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { basename, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
-import { buildKindFields, withKindFields, tubeNeed } from '../../lint/rules.mjs';
+import { buildKindFields, withKindFields, thinNeed } from '../../lint/rules.mjs';
 
 const COMPONENT = {
   5120: Int8Array, 5121: Uint8Array, 5122: Int16Array,
@@ -149,7 +149,7 @@ export function catalogTubeNeed(file) {
     kindFields = buildKindFields(readJson('lint/kinds.json'));
   }
   const model = catalogModels.get(`${basename(dirname(resolve(file)))}/${basename(file, '.glb')}`);
-  return model ? tubeNeed(withKindFields(model, kindFields)) : null;
+  return model ? thinNeed(withKindFields(model, kindFields)) : null;
 }
 
 export function vertexAdder(glb, prim) {

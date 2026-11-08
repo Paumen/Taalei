@@ -1,5 +1,5 @@
 const LIMIT_FIELDS = ['high.min', 'high.max', 'longest.min', 'longest.max', 'tpu.max'];
-export const KIND_FIELDS = ['bands.max', 'tube.min'];
+export const KIND_FIELDS = ['bands.max', 'thin.min'];
 
 const EPSILON = 1e-9;
 const MAT_PREFIX = 'mat.';
@@ -354,14 +354,14 @@ const NUMERIC_OPS = {
   '<=': (a, b) => a <= b,
 };
 
-export function tubeNeed(model) {
-  return model.tubemin ?? 0;
+export function thinNeed(model) {
+  return model.thinmin ?? 0;
 }
 
 function fieldOf(model, name, materialIds, vars, lanes) {
   if (name.startsWith(BAND_PREFIX)) return (model.cells ?? []).includes(lanes.get(name.slice(BAND_PREFIX.length)));
   if (name === 'nmat') return materialsOf(model, materialIds, vars).length;
-  if (name === 'tubeneed') return tubeNeed(model);
+  if (name === 'thinneed') return thinNeed(model);
   if (name === 'bands') return model.bands - ((model.tags ?? []).includes('special') ? 1 : 0);
   return model[name];
 }
