@@ -1,6 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor, thinnestWall } from '../../catalog/tools/glb.mjs';
-import { repack, fixBounds, editablePrimitives } from '../import/mesh-edit.mjs';
+import { repack, fixBounds, editablePrimitives, primitiveMatrix } from '../import/mesh-edit.mjs';
 
 const HELP = `thicken.mjs <in.glb> --to <wall> [--out <out.glb>] [--parts ids] [--list]
 Grows every closed part whose wall is under <wall> by pushing each face out
@@ -41,17 +41,18 @@ function solve(normals, delta) {
 }
 
 function model(glb) {
-  const node = glb.json.nodes.find((n) => n.mesh !== undefined);
-  if (node.rotation || node.scale || node.matrix || glb.json.nodes.length > 1) throw new Error('expects one node with translation only');
-  const shift = node.translation ?? [0, 0, 0];
   const prims = editablePrimitives(glb.json);
   if (prims.length !== 1) throw new Error('expects one editable primitive');
   const prim = prims[0];
-  const pos = readAccessor(glb, prim.attributes.POSITION).data;
+  const M = primitiveMatrix(glb.json, prim);
+  if ([0, 4, 8].some((c) => Math.abs(Math.hypot(M[c], M[c + 1], M[c + 2]) - 1) > 1e-4)) throw new Error('expects no scale on the mesh node');
+  const local = readAccessor(glb, prim.attributes.POSITION).data;
+  const pos = new Float64Array(local.length);
+  for (let i = 0; i < local.length; i += 3) for (let r = 0; r < 3; r++) pos[i + r] = M[r] * local[i] + M[4 + r] * local[i + 1] + M[8 + r] * local[i + 2] + M[12 + r];
   const idx = readAccessor(glb, prim.indices).data;
   const ids = new Map();
   const vid = Array.from({ length: pos.length / 3 }, (_, i) => {
-    const k = [0, 1, 2].map((j) => Math.round((pos[i * 3 + j] + shift[j]) * 1e4)).join(',');
+    const k = [0, 1, 2].map((j) => Math.round(pos[i * 3 + j] * 1e4)).join(',');
     if (!ids.has(k)) ids.set(k, ids.size);
     return ids.get(k);
   });
@@ -75,7 +76,7 @@ function model(glb) {
     if (!parts.has(t.part)) parts.set(t.part, []);
     parts.get(t.part).push(t);
   }
-  return { prim, pos, vid, P, tris, parts };
+  return { prim, M, vid, P, tris, parts };
 }
 
 function walls(m) {
@@ -171,10 +172,13 @@ for (const p of list.filter((p) => p.counts).sort((a, b) => (a.wall ?? 9) - (b.w
 if (args.includes('--list')) process.exit(0);
 const only = opt('--parts')?.split(',').map(Number) ?? null;
 const { next, done } = grow(m, list, to, only, args.includes('--away'), args.includes('--sheet'));
-const { prim, vid } = m;
+const { prim, vid, M } = m;
 const accessor = glb.json.accessors[prim.attributes.POSITION];
 const bytes = Buffer.alloc(accessor.count * 12);
-vid.forEach((w, i) => next[w].forEach((v, k) => bytes.writeFloatLE(v, i * 12 + k * 4)));
+vid.forEach((w, i) => {
+  const d = next[w].map((v, r) => v - M[12 + r]);
+  [0, 1, 2].forEach((k) => bytes.writeFloatLE(M[k * 4] * d[0] + M[k * 4 + 1] * d[1] + M[k * 4 + 2] * d[2], i * 12 + k * 4));
+});
 repack(glb, new Map([[prim.attributes.POSITION, bytes]]));
 fixBounds(glb);
 const out = opt('--out') ?? file;
