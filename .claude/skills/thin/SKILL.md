@@ -29,8 +29,8 @@ When a model is far off, a bigger measure is likely best.
 - **Scale up**: the whole model is too small for its kind; growing it may
   clear the part on its own.
 - **Thicken the part**: only the thin part grows, toward `thin.min`, never
-  under 0.006. Pick per part which way it grows (around its middle, or away
-  from what it sits on) and say which on the review.
+  under 0.006. Pick per part which way it grows (around its middle, away
+  from what it sits on, or inward for a shell) and say which on the review.
 - **Fewer repeats**: many thin parts thickened at once read wrong (a rake or
   broom with 12 tines may read right with 8 thicker ones).
 - **Drop the part**: it does not carry what the model is or its character.
@@ -51,7 +51,8 @@ rails, fences of one kit), which must still fit after.
 ### Tools
 
 - Thicken the part: `tools/thin/thicken.mjs` (pushes faces out, no new
-  triangles; `--away` grows only the outer side; `--sheet` keeps blades,
+  triangles; `--away` grows only the outer side; `--inward` only the inner
+  side, so a hollow shell keeps its outline; `--sheet` keeps blades,
   bowls and leaves from growing wider; `--parts` picks parts).
 - Scale up: `tools/import/scale.mjs`.
 - Fewer repeats, drop or rebuild a part: `tools/detail/slim.mjs`.
