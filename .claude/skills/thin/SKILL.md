@@ -21,6 +21,8 @@ defines `minTube`, `minWall`, `thin.min` and the limits.
    then `thinmap.py`, under the limit in red) so the part G27 means is known,
    not guessed, and pick the fix for that part's own problem. Never apply one
    fix to a whole batch.
+3. To see many models at once, stack their maps into one sheet:
+   `montage a.png b.png … -tile 1x -geometry 900x170+0+2 sheet.png`.
 
 ## 2. Choose a fix
 
