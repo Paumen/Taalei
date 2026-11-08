@@ -1,134 +1,114 @@
 ---
 name: thin
-description: Fix catalogue models whose parts are too thin — tubes, sticks, plates, blades, leaves, roofs, shells and paper-thin cards flagged by G27 — so they read chunky in the catalogue style, choosing per model between scaling up, thickening the part, fewer repeats, dropping an unimportant part, a better kind or a looser kind limit, and checking every result for damage before the PO sees it. Use when asked to fix thin parts, thicken models, clear G27, or apply thin review verdicts.
+description: Fix catalogue models whose parts are too thin (G27) with clean fixes that leave every model looking like itself — tips sharp, openings open, neighbours untouched — checked by close-ups of every spot that moved. Use when asked to fix thin parts, thicken models, clear G27, or apply thin review verdicts.
 ---
 
 # Thin parts
 
-Goal: every part meets its kind's `thin.min`, while every model still reads
-as itself. Where there is a good reason not to, a wall falls back to 0.006,
-the bare minimum, and the review says why. A tube under `thin.min` stays an
-error. Thin parts break the chunky style
-(`I01`); that is the reason, not the number.
+Goal: clear `G27` while every model still looks exactly like itself. A fix
+that clears the lint but changes how the model looks is worse than no fix.
+When no clean fix exists, keep the original and report it.
 
-`docs/asset_style_guide.md` decides; this skill only says how. G27 there
-defines `minTube`, `minWall`, `thin.min` and the limits.
+`docs/asset_style_guide.md` decides what G27 measures; this skill only says
+how to fix it.
 
-## 1. Find
+## Where fixes go wrong
 
-1. Rebuild (`catalog-assets` §6) and run `node lint/measures.mjs G27`.
-2. Work kind by kind. Per model, map the thin faces (`tools/thin/thinmap.mjs`
-   then `thinmap.py`, under the limit in red) so the part G27 means is known,
-   not guessed, and pick the fix for that part's own problem. Never apply one
-   fix to a whole batch.
-3. To see many models at once, stack their maps into one sheet:
-   `montage a.png b.png … -tile 1x -geometry 900x170+0+2 sheet.png`.
+Thickening moves a surface by about as much as the wall grows, 1 to 3 mm.
+The damage is at that size, so it never shows on a whole-model render. In
+the first weapons and tools round, 33 of 133 fixes were sent back. Every one
+was one of these, and none was seen before the review:
 
-## 2. Choose a fix
+- **Tips**: points of arrowheads, spears, blades and wings go blunt, flat,
+  bent or skewed.
+- **Openings**: bores, muzzles, holes, slots, chain links, grooves, seams and
+  the gaps between arms, teeth or tines narrow or close.
+- **Neighbours**: a grown part pokes through the part next to it, or covers
+  it (a blade through its collar, a red inlay over the gold).
+- **Bloat**: a part that was not the thin one grows too (an arrow shaft twice
+  as thick, wires four times), or a small part turns chunky next to its peers.
+- **Character**: thinning repeats changes what the model is (comb teeth
+  became blocks).
 
-Per model, list what could clear it, drop what clearly can't work, and pick
-the best of the rest from the model, its data, its peers and how it looks.
-When a model is far off, a bigger measure is likely best.
+## What not to check
 
-- **Scale up**: only when the whole model is thin (all red on the map) and
-  thickening alone would distort it, such as tines or strips too narrow
-  across as well as through; say why on the review. A model with one thin
-  spot is never scaled.
-- **Thicken the part**: only the thin part grows, toward `thin.min`, never
-  under 0.006. Pick per part which way it grows (around its middle, away
-  from what it sits on, or inward for a shell) and say which on the review.
-- **Fewer repeats**: many thin parts thickened at once read wrong (a rake or
-  broom with 12 tines may read right with 8 thicker ones).
-- **Drop the part**: it does not carry what the model is or its character.
-- **Undo the tool**: an earlier tool made it thicker or thinner than needed.
-- **Other kind**: only when another kind is the more logical one and has a
-  lower `thin.min`.
-- **Looser limit**: the kind's `thin.min` is too strict; propose it to the
-  PO, don't force the shape.
-- **Paper-thin card** (one sheet, no depth): make it a closed solid slab of
-  at least 0.006.
+Lints catch back faces (`backface`), z-fighting and doubled triangles
+(`glb-lint`), walls and tubes (`measures`), triangles, size and colours. Run
+them once at the end and fix what they report. Don't look for these in
+renders, and don't count a clean lint or a render without magenta as a check:
+neither says anything about the damage above.
 
-A fix may combine these.
+## 1. Find the thin part
 
-Models that belong together get the same edit: colour variants sharing
-geometry, and modular pieces that fit each other (walls, floors, doors,
-rails, fences of one kit), which must still fit after.
+Run `node lint/measures.mjs G27`. For each model, map it with
+`tools/thin/thinmap.mjs` then `thinmap.py` (thin faces in red), so the fix
+targets the part G27 means.
 
-### Tools
+## 2. Fix
 
-- Thicken the part: `tools/thin/thicken.mjs` (pushes faces out, no new
-  triangles; `--help` lists the modes). Flat cutlery, blades and slotted
-  spatulas: `--flat`, which keeps the outline, tines and slots exactly.
-  Cups and glasses: `--local` or `--inward --radial --local`. One thin spot
-  (floor, rim): `--local`. Gems, rivets or marks on a grown part: `--carry`.
-  A shank set into a handle: `--hidden`. Slots that read closed once the
-  blade is thicker: `--open`. Parts that belong together (a fork and its
-  set, a knife and its kit's fork) get the same scale.
-- Close a hole, or make a hollow straw or spout solid: `tools/thin/cap.mjs`.
-- When the original mesh is broken (open joints) and every mode shows back
-  faces, rebuild that part as closed shapes on the same path.
-- Scale up: `tools/import/scale.mjs`.
-- Fewer repeats, drop or rebuild a part: `tools/detail/slim.mjs`.
+Grow only the thin part, and only to the 0.006 floor unless the kind's
+`thin.min` is reached with the same edit.
 
-### Sensible limits
+Before choosing, look at what sits within 3 mm of the thin part: a tip, an
+opening or another part. The thicken modes are blind to all three:
 
-0.006 is the floor and is never asked lower. Propose a lower `thin.min` for
-a kind only when both hold:
+- `--sheet` bends and skews tips (17 of 46 sent back).
+- `--flat` lost outlines and fused parts (7 of 11 sent back).
+- `--inward` fills the hollow it grows into (2 of 3 sent back: tubes fused,
+  a spoon bowl deformed).
+- The default and `--local` grow into every opening on the part (bores,
+  muzzles, slots, grooves).
 
-- Every other fix in §2 was tried on the model and failed §3, shown as
-  renders.
-- It holds for the kind, not one model: at least three models of the kind,
-  from two kits or more, need it for the same part.
+No mode is safe on its own; the close-up decides. When something sits that
+close, try what leaves it alone: limit growth to the faces that need it
+(`--parts`, `--local`), grow only the side away from it, close a hollow with
+`tools/thin/cap.mjs` (and close the hole it leaves), or rebuild the part as a
+closed solid on its own outline (kept: the paper-tidy label frame). If none
+is clean, leave the model.
 
-One model that won't fit is not a limit problem: show it on the review as
-failed, with the fixes tried. Never ask to exempt a model.
+Other fixes, each only when the reason holds:
 
-## 3. Check every fix
+- **Scale up**: the whole model is thin, not one part.
+- **Drop the part**: it does not carry what the model is.
+- **Other kind**: another kind is more logical and has a lower `thin.min`.
+- **Paper-thin card**: make it a closed slab of at least 0.006.
 
-Before the PO sees a result, compare it with the original. Any of these is a
-failed fix: retry it before showing. Every model in the run is always
-shown.
+Models that belong together get the same edit: colour variants that share
+geometry, and modular pieces, which must still fit together.
 
-- **Tool bugs**: holes, stray or spiked vertices, parts moved off, missing
-  or doubled geometry.
-- **Misformed model**: the outline or shape no longer matches the original
-  from iso, front and right.
-- **Colours flipped**: faces or parts took another colour or band than
-  before.
-- **Glitchy triangles**: slivers, z-fighting, flipped faces, new back faces
-  (new red in `faceorient`, magenta in `claywire`).
-- **Round things lost**: round, curved or smooth parts went flat, square or
-  faceted.
-- **Proportions off**: parts or the whole model in odd proportions to each
-  other or to the kind's peers.
-- **Parts swallowed**: a grown part covers, hides or merges with another
-  part.
-- **Parts crossing**: a grown part pokes through another part or through
-  itself in a way the original did not.
-- **Gaps closed**: holes, slots, tines and joints that were open now shut.
-- **Layers doubled**: a plate or foot shows a second edge or step.
-- **Lint**: `node lint/glb-lint.mjs <file> --only-problems`, the seven lints
-  (size, tpu, measures, mat, palette, bands, backface) and `golden` show nothing new.
+## 3. Check with close-ups
 
-Look at renders for each: `pbr` and `matcap` with `--views iso,front,right` next to the
-original, and `faceorient`. Judge colour only after viewing
-a render (C18).
+    node tools/thin/closeup.mjs <before.glb> <after.glb> <out.png>
+
+It draws every spot where the surface moved, zoomed in, before and after
+side by side from three angles. Look at every row, and judge each spot only
+against the list in "Where fixes go wrong". Any hit is a failed fix: try
+another way or restore the original. The tool prints how many spots it drew;
+report that number, so it shows that every spot was seen.
+
+Don't make whole-model sheets, faceorient or matcap renders to judge a fix.
 
 ## 4. Review
 
 Put every changed model on a review page titled `Thin: …`, built with
-`tools/review/review.mjs` (it offers the kind's lower thin limits on each
-card, for a kind whose limit looks wrong), with the fix chosen and why, and
-apply the verdicts.
+`tools/review/review.mjs`. On each item say which part grew, how (mode and
+side), and what the close-up showed at any tip, opening or neighbour. Mark
+doubt high when a close-up shows any change there. Restored models go on the
+page too, with what was tried.
 
 ## 5. Learn
 
-Every verdict on a `Thin:` review is the skill's memory. Before any round,
-and in every sub agent's brief, run
+Before any round, and in every sub agent's brief, run
 
     node tools/review/review.mjs brief --review "thin:"
 
-and match a new case to the closest past ones per kind and per fix: copy what
-was kept, avoid what was reverted. Only PO verdicts count; notes by Claude in
-logs are not guidance. When one lesson shows up across several models and
-reviews, write it into §2 or §3 in general terms.
+and copy what was kept and avoid what was sent back, per kind and per fix.
+Only PO verdicts count. When a lesson repeats across reviews, add it to
+"Where fixes go wrong" or §2 in general terms.
+
+## Kind limits
+
+0.006 is the floor and is never asked lower. Propose a lower `thin.min` only
+when at least three models of the kind, from two kits or more, cannot be
+fixed cleanly for the same part. One model that won't fit is not a limit
+problem: report it as not fixed.
