@@ -334995,7 +334995,7 @@
   {
    "kit": "pm-store",
    "name": "present",
-   "hash": "021001d727",
+   "hash": "fc0f09f886",
    "kind": "obj-container-present",
    "size": "s",
    "wdh": [
@@ -335013,10 +335013,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0064,
-   "thick": 0.1725,
-   "avgTri": 0.00248,
-   "anglePct": 69,
+   "minWall": 0.0034,
+   "thick": 0.1724,
+   "avgTri": 0.00247,
+   "anglePct": 70,
    "pieces": 15,
    "vpt": 1.7,
    "cells": [
@@ -335037,8 +335037,8 @@
     "view": "225/20",
     "causes": {
      "open": 0.54,
-     "inverted": 0.44,
-     "other": 0.02
+     "inverted": 0.43,
+     "other": 0.03
     }
    },
    "thickRel": 0.76,
@@ -335046,12 +335046,12 @@
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.2% of view 225/20 over 0.1%: open 54.0%, inverted 44.0%, other 2.0%"
+     "text": "0.2% of view 225/20 over 0.1%: open 54.0%, inverted 43.0%, other 3.0%"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0064 wants min 0.026"
+     "text": "G27 minWall 0.0034 wants min 0.006"
     }
    ]
   },
@@ -336860,7 +336860,7 @@
   {
    "kit": "potions",
    "name": "potion-8-string-label-red",
-   "hash": "7a3f0ead33",
+   "hash": "cfebc9791a",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
@@ -336878,7 +336878,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0066,
+   "minWall": 0.0044,
    "thick": 0.2321,
    "avgTri": 0.00024,
    "anglePct": 22,
@@ -336909,9 +336909,9 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0066 wants min 0.012"
+     "text": "G27 minWall 0.0044 wants min 0.006"
     }
    ]
   },
