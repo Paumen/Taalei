@@ -3989,7 +3989,7 @@
     "none": 1
    },
    "scales": {
-    "0.17": 58,
+    "0.17": 57,
     "0.1445": 4,
     "0.2774": 2,
     "none": 1,
@@ -3998,6 +3998,7 @@
     "0.3041": 2,
     "0.1649": 1,
     "0.153": 1,
+    "0.1955": 1,
     "0.2827": 1,
     "0.2824": 1,
     "0.238": 1,
@@ -4123,7 +4124,8 @@
     "Ultimate House Interior Pack (OBJ)": 28
    },
    "scales": {
-    "0.3": 100,
+    "0.3": 98,
+    "0.39": 2,
     "0.321": 2,
     "0.366": 2,
     "0.5584": 1
@@ -4133,7 +4135,7 @@
     "none": 9
    },
    "kitCheck": {
-    "factor": 1.02,
+    "factor": 1.06,
     "kinds": 38
    }
   },
@@ -37116,7 +37118,7 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 1.64,
+   "thickRel": 1.65,
    "lint": [
     {
      "level": "warning",
@@ -37834,29 +37836,29 @@
    "kit": "3dm-city-2",
    "collection": "3dm",
    "name": "wheelie-bin",
-   "hash": "af9ae8ebdb",
+   "hash": "faf500e96e",
    "kind": "obj-container-trash-trashcan",
    "size": "m",
    "wdh": [
     0.243,
-    0.277,
-    0.508
+    0.283,
+    0.513
    ],
    "tris": 2128,
    "tpu": 6204,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 128204,
+   "bytes": 127628,
    "vtx": 3540,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0291,
-   "minWall": 0.0006,
-   "thick": 0.2031,
-   "avgTri": 0.00049,
-   "anglePct": 71,
+   "minWall": 0.0124,
+   "thick": 0.2058,
+   "avgTri": 0.00052,
+   "anglePct": 64,
    "pieces": 20,
    "vpt": 1.66,
    "cells": [
@@ -37875,14 +37877,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 1.35,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0006 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.4
   },
   {
    "kit": "3dm-electronics",
@@ -39503,7 +39498,7 @@
    "kit": "3dm-industrial",
    "collection": "3dm",
    "name": "jerrycan",
-   "hash": "229e7e5319",
+   "hash": "3d0d50ded2",
    "kind": "obj-container-can-gas",
    "size": "s",
    "wdh": [
@@ -39521,8 +39516,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0048,
-   "thick": 0.2075,
+   "minWall": 0.0061,
+   "thick": 0.2077,
    "avgTri": 0.00013,
    "anglePct": 44,
    "pieces": 12,
@@ -39542,9 +39537,9 @@
    "thickRel": 1.08,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0048 wants min 0.006"
+     "text": "G27 minWall 0.0061 wants min 0.026"
     }
    ]
   },
@@ -39552,27 +39547,27 @@
    "kit": "3dm-industrial",
    "collection": "3dm",
    "name": "oil-drum",
-   "hash": "14a42d383d",
+   "hash": "a26af5f9f1",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
-    0.225,
-    0.225,
-    0.3
+    0.226,
+    0.226,
+    0.302
    ],
    "tris": 902,
    "tpu": 2630,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 48024,
+   "bytes": 48016,
    "vtx": 1284,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0017,
-   "thick": 0.2867,
-   "avgTri": 0.00049,
+   "minWall": 0.0062,
+   "thick": 0.2868,
+   "avgTri": 0.0005,
    "anglePct": 50,
    "pieces": 5,
    "vpt": 1.42,
@@ -39592,9 +39587,9 @@
    "thickRel": 1.09,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0017 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -39923,7 +39918,7 @@
    "kit": "3dm-industrial-2",
    "collection": "3dm",
    "name": "fire-extinguisher",
-   "hash": "d73cf89224",
+   "hash": "0f425208e5",
    "kind": "obj-container-cylinder-extinguisher",
    "size": "s",
    "wdh": [
@@ -39942,9 +39937,9 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0337,
-   "minWall": 0.0018,
+   "minWall": 0.0065,
    "thick": 0.2646,
-   "avgTri": 0.00015,
+   "avgTri": 0.00016,
    "anglePct": 12,
    "pieces": 15,
    "vpt": 1.15,
@@ -39965,14 +39960,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 0.96,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0018 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.96
   },
   {
    "kit": "3dm-industrial-2",
@@ -40400,7 +40388,7 @@
    "kit": "3dm-medieval",
    "collection": "3dm",
    "name": "goblet-gold",
-   "hash": "a17e6b2ed9",
+   "hash": "951aa2d2b9",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
@@ -40418,10 +40406,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0038,
-   "thick": 0.1252,
+   "minWall": 0.006,
+   "thick": 0.129,
    "avgTri": 0.00003,
-   "anglePct": 12,
+   "anglePct": 13,
    "pieces": 9,
    "vpt": 1.15,
    "cells": [
@@ -40439,12 +40427,12 @@
     "gemstone",
     "metal-gold"
    ],
-   "thickRel": 1.31,
+   "thickRel": 1.35,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0038 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.012"
     }
    ]
   },
@@ -40962,7 +40950,7 @@
     "metal-steel",
     "space"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "3dm-scifi",
@@ -50515,7 +50503,7 @@
     "ceramic-mid",
     "shm"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.71
   },
   {
    "kit": "cooking-assets",
@@ -50577,7 +50565,7 @@
   {
    "kit": "cooking-assets",
    "name": "bottle-opener",
-   "hash": "2f9aeb8f4b",
+   "hash": "d190f9d36d",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
@@ -50595,10 +50583,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0018,
-   "thick": 0.1402,
-   "avgTri": 0.00006,
-   "anglePct": 46,
+   "minWall": 0.0068,
+   "thick": 0.1436,
+   "avgTri": 0.00007,
+   "anglePct": 38,
    "pieces": 3,
    "vpt": 0.9,
    "cells": [
@@ -50614,19 +50602,19 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 0.95,
+   "thickRel": 0.97,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0018 wants min 0.006"
+     "text": "G27 minWall 0.0068 wants min 0.012"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "bread-knife",
-   "hash": "e69dd59185",
+   "hash": "6475de66b3",
    "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
@@ -50645,10 +50633,10 @@
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0269,
-   "minWall": 0.004,
+   "minWall": 0.0066,
    "thick": 0.2287,
    "avgTri": 0.00004,
-   "anglePct": 72,
+   "anglePct": 68,
    "pieces": 6,
    "vpt": 2.62,
    "cells": [
@@ -50664,14 +50652,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.26,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.004 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.26
   },
   {
    "kit": "cooking-assets",
@@ -50717,7 +50698,7 @@
   {
    "kit": "cooking-assets",
    "name": "casserole-pot",
-   "hash": "e97ea5800b",
+   "hash": "2a351bf5f2",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
@@ -50734,11 +50715,11 @@
    "vtx": 350,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0019,
+   "minEdge": 0.004,
+   "minWall": 0.0067,
    "thick": 0.2104,
-   "avgTri": 0.00089,
-   "anglePct": 53,
+   "avgTri": 0.00088,
+   "anglePct": 54,
    "pieces": 7,
    "vpt": 0.92,
    "cells": [
@@ -50754,16 +50735,16 @@
    "thickRel": 1.23,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0019 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "champagne-flute",
-   "hash": "0309e99e27",
+   "hash": "1e392feb16",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -50780,10 +50761,10 @@
    "vtx": 200,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0019,
-   "thick": 0.1524,
-   "avgTri": 0.0001,
+   "minEdge": 0.001,
+   "minWall": 0.0067,
+   "thick": 0.1894,
+   "avgTri": 0.00009,
    "anglePct": 4,
    "pieces": 2,
    "vpt": 0.57,
@@ -50798,14 +50779,7 @@
     "mab"
    ],
    "variant": "cooking-assets/wine-glass",
-   "thickRel": 1.85,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0019 wants min 0.006"
-    }
-   ]
+   "thickRel": 2.19
   },
   {
    "kit": "cooking-assets",
@@ -50857,11 +50831,11 @@
   {
    "kit": "cooking-assets",
    "name": "chef-knife",
-   "hash": "b25bc66a92",
+   "hash": "def5e7323d",
    "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
-    0.043,
+    0.044,
     0.01,
     0.3
    ],
@@ -50870,16 +50844,16 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23220,
+   "bytes": 23216,
    "vtx": 612,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minTube": 0.024,
-   "minWall": 0.0034,
-   "thick": 0.2394,
-   "avgTri": 0.00006,
-   "anglePct": 55,
+   "minWall": 0.0067,
+   "thick": 0.2332,
+   "avgTri": 0.00007,
+   "anglePct": 49,
    "pieces": 6,
    "vpt": 1.65,
    "cells": [
@@ -50895,14 +50869,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 1.32,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.29
   },
   {
    "kit": "cooking-assets",
@@ -50991,7 +50958,7 @@
   {
    "kit": "cooking-assets",
    "name": "cloche",
-   "hash": "c8dca6dbf5",
+   "hash": "8aca7634e2",
    "kind": "obj-kitchenware-tableware-serving",
    "size": "s",
    "wdh": [
@@ -51008,11 +50975,11 @@
    "vtx": 280,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0018,
+   "minEdge": 0.001,
+   "minWall": 0.0066,
    "thick": 0.1607,
    "avgTri": 0.00109,
-   "anglePct": 47,
+   "anglePct": 48,
    "pieces": 2,
    "vpt": 0.61,
    "cells": [
@@ -51028,22 +50995,22 @@
    "thickRel": 2.09,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0018 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.026"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "cocktail-glass",
-   "hash": "19b5d38685",
+   "hash": "f24e466bee",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
-    0.119,
-    0.119,
-    0.149
+    0.122,
+    0.122,
+    0.15
    ],
    "tris": 348,
    "tpu": 1015,
@@ -51054,11 +51021,11 @@
    "vtx": 200,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0035,
-   "thick": 0.0546,
+   "minEdge": 0,
+   "minWall": 0.0066,
+   "thick": 0.0622,
    "avgTri": 0.00011,
-   "anglePct": 5,
+   "anglePct": 4,
    "pieces": 2,
    "vpt": 0.57,
    "cells": [
@@ -51072,39 +51039,32 @@
     "mab"
    ],
    "variant": "cooking-assets/cocktail-glass",
-   "thickRel": 0.66,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0035 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.72
   },
   {
    "kit": "cooking-assets",
    "name": "cognac-glass",
-   "hash": "71f2c5fc8a",
+   "hash": "e4965eb547",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
-    0.116,
-    0.116,
-    0.13
+    0.122,
+    0.122,
+    0.135
    ],
    "tris": 568,
    "tpu": 1656,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14064,
+   "bytes": 14060,
    "vtx": 288,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0008,
-   "thick": 0.0548,
-   "avgTri": 0.00018,
+   "minEdge": 0.002,
+   "minWall": 0.0066,
+   "thick": 0.0677,
+   "avgTri": 0.00019,
    "anglePct": 7,
    "pieces": 2,
    "vpt": 0.51,
@@ -51118,14 +51078,7 @@
     "glass",
     "mab"
    ],
-   "thickRel": 0.66,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0008 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.78
   },
   {
    "kit": "cooking-assets",
@@ -51408,7 +51361,7 @@
   {
    "kit": "cooking-assets",
    "name": "demitasse",
-   "hash": "b7a88598b8",
+   "hash": "7337f6ff0a",
    "kind": "obj-kitchenware-tableware-drinkware-cup",
    "size": "s",
    "wdh": [
@@ -51425,10 +51378,10 @@
    "vtx": 476,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0024,
-   "thick": 0.0471,
-   "avgTri": 0.00011,
+   "minEdge": 0.001,
+   "minWall": 0.0061,
+   "thick": 0.0634,
+   "avgTri": 0.0001,
    "anglePct": 11,
    "pieces": 2,
    "vpt": 0.99,
@@ -51442,19 +51395,19 @@
     "ceramic-light",
     "mab"
    ],
-   "thickRel": 0.5,
+   "thickRel": 0.67,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0024 wants min 0.006"
+     "text": "G27 minWall 0.0061 wants min 0.026"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "dutch-oven",
-   "hash": "efb79944bc",
+   "hash": "a15e07f3c4",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
@@ -51471,11 +51424,11 @@
    "vtx": 350,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0017,
+   "minEdge": 0.004,
+   "minWall": 0.0067,
    "thick": 0.2374,
-   "avgTri": 0.00105,
-   "anglePct": 58,
+   "avgTri": 0.00103,
+   "anglePct": 59,
    "pieces": 7,
    "vpt": 0.92,
    "cells": [
@@ -51491,9 +51444,9 @@
    "thickRel": 1.39,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0017 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -51640,7 +51593,7 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/cutlery-set",
-   "thickRel": 1.2,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "error",
@@ -51652,27 +51605,27 @@
   {
    "kit": "cooking-assets",
    "name": "frying-pan",
-   "hash": "31df65f344",
+   "hash": "ef02ebd47f",
    "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
-    0.389,
-    0.232,
-    0.087
+    0.39,
+    0.236,
+    0.089
    ],
    "tris": 344,
    "tpu": 1003,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16000,
+   "bytes": 16020,
    "vtx": 326,
    "grounded": true,
    "minEdge": 0.003,
-   "minWall": 0.0024,
-   "thick": 0.0973,
-   "avgTri": 0.00058,
-   "anglePct": 24,
+   "minWall": 0.0065,
+   "thick": 0.1003,
+   "avgTri": 0.00059,
+   "anglePct": 23,
    "pieces": 6,
    "vpt": 0.95,
    "cells": [
@@ -51686,12 +51639,12 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/frying-pan",
-   "thickRel": 1.2,
+   "thickRel": 1.24,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0024 wants min 0.006"
+     "text": "G27 minWall 0.0065 wants min 0.012"
     }
    ],
    "mark": [
@@ -51701,7 +51654,7 @@
   {
    "kit": "cooking-assets",
    "name": "funnel",
-   "hash": "85c64cb3d1",
+   "hash": "143045a7b7",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
@@ -51719,8 +51672,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0043,
-   "thick": 0.057,
+   "minWall": 0.0066,
+   "thick": 0.0571,
    "avgTri": 0.00021,
    "anglePct": 4,
    "pieces": 2,
@@ -51736,23 +51689,23 @@
     "plastic"
    ],
    "backface": {
-    "share": 0.0034,
+    "share": 0.0035,
     "view": "0/-89.9",
     "causes": {
      "inverted": 1
     }
    },
-   "thickRel": 0.39,
+   "thickRel": 0.38,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.3% of view 0/-89.9 over 0.1%: inverted 100.0%"
+     "text": "0.4% of view 0/-89.9 over 0.1%: inverted 100.0%"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.012"
     }
    ]
   },
@@ -51793,7 +51746,7 @@
     "glass",
     "mab"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.11
   },
   {
    "kit": "cooking-assets",
@@ -51832,7 +51785,7 @@
     "glass",
     "mab"
    ],
-   "thickRel": 0.92,
+   "thickRel": 0.88,
    "lint": [
     {
      "level": "error",
@@ -51844,28 +51797,28 @@
   {
    "kit": "cooking-assets",
    "name": "hurricane-glass",
-   "hash": "b68bf7dcf7",
+   "hash": "ad9ca8327e",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
-    0.07,
-    0.07,
-    0.165
+    0.073,
+    0.073,
+    0.169
    ],
    "tris": 496,
    "tpu": 1446,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20084,
+   "bytes": 20100,
    "vtx": 490,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0035,
-   "thick": 0.1253,
-   "avgTri": 0.00009,
-   "anglePct": 8,
+   "minEdge": 0.003,
+   "minWall": 0.0066,
+   "thick": 0.1397,
+   "avgTri": 0.0001,
+   "anglePct": 6,
    "pieces": 1,
    "vpt": 0.99,
    "cells": [
@@ -51879,19 +51832,12 @@
     "mab"
    ],
    "variant": "cooking-assets/cocktail-glass",
-   "thickRel": 1.52,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0035 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.62
   },
   {
    "kit": "cooking-assets",
    "name": "ice-cream-scoop",
-   "hash": "1698f7dc7f",
+   "hash": "1c424243b3",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
@@ -51910,8 +51856,8 @@
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0267,
-   "minWall": 0.0048,
-   "thick": 0.1278,
+   "minWall": 0.0064,
+   "thick": 0.1318,
    "avgTri": 0.00011,
    "anglePct": 5,
    "pieces": 4,
@@ -51929,19 +51875,19 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 0.86,
+   "thickRel": 0.89,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0048 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.012"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "kettle",
-   "hash": "95b88b4d6d",
+   "hash": "0e6488029d",
    "kind": "obj-kitchenware-cookware-kettle",
    "size": "s",
    "wdh": [
@@ -51959,9 +51905,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.004,
-   "thick": 0.1554,
-   "avgTri": 0.0005,
+   "minWall": 0.0065,
+   "thick": 0.1552,
+   "avgTri": 0.00049,
    "anglePct": 24,
    "pieces": 7,
    "vpt": 1.88,
@@ -51978,24 +51924,17 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.004 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.73
   },
   {
    "kit": "cooking-assets",
    "name": "ladle-a",
-   "hash": "1320bb5fea",
+   "hash": "afccb02471",
    "kind": "obj-kitchenware-cookware-utensil-spoon-ladle",
    "size": "s",
    "wdh": [
     0.136,
-    0.067,
+    0.068,
     0.328
    ],
    "tris": 354,
@@ -52007,10 +51946,10 @@
    "vtx": 242,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "minTube": 0.0141,
-   "minWall": 0.0026,
-   "thick": 0.0935,
+   "minWall": 0.0066,
+   "thick": 0.1012,
    "avgTri": 0.00018,
    "anglePct": 3,
    "pieces": 4,
@@ -52029,14 +51968,7 @@
     "wood-dark"
    ],
    "variant": "cooking-assets/ladle-a",
-   "thickRel": 0.63,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.68
   },
   {
    "kit": "cooking-assets",
@@ -52129,28 +52061,28 @@
   {
    "kit": "cooking-assets",
    "name": "margarita-glass",
-   "hash": "3ae9a62227",
+   "hash": "312e544b50",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
     0.166,
     0.166,
-    0.182
+    0.185
    ],
    "tris": 370,
    "tpu": 1079,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12092,
+   "bytes": 12112,
    "vtx": 264,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.001,
-   "thick": 0.0436,
+   "minEdge": 0.002,
+   "minWall": 0.0068,
+   "thick": 0.053,
    "avgTri": 0.00027,
-   "anglePct": 5,
+   "anglePct": 8,
    "pieces": 2,
    "vpt": 0.71,
    "cells": [
@@ -52164,23 +52096,16 @@
     "mab"
    ],
    "variant": "cooking-assets/cocktail-glass",
-   "thickRel": 0.53,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.61
   },
   {
    "kit": "cooking-assets",
    "name": "measuring-cup-large",
-   "hash": "cf0f37b44c",
+   "hash": "94cb32b0bc",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
-    0.259,
+    0.26,
     0.188,
     0.103
    ],
@@ -52194,8 +52119,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0041,
-   "thick": 0.058,
+   "minWall": 0.0066,
+   "thick": 0.0579,
    "avgTri": 0.00065,
    "anglePct": 19,
    "pieces": 14,
@@ -52216,22 +52141,22 @@
    "thickRel": 0.39,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.012"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "measuring-cup-small",
-   "hash": "9f320af754",
+   "hash": "09f48674ce",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.182,
     0.113,
-    0.103
+    0.105
    ],
    "tris": 234,
    "tpu": 682,
@@ -52242,10 +52167,10 @@
    "vtx": 157,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0042,
-   "thick": 0.0728,
-   "avgTri": 0.00038,
+   "minEdge": 0.004,
+   "minWall": 0.0066,
+   "thick": 0.0803,
+   "avgTri": 0.00037,
    "anglePct": 12,
    "pieces": 10,
    "vpt": 0.67,
@@ -52262,12 +52187,12 @@
     "plastic"
    ],
    "variant": "cooking-assets/measuring-cup-large",
-   "thickRel": 0.49,
+   "thickRel": 0.54,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0042 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.012"
     }
    ]
   },
@@ -52636,12 +52561,12 @@
   {
    "kit": "cooking-assets",
    "name": "paring-knife",
-   "hash": "3b9c993777",
+   "hash": "95f31391cb",
    "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
     0.029,
-    0.006,
+    0.008,
     0.222
    ],
    "tris": 192,
@@ -52649,15 +52574,15 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10240,
+   "bytes": 10260,
    "vtx": 240,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0045,
-   "thick": 0.2578,
+   "minWall": 0.0066,
+   "thick": 0.263,
    "avgTri": 0.00006,
-   "anglePct": 66,
+   "anglePct": 60,
    "pieces": 6,
    "vpt": 1.25,
    "cells": [
@@ -52674,19 +52599,12 @@
     "wood-dark"
    ],
    "variant": "cooking-assets/santoku-knife",
-   "thickRel": 1.42,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0045 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.45
   },
   {
    "kit": "cooking-assets",
    "name": "peeling-knife",
-   "hash": "910dfcbf04",
+   "hash": "2e7ba7b185",
    "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
@@ -52704,10 +52622,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0029,
-   "thick": 0.1861,
+   "minWall": 0.0066,
+   "thick": 0.1972,
    "avgTri": 0.00004,
-   "anglePct": 68,
+   "anglePct": 63,
    "pieces": 6,
    "vpt": 1.52,
    "cells": [
@@ -52724,19 +52642,12 @@
     "rubber"
    ],
    "variant": "cooking-assets/santoku-knife",
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0029 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.09
   },
   {
    "kit": "cooking-assets",
    "name": "pepper-grinder",
-   "hash": "ec63579856",
+   "hash": "d170c946fa",
    "kind": "obj-kitchenware-tableware-condiment",
    "size": "s",
    "wdh": [
@@ -52755,8 +52666,8 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0808,
-   "minWall": 0.0049,
-   "thick": 0.2988,
+   "minWall": 0.0093,
+   "thick": 0.2989,
    "avgTri": 0.00015,
    "anglePct": 28,
    "pieces": 5,
@@ -52775,12 +52686,12 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 3.52,
+   "thickRel": 3.49,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0049 wants min 0.006"
+     "text": "G27 minWall 0.0093 wants min 0.026"
     }
    ]
   },
@@ -52822,7 +52733,7 @@
     "mab"
    ],
    "variant": "cooking-assets/pilsner-glass",
-   "thickRel": 0.87,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "error",
@@ -52884,28 +52795,28 @@
   {
    "kit": "cooking-assets",
    "name": "plate-oval-small",
-   "hash": "ead9b28588",
+   "hash": "91a4e29a05",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
     0.147,
-    0.074,
-    0.017
+    0.077,
+    0.021
    ],
    "tris": 220,
    "tpu": 641,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9240,
+   "bytes": 9264,
    "vtx": 204,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0026,
-   "thick": 0.0882,
-   "avgTri": 0.0001,
-   "anglePct": 25,
+   "minEdge": 0.003,
+   "minWall": 0.0067,
+   "thick": 0.1091,
+   "avgTri": 0.00011,
+   "anglePct": 21,
    "pieces": 1,
    "vpt": 0.93,
    "cells": [
@@ -52919,14 +52830,7 @@
     "mab",
     "scale-small"
    ],
-   "thickRel": 1.56,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.93
   },
   {
    "kit": "cooking-assets",
@@ -53144,7 +53048,7 @@
     "mab",
     "wood-mid"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.77
   },
   {
    "kit": "cooking-assets",
@@ -53184,7 +53088,7 @@
     "mab",
     "wood-mid"
    ],
-   "thickRel": 2.99
+   "thickRel": 2.97
   },
   {
    "kit": "cooking-assets",
@@ -53232,7 +53136,7 @@
   {
    "kit": "cooking-assets",
    "name": "sauce-pan-large",
-   "hash": "0d161f7165",
+   "hash": "712f78ec74",
    "kind": "obj-kitchenware-cookware-pan-saucepan",
    "size": "s",
    "wdh": [
@@ -53250,10 +53154,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0026,
-   "thick": 0.1723,
+   "minWall": 0.0066,
+   "thick": 0.1726,
    "avgTri": 0.00054,
-   "anglePct": 33,
+   "anglePct": 32,
    "pieces": 8,
    "vpt": 0.88,
    "cells": [
@@ -53270,36 +53174,36 @@
    "thickRel": 2.12,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.012"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "sauce-pan-small",
-   "hash": "dc51bfbcd4",
+   "hash": "616cbdd41a",
    "kind": "obj-kitchenware-cookware-pan-saucepan",
    "size": "s",
    "wdh": [
-    0.119,
-    0.246,
-    0.103
+    0.122,
+    0.248,
+    0.105
    ],
    "tris": 448,
    "tpu": 1306,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20644,
+   "bytes": 20664,
    "vtx": 517,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0008,
-   "thick": 0.2171,
-   "avgTri": 0.00022,
+   "minEdge": 0.002,
+   "minWall": 0.0067,
+   "thick": 0.2241,
+   "avgTri": 0.00024,
    "anglePct": 21,
    "pieces": 7,
    "vpt": 1.15,
@@ -53314,19 +53218,19 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/sauce-pan-large",
-   "thickRel": 2.67,
+   "thickRel": 2.76,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0008 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "saute-pan",
-   "hash": "48ba21cd57",
+   "hash": "121f1575e5",
    "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
@@ -53344,8 +53248,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0059,
-   "thick": 0.1225,
+   "minWall": 0.0067,
+   "thick": 0.1228,
    "avgTri": 0.00071,
    "anglePct": 25,
    "pieces": 6,
@@ -53364,16 +53268,16 @@
    "thickRel": 1.51,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0059 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "serving-bowl",
-   "hash": "e1604137d2",
+   "hash": "4e9c0919b9",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
@@ -53386,13 +53290,13 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9636,
+   "bytes": 9656,
    "vtx": 208,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0032,
-   "thick": 0.1567,
+   "minEdge": 0.006,
+   "minWall": 0.0067,
+   "thick": 0.1564,
    "avgTri": 0.00057,
    "anglePct": 12,
    "pieces": 2,
@@ -53407,14 +53311,7 @@
     "ceramic-mid",
     "mab"
    ],
-   "thickRel": 2.31,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0032 wants min 0.006"
-    }
-   ]
+   "thickRel": 2.31
   },
   {
    "kit": "cooking-assets",
@@ -53456,7 +53353,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 3.37,
+   "thickRel": 3.34,
    "lint": [
     {
      "level": "warning",
@@ -53502,18 +53399,18 @@
     "glass",
     "mab"
    ],
-   "thickRel": 1
+   "thickRel": 0.98
   },
   {
    "kit": "cooking-assets",
    "name": "skillet-cast",
-   "hash": "4fe3afcaed",
+   "hash": "5223ded589",
    "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
     0.387,
     0.243,
-    0.065
+    0.067
    ],
    "tris": 180,
    "tpu": 525,
@@ -53525,10 +53422,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0042,
-   "thick": 0.0592,
-   "avgTri": 0.0008,
-   "anglePct": 40,
+   "minWall": 0.0067,
+   "thick": 0.0616,
+   "avgTri": 0.00079,
+   "anglePct": 39,
    "pieces": 2,
    "vpt": 1.18,
    "cells": [
@@ -53542,12 +53439,12 @@
     "metal-iron-dark"
    ],
    "variant": "cooking-assets/frying-pan",
-   "thickRel": 0.73,
+   "thickRel": 0.76,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0042 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -53639,12 +53536,12 @@
   {
    "kit": "cooking-assets",
    "name": "spatula",
-   "hash": "4fa1d9a1dd",
+   "hash": "1503710f86",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
     0.112,
-    0.049,
+    0.051,
     0.32
    ],
    "tris": 296,
@@ -53656,12 +53553,12 @@
    "vtx": 212,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "minTube": 0.0233,
-   "minWall": 0.0019,
-   "thick": 0.1083,
+   "minWall": 0.0062,
+   "thick": 0.1098,
    "avgTri": 0.00012,
-   "anglePct": 6,
+   "anglePct": 8,
    "pieces": 3,
    "vpt": 0.72,
    "cells": [
@@ -53678,14 +53575,7 @@
     "wood-dark"
    ],
    "variant": "cooking-assets/spatula",
-   "thickRel": 0.82,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0019 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.83
   },
   {
    "kit": "cooking-assets",
@@ -53725,7 +53615,7 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/cutlery-set",
-   "thickRel": 1.11
+   "thickRel": 1.1
   },
   {
    "kit": "cooking-assets",
@@ -53772,11 +53662,11 @@
   {
    "kit": "cooking-assets",
    "name": "stock-pot",
-   "hash": "012ec96746",
+   "hash": "cb063698cd",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.295,
+    0.296,
     0.405,
     0.347
    ],
@@ -53785,15 +53675,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19556,
+   "bytes": 19560,
    "vtx": 486,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0036,
-   "thick": 0.222,
-   "avgTri": 0.00183,
-   "anglePct": 46,
+   "minWall": 0.0067,
+   "thick": 0.2212,
+   "avgTri": 0.00184,
+   "anglePct": 45,
    "pieces": 7,
    "vpt": 1.11,
    "cells": [
@@ -53806,12 +53696,12 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 1.3,
+   "thickRel": 1.29,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0036 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -54216,7 +54106,7 @@
   {
    "kit": "cooking-assets",
    "name": "trivet",
-   "hash": "109a9712be",
+   "hash": "c63987396b",
    "kind": "obj-kitchenware-cookware",
    "size": "s",
    "wdh": [
@@ -54234,8 +54124,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0046,
-   "thick": 0.0942,
+   "minWall": 0.0067,
+   "thick": 0.094,
    "avgTri": 0.00005,
    "anglePct": 40,
    "pieces": 3,
@@ -54255,20 +54145,20 @@
    "thickRel": 0.75,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0046 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.026"
     }
    ]
   },
   {
    "kit": "cooking-assets",
    "name": "turner",
-   "hash": "1a91daaab3",
+   "hash": "2106dfd199",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
-    0.118,
+    0.123,
     0.04,
     0.426
    ],
@@ -54282,10 +54172,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0139,
-   "minWall": 0.0025,
-   "thick": 0.129,
-   "avgTri": 0.00018,
+   "minTube": 0.0152,
+   "minWall": 0.0061,
+   "thick": 0.1248,
+   "avgTri": 0.0002,
    "anglePct": 0,
    "pieces": 3,
    "vpt": 0.78,
@@ -54303,14 +54193,7 @@
     "wood-dark"
    ],
    "variant": "cooking-assets/spatula",
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0025 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "cooking-assets",
@@ -54349,7 +54232,7 @@
     "glass",
     "mab"
    ],
-   "thickRel": 0.96,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -54397,7 +54280,7 @@
     "mab"
    ],
    "variant": "cooking-assets/pilsner-glass",
-   "thickRel": 1.57
+   "thickRel": 1.54
   },
   {
    "kit": "cooking-assets",
@@ -54445,7 +54328,7 @@
   {
    "kit": "cooking-assets",
    "name": "wine-glass",
-   "hash": "b7053e54e4",
+   "hash": "6e79c3cfeb",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -54463,9 +54346,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0023,
-   "thick": 0.0692,
-   "avgTri": 0.00016,
+   "minWall": 0.0067,
+   "thick": 0.0866,
+   "avgTri": 0.00015,
    "anglePct": 15,
    "pieces": 2,
    "vpt": 0.65,
@@ -54480,14 +54363,7 @@
     "mab"
    ],
    "variant": "cooking-assets/wine-glass",
-   "thickRel": 0.84,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0023 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "cooking-assets",
@@ -54566,7 +54442,7 @@
     "mab",
     "wood-mid"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.47
   },
   {
    "kit": "dragon",
@@ -55020,27 +54896,27 @@
   {
    "kit": "dungeon",
    "name": "cage",
-   "hash": "d3a3dbce3c",
+   "hash": "c35245ff15",
    "kind": "obj-container-cage",
    "size": "l",
    "wdh": [
-    1.001,
-    1.001,
-    1.841
+    1.003,
+    1.003,
+    1.842
    ],
    "tris": 2614,
-   "tpu": 1417,
+   "tpu": 1411,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 130104,
+   "bytes": 130100,
    "vtx": 3528,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0018,
-   "thick": 0.1541,
+   "minWall": 0.0062,
+   "thick": 0.1521,
    "avgTri": 0.002,
    "anglePct": 37,
    "pieces": 14,
@@ -55055,12 +54931,12 @@
     "metal-iron-mid",
     "mounted"
    ],
-   "thickRel": 0.68,
+   "thickRel": 0.67,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0018 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -55733,7 +55609,7 @@
     "ceramic-mid"
    ],
    "variant": "dungeon/vase",
-   "thickRel": 0.95
+   "thickRel": 0.92
   },
   {
    "kit": "dungeon",
@@ -55775,7 +55651,7 @@
     "ceramic-mid"
    ],
    "variant": "dungeon/vase",
-   "thickRel": 0.95
+   "thickRel": 0.92
   },
   {
    "kit": "dungeon",
@@ -59334,13 +59210,13 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "chest",
-   "hash": "380c31ef9c",
+   "hash": "f3ae7701ee",
    "kind": "obj-container-chest",
    "size": "s",
    "wdh": [
     0.49,
     0.279,
-    0.206
+    0.207
    ],
    "tris": 401,
    "tpu": 1169,
@@ -59353,7 +59229,7 @@
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.028,
-   "minWall": 0.0051,
+   "minWall": 0.0067,
    "thick": 0.2622,
    "avgTri": 0.00377,
    "anglePct": 94,
@@ -59386,9 +59262,9 @@
      "text": "5.1% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0051 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.026"
     }
    ]
   },
@@ -59820,29 +59696,29 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "crate-open",
-   "hash": "6838dd706a",
+   "hash": "5c94d80037",
    "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
     0.5,
     0.467,
-    0.377
+    0.382
    ],
    "tris": 932,
    "tpu": 2717,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 65276,
+   "bytes": 65272,
    "vtx": 1817,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0171,
-   "minWall": 0.0027,
-   "thick": 0.0611,
-   "avgTri": 0.00373,
-   "anglePct": 59,
+   "minWall": 0.0068,
+   "thick": 0.0612,
+   "avgTri": 0.00375,
+   "anglePct": 58,
    "pieces": 28,
    "vpt": 1.95,
    "cells": [
@@ -59856,11 +59732,11 @@
    ],
    "variant": "emace-village/crate",
    "backface": {
-    "share": 0.0317,
+    "share": 0.0283,
     "view": "0/-89.9",
     "causes": {
-     "inverted": 0.99,
-     "other": 0.01
+     "inverted": 1,
+     "other": 0
     }
    },
    "thickRel": 0.26,
@@ -59868,17 +59744,12 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "3.2% of view 0/-89.9 over 0.5%: inverted 99.0%, other 1.0%"
+     "text": "2.8% of view 0/-89.9 over 0.5%: inverted 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
      "text": "I01 thickRel 0.26 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0027 wants min 0.006"
     }
    ]
   },
@@ -64303,7 +64174,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/spoon-a",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "emace-village",
@@ -64343,7 +64214,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/spoon-a",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "emace-village",
@@ -64383,7 +64254,7 @@
     "wood-light"
    ],
    "variant": "emace-village/spoon-a",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "emace-village",
@@ -64423,7 +64294,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/spoon-a",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "emace-village",
@@ -65022,7 +64893,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "tankard-blue",
-   "hash": "e94098ec67",
+   "hash": "d338e42a8e",
    "kind": "obj-kitchenware-tableware-drinkware-tankard",
    "size": "s",
    "wdh": [
@@ -65040,10 +64911,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minWall": 0.0058,
+   "minWall": 0.0067,
    "thick": 0.0785,
    "avgTri": 0.00043,
-   "anglePct": 71,
+   "anglePct": 72,
    "pieces": 2,
    "vpt": 1.3,
    "cells": [
@@ -65059,9 +64930,9 @@
    "thickRel": 0.9,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0058 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.026"
     }
    ]
   },
@@ -71582,13 +71453,13 @@
   {
    "kit": "food-pack-2",
    "name": "milk-glass-chocolate",
-   "hash": "76542fc28f",
+   "hash": "584021b5c3",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
     0.075,
     0.075,
-    0.12
+    0.125
    ],
    "tris": 222,
    "tpu": 647,
@@ -71599,11 +71470,11 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.002,
-   "thick": 0.2612,
-   "avgTri": 0.00025,
-   "anglePct": 18,
+   "minEdge": 0.001,
+   "minWall": 0.0067,
+   "thick": 0.2535,
+   "avgTri": 0.00023,
+   "anglePct": 17,
    "pieces": 1,
    "vpt": 0.65,
    "cells": [
@@ -71616,25 +71487,18 @@
     "glass"
    ],
    "variant": "food-pack-2/milk-glass",
-   "thickRel": 2.85,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.002 wants min 0.006"
-    }
-   ]
+   "thickRel": 2.7
   },
   {
    "kit": "food-pack-2",
    "name": "milk-glass",
-   "hash": "d92e8f8e74",
+   "hash": "ad95a80c65",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
     0.075,
     0.075,
-    0.12
+    0.125
    ],
    "tris": 222,
    "tpu": 647,
@@ -71645,11 +71509,11 @@
    "vtx": 144,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.002,
-   "thick": 0.2612,
-   "avgTri": 0.00025,
-   "anglePct": 18,
+   "minEdge": 0.001,
+   "minWall": 0.0067,
+   "thick": 0.2535,
+   "avgTri": 0.00023,
+   "anglePct": 17,
    "pieces": 1,
    "vpt": 0.65,
    "cells": [
@@ -71663,14 +71527,7 @@
     "special-liquid"
    ],
    "variant": "food-pack-2/milk-glass",
-   "thickRel": 2.85,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.002 wants min 0.006"
-    }
-   ]
+   "thickRel": 2.7
   },
   {
    "kit": "food-pack-2",
@@ -77491,27 +77348,27 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "trashcan-kitchen",
-   "hash": "3dafd7d8db",
+   "hash": "cea2d79026",
    "kind": "obj-container-trash-trashcan",
    "size": "s",
    "wdh": [
-    0.236,
+    0.237,
     0.169,
-    0.338
+    0.339
    ],
    "tris": 344,
    "tpu": 1003,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22308,
+   "bytes": 22328,
    "vtx": 588,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.004,
-   "thick": 0.2362,
-   "avgTri": 0.00143,
+   "minWall": 0.0062,
+   "thick": 0.2382,
+   "avgTri": 0.00144,
    "anglePct": 28,
    "pieces": 2,
    "vpt": 1.71,
@@ -77526,12 +77383,12 @@
     "metal-steel"
    ],
    "variant": "fs-house/trashcan",
-   "thickRel": 1.57,
+   "thickRel": 1.62,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.004 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -77574,12 +77431,12 @@
     "metal-steel"
    ],
    "variant": "fs-house/trashcan",
-   "thickRel": 0.41,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.41 wants min 0.5"
+     "text": "I01 thickRel 0.42 wants min 0.5"
     }
    ]
   },
@@ -83984,7 +83841,7 @@
     "fs"
    ],
    "variant": "fs-temple/vase-a",
-   "thickRel": 0.85
+   "thickRel": 0.82
   },
   {
    "kit": "fs-temple",
@@ -84025,7 +83882,7 @@
     "fs"
    ],
    "variant": "fs-temple/vase-a",
-   "thickRel": 1.54
+   "thickRel": 1.49
   },
   {
    "kit": "fs-temple",
@@ -84066,7 +83923,7 @@
     "fs"
    ],
    "variant": "fs-temple/vase-c",
-   "thickRel": 0.68
+   "thickRel": 0.65
   },
   {
    "kit": "fs-temple",
@@ -84107,7 +83964,7 @@
     "fs"
    ],
    "variant": "fs-temple/vase-c",
-   "thickRel": 0.91
+   "thickRel": 0.88
   },
   {
    "kit": "fs-temple",
@@ -97422,7 +97279,7 @@
   {
    "kit": "household",
    "name": "cup-of-tea",
-   "hash": "debdccb683",
+   "hash": "4e6f60c74b",
    "kind": "obj-kitchenware-tableware-drinkware-cup",
    "size": "s",
    "wdh": [
@@ -97440,8 +97297,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0028,
-   "thick": 0.1042,
+   "minWall": 0.0065,
+   "thick": 0.1039,
    "avgTri": 0.00017,
    "anglePct": 19,
    "pieces": 3,
@@ -97462,9 +97319,9 @@
    "thickRel": 1.1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0028 wants min 0.006"
+     "text": "G27 minWall 0.0065 wants min 0.026"
     }
    ]
   },
@@ -98654,7 +98511,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.44,
+   "thickRel": 1.47,
    "lint": [
     {
      "level": "error",
@@ -98834,13 +98691,13 @@
   {
    "kit": "household",
    "name": "present",
-   "hash": "97753128d6",
+   "hash": "39f499b0ff",
    "kind": "obj-container-present",
    "size": "s",
    "wdh": [
-    0.3,
-    0.291,
-    0.299
+    0.301,
+    0.292,
+    0.3
    ],
    "tris": 688,
    "tpu": 2006,
@@ -98851,12 +98708,12 @@
    "vtx": 1049,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0731,
-   "minWall": 0.0034,
-   "thick": 0.2023,
-   "avgTri": 0.00099,
-   "anglePct": 81,
+   "minEdge": 0.002,
+   "minTube": 0.0734,
+   "minWall": 0.006,
+   "thick": 0.2022,
+   "avgTri": 0.00101,
+   "anglePct": 80,
    "pieces": 6,
    "vpt": 1.52,
    "cells": [
@@ -98875,9 +98732,9 @@
    "thickRel": 0.89,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.026"
     }
    ]
   },
@@ -99138,7 +98995,7 @@
   {
    "kit": "household",
    "name": "safe",
-   "hash": "83026790d2",
+   "hash": "acbba6969a",
    "kind": "obj-container-safe",
    "size": "s",
    "wdh": [
@@ -99155,10 +99012,10 @@
    "vtx": 439,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0036,
+   "minEdge": 0.003,
+   "minWall": 0.0064,
    "thick": 0.2646,
-   "avgTri": 0.00206,
+   "avgTri": 0.00207,
    "anglePct": 91,
    "pieces": 7,
    "vpt": 1.98,
@@ -99178,9 +99035,9 @@
    "thickRel": 1.17,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0036 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.026"
     }
    ]
   },
@@ -99956,7 +99813,7 @@
   {
    "kit": "household",
    "name": "watering-can",
-   "hash": "c836baa6cc",
+   "hash": "ec6af69449",
    "kind": "obj-container-can-wateringcan",
    "size": "s",
    "wdh": [
@@ -99974,10 +99831,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0261,
-   "minWall": 0.0053,
-   "thick": 0.1744,
-   "avgTri": 0.00018,
+   "minTube": 0.0354,
+   "minWall": 0.0062,
+   "thick": 0.174,
+   "avgTri": 0.00019,
    "anglePct": 27,
    "pieces": 4,
    "vpt": 0.92,
@@ -99992,13 +99849,13 @@
     "metal-iron-mid"
    ],
    "backface": {
-    "share": 0.0053,
+    "share": 0.0052,
     "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 1.53,
+   "thickRel": 1.52,
    "lint": [
     {
      "level": "error",
@@ -100006,9 +99863,9 @@
      "text": "0.5% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0053 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -100049,7 +99906,7 @@
     "ct",
     "glass"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.34
   },
   {
    "kit": "household",
@@ -103211,27 +103068,27 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "basket-b",
-   "hash": "dd06cccb1c",
+   "hash": "f0e22b0641",
    "kind": "obj-container-basket",
    "size": "s",
    "wdh": [
-    0.29,
+    0.291,
     0.218,
-    0.087
+    0.088
    ],
    "tris": 300,
    "tpu": 875,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11200,
+   "bytes": 11224,
    "vtx": 250,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0058,
-   "thick": 0.0659,
-   "avgTri": 0.00087,
+   "minWall": 0.0062,
+   "thick": 0.0645,
+   "avgTri": 0.00088,
    "anglePct": 89,
    "pieces": 1,
    "vpt": 0.83,
@@ -103246,12 +103103,12 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/basket-a",
-   "thickRel": 0.82,
+   "thickRel": 0.81,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0058 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -105352,7 +105209,7 @@
     "isa",
     "wood-mid"
    ],
-   "thickRel": 2.44
+   "thickRel": 2.43
   },
   {
    "kit": "isa-bakery",
@@ -106759,12 +106616,12 @@
    "kit": "isa-bakery",
    "collection": "isa-tt",
    "name": "whisk",
-   "hash": "4162092e25",
+   "hash": "63f75523c6",
    "kind": "obj-kitchenware-cookware-utensil-whisk",
    "size": "s",
    "wdh": [
-    0.087,
-    0.087,
+    0.089,
+    0.089,
     0.247
    ],
    "tris": 448,
@@ -106772,16 +106629,16 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 21820,
+   "bytes": 21816,
    "vtx": 554,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
+   "minEdge": 0,
    "minTube": 0.0436,
-   "minWall": 0.0032,
-   "thick": 0.1706,
-   "avgTri": 0.00012,
-   "anglePct": 31,
+   "minWall": 0.0067,
+   "thick": 0.2177,
+   "avgTri": 0.00014,
+   "anglePct": 30,
    "pieces": 2,
    "vpt": 1.24,
    "cells": [
@@ -106797,14 +106654,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.15,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0032 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.46
   },
   {
    "kit": "isa-bakery",
@@ -111591,7 +111441,7 @@
     "isa",
     "wood-dark"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "isa-kitchen",
@@ -112099,7 +111949,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.96,
+   "thickRel": 2.93,
    "lint": [
     {
      "level": "warning",
@@ -112278,7 +112128,7 @@
     "isa",
     "wood-mid"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.13
   },
   {
    "kit": "isa-kitchen",
@@ -112798,7 +112648,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-paper-towel-holder",
-   "hash": "16f439843c",
+   "hash": "c257783ad1",
    "kind": "obj-kitchenware-papertowel",
    "size": "s",
    "wdh": [
@@ -112815,9 +112665,9 @@
    "vtx": 240,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "minTube": 0.0344,
-   "minWall": 0.0059,
+   "minWall": 0.0067,
    "thick": 0.2281,
    "avgTri": 0.0012,
    "anglePct": 82,
@@ -112840,7 +112690,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.3,
+   "thickRel": 2.28,
    "lint": [
     {
      "level": "warning",
@@ -112848,9 +112698,9 @@
      "text": "longest 0.465 over max 0.4 (obj-kitchenware-papertowel)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0059 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.026"
     }
    ]
   },
@@ -114412,7 +114262,7 @@
     "isa",
     "metal-iron-mid"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.64
   },
   {
    "kit": "isa-park",
@@ -115051,7 +114901,7 @@
     "wood-mid"
    ],
    "variant": "isa-picnic/cutlery-set",
-   "thickRel": 0.94
+   "thickRel": 0.88
   },
   {
    "kit": "isa-picnic",
@@ -115834,7 +115684,7 @@
     "wood-mid"
    ],
    "variant": "isa-picnic/cutlery-set",
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "isa-picnic",
@@ -115964,7 +115814,7 @@
    "kit": "isa-picnic",
    "collection": "isa-tt",
    "name": "tray-square-handles",
-   "hash": "52ebd629d8",
+   "hash": "89d5a999ac",
    "kind": "obj-kitchenware-tableware-serving-tray",
    "size": "s",
    "wdh": [
@@ -115981,10 +115831,10 @@
    "vtx": 250,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0261,
-   "minWall": 0.0056,
-   "thick": 0.0618,
+   "minEdge": 0.003,
+   "minTube": 0.0274,
+   "minWall": 0.0066,
+   "thick": 0.0626,
    "avgTri": 0.00062,
    "anglePct": 88,
    "pieces": 1,
@@ -116000,12 +115850,12 @@
     "wood-mid"
    ],
    "variant": "isa-picnic/tray-round",
-   "thickRel": 0.77,
+   "thickRel": 0.78,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.012"
     }
    ]
   },
@@ -116134,7 +115984,7 @@
     "glass",
     "isa"
    ],
-   "thickRel": 1.04
+   "thickRel": 1
   },
   {
    "kit": "isa-plants",
@@ -121134,7 +120984,7 @@
   {
    "kit": "jb-kitchen",
    "name": "cookpot-lid",
-   "hash": "57878f3de5",
+   "hash": "b51c14b153",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
@@ -121151,11 +121001,11 @@
    "vtx": 2557,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0047,
+   "minEdge": 0.001,
+   "minWall": 0.0067,
    "thick": 0.2003,
    "avgTri": 0.00031,
-   "anglePct": 31,
+   "anglePct": 30,
    "pieces": 10,
    "vpt": 1.44,
    "cells": [
@@ -121176,9 +121026,9 @@
      "text": "tpu 5190 over max 5000 (obj-kitchenware)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0047 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -121559,7 +121409,7 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 2.93
+   "thickRel": 2.91
   },
   {
    "kit": "jb-kitchen",
@@ -121685,7 +121535,7 @@
    "tags": [
     "metal-steel"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "jb-kitchen",
@@ -126347,13 +126197,13 @@
   {
    "kit": "kay-city",
    "name": "box-b",
-   "hash": "87e05aa29a",
+   "hash": "dd96ddcaed",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
-    0.222,
-    0.225,
-    0.248
+    0.226,
+    0.229,
+    0.253
    ],
    "tris": 54,
    "tpu": 157,
@@ -126364,11 +126214,11 @@
    "vtx": 122,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minWall": 0.0025,
-   "thick": 0.2509,
-   "avgTri": 0.01098,
-   "anglePct": 90,
+   "minEdge": 0.007,
+   "minWall": 0.0067,
+   "thick": 0.2515,
+   "avgTri": 0.0111,
+   "anglePct": 87,
    "pieces": 2,
    "vpt": 2.26,
    "cells": [
@@ -126385,14 +126235,7 @@
     "paper-sheet"
    ],
    "variant": "kay-city/box-a",
-   "thickRel": 1.17,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0025 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.17
   },
   {
    "kit": "kay-city",
@@ -127926,7 +127769,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 1.71
+   "thickRel": 1.73
   },
   {
    "kit": "kay-city",
@@ -131699,7 +131542,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-a-decorated",
-   "thickRel": 1.64
+   "thickRel": 1.58
   },
   {
    "kit": "kay-dun-1",
@@ -131739,7 +131582,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-a-decorated",
-   "thickRel": 1.64
+   "thickRel": 1.58
   },
   {
    "kit": "kay-dun-1",
@@ -131781,7 +131624,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-b",
-   "thickRel": 1.34
+   "thickRel": 1.29
   },
   {
    "kit": "kay-dun-1",
@@ -131821,7 +131664,7 @@
     "kay"
    ],
    "variant": "kay-dun-1/pot-b",
-   "thickRel": 1.34
+   "thickRel": 1.29
   },
   {
    "kit": "kay-dun-1",
@@ -143484,7 +143327,7 @@
     "kay",
     "metal-steel"
    ],
-   "thickRel": 0.7,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "warning",
@@ -145876,7 +145719,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.32
+   "thickRel": 2.29
   },
   {
    "kit": "kay-food",
@@ -146413,7 +146256,7 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "shelf-paper-towel",
-   "hash": "bedf380d44",
+   "hash": "9ea87b3cd9",
    "kind": "obj-kitchenware-papertowel",
    "size": "s",
    "wdh": [
@@ -146430,12 +146273,12 @@
    "vtx": 444,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
+   "minEdge": 0.007,
    "minTube": 0.1112,
-   "minWall": 0.005,
-   "thick": 0.1974,
-   "avgTri": 0.00059,
-   "anglePct": 71,
+   "minWall": 0.0067,
+   "thick": 0.1976,
+   "avgTri": 0.0006,
+   "anglePct": 72,
    "pieces": 2,
    "vpt": 1.44,
    "cells": [
@@ -146455,12 +146298,12 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.99,
+   "thickRel": 1.98,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.005 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.026"
     }
    ]
   },
@@ -156132,7 +155975,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "bucket-arrows",
-   "hash": "f59291b951",
+   "hash": "cc6c2b9e7a",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
@@ -156150,11 +155993,11 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
+   "minEdge": 0.009,
    "minTube": 0.0176,
-   "minWall": 0.0055,
-   "thick": 0.1404,
-   "avgTri": 0.00197,
+   "minWall": 0.006,
+   "thick": 0.1407,
+   "avgTri": 0.00198,
    "anglePct": 17,
    "pieces": 13,
    "vpt": 1.77,
@@ -156181,9 +156024,9 @@
    "thickRel": 1.69,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0055 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.012"
     }
    ]
   },
@@ -161080,7 +160923,7 @@
     "kay",
     "special-liquid"
    ],
-   "thickRel": 3.14
+   "thickRel": 3.07
   },
   {
    "kit": "kay-holiday",
@@ -171633,26 +171476,26 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "fuel-barrel-a-dirty",
-   "hash": "ebb6c5ace3",
+   "hash": "3150487d8a",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
     0.227,
     0.227,
-    0.305
+    0.306
    ],
    "tris": 996,
    "tpu": 2904,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 37100,
+   "bytes": 37104,
    "vtx": 928,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0041,
-   "thick": 0.2608,
+   "minWall": 0.0061,
+   "thick": 0.2615,
    "avgTri": 0.00033,
    "anglePct": 51,
    "pieces": 5,
@@ -171674,12 +171517,12 @@
     "plastic"
    ],
    "variant": "kay-resources/fuel-barrel-a-dirty",
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0061 wants min 0.026"
     }
    ]
   },
@@ -171687,26 +171530,26 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "fuel-barrel-a",
-   "hash": "d407c1df2c",
+   "hash": "9856633cc2",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
     0.227,
     0.227,
-    0.305
+    0.306
    ],
    "tris": 804,
    "tpu": 2344,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30812,
+   "bytes": 30816,
    "vtx": 768,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0041,
-   "thick": 0.2603,
+   "minWall": 0.0062,
+   "thick": 0.261,
    "avgTri": 0.00039,
    "anglePct": 52,
    "pieces": 2,
@@ -171728,9 +171571,9 @@
    "thickRel": 0.99,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -171738,26 +171581,26 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "fuel-barrel-c-dirty",
-   "hash": "69bd5764b6",
+   "hash": "a5a795cfb5",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
     0.227,
     0.227,
-    0.305
+    0.306
    ],
    "tris": 1006,
    "tpu": 2933,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 36840,
+   "bytes": 36844,
    "vtx": 918,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0041,
-   "thick": 0.2608,
+   "minWall": 0.006,
+   "thick": 0.2615,
    "avgTri": 0.00033,
    "anglePct": 51,
    "pieces": 5,
@@ -171779,12 +171622,12 @@
     "special-liquid"
    ],
    "variant": "kay-resources/fuel-barrel-a-dirty",
-   "thickRel": 0.99,
+   "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.026"
     }
    ]
   },
@@ -171792,26 +171635,26 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "fuel-barrel-c",
-   "hash": "3629e54c9e",
+   "hash": "5e7400ba8b",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
     0.227,
     0.227,
-    0.305
+    0.306
    ],
    "tris": 804,
    "tpu": 2344,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30300,
+   "bytes": 30304,
    "vtx": 752,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0041,
-   "thick": 0.2603,
+   "minWall": 0.0062,
+   "thick": 0.261,
    "avgTri": 0.00039,
    "anglePct": 52,
    "pieces": 2,
@@ -171833,9 +171676,9 @@
    "thickRel": 0.99,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -171843,13 +171686,13 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "fuel-barrels-a",
-   "hash": "ffa0782c4f",
+   "hash": "5d6b8ad483",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
     0.482,
     0.482,
-    0.305
+    0.306
    ],
    "tris": 4008,
    "tpu": 11685,
@@ -171862,7 +171705,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0041,
+   "minWall": 0.0062,
    "thick": 0.1398,
    "avgTri": 0.00041,
    "anglePct": 40,
@@ -171888,9 +171731,9 @@
    "variant": "kay-resources/fuel-barrels-a",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -171898,13 +171741,13 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "fuel-barrels-c",
-   "hash": "b057b9fd24",
+   "hash": "50953f09c0",
    "kind": "obj-container-barrel-metal",
    "size": "s",
    "wdh": [
     0.482,
     0.482,
-    0.305
+    0.306
    ],
    "tris": 4026,
    "tpu": 11738,
@@ -171917,7 +171760,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0041,
+   "minWall": 0.006,
    "thick": 0.1398,
    "avgTri": 0.00041,
    "anglePct": 40,
@@ -171943,9 +171786,9 @@
    "variant": "kay-resources/fuel-barrels-a",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.026"
     }
    ]
   },
@@ -177170,7 +177013,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "kay-space",
@@ -177267,7 +177110,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "kay-space",
@@ -177314,7 +177157,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "kay-space",
@@ -177404,7 +177247,7 @@
     "space"
    ],
    "variant": "kay-space/cargo-a",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "kay-space",
@@ -187437,7 +187280,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "ken-blaster",
@@ -187482,7 +187325,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "ken-blaster",
@@ -187527,7 +187370,7 @@
     "plastic"
    ],
    "variant": "ken-blaster/crate-medium",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "ken-blaster",
@@ -200251,13 +200094,13 @@
   {
    "kit": "ken-food",
    "name": "can-open",
-   "hash": "906a715c99",
+   "hash": "af6d1916d5",
    "kind": "obj-container-can-food",
    "size": "s",
    "wdh": [
     0.135,
     0.135,
-    0.183
+    0.187
    ],
    "tris": 336,
    "tpu": 980,
@@ -200269,10 +200112,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0007,
-   "thick": 0.2259,
-   "avgTri": 0.00036,
-   "anglePct": 31,
+   "minWall": 0.0065,
+   "thick": 0.2209,
+   "avgTri": 0.00037,
+   "anglePct": 30,
    "pieces": 2,
    "vpt": 0.99,
    "cells": [
@@ -200291,12 +200134,12 @@
     "plastic",
     "special-food"
    ],
-   "thickRel": 0.91,
+   "thickRel": 0.89,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
+     "text": "G27 minWall 0.0065 wants min 0.026"
     }
    ]
   },
@@ -200539,28 +200382,28 @@
   {
    "kit": "ken-food",
    "name": "carton-small",
-   "hash": "fff8a999f0",
+   "hash": "f47ef6c65b",
    "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
+    0.109,
     0.103,
-    0.103,
-    0.175
+    0.178
    ],
    "tris": 86,
    "tpu": 251,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6376,
+   "bytes": 6380,
    "vtx": 136,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0007,
-   "thick": 0.2955,
-   "avgTri": 0.00092,
-   "anglePct": 69,
+   "minEdge": 0.006,
+   "minWall": 0.0062,
+   "thick": 0.2784,
+   "avgTri": 0.00096,
+   "anglePct": 70,
    "pieces": 2,
    "vpt": 1.58,
    "cells": [
@@ -200576,25 +200419,25 @@
     "paper-sheet"
    ],
    "variant": "ken-food/carton",
-   "thickRel": 1.31,
+   "thickRel": 1.23,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
   {
    "kit": "ken-food",
    "name": "carton",
-   "hash": "9de35f407c",
+   "hash": "433ebe2953",
    "kind": "obj-container-carton-drink",
    "size": "s",
    "wdh": [
+    0.109,
     0.103,
-    0.103,
-    0.265
+    0.268
    ],
    "tris": 105,
    "tpu": 306,
@@ -200605,11 +200448,11 @@
    "vtx": 159,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0007,
-   "thick": 0.3424,
-   "avgTri": 0.00111,
-   "anglePct": 79,
+   "minEdge": 0.006,
+   "minWall": 0.0062,
+   "thick": 0.3252,
+   "avgTri": 0.00114,
+   "anglePct": 80,
    "pieces": 2,
    "vpt": 1.51,
    "cells": [
@@ -200626,12 +200469,12 @@
     "plastic"
    ],
    "variant": "ken-food/carton",
-   "thickRel": 1.52,
+   "thickRel": 1.44,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -200735,7 +200578,7 @@
   {
    "kit": "ken-food",
    "name": "cheese-slicer",
-   "hash": "f5b0ba208d",
+   "hash": "c36c13c755",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
@@ -200753,10 +200596,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minWall": 0.0053,
-   "thick": 0.1163,
-   "avgTri": 0.00034,
-   "anglePct": 65,
+   "minWall": 0.0067,
+   "thick": 0.1158,
+   "avgTri": 0.00035,
+   "anglePct": 64,
    "pieces": 3,
    "vpt": 1.64,
    "cells": [
@@ -200772,12 +200615,12 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.79,
+   "thickRel": 0.78,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0053 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -201094,7 +200937,7 @@
     "special-food",
     "special-liquid"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.91
   },
   {
    "kit": "ken-food",
@@ -201189,12 +201032,12 @@
   {
    "kit": "ken-food",
    "name": "cookie-cutter",
-   "hash": "4639c2cdaf",
+   "hash": "deec77e514",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.145,
-    0.023,
+    0.029,
     0.157
    ],
    "tris": 204,
@@ -201202,15 +201045,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12940,
+   "bytes": 12936,
    "vtx": 320,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0004,
-   "thick": 0.0377,
-   "avgTri": 0.00017,
-   "anglePct": 57,
+   "minWall": 0.006,
+   "thick": 0.0504,
+   "avgTri": 0.00021,
+   "anglePct": 48,
    "pieces": 1,
    "vpt": 1.57,
    "cells": [
@@ -201223,40 +201066,40 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 0.25,
+   "thickRel": 0.34,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0004 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.012"
     }
    ]
   },
   {
    "kit": "ken-food",
    "name": "cooking-fork",
-   "hash": "76f36ae231",
+   "hash": "75d10387e1",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
     0.034,
-    0.035,
-    0.26
+    0.036,
+    0.261
    ],
    "tris": 60,
    "tpu": 175,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5468,
+   "bytes": 5464,
    "vtx": 114,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0053,
-   "thick": 0.2598,
-   "avgTri": 0.00027,
-   "anglePct": 58,
+   "minEdge": 0.007,
+   "minWall": 0.0067,
+   "thick": 0.2592,
+   "avgTri": 0.00028,
+   "anglePct": 56,
    "pieces": 2,
    "vpt": 1.9,
    "cells": [
@@ -201272,12 +201115,12 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.75,
+   "thickRel": 1.74,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0053 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -201632,29 +201475,29 @@
   {
    "kit": "ken-food",
    "name": "cutlery-set",
-   "hash": "4e89a607ec",
+   "hash": "d82e35f05e",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
     0.151,
-    0.269,
-    0.013
+    0.27,
+    0.019
    ],
    "tris": 204,
    "tpu": 595,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10036,
+   "bytes": 10056,
    "vtx": 234,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0115,
-   "minWall": 0.0007,
-   "thick": 0.0596,
-   "avgTri": 0.00017,
-   "anglePct": 33,
+   "minEdge": 0.004,
+   "minTube": 0.0152,
+   "minWall": 0.0063,
+   "thick": 0.0641,
+   "avgTri": 0.00021,
+   "anglePct": 31,
    "pieces": 3,
    "vpt": 1.15,
    "cells": [
@@ -201668,14 +201511,7 @@
     "metal-steel"
    ],
    "variant": "ken-food/cutlery-set",
-   "thickRel": 0.32,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.34
   },
   {
    "kit": "ken-food",
@@ -201973,12 +201809,12 @@
   {
    "kit": "ken-food",
    "name": "fork",
-   "hash": "c4a9f518ad",
+   "hash": "58133b3284",
    "kind": "obj-kitchenware-tableware-cutlery-fork",
    "size": "s",
    "wdh": [
     0.038,
-    0.009,
+    0.015,
     0.226
    ],
    "tris": 92,
@@ -201986,14 +201822,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5260,
+   "bytes": 5284,
    "vtx": 102,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0007,
-   "thick": 0.1998,
-   "avgTri": 0.00011,
+   "minEdge": 0.004,
+   "minWall": 0.0066,
+   "thick": 0.2205,
+   "avgTri": 0.00016,
    "anglePct": 42,
    "pieces": 1,
    "vpt": 1.11,
@@ -202008,25 +201844,18 @@
     "metal-steel"
    ],
    "variant": "ken-food/cutlery-set",
-   "thickRel": 0.96,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-food",
    "name": "frappe",
-   "hash": "2d7d8c0bc0",
+   "hash": "ac9405b408",
    "kind": "obj-kitchenware-tableware-drinkware-takeaway",
    "size": "s",
    "wdh": [
     0.103,
     0.103,
-    0.202
+    0.203
    ],
    "tris": 516,
    "tpu": 1504,
@@ -202038,10 +201867,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0054,
-   "thick": 0.2729,
+   "minWall": 0.0061,
+   "thick": 0.2722,
    "avgTri": 0.00011,
-   "anglePct": 15,
+   "anglePct": 13,
    "pieces": 2,
    "vpt": 1.02,
    "cells": [
@@ -202059,12 +201888,12 @@
     "paper-sheet",
     "special-food"
    ],
-   "thickRel": 2.86,
+   "thickRel": 2.85,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0054 wants min 0.006"
+     "text": "G27 minWall 0.0061 wants min 0.012"
     }
    ]
   },
@@ -202204,7 +202033,7 @@
     "glass",
     "ken"
    ],
-   "thickRel": 1.56
+   "thickRel": 1.49
   },
   {
    "kit": "ken-food",
@@ -202450,7 +202279,7 @@
   {
    "kit": "ken-food",
    "name": "knife-block",
-   "hash": "a090384398",
+   "hash": "b2476be365",
    "kind": "obj-kitchenware-cookware-utensil-knife-block",
    "size": "s",
    "wdh": [
@@ -202467,11 +202296,11 @@
    "vtx": 288,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0007,
-   "thick": 0.1201,
-   "avgTri": 0.00102,
-   "anglePct": 73,
+   "minEdge": 0.005,
+   "minWall": 0.0067,
+   "thick": 0.1199,
+   "avgTri": 0.00107,
+   "anglePct": 72,
    "pieces": 7,
    "vpt": 1.47,
    "cells": [
@@ -202490,13 +202319,6 @@
     "plural",
     "wood-dark",
     "wood-mid"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
-    }
    ]
   },
   {
@@ -202545,7 +202367,7 @@
   {
    "kit": "ken-food",
    "name": "knife-cooking",
-   "hash": "52f40b0fb1",
+   "hash": "cf6a676bcf",
    "kind": "obj-kitchenware-cookware-utensil-knife",
    "size": "s",
    "wdh": [
@@ -202562,11 +202384,11 @@
    "vtx": 64,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0029,
-   "thick": 0.1704,
-   "avgTri": 0.00066,
-   "anglePct": 89,
+   "minEdge": 0.004,
+   "minWall": 0.0067,
+   "thick": 0.1705,
+   "avgTri": 0.0007,
+   "anglePct": 87,
    "pieces": 2,
    "vpt": 1.6,
    "cells": [
@@ -202583,14 +202405,7 @@
     "wood-dark"
    ],
    "variant": "ken-food/knife-cooking",
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0029 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.94
   },
   {
    "kit": "ken-food",
@@ -203662,7 +203477,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 3.63
+   "thickRel": 3.6
   },
   {
    "kit": "ken-food",
@@ -203866,7 +203681,7 @@
   {
    "kit": "ken-food",
    "name": "pizza-cutter",
-   "hash": "be39ada8f4",
+   "hash": "c3621bfc55",
    "kind": "obj-kitchenware-cookware-utensil",
    "size": "s",
    "wdh": [
@@ -203884,10 +203699,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0034,
-   "thick": 0.0891,
+   "minWall": 0.0067,
+   "thick": 0.0918,
    "avgTri": 0.00005,
-   "anglePct": 47,
+   "anglePct": 46,
    "pieces": 3,
    "vpt": 0.84,
    "cells": [
@@ -203903,12 +203718,12 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.6,
+   "thickRel": 0.62,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -204339,7 +204154,7 @@
     "ken",
     "wood-mid"
    ],
-   "thickRel": 2.39
+   "thickRel": 2.38
   },
   {
    "kit": "ken-food",
@@ -204579,28 +204394,28 @@
   {
    "kit": "ken-food",
    "name": "spatula",
-   "hash": "650874f46f",
+   "hash": "2128d30201",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
-    0.115,
-    0.044,
-    0.306
+    0.116,
+    0.047,
+    0.307
    ],
    "tris": 112,
    "tpu": 327,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7532,
+   "bytes": 7536,
    "vtx": 169,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0009,
-   "thick": 0.0972,
-   "avgTri": 0.0003,
-   "anglePct": 38,
+   "minEdge": 0.006,
+   "minWall": 0.0065,
+   "thick": 0.0983,
+   "avgTri": 0.00036,
+   "anglePct": 39,
    "pieces": 2,
    "vpt": 1.51,
    "cells": [
@@ -204616,24 +204431,17 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "ken-food",
    "name": "spoon",
-   "hash": "f827882df5",
+   "hash": "b7e428d12d",
    "kind": "obj-kitchenware-tableware-cutlery-spoon",
    "size": "s",
    "wdh": [
     0.054,
-    0.013,
+    0.019,
     0.215
    ],
    "tris": 72,
@@ -204645,11 +204453,11 @@
    "vtx": 86,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0007,
-   "thick": 0.1327,
-   "avgTri": 0.00017,
-   "anglePct": 13,
+   "minEdge": 0.007,
+   "minWall": 0.0063,
+   "thick": 0.1557,
+   "avgTri": 0.00021,
+   "anglePct": 12,
    "pieces": 1,
    "vpt": 1.19,
    "cells": [
@@ -204663,14 +204471,7 @@
     "metal-steel"
    ],
    "variant": "ken-food/cutlery-set",
-   "thickRel": 0.83,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.97
   },
   {
    "kit": "ken-food",
@@ -205291,30 +205092,31 @@
   {
    "kit": "ken-food",
    "name": "whisk",
-   "hash": "cb97cca55d",
+   "hash": "feaf4737dd",
    "kind": "obj-kitchenware-cookware-utensil-whisk",
    "size": "s",
    "wdh": [
     0.057,
     0.057,
-    0.263
+    0.264
    ],
-   "tris": 256,
-   "tpu": 746,
+   "tris": 252,
+   "tpu": 735,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16708,
-   "vtx": 429,
+   "bytes": 30508,
+   "vtx": 813,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0041,
-   "thick": 0.2859,
-   "avgTri": 0.00015,
-   "anglePct": 72,
-   "pieces": 2,
-   "vpt": 1.68,
+   "minEdge": 0.006,
+   "minTube": 0.0068,
+   "minWall": 0.0068,
+   "thick": 0.3291,
+   "avgTri": 0.00018,
+   "anglePct": 89,
+   "pieces": 6,
+   "vpt": 3.23,
    "cells": [
     "15,3",
     "13,3"
@@ -205328,28 +205130,7 @@
     "metal-steel",
     "plastic"
    ],
-   "backface": {
-    "share": 0.001,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.67,
-     "open": 0.28,
-     "other": 0.06
-    }
-   },
-   "thickRel": 1.93,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.1% of view 0/-89.9 over 0.1%: inverted 67.0%, open 28.0%, other 6.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
-    }
-   ]
+   "thickRel": 2.21
   },
   {
    "kit": "ken-food",
@@ -207184,13 +206965,13 @@
   {
    "kit": "ken-furniture",
    "name": "cardboard-box-closed",
-   "hash": "53dd173ec5",
+   "hash": "7d25ccff26",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
-    0.236,
-    0.236,
-    0.289
+    0.24,
+    0.242,
+    0.294
    ],
    "tris": 76,
    "tpu": 222,
@@ -207202,11 +206983,11 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0031,
-   "thick": 0.1393,
-   "avgTri": 0.00859,
-   "anglePct": 76,
+   "minEdge": 0.008,
+   "minWall": 0.0066,
+   "thick": 0.1464,
+   "avgTri": 0.00872,
+   "anglePct": 75,
    "pieces": 1,
    "vpt": 1.59,
    "cells": [
@@ -207220,14 +207001,7 @@
     "paper-cardboard"
    ],
    "variant": "ken-furniture/cardboard-box-open",
-   "thickRel": 0.65,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0031 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.68
   },
   {
    "kit": "ken-furniture",
@@ -211573,7 +211347,7 @@
     "ken",
     "plastic"
    ],
-   "thickRel": 1.67
+   "thickRel": 1.7
   },
   {
    "kit": "ken-furniture",
@@ -213133,7 +212907,7 @@
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "detail-plate",
-   "hash": "9dca856c0f",
+   "hash": "8d6f824614",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
@@ -213152,10 +212926,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
-   "minWall": 0.004,
-   "thick": 0.0435,
-   "avgTri": 0.00089,
-   "anglePct": 40,
+   "minWall": 0.0067,
+   "thick": 0.0449,
+   "avgTri": 0.00088,
+   "anglePct": 42,
    "pieces": 1,
    "vpt": 0.93,
    "cells": [
@@ -213168,14 +212942,7 @@
     "ceramic-light",
     "ken"
    ],
-   "thickRel": 0.77,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.004 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.8
   },
   {
    "kit": "ken-grave",
@@ -235989,7 +235756,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.57
   },
   {
    "kit": "ken-roads",
@@ -250001,13 +249768,13 @@
   {
    "kit": "ken-survival",
    "name": "box-large-open",
-   "hash": "f9f49f7f78",
+   "hash": "a20724a21d",
    "kind": "obj-container-crate-cardboard",
    "size": "m",
    "wdh": [
     0.401,
     0.803,
-    0.492
+    0.496
    ],
    "tris": 168,
    "tpu": 490,
@@ -250018,10 +249785,10 @@
    "vtx": 200,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0011,
-   "thick": 0.1296,
-   "avgTri": 0.01657,
+   "minEdge": 0.006,
+   "minWall": 0.0062,
+   "thick": 0.1283,
+   "avgTri": 0.0167,
    "anglePct": 64,
    "pieces": 3,
    "vpt": 1.19,
@@ -250038,14 +249805,7 @@
     "paper-cardboard"
    ],
    "variant": "ken-survival/box-large",
-   "thickRel": 0.6,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0011 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.6
   },
   {
    "kit": "ken-survival",
@@ -250092,13 +249852,13 @@
   {
    "kit": "ken-survival",
    "name": "box-open",
-   "hash": "fdfabc3734",
+   "hash": "8947964ee4",
    "kind": "obj-container-crate-cardboard",
    "size": "s",
    "wdh": [
     0.401,
     0.401,
-    0.492
+    0.496
    ],
    "tris": 168,
    "tpu": 490,
@@ -250109,11 +249869,11 @@
    "vtx": 200,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0011,
-   "thick": 0.109,
-   "avgTri": 0.00958,
-   "anglePct": 63,
+   "minEdge": 0.006,
+   "minWall": 0.0062,
+   "thick": 0.117,
+   "avgTri": 0.00966,
+   "anglePct": 62,
    "pieces": 3,
    "vpt": 1.19,
    "cells": [
@@ -250129,14 +249889,7 @@
     "paper-cardboard"
    ],
    "variant": "ken-survival/box-open",
-   "thickRel": 0.51,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0011 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.55
   },
   {
    "kit": "ken-survival",
@@ -264176,7 +263929,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-1",
-   "thickRel": 0.84,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "warning",
@@ -264223,7 +263976,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-1",
-   "thickRel": 0.96,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "warning",
@@ -264270,7 +264023,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-1",
-   "thickRel": 1.17,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "warning",
@@ -264316,7 +264069,7 @@
     "ceramic-light"
    ],
    "variant": "loaf-coffins/ceramic-6",
-   "thickRel": 1.12,
+   "thickRel": 1.08,
    "lint": [
     {
      "level": "warning",
@@ -264362,7 +264115,7 @@
     "ceramic-dark"
    ],
    "variant": "loaf-coffins/ceramic-6",
-   "thickRel": 0.73
+   "thickRel": 0.71
   },
   {
    "kit": "loaf-coffins",
@@ -264401,7 +264154,7 @@
     "ceramic-mid"
    ],
    "variant": "loaf-coffins/ceramic-6",
-   "thickRel": 0.85,
+   "thickRel": 0.82,
    "lint": [
     {
      "level": "warning",
@@ -266879,7 +266632,7 @@
     "plastic"
    ],
    "variant": "lpa-home/bin",
-   "thickRel": 0.72,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
@@ -269276,7 +269029,7 @@
     "lpa",
     "plastic"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "lpa-construction",
@@ -271571,12 +271324,12 @@
     "metal-steel"
    ],
    "variant": "lpa-home/bin",
-   "thickRel": 0.39,
+   "thickRel": 0.4,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.39 wants min 0.5"
+     "text": "I01 thickRel 0.4 wants min 0.5"
     },
     {
      "level": "warning",
@@ -272868,7 +272621,7 @@
   {
    "kit": "lpa-home",
    "name": "glass",
-   "hash": "47a16f335b",
+   "hash": "33c447d1fc",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -272885,10 +272638,10 @@
    "vtx": 222,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0038,
-   "thick": 0.072,
-   "avgTri": 0.00034,
+   "minEdge": 0.003,
+   "minWall": 0.0066,
+   "thick": 0.0939,
+   "avgTri": 0.00032,
    "anglePct": 11,
    "pieces": 1,
    "vpt": 1.79,
@@ -272902,14 +272655,7 @@
     "glass",
     "lpa"
    ],
-   "thickRel": 0.78,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0038 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "lpa-home",
@@ -273080,7 +272826,7 @@
     "metal-steel",
     "paper-sheet"
    ],
-   "thickRel": 2.29,
+   "thickRel": 2.27,
    "lint": [
     {
      "level": "warning",
@@ -274994,7 +274740,7 @@
     "glass",
     "lpa"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.08
   },
   {
    "kit": "lpa-home",
@@ -284809,13 +284555,13 @@
   {
    "kit": "m3-base",
    "name": "3-tier-cake-stand",
-   "hash": "b509f901fe",
+   "hash": "534ff63c74",
    "kind": "obj-kitchenware-tableware-serving-stand",
    "size": "s",
    "wdh": [
-    0.295,
-    0.295,
-    0.351
+    0.297,
+    0.297,
+    0.354
    ],
    "tris": 1496,
    "tpu": 4362,
@@ -284826,12 +284572,12 @@
    "vtx": 1414,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.002,
    "minTube": 0.0332,
-   "minWall": 0.002,
-   "thick": 0.0461,
+   "minWall": 0.0065,
+   "thick": 0.0493,
    "avgTri": 0.00022,
-   "anglePct": 33,
+   "anglePct": 31,
    "pieces": 6,
    "vpt": 0.95,
    "cells": [
@@ -284848,12 +284594,12 @@
     "metal-gold"
    ],
    "variant": "m3-base/cake-stand",
-   "thickRel": 0.6,
+   "thickRel": 0.64,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.002 wants min 0.006"
+     "text": "G27 minWall 0.0065 wants min 0.026"
     }
    ]
   },
@@ -285975,30 +285721,30 @@
   {
    "kit": "m3-base",
    "name": "balloon-whisk",
-   "hash": "17d7e32809",
+   "hash": "718d391dfd",
    "kind": "obj-kitchenware-cookware-utensil-whisk",
    "size": "s",
    "wdh": [
+    0.067,
     0.064,
-    0.062,
-    0.252
+    0.253
    ],
    "tris": 1608,
    "tpu": 4688,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 40260,
+   "bytes": 40256,
    "vtx": 910,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0112,
-   "minWall": 0.0043,
-   "thick": 0.2676,
-   "avgTri": 0.00002,
+   "minWall": 0.0066,
+   "thick": 0.2786,
+   "avgTri": 0.00003,
    "anglePct": 1,
-   "pieces": 3,
+   "pieces": 2,
    "vpt": 0.57,
    "cells": [
     "13,3",
@@ -286013,14 +285759,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.81,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.87
   },
   {
    "kit": "m3-base",
@@ -289623,7 +289362,7 @@
   {
    "kit": "m3-base",
    "name": "champagne-glass",
-   "hash": "2727c75d09",
+   "hash": "6d9ccf2183",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -289641,9 +289380,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0029,
-   "thick": 0.1327,
-   "avgTri": 0.00008,
+   "minWall": 0.0067,
+   "thick": 0.1551,
+   "avgTri": 0.00007,
    "anglePct": 9,
    "pieces": 1,
    "vpt": 0.58,
@@ -289658,14 +289397,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-glass",
-   "thickRel": 1.61,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0029 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.79
   },
   {
    "kit": "m3-base",
@@ -290215,7 +289947,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.06
   },
   {
    "kit": "m3-base",
@@ -290723,12 +290455,12 @@
   {
    "kit": "m3-base",
    "name": "cleaver",
-   "hash": "31a6055dd1",
+   "hash": "02ac81adc3",
    "kind": "obj-kitchenware-cookware-utensil-knife-cleaver",
    "size": "s",
    "wdh": [
     0.091,
-    0.02,
+    0.023,
     0.292
    ],
    "tris": 284,
@@ -290736,15 +290468,15 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 11824,
+   "bytes": 11820,
    "vtx": 269,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0038,
-   "thick": 0.1314,
-   "avgTri": 0.00017,
-   "anglePct": 82,
+   "minEdge": 0.003,
+   "minWall": 0.0066,
+   "thick": 0.1453,
+   "avgTri": 0.00018,
+   "anglePct": 79,
    "pieces": 1,
    "vpt": 0.95,
    "cells": [
@@ -290760,14 +290492,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0038 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.8
   },
   {
    "kit": "m3-base",
@@ -291139,7 +290864,7 @@
   {
    "kit": "m3-base",
    "name": "co2-cartridge",
-   "hash": "9b10adf070",
+   "hash": "126024a4ce",
    "kind": "obj-container-cylinder-tank",
    "size": "s",
    "wdh": [
@@ -291156,10 +290881,10 @@
    "vtx": 328,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0035,
-   "thick": 0.3708,
-   "avgTri": 0.0001,
+   "minEdge": 0.001,
+   "minWall": 0.0067,
+   "thick": 0.3713,
+   "avgTri": 0.00009,
    "anglePct": 1,
    "pieces": 1,
    "vpt": 0.56,
@@ -291173,14 +290898,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.3,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0035 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.3
   },
   {
    "kit": "m3-base",
@@ -291302,7 +291020,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.81
   },
   {
    "kit": "m3-base",
@@ -292037,26 +291755,26 @@
   {
    "kit": "m3-base",
    "name": "conical-flask",
-   "hash": "626e8dd1b3",
+   "hash": "7d84ac86d8",
    "kind": "obj-container-bottle-lab",
    "size": "s",
    "wdh": [
-    0.172,
-    0.172,
-    0.22
+    0.176,
+    0.176,
+    0.223
    ],
    "tris": 588,
    "tpu": 1714,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 18608,
+   "bytes": 18604,
    "vtx": 424,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.003,
-   "thick": 0.1345,
+   "minWall": 0.0062,
+   "thick": 0.1396,
    "avgTri": 0.00031,
    "anglePct": 17,
    "pieces": 1,
@@ -292071,14 +291789,7 @@
     "glass-clear",
     "m3"
    ],
-   "thickRel": 0.53,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.55
   },
   {
    "kit": "m3-base",
@@ -292673,28 +292384,28 @@
   {
    "kit": "m3-base",
    "name": "cupcake-baking-tray",
-   "hash": "6c3a515f9e",
+   "hash": "f82b9db531",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
     0.299,
-    0.384,
-    0.028
+    0.385,
+    0.032
    ],
    "tris": 1636,
    "tpu": 4770,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 68604,
+   "bytes": 68600,
    "vtx": 1790,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0024,
-   "thick": 0.0476,
+   "minEdge": 0,
+   "minWall": 0.0066,
+   "thick": 0.051,
    "avgTri": 0.0002,
-   "anglePct": 40,
+   "anglePct": 38,
    "pieces": 2,
    "vpt": 1.09,
    "cells": [
@@ -292708,13 +292419,13 @@
     "metal-steel"
    ],
    "backface": {
-    "share": 0.0028,
+    "share": 0.0027,
     "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 0.59,
+   "thickRel": 0.63,
    "lint": [
     {
      "level": "warning",
@@ -292722,9 +292433,9 @@
      "text": "0.3% of view 0/-89.9 over 0.1%: open 100.0%"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0024 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.012"
     }
    ]
   },
@@ -292943,29 +292654,29 @@
   {
    "kit": "m3-base",
    "name": "cutlery-set",
-   "hash": "48b676453e",
+   "hash": "12d466f655",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.126,
-    0.236,
-    0.031
+    0.183,
+    0.342,
+    0.05
    ],
    "tris": 658,
    "tpu": 1918,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 24984,
+   "bytes": 25004,
    "vtx": 616,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0084,
-   "minWall": 0.0012,
-   "thick": 0.0669,
-   "avgTri": 0.00005,
-   "anglePct": 24,
+   "minTube": 0.0123,
+   "minWall": 0.0062,
+   "thick": 0.0708,
+   "avgTri": 0.00012,
+   "anglePct": 19,
    "pieces": 3,
    "vpt": 0.94,
    "cells": [
@@ -292979,14 +292690,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/cutlery-set",
-   "thickRel": 0.36,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0012 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.38
   },
   {
    "kit": "m3-base",
@@ -293628,13 +293332,13 @@
   {
    "kit": "m3-base",
    "name": "decorative-plate",
-   "hash": "566c19758d",
+   "hash": "3e0f14711b",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
-    0.262,
-    0.262,
-    0.031
+    0.265,
+    0.265,
+    0.035
    ],
    "tris": 494,
    "tpu": 1440,
@@ -293646,11 +293350,11 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0026,
-   "thick": 0.0352,
-   "avgTri": 0.00022,
-   "anglePct": 20,
+   "minEdge": 0.005,
+   "minWall": 0.0067,
+   "thick": 0.0425,
+   "avgTri": 0.00023,
+   "anglePct": 19,
    "pieces": 1,
    "vpt": 0.96,
    "cells": [
@@ -293666,14 +293370,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 0.62,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -294101,7 +293798,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 2.16
+   "thickRel": 2.14
   },
   {
    "kit": "m3-base",
@@ -294273,7 +293970,7 @@
   {
    "kit": "m3-base",
    "name": "dog-food-bowl",
-   "hash": "9b9fc10f95",
+   "hash": "84d2759c4a",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
@@ -294290,11 +293987,11 @@
    "vtx": 743,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0043,
-   "thick": 0.0826,
-   "avgTri": 0.00019,
-   "anglePct": 11,
+   "minEdge": 0,
+   "minWall": 0.0066,
+   "thick": 0.0856,
+   "avgTri": 0.00018,
+   "anglePct": 12,
    "pieces": 1,
    "vpt": 0.74,
    "cells": [
@@ -294307,14 +294004,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.22,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.26
   },
   {
    "kit": "m3-base",
@@ -296358,7 +296048,7 @@
     "plastic"
    ],
    "variant": "m3-base/spatula",
-   "thickRel": 1.56,
+   "thickRel": 1.55,
    "lint": [
     {
      "level": "error",
@@ -296416,7 +296106,7 @@
   {
    "kit": "m3-base",
    "name": "flan-tin",
-   "hash": "ba533ef980",
+   "hash": "2b85ad53f2",
    "kind": "obj-kitchenware-cookware-pan",
    "size": "s",
    "wdh": [
@@ -296429,15 +296119,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 43804,
+   "bytes": 43800,
    "vtx": 1109,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0029,
-   "thick": 0.0354,
+   "minEdge": 0.006,
+   "minWall": 0.0067,
+   "thick": 0.0371,
    "avgTri": 0.00023,
-   "anglePct": 65,
+   "anglePct": 63,
    "pieces": 1,
    "vpt": 0.98,
    "cells": [
@@ -296450,12 +296140,12 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.44,
+   "thickRel": 0.46,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0029 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -296710,28 +296400,28 @@
   {
    "kit": "m3-base",
    "name": "flower-vase-01",
-   "hash": "ce9a7b7caf",
+   "hash": "36eb2d912f",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.073,
-    0.073,
-    0.21
+    0.075,
+    0.075,
+    0.211
    ],
    "tris": 732,
    "tpu": 2134,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20724,
+   "bytes": 20728,
    "vtx": 463,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0049,
-   "thick": 0.2055,
+   "minEdge": 0.002,
+   "minWall": 0.0062,
+   "thick": 0.2054,
    "avgTri": 0.00009,
-   "anglePct": 10,
+   "anglePct": 9,
    "pieces": 1,
    "vpt": 0.63,
    "cells": [
@@ -296744,12 +296434,12 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 1.4,
+   "thickRel": 1.35,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0049 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -297224,13 +296914,13 @@
   {
    "kit": "m3-base",
    "name": "fork",
-   "hash": "7c9ea18935",
+   "hash": "98e92e958f",
    "kind": "obj-kitchenware-tableware-cutlery-fork",
    "size": "s",
    "wdh": [
-    0.031,
-    0.031,
-    0.223
+    0.045,
+    0.049,
+    0.325
    ],
    "tris": 212,
    "tpu": 618,
@@ -297241,12 +296931,12 @@
    "vtx": 249,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0246,
-   "minWall": 0.0021,
-   "thick": 0.2381,
-   "avgTri": 0.00004,
-   "anglePct": 23,
+   "minEdge": 0.002,
+   "minTube": 0.0388,
+   "minWall": 0.0061,
+   "thick": 0.236,
+   "avgTri": 0.00011,
+   "anglePct": 18,
    "pieces": 1,
    "vpt": 1.17,
    "cells": [
@@ -297260,14 +296950,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/cutlery-set",
-   "thickRel": 1.15,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0021 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.07
   },
   {
    "kit": "m3-base",
@@ -297390,7 +297073,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.26
   },
   {
    "kit": "m3-base",
@@ -298750,7 +298433,7 @@
   {
    "kit": "m3-base",
    "name": "goblet-04",
-   "hash": "a637877370",
+   "hash": "e43f6f8dbf",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
@@ -298768,8 +298451,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0048,
-   "thick": 0.1001,
+   "minWall": 0.0067,
+   "thick": 0.1063,
    "avgTri": 0.0001,
    "anglePct": 12,
    "pieces": 1,
@@ -298785,12 +298468,12 @@
     "metal-steel"
    ],
    "variant": "m3-base/goblet-01",
-   "thickRel": 1.05,
+   "thickRel": 1.11,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0048 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -304864,7 +304547,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "m3-base",
@@ -306331,12 +306014,12 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.3,
+   "thickRel": 0.31,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.3 wants min 0.5"
+     "text": "I01 thickRel 0.31 wants min 0.5"
     },
     {
      "level": "warning",
@@ -306923,7 +306606,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.75,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "warning",
@@ -306971,7 +306654,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.72,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "warning",
@@ -307841,13 +307524,13 @@
   {
    "kit": "m3-base",
    "name": "octagonal-dish",
-   "hash": "2701af09cf",
+   "hash": "f1bf177515",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
-    0.235,
-    0.235,
-    0.03
+    0.237,
+    0.237,
+    0.034
    ],
    "tris": 320,
    "tpu": 933,
@@ -307859,11 +307542,11 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0026,
-   "thick": 0.0348,
-   "avgTri": 0.00032,
-   "anglePct": 34,
+   "minEdge": 0.004,
+   "minWall": 0.0067,
+   "thick": 0.0391,
+   "avgTri": 0.00033,
+   "anglePct": 33,
    "pieces": 1,
    "vpt": 0.66,
    "cells": [
@@ -307877,14 +307560,7 @@
     "m3"
    ],
    "variant": "m3-base/plate",
-   "thickRel": 0.62,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
@@ -308410,7 +308086,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.61,
+   "thickRel": 0.62,
    "lint": [
     {
      "level": "error",
@@ -308422,7 +308098,7 @@
   {
    "kit": "m3-base",
    "name": "outdoor-bin-03",
-   "hash": "d2be8ad716",
+   "hash": "97c75d40d5",
    "kind": "obj-container-trash-trashcan",
    "size": "s",
    "wdh": [
@@ -308439,9 +308115,9 @@
    "vtx": 820,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
+   "minEdge": 0.006,
    "minTube": 0.0265,
-   "minWall": 0.0052,
+   "minWall": 0.0062,
    "thick": 0.1117,
    "avgTri": 0.00088,
    "anglePct": 22,
@@ -308461,40 +308137,40 @@
     "plastic"
    ],
    "variant": "m3-base/outdoor-bin",
-   "thickRel": 0.74,
+   "thickRel": 0.76,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0052 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "m3-base",
    "name": "outdoor-bin-04",
-   "hash": "cc46453802",
+   "hash": "fc95cc8c51",
    "kind": "obj-container-trash-trashcan",
    "size": "s",
    "wdh": [
-    0.279,
-    0.279,
-    0.374
+    0.28,
+    0.28,
+    0.376
    ],
    "tris": 1448,
    "tpu": 4222,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 80256,
+   "bytes": 80260,
    "vtx": 2189,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
+   "minEdge": 0.003,
    "minTube": 0.0429,
-   "minWall": 0.0028,
-   "thick": 0.1793,
-   "avgTri": 0.00064,
+   "minWall": 0.0062,
+   "thick": 0.1782,
+   "avgTri": 0.00065,
    "anglePct": 26,
    "pieces": 16,
    "vpt": 1.51,
@@ -308509,24 +308185,24 @@
     "plastic"
    ],
    "variant": "m3-base/outdoor-bin",
-   "thickRel": 1.19,
+   "thickRel": 1.21,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0028 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "m3-base",
    "name": "outdoor-bin",
-   "hash": "2d2bc9e396",
+   "hash": "8a2cc0f777",
    "kind": "obj-container-trash-trashcan",
    "size": "s",
    "wdh": [
-    0.275,
-    0.275,
+    0.278,
+    0.278,
     0.35
    ],
    "tris": 726,
@@ -308534,14 +308210,14 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 33336,
+   "bytes": 33340,
    "vtx": 859,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0036,
-   "thick": 0.1501,
-   "avgTri": 0.00061,
+   "minWall": 0.0062,
+   "thick": 0.147,
+   "avgTri": 0.00062,
    "anglePct": 26,
    "pieces": 3,
    "vpt": 1.18,
@@ -308559,9 +308235,9 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0036 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -309159,13 +308835,13 @@
   {
    "kit": "m3-base",
    "name": "paint-stripper-can",
-   "hash": "92050259f7",
+   "hash": "997a1fba70",
    "kind": "obj-container-can",
    "size": "s",
    "wdh": [
     0.166,
     0.087,
-    0.242
+    0.244
    ],
    "tris": 960,
    "tpu": 2799,
@@ -309177,8 +308853,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0034,
-   "thick": 0.2172,
+   "minWall": 0.0062,
+   "thick": 0.2118,
    "avgTri": 0.00015,
    "anglePct": 60,
    "pieces": 2,
@@ -309196,12 +308872,12 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.07,
+   "thickRel": 1.05,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -310432,7 +310108,7 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "thickRel": 2.43
+   "thickRel": 2.42
   },
   {
    "kit": "m3-base",
@@ -311148,7 +310824,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 0.97
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -311417,7 +311093,7 @@
   {
    "kit": "m3-base",
    "name": "plastic-bottle-01",
-   "hash": "2f72515b76",
+   "hash": "810fc2e2be",
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
@@ -311434,9 +311110,9 @@
    "vtx": 1003,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0032,
-   "thick": 0.1813,
+   "minEdge": 0.004,
+   "minWall": 0.0062,
+   "thick": 0.1814,
    "avgTri": 0.00015,
    "anglePct": 48,
    "pieces": 3,
@@ -311453,14 +311129,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 0.72,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0032 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.72
   },
   {
    "kit": "m3-base",
@@ -311506,29 +311175,29 @@
   {
    "kit": "m3-base",
    "name": "plate",
-   "hash": "75082656e0",
+   "hash": "9f1c775c6e",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
-    0.25,
-    0.25,
-    0.03
+    0.253,
+    0.253,
+    0.033
    ],
    "tris": 396,
    "tpu": 1155,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13344,
+   "bytes": 13368,
    "vtx": 296,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0031,
-   "thick": 0.0359,
-   "avgTri": 0.00027,
-   "anglePct": 16,
+   "minEdge": 0.005,
+   "minWall": 0.0067,
+   "thick": 0.0426,
+   "avgTri": 0.00028,
+   "anglePct": 15,
    "pieces": 1,
    "vpt": 0.75,
    "cells": [
@@ -311542,14 +311211,7 @@
     "m3"
    ],
    "variant": "m3-base/plate",
-   "thickRel": 0.64,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0031 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "m3-base",
@@ -313082,13 +312744,13 @@
   {
    "kit": "m3-base",
    "name": "rice-spoon",
-   "hash": "8d5709ff04",
+   "hash": "82b115cb39",
    "kind": "obj-kitchenware-tableware-cutlery-spoon",
    "size": "s",
    "wdh": [
     0.071,
     0.204,
-    0.06
+    0.062
    ],
    "tris": 494,
    "tpu": 1440,
@@ -313100,8 +312762,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0023,
-   "thick": 0.1043,
+   "minWall": 0.0065,
+   "thick": 0.1184,
    "avgTri": 0.00005,
    "anglePct": 18,
    "pieces": 1,
@@ -313116,14 +312778,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 0.66,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0023 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.74
   },
   {
    "kit": "m3-base",
@@ -313772,7 +313427,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 2.89
+   "thickRel": 2.88
   },
   {
    "kit": "m3-base",
@@ -315512,7 +315167,7 @@
   {
    "kit": "m3-base",
    "name": "salt-shaker",
-   "hash": "399d17e932",
+   "hash": "14d3dd13c7",
    "kind": "obj-kitchenware-tableware-condiment",
    "size": "s",
    "wdh": [
@@ -315529,9 +315184,8 @@
    "vtx": 976,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0583,
-   "minWall": 0.004,
+   "minEdge": 0,
+   "minWall": 0.0066,
    "thick": 0.2489,
    "avgTri": 0.00004,
    "anglePct": 25,
@@ -315550,12 +315204,12 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 2.93,
+   "thickRel": 2.9,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.004 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.026"
     }
    ]
   },
@@ -316992,12 +316646,12 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 0.4,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
+     "text": "I01 thickRel 0.41 wants min 0.5"
     },
     {
      "level": "warning",
@@ -317499,7 +317153,7 @@
   {
    "kit": "m3-base",
    "name": "soda-can",
-   "hash": "e6a4ad4369",
+   "hash": "4aecba11a8",
    "kind": "obj-container-can-soda",
    "size": "s",
    "wdh": [
@@ -317517,7 +317171,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0056,
+   "minWall": 0.0062,
    "thick": 0.2832,
    "avgTri": 0.00007,
    "anglePct": 3,
@@ -317538,9 +317192,9 @@
    "thickRel": 0.93,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -317668,7 +317322,7 @@
   {
    "kit": "m3-base",
    "name": "spatula",
-   "hash": "9fcafbe232",
+   "hash": "272d3e8f65",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
@@ -317676,23 +317330,23 @@
     0.036,
     0.274
    ],
-   "tris": 366,
-   "tpu": 1067,
+   "tris": 407,
+   "tpu": 1187,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17924,
+   "bytes": 18176,
    "vtx": 444,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0126,
-   "minWall": 0.0025,
-   "thick": 0.1315,
+   "minWall": 0.0068,
+   "thick": 0.1316,
    "avgTri": 0.00007,
-   "anglePct": 68,
+   "anglePct": 62,
    "pieces": 7,
-   "vpt": 1.21,
+   "vpt": 1.09,
    "cells": [
     "15,3",
     "13,3"
@@ -317707,26 +317361,7 @@
     "plastic"
    ],
    "variant": "m3-base/spatula",
-   "backface": {
-    "share": 0.015,
-    "view": "0/-89.9",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.5% of view 0/-89.9 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0025 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -318123,7 +317758,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.95
+   "thickRel": 1.93
   },
   {
    "kit": "m3-base",
@@ -318163,7 +317798,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/cutlery-set",
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "m3-base",
@@ -318425,7 +318060,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 1.34,
+   "thickRel": 1.29,
    "lint": [
     {
      "level": "warning",
@@ -320010,7 +319645,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.95,
+   "thickRel": 1.99,
    "lint": [
     {
      "level": "warning",
@@ -320582,7 +320217,7 @@
   {
    "kit": "m3-base",
    "name": "teapot",
-   "hash": "1c69b6da3c",
+   "hash": "954636730e",
    "kind": "obj-kitchenware-cookware-kettle",
    "size": "s",
    "wdh": [
@@ -320590,22 +320225,22 @@
     0.179,
     0.221
    ],
-   "tris": 1460,
-   "tpu": 4257,
+   "tris": 1398,
+   "tpu": 4076,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 56328,
+   "bytes": 55956,
    "vtx": 1441,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0013,
-   "thick": 0.2133,
+   "minWall": 0.0108,
+   "thick": 0.2132,
    "avgTri": 0.00013,
    "anglePct": 17,
-   "pieces": 4,
-   "vpt": 0.99,
+   "pieces": 5,
+   "vpt": 1.03,
    "cells": [
     "5,0"
    ],
@@ -320616,14 +320251,7 @@
     "ceramic-mid",
     "m3"
    ],
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0013 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -320667,26 +320295,26 @@
   {
    "kit": "m3-base",
    "name": "test-tube",
-   "hash": "a09008a9ac",
+   "hash": "c4cca2ff2e",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.063,
-    0.063,
-    0.241
+    0.067,
+    0.067,
+    0.245
    ],
    "tris": 336,
    "tpu": 980,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12048,
+   "bytes": 12044,
    "vtx": 266,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0023,
-   "thick": 0.1347,
+   "minWall": 0.0062,
+   "thick": 0.1514,
    "avgTri": 0.00026,
    "anglePct": 1,
    "pieces": 1,
@@ -320701,12 +320329,12 @@
     "glass-clear",
     "m3"
    ],
-   "thickRel": 0.58,
+   "thickRel": 0.65,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0023 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -320945,7 +320573,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.96,
+   "thickRel": 0.95,
    "lint": [
     {
      "level": "error",
@@ -323493,7 +323121,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 1
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -323658,13 +323286,13 @@
   {
    "kit": "m3-base",
    "name": "wine-box",
-   "hash": "5ccedf673d",
+   "hash": "0312368e25",
    "kind": "obj-container-crate",
    "size": "s",
    "wdh": [
     0.347,
     0.125,
-    0.154
+    0.156
    ],
    "tris": 1984,
    "tpu": 5784,
@@ -323676,9 +323304,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0022,
-   "thick": 0.116,
-   "avgTri": 0.00013,
+   "minTube": 0.0079,
+   "minWall": 0.0061,
+   "thick": 0.1126,
+   "avgTri": 0.00014,
    "anglePct": 89,
    "pieces": 11,
    "vpt": 1.05,
@@ -323695,14 +323324,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.52,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0022 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.5
   },
   {
    "kit": "m3-base",
@@ -323789,7 +323411,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-glass",
-   "thickRel": 1.17
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -324953,12 +324575,12 @@
   {
    "kit": "m3-base",
    "name": "wooden-spoon",
-   "hash": "eea92459fa",
+   "hash": "af53855e2a",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.055,
-    0.015,
+    0.016,
     0.22
    ],
    "tris": 296,
@@ -324972,10 +324594,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0112,
-   "minWall": 0.0032,
-   "thick": 0.1574,
+   "minWall": 0.0065,
+   "thick": 0.1699,
    "avgTri": 0.00004,
-   "anglePct": 8,
+   "anglePct": 12,
    "pieces": 2,
    "vpt": 0.78,
    "cells": [
@@ -324988,14 +324610,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0032 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.14
   },
   {
    "kit": "m3-base",
@@ -325634,7 +325249,7 @@
   {
    "kit": "makeup",
    "name": "lotion-pump-large",
-   "hash": "a525b4ab1e",
+   "hash": "e43129d2a1",
    "kind": "obj-container-bottle-pump",
    "size": "s",
    "wdh": [
@@ -325651,9 +325266,9 @@
    "vtx": 288,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.001,
    "minTube": 0.0989,
-   "minWall": 0.0026,
+   "minWall": 0.0066,
    "thick": 0.3002,
    "avgTri": 0.00039,
    "anglePct": 13,
@@ -325673,19 +325288,12 @@
     "plastic"
    ],
    "variant": "makeup/lotion-pump-large",
-   "thickRel": 1.07,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.07
   },
   {
    "kit": "makeup",
    "name": "lotion-pump-small",
-   "hash": "6934b6db38",
+   "hash": "8bea675969",
    "kind": "obj-container-bottle-pump",
    "size": "s",
    "wdh": [
@@ -325702,9 +325310,9 @@
    "vtx": 288,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0026,
-   "thick": 0.2506,
+   "minEdge": 0.001,
+   "minWall": 0.0066,
+   "thick": 0.2503,
    "avgTri": 0.00024,
    "anglePct": 21,
    "pieces": 7,
@@ -325723,40 +325331,33 @@
     "plastic"
    ],
    "variant": "makeup/lotion-pump-large",
-   "thickRel": 0.89,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.89
   },
   {
    "kit": "makeup",
    "name": "lotion-tube-amber",
-   "hash": "b440f60d62",
+   "hash": "3b4c23ba57",
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
     0.094,
-    0.054,
-    0.237
+    0.058,
+    0.24
    ],
    "tris": 224,
    "tpu": 653,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9672,
+   "bytes": 9692,
    "vtx": 216,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0618,
-   "minWall": 0.0016,
-   "thick": 0.211,
-   "avgTri": 0.00025,
+   "minWall": 0.0063,
+   "thick": 0.2117,
+   "avgTri": 0.00026,
    "anglePct": 19,
    "pieces": 4,
    "vpt": 0.96,
@@ -325773,41 +325374,34 @@
     "plastic"
    ],
    "variant": "makeup/lotion-tube-azure",
-   "thickRel": 0.83,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0016 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.84
   },
   {
    "kit": "makeup",
    "name": "lotion-tube-azure",
-   "hash": "db1f08acb7",
+   "hash": "2b1330eb46",
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
     0.054,
-    0.03,
-    0.235
+    0.035,
+    0.237
    ],
    "tris": 180,
    "tpu": 525,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7048,
+   "bytes": 7068,
    "vtx": 142,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0511,
-   "minWall": 0.0019,
-   "thick": 0.26,
-   "avgTri": 0.00018,
-   "anglePct": 27,
+   "minWall": 0.0062,
+   "thick": 0.2647,
+   "avgTri": 0.00019,
+   "anglePct": 29,
    "pieces": 2,
    "vpt": 0.79,
    "cells": [
@@ -325823,41 +325417,34 @@
     "plastic"
    ],
    "variant": "makeup/lotion-tube-azure",
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0019 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.04
   },
   {
    "kit": "makeup",
    "name": "makeup-bag",
-   "hash": "78f42b56e0",
+   "hash": "9c5a062368",
    "kind": "obj-container-crate",
    "size": "s",
    "wdh": [
     0.203,
-    0.177,
-    0.064
+    0.178,
+    0.065
    ],
    "tris": 1460,
    "tpu": 4257,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 36412,
+   "bytes": 36432,
    "vtx": 820,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0093,
-   "minWall": 0.0036,
-   "thick": 0.1157,
-   "avgTri": 0.00015,
-   "anglePct": 70,
+   "minWall": 0.0062,
+   "thick": 0.1152,
+   "avgTri": 0.00016,
+   "anglePct": 69,
    "pieces": 49,
    "vpt": 0.56,
    "cells": [
@@ -325875,14 +325462,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.52,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0036 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.51
   },
   {
    "kit": "makeup",
@@ -325977,29 +325557,29 @@
   {
    "kit": "makeup",
    "name": "nail-polish",
-   "hash": "658510e4fe",
+   "hash": "06de59cdd7",
    "kind": "obj-container-bottle",
    "size": "s",
    "wdh": [
-    0.053,
-    0.043,
-    0.123
+    0.054,
+    0.045,
+    0.124
    ],
    "tris": 300,
    "tpu": 875,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13968,
+   "bytes": 13964,
    "vtx": 336,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0265,
-   "minWall": 0.003,
-   "thick": 0.2877,
+   "minEdge": 0.002,
+   "minTube": 0.006,
+   "minWall": 0.0062,
+   "thick": 0.2873,
    "avgTri": 0.00014,
-   "anglePct": 16,
+   "anglePct": 17,
    "pieces": 4,
    "vpt": 1.12,
    "cells": [
@@ -326015,14 +325595,7 @@
     "mab",
     "plastic"
    ],
-   "thickRel": 1.14,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.13
   },
   {
    "kit": "makeup",
@@ -326190,7 +325763,7 @@
   {
    "kit": "makeup",
    "name": "perfume-bottle",
-   "hash": "0e7ace93ea",
+   "hash": "6940d7adeb",
    "kind": "obj-container-bottle-pump",
    "size": "s",
    "wdh": [
@@ -326207,11 +325780,11 @@
    "vtx": 192,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
+   "minEdge": 0.004,
    "minTube": 0.0332,
-   "minWall": 0.0015,
-   "thick": 0.3994,
-   "avgTri": 0.00025,
+   "minWall": 0.0062,
+   "thick": 0.3995,
+   "avgTri": 0.00026,
    "anglePct": 16,
    "pieces": 6,
    "vpt": 1.14,
@@ -326228,14 +325801,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 1.42,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0015 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.42
   },
   {
    "kit": "makeup",
@@ -327833,13 +327399,13 @@
   {
    "kit": "medieval-forge",
    "name": "box",
-   "hash": "41d8f50760",
+   "hash": "55ce7f457d",
    "kind": "obj-container-crate",
    "size": "s",
    "wdh": [
     0.491,
     0.3,
-    0.286
+    0.291
    ],
    "tris": 1300,
    "tpu": 3790,
@@ -327851,10 +327417,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0011,
-   "thick": 0.1837,
-   "avgTri": 0.00155,
-   "anglePct": 94,
+   "minTube": 0.0076,
+   "minWall": 0.0061,
+   "thick": 0.1933,
+   "avgTri": 0.00162,
+   "anglePct": 75,
    "pieces": 5,
    "vpt": 2.02,
    "cells": [
@@ -327872,14 +327439,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.82,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0011 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.86
   },
   {
    "kit": "medieval-forge",
@@ -338300,13 +337860,13 @@
   {
    "kit": "props",
    "name": "jug-a",
-   "hash": "c6356fc650",
+   "hash": "9645ceb98e",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.254,
-    0.254,
-    0.315
+    0.255,
+    0.255,
+    0.316
    ],
    "tris": 236,
    "tpu": 688,
@@ -338318,10 +337878,10 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minWall": 0.0056,
-   "thick": 0.1461,
-   "avgTri": 0.00178,
+   "minEdge": 0.008,
+   "minWall": 0.0062,
+   "thick": 0.1478,
+   "avgTri": 0.00179,
    "anglePct": 7,
    "pieces": 1,
    "vpt": 1.72,
@@ -338337,25 +337897,25 @@
     "ceramic-light"
    ],
    "variant": "props/jug-a",
-   "thickRel": 1,
+   "thickRel": 0.97,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "props",
    "name": "jug-b",
-   "hash": "e86bed9786",
+   "hash": "ff8ba65981",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.229,
-    0.229,
-    0.308
+    0.23,
+    0.23,
+    0.309
    ],
    "tris": 236,
    "tpu": 688,
@@ -338366,9 +337926,9 @@
    "vtx": 411,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minWall": 0.0053,
-   "thick": 0.1004,
+   "minEdge": 0.009,
+   "minWall": 0.0062,
+   "thick": 0.1022,
    "avgTri": 0.00183,
    "anglePct": 7,
    "pieces": 1,
@@ -338385,12 +337945,12 @@
     "ceramic-light"
    ],
    "variant": "props/jug-a",
-   "thickRel": 0.69,
+   "thickRel": 0.67,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0053 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -343677,7 +343237,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "quat-cyberpunk",
@@ -346350,7 +345910,7 @@
     "ceramic-dark",
     "qua"
    ],
-   "thickRel": 0.65,
+   "thickRel": 0.63,
    "lint": [
     {
      "level": "warning",
@@ -347512,7 +347072,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "quat-essentials",
@@ -347554,7 +347114,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate",
-   "thickRel": 1.24,
+   "thickRel": 1.23,
    "lint": [
     {
      "level": "warning",
@@ -347610,7 +347170,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate-tarp",
-   "thickRel": 1.12,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -347666,7 +347226,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate-tarp",
-   "thickRel": 0.91
+   "thickRel": 0.9
   },
   {
    "kit": "quat-essentials",
@@ -347707,7 +347267,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate",
-   "thickRel": 0.95,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -352928,29 +352488,29 @@
   {
    "kit": "quat-food",
    "name": "cutlery-set",
-   "hash": "b4b1e578ae",
+   "hash": "bd4c671f66",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.199,
-    0.316,
-    0.019
+    0.202,
+    0.318,
+    0.022
    ],
    "tris": 372,
    "tpu": 1085,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25412,
+   "bytes": 25428,
    "vtx": 613,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.006,
-   "minWall": 0.0043,
-   "thick": 0.0541,
-   "avgTri": 0.00017,
-   "anglePct": 62,
+   "minTube": 0.0069,
+   "minWall": 0.0066,
+   "thick": 0.0558,
+   "avgTri": 0.00019,
+   "anglePct": 61,
    "pieces": 4,
    "vpt": 1.65,
    "cells": [
@@ -352964,14 +352524,7 @@
     "qua"
    ],
    "variant": "quat-food/cutlery-set",
-   "thickRel": 0.29,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.3
   },
   {
    "kit": "quat-food",
@@ -353382,12 +352935,12 @@
   {
    "kit": "quat-food",
    "name": "fork",
-   "hash": "121e73e94e",
+   "hash": "8f1b8d0232",
    "kind": "obj-kitchenware-tableware-cutlery-fork",
    "size": "s",
    "wdh": [
     0.048,
-    0.011,
+    0.013,
     0.316
    ],
    "tris": 122,
@@ -353400,11 +352953,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.01,
-   "minWall": 0.0045,
-   "thick": 0.2205,
-   "avgTri": 0.00015,
-   "anglePct": 75,
+   "minTube": 0.012,
+   "minWall": 0.0066,
+   "thick": 0.2227,
+   "avgTri": 0.00017,
+   "anglePct": 73,
    "pieces": 1,
    "vpt": 1.3,
    "cells": [
@@ -353418,14 +352971,7 @@
     "qua"
    ],
    "variant": "quat-food/cutlery-set",
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0045 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "quat-food",
@@ -354537,30 +354083,30 @@
   {
    "kit": "quat-food",
    "name": "soda",
-   "hash": "8c9cc08568",
+   "hash": "b31d7fbd62",
    "kind": "obj-kitchenware-tableware-drinkware-takeaway",
    "size": "s",
    "wdh": [
     0.14,
     0.14,
-    0.294
+    0.295
    ],
-   "tris": 448,
-   "tpu": 1306,
+   "tris": 438,
+   "tpu": 1277,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 22036,
+   "bytes": 21976,
    "vtx": 561,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0005,
-   "thick": 0.2498,
-   "avgTri": 0.00021,
+   "minWall": 0.0133,
+   "thick": 0.2448,
+   "avgTri": 0.00022,
    "anglePct": 19,
-   "pieces": 2,
-   "vpt": 1.25,
+   "pieces": 3,
+   "vpt": 1.28,
    "cells": [
     "8,0",
     "5,2"
@@ -354574,14 +354120,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 2.62,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0005 wants min 0.006"
-    }
-   ]
+   "thickRel": 2.57
   },
   {
    "kit": "quat-food",
@@ -354623,7 +354162,7 @@
     "qua",
     "special-liquid"
    ],
-   "thickRel": 1.47,
+   "thickRel": 1.46,
    "lint": [
     {
      "level": "warning",
@@ -354635,13 +354174,13 @@
   {
    "kit": "quat-food",
    "name": "spoon",
-   "hash": "9db219bb30",
+   "hash": "7e8bccbb26",
    "kind": "obj-kitchenware-tableware-cutlery-spoon",
    "size": "s",
    "wdh": [
-    0.09,
-    0.019,
-    0.295
+    0.106,
+    0.024,
+    0.34
    ],
    "tris": 132,
    "tpu": 385,
@@ -354652,11 +354191,11 @@
    "vtx": 335,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.006,
-   "minWall": 0.0043,
-   "thick": 0.1156,
-   "avgTri": 0.0002,
+   "minEdge": 0.007,
+   "minTube": 0.0069,
+   "minWall": 0.0065,
+   "thick": 0.1188,
+   "avgTri": 0.00027,
    "anglePct": 31,
    "pieces": 2,
    "vpt": 2.54,
@@ -354671,14 +354210,7 @@
     "qua"
    ],
    "variant": "quat-food/cutlery-set",
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.74
   },
   {
    "kit": "quat-food",
@@ -358963,29 +358495,29 @@
   {
    "kit": "quat-interior",
    "name": "fork",
-   "hash": "3ee34c252f",
+   "hash": "52a4cf3883",
    "kind": "obj-kitchenware-tableware-cutlery-fork",
    "size": "s",
    "wdh": [
-    0.022,
-    0.195,
-    0.005
+    0.028,
+    0.253,
+    0.01
    ],
    "tris": 188,
    "tpu": 548,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10188,
+   "bytes": 10184,
    "vtx": 235,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0045,
-   "minWall": 0.002,
-   "thick": 0.3006,
-   "avgTri": 0.00003,
-   "anglePct": 83,
+   "minTube": 0.01,
+   "minWall": 0.0065,
+   "thick": 0.3037,
+   "avgTri": 0.00006,
+   "anglePct": 47,
    "pieces": 1,
    "vpt": 1.25,
    "cells": [
@@ -358998,19 +358530,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.45,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0045 wants min 0.006"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.002 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.38
   },
   {
    "kit": "quat-interior",
@@ -359616,20 +359136,8 @@
     "metal-steel",
     "qua"
    ],
-   "backface": {
-    "share": 0.0294,
-    "view": "180/20",
-    "causes": {
-     "open": 1
-    }
-   },
    "thickRel": 1.55,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "2.9% of view 180/20 over 0.5%: open 100.0%"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -360371,29 +359879,29 @@
   {
    "kit": "quat-interior",
    "name": "spoon",
-   "hash": "faad78b75f",
+   "hash": "06c35e5031",
    "kind": "obj-kitchenware-tableware-cutlery-spoon",
    "size": "s",
    "wdh": [
-    0.041,
-    0.196,
-    0.009
+    0.058,
+    0.26,
+    0.016
    ],
    "tris": 128,
    "tpu": 373,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8728,
+   "bytes": 8736,
    "vtx": 201,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0021,
-   "minWall": 0.002,
-   "thick": 0.1634,
-   "avgTri": 0.00006,
-   "anglePct": 38,
+   "minEdge": 0.006,
+   "minTube": 0.0068,
+   "minWall": 0.0066,
+   "thick": 0.1664,
+   "avgTri": 0.00014,
+   "anglePct": 45,
    "pieces": 2,
    "vpt": 1.57,
    "cells": [
@@ -360406,19 +359914,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0021 wants min 0.006"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.002 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "quat-interior",
@@ -360979,7 +360475,7 @@
     "qua"
    ],
    "variant": "quat-interior/trashcan-large",
-   "thickRel": 1.73
+   "thickRel": 1.77
   },
   {
    "kit": "quat-interior",
@@ -361023,7 +360519,7 @@
     "scale-small"
    ],
    "variant": "quat-interior/trashcan-small-a",
-   "thickRel": 0.55
+   "thickRel": 0.57
   },
   {
    "kit": "quat-interior",
@@ -361064,7 +360560,7 @@
     "scale-small"
    ],
    "variant": "quat-interior/trashcan-small-a",
-   "thickRel": 0.52
+   "thickRel": 0.53
   },
   {
    "kit": "quat-interior",
@@ -361104,14 +360600,7 @@
     "qua"
    ],
    "variant": "quat-interior/trashcan-large",
-   "thickRel": 0.49,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.5
   },
   {
    "kit": "quat-interior",
@@ -361200,7 +360689,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.5
   },
   {
    "kit": "quat-interior",
@@ -361609,7 +361098,7 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "barrel",
-   "hash": "3c23b6b05b",
+   "hash": "0d1f1e9caf",
    "kind": "obj-container-barrel-wood",
    "size": "s",
    "wdh": [
@@ -361627,9 +361116,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0034,
-   "thick": 0.2736,
-   "avgTri": 0.00033,
+   "minWall": 0.006,
+   "thick": 0.2737,
+   "avgTri": 0.00034,
    "anglePct": 41,
    "pieces": 9,
    "vpt": 1.33,
@@ -361650,9 +361139,9 @@
    "thickRel": 1.1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.026"
     }
    ]
   },
@@ -363728,7 +363217,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.22
   },
   {
    "kit": "quat-megakit",
@@ -364213,7 +363702,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.81
   },
   {
    "kit": "quat-megakit",
@@ -364254,7 +363743,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "quat-megakit",
@@ -370015,7 +369504,7 @@
   {
    "kit": "quat-pirate",
    "name": "bucket-fishes",
-   "hash": "49318c9a5b",
+   "hash": "7d6fede3b8",
    "kind": "obj-container-bucket",
    "size": "s",
    "wdh": [
@@ -370034,7 +369523,7 @@
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0305,
-   "minWall": 0.0043,
+   "minWall": 0.006,
    "thick": 0.1393,
    "avgTri": 0.00043,
    "anglePct": 16,
@@ -370062,9 +369551,9 @@
    "variant": "quat-pirate/bucket",
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.012"
     }
    ]
   },
@@ -370910,26 +370399,26 @@
   {
    "kit": "quat-pirate",
    "name": "gold-bag",
-   "hash": "8a738f0125",
+   "hash": "034e012a95",
    "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
-    0.256,
-    0.199,
-    0.236
+    0.262,
+    0.204,
+    0.238
    ],
    "tris": 3103,
    "tpu": 9047,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 127220,
+   "bytes": 127240,
    "vtx": 3350,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0022,
-   "thick": 0.1836,
+   "minEdge": 0,
+   "minWall": 0.0062,
+   "thick": 0.1889,
    "avgTri": 0.00009,
    "anglePct": 16,
    "pieces": 31,
@@ -370948,13 +370437,6 @@
     "plural",
     "qua",
     "textile-cloth-mid"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0022 wants min 0.006"
-    }
    ]
   },
   {
@@ -376193,7 +375675,7 @@
     "qua"
    ],
    "variant": "quat-props/cutlery-set",
-   "thickRel": 1
+   "thickRel": 0.94
   },
   {
    "kit": "quat-props",
@@ -376355,7 +375837,7 @@
     "qua"
    ],
    "variant": "quat-props/cutlery-set",
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "quat-props",
@@ -376486,7 +375968,7 @@
     "ceramic-mid",
     "qua"
    ],
-   "thickRel": 0.74
+   "thickRel": 0.71
   },
   {
    "kit": "quat-props",
@@ -376525,7 +376007,7 @@
     "ceramic-mid",
     "qua"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.03
   },
   {
    "kit": "quat-props",
@@ -377862,28 +377344,28 @@
   {
    "kit": "quat-rpg",
    "name": "chalice",
-   "hash": "c6c5b45244",
+   "hash": "3c863a9380",
    "kind": "obj-kitchenware-tableware-drinkware-goblet",
    "size": "s",
    "wdh": [
-    0.126,
-    0.126,
-    0.193
+    0.129,
+    0.129,
+    0.197
    ],
    "tris": 380,
    "tpu": 1108,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15192,
+   "bytes": 15212,
    "vtx": 360,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0026,
-   "thick": 0.1115,
-   "avgTri": 0.00021,
-   "anglePct": 18,
+   "minWall": 0.0066,
+   "thick": 0.1177,
+   "avgTri": 0.00023,
+   "anglePct": 15,
    "pieces": 1,
    "vpt": 0.95,
    "cells": [
@@ -377896,12 +377378,12 @@
     "metal-gold",
     "qua"
    ],
-   "thickRel": 1.17,
+   "thickRel": 1.23,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.012"
     }
    ]
   },
@@ -379031,26 +378513,26 @@
   {
    "kit": "quat-rpg",
    "name": "potion-1-empty",
-   "hash": "e0c5a062ed",
+   "hash": "f317028e7a",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.173,
-    0.173,
-    0.248
+    0.174,
+    0.174,
+    0.249
    ],
    "tris": 918,
    "tpu": 2676,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 23264,
+   "bytes": 23284,
    "vtx": 511,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0051,
-   "thick": 0.2597,
+   "minEdge": 0.003,
+   "minWall": 0.0062,
+   "thick": 0.2598,
    "avgTri": 0.00022,
    "anglePct": 0,
    "pieces": 2,
@@ -379073,35 +378555,35 @@
    "thickRel": 1.12,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0051 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "quat-rpg",
    "name": "potion-1-filled",
-   "hash": "a288f1b457",
+   "hash": "897199102f",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.173,
-    0.173,
-    0.248
+    0.174,
+    0.174,
+    0.249
    ],
    "tris": 1060,
    "tpu": 3090,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27956,
+   "bytes": 27980,
    "vtx": 631,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0056,
-   "thick": 0.2597,
+   "minEdge": 0.003,
+   "minWall": 0.0062,
+   "thick": 0.2598,
    "avgTri": 0.00025,
    "anglePct": 8,
    "pieces": 3,
@@ -379127,35 +378609,35 @@
    "thickRel": 1.12,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "quat-rpg",
    "name": "potion-10-empty",
-   "hash": "3656a7f58b",
+   "hash": "7eb7e4c336",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.113,
-    0.098,
-    0.2
+    0.117,
+    0.101,
+    0.203
    ],
    "tris": 274,
    "tpu": 799,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16292,
+   "bytes": 16320,
    "vtx": 414,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0034,
-   "thick": 0.2265,
+   "minEdge": 0.001,
+   "minWall": 0.0063,
+   "thick": 0.2276,
    "avgTri": 0.0003,
    "anglePct": 5,
    "pieces": 2,
@@ -379178,36 +378660,36 @@
    "thickRel": 0.98,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.0063 wants min 0.012"
     }
    ]
   },
   {
    "kit": "quat-rpg",
    "name": "potion-10-filled",
-   "hash": "bf6623e256",
+   "hash": "642cb4a5a5",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.113,
-    0.098,
-    0.2
+    0.117,
+    0.101,
+    0.203
    ],
    "tris": 306,
    "tpu": 892,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 18120,
+   "bytes": 18148,
    "vtx": 465,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0034,
-   "thick": 0.2265,
-   "avgTri": 0.00031,
+   "minWall": 0.0066,
+   "thick": 0.2276,
+   "avgTri": 0.00032,
    "anglePct": 10,
    "pieces": 3,
    "vpt": 1.52,
@@ -379232,9 +378714,9 @@
    "thickRel": 0.98,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.012"
     }
    ]
   },
@@ -381064,7 +380546,7 @@
   {
    "kit": "quat-ruins",
    "name": "barrel",
-   "hash": "e0ffecdb95",
+   "hash": "3484bfb50a",
    "kind": "obj-container-barrel-wood",
    "size": "s",
    "wdh": [
@@ -381077,14 +380559,14 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 66836,
+   "bytes": 66884,
    "vtx": 1797,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0034,
-   "thick": 0.2732,
-   "avgTri": 0.00099,
+   "minWall": 0.0062,
+   "thick": 0.2729,
+   "avgTri": 0.001,
    "anglePct": 51,
    "pieces": 11,
    "vpt": 1.37,
@@ -381107,9 +380589,9 @@
    "thickRel": 1.1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.026"
     }
    ]
   },
@@ -383854,12 +383336,12 @@
     "qua",
     "space"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "quat-scifi-mod",
    "name": "chest",
-   "hash": "f7f4814ba8",
+   "hash": "17f1527bad",
    "kind": "obj-container-crate-scifi",
    "size": "s",
    "wdh": [
@@ -383876,12 +383358,12 @@
    "vtx": 7410,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minTube": 0.0075,
-   "minWall": 0.003,
-   "thick": 0.2651,
+   "minWall": 0.007,
+   "thick": 0.2672,
    "avgTri": 0.00031,
-   "anglePct": 75,
+   "anglePct": 74,
    "pieces": 81,
    "vpt": 1.47,
    "cells": [
@@ -383907,11 +383389,6 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 14647 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
     }
    ]
   },
@@ -384027,7 +383504,7 @@
   {
    "kit": "quat-scifi-mod",
    "name": "container-full",
-   "hash": "191d9040d6",
+   "hash": "6c49b12b14",
    "kind": "obj-container-crate-scifi",
    "size": "s",
    "wdh": [
@@ -384046,10 +383523,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.007,
-   "minWall": 0.0028,
-   "thick": 0.1884,
+   "minWall": 0.007,
+   "thick": 0.1888,
    "avgTri": 0.00028,
-   "anglePct": 80,
+   "anglePct": 78,
    "pieces": 77,
    "vpt": 1.61,
    "cells": [
@@ -384075,22 +383552,17 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 14373 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0028 wants min 0.006"
     }
    ]
   },
   {
    "kit": "quat-scifi-mod",
    "name": "crate-long",
-   "hash": "201efe1d12",
+   "hash": "4b4fb7f815",
    "kind": "obj-container-crate-scifi",
    "size": "s",
    "wdh": [
-    0.419,
+    0.42,
     0.262,
     0.262
    ],
@@ -384105,10 +383577,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0086,
-   "minWall": 0.0028,
-   "thick": 0.2822,
+   "minWall": 0.0069,
+   "thick": 0.2858,
    "avgTri": 0.00028,
-   "anglePct": 64,
+   "anglePct": 61,
    "pieces": 73,
    "vpt": 1.56,
    "cells": [
@@ -384130,19 +383602,12 @@
     "space"
    ],
    "variant": "quat-scifi-mod/crate",
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0028 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.07
   },
   {
    "kit": "quat-scifi-mod",
    "name": "crate",
-   "hash": "a8fe748be4",
+   "hash": "64b7cca578",
    "kind": "obj-container-crate-scifi",
    "size": "s",
    "wdh": [
@@ -384161,10 +383626,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0089,
-   "minWall": 0.003,
-   "thick": 0.2421,
+   "minWall": 0.0069,
+   "thick": 0.2425,
    "avgTri": 0.00022,
-   "anglePct": 65,
+   "anglePct": 62,
    "pieces": 33,
    "vpt": 1.51,
    "cells": [
@@ -384185,14 +383650,7 @@
     "space"
    ],
    "variant": "quat-scifi-mod/crate",
-   "thickRel": 0.91,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.91
   },
   {
    "kit": "quat-scifi-mod",
@@ -385624,7 +385082,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.42
   },
   {
    "kit": "quat-shoot",
@@ -387644,7 +387102,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.91,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "error",
@@ -388619,7 +388077,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.94
+   "thickRel": 0.93
   },
   {
    "kit": "quat-space",
@@ -407300,7 +406758,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 1.64
+   "thickRel": 1.58
   },
   {
    "kit": "rgp-asia",
@@ -423313,7 +422771,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.84
+   "thickRel": 1.87
   },
   {
    "kit": "sq-arcade",
@@ -428425,7 +427883,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.59
   },
   {
    "kit": "sq-lab",
@@ -432228,7 +431686,7 @@
   {
    "kit": "styloo-farm",
    "name": "crate-open-slate",
-   "hash": "cbf26b8ef7",
+   "hash": "a8c7b43eae",
    "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
@@ -432247,7 +431705,7 @@
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0233,
-   "minWall": 0.0046,
+   "minWall": 0.006,
    "thick": 0.0498,
    "avgTri": 0.00321,
    "anglePct": 63,
@@ -432273,18 +431731,13 @@
      "level": "warning",
      "check": "size",
      "text": "longest 1.005 over max 1 (obj-container-crate)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0046 wants min 0.006"
     }
    ]
   },
   {
    "kit": "styloo-farm",
    "name": "crate-open",
-   "hash": "441eab807a",
+   "hash": "8acb47d46d",
    "kind": "obj-container-crate",
    "size": "m",
    "wdh": [
@@ -432303,9 +431756,9 @@
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.024,
-   "minWall": 0.0038,
+   "minWall": 0.0069,
    "thick": 0.0498,
-   "avgTri": 0.00288,
+   "avgTri": 0.00289,
    "anglePct": 63,
    "pieces": 74,
    "vpt": 1.69,
@@ -432344,11 +431797,6 @@
      "level": "warning",
      "check": "backface",
      "text": "0.1% of view 90/50 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0038 wants min 0.006"
     }
    ]
   },
@@ -437958,13 +437406,13 @@
   {
    "kit": "styloo-food",
    "name": "pizza-box",
-   "hash": "17c1f3aebc",
+   "hash": "2535ce259f",
    "kind": "obj-container-crate-cardboard-takeaway",
    "size": "s",
    "wdh": [
-    0.271,
-    0.271,
-    0.034
+    0.273,
+    0.273,
+    0.036
    ],
    "tris": 56,
    "tpu": 163,
@@ -437976,10 +437424,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minWall": 0.0043,
+   "minWall": 0.0062,
    "thick": 0.0777,
-   "avgTri": 0.00631,
-   "anglePct": 92,
+   "avgTri": 0.00635,
+   "anglePct": 93,
    "pieces": 1,
    "vpt": 1.71,
    "cells": [
@@ -437992,14 +437440,7 @@
     "paper-sheet",
     "sty"
    ],
-   "thickRel": 0.96,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.96
   },
   {
    "kit": "styloo-food",
@@ -438045,7 +437486,7 @@
   {
    "kit": "styloo-food",
    "name": "plate",
-   "hash": "21557ac8a9",
+   "hash": "cc279d1ffb",
    "kind": "obj-kitchenware-tableware-plate",
    "size": "s",
    "wdh": [
@@ -438062,11 +437503,11 @@
    "vtx": 96,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0043,
-   "thick": 0.0341,
-   "avgTri": 0.00112,
-   "anglePct": 67,
+   "minEdge": 0.007,
+   "minWall": 0.0066,
+   "thick": 0.0347,
+   "avgTri": 0.00113,
+   "anglePct": 54,
    "pieces": 1,
    "vpt": 0.77,
    "cells": [
@@ -438080,14 +437521,7 @@
     "sty"
    ],
    "variant": "styloo-food/plate",
-   "thickRel": 0.6,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.61
   },
   {
    "kit": "styloo-food",
@@ -438215,7 +437649,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 3.25,
+   "thickRel": 3.22,
    "lint": [
     {
      "level": "warning",
@@ -438552,7 +437986,7 @@
   {
    "kit": "styloo-food",
    "name": "sushi-board-full",
-   "hash": "641e469d8a",
+   "hash": "e7333800de",
    "kind": "obj-kitchenware-cookware-board",
    "size": "s",
    "wdh": [
@@ -438570,10 +438004,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0039,
-   "thick": 0.1673,
+   "minWall": 0.0066,
+   "thick": 0.1675,
    "avgTri": 0.00026,
-   "anglePct": 58,
+   "anglePct": 57,
    "pieces": 12,
    "vpt": 1.29,
    "cells": [
@@ -438599,9 +438033,9 @@
    "thickRel": 1.74,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0039 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.026"
     }
    ]
   },
@@ -439049,7 +438483,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.66
+   "thickRel": 0.62
   },
   {
    "kit": "styloo-furniture",
@@ -439349,7 +438783,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "styloo-furniture",
@@ -439390,7 +438824,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 0.89
+   "thickRel": 0.91
   },
   {
    "kit": "styloo-furniture",
@@ -439649,12 +439083,12 @@
   {
    "kit": "styloo-furniture",
    "name": "wooden-spoon",
-   "hash": "81adf8d384",
+   "hash": "12de3c6c9d",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.057,
-    0.012,
+    0.014,
     0.2
    ],
    "tris": 523,
@@ -439662,15 +439096,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 29160,
+   "bytes": 29164,
    "vtx": 765,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0042,
-   "thick": 0.1453,
+   "minWall": 0.0066,
+   "thick": 0.1552,
    "avgTri": 0.00003,
-   "anglePct": 64,
+   "anglePct": 63,
    "pieces": 1,
    "vpt": 1.46,
    "cells": [
@@ -439684,14 +439118,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/wooden-spoon",
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0042 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.04
   },
   {
    "kit": "styloo-furniture",
@@ -441039,12 +440466,12 @@
     "sty"
    ],
    "variant": "styloo-kitchen/cutlery-set",
-   "thickRel": 0.99
+   "thickRel": 0.93
   },
   {
    "kit": "styloo-kitchen",
    "name": "frying-pan",
-   "hash": "8b3bca6f89",
+   "hash": "a220810fd1",
    "kind": "obj-kitchenware-cookware-pan-frying",
    "size": "s",
    "wdh": [
@@ -441062,8 +440489,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0055,
-   "thick": 0.067,
+   "minWall": 0.0067,
+   "thick": 0.068,
    "avgTri": 0.00021,
    "anglePct": 23,
    "pieces": 1,
@@ -441079,12 +440506,12 @@
     "sty"
    ],
    "variant": "styloo-furniture/frying-pan",
-   "thickRel": 0.83,
+   "thickRel": 0.84,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0055 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
@@ -441551,7 +440978,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/cutlery-set",
-   "thickRel": 1.32
+   "thickRel": 1.3
   },
   {
    "kit": "styloo-kitchen",
@@ -441591,7 +441018,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/cutlery-set",
-   "thickRel": 0.83
+   "thickRel": 0.82
   },
   {
    "kit": "styloo-kitchen",
@@ -441639,12 +441066,12 @@
   {
    "kit": "styloo-kitchen",
    "name": "turner",
-   "hash": "c02f0749d8",
+   "hash": "e372780ab8",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
     0.106,
-    0.028,
+    0.029,
     0.3
    ],
    "tris": 164,
@@ -441657,8 +441084,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0036,
-   "thick": 0.1061,
+   "minWall": 0.0065,
+   "thick": 0.114,
    "avgTri": 0.00018,
    "anglePct": 15,
    "pieces": 1,
@@ -441674,14 +441101,7 @@
     "wood-mid"
    ],
    "variant": "styloo-kitchen/turner",
-   "thickRel": 0.81,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0036 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.87
   },
   {
    "kit": "styloo-kitchen",
@@ -441761,7 +441181,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "styloo-kitchen",
@@ -441806,12 +441226,12 @@
   {
    "kit": "styloo-kitchen",
    "name": "wooden-spoon-a",
-   "hash": "75dc659292",
+   "hash": "a01895eb17",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.049,
-    0.025,
+    0.026,
     0.243
    ],
    "tris": 220,
@@ -441824,8 +441244,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0046,
-   "thick": 0.2015,
+   "minWall": 0.0064,
+   "thick": 0.2051,
    "avgTri": 0.00007,
    "anglePct": 0,
    "pieces": 1,
@@ -441841,14 +441261,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/wooden-spoon",
-   "thickRel": 1.36,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0046 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.38
   },
   {
    "kit": "styloo-kitchen",
@@ -441928,7 +441341,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/wooden-spoon",
-   "thickRel": 1.17
+   "thickRel": 1.16
   },
   {
    "kit": "styloo-kitchen",
@@ -447933,29 +447346,29 @@
   {
    "kit": "styloo-school",
    "name": "test-tube-capped",
-   "hash": "6958091acf",
+   "hash": "cc97a285d3",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.056,
-    0.056,
-    0.161
+    0.06,
+    0.06,
+    0.165
    ],
    "tris": 662,
    "tpu": 1930,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 24200,
+   "bytes": 24204,
    "vtx": 586,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0476,
-   "minWall": 0.0032,
-   "thick": 0.322,
-   "avgTri": 0.00007,
-   "anglePct": 25,
+   "minEdge": 0.001,
+   "minTube": 0.051,
+   "minWall": 0.0067,
+   "thick": 0.3232,
+   "avgTri": 0.00008,
+   "anglePct": 23,
    "pieces": 2,
    "vpt": 0.89,
    "cells": [
@@ -447975,22 +447388,22 @@
    "thickRel": 1.39,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0032 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ]
   },
   {
    "kit": "styloo-school",
    "name": "test-tube-long",
-   "hash": "e352e4e675",
+   "hash": "2ece740294",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.08,
-    0.067,
-    0.248
+    0.082,
+    0.069,
+    0.25
    ],
    "tris": 444,
    "tpu": 1294,
@@ -448002,11 +447415,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0613,
-   "minWall": 0.0039,
-   "thick": 0.1169,
+   "minTube": 0.0623,
+   "minWall": 0.0061,
+   "thick": 0.1301,
    "avgTri": 0.0002,
-   "anglePct": 21,
+   "anglePct": 20,
    "pieces": 1,
    "vpt": 0.98,
    "cells": [
@@ -448020,12 +447433,12 @@
     "sty"
    ],
    "variant": "styloo-school/test-tube",
-   "thickRel": 0.5,
+   "thickRel": 0.56,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0039 wants min 0.006"
+     "text": "G27 minWall 0.0061 wants min 0.012"
     }
    ]
   },
@@ -448078,28 +447491,28 @@
   {
    "kit": "styloo-school",
    "name": "test-tube",
-   "hash": "3b959ac755",
+   "hash": "359e4590c5",
    "kind": "obj-container-bottle-vial",
    "size": "s",
    "wdh": [
-    0.062,
-    0.062,
-    0.218
+    0.065,
+    0.065,
+    0.221
    ],
    "tris": 506,
    "tpu": 1475,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 17612,
+   "bytes": 17608,
    "vtx": 409,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0033,
-   "thick": 0.1647,
+   "minEdge": 0.004,
+   "minWall": 0.0062,
+   "thick": 0.1691,
    "avgTri": 0.00015,
-   "anglePct": 26,
+   "anglePct": 23,
    "pieces": 1,
    "vpt": 0.81,
    "cells": [
@@ -448113,12 +447526,12 @@
     "sty"
    ],
    "variant": "styloo-school/test-tube",
-   "thickRel": 0.71,
+   "thickRel": 0.73,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0033 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -456964,27 +456377,27 @@
   {
    "kit": "vases-pots",
    "name": "pot-small-cracked",
-   "hash": "9cafe4b8fc",
+   "hash": "b8bd1258bb",
    "kind": "obj-container-pot",
    "size": "s",
    "wdh": [
     0.188,
     0.191,
-    0.153
+    0.154
    ],
    "tris": 2146,
    "tpu": 6257,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 83964,
+   "bytes": 84008,
    "vtx": 2173,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0045,
-   "thick": 0.0552,
-   "avgTri": 0.0001,
+   "minWall": 0.0062,
+   "thick": 0.0563,
+   "avgTri": 0.00011,
    "anglePct": 13,
    "pieces": 10,
    "vpt": 1.01,
@@ -457006,38 +456419,31 @@
     "scale-small"
    ],
    "variant": "vases-pots/pot-small",
-   "thickRel": 0.32,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0045 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.33
   },
   {
    "kit": "vases-pots",
    "name": "pot-small-handle-cracked",
-   "hash": "a098c3c236",
+   "hash": "97f7c4ab93",
    "kind": "obj-container-pot",
    "size": "s",
    "wdh": [
     0.188,
     0.208,
-    0.153
+    0.154
    ],
    "tris": 2606,
    "tpu": 7598,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 106956,
+   "bytes": 107020,
    "vtx": 2805,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0043,
-   "thick": 0.0576,
+   "minWall": 0.0062,
+   "thick": 0.0582,
    "avgTri": 0.00009,
    "anglePct": 13,
    "pieces": 10,
@@ -457060,14 +456466,7 @@
     "scale-small"
    ],
    "variant": "vases-pots/pot-small",
-   "thickRel": 0.34,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0043 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.34
   },
   {
    "kit": "vases-pots",
@@ -457301,7 +456700,7 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-big",
-   "thickRel": 0.97,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "warning",
@@ -457354,7 +456753,7 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-big",
-   "thickRel": 0.94,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "warning",
@@ -457408,7 +456807,7 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-big",
-   "thickRel": 0.9,
+   "thickRel": 0.87,
    "lint": [
     {
      "level": "warning",
@@ -457460,7 +456859,7 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-big",
-   "thickRel": 2.04,
+   "thickRel": 1.97,
    "lint": [
     {
      "level": "warning",
@@ -457515,7 +456914,7 @@
     "textile-rope"
    ],
    "variant": "vases-pots/vase-big",
-   "thickRel": 0.94,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "warning",
@@ -457567,7 +456966,7 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-big",
-   "thickRel": 0.97,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -457579,26 +456978,26 @@
   {
    "kit": "vases-pots",
    "name": "vase-long-cracked",
-   "hash": "ee3c1a97e8",
+   "hash": "2f2ba880f9",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
     0.222,
     0.225,
-    0.416
+    0.417
    ],
    "tris": 2200,
    "tpu": 6414,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 84136,
+   "bytes": 84180,
    "vtx": 2169,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0038,
-   "thick": 0.1716,
+   "minWall": 0.0062,
+   "thick": 0.1763,
    "avgTri": 0.0002,
    "anglePct": 6,
    "pieces": 10,
@@ -457620,38 +457019,38 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-long",
-   "thickRel": 1.17,
+   "thickRel": 1.16,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0038 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "vases-pots",
    "name": "vase-long-handle-cracked",
-   "hash": "d63476b5a2",
+   "hash": "ddaf753911",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
     0.222,
     0.225,
-    0.416
+    0.417
    ],
    "tris": 3032,
    "tpu": 8840,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 118916,
+   "bytes": 118960,
    "vtx": 3099,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0038,
-   "thick": 0.1703,
+   "minWall": 0.0062,
+   "thick": 0.175,
    "avgTri": 0.00015,
    "anglePct": 6,
    "pieces": 11,
@@ -457673,12 +457072,12 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-long",
-   "thickRel": 1.16,
+   "thickRel": 1.15,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0038 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -457726,7 +457125,7 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-long",
-   "thickRel": 1.16,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "warning",
@@ -457778,7 +457177,7 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-long",
-   "thickRel": 1.83,
+   "thickRel": 1.77,
    "lint": [
     {
      "level": "warning",
@@ -457834,7 +457233,7 @@
     "textile-rope"
    ],
    "variant": "vases-pots/vase-long",
-   "thickRel": 1.15,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -457886,7 +457285,7 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-long",
-   "thickRel": 1.17,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "warning",
@@ -457898,27 +457297,27 @@
   {
    "kit": "vases-pots",
    "name": "vase-round-cracked",
-   "hash": "006e1d979c",
+   "hash": "da200e8d5a",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.143,
-    0.145,
-    0.219
+    0.144,
+    0.147,
+    0.223
    ],
    "tris": 2084,
    "tpu": 6076,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 77712,
+   "bytes": 77756,
    "vtx": 1989,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0024,
-   "thick": 0.1467,
-   "avgTri": 0.00008,
+   "minEdge": 0,
+   "minWall": 0.0061,
+   "thick": 0.1522,
+   "avgTri": 0.00009,
    "anglePct": 9,
    "pieces": 10,
    "vpt": 0.95,
@@ -457942,35 +457341,35 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0024 wants min 0.006"
+     "text": "G27 minWall 0.0061 wants min 0.012"
     }
    ]
   },
   {
    "kit": "vases-pots",
    "name": "vase-round-handle-cracked",
-   "hash": "3404adadd9",
+   "hash": "f9ea72986f",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.143,
+    0.144,
     0.145,
-    0.219
+    0.223
    ],
    "tris": 2502,
    "tpu": 7294,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 99128,
+   "bytes": 99172,
    "vtx": 2579,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0021,
-   "thick": 0.1461,
+   "minWall": 0.0061,
+   "thick": 0.1521,
    "avgTri": 0.00007,
    "anglePct": 8,
    "pieces": 10,
@@ -457995,35 +457394,35 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0021 wants min 0.006"
+     "text": "G27 minWall 0.0061 wants min 0.012"
     }
    ]
   },
   {
    "kit": "vases-pots",
    "name": "vase-round-handle",
-   "hash": "24f3f5076e",
+   "hash": "f41b5e2685",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.143,
     0.145,
-    0.219
+    0.147,
+    0.222
    ],
    "tris": 1216,
    "tpu": 3545,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 39984,
+   "bytes": 40024,
    "vtx": 973,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0041,
-   "thick": 0.1462,
+   "minWall": 0.0062,
+   "thick": 0.1509,
    "avgTri": 0.00013,
    "anglePct": 9,
    "pieces": 2,
@@ -458044,38 +457443,38 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-round",
-   "thickRel": 1,
+   "thickRel": 0.99,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "vases-pots",
    "name": "vase-round-lid",
-   "hash": "41d87433a8",
+   "hash": "ca48a46142",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.143,
     0.145,
-    0.275
+    0.147,
+    0.276
    ],
    "tris": 1766,
    "tpu": 5149,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 60108,
+   "bytes": 60160,
    "vtx": 1499,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0041,
-   "thick": 0.2541,
+   "minWall": 0.0062,
+   "thick": 0.2544,
    "avgTri": 0.00009,
    "anglePct": 10,
    "pieces": 3,
@@ -458096,38 +457495,38 @@
     "ceramic-mid"
    ],
    "variant": "vases-pots/vase-round",
-   "thickRel": 1.74,
+   "thickRel": 1.68,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "vases-pots",
    "name": "vase-round-rope",
-   "hash": "dbd65fd583",
+   "hash": "e0888e8a68",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.143,
     0.145,
-    0.219
+    0.147,
+    0.222
    ],
    "tris": 1820,
    "tpu": 5306,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 59732,
+   "bytes": 59772,
    "vtx": 1477,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0041,
-   "thick": 0.1444,
+   "minWall": 0.0062,
+   "thick": 0.1495,
    "avgTri": 0.0001,
    "anglePct": 8,
    "pieces": 7,
@@ -458154,35 +457553,35 @@
    "thickRel": 0.99,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
   {
    "kit": "vases-pots",
    "name": "vase-round",
-   "hash": "6d470d7755",
+   "hash": "1332294f53",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.143,
     0.145,
-    0.219
+    0.147,
+    0.222
    ],
    "tris": 956,
    "tpu": 2787,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 28636,
+   "bytes": 28676,
    "vtx": 668,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0041,
-   "thick": 0.1468,
+   "minWall": 0.0062,
+   "thick": 0.1514,
    "avgTri": 0.00016,
    "anglePct": 9,
    "pieces": 1,
@@ -458206,9 +457605,9 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0041 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },

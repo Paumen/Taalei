@@ -17,8 +17,10 @@ defines `minTube`, `minWall`, `thin.min` and the limits.
 ## 1. Find
 
 1. Rebuild (`catalog-assets` §6) and run `node lint/measures.mjs G27`.
-2. Work kind by kind. Per model, render the thin parts so the part G27 means
-   is known, not guessed.
+2. Work kind by kind. Per model, map the thin faces (`tools/thin/thinmap.mjs`
+   then `thinmap.py`, under the limit in red) so the part G27 means is known,
+   not guessed, and pick the fix for that part's own problem. Never apply one
+   fix to a whole batch.
 
 ## 2. Choose a fix
 
@@ -26,11 +28,13 @@ Per model, list what could clear it, drop what clearly can't work, and pick
 the best of the rest from the model, its data, its peers and how it looks.
 When a model is far off, a bigger measure is likely best.
 
-- **Scale up**: the whole model is too small for its kind; growing it may
-  clear the part on its own.
+- **Scale up**: only when the whole model is thin (all red on the map) and
+  thickening alone would distort it, such as tines or strips too narrow
+  across as well as through; say why on the review. A model with one thin
+  spot is never scaled.
 - **Thicken the part**: only the thin part grows, toward `thin.min`, never
-  under 0.006. Pick per part which way it grows (around its middle, or away
-  from what it sits on) and say which on the review.
+  under 0.006. Pick per part which way it grows (around its middle, away
+  from what it sits on, or inward for a shell) and say which on the review.
 - **Fewer repeats**: many thin parts thickened at once read wrong (a rake or
   broom with 12 tines may read right with 8 thicker ones).
 - **Drop the part**: it does not carry what the model is or its character.
@@ -51,8 +55,16 @@ rails, fences of one kit), which must still fit after.
 ### Tools
 
 - Thicken the part: `tools/thin/thicken.mjs` (pushes faces out, no new
-  triangles; `--away` grows only the outer side; `--sheet` keeps blades,
-  bowls and leaves from growing wider; `--parts` picks parts).
+  triangles; `--help` lists the modes). Flat cutlery, blades and slotted
+  spatulas: `--flat`, which keeps the outline, tines and slots exactly.
+  Cups and glasses: `--local` or `--inward --radial --local`. One thin spot
+  (floor, rim): `--local`. Gems, rivets or marks on a grown part: `--carry`.
+  A shank set into a handle: `--hidden`. Slots that read closed once the
+  blade is thicker: `--open`. Parts that belong together (a fork and its
+  set, a knife and its kit's fork) get the same scale.
+- Close a hole, or make a hollow straw or spout solid: `tools/thin/cap.mjs`.
+- When the original mesh is broken (open joints) and every mode shows back
+  faces, rebuild that part as closed shapes on the same path.
 - Scale up: `tools/import/scale.mjs`.
 - Fewer repeats, drop or rebuild a part: `tools/detail/slim.mjs`.
 
@@ -92,6 +104,7 @@ shown.
 - **Parts crossing**: a grown part pokes through another part or through
   itself in a way the original did not.
 - **Gaps closed**: holes, slots, tines and joints that were open now shut.
+- **Layers doubled**: a plate or foot shows a second edge or step.
 - **Lint**: `node lint/glb-lint.mjs <file> --only-problems`, the seven lints
   (size, tpu, measures, mat, palette, bands, backface) and `golden` show nothing new.
 

@@ -205,7 +205,7 @@ function drawTop(){
   `<button type="button" class="switch" id="slide" aria-pressed="${slide}">Slider</button><button type="button" class="switch" id="two" aria-pressed="${two}">2 angles</button><button type="button" class="switch" id="open" aria-pressed="${openOnly}">Unjudged</button>`+(D.items.some(it=>it.scale)?`<button type="button" class="switch" id="scl" aria-pressed="${scl}">Scale</button>`:'');
 }
 function card(it,i){
-  const s=st[it.model]||{},more=MORE.some(m=>m[0]===s.v),flagged=(s.f||[]).length+(s.p||[]).length>0;cur=s;ci=+i;
+  const s=st[it.model]||{},more=s.v==='retry'||MORE.some(m=>m[0]===s.v),flagged=(s.f||[]).length+(s.p||[]).length>0;cur=s;ci=+i;
   const marks=Object.entries(MARK).map(([m,[g,t]])=>`<button type="button" class="mark ${m} ${s.m===m?'on':''}" data-m="${m}" title="${t}" aria-label="${t}" aria-pressed="${s.m===m}">${g}</button>`).join('');
   return `<article data-i="${i}" class="${s.m?'m-'+s.m:''}"><div class="head"><span class="name">${esc(it.model)}</span><span class="marks">${it.visual?`<button type="button" class="mark ${flip.has(+i)?'on':''}" data-flip title="Show the other side" aria-pressed="${flip.has(+i)}">↻</button>`:''}${marks}</span></div>
 ${pics(it)}${factRows(it)}${it.change||it.note?`<p class="note">${esc([it.change,it.note].filter(Boolean).join(' '))}</p>`:''}

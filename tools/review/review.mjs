@@ -435,7 +435,7 @@ function brief() {
     console.log('\nby issue flagged');
     for (const [issue, rows] of issues) console.log(`${issue.padEnd(28)} ${String(rows.length).padStart(4)}`);
   }
-  for (const [mark, label] of [['great', 'spot on, copy this'], ['bad', 'big no, never again']]) {
+  for (const [mark, label] of [['great', 'spot on, copy this'], ['bad', 'bad, opposite of the goal']]) {
     const rows = log.filter((e) => e.mark === mark);
     if (!rows.length) continue;
     console.log(`\nmarked ${label} (${rows.length})`);
