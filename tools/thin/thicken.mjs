@@ -11,7 +11,9 @@ thin layers lying on another part are left alone and listed.
 parts are not covered. --inward grows only the faces turned towards it, so
 a hollow shell gets thicker without its outline growing.
 --sheet moves each point only along its biggest face's normal, so thin
-sheets and blades get thicker without growing wider or losing sharp edges.`;
+sheets and blades get thicker without growing wider or losing sharp edges.
+--local grows only the faces whose own wall is under <wall>, so thick tips,
+spouts and straws on a thin part keep their shape.`;
 
 const LAYER = 0.026, GAP = 0.002, SHARE = 0.2, FACING = -0.9, MIN_AREA = 0.002;
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -128,7 +130,20 @@ function walls(m) {
   return out;
 }
 
-function grow(m, list, to, only, away, sheet) {
+function faceWall(own, t, P) {
+  const p = t.w.map((w) => P[w]);
+  const o = [0, 1, 2].map((k) => (p[0][k] + p[1][k] + p[2][k]) / 3);
+  const d = t.n.map((x) => -x);
+  let wall = Infinity;
+  for (const b of own) {
+    if (b === t || dot(b.n, t.n) > FACING || b.w.some((w) => t.w.includes(w))) continue;
+    const r = ray(o, d, b.w.map((w) => P[w]));
+    if (r !== null && r > 1e-5 && r < wall) wall = r;
+  }
+  return wall;
+}
+
+function grow(m, list, to, only, away, sheet, local) {
   const { P, tris, parts } = m;
   const centre = [0, 1, 2].map((k) => P.reduce((s, p) => s + p[k], 0) / P.length);
   const moved = new Map();
@@ -141,7 +156,8 @@ function grow(m, list, to, only, away, sheet) {
     for (const t of parts.get(p.key)) {
       const mid = [0, 1, 2].map((k) => (P[t.w[0]][k] + P[t.w[1]][k] + P[t.w[2]][k]) / 3);
       const side = dot(t.n, sub(mid, centre));
-      const d = away === 'away' ? (side > 0 ? 2 * delta : 0) : away === 'inward' ? (side < 0 ? 2 * delta : 0) : delta;
+      const thick = local && faceWall(parts.get(p.key), t, P) >= to;
+      const d = thick ? 0 : away === 'away' ? (side > 0 ? 2 * delta : 0) : away === 'inward' ? (side < 0 ? 2 * delta : 0) : delta;
       for (const w of t.w) {
         const list = normals.get(w) ?? [];
         if (!list.some((x) => dot(x.n, t.n) > 0.999)) list.push({ n: t.n, d, area: t.area });
@@ -174,7 +190,7 @@ for (const p of list.filter((p) => p.counts).sort((a, b) => (a.wall ?? 9) - (b.w
 if (args.includes('--list')) process.exit(0);
 const only = opt('--parts')?.split(',').map(Number) ?? null;
 const side = args.includes('--away') ? 'away' : args.includes('--inward') ? 'inward' : null;
-const { next, done } = grow(m, list, to, only, side, args.includes('--sheet'));
+const { next, done } = grow(m, list, to, only, side, args.includes('--sheet'), args.includes('--local'));
 const { prim, vid, M } = m;
 const accessor = glb.json.accessors[prim.attributes.POSITION];
 const bytes = Buffer.alloc(accessor.count * 12);
