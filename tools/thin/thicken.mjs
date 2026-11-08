@@ -13,7 +13,15 @@ a hollow shell gets thicker without its outline growing.
 --sheet moves each point only along its biggest face's normal, so thin
 sheets and blades get thicker without growing wider or losing sharp edges.
 --local grows only the faces whose own wall is under <wall>, so thick tips,
-spouts and straws on a thin part keep their shape.`;
+spouts and straws on a thin part keep their shape.
+--flat moves each point only along the part's thinnest axis, so a flat
+fork, blade or slotted spatula gets thicker while its outline, tines and
+slots stay exactly as they were. --widen also widens, within that plane,
+the narrow strips of a flat part (tines, wires) that are under <wall>
+across, which narrows the gaps between them. --carry moves small parts
+lying on or through a grown part (gems, rivets, decals) with its surface.
+--radial makes --away and --inward judge sides from the upright centre
+line, not the centre point, so cups and glasses grow only in or out.`;
 
 const LAYER = 0.026, GAP = 0.002, SHARE = 0.2, FACING = -0.9, MIN_AREA = 0.002;
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -143,7 +151,22 @@ function faceWall(own, t, P) {
   return wall;
 }
 
-function grow(m, list, to, only, away, sheet, local) {
+function thinAxis(pts) {
+  const c = [0, 1, 2].map((k) => pts.reduce((s, p) => s + p[k], 0) / pts.length);
+  const A = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  for (const p of pts) for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) A[i][j] += (p[i] - c[i]) * (p[j] - c[j]);
+  const tr = A[0][0] + A[1][1] + A[2][2] + 1e-12;
+  const B = A.map((r, i) => r.map((v, j) => (i === j ? tr : 0) - v));
+  let v = [0.3, 0.5, 0.8];
+  for (let it = 0; it < 200; it++) {
+    const w = [0, 1, 2].map((i) => B[i][0] * v[0] + B[i][1] * v[1] + B[i][2] * v[2]);
+    const l = Math.hypot(...w);
+    v = w.map((x) => x / l);
+  }
+  return v;
+}
+
+function grow(m, list, to, only, away, sheet, local, flat, widen, carry, radial) {
   const { P, tris, parts } = m;
   const centre = [0, 1, 2].map((k) => P.reduce((s, p) => s + p[k], 0) / P.length);
   const moved = new Map();
@@ -155,14 +178,47 @@ function grow(m, list, to, only, away, sheet, local) {
     const normals = new Map();
     for (const t of parts.get(p.key)) {
       const mid = [0, 1, 2].map((k) => (P[t.w[0]][k] + P[t.w[1]][k] + P[t.w[2]][k]) / 3);
-      const side = dot(t.n, sub(mid, centre));
+      const side = radial ? t.n[0] * (mid[0] - centre[0]) + t.n[2] * (mid[2] - centre[2]) : dot(t.n, sub(mid, centre));
       const thick = local && faceWall(parts.get(p.key), t, P) >= to;
-      const d = thick ? 0 : away === 'away' ? (side > 0 ? 2 * delta : 0) : away === 'inward' ? (side < 0 ? 2 * delta : 0) : delta;
+      const level = radial && Math.hypot(t.n[0], t.n[2]) < 0.3;
+      const d = thick ? 0 : level ? delta : away === 'away' ? (side > 0 ? 2 * delta : 0) : away === 'inward' ? (side < 0 ? 2 * delta : 0) : delta;
       for (const w of t.w) {
         const list = normals.get(w) ?? [];
         if (!list.some((x) => dot(x.n, t.n) > 0.999)) list.push({ n: t.n, d, area: t.area });
         normals.set(w, list);
       }
+    }
+    if (flat) {
+      const axis = thinAxis([...normals.keys()].map((w) => P[w]));
+      if (widen) {
+        const own = parts.get(p.key), cons = new Map();
+        for (const t of own) {
+          const a = dot(t.n, axis);
+          let c;
+          if (Math.abs(a) > 0.5) c = { n: axis.map((v) => v * Math.sign(a)), d: delta };
+          else {
+            const q = t.n.map((v, k) => v - a * axis[k]), l = Math.hypot(...q), fw = faceWall(own, t, P);
+            c = { n: q.map((v) => v / l), d: fw < to ? Math.max(0, (to * 1.04 - fw) / 2) : 0 };
+          }
+          for (const w of t.w) {
+            const list = cons.get(w) ?? [];
+            if (!list.some((x) => dot(x.n, c.n) > 0.999)) list.push(c);
+            cons.set(w, list);
+          }
+        }
+        for (const [w, cs] of cons) moved.set(w, solve(cs, delta + to));
+        done.push({ id: p.id, from: p.wall, delta });
+        continue;
+      }
+      for (const [w, ns] of normals) {
+        const face = ns.filter((x) => Math.abs(dot(x.n, axis)) > 0.5 && x.d > 0);
+        if (!face.length) continue;
+        const s = Math.sign(face.reduce((a, x) => a + dot(x.n, axis) * x.area, 0));
+        const d = Math.max(...face.map((x) => x.d));
+        moved.set(w, axis.map((v) => v * s * d));
+      }
+      done.push({ id: p.id, from: p.wall, delta });
+      continue;
     }
     for (const [w, ns] of normals) {
       if (!sheet) { moved.set(w, solve(ns, delta)); continue; }
@@ -170,6 +226,36 @@ function grow(m, list, to, only, away, sheet, local) {
       moved.set(w, big.n.map((v) => v * big.d));
     }
     done.push({ id: p.id, from: p.wall, delta });
+  }
+  if (carry) {
+    const grown = new Set(done.map((d) => list.find((p) => p.id === d.id).key));
+    const faces = tris.filter((t) => grown.has(t.part));
+    const zero = [0, 0, 0];
+    const onFace = (q) => {
+      let best = null, bd = Infinity;
+      for (const t of faces) {
+        const [a, b, c] = t.w.map((w) => P[w]);
+        const dist = dot(sub(q, a), t.n);
+        if (Math.abs(dist) >= bd) continue;
+        const r = q.map((x, k) => x - dist * t.n[k]);
+        const e0 = sub(b, a), e1 = sub(c, a), e2 = sub(r, a);
+        const d00 = dot(e0, e0), d01 = dot(e0, e1), d11 = dot(e1, e1), d20 = dot(e2, e0), d21 = dot(e2, e1), den = d00 * d11 - d01 * d01;
+        if (Math.abs(den) < 1e-18) continue;
+        const v = (d11 * d20 - d01 * d21) / den, w = (d00 * d21 - d01 * d20) / den, u = 1 - v - w;
+        if (u < -0.01 || v < -0.01 || w < -0.01) continue;
+        const m = [u, v, w].map((k, i) => (moved.get(t.w[i]) ?? zero).map((x) => x * k));
+        best = [0, 1, 2].map((k) => m[0][k] + m[1][k] + m[2][k]);
+        bd = Math.abs(dist);
+      }
+      return { shift: best, bd };
+    };
+    for (const [key, own] of parts) {
+      if (grown.has(key)) continue;
+      const vs = [...new Set(own.flatMap((t) => t.w))];
+      const near = vs.map((v) => ({ v, ...onFace(P[v]) }));
+      if (near.filter((x) => x.shift && x.bd < 0.004).length < vs.length / 3) continue;
+      for (const { v, shift } of near) if (shift) moved.set(v, shift);
+    }
   }
   const next = P.map((p, w) => (moved.has(w) ? p.map((v, k) => v + moved.get(w)[k]) : p));
   return { next, done, tris };
@@ -190,7 +276,7 @@ for (const p of list.filter((p) => p.counts).sort((a, b) => (a.wall ?? 9) - (b.w
 if (args.includes('--list')) process.exit(0);
 const only = opt('--parts')?.split(',').map(Number) ?? null;
 const side = args.includes('--away') ? 'away' : args.includes('--inward') ? 'inward' : null;
-const { next, done } = grow(m, list, to, only, side, args.includes('--sheet'), args.includes('--local'));
+const { next, done } = grow(m, list, to, only, side, args.includes('--sheet'), args.includes('--local'), args.includes('--flat'), args.includes('--widen'), args.includes('--carry'), args.includes('--radial'));
 const { prim, vid, M } = m;
 const accessor = glb.json.accessors[prim.attributes.POSITION];
 const bytes = Buffer.alloc(accessor.count * 12);
