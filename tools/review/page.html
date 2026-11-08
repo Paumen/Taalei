@@ -121,8 +121,8 @@ const ICON={
   geometry:svg('<path d="M12 3 21 20H3z"/><path d="M7.5 11.5h9M12 3l-4.5 8.5L12 20l4.5-8.5z"/>'),
 };
 const NAME={size:'Size',tag:'Tags',recolour:'Colour',shape:'Shape',geometry:'Mesh'};
-const MORE=[['keepbut','Keep but…','Keep, and then what?'],['relax','Relax rule','Which rule, and how?'],['other','Other','What should happen?'],['later','Later','']];
-const ISSUE={size:['too big','too small','wrong proportions'],recolour:['too dark','too light','lost contrast','colour bleeds'],shape:['misshapen','not symmetric','wobbly','lost detail','too thick','too thin'],geometry:['lost detail','holes','glitchy triangles','not round']};
+const MORE=[['keepbut','Keep but…','Keep, and then what?'],['relax','Relax rule','Which rule, and how?'],['other','Other','What should happen?']];
+const ISSUE={size:['too big','too small','stretched'],tag:['tag missing'],recolour:['too dark','too light','parts blend','wrong part','too busy'],shape:['too thick','too thin','deformed','parts fused','lost detail'],geometry:['too blocky','too dense','holes','spikes','lost detail']};
 const NEED=Object.fromEntries(MORE.filter(m=>m[2]).map(m=>[m[0],m[2]]));
 const MARK={great:['★','Spot on: excellent, beyond expectations'],bad:['✕✕','Big no: opposite of the goal, high impact']};
 const K='review:'+D.title+':'+D.base;

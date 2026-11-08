@@ -51,8 +51,8 @@ renamed `_v2`, `_v3`, … on each new round, and link it in the PR.
 
 ## 3. Verdicts
 
-The PO marks each item Keep, Fail (retry), Keep but…, Revert, Relax rule, Other or
-Later, with a comment where the verdict needs one, and pastes the copied
+The PO marks each item Keep, Fail (retry), Keep but…, Revert, Relax rule or
+Other, with a comment where the verdict needs one, and pastes the copied
 verdicts (JSON, or lines of `kit/name: verdict — comment`). Save them to the
 scratchpad and run
 
@@ -62,7 +62,7 @@ Reverts are done by the tool, file and tags. Flags and pins are logged and print
 the after pictures (front or back, x and y from the top left). Then do the work it prints:
 keep but (the follow-up in the comment), retry (another fix, as the comment says
 if there is one), relax (loosen or except the rule in `lint/*.json`, as the comment says),
-other. Later stays open for the next round.
+other.
 A revert or retry can point to another problem with the model than the
 change itself: look at the whole model against its source and peers before
 retrying the same change. Next to the verdict a card can carry a
