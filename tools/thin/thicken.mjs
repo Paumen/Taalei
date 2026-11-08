@@ -14,14 +14,18 @@ a hollow shell gets thicker without its outline growing.
 sheets and blades get thicker without growing wider or losing sharp edges.
 --local grows only the faces whose own wall is under <wall>, so thick tips,
 spouts and straws on a thin part keep their shape.
---flat moves each point only along the part's thinnest axis, so a flat
+--flat moves each point only along the part's thinnest axis near it, so a flat
 fork, blade or slotted spatula gets thicker while its outline, tines and
 slots stay exactly as they were. --widen also widens, within that plane,
 the narrow strips of a flat part (tines, wires) that are under <wall>
 across, which narrows the gaps between them. --carry moves small parts
 lying on or through a grown part (gems, rivets, decals) with its surface.
 --radial makes --away and --inward judge sides from the upright centre
-line, not the centre point, so cups and glasses grow only in or out.`;
+line, not the centre point, so cups and glasses grow only in or out.
+--open <w> widens slots and gaps narrower than <w> in a flat part, so they
+still read as open once the part is thicker.
+--hidden keeps points that sit inside another part still, so a blade or
+shank set into a handle does not poke out through it.`;
 
 const LAYER = 0.026, GAP = 0.002, SHARE = 0.2, FACING = -0.9, MIN_AREA = 0.002;
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -166,7 +170,7 @@ function thinAxis(pts) {
   return v;
 }
 
-function grow(m, list, to, only, away, sheet, local, flat, widen, carry, radial) {
+function grow(m, list, to, only, away, sheet, local, flat, widen, carry, radial, hidden, openTo) {
   const { P, tris, parts } = m;
   const centre = [0, 1, 2].map((k) => P.reduce((s, p) => s + p[k], 0) / P.length);
   const moved = new Map();
@@ -190,7 +194,7 @@ function grow(m, list, to, only, away, sheet, local, flat, widen, carry, radial)
     }
     if (flat) {
       const axis = thinAxis([...normals.keys()].map((w) => P[w]));
-      if (widen) {
+      if (widen || openTo) {
         const own = parts.get(p.key), cons = new Map();
         for (const t of own) {
           const a = dot(t.n, axis);
@@ -198,7 +202,17 @@ function grow(m, list, to, only, away, sheet, local, flat, widen, carry, radial)
           if (Math.abs(a) > 0.5) c = { n: axis.map((v) => v * Math.sign(a)), d: delta };
           else {
             const q = t.n.map((v, k) => v - a * axis[k]), l = Math.hypot(...q), fw = faceWall(own, t, P);
-            c = { n: q.map((v) => v / l), d: fw < to ? Math.max(0, (to * 1.04 - fw) / 2) : 0 };
+            const qn = q.map((v) => v / l);
+            if (openTo) {
+              const o = [0, 1, 2].map((k) => (P[t.w[0]][k] + P[t.w[1]][k] + P[t.w[2]][k]) / 3);
+              let g = Infinity;
+              for (const b of own) {
+                if (b === t || b.w.some((w) => t.w.includes(w))) continue;
+                const r = ray(o, qn, b.w.map((w) => P[w]));
+                if (r !== null && r > 1e-5 && r < g) g = r;
+              }
+              c = g < openTo ? { n: qn.map((v) => -v), d: (openTo - g) / 2 } : { n: qn, d: 0 };
+            } else c = { n: qn, d: fw < to ? Math.max(0, (to * 1.04 - fw) / 2) : 0 };
           }
           for (const w of t.w) {
             const list = cons.get(w) ?? [];
@@ -210,12 +224,16 @@ function grow(m, list, to, only, away, sheet, local, flat, widen, carry, radial)
         done.push({ id: p.id, from: p.wall, delta });
         continue;
       }
+      const pts = [...normals.keys()];
       for (const [w, ns] of normals) {
-        const face = ns.filter((x) => Math.abs(dot(x.n, axis)) > 0.5 && x.d > 0);
+        const near = pts.filter((v) => Math.hypot(...sub(P[v], P[w])) < 0.02).map((v) => P[v]);
+        const ax = near.length > 6 ? thinAxis(near) : axis;
+        const own = dot(ax, axis) < 0 ? ax.map((v) => -v) : ax;
+        const face = ns.filter((x) => Math.abs(dot(x.n, own)) > 0.5 && x.d > 0);
         if (!face.length) continue;
-        const s = Math.sign(face.reduce((a, x) => a + dot(x.n, axis) * x.area, 0));
+        const s = Math.sign(face.reduce((a, x) => a + dot(x.n, own) * x.area, 0));
         const d = Math.max(...face.map((x) => x.d));
-        moved.set(w, axis.map((v) => v * s * d));
+        moved.set(w, own.map((v) => v * s * d));
       }
       done.push({ id: p.id, from: p.wall, delta });
       continue;
@@ -257,6 +275,19 @@ function grow(m, list, to, only, away, sheet, local, flat, widen, carry, radial)
       for (const { v, shift } of near) if (shift) moved.set(v, shift);
     }
   }
+  if (hidden) {
+    const grown = new Set(done.map((d) => list.find((p) => p.id === d.id).key));
+    const others = tris.filter((t) => !grown.has(t.part));
+    const dir = [0.5773, 0.5774, 0.5775];
+    for (const w of [...moved.keys()]) {
+      const hits = new Map();
+      for (const t of others) {
+        const r = ray(P[w], dir, t.w.map((v) => P[v]));
+        if (r !== null && r > 1e-6) hits.set(t.part, (hits.get(t.part) ?? 0) + 1);
+      }
+      if ([...hits.values()].some((n) => n % 2 === 1)) moved.delete(w);
+    }
+  }
   const next = P.map((p, w) => (moved.has(w) ? p.map((v, k) => v + moved.get(w)[k]) : p));
   return { next, done, tris };
 }
@@ -276,7 +307,7 @@ for (const p of list.filter((p) => p.counts).sort((a, b) => (a.wall ?? 9) - (b.w
 if (args.includes('--list')) process.exit(0);
 const only = opt('--parts')?.split(',').map(Number) ?? null;
 const side = args.includes('--away') ? 'away' : args.includes('--inward') ? 'inward' : null;
-const { next, done } = grow(m, list, to, only, side, args.includes('--sheet'), args.includes('--local'), args.includes('--flat'), args.includes('--widen'), args.includes('--carry'), args.includes('--radial'));
+const { next, done } = grow(m, list, to, only, side, args.includes('--sheet'), args.includes('--local'), args.includes('--flat'), args.includes('--widen'), args.includes('--carry'), args.includes('--radial'), args.includes('--hidden'), Number(opt('--open') ?? 0));
 const { prim, vid, M } = m;
 const accessor = glb.json.accessors[prim.attributes.POSITION];
 const bytes = Buffer.alloc(accessor.count * 12);

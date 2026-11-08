@@ -57,9 +57,14 @@ rails, fences of one kit), which must still fit after.
 - Thicken the part: `tools/thin/thicken.mjs` (pushes faces out, no new
   triangles; `--help` lists the modes). Flat cutlery, blades and slotted
   spatulas: `--flat`, which keeps the outline, tines and slots exactly.
-  Cups and glasses: `--inward --radial --local`. One thin spot (spout,
-  floor, rim): `--local`. Gems, rivets or marks on a grown part: `--carry`.
-- Close a hole or make a hollow straw solid: `tools/thin/cap.mjs`.
+  Cups and glasses: `--local` or `--inward --radial --local`. One thin spot
+  (floor, rim): `--local`. Gems, rivets or marks on a grown part: `--carry`.
+  A shank set into a handle: `--hidden`. Slots that read closed once the
+  blade is thicker: `--open`. Parts that belong together (a fork and its
+  set, a knife and its kit's fork) get the same scale.
+- Close a hole, or make a hollow straw or spout solid: `tools/thin/cap.mjs`.
+- When the original mesh is broken (open joints) and every mode shows back
+  faces, rebuild that part as closed shapes on the same path.
 - Scale up: `tools/import/scale.mjs`.
 - Fewer repeats, drop or rebuild a part: `tools/detail/slim.mjs`.
 
