@@ -50,6 +50,9 @@ rails, fences of one kit), which must still fit after.
 
 ### Tools
 
+- Thicken the part: `tools/thin/thicken.mjs` (pushes faces out, no new
+  triangles; `--away` grows only the outer side; `--sheet` keeps blades,
+  bowls and leaves from growing wider; `--parts` picks parts).
 - Scale up: `tools/import/scale.mjs`.
 - Fewer repeats, drop or rebuild a part: `tools/detail/slim.mjs`.
 
