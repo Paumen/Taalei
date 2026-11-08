@@ -182,7 +182,7 @@ function cap(loop) {
   const { n, flat } = plane(loop.map(({ t, j }) => t.p[j]));
   if (flat) return 0;
   const ids = loop.map(({ t, j }) => {
-    verts.push({ pi: t.pi, v: verts[t.v[j]].v, p: t.p[j], w: verts[t.v[j]].w, normal: n });
+    verts.push({ pi: t.pi, v: verts[t.v[j]].v, p: t.p[j], w: verts[t.v[j]].w, normal: n, uv: verts[loop[0].t.v[loop[0].j]].v });
     return verts.length - 1;
   });
   for (let i = 1; i + 1 < ids.length; i++) tris.push({ pi: loop[0].t.pi, k: null, v: [ids[0], ids[i + 1], ids[i]] });
@@ -351,7 +351,7 @@ for (const t of tris) {
     const g = t.v[j], vert = verts[g];
     const pos = local(vert.pi, placed(nd));
     if (vert.normal) {
-      if (!made.has(g)) made.set(g, adders[t.pi].add(vert.v, prims[t.pi].nor ? { POSITION: pos, NORMAL: localDir(t.pi, vert.normal) } : { POSITION: pos }));
+      if (!made.has(g)) made.set(g, adders[t.pi].add(vert.v, prims[t.pi].nor ? { POSITION: pos, NORMAL: localDir(t.pi, vert.normal), TEXCOORD_0: vert.uv } : { POSITION: pos, TEXCOORD_0: vert.uv }));
       return made.get(g);
     }
     if ((owner.get(g) ?? nd) === nd) {
@@ -368,7 +368,7 @@ for (const [pi, list] of extra.entries()) {
   const P = prims[pi];
   for (const tri of list) for (const x of tri) {
     const v = verts[x.from].v;
-    const set = { POSITION: local(pi, x.pos) };
+    const set = { POSITION: local(pi, x.pos), TEXCOORD_0: verts[tri[0].from].v };
     if (P.nor && x.normal) set.NORMAL = localDir(pi, x.normal);
     if (P.nor && x.flip) set.NORMAL = [-P.nor[v * 3], -P.nor[v * 3 + 1], -P.nor[v * 3 + 2]];
     indices[pi].push(adders[pi].add(v, set));
