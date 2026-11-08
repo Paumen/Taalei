@@ -438,7 +438,8 @@
           "ewer"
          ]
         }
-       ]
+       ],
+       "thin.min": 0.006
       },
       {
        "id": "obj-container-can",
@@ -672,7 +673,8 @@
           "plate",
           "dish",
           "saucer"
-         ]
+         ],
+         "thin.min": 0.006
         },
         {
          "id": "obj-kitchenware-tableware-serving",
@@ -718,7 +720,8 @@
          ],
          "nouns": [
           "bowl"
-         ]
+         ],
+         "thin.min": 0.006
         },
         {
          "id": "obj-kitchenware-tableware-drinkware",
@@ -731,6 +734,7 @@
          "children": [
           {
            "id": "obj-kitchenware-tableware-drinkware-mug",
+           "thin.min": 0.012,
            "has": [
             [
              "wood",
@@ -785,7 +789,8 @@
             "beer glass",
             "shot glass",
             "milk glass"
-           ]
+           ],
+           "thin.min": 0.006
           },
           {
            "id": "obj-kitchenware-tableware-drinkware-takeaway",
@@ -800,7 +805,7 @@
           },
           {
            "id": "obj-kitchenware-tableware-drinkware-stemware",
-           "thin.min": 0.012,
+           "thin.min": 0.006,
            "nouns": [
             "wine glass",
             "champagne glass",
@@ -841,6 +846,7 @@
        "children": [
         {
          "id": "obj-kitchenware-cookware-pan",
+         "thin.min": 0.012,
          "longest.min": 0.2,
          "longest.max": 0.5,
          "scale": {
@@ -1675,7 +1681,8 @@
          "nouns": [
           "shield",
           "buckler"
-         ]
+         ],
+         "thin.min": 0.012
         }
        ]
       },
@@ -2016,7 +2023,8 @@
            "id": "obj-equipment-weapon-explosive-grenade",
            "nouns": [
             "grenade"
-           ]
+           ],
+           "thin.min": 0.006
           },
           {
            "id": "obj-equipment-weapon-explosive-mine",
@@ -2351,7 +2359,8 @@
            "nouns": [
             "closed book",
             "notebook"
-           ]
+           ],
+           "thin.min": 0.006
           },
           {
            "id": "obj-equipment-pocketitem-book-open",
@@ -3149,7 +3158,8 @@
             "sprocket"
            ]
           }
-         ]
+         ],
+         "thin.min": 0.012
         },
         {
          "id": "obj-resource-metal-ingot",
@@ -4380,7 +4390,7 @@
       {
        "id": "obj-leisure-toy",
        "longest.min": 0.08,
-       "thin.min": 0.012,
+       "thin.min": 0.006,
        "bands.max": 9,
        "nouns": [
         "toy",
@@ -4694,7 +4704,8 @@
        "nouns": [
         "window",
         "shutter"
-       ]
+       ],
+       "thin.min": 0.012
       },
       {
        "id": "str-part-wall",
@@ -5591,7 +5602,8 @@
          "nouns": [
           "flag",
           "pennant"
-         ]
+         ],
+         "thin.min": 0.006
         },
         {
          "id": "str-fixture-marker-grave",
@@ -6018,7 +6030,8 @@
       "toadstool",
       "fungus",
       "lichen"
-     ]
+     ],
+     "thin.min": 0.006
     },
     {
      "id": "env-fauna",
@@ -6650,7 +6663,8 @@
     },
     {
      "id": "char-human",
-     "nouns": []
+     "nouns": [],
+     "thin.min": 0.012
     },
     {
      "id": "char-undead",

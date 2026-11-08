@@ -12,6 +12,7 @@ const SIZE = 320;
 const SAMPLE = 400;
 const AZIMUTHS = [0, 45, 90, 135, 180, 225, 270, 315];
 const ELEVATIONS = [20, 50];
+const VIEWS = [...ELEVATIONS.flatMap((el) => AZIMUTHS.map((az) => [az, el])), [0, -89.9]];
 const LOAD_TIMEOUT = 90_000;
 
 const args = process.argv.slice(2);
@@ -22,7 +23,7 @@ const value = (name, fallback) => {
 };
 if (flag('--help') || flag('-h')) {
   console.log(`backfaces.mjs [--kit slug] [--force] [--jobs n]
-Renders every workfile from ${AZIMUTHS.length * ELEVATIONS.length} views above the horizon and records, per model,
+Renders every workfile from ${VIEWS.length - 1} views above the horizon and one from below and records, per model,
 the largest share of its silhouette that shows back faces in one view, and why
 those faces show: inverted (wound against its normals, its neighbours, or facing
 into solid material), inside-out (a closed shell wound inward), open (a
@@ -203,7 +204,7 @@ window.measure = async (url) => {
   const distance = radius / Math.sin((fov / 2) * Math.PI / 180) * 1.05;
   const seen = new Map();
   let worst = { share: 0, view: null };
-  for (const el of ${JSON.stringify(ELEVATIONS)}) for (const az of ${JSON.stringify(AZIMUTHS)}) {
+  for (const [az, el] of ${JSON.stringify(VIEWS)}) {
     const a = az * Math.PI / 180, e = el * Math.PI / 180;
     camera.position.set(centre.x + distance * Math.cos(e) * Math.sin(a), centre.y + distance * Math.sin(e),
       centre.z + distance * Math.cos(e) * Math.cos(a));
@@ -295,7 +296,7 @@ if (queue.length) {
 server.close();
 
 const sorted = Object.fromEntries(Object.entries(result).sort(([a], [b]) => a.localeCompare(b)));
-writeFileSync(OUT, JSON.stringify({ tooling: TOOLING, views: AZIMUTHS.length * ELEVATIONS.length, size: SIZE, models: sorted }, null, 1) + '\n');
+writeFileSync(OUT, JSON.stringify({ tooling: TOOLING, views: VIEWS.length, size: SIZE, models: sorted }, null, 1) + '\n');
 const flagged = Object.values(sorted).filter((m) => m.share > 0).length;
 console.log(`${flagged} of ${Object.keys(sorted).length} workfiles show back faces → catalog/build/backfaces.json`);
 process.exitCode = failed ? 1 : 0;

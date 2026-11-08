@@ -4,7 +4,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseGlb, readAccessor, measureScene } from '../../catalog/tools/glb.mjs';
 import { readAtlas, COLUMNS, ROWS } from '../../catalog/tools/measure.mjs';
-import { buildLimits, buildScales, limitsForModel } from '../../lint/rules.mjs';
+import { buildLimits, buildScales, limitsForModel, buildKindFields, withKindFields } from '../../lint/rules.mjs';
 import { read, VARS } from '../../lint/report.mjs';
 
 const HELP = `review.mjs build <list.json> --out <dir> [--base <ref>] [--size 360]
@@ -20,10 +20,13 @@ build   renders every listed model before (at --base, default the list's
         { "title": "short name", "base": "<git ref>",
           "items": [ { "model": "kit/name", "group": "heading",
                        "change": "what was done", "note": "why it is doubtful",
-                       "doubt": "high" | "low", "types": ["size", …], "before": "<glb>" } ] }
+                       "doubt": "high" | "low", "types": ["size", …], "before": "<glb>",
+                       "thin": true } ] }
         types is optional: size, tag, recolour, shape, geometry; derived when left out.
         before is optional: a glb shown as before instead of the one at base,
         such as the rejected source of a model new in the catalogue.
+        thin is optional: offers the kind's lower thin limits as relax
+        answers; when left out, set by "thin" or "thick" in change or note.
 
 apply   takes the page's copied verdicts, or lines of "kit/name: verdict".
         revert, retry and relax put the model's file and its tags back as they
@@ -42,6 +45,11 @@ brief   with --review, only the reviews whose title holds that text, and
         changes like the ones undone in the last review.
 
 verdicts: keep, keepbut, revert, retry, relax, other, later.
+flags:    what failed, tapped on the page: a change icon, tag chip, colour
+          swatch or number flags that value, an issue button names the
+          problem (too big, wobbly, lost detail, …), a tap on an after
+          picture drops a pin;
+          flags or pins without a verdict count as retry.
 marks:    great (spot on, beyond expectations) or bad (opposite of the goal,
           high impact), next to the verdict; brief lists the latest of each.`;
 
@@ -210,6 +218,13 @@ function kindLimits(model) {
   return pick('longest') ?? pick('high') ?? { measure: 'longest', min: null, max: null };
 }
 
+const THIN_STEPS = [0.006, 0.012, 0.026, 0.054];
+function thinSteps(model) {
+  const m = read(VARS.models).models.find((x) => `${x.kit}/${x.name}` === model);
+  const need = m ? withKindFields(m, buildKindFields(read(VARS.kinds))).thinmin ?? 0 : 0;
+  return THIN_STEPS.filter((v) => v < need);
+}
+
 function frontView(dir, out, size) {
   execFileSync('node', [join(ROOT, 'tools/renders/render.mjs'), dir, '--out', out, '--views', 'front', '--ortho',
     '--width', String(size * 2), '--height', String(size * 2), '--bg', 'transparent'], { cwd: ROOT, stdio: 'ignore' });
@@ -316,6 +331,7 @@ function build() {
       change: item.change ?? '',
       note: item.note ?? '',
       doubt: item.doubt ?? 'low',
+      thin: (item.thin ?? /thin|thick/i.test(`${item.change} ${item.note}`)) ? thinSteps(item.model) : [],
       types: item.types ?? d.types,
       facts: d.facts,
       pixels,
@@ -355,10 +371,10 @@ function apply() {
   const reverted = [];
   const log = existsSync(LOG) ? JSON.parse(readFileSync(LOG, 'utf8')) : [];
   const at = new Date().toISOString().slice(0, 10);
-  for (const { model, verdict, mark, comment, change, types, doubt } of verdicts.items) {
+  for (const { model, verdict, mark, comment, change, types, doubt, flags, pins } of verdicts.items) {
     const kind = Object.entries(tagsOf(tags, model)).find(([, type]) => type === 'kind')?.[0] ?? null;
     log.push({ at, review: verdicts.review ?? null, model, kind, types: types?.length ? types : diff(model, base, baseTags, tags).types,
-      doubt: doubt ?? null, verdict, ...(mark ? { mark } : {}), ...(change ? { change } : {}), comment: comment ?? '' });
+      doubt: doubt ?? null, verdict, ...(mark ? { mark } : {}), ...(change ? { change } : {}), ...(flags?.length ? { flags } : {}), ...(pins?.length ? { pins } : {}), comment: comment ?? '' });
     if (REVERTS.has(verdict)) {
       reverted.push(model);
       const path = `${WORK}/${model}.glb`;
@@ -371,7 +387,7 @@ function apply() {
         if (!(tag.id in want) && has) tag.models = tag.models.filter((m) => m !== model);
       }
     }
-    if (!['keep', 'later', 'revert'].includes(verdict)) left.push(`${verdict.padEnd(8)} ${model}${comment ? `  — ${comment}` : ''}`);
+    if (!['keep', 'later', 'revert'].includes(verdict)) left.push(`${verdict.padEnd(8)} ${model}${flags?.length ? `  [${flags.join('; ')}]` : ''}${pins?.length ? `  pins ${pins.join('; ')}` : ''}${comment ? `  — ${comment}` : ''}`);
   }
   writeFileSync(join(ROOT, TAGS), JSON.stringify(tags, null, 1) + '\n');
   writeFileSync(LOG, JSON.stringify(log, null, 1) + '\n');
@@ -413,6 +429,11 @@ function brief() {
   if (undone.length) {
     advice.push(`follow up "${last}": put the not yet reviewed changes like these in a next round: ` +
       undone.map((e) => `${e.model} (${e.types.join('+') || 'tag'})`).join(', '));
+  }
+  const issues = groupBy((e) => e.flags);
+  if (issues.length) {
+    console.log('\nby issue flagged');
+    for (const [issue, rows] of issues) console.log(`${issue.padEnd(28)} ${String(rows.length).padStart(4)}`);
   }
   for (const [mark, label] of [['great', 'spot on, copy this'], ['bad', 'big no, never again']]) {
     const rows = log.filter((e) => e.mark === mark);

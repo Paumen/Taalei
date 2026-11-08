@@ -36,12 +36,17 @@ It renders each model from two angles and diffs it. A card has two columns,
 before left and after right; boxes on the after image mark what changed. A
 model with only tag or invisible changes shows one image. A size change of 20%
 or more also gets both at true scale, shown only when the Scale switch is on (off by default), in the scale page's style, at least 1 m tall: its grid (0.1 m dashed, 0.2 m solid, 1 m heavy), red and white ruler sticks in 0.2 m blocks,
-and the kind's limits as lines. The Slider switch wipes between before and
-after. Revert, Fail and Keep sit side by side (left to right), the other verdicts and the comment box fold under More; each of the three scrolls to the next card. Each change type is a white glyph in a coloured circle (size, tags,
+and the kind's limits as lines. The slider, on by default, wipes between before and after; a
+card's ↻ shows its other side. Revert, Fail and Keep sit side by side (left to right), the other verdicts in a row below; only Keep and Revert scroll to the next card. A change about thin parts ("thin" or "thick" in change or note, or `thin: true`) also offers the kind's lower thin limits there (a 0.026 kind gets 0.012 and 0.006), picked as Relax rule. Each change type is a white glyph in a coloured circle (size, tags,
 colour, shape, mesh); a fact row puts the old value left, the new value right,
 and the glyph with the delta centred between them. Tags are catalogue chips
 (removed struck through in red, added filled), colours catalogue swatches
-(removed slashed, added ticked). Publish `<out>/review.html` as an artifact,
+(removed slashed, added ticked). Colour swatches carry their share, the name shows on hover. To say what
+failed, the PO taps: a change icon, tag chip, swatch or number flags that
+value, an issue button under the verdicts names the problem (size: too big,
+too small…; shape: wobbly, not symmetric…; mesh: holes, lost detail…), and a
+tap on an after picture drops a numbered pin. Flags or pins
+without a verdict count as Fail. Publish `<out>/review.html` as an artifact,
 renamed `_v2`, `_v3`, … on each new round, and link it in the PR.
 
 ## 3. Verdicts
@@ -53,7 +58,8 @@ scratchpad and run
 
     node tools/review/review.mjs apply <verdicts>
 
-Reverts are done by the tool, file and tags. Then do the work it prints:
+Reverts are done by the tool, file and tags. Flags and pins are logged and printed with the work left; read pins against
+the after pictures (front or back, x and y from the top left). Then do the work it prints:
 keep but (the follow-up in the comment), retry (another fix, as the comment says
 if there is one), relax (loosen or except the rule in `lint/*.json`, as the comment says),
 other. Later stays open for the next round.

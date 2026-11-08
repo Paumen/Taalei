@@ -10,6 +10,13 @@ const HELP = `thicken.mjs <in.glb> [--out <file>] [--to <n>] [--parts <i,j>] [--
 
 Thickens thin parts (welded shells) of a model to a wall of --to, in
 catalogue units (default: the kind's thin.min, at least 0.006).
+  --free   all four brakes off:
+  --no-gap     grow past half the gap to another part
+  --no-layers  also grow open sheets lying on another part
+  --no-small   also grow parts under 0.2% of the surface
+  --no-cap     no limit of 3x the growth on how far a corner moves
+  --explain  write per part its role and per face its wall, growth wanted
+             and growth done, as JSON
   --list   print every part with its wall, area and centre; change nothing
   --parts  only these part numbers (from --list); default every part under --to
   --mode   around: both sides grow by half (default)
@@ -35,6 +42,10 @@ const file = args.find((a, i) => !a.startsWith('--') && !args[i - 1]?.startsWith
 if (!file || args.includes('--help')) { console.log(HELP); process.exit(file ? 0 : 1); }
 const out = flag('--out', file);
 const mode = flag('--mode', 'around');
+const free = args.includes('--free');
+const explain = flag('--explain', null);
+const seen = [];
+const off = (name) => free || args.includes(`--no-${name}`);
 const only = flag('--parts', null)?.split(',').map(Number);
 const target = Math.max(0.006, Number(flag('--to', catalogTubeNeed(file) ?? 0.006)));
 
@@ -117,6 +128,7 @@ function wallOf(own, open) {
       const r = ray(o, d, b.p);
       if (r !== null && r > 1e-5 && r < wall) wall = r;
     }
+    t.wall = wall;
     if (wall < Infinity) hits.push({ wall, area: t.area });
   }
   if (open && hits.reduce((sum, h) => sum + h.area, 0) < 0.5 * own.reduce((sum, f) => sum + f.area, 0)) return 0;
@@ -129,6 +141,7 @@ function wallOf(own, open) {
 }
 
 function gap(face, others, dir, far) {
+  if (off('gap')) return far;
   const o = scale3(add3(add3(face.p[0], face.p[1]), face.p[2]), 1 / 3);
   let best = far;
   for (const b of others) { const r = ray(o, dir, b.p); if (r !== null && r > 1e-5 && r < best) best = r; }
@@ -173,7 +186,7 @@ function offsets(faces, move) {
     const eps = 0.05 * s.c, n = unit(s.n), d = s.d / s.c;
     const A = s.A.map((r, i) => r.map((v, j) => v + (i === j ? eps : 0)));
     const o = solve3(A, s.b.map((v, i) => v + eps * d * n[i])) ?? scale3(n, d);
-    const cap = 3 * Math.max(...[...move.values()].map(Math.abs));
+    const cap = off('cap') ? Infinity : 3 * Math.max(...[...move.values()].map(Math.abs));
     const l = Math.hypot(...o);
     result.set(x, l > cap ? scale3(o, cap / l) : o);
   }
@@ -182,8 +195,9 @@ function offsets(faces, move) {
 
 const short = [];
 function report(part, move, full) {
-  const total = part.own.reduce((sum, f) => sum + (move.has(f) ? f.area : 0), 0);
-  const held = part.own.reduce((sum, f) => sum + (move.has(f) && move.get(f) < full - 1e-9 ? f.area : 0), 0);
+  const need = (f) => (typeof full === 'function' ? full(f) : full);
+  const total = part.own.reduce((sum, f) => sum + (move.has(f) && need(f) > 1e-9 ? f.area : 0), 0);
+  const held = part.own.reduce((sum, f) => sum + (move.has(f) && need(f) > 1e-9 && move.get(f) < need(f) - 1e-9 ? f.area : 0), 0);
   if (total && held / total > 0.05) short.push(`part ${part.number}: ${Math.round((100 * held) / total)}% of its faces held back by a gap to another part`);
 }
 
@@ -205,8 +219,12 @@ for (const prim of editablePrimitives(json)) {
       console.log(`part ${part.number}  wall ${part.open ? 'open sheet' : (part.wall * s).toFixed(4)}  area ${(part.area * s * s).toFixed(5)}  centre ${part.centre.map((v) => (v * s).toFixed(3)).join(' ')}${part.small ? '  (tiny, not linted)' : ''}`);
       continue;
     }
-    if (!only && part.open && layered(part, a.faces, 0.01 / s)) { console.log(`part ${part.number}: open sheet lying on another part, left as a layer`); continue; }
-    if (only ? only.includes(part.number) : !part.small && part.wall < want) picked.push(part);
+    seen.push({ part, prim: editablePrimitives(json).indexOf(prim), s });
+    part.role = part.small ? 'small' : part.wall < want ? 'thin' : 'ok';
+    if (!only && !off('layers') && part.open && layered(part, a.faces, 0.01 / s)) {
+      part.role = 'layer';
+      console.log(`part ${part.number}: open sheet lying on another part, left as a layer`); continue; }
+    if (only ? only.includes(part.number) : (off('small') || !part.small) && part.wall < want) picked.push(part);
   }
   for (const part of picked) { picks.set(part.number, want); picks.set(part.number + 0.5, s); }
   if (!picked.length) continue;
@@ -250,14 +268,16 @@ for (const prim of editablePrimitives(json)) {
     const room = 0.0005 / s;
     console.log(`part ${part.number}: wall ${part.open ? 'open sheet' : (part.wall * s).toFixed(4)} -> ${target}`);
     if (!part.open) {
-      const delta = Math.max(0, want - part.wall);
       const base = mode === 'base' ? part.own.filter((f) => touching(f, others, reach)) : [];
       const move = new Map(part.own.map((f) => {
+        const delta = Math.max(0, want - f.wall);
         const inner = dot(f.n, sub(part.centre, scale3(add3(add3(f.p[0], f.p[1]), f.p[2]), 1 / 3))) > 0;
         const d = mode === 'inside' ? (inner ? delta : 0) : base.length ? (base.includes(f) ? 0 : delta) : delta / 2;
         return [f, Math.min(d, Math.max(0, gap(f, others, f.n, Infinity) / 2 - room))];
       }));
-      report(part, move, base.length || mode === 'inside' ? delta : delta / 2);
+      report(part, move, (f) => Math.max(0, want - f.wall) * (base.length || mode === 'inside' ? 1 : 0.5));
+      for (const f of part.own) { f.move = move.get(f); f.need = Math.max(0, want - f.wall) * (base.length || mode === 'inside' ? 1 : 0.5); }
+      part.role = 'grown';
       for (const f of part.own) shift.set(f, { front: scale3(f.n, move.get(f)), back: [0, 0, 0] });
       const axis = flatAxis(part.own);
       if (axis) {
@@ -279,6 +299,8 @@ for (const prim of editablePrimitives(json)) {
     const upMove = new Map(kept.map((f) => [f, Math.min(front, Math.max(0, gap(f, others, f.n, Infinity) / 2 - room))]));
     const downMove = new Map(kept.map((f) => [f, Math.min(back, Math.max(0, gap(f, others, scale3(f.n, -1), Infinity) / 2 - room))]));
     report(part, new Map([...upMove].map(([f, d]) => [f, d + downMove.get(f)])), want);
+    for (const f of kept) { f.move = upMove.get(f) + downMove.get(f); f.need = want; }
+    part.role = 'slab';
     for (const f of kept) shift.set(f, { front: scale3(f.n, upMove.get(f)), back: scale3(f.n, -downMove.get(f)) });
     const up = new Map([...offsets(kept, upMove)].map(([x, o]) => [x, add3(o, carry)]));
     const down = new Map([...offsets(kept, downMove)].map(([x, o]) => [x, sub(o, carry)]));
@@ -320,6 +342,7 @@ for (const prim of editablePrimitives(json)) {
     if (Math.hypot(...carry) < 1e-9) continue;
     for (const x of new Set(q.own.flatMap((f) => f.ws))) moved.set(x, add3(moved.get(x) ?? [0, 0, 0], carry));
     console.log(`part ${q.number}: lies on part ${riders.get(q).support.number}, moved out with it`);
+    q.role = 'carried';
   }
   for (let v = 0; v < a.w.length; v++) {
     const o = moved.get(a.w[v]);
@@ -331,6 +354,10 @@ for (const prim of editablePrimitives(json)) {
   changed += picked.length;
 }
 
+if (explain) writeFileSync(explain, JSON.stringify(seen.map(({ part, prim, s: k }) => ({
+  part: part.number, prim, role: part.role,
+  faces: part.own.map((f) => ({ t: f.t, wall: f.wall === undefined || f.wall === Infinity ? null : f.wall * k, move: (f.move ?? 0) * k, need: (f.need ?? 0) * k })),
+}))));
 if (!args.includes('--list')) {
   if (!changed) { console.log(`nothing under ${target}`); process.exit(0); }
   repack(glb, replaced);
