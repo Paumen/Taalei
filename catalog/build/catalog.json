@@ -910,7 +910,7 @@
    "url": "https://poly.pizza/u/iPoly3D",
    "artist": "iPoly3D",
    "licenseLabel": "CC0 1.0",
-   "count": 59,
+   "count": 58,
    "packs": [
     "Concert Pack",
     "Electronics",
@@ -920,7 +920,7 @@
    ],
    "origins": {
     "Concert Pack": 10,
-    "Electronics": 4,
+    "Electronics": 3,
     "Glasses Pack": 23,
     "Signs Pack": 14,
     "Medieval Torture Devices": 8
@@ -928,13 +928,12 @@
    "scales": {
     "0.5": 32,
     "0.0337": 1,
-    "0.0146": 1,
     "0.0316": 1,
     "0.0434": 1,
     "0.14": 23
    },
    "smooth": {
-    "smooth": 58,
+    "smooth": 57,
     "none": 1
    },
    "members": [
@@ -964,21 +963,20 @@
      "url": "https://poly.pizza/u/iPoly3D",
      "artist": "iPoly3D",
      "licenseLabel": "CC0 1.0",
-     "count": 4,
+     "count": 3,
      "packs": [
       "Electronics"
      ],
      "origins": {
-      "Electronics": 4
+      "Electronics": 3
      },
      "scales": {
       "0.0337": 1,
-      "0.0146": 1,
       "0.0316": 1,
       "0.0434": 1
      },
      "smooth": {
-      "smooth": 3,
+      "smooth": 2,
       "none": 1
      }
     },
@@ -25483,7 +25481,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2183,
+   "count": 2182,
    "parent": "metal"
   },
   {
@@ -25880,7 +25878,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1540,
+   "count": 1539,
    "parent": "polymer"
   },
   {
@@ -25939,7 +25937,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, signboard (freestanding), fire extinguisher",
-   "count": 4988,
+   "count": 4987,
    "color": "#c07c8a"
   },
   {
@@ -25947,7 +25945,7 @@
    "name": "Device",
    "type": "kind",
    "description": "Powered or precision device: appliance, electronics, scientific instrument.",
-   "count": 300
+   "count": 299
   },
   {
    "id": "obj-leisure",
@@ -26066,14 +26064,14 @@
    "name": "Electronics",
    "type": "kind",
    "description": "Electronic device: television, computer, speaker, camera, cash register, console.",
-   "count": 161
+   "count": 160
   },
   {
    "id": "obj-device-electronics-component",
    "name": "Component",
    "type": "kind",
    "description": "Loose electronic part: battery, circuit board, microchip, memory module, ssd.",
-   "count": 7
+   "count": 6
   },
   {
    "id": "str-fixture-installation",
@@ -31635,7 +31633,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4160,
+   "count": 4159,
    "derived": true
   },
   {
@@ -31747,7 +31745,7 @@
    "name": "iPoly3D",
    "type": "artist",
    "description": "Kits from iPoly3D (poly.pizza/u/iPoly3D). Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 59,
+   "count": 58,
    "derived": true
   },
   {
@@ -100471,56 +100469,6 @@
   {
    "kit": "ipoly-electronics",
    "collection": "ipoly",
-   "name": "microchip",
-   "hash": "4423987412",
-   "kind": "obj-device-electronics-component",
-   "size": "s",
-   "wdh": [
-    0.071,
-    0.029,
-    0.019
-   ],
-   "tris": 240,
-   "tpu": 700,
-   "mat": 1,
-   "bands": 2,
-   "calls": 1,
-   "bytes": 16088,
-   "vtx": 412,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0059,
-   "thick": 0.2066,
-   "avgTri": 0.00004,
-   "anglePct": 82,
-   "pieces": 13,
-   "vpt": 1.72,
-   "cells": [
-    "13,3",
-    "15,3"
-   ],
-   "colors": [
-    "#59534e",
-    "#7a8491"
-   ],
-   "tags": [
-    "ipoly",
-    "metal-steel",
-    "plastic"
-   ],
-   "thickRel": 1.31,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0059 wants min 0.006"
-    }
-   ]
-  },
-  {
-   "kit": "ipoly-electronics",
-   "collection": "ipoly",
    "name": "ram",
    "hash": "908869cf31",
    "kind": "obj-device-electronics-component",
@@ -106661,7 +106609,19 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/window-small",
+   "backface": {
+    "share": 0.0049,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 45/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -106714,7 +106674,19 @@
     "wood-mid"
    ],
    "variant": "isa-bakery/window-small",
+   "backface": {
+    "share": 0.0026,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 45/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -389844,8 +389816,20 @@
     "space"
    ],
    "variant": "quat-space/ramp",
+   "backface": {
+    "share": 0.0131,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.22,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.3% of view 180/50 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -410665,31 +410649,31 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "grass",
-   "hash": "9a5a05090d",
+   "hash": "4a5b685f24",
    "kind": "env-flora-plant-grass",
    "size": "s",
    "wdh": [
-    0.271,
-    0.312,
-    0.074
+    0.269,
+    0.309,
+    0.073
    ],
-   "tris": 2016,
-   "tpu": 5878,
+   "tris": 2101,
+   "tpu": 6125,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 145548,
-   "vtx": 4123,
+   "bytes": 171692,
+   "vtx": 4924,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0071,
-   "minWall": 0.0061,
-   "thick": 0.0593,
-   "avgTri": 0.00006,
+   "minEdge": 0.003,
+   "minTube": 0.0061,
+   "minWall": 0.0001,
+   "thick": 0.0546,
+   "avgTri": 0.00004,
    "anglePct": 3,
-   "pieces": 72,
-   "vpt": 2.05,
+   "pieces": 83,
+   "vpt": 2.34,
    "cells": [
     "3,1"
    ],
@@ -410701,7 +410685,14 @@
     "plural",
     "rgp"
    ],
-   "variant": "rgp-medieval/grass"
+   "variant": "rgp-medieval/grass",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0001 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -439631,7 +439622,23 @@
     "wood-mid"
    ],
    "variant": "styloo-guns/rocket-launcher",
-   "thickRel": 0.86
+   "backface": {
+    "share": 0.0023,
+    "view": "270/20",
+    "causes": {
+     "inverted": 0.57,
+     "other": 0.38,
+     "open": 0.05
+    }
+   },
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 270/20 over 0.1%: inverted 57.0%, other 38.0%, open 5.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-guns",
@@ -446305,7 +446312,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 1.14
+   "thickRel": 1.15
   },
   {
    "kit": "styloo-school",
@@ -455692,7 +455699,7 @@
     "plastic"
    ],
    "variant": "taalei-kit/typewriter",
-   "thickRel": 0.91,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "error",
