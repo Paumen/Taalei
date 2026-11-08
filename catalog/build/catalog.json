@@ -524,7 +524,7 @@
     "smooth": 87
    },
    "kitCheck": {
-    "factor": 1.03,
+    "factor": 0.99,
     "kinds": 34
    }
   },
@@ -4135,7 +4135,7 @@
     "none": 9
    },
    "kitCheck": {
-    "factor": 1.07,
+    "factor": 1.06,
     "kinds": 38
    }
   },
@@ -51172,29 +51172,29 @@
   {
    "kit": "cooking-assets",
    "name": "cutlery-set",
-   "hash": "d08e1be62a",
+   "hash": "26fee41870",
    "kind": "obj-kitchenware-tableware-cutlery",
    "size": "s",
    "wdh": [
-    0.18,
-    0.299,
-    0.044
+    0.131,
+    0.218,
+    0.03
    ],
    "tris": 798,
    "tpu": 2327,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 28292,
+   "bytes": 28272,
    "vtx": 692,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0114,
-   "minWall": 0.0062,
-   "thick": 0.0644,
-   "avgTri": 0.00008,
-   "anglePct": 23,
+   "minEdge": 0,
+   "minTube": 0.0083,
+   "minWall": 0.0014,
+   "thick": 0.0639,
+   "avgTri": 0.00004,
+   "anglePct": 24,
    "pieces": 3,
    "vpt": 0.87,
    "cells": [
@@ -51208,7 +51208,14 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/cutlery-set",
-   "thickRel": 0.34
+   "thickRel": 0.34,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0014 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -51550,29 +51557,29 @@
   {
    "kit": "cooking-assets",
    "name": "fork",
-   "hash": "1677d46bec",
+   "hash": "cc6ae5b1fb",
    "kind": "obj-kitchenware-tableware-cutlery-fork",
    "size": "s",
    "wdh": [
-    0.041,
-    0.032,
-    0.298
+    0.029,
+    0.02,
+    0.216
    ],
    "tris": 408,
    "tpu": 1190,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19492,
+   "bytes": 19472,
    "vtx": 412,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0289,
-   "minWall": 0.0061,
-   "thick": 0.2647,
-   "avgTri": 0.00005,
-   "anglePct": 13,
+   "minEdge": 0,
+   "minTube": 0.0175,
+   "minWall": 0.0014,
+   "thick": 0.2484,
+   "avgTri": 0.00002,
+   "anglePct": 11,
    "pieces": 1,
    "vpt": 1.01,
    "cells": [
@@ -51586,7 +51593,14 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/cutlery-set",
-   "thickRel": 1.2
+   "thickRel": 1.13,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0014 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -51732,33 +51746,33 @@
     "glass",
     "mab"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.11
   },
   {
    "kit": "cooking-assets",
    "name": "goblet",
-   "hash": "d1f96a1095",
+   "hash": "231fee453d",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
-    0.093,
-    0.093,
-    0.159
+    0.088,
+    0.088,
+    0.157
    ],
    "tris": 288,
    "tpu": 840,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12172,
+   "bytes": 12152,
    "vtx": 282,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0068,
-   "thick": 0.0866,
-   "avgTri": 0.00017,
-   "anglePct": 12,
+   "minEdge": 0.003,
+   "minWall": 0.0029,
+   "thick": 0.0757,
+   "avgTri": 0.00016,
+   "anglePct": 11,
    "pieces": 1,
    "vpt": 0.98,
    "cells": [
@@ -51771,7 +51785,14 @@
     "glass",
     "mab"
    ],
-   "thickRel": 1
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0029 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -51811,7 +51832,7 @@
     "mab"
    ],
    "variant": "cooking-assets/cocktail-glass",
-   "thickRel": 1.61
+   "thickRel": 1.62
   },
   {
    "kit": "cooking-assets",
@@ -52665,7 +52686,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 3.45,
+   "thickRel": 3.49,
    "lint": [
     {
      "level": "warning",
@@ -52677,28 +52698,28 @@
   {
    "kit": "cooking-assets",
    "name": "pilsner-glass",
-   "hash": "2a9da6ee19",
+   "hash": "fa63e462d2",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
-    0.085,
-    0.085,
-    0.12
+    0.078,
+    0.078,
+    0.116
    ],
    "tris": 162,
    "tpu": 472,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 6768,
+   "bytes": 6748,
    "vtx": 136,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
-   "minWall": 0.0095,
-   "thick": 0.1016,
-   "avgTri": 0.00034,
-   "anglePct": 11,
+   "minWall": 0.0008,
+   "thick": 0.08,
+   "avgTri": 0.00032,
+   "anglePct": 10,
    "pieces": 2,
    "vpt": 0.84,
    "cells": [
@@ -52712,7 +52733,14 @@
     "mab"
    ],
    "variant": "cooking-assets/pilsner-glass",
-   "thickRel": 1
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0008 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -53325,7 +53353,7 @@
     "mab",
     "metal-steel"
    ],
-   "thickRel": 3.31,
+   "thickRel": 3.34,
    "lint": [
     {
      "level": "warning",
@@ -53371,7 +53399,7 @@
     "glass",
     "mab"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.98
   },
   {
    "kit": "cooking-assets",
@@ -54204,7 +54232,7 @@
     "glass",
     "mab"
    ],
-   "thickRel": 0.87,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -54252,7 +54280,7 @@
     "mab"
    ],
    "variant": "cooking-assets/pilsner-glass",
-   "thickRel": 1.42
+   "thickRel": 1.54
   },
   {
    "kit": "cooking-assets",
@@ -71459,7 +71487,7 @@
     "glass"
    ],
    "variant": "food-pack-2/milk-glass",
-   "thickRel": 2.5
+   "thickRel": 2.7
   },
   {
    "kit": "food-pack-2",
@@ -71499,7 +71527,7 @@
     "special-liquid"
    ],
    "variant": "food-pack-2/milk-glass",
-   "thickRel": 2.5
+   "thickRel": 2.7
   },
   {
    "kit": "food-pack-2",
@@ -103809,7 +103837,7 @@
     "plastic"
    ],
    "variant": "isa-bakery/cup-takeaway",
-   "thickRel": 0.79,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -111921,7 +111949,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.92,
+   "thickRel": 2.93,
    "lint": [
     {
      "level": "warning",
@@ -112662,7 +112690,7 @@
     "paper-sheet",
     "wood-dark"
    ],
-   "thickRel": 2.27,
+   "thickRel": 2.28,
    "lint": [
     {
      "level": "warning",
@@ -121381,7 +121409,7 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 2.88
+   "thickRel": 2.91
   },
   {
    "kit": "jb-kitchen",
@@ -146270,7 +146298,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.97,
+   "thickRel": 1.98,
    "lint": [
     {
      "level": "warning",
@@ -160895,7 +160923,7 @@
     "kay",
     "special-liquid"
    ],
-   "thickRel": 2.84
+   "thickRel": 3.07
   },
   {
    "kit": "kay-holiday",
@@ -201860,7 +201888,7 @@
     "paper-sheet",
     "special-food"
    ],
-   "thickRel": 2.81,
+   "thickRel": 2.85,
    "lint": [
     {
      "level": "warning",
@@ -203449,7 +203477,7 @@
     "scale-big",
     "wood-dark"
    ],
-   "thickRel": 3.56
+   "thickRel": 3.6
   },
   {
    "kit": "ken-food",
@@ -204361,7 +204389,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 2.55
+   "thickRel": 2.58
   },
   {
    "kit": "ken-food",
@@ -272627,7 +272655,7 @@
     "glass",
     "lpa"
    ],
-   "thickRel": 0.92
+   "thickRel": 1
   },
   {
    "kit": "lpa-home",
@@ -272798,7 +272826,7 @@
     "metal-steel",
     "paper-sheet"
    ],
-   "thickRel": 2.26,
+   "thickRel": 2.27,
    "lint": [
     {
      "level": "warning",
@@ -291034,7 +291062,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 2.63
+   "thickRel": 2.66
   },
   {
    "kit": "m3-base",
@@ -295981,12 +296009,12 @@
   {
    "kit": "m3-base",
    "name": "fish-slice",
-   "hash": "b51bd5a8a4",
+   "hash": "a99773a8eb",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
     0.054,
-    0.034,
+    0.032,
     0.28
    ],
    "tris": 610,
@@ -295999,11 +296027,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0074,
-   "minWall": 0.006,
-   "thick": 0.1962,
-   "avgTri": 0.00004,
-   "anglePct": 46,
+   "minTube": 0.0176,
+   "minWall": 0.0015,
+   "thick": 0.2045,
+   "avgTri": 0.00003,
+   "anglePct": 58,
    "pieces": 7,
    "vpt": 1.04,
    "cells": [
@@ -296020,7 +296048,14 @@
     "plastic"
    ],
    "variant": "m3-base/spatula",
-   "thickRel": 1.49
+   "thickRel": 1.55,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0015 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -306571,7 +306606,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.75,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "warning",
@@ -306619,7 +306654,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.72,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "warning",
@@ -310789,7 +310824,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.95
   },
   {
    "kit": "m3-base",
@@ -315169,7 +315204,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 2.87,
+   "thickRel": 2.9,
    "lint": [
     {
      "level": "warning",
@@ -317723,7 +317758,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.92
+   "thickRel": 1.93
   },
   {
    "kit": "m3-base",
@@ -323086,7 +323121,7 @@
     "glass",
     "m3"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -323376,7 +323411,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-glass",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "m3-base",
@@ -354085,7 +354120,7 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 2.53
+   "thickRel": 2.57
   },
   {
    "kit": "quat-food",
@@ -354127,7 +354162,7 @@
     "qua",
     "special-liquid"
    ],
-   "thickRel": 1.44,
+   "thickRel": 1.46,
    "lint": [
     {
      "level": "warning",
@@ -359066,31 +359101,31 @@
   {
    "kit": "quat-interior",
    "name": "knife",
-   "hash": "661f4674c8",
+   "hash": "86070ca6b0",
    "kind": "obj-kitchenware-tableware-cutlery-knife",
    "size": "s",
    "wdh": [
-    0.022,
-    0.263,
-    0.009
+    0.017,
+    0.202,
+    0.003
    ],
-   "tris": 116,
-   "tpu": 338,
+   "tris": 112,
+   "tpu": 327,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5796,
+   "bytes": 5772,
    "vtx": 112,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0074,
-   "minWall": 0.0068,
+   "minEdge": 0.002,
+   "minTube": 0.0025,
+   "minWall": 0.002,
    "thick": 0.4012,
-   "avgTri": 0.00009,
-   "anglePct": 90,
+   "avgTri": 0.00004,
+   "anglePct": 95,
    "pieces": 1,
-   "vpt": 0.97,
+   "vpt": 1,
    "cells": [
     "15,3"
    ],
@@ -359101,7 +359136,19 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.55
+   "thickRel": 1.55,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0025 wants min 0.006"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.002 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -436684,7 +436731,7 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 2.7
+   "thickRel": 2.74
   },
   {
    "kit": "styloo-food",
@@ -437519,13 +437566,13 @@
   {
    "kit": "styloo-food",
    "name": "ramen-spoon",
-   "hash": "8006900524",
+   "hash": "5aabc5f6f1",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.079,
-    0.081,
-    0.253
+    0.077,
+    0.251
    ],
    "tris": 282,
    "tpu": 822,
@@ -437537,8 +437584,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0063,
-   "thick": 0.1279,
+   "minWall": 0.0035,
+   "thick": 0.1176,
    "avgTri": 0.0001,
    "anglePct": 0,
    "pieces": 1,
@@ -437553,7 +437600,14 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.79,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0035 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "styloo-food",
@@ -437595,7 +437649,7 @@
     "metal-steel",
     "sty"
    ],
-   "thickRel": 3.19,
+   "thickRel": 3.22,
    "lint": [
     {
      "level": "warning",
@@ -438982,12 +439036,12 @@
   {
    "kit": "styloo-furniture",
    "name": "wooden-spoon-round",
-   "hash": "496356f620",
+   "hash": "f636428d0d",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.058,
-    0.013,
+    0.01,
     0.2
    ],
    "tris": 333,
@@ -439000,11 +439054,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0087,
-   "minWall": 0.0068,
-   "thick": 0.1465,
-   "avgTri": 0.00005,
-   "anglePct": 36,
+   "minWall": 0.0034,
+   "thick": 0.131,
+   "avgTri": 0.00004,
+   "anglePct": 46,
    "pieces": 1,
    "vpt": 1.52,
    "cells": [
@@ -439018,7 +439071,14 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/wooden-spoon",
-   "thickRel": 0.98
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0034 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "styloo-furniture",
