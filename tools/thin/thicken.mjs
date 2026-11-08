@@ -8,7 +8,9 @@ along its normal, so the part keeps its triangles and shape. Single sheets and
 thin layers lying on another part are left alone and listed.
 --list prints parts and walls only. --parts limits the change to those ids.
 --away grows only the faces turned away from the model's centre, so inner
-parts are not covered.`;
+parts are not covered.
+--sheet moves each point only along its biggest face's normal, so thin
+sheets and blades get thicker without growing wider or losing sharp edges.`;
 
 const LAYER = 0.026, GAP = 0.002, SHARE = 0.2, FACING = -0.9, MIN_AREA = 0.002;
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -124,7 +126,7 @@ function walls(m) {
   return out;
 }
 
-function grow(m, list, to, only, away) {
+function grow(m, list, to, only, away, sheet) {
   const { P, tris, parts } = m;
   const centre = [0, 1, 2].map((k) => P.reduce((s, p) => s + p[k], 0) / P.length);
   const moved = new Map();
@@ -139,11 +141,15 @@ function grow(m, list, to, only, away) {
       const d = away ? (dot(t.n, sub(mid, centre)) > 0 ? 2 * delta : 0) : delta;
       for (const w of t.w) {
         const list = normals.get(w) ?? [];
-        if (!list.some((x) => dot(x.n, t.n) > 0.999)) list.push({ n: t.n, d });
+        if (!list.some((x) => dot(x.n, t.n) > 0.999)) list.push({ n: t.n, d, area: t.area });
         normals.set(w, list);
       }
     }
-    for (const [w, ns] of normals) moved.set(w, solve(ns, delta));
+    for (const [w, ns] of normals) {
+      if (!sheet) { moved.set(w, solve(ns, delta)); continue; }
+      const big = ns.reduce((a, b) => (b.area > a.area ? b : a));
+      moved.set(w, big.n.map((v) => v * big.d));
+    }
     done.push({ id: p.id, from: p.wall, delta });
   }
   const next = P.map((p, w) => (moved.has(w) ? p.map((v, k) => v + moved.get(w)[k]) : p));
@@ -164,7 +170,7 @@ for (const p of list.filter((p) => p.counts).sort((a, b) => (a.wall ?? 9) - (b.w
 }
 if (args.includes('--list')) process.exit(0);
 const only = opt('--parts')?.split(',').map(Number) ?? null;
-const { next, done } = grow(m, list, to, only, args.includes('--away'));
+const { next, done } = grow(m, list, to, only, args.includes('--away'), args.includes('--sheet'));
 const { prim, vid } = m;
 const accessor = glb.json.accessors[prim.attributes.POSITION];
 const bytes = Buffer.alloc(accessor.count * 12);
