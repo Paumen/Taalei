@@ -252,4 +252,10 @@ export const BRONKITS = [
   { map: 'Buildings_Pack_Jan_2019_Quaternius', naam: 'Buildings Pack (Jan 2019)', kit: 'quat-buildings-2', source: 'qua', formaat: 'obj' },
   { map: 'Furniture_Pack_Quaternius', naam: 'Furniture Pack', kit: 'quat-furniture', source: 'qua', formaat: 'obj' },
   { map: 'Ultimate_Textured_Building_Pack', naam: 'Ultimate Textured Building Pack', kit: 'quat-textured', source: 'qua', formaat: 'obj', alleMappen: true },
+
+  { map: 'kenney_mini-shop_2.1', naam: 'Kenney Mini Shop', kit: null, source: 'ken', formaat: 'glb' },
+  { map: 'Colorful_City_Basic_Voloshka', naam: 'Colorful Low Poly City (Basic)', kit: null, formaat: 'fbx', splitsPerMesh: true, schaalPerFormaat: { fbx: 0.01 } },
+  { map: 'Low_Poly_Bedroom_Kyle_Fuji', naam: 'Low Poly Bedroom Asset Pack', kit: null, formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
+  { map: 'Cozy_Cafe_Furniture_Oceanic', naam: 'Low-Poly Cozy Cafe Furniture (Free)', kit: null, formaat: 'fbx', schaalPerFormaat: { fbx: 0.01 } },
+  { map: 'Modular_Prototyping_Rgsdev', naam: 'Free 3D Modular Game Assets For Prototyping', kit: null, formaat: 'fbx', alleMappen: true, schaalPerFormaat: { fbx: 0.01 } },
 ];
