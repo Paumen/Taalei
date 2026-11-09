@@ -64,17 +64,20 @@ the table lists the other indicators.
 
 1. **Pick models**: the ones the PO names, or candidates from Finding them.
    Batch by kind or kit; one sub agent per batch.
-2. **Brief**: read past verdicts (Review and learn) and the style examples:
+2. **Brief**: the main session reads past verdicts (Review and learn) and the
+   style examples once, and passes each sub agent a short digest. Examples:
    the [LoD example set](https://claude.ai/artifact/QG6bTDZxYCKLpXp5tM8yTG),
-   glbs in `examples/` next to this file, one folder per card, sources in
-   `examples/LIST.txt`. Both go in every sub agent's brief.
+   with glbs in `examples/` next to this file; `examples/LIST.txt` gives each
+   card's tag, why, and which version is right.
 3. **Look first**: render the model next to its kind's peers, and its source
    where that helps. Name the problems from the table by eye; indicators only
    say where to look twice.
 4. **Fix**: pick from Fixes what suits the problem and the spot. Models tied
    to it (colour variants, modular pieces) get the same edit.
-5. **Check**: the fresh checker judges before and after (Checks). The result
-   then goes where Where a result goes says.
+5. **Check**: sub agents can't start agents, so the main session renders
+   before and after, calls the fresh checker (Checks) and passes its verdict
+   back to the batch's sub agent. The result then goes where Where a result
+   goes says.
 6. **Lints**: at the end of a batch, rebuild the catalogue and run the lints
    and `golden` once; fix new findings. A clean lint is never a visual check.
 7. **Review**: models that need a look go on a `LoD: …` page
@@ -139,15 +142,17 @@ peers use.
   matches; the rest get thicker. The count matters as much as the look: does
   it still read as "covered in sprinkles" or "a spiral binding"? Kept:
   matchbox 11 → 6. Sent back: comb 20 → 10, teeth became blocks. Tool:
-  `tools/detail/slim.mjs`.
+  `tools/detail/slim.mjs`: `parts <glb>` lists part ids, and
+  `edit <glb> '<ops>' --out <glb>` applies the ops `drop`, `replace`,
+  `lathe`, `net` and `add` named below (no arguments prints help).
 - **Drop part**: screws, rivets, bolts, small feet, lettering, decals, knobs
   on the back, clips. Never a part that makes the type. A dropped part leaves
-  no hole (lighter-01). Tool: `slim.mjs drop`.
+  no hole (lighter-01). Tool: `slim.mjs` op `drop`.
 - **Swap shape**: a dense tube, sphere or cone becomes a plain one; it keeps
   colour, size, placement and shading, and never goes thinner than the
   original's thinnest tube. A fine net gets bigger holes, same regular
   pattern. A turned part tight inside an untouched round neighbour: lathe
-  both or neither. Tools: `slim.mjs replace`, `lathe`, `net`.
+  both or neither. Tools: `slim.mjs` ops `replace`, `lathe` (fewer sides only), `net`.
 - **Rebuild part**: a clean closed solid on the part's own outline, when
   patching keeps failing. Kept: paper-tidy label frame (★), wall-rack sheets
   as boards (★), bullet casing capped (`tools/thin/cap.mjs`). Sent back:
@@ -158,13 +163,12 @@ peers use.
 **Too coarse**
 
 - **Thin out**: shrink a swollen part back toward its peers, around its
-  middle or from one side. Tools: `thicken.mjs` with a negative push where it
-  fits, by hand.
+  middle or from one side. By hand, or a new tool (`thicken.mjs` only grows).
 - **Undo**: an earlier tool made a part thinner or thicker than needed; take
   that part from the source or the version before that round (git).
 - **Restore detail**: bring back a lost point, opening, groove or repeat;
   more sides on a round part that turned faceted. Tools: the source model,
-  `slim.mjs add` and `lathe`, by hand.
+  `slim.mjs` op `add`, by hand (`lathe` only cuts sides).
 - **Rebuild from source**: a part simplified into a block is rebuilt from the
   source shape at catalogue thickness.
 - **Size, not shape**: a whole model that reads too chunky because of its
@@ -217,12 +221,12 @@ Testing the skill will refine this guidance and show which modes work best.
 
 ## Review and learn
 
-Review pages are titled `LoD: …`. Before a round, and in every sub agent's
-brief, read past verdicts from `LoD:`, `Thin:` and `Detail:` pages:
+Review pages are titled `LoD: …`. Before a round, read past verdicts from
+lod, thin and detail reviews (`--review` matches any title holding the text):
 
-    node tools/review/review.mjs brief --review "LoD:"
-    node tools/review/review.mjs brief --review "Thin:"
-    node tools/review/review.mjs brief --review "Detail:"
+    node tools/review/review.mjs brief --review lod
+    node tools/review/review.mjs brief --review thin
+    node tools/review/review.mjs brief --review detail
 
 Only PO verdicts count. Copy what was kept or ★, avoid what was sent back.
 
