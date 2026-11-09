@@ -99781,7 +99781,7 @@
   {
    "kit": "household",
    "name": "wine-glass",
-   "hash": "1a525105c1",
+   "hash": "e0a9e56502",
    "kind": "obj-kitchenware-tableware-drinkware-stemware",
    "size": "s",
    "wdh": [
@@ -99799,10 +99799,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0063,
-   "thick": 0.1161,
-   "avgTri": 0.00012,
-   "anglePct": 5,
+   "minWall": 0.0064,
+   "thick": 0.1163,
+   "avgTri": 0.00013,
+   "anglePct": 7,
    "pieces": 1,
    "vpt": 1.89,
    "cells": [
@@ -99815,7 +99815,7 @@
     "ct",
     "glass"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "household",
@@ -165092,7 +165092,7 @@
   {
    "kit": "kay-mixed",
    "name": "frame-c",
-   "hash": "cb579020cc",
+   "hash": "5b5ec990c6",
    "kind": "obj-leisure-art-frame",
    "size": "m",
    "wdh": [
@@ -165100,27 +165100,27 @@
     0.027,
     0.39
    ],
-   "tris": 1829,
-   "tpu": 5332,
+   "tris": 1645,
+   "tpu": 4796,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 100312,
-   "vtx": 2746,
+   "bytes": 87400,
+   "vtx": 2376,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0034,
-   "minWall": 0.0007,
-   "thick": 0.0581,
-   "avgTri": 0.00051,
+   "minTube": 0.0062,
+   "minWall": 0.0062,
+   "thick": 0.0582,
+   "avgTri": 0.00057,
    "anglePct": 85,
-   "pieces": 113,
-   "vpt": 1.5,
+   "pieces": 82,
+   "vpt": 1.44,
    "cells": [
     "1,0",
-    "5,2",
     "13,3",
+    "5,2",
     "8,0"
    ],
    "colors": [
@@ -165141,12 +165141,12 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0034 wants min 0.012"
+     "text": "G27 minTube 0.0062 wants min 0.012"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -297857,11 +297857,11 @@
   {
    "kit": "m3-base",
    "name": "globe",
-   "hash": "4e120db885",
+   "hash": "3786122a9c",
    "kind": "obj-device-science-astro-globe",
    "size": "s",
    "wdh": [
-    0.237,
+    0.238,
     0.219,
     0.311
    ],
@@ -297875,10 +297875,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.004,
-   "thick": 0.2313,
+   "minWall": 0.0062,
+   "thick": 0.2296,
    "avgTri": 0.00019,
-   "anglePct": 13,
+   "anglePct": 12,
    "pieces": 3,
    "vpt": 0.81,
    "cells": [
@@ -297900,12 +297900,12 @@
     "tba",
     "wood-mid"
    ],
-   "thickRel": 1.11,
+   "thickRel": 1.1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.004 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -471280,28 +471280,28 @@
    "kit": "wizp-tree",
    "collection": "wizp-grave",
    "name": "waterlilies-white",
-   "hash": "c6498941e7",
+   "hash": "75efb66183",
    "kind": "env-flora-waterplant-lilypad",
    "size": "m",
    "wdh": [
-    0.473,
+    0.474,
     0.536,
-    0.047
+    0.048
    ],
    "tris": 1746,
    "tpu": 5090,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 98064,
+   "bytes": 98084,
    "vtx": 2693,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.003,
-   "thick": 0.0442,
+   "minEdge": 0.003,
+   "minWall": 0.006,
+   "thick": 0.0444,
    "avgTri": 0.00013,
-   "anglePct": 48,
+   "anglePct": 45,
    "pieces": 24,
    "vpt": 1.54,
    "cells": [
@@ -471318,41 +471318,34 @@
     "special-organic",
     "wizp"
    ],
-   "variant": "wizp-tree/waterlilies-white",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
-    }
-   ]
+   "variant": "wizp-tree/waterlilies-white"
   },
   {
    "kit": "wizp-tree",
    "collection": "wizp-grave",
    "name": "waterlilies-yellow",
-   "hash": "585ddc0418",
+   "hash": "9391e01343",
    "kind": "env-flora-waterplant-lilypad",
    "size": "m",
    "wdh": [
-    0.473,
+    0.474,
     0.536,
-    0.047
+    0.048
    ],
    "tris": 1746,
    "tpu": 5090,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 98068,
+   "bytes": 98088,
    "vtx": 2693,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0031,
+   "minWall": 0.0061,
    "thick": 0.0442,
    "avgTri": 0.00013,
-   "anglePct": 40,
+   "anglePct": 38,
    "pieces": 24,
    "vpt": 1.54,
    "cells": [
@@ -471369,14 +471362,7 @@
     "special-organic",
     "wizp"
    ],
-   "variant": "wizp-tree/waterlilies-white",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0031 wants min 0.006"
-    }
-   ]
+   "variant": "wizp-tree/waterlilies-white"
   },
   {
    "kit": "wizp-tree",

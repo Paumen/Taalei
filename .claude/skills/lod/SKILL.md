@@ -65,7 +65,8 @@ the table lists the other indicators.
 1. **Pick models**: the ones the PO names, or candidates from Finding them.
    Batch by kind or kit; one sub agent per batch.
 2. **Brief**: the main session reads past verdicts (Review and learn) and the
-   style examples once, and passes each sub agent a short digest. Examples:
+   style examples once, and passes each sub agent the relevant verdicts as
+   quotes (Review and learn). Examples:
    the [LoD example set](https://claude.ai/artifact/QG6bTDZxYCKLpXp5tM8yTG),
    with glbs in `examples/` next to this file; `examples/LIST.txt` gives each
    card's tag, why, and which version is right.
@@ -241,7 +242,14 @@ lod, thin and detail reviews (`--review` matches any title holding the text):
     node tools/review/review.mjs brief --review thin
     node tools/review/review.mjs brief --review detail
 
-Only PO verdicts count. Copy what was kept or ★, avoid what was sent back.
+Only PO verdicts count. They calibrate style; they never decide a model:
+
+- The PO's latest verdict and comment on a model is its task. Work toward
+  what it says; never overrule it with an older verdict or a verdict on
+  another model.
+- A past verdict never drops a model, marks it done, or replaces looking at
+  it.
+- Pass verdicts on as quotes with the model they were on, never as rules.
 
 ## Edge cases: unusual outcomes and proposals
 
