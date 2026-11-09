@@ -1,0 +1,305 @@
+LoD example set: one glb per version on each of the 58 cards of https://claude.ai/artifact/QG6bTDZxYCKLpXp5tM8yTG.
+Per card: model id, kind, the card's own tag and why, then each glb with the card's mark (✓ right, ✗ wrong, no mark) and where it came from.
+Tags and marks are copied from the cards as they are.
+Workfile glbs use ../Textures/colormap.png. Source glbs are the untouched pack models, with their own textures, colours, size and pose.
+
+bar-stool/  m3-base/stool-01  (obj-furnishing-furniture-seating-stool-bar)
+  tag: lod · why: fussy turned legs to plain posts, still reads as a bar stool
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+scaffold-corner/  kay-dun-1/scaffold-medium-corner-both  (str-part-frame-scaffold)
+  tag: color bug · why: stray posts, hard to spot
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+hanging-screen/  ken-factory/screen-hanging-small  (obj-device-electronics-screen)
+  tag: color bug · why: subtle recess fix
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+wooden-chair/  emace-village/chair  (obj-furnishing-furniture-seating-chair)
+  tag: color bug · why: one wood throughout
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+rowboat/  fs-town/boat-b  (obj-transport-watercraft-boat-rowboat)
+  tag: color: recognizability / aesthetics · why: seats read apart from hull
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+cake-slice/  food-pack-2/cake-chocolate-slice  (obj-food-baked-cake)
+  tag: color: recognizability / aesthetics · why: sponge apart from frosting
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+claymore-mine/  rgp-explosives/claymore  (obj-equipment-weapon-explosive-mine)
+  tag: color: recognizability / aesthetics · why: legs read apart from the case
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+sniper-rifle/  quat-guns/sniper-rifle  (obj-equipment-weapon-ranged-firearm-rifle-sniper)
+  tag: color: recognizability / aesthetics · why: wood and metal read apart
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+pancakes/  styloo-food/pancakes  (obj-food-baked-pastry-pancake)
+  tag: color bug + recognizability / aesthetics · why: stray patches gone, syrup reads
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+sandwich/  food-pack-2/sandwich-pb-jelly  (obj-food-meal-sandwich)
+  tag: color bug · why: smeared patch gone, clean crust
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+stove/  cooking-assets/stove  (obj-device-appliance-stove)
+  tag: color: recognizability / aesthetics · why: grate reads as cast iron on the hob
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+stairs/  pm-store/stairs  (str-access-stairs-step)
+  tag: color: recognizability / aesthetics · why: clean risers, reads as stairs
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+crank/  dungeon/crank  (obj-equipment-tool-mechanism-lever)
+  tag: chunkiness · why: pin and knob change hard to see
+  ✗ wrong  before.glb  (before)  <- git 7a28edf58
+  ✓ right  after.glb  (after)  <- git 5f0271b63
+
+electric-oven/  cooking-assets/electric-oven  (obj-device-appliance-oven)
+  tag: color: recognizability / aesthetics · why: hidden parts only
+  ✗ wrong  before.glb  (before)  <- git 2ab71403b
+  ✓ right  after.glb  (after)  <- git 8a76385d4
+
+spanner/  m3-base/spanner-02  (obj-equipment-tool-hand-wrench)
+  tag: chunkiness · why: thicker, like its sibling
+  ✗ wrong  before.glb  (before)  <- git 34ea78574
+  ✓ right  after.glb  (after)  <- git 0a901a104
+
+spiked-club/  m3-base/spiked-club-01  (obj-equipment-weapon-melee-club)
+  tag: chunkiness · why: stick made a club
+  ✗ wrong  before.glb  (before)  <- git 2108a3659
+  ✓ right  after.glb  (after)  <- git 431c522e2
+
+iron-doorway/  dungeon/ironwalls  (str-part-wall-unit-doorway)
+  tag: chunkiness · why: bars thicker, subtle at this size
+  ✗ wrong  before.glb  (before)  <- git 7a28edf58
+  ✓ right  after.glb  (after)  <- git 8a76385d4
+
+octopus-sushi/  quat-sushi/octopus-nigiri  (obj-food-fish-sushi)
+  tag: lod · why: good rule (drop smallest), but hard to see from this side
+  note: seen from the back
+  ✗ wrong  biggest-removed-too-little.glb  (biggest removed: too little)
+  ✓ right  smallest-removed-right.glb  (smallest removed: right)
+  ✗ wrong  before-too-much.glb  (before: too much)
+
+floor-vent/  quat-megakit/vent-small  (str-fixture-installation)
+  tag:  · why: fewer, wider slots: fiddly grate made chunky
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+pipe-column/  quat-megakit/column-pipes  (str-part-pillar)
+  tag: chunkiness · why: fussy rounded frame to plain bars, same structure
+  ✗ wrong  before.glb
+  ✓ right  now.glb  <- kits/workfiles/quat-megakit/column-pipes.glb
+  ✗ wrong  thicker.glb
+
+checkered-flag/  ken-racing/flag-checkers  (str-fixture-marker-flag)
+  tag: color: recognizability / aesthetics · why: blank cloth to checker: too plain made recognisable
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+matchbox/  quat-survival/matchbox  (obj-equipment-tool-supplies)
+  tag: lod · why: fewer repeats, still a full matchbox; one match has the box colour
+  note: left match recoloured to wood
+  ✗ wrong  before.glb  (before)  <- git 296f8882d^
+  ✓ right  after-fixed.glb  (after (fixed))  <- kits/workfiles/quat-survival/matchbox.glb
+
+hand-saw/  m3-base/saw  (obj-equipment-tool-hand-saw)
+  tag: geometry recognizability · why: teeth added: too plain blade now reads as a saw
+  ✗ wrong  before.glb  (before)  <- git 34ea78574
+  ✓ right  after.glb  (after)  <- git 8a76385d4
+
+grapes/  ken-food/grapes  (obj-food-fruit-grapes)
+  tag: geometry recognizability · why: lumpy cone rebuilt as a clear grape bunch with fewer tris
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+small-checkered-flag/  ken-racing/flag-checkers-small  (str-fixture-marker-flag)
+  tag: color bug + recognizability / aesthetics · why: fiddly sawtooth strips to a clean checker flag
+  ✗ wrong  before.glb  (before)
+  ✓ right  after.glb  (after)
+
+coat-rack/  rgp-vintage/coat-rack  (obj-furnishing-furniture-storage-rack-coat)
+  tag: lod
+  ✗ wrong  source.glb  <- source Vintage_Room_Vintage_Room.zip/Vintage Room/Props1/Coat Hanger.fbx (converted)
+  ✓ right  now.glb  <- kits/workfiles/rgp-vintage/coat-rack.glb
+  ✗ wrong  thicker.glb
+
+lead-pipe/  zombie-weapons/lead-pipe  (obj-equipment-weapon-melee-club)
+  tag: chunkiness
+  ✗ wrong  source.glb  <- source Weapons_Pack_002_In_Case_of_Zombies_Weapons_Pack_002_In_Case_of_Zombies-glb.zip/Pipe.glb
+  ✓ right  now.glb  <- kits/workfiles/zombie-weapons/lead-pipe.glb
+  ✗ wrong  thicker.glb
+
+wall-lantern/  quat-props/lantern-wall  (obj-furnishing-light-lantern)
+  tag: lod + chunkiness
+  ✗ wrong  source.glb  (source)  <- source FantasyProps_glTF_1k_FantasyProps_glTF_1k.zip/FantasyProps_glTF_1k/Lantern_Wall.gltf
+  ✓ right  now.glb  (now)  <- kits/workfiles/quat-props/lantern-wall.glb
+
+bowling-ball-rack/  sq-bowling/ball-rack  (obj-furnishing-furniture-storage-rack)
+  tag: lod + chunkiness
+  ✗ wrong  source.glb  (source)  <- source League_Night_Bowling_Alley_league-night-bowling-alley-props-free.zip/league_night/pack.glb#ball_rack (converted)
+  ✓ right  now.glb  (now)  <- kits/workfiles/sq-bowling/ball-rack.glb
+
+mixing-desk/  sq-studio/mixing-console  (obj-device-electronics-audio)
+  tag: lod + chunkiness
+  ✗ wrong  source.glb  (source)  <- source Studio_Time_Recording_Studio_studio-time-recording-studio-props-free.zip/studio_time/pack.glb#mixing_console (converted)
+  ✓ right  now.glb  (now)  <- kits/workfiles/sq-studio/mixing-console.glb
+
+desk-fan/  lpa-home/fan  (obj-device-appliance)
+  tag: lod + chunkiness
+  ✗ wrong  source.glb  (source)  <- source Low_Poly_Household_Items_Low_Poly_Household_Items.zip/Low Poly Furniture/Miscellaneous/Fan.fbx (converted)
+  ✓ right  now.glb  (now)  <- kits/workfiles/lpa-home/fan.glb
+
+hand-cart/  lpa-west/cart-a  (obj-transport-land-cart)
+  tag: chunkiness
+  ✗ wrong  source.glb  (source)  <- source Low_Poly_Wild_West_Low_Poly_Wild_West.zip/Low Poly Wild West/Transportation/Cart A.fbx (converted)
+  ✓ right  now.glb  (now)  <- kits/workfiles/lpa-west/cart-a.glb
+
+hanging-bell/  fs-town/bell-a  (obj-leisure-art-instrument-bell)
+  tag: chunkiness
+  ✗ wrong  source.glb  (source)  <- source Modular_Village_modular_village_collection.zip/Modular Village/Wall_Prop_Bell_1.obj (converted)
+  ✓ right  now.glb  (now)  <- kits/workfiles/fs-town/bell-a.glb
+
+air-hockey/  ken-arcade/air-hockey  (obj-leisure-game-arcade)
+  tag: chunkiness + lod
+  ✗ wrong  source.glb  (source)  <- source kenney_mini-arcade_1_kenney_mini-arcade_1.zip/Models/GLB format/air-hockey.glb
+  ✓ right  now.glb  (now)  <- kits/workfiles/ken-arcade/air-hockey.glb
+
+basketball-arcade/  ken-arcade/basketball-game  (obj-leisure-game-arcade)
+  tag: chunkiness + lod
+  ✗ wrong  source.glb  (source)  <- source kenney_mini-arcade_1_kenney_mini-arcade_1.zip/Models/GLB format/basketball-game.glb
+  ✓ right  now.glb  (now)  <- kits/workfiles/ken-arcade/basketball-game.glb
+
+tall-flowers/  ken-platformer/flowers-tall  (env-flora-plant-flower)
+  tag: chunkiness
+  ✗ wrong  source.glb  (source)  <- source kenney_platformer-kit_kenney_platformer-kit.zip/Models/GLB format/flowers-tall.glb
+  ✓ right  now.glb  (now)  <- kits/workfiles/ken-platformer/flowers-tall.glb
+
+pickaxe/  quat-props/pickaxe-bronze  (obj-equipment-tool-twohand-pickaxe)
+  tag: chunkiness
+  ✗ wrong  source.glb  (source)  <- source FantasyProps_glTF_1k_FantasyProps_glTF_1k.zip/FantasyProps_glTF_1k/Pickaxe_Bronze.gltf
+  ✓ right  now.glb  (now)  <- kits/workfiles/quat-props/pickaxe-bronze.glb
+
+tent/  quat-survival/tent  (str-canopy-tent-camping)
+  tag: lod + chunkiness
+  ✗ wrong  source.glb  (source)  <- source Survival_Pack_Survival_Pack-glb.zip/Tent.glb
+  ✓ right  now.glb  (now)  <- kits/workfiles/quat-survival/tent.glb
+
+dance-machine/  sq-arcade/dance-stage  (obj-leisure-game-arcade)
+  tag: lod + chunkiness
+  ✗ wrong  source.glb  (source)  <- source Token_Gesture_Retro_Arcade_token-gesture-retro-arcade-props-free.zip/token_gesture/pack.glb#dance_stage (converted)
+  ✓ right  now.glb  (now)  <- kits/workfiles/sq-arcade/dance-stage.glb
+
+test-tube-rack/  sq-lab/test-tube-rack  (obj-container-bottle-vial)
+  tag: lod + geometry recognizability
+  ✗ wrong  source.glb  (source)  <- source Sci-Fi_Lab_Medical_Props_sci-fi-lab-medical-props-free.zip/scifi_lab/pack.glb#test_tube_rack (converted)
+  ✓ right  now.glb  (now)  <- kits/workfiles/sq-lab/test-tube-rack.glb
+
+flag/  ken-forest-mini/flag  (str-fixture-marker-flag)
+  tag: chunkiness
+  ✗ wrong  source.glb  (source)  <- source kenney_mini-forest_1.0_kenney_mini-forest_1.0.zip/Models/GLB format/flag.glb
+  ✓ right  now.glb  (now)  <- kits/workfiles/ken-forest-mini/flag.glb
+
+shovel/  ken-pirate/tool-shovel  (obj-equipment-tool-twohand-shovel)
+  tag: chunkiness
+  ✗ wrong  source.glb  (source)  <- source kenney_pirate-kit_kenney_pirate-kit.zip/Models/GLB format/tool-shovel.glb
+  ✓ right  now.glb  (now)  <- kits/workfiles/ken-pirate/tool-shovel.glb
+
+dynamite-stick/  rgp-explosives/dynamite-a  (obj-equipment-weapon-explosive-dynamite)
+  tag: chunkiness
+  ✗ wrong  earliest.glb  (earliest)
+  ✓ right  now.glb  (now)  <- kits/workfiles/rgp-explosives/dynamite-a.glb
+
+dynamite-bundle/  rgp-explosives/dynamite-bundle-a  (obj-equipment-weapon-explosive-dynamite)
+  tag: chunkiness
+  ✗ wrong  earliest.glb  (earliest)
+  ✓ right  now.glb  (now)  <- kits/workfiles/rgp-explosives/dynamite-bundle-a.glb
+
+triple-ceiling-light/  quat-interior/ceiling-light-icosahedron-triple  (obj-furnishing-light-lamp-ceiling)
+  tag: chunkiness
+  ✗ wrong  earliest.glb  (earliest)
+  ✓ right  now.glb  (now)  <- kits/workfiles/quat-interior/ceiling-light-icosahedron-triple.glb
+
+chip-tray/  sq-casino/chip-tray  (obj-leisure-game-gamble)
+  tag: lod
+  ✗ wrong  earliest.glb  (earliest)
+  ✓ right  now.glb  (now)  <- kits/workfiles/sq-casino/chip-tray.glb
+
+storage-shed/  quat-town/storage-1-b  (str-building-work-industrial)
+  tag: lod
+  note: boxes removed
+  ✗ wrong  earliest.glb  (earliest)
+  ✓ right  now.glb  (now)  <- kits/workfiles/quat-town/storage-1-b.glb
+
+vintage-phone/  m3-base/vintage-phone  (obj-device-electronics-phone)
+  tag: lod + chunkiness
+  ✗ wrong  source.glb  (source)  <- source Base_Meshes_M3-org_base-meshes.zip/models/vintage_phone/vintage_phone.glb
+  ✗ wrong  earliest.glb  (earliest)
+  ✓ right  now.glb  (now)  <- kits/workfiles/m3-base/vintage-phone.glb
+
+iced-coffee/  styloo-food/iced-coffee  (obj-kitchenware-tableware-drinkware-takeaway)
+  tag: chunkiness
+  ✗ wrong  source.glb  (source)  <- source 3D_Food_Styloo_3dFoodStyloo.zip/3dFoodStyloo/GLTF/cafenice.gltf
+  ✗ wrong  earliest.glb  (earliest)
+  ✓ right  now.glb  (now)  <- kits/workfiles/styloo-food/iced-coffee.glb
+
+soda-cup/  quat-food/soda  (obj-kitchenware-tableware-drinkware-takeaway)
+  tag: chunkiness
+  ✗ wrong  earliest.glb  (earliest)
+  ✓ right  now.glb  (now)  <- kits/workfiles/quat-food/soda.glb
+
+bathtub/  household/bathtub  (obj-furnishing-bathroom-bath)
+  tag: chunkiness
+  note: middle is now the catalogue model
+  ✗ wrong  source-too-thin.glb  (source: too thin)  <- source Household_Props_001_Household_Props_001-glb.zip/Bathtub.glb
+  ✓ right  new-right.glb  (new: right)  <- kits/workfiles/household/bathtub.glb
+  ✗ wrong  was-too-thick.glb  (was: too thick)  <- git 28107515d^
+
+steak-knife/  cooking-assets/steak-knife  (obj-kitchenware-tableware-cutlery-knife)
+  tag: deformed
+  ✗ wrong  after.glb  (after)  <- git 5741dab18
+    no mark  before.glb  (before)  <- git 5741dab18^
+
+soda-cup-thinned/  quat-food/soda  (obj-kitchenware-tableware-drinkware-takeaway)
+  tag: deformed
+  ✗ wrong  after.glb  (after)  <- git 5d771be6a
+    no mark  before.glb  (before)  <- git 5d771be6a^
+
+paring-knife/  cooking-assets/paring-knife  (obj-kitchenware-cookware-utensil-knife)
+  tag: deformed
+  ✗ wrong  after.glb  (after)  <- git eb0c09349
+    no mark  before.glb  (before)  <- git eb0c09349^
+
+arrow/  lpa-weapons/arrow  (obj-equipment-weapon-ranged-arrow)
+  tag: deformed
+  ✗ wrong  after.glb  (after)
+    no mark  before.glb  (before)
+
+throwing-knife/  m3-base/throwing-knife  (obj-equipment-weapon-ranged-throwing)
+  tag: deformed
+  ✗ wrong  after.glb  (after)
+    no mark  before.glb  (before)
+
+short-revolver/  quat-shoot/revolver-short  (obj-equipment-weapon-ranged-firearm-hand-revolver)
+  tag: deformed
+  ✗ wrong  after.glb  (after)
+    no mark  before.glb  (before)
+
+rune-gravestone/  wizp-asia/grave-a  (str-fixture-marker-grave)
+  tag: detail faded
+  ✗ wrong  after.glb  (after)  <- git 243d8d4fd
+    no mark  before.glb  (before)  <- git 243d8d4fd^
