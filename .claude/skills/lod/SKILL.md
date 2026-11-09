@@ -70,7 +70,8 @@ the table lists the other indicators.
    with glbs in `examples/` next to this file; `examples/LIST.txt` gives each
    card's tag, why, and which version is right.
 3. **Look first**: render the model next to its kind's peers, and its source
-   where that helps. Name the problems from the table by eye; indicators only
+   where that helps (`node tools/renders/render.mjs <glbs> --compare
+   --lock-scale`). Name the problems from the table by eye; indicators only
    say where to look twice.
 4. **Fix**: pick from Fixes what suits the problem and the spot. Models tied
    to it (colour variants, modular pieces) get the same edit.
@@ -97,7 +98,8 @@ Indicators point at candidates; the render decides.
   `node lint/tpu.mjs` for models over budget.
 - **Dense for their kind**: in kinds of one shape (apple, book, cleaver,
   skull, axe; not mixed kinds like ships, toys, instruments), compare `tpu`
-  with the kind median. Leave out `char`, `set`, `plural`, `comp`.
+  with the kind median. Leave out the `char` and `set` kinds, and models
+  tagged `plural` or `comp`.
 - **Detailed but not dense**: many small parts at an average `tpu`.
 
 **Too coarse**
@@ -105,7 +107,7 @@ Indicators point at candidates; the render decides.
 - **Thick or chunky next to peers**: render the kind's line-up.
 - **Low `tpu` for the kind**: a blunt block where peers have shape.
 - **Earlier rounds**: models changed by a stylize, thicken or slim round
-  (past review pages, git history).
+  (past review pages, git history after asking the PO, C12).
 - **Past verdicts**: comments like blunt, chunky, swollen, deformed or lost
   detail.
 
@@ -119,8 +121,9 @@ Indicators point at candidates; the render decides.
 ## Fixes
 
 Claude fixes the model; tools help where they fit. A tool that misbehaves is
-noted as a tool finding, and the fix is made another way. Fixes combine, and
-one fix can cause another problem.
+noted as a tool finding, and the fix is made another way. When you reuse a
+tool, say which and why it suits this case. Fixes combine, and one fix can
+cause another problem.
 
 Every fix keeps: small colour accents (steel hubs, amber bulbs); each part's
 light-to-dark shading; handles graspable; open loops (buckles, tabs, rings)
@@ -136,8 +139,9 @@ peers use.
   neighbour within 3 mm: `--sheet` bent tips (17 of 46 sent back), `--flat`
   lost outlines (7 of 11), `--inward` filled hollows (2 of 3), the default
   and `--local` grow into openings. Near such a spot: grow only the faces that
-  need it (`--parts`, `--local`), grow the side away from it, or rebuild the
-  part. Tool: `tools/thin/thicken.mjs`.
+  need it (`--parts`, `--local`), grow one side only (`--away`, `--inward`),
+  keep slots open (`--open <w>`), keep a part set into another from poking
+  out (`--hidden`), or rebuild the part. Tool: `tools/thin/thicken.mjs`.
 - **Fewer repeats**: fewer buttons, wheels, vents, bars, rings, tines,
   matches; the rest get thicker. The count matters as much as the look: does
   it still read as "covered in sprinkles" or "a spiral binding"? Kept:
@@ -165,7 +169,8 @@ peers use.
 - **Thin out**: shrink a swollen part back toward its peers, around its
   middle or from one side. By hand, or a new tool (`thicken.mjs` only grows).
 - **Undo**: an earlier tool made a part thinner or thicker than needed; take
-  that part from the source or the version before that round (git).
+  that part from the source or the version before that round (git, after
+  asking the PO, C12).
 - **Restore detail**: bring back a lost point, opening, groove or repeat;
   more sides on a round part that turned faceted. Tools: the source model,
   `slim.mjs` op `add`, by hand (`lathe` only cuts sides).
@@ -196,25 +201,33 @@ By how it looks, not by a number.
   still ends in a reject.
 - **Grey area** (a style call that could go either way): take the risk and
   send it to the review page. That is what the review page is for.
-- **Clean, looks fine**: no review. While calibrating, a sample goes on the
-  review page as low doubt, to learn which fixes can pass unreviewed.
+- **Clean, looks fine**: no review card. While calibrating, a sample goes on
+  the review page as low doubt, to learn which fixes can pass unreviewed.
+  Every round still ends with a review page, even if it holds only that
+  sample.
 
 ## Checks
 
 Numbers and the visual check are separate checks for different things. A
-number flag means look again and fix if needed; numbers never tell the visual
-check where to look.
+number flag means look again and fix if needed, and may point the fixer to a
+spot; the checker never gets numbers.
 
 Visual check: look at the whole model, and adapt to the case. Look more and
 closer at complex models (many shapes, meshes, joints), at changes on or near
 delicate spots (joints, where meshes meet, round, pointy, sharp or particular
-shapes), and at retries. A tiny change needs no look, such as thickening from
-5.9 to 6.1 mm.
+shapes), and at retries. Only a change too small to see on a render needs no
+look, such as thickening one part from 5.9 to 6.1 mm.
 
 **Fresh checker**: the visual check is done by the checker agent
 `.claude/agents/fresh-checker.md`, with no prior context, because the agent
 that fixes a model tends to miss the obvious common-sense issues. It gets
-only the kind and the before and after renders: not what changed or why.
+only the model name, its kind, and before and after images: not what changed
+or why. Images: a sheet of both at the same scale
+(`node tools/renders/render.mjs <before> <after> --lock-scale --sheet
+--views front,left,top,iso`) and the close-ups of every spot that moved
+(`node tools/thin/closeup.mjs <before> <after> <out.png>`). Its verdicts map
+to Where a result goes: `wrong` is clearly wrong, `unsure` goes to the review
+page, `ok` and better than before is clean.
 `stylize` and `sheepdog` can use the same checker.
 
 Testing the skill will refine this guidance and show which modes work best.
@@ -254,7 +267,7 @@ Proposals:
 
 - Another kind.
 - The `set` kind.
-- A tag such as `plural`, `big`, `small` or `comp`, which brings other rules
+- A tag such as `plural`, `scale-big`, `scale-small` or `comp`, which brings other rules
   or guidance.
 
 Special proposals:
@@ -268,8 +281,8 @@ carries an unmistakable heads-up marker.
 
 Special proposals always go on a separate page or tab.
 
-Unless it obviously saves needless effort, make a proposal alongside a fix or
-fix attempt, even one you think failed, because:
+When you propose, also show a fix or fix attempt, even one you think failed,
+unless that clearly wastes effort, because:
 
 - What looks failed to you may be the target style. Thickened, swollen or
   moved parts that eat or hide other parts or details are usually bad, but
