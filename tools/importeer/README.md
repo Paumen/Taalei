@@ -37,6 +37,14 @@ A config is a JSON object:
 - A band in `banden` may carry a tone, `nickel+0.3` or `slate-0.2`: the UV moves
   that far towards the dark or light end of the band, so two source greys can
   share one band and still read apart.
+- `verloop`: for sources whose texture paints each part as a vertical gradient
+  strip (Kenney 2.1 kits), how far the strip's light-to-dark position moves the
+  UV within the band, per corner, so the gradient carries over; 0 by default.
+  `verloopRijen` is the number of strip rows in the texture (4 by default).
+  A row may set its own `verloop`.
+- `binnenstebuiten: false` skips turning faces that a ray test reads as inside
+  out; for sources whose own normals are right and whose parts overlap, where
+  the ray test flips good faces. A row may set its own.
 - `varianten`: groups of `leden` (workfile names) with a `type`, `detail-variant`
   when left out.
 

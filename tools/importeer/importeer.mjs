@@ -88,13 +88,13 @@ function gladdeNormalen(posities, driehoeken, drempel) {
   return uit;
 }
 
-function bandUv(band, normaalY) {
+function bandUv(band, normaalY, extra = 0) {
   const [naam, toon = '0'] = band.split(/(?=[+-]\d)/);
   const cel = BANDEN[naam];
   if (!cel) throw new Error(`unknown band: ${band}`);
   const [kolom, rij] = cel.split(',').map(Number);
   const donker = 1 - (normaalY + 1) / 2;
-  const v = Math.min(Math.max(LICHT + SPREIDING * donker + Number(toon), 0.02), 0.98);
+  const v = Math.min(Math.max(LICHT + SPREIDING * donker + Number(toon) + extra, 0.02), 0.98);
   return [(kolom + 0.5) / KOLOMMEN, (rij + v) / RIJEN];
 }
 
@@ -127,7 +127,10 @@ function keerBinnenstebuiten(posities, driehoeken) {
     const d = n.map((v) => v / lengte);
     const o = [0, 1, 2].map((k) => tri.hoeken.reduce((som, i) => som + posities[i * 3 + k], 0) / 3);
     if (treffers(posities, driehoeken, o, d.map((v) => -v), f) > 0) continue;
-    if (treffers(posities, driehoeken, o, d, f) > 0) tri.hoeken.reverse();
+    if (treffers(posities, driehoeken, o, d, f) > 0) {
+      tri.hoeken.reverse();
+      tri.lagen?.reverse();
+    }
   }
 }
 
@@ -164,7 +167,7 @@ function cutAlongV(corners, cuts) {
   return pieces.flatMap((poly) => poly.slice(2).map((_, i) => [poly[0], poly[i + 1], poly[i + 2]]));
 }
 
-function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepakt, monsters = 1, cuts = []) {
+function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepakt, monsters = 1, cuts = [], { rijen = 4, binnenstebuiten = true } = {}) {
   const eigenMap = dirname(join(wortel, model.bestand ?? ''));
   const opNaam = new Map(
     alleBestanden(uitgepakt)
@@ -196,13 +199,17 @@ function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepa
         : null;
     for (let t = 0; t < p.indices.length; t += 3) {
       const hoeken = [0, 1, 2].map((k) => punt(p, p.indices[t + k]));
+      const volgorde = [0, 1, 2];
       if (p.normalen) {
         const vlak = vlakNormaal(posities, ...hoeken);
         let langs = 0;
         for (let k = 0; k < 3; k++) {
           for (let a = 0; a < 3; a++) langs += vlak[a] * p.normalen[p.indices[t + k] * 3 + a];
         }
-        if (langs < 0) hoeken.reverse();
+        if (langs < 0) {
+          hoeken.reverse();
+          volgorde.reverse();
+        }
       }
       if (textuur && p.uvs && cuts.length) {
         const flipped = hoeken[0] !== punt(p, p.indices[t]);
@@ -233,10 +240,11 @@ function bronVanModel(bronkit, uitgepakt, model, texturen = {}, wortel = uitgepa
           return monster(textuur, u, v);
         });
       } else kleuren = [(p.materiaal.kleur ?? [255, 255, 255]).join(',')];
-      driehoeken.push({ hoeken, kleur: kleuren[0], kleuren });
+      const lagen = textuur && p.uvs ? volgorde.map((k) => (p.uvs[p.indices[t + k] * 2 + 1] * rijen) % 1) : null;
+      driehoeken.push({ hoeken, kleur: kleuren[0], kleuren, lagen });
     }
   }
-  keerBinnenstebuiten(posities, driehoeken);
+  if (binnenstebuiten) keerBinnenstebuiten(posities, driehoeken);
   return { posities, driehoeken };
 }
 
@@ -349,7 +357,7 @@ function ruimEilanden(bron, banden, aandeel) {
   }
 }
 
-function bouwGlb(naam,bron, banden, schaal, drempel, bronkitNaam, bronbestand) {
+function bouwGlb(naam,bron, banden, schaal, drempel, bronkitNaam, bronbestand, verloop = 0) {
   const { posities, driehoeken } = bron;
   const normalen = gladdeNormalen(posities, driehoeken, drempel);
 
@@ -364,7 +372,7 @@ function bouwGlb(naam,bron, banden, schaal, drempel, bronkitNaam, bronbestand) {
     if (!band) throw new Error(`${naam}: no band for source colour ${tri.kleur}`);
     for (const [k, hoek] of tri.hoeken.entries()) {
       const n = normalen[f * 3 + k];
-      const uv = bandUv(band, n[1]);
+      const uv = bandUv(band, n[1], verloop && tri.lagen ? (tri.lagen[k] - 0.5) * verloop : 0);
       const p = [posities[hoek * 3] * schaal, posities[hoek * 3 + 1] * schaal, posities[hoek * 3 + 2] * schaal];
       const sleutel = [...p, ...n.map((v) => v.toFixed(4)), ...uv.map((v) => v.toFixed(5))].join(',');
       let i = gezien.get(sleutel);
@@ -473,7 +481,10 @@ if (config.licentie && existsSync(join(ROOT, config.licentie))) {
 for (const rij of config.modellen) {
   const model = opBronnaam.get(rij.bron);
   if (!model) throw new Error(`${config.map}: no source model named ${rij.bron}`);
-  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen, wortel, config.monsters ?? 1, rij.cuts ?? config.cuts ?? []);
+  const bron = bronVanModel(bronkit, uitgepakt, model, config.texturen, wortel, config.monsters ?? 1, rij.cuts ?? config.cuts ?? [], {
+    rijen: config.verloopRijen ?? 4,
+    binnenstebuiten: rij.binnenstebuiten ?? config.binnenstebuiten ?? true,
+  });
   const banden = { ...(config.banden ?? {}), ...(rij.banden ?? {}) };
   for (const kleur of new Set(bron.driehoeken.flatMap((tri) => tri.kleuren))) {
     if (!banden[kleur]) throw new Error(`${rij.naam}: no band for source colour ${kleur}`);
@@ -489,6 +500,7 @@ for (const rij of config.modellen) {
     config.drempel,
     config.bron,
     bronkit.splitsPerMesh ? model.naam : model.bestand,
+    rij.verloop ?? config.verloop ?? 0,
   );
   writeGlb(join(doel, `${rij.naam}.glb`), json, bin, writeFileSync);
   console.log(`${config.kit}/${rij.naam}  ${bron.driehoeken.length} tris`);
