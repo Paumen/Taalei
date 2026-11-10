@@ -689,9 +689,17 @@
    "name": "Ultimate Textured Building Pack"
   },
   {
+   "slug": "kenney_mini-shop_2.1",
+   "name": "Kenney Mini Shop"
+  },
+  {
    "slug": "Colorful_City_Basic_Voloshka",
    "name": "Colorful Low Poly City (Basic)",
    "note": "This pack was never imported — nothing from it is in the catalog."
+  },
+  {
+   "slug": "Low_Poly_Bedroom_Kyle_Fuji",
+   "name": "Low Poly Bedroom Asset Pack"
   }
  ],
  "sources": [
@@ -1556,9 +1564,9 @@
    "kit": "ken-market",
    "format": "glb",
    "inSource": 20,
-   "inCatalog": 15,
-   "listed": 4,
-   "scale": 1.197,
+   "inCatalog": 1,
+   "listed": 18,
+   "scale": 0.9971,
    "folder": "Models/GLB format"
   },
   {
@@ -1708,7 +1716,7 @@
    "kit": "ken-chars",
    "format": "glb",
    "inSource": 43,
-   "inCatalog": 8,
+   "inCatalog": 11,
    "listed": 6,
    "scale": 1.197,
    "folder": "Models/GLB format"
@@ -2528,6 +2536,17 @@
    "folder": "Ultimate Textured Building Pack - Dec 2019"
   },
   {
+   "slug": "kenney_mini-shop_2.1",
+   "name": "Kenney Mini Shop",
+   "kit": "ken-market",
+   "format": "glb",
+   "inSource": 30,
+   "inCatalog": 27,
+   "listed": 1,
+   "scale": 1.197,
+   "folder": "Models/GLB format"
+  },
+  {
    "slug": "Colorful_City_Basic_Voloshka",
    "name": "Colorful Low Poly City (Basic)",
    "format": "fbx",
@@ -2535,6 +2554,16 @@
    "inCatalog": 0,
    "listed": 1393,
    "folder": "ColorfulCityBasic"
+  },
+  {
+   "slug": "Low_Poly_Bedroom_Kyle_Fuji",
+   "name": "Low Poly Bedroom Asset Pack",
+   "kit": "bedroom",
+   "format": "fbx",
+   "inSource": 15,
+   "inCatalog": 11,
+   "listed": 4,
+   "scale": 0.5
   }
  ],
  "kinds": [
@@ -64955,18 +64984,54 @@
   },
   {
    "kit": "kenney_mini-market",
+   "name": "bottle-return",
+   "kind": "obj-container-bottle",
+   "wdh": [
+    0.4,
+    1.1,
+    0.5
+   ],
+   "tris": 324,
+   "tpu": 945,
+   "mat": 1,
+   "hash": "72eb4da033",
+   "bytes": 13056,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "bottle-return.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "cash-register",
+   "kind": "obj-device-electronics",
+   "wdh": [
+    0.8,
+    0.6,
+    0.8
+   ],
+   "tris": 203,
+   "tpu": 476,
+   "mat": 1,
+   "hash": "20295b3b6c",
+   "bytes": 10896,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "cash-register.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
    "name": "column",
    "kind": "str-part-pillar",
    "wdh": [
-    0.9,
-    1.2,
-    0.9
+    0.7,
+    1,
+    0.7
    ],
    "tris": 188,
-   "tpu": 208,
+   "tpu": 360,
    "mat": 1,
-   "hash": "6886021313",
-   "bytes": 7856,
+   "hash": "06b1e58a5f",
+   "bytes": 7860,
    "scaled": true,
    "reason": "style",
    "file": "column.glb"
@@ -64975,49 +65040,259 @@
    "kit": "kenney_mini-market",
    "name": "display-bread",
    "wdh": [
-    0.8,
-    0.6,
-    0.7
+    0.7,
+    0.5,
+    0.6
    ],
    "tris": 362,
-   "tpu": 1005,
+   "tpu": 1055,
    "mat": 3,
-   "hash": "6f0afddf75",
-   "bytes": 16768,
+   "hash": "2217aa6b51",
+   "bytes": 16772,
    "scaled": true,
    "reason": "style",
    "file": "display-bread.glb"
   },
   {
    "kit": "kenney_mini-market",
-   "name": "wall-corner",
+   "name": "display-fruit",
+   "wdh": [
+    0.6,
+    0.5,
+    0.6
+   ],
+   "tris": 650,
+   "tpu": 1895,
+   "mat": 1,
+   "hash": "0b15227e52",
+   "bytes": 23468,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "display-fruit.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "fence-door-rotate",
    "wdh": [
     1,
-    1.2,
-    1
+    0.4,
+    0.1
+   ],
+   "tris": 288,
+   "tpu": 840,
+   "mat": 3,
+   "hash": "9f8e7d60b3",
+   "bytes": 16640,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "fence-door-rotate.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "fence",
+   "kind": "str-barrier-fence",
+   "wdh": [
+    0.6,
+    0.4,
+    0.1
+   ],
+   "tris": 76,
+   "tpu": 222,
+   "mat": 1,
+   "hash": "55b20384c2",
+   "bytes": 5152,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "fence.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "freezer",
+   "kind": "obj-device-appliance-fridge",
+   "wdh": [
+    0.8,
+    0.3,
+    0.6
+   ],
+   "tris": 180,
+   "tpu": 525,
+   "mat": 1,
+   "hash": "7a7f1aa009",
+   "bytes": 9624,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "freezer.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "freezers-standing",
+   "kind": "obj-device-appliance-fridge",
+   "wdh": [
+    1,
+    0.9,
+    0.5
+   ],
+   "tris": 156,
+   "tpu": 249,
+   "mat": 1,
+   "hash": "449396496b",
+   "bytes": 8924,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "freezers-standing.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "shelf-bags",
+   "wdh": [
+    0.8,
+    0.9,
+    0.7
+   ],
+   "tris": 892,
+   "tpu": 1856,
+   "mat": 9,
+   "hash": "d94f81e4fb",
+   "bytes": 50552,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "shelf-bags.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "shelf-boxes",
+   "wdh": [
+    0.8,
+    0.8,
+    0.7
+   ],
+   "tris": 436,
+   "tpu": 921,
+   "mat": 11,
+   "hash": "26f6e3553c",
+   "bytes": 39180,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "shelf-boxes.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "shelf-end",
+   "kind": "obj-furnishing-furniture-storage-shelf",
+   "wdh": [
+    0.8,
+    1,
+    0.4
+   ],
+   "tris": 362,
+   "tpu": 619,
+   "mat": 8,
+   "hash": "97b07609aa",
+   "bytes": 26540,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "shelf-end.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "shopping-basket",
+   "kind": "obj-container-basket",
+   "wdh": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "tris": 288,
+   "tpu": 840,
+   "mat": 1,
+   "hash": "32eb993193",
+   "bytes": 14116,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "shopping-basket.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "shopping-cart",
+   "kind": "obj-transport-land-cart-small-trolley",
+   "wdh": [
+    0.3,
+    0.4,
+    0.5
+   ],
+   "tris": 384,
+   "tpu": 1120,
+   "mat": 1,
+   "hash": "2954c3b20d",
+   "bytes": 19440,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "shopping-cart.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "wall-corner",
+   "wdh": [
+    0.8,
+    1,
+    0.8
    ],
    "tris": 66,
-   "tpu": 60,
+   "tpu": 104,
    "mat": 1,
-   "hash": "7b45c9196e",
-   "bytes": 4536,
+   "hash": "16a95280b8",
+   "bytes": 4540,
    "scaled": true,
    "reason": "style",
    "file": "wall-corner.glb"
   },
   {
    "kit": "kenney_mini-market",
+   "name": "wall-door-rotate",
+   "wdh": [
+    1,
+    1,
+    0.6
+   ],
+   "tris": 316,
+   "tpu": 454,
+   "mat": 4,
+   "hash": "9051f2ff9e",
+   "bytes": 19428,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "wall-door-rotate.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
+   "name": "wall-window",
+   "wdh": [
+    1,
+    1,
+    0.6
+   ],
+   "tris": 146,
+   "tpu": 210,
+   "mat": 2,
+   "hash": "f061504dc7",
+   "bytes": 9972,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "wall-window.glb"
+  },
+  {
+   "kit": "kenney_mini-market",
    "name": "wall",
    "wdh": [
-    1.2,
-    1.2,
-    0.7
+    1,
+    1,
+    0.6
    ],
    "tris": 32,
-   "tpu": 31,
+   "tpu": 46,
    "mat": 1,
-   "hash": "62c08d8712",
-   "bytes": 3100,
+   "hash": "178059939a",
+   "bytes": 3104,
    "scaled": true,
    "reason": "style",
    "file": "wall.glb"
@@ -113177,6 +113452,23 @@
    "file": "Textured Models/Finished Textured Buildings/OBJ/6Story_Stack.obj"
   },
   {
+   "kit": "kenney_mini-shop_2.1",
+   "name": "floor",
+   "kind": "str-part-floor",
+   "wdh": [
+    1.2,
+    0.1,
+    1.2
+   ],
+   "tris": 2,
+   "mat": 1,
+   "hash": "ce923e9073",
+   "bytes": 1404,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "floor.glb"
+  },
+  {
    "kit": "Colorful_City_Basic_Voloshka",
    "name": "Window1Peach",
    "wdh": [
@@ -137301,6 +137593,76 @@
    "reason": "dedupe",
    "file": "ColorfulCityBasic.fbx",
    "variant": "v686"
+  },
+  {
+   "kit": "Low_Poly_Bedroom_Kyle_Fuji",
+   "name": "Bed Table Drawer",
+   "wdh": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "tris": 232,
+   "tpu": 676,
+   "mat": 2,
+   "hash": "86d5f3a307",
+   "bytes": 7264,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Bed Table Assets/Bed Table Drawer.fbx"
+  },
+  {
+   "kit": "Low_Poly_Bedroom_Kyle_Fuji",
+   "name": "bed_table",
+   "wdh": [
+    0.2,
+    0.3,
+    0.2
+   ],
+   "tris": 44,
+   "tpu": 128,
+   "mat": 1,
+   "hash": "86afed6ed2",
+   "bytes": 3248,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Dressers/bed_table.fbx"
+  },
+  {
+   "kit": "Low_Poly_Bedroom_Kyle_Fuji",
+   "name": "lamp_1",
+   "kind": "obj-furnishing-light-lamp",
+   "wdh": [
+    0.4,
+    0.2,
+    0.4
+   ],
+   "tris": 62,
+   "tpu": 181,
+   "mat": 1,
+   "hash": "a4d060741c",
+   "bytes": 2988,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Lamp Assets/lamp_1.fbx"
+  },
+  {
+   "kit": "Low_Poly_Bedroom_Kyle_Fuji",
+   "name": "lamp_2",
+   "kind": "obj-furnishing-light-lamp",
+   "wdh": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tris": 80,
+   "tpu": 233,
+   "mat": 1,
+   "hash": "3471e53bdb",
+   "bytes": 2548,
+   "scaled": true,
+   "reason": "dedupe",
+   "file": "Lamp Assets/lamp_2.fbx"
   }
  ]
 }
