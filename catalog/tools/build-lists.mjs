@@ -23,6 +23,8 @@ const CACHE_FILE = join(ROOT, 'kits', '.cache', 'build-lists.json');
 
 if (!existsSync(BRON_DIR)) throw new Error('kits/sources not found: clone Paumen/lp-sources next to this repo');
 
+const GENERATOR = 'catalog/tools/build-lists.mjs';
+
 const AFBEELDINGEN = new Set(['.png', '.jpg', '.jpeg']);
 
 const HANDKLEUREN = JSON.parse(readFileSync(join(CATALOG_DIR, 'data', 'preview-colors.json'), 'utf8'));
@@ -363,7 +365,7 @@ function schrijfPreview(pad, primitieven, { laag, hoog }, schaal, texturen, kleu
   const bin = Buffer.concat(buffers);
   const json = {
     asset: {
-      generator: 'catalog/tools/build-lists.mjs',
+      generator: GENERATOR,
       version: '2.0',
       extras: { taaleiland: { preview: 1, schaal } },
     },
@@ -484,7 +486,17 @@ for (const bronkit of BRONKITS) {
     continue;
   }
 
-  for (const lijst of LIJSTEN) rmSync(join(lijst.dir, bronId(bronkit)), { recursive: true, force: true });
+  const handwerk = new Map();
+  for (const lijst of LIJSTEN) {
+    const dir = join(lijst.dir, bronId(bronkit));
+    for (const pad of existsSync(dir) ? alleBestanden(dir).filter((p) => p.endsWith('.glb')) : []) {
+      const glb = readGlb(pad);
+      if (glb.json.asset?.generator === GENERATOR) continue;
+      const bestanden = [pad, ...(glb.json.images ?? []).filter((i) => i.uri).map((i) => join(dirname(pad), i.uri))];
+      handwerk.set(pad, bestanden.filter(existsSync).map((b) => [b, readFileSync(b)]));
+    }
+    rmSync(dir, { recursive: true, force: true });
+  }
   const entry = { key: sleutel, dirs: [], warnings: [], line: '', lists: {} };
 
   const { map, uitgepakt, modellen: bron } = bronModellen(bronkit);
@@ -617,10 +629,12 @@ for (const bronkit of BRONKITS) {
     const perVorm = new Map();
 
     for (const model of eigen) {
+      const pad = join(uitvoerMap, `${model.naam}.glb`);
+      const handbestanden = handwerk.get(pad);
       const texturen = [];
       const kleuren = [];
       const kaartregel = textuurkaart.get(basename(model.bestand));
-      for (const primitief of model.primitieven) {
+      for (const primitief of handbestanden ? [] : model.primitieven) {
         const { textuur, naam } = primitief.materiaal;
         const toegewezen = kaartregel?.materials?.[naam] ?? (kaartregel?.texture ? kaartregel : null);
         if (toegewezen) {
@@ -647,18 +661,30 @@ for (const bronkit of BRONKITS) {
         kleuren.push(lijkend ? gemiddeldeKleur(lijkend) : null);
       }
 
-      const pad = join(uitvoerMap, `${model.naam}.glb`);
-      schrijfPreview(pad, model.primitieven, model, schaal, texturen, kleuren);
+      let wdh = model.wdh.map((v) => v * schaal);
+      let driehoeken = model.driehoeken;
+      let materialen = model.primitieven.length;
+      if (handbestanden) {
+        for (const [bestand, data] of handbestanden) {
+          mkdirSync(dirname(bestand), { recursive: true });
+          writeFileSync(bestand, data);
+        }
+        const glb = readGlb(pad);
+        const maat = measureScene(glb);
+        wdh = [maat.wdh[0], maat.wdh[2], maat.wdh[1]];
+        driehoeken = maat.triangles;
+        materialen = glb.json.materials?.length ?? 0;
+        entry.warnings.push(`kept hand-edited ${pad.slice(ROOT.length + 1)}`);
+      } else schrijfPreview(pad, model.primitieven, model, schaal, texturen, kleuren);
 
-      const wdh = model.wdh.map((v) => v * schaal);
       const regel = {
         kit: bronId(bronkit),
         name: model.naam,
         kind: kindFromName(kebab(model.naam)),
         wdh: wdh.map(round1),
-        tris: model.driehoeken,
-        tpu: trianglesPerUnit(model.driehoeken, wdh),
-        mat: model.primitieven.length,
+        tris: driehoeken,
+        tpu: trianglesPerUnit(driehoeken, wdh),
+        mat: materialen,
         hash: hashOf(readFileSync(pad)),
         bytes: statSync(pad).size,
         scaled: kit.schaal !== null || undefined,
