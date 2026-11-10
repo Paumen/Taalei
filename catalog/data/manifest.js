@@ -395,6 +395,7 @@ window.KENNEY_KITS = [
  {
   "slug": "ken-market",
   "url": "https://kenney.nl/assets/mini-market",
+  "note": "Kenney Mini Market, with models from its successor Mini Shop 2.1.",
   "licenseLabel": "CC0 1.0"
  },
  {
@@ -1185,5 +1186,17 @@ window.KENNEY_KITS = [
   "url": "https://quaternius.com/",
   "licenseLabel": "CC0",
   "note": "Quaternius, Furniture Pack (March 2019)."
+ },
+ {
+  "slug": "bedroom",
+  "url": "https://kyle-fuji.itch.io/low-poly-bedroom-asset-pack",
+  "licenseLabel": "CC0",
+  "note": "Kyle Fuji, Low Poly Bedroom Asset Pack."
+ },
+ {
+  "slug": "cafe",
+  "url": "https://oceanic-mesh.itch.io/low-poly-cozy-cafe",
+  "licenseLabel": "CC0",
+  "note": "Oceanic Meshworks, Low-Poly Cozy Cafe Furniture (Free)."
  }
 ]
