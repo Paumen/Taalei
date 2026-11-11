@@ -1198,5 +1198,17 @@ window.KENNEY_KITS = [
   "url": "https://oceanic-mesh.itch.io/low-poly-cozy-cafe",
   "licenseLabel": "CC0",
   "note": "Oceanic Meshworks, Low-Poly Cozy Cafe Furniture (Free)."
+ },
+ {
+  "slug": "rgs-proto",
+  "url": "https://www.patreon.com/rgsdev",
+  "licenseLabel": "CC0 1.0",
+  "note": "By Raphael Gonçalves (Rgsdev); see kits/workfiles/rgs-proto/LICENSE.txt."
+ },
+ {
+  "slug": "colorful-city",
+  "url": "https://viravoloshyn.itch.io/colorful-low-poly-city-asset-pack",
+  "licenseLabel": "CC0 1.0",
+  "note": "By Vira Voloshyn; licence stated on the itch.io page, the zip carries only a credits note."
  }
 ]
