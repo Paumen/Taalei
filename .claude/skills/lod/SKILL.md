@@ -112,18 +112,23 @@ the list of what was tried and why it failed.
 
 ### Careful pass (only what the quick pass did not settle)
 
-One small, fresh sub agent per one or two models. Its brief: the model, its
-problem, the checker's or PO's words, what the quick pass tried, and the
-verdict quotes that matter. It works as the rest of this skill says: look
-(peers when size or chunkiness changes), name the problem from the table,
-pick from Fixes, render. Sub agents can't start agents, so the main session
+One small, fresh sub agent per one or two models, run on the API key, not
+this session: write its brief to a file and run `node tools/agents/run.mjs
+<brief.md>` (in the background for several at once). It prints the agent's
+answer and its cost in USD. Its brief: the model, its problem, the checker's
+or PO's words, what the quick pass tried, and the verdict quotes that matter,
+and that it follows `.claude/skills/lod/SKILL.md`. It works as the rest of
+this skill says: look (peers when size or chunkiness changes), name the
+problem from the table, pick from Fixes, render, and ends its answer with
+what it changed and the paths of its before and after glbs. The main session
 runs the fresh checker and passes its verdict back.
 
 ### Retries
 
 A retry answers the comment: it names what was wrong and changes the
 approach, not a setting. The same tool with a slightly different number is
-not a retry. Retries go to a fresh sub agent with only that model. After two
+not a retry. Retries go to a fresh sub agent (`tools/agents/run.mjs`) with
+only that model. After two
 failed approaches the model goes back to how it was and onto the review page,
 with the tries and a proposal (Edge cases).
 
