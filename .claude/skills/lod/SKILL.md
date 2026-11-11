@@ -62,27 +62,76 @@ the table lists the other indicators.
 
 ## Approach
 
+Effort follows need. Most models settle in a quick tool pass; only those that
+fail it get the careful work. The goal is the same for both: the model reads
+as itself at the catalogue's level of detail. Thickness is an indicator, never
+the goal.
+
+### Setup (main session, once per round)
+
 1. **Pick models**: the ones the PO names, or candidates from Finding them.
-   Batch by kind or kit; one sub agent per batch.
-2. **Brief**: the main session reads past verdicts (Review and learn) and the
-   style examples once, and passes each sub agent the relevant verdicts as
-   quotes (Review and learn). Examples:
-   the [LoD example set](https://claude.ai/artifact/QG6bTDZxYCKLpXp5tM8yTG),
+2. **Brief**: read past verdicts (Review and learn) and the style examples
+   once: the [LoD example set](https://claude.ai/artifact/QG6bTDZxYCKLpXp5tM8yTG),
    with glbs in `examples/` next to this file; `examples/LIST.txt` gives each
-   card's tag, why, and which version is right.
-3. **Look first**: render the model next to its kind's peers, and its source
-   where that helps (`node tools/renders/render.mjs <glbs> --compare
-   --lock-scale`). Name the problems from the table by eye; indicators only
-   say where to look twice.
-4. **Fix**: pick from Fixes what suits the problem and the spot. Models tied
-   to it (colour variants, modular pieces) get the same edit.
-5. **Check**: sub agents can't start agents, so the main session renders
-   before and after, calls the fresh checker (Checks) and passes its verdict
-   back to the batch's sub agent. The result then goes where Where a result
-   goes says.
-6. **Lints**: at the end of a batch, rebuild the catalogue and run the lints
-   and `golden` once; fix new findings. A clean lint is never a visual check.
-7. **Review**: models that need a look go on a `LoD: …` page
+   card's tag, why, and which version is right. Keep the quotes that matter
+   per model.
+3. **Triage** (`node tools/thin/triage.mjs [ids] [--kit k] --out
+   triage.json`, no renders): per model the target wall (the kind's
+   `thin.min`, at least 0.006), how much of the thin area is hidden inside,
+   what the thin part is, and the route: hidden, tool or careful. The route
+   table and its first-choice modes live in the script.
+
+### Quick pass (scripted, all hidden and tool models)
+
+`node tools/thin/quickpass.mjs triage.json --out <dir>` tries the fixes in the
+triage order and stops at the first that passes every gate. Hidden walls are
+dropped first (`tools/thin/hidden.mjs`); thicken modes come by what the thin
+part is (flat: `--flat`, bent sheet: `--sheet`, shell: `--inward`, small
+spot: `--local`), each aimed at 0.006 with up to three passes (`--aim kind`
+first aims at the kind's `thin.min`, which in a test made plates and hands
+too heavy); a model thin all over may end with a small whole-model
+scale-up. Every result goes back on its floor with fresh normals
+(`tools/thin/tidy.mjs`).
+
+A try fails when it is still under the aim, leaves or adds a G27 error, grows
+the outline more than the aim needs, changes the shape of the main face,
+closes an opening, adds glb-lint findings or back faces, or, for a hidden
+drop, changes more than a few pixels on 8 views. A failed try is dropped and the next one
+runs. Nothing touches `kits/workfiles` yet.
+
+The fresh checker (Checks) judges the sheets listed in `<dir>/checker.md` in
+one go. `ok` and same or better: `quickpass.mjs apply <dir>/report.json
+<ids>` puts it in place. Anything else goes to the careful pass with the
+checker's words. Hidden drops change nothing visible and need no checker.
+
+Triage sends these straight to the careful pass, since the tool modes are
+known to fail there: a sharp blade, point or edge; lettering, numbers,
+strings, threads or anything else that makes the type; a model whose latest
+PO verdict is not keep. Models the quick pass could not settle follow, with
+the list of what was tried and why it failed.
+
+### Careful pass (only what the quick pass did not settle)
+
+One small, fresh sub agent per one or two models. Its brief: the model, its
+problem, the checker's or PO's words, what the quick pass tried, and the
+verdict quotes that matter. It works as the rest of this skill says: look
+(peers when size or chunkiness changes), name the problem from the table,
+pick from Fixes, render. Sub agents can't start agents, so the main session
+runs the fresh checker and passes its verdict back.
+
+### Retries
+
+A retry answers the comment: it names what was wrong and changes the
+approach, not a setting. The same tool with a slightly different number is
+not a retry. Retries go to a fresh sub agent with only that model. After two
+failed approaches the model goes back to how it was and onto the review page,
+with the tries and a proposal (Edge cases).
+
+### End of round
+
+1. **Lints**: rebuild the catalogue and run the lints and `golden` once; fix
+   new findings. A clean lint is never a visual check.
+2. **Review**: models that need a look go on a `LoD: …` page
    (`tools/review/review.mjs`), each with what changed, how, and what was
    tried. Apply the verdicts.
 
@@ -191,10 +240,9 @@ peers use.
 By how it looks, not by a number.
 
 - **Clearly wrong** (broken, ridiculous, the opposite of the style): try
-  again. There is no fixed number of tries: quick, easy ones and ones worth a
-  go are fine. When more tries aren't worth it, investigate why and propose
-  options: a better method or tool, a change to this skill, or a decision for
-  the PO. Each option says what it fixes and what it costs.
+  another approach (Retries). When that fails too, investigate why and
+  propose options: a better method or tool, a change to this skill, or a
+  decision for the PO. Each option says what it fixes and what it costs.
 - **Unsure or stuck**: no long effort loops. When a model isn't clearly
   better after a couple of quick tries, or Claude is unsure, it goes to the
   review page early, with what was tried. Catch serious issues first, polish
