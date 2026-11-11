@@ -3296,13 +3296,13 @@
    "url": "https://github.com/M3-org/base-meshes",
    "artist": "M3",
    "licenseLabel": "CC0 1.0",
-   "count": 895,
+   "count": 894,
    "packs": [
     "Base Meshes",
     "The Base Mesh Kitbash"
    ],
    "origins": {
-    "Base Meshes": 847,
+    "Base Meshes": 846,
     "none": 2,
     "The Base Mesh Kitbash": 46
    },
@@ -3331,14 +3331,13 @@
     "0.8068": 1,
     "1.479": 1,
     "1.637": 1,
-    "0.435": 1,
     "0.614": 1,
     "1.392": 1,
     "0.3332": 1,
     "1.087": 1
    },
    "smooth": {
-    "smooth": 872,
+    "smooth": 871,
     "none": 23
    },
    "kitCheck": {
@@ -25561,7 +25560,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2196,
+   "count": 2195,
    "parent": "metal"
   },
   {
@@ -26017,7 +26016,7 @@
    "name": "Object",
    "type": "kind",
    "description": "barrel stand, signboard (freestanding), fire extinguisher",
-   "count": 5016,
+   "count": 5015,
    "color": "#c07c8a"
   },
   {
@@ -26291,7 +26290,7 @@
    "name": "Container",
    "type": "kind",
    "description": "tub, bin",
-   "count": 778,
+   "count": 777,
    "color": "#dd9f79"
   },
   {
@@ -26348,7 +26347,7 @@
    "name": "Can",
    "type": "kind",
    "description": "can",
-   "count": 42
+   "count": 41
   },
   {
    "id": "obj-container-can-gas",
@@ -30557,7 +30556,7 @@
    "name": "Comp",
    "type": "tag",
    "description": "A part meant to be built into something larger, not to stand on its own, so the size rows do not apply.",
-   "count": 526
+   "count": 525
   },
   {
    "id": "plural",
@@ -31720,7 +31719,7 @@
    "name": "Small",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 4169,
+   "count": 4168,
    "derived": true
   },
   {
@@ -31896,7 +31895,7 @@
    "name": "M3",
    "type": "artist",
    "description": "Kits from M3 (m3-org on GitHub). Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 895,
+   "count": 894,
    "derived": true
   },
   {
@@ -290016,28 +290015,28 @@
   {
    "kit": "m3-base",
    "name": "cardboard-produce-tray",
-   "hash": "855ab102c2",
+   "hash": "09adcc29cc",
    "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.524,
     0.314,
-    0.132
+    0.131
    ],
    "tris": 862,
    "tpu": 2513,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 33848,
+   "bytes": 33852,
    "vtx": 847,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0072,
-   "thick": 0.0659,
-   "avgTri": 0.00077,
-   "anglePct": 74,
+   "minWall": 0.0022,
+   "thick": 0.0594,
+   "avgTri": 0.00076,
+   "anglePct": 89,
    "pieces": 1,
    "vpt": 0.98,
    "cells": [
@@ -290050,7 +290049,14 @@
     "m3",
     "paper-cardboard"
    ],
-   "thickRel": 0.56
+   "thickRel": 0.5,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0022 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -290431,28 +290437,28 @@
   {
    "kit": "m3-base",
    "name": "cd",
-   "hash": "d6f064dea4",
+   "hash": "4df675a367",
    "kind": "obj-device-electronics-media",
    "size": "s",
    "wdh": [
     0.179,
     0.179,
-    0.006
+    0.003
    ],
    "tris": 576,
    "tpu": 1679,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20156,
+   "bytes": 20160,
    "vtx": 476,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0064,
-   "thick": 0.0435,
+   "minWall": 0.0031,
+   "thick": 0.0333,
    "avgTri": 0.00009,
-   "anglePct": 92,
+   "anglePct": 96,
    "pieces": 1,
    "vpt": 0.83,
    "cells": [
@@ -290468,17 +290474,17 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 0.4,
+   "thickRel": 0.31,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.4 wants min 0.5"
+     "text": "I01 thickRel 0.31 wants min 0.5"
     },
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0064 wants min 0.026"
+     "text": "G27 minWall 0.0031 wants min 0.006"
     }
    ]
   },
@@ -295781,7 +295787,7 @@
   {
    "kit": "m3-base",
    "name": "drinking-fountain",
-   "hash": "9e11ada9de",
+   "hash": "c4b7d386a1",
    "kind": "str-fixture-utility-fountain",
    "size": "m",
    "wdh": [
@@ -295789,25 +295795,25 @@
     0.659,
     0.451
    ],
-   "tris": 1162,
-   "tpu": 3388,
+   "tris": 1430,
+   "tpu": 4169,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 53420,
-   "vtx": 1403,
+   "bytes": 61516,
+   "vtx": 1605,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0091,
-   "thick": 0.0605,
-   "avgTri": 0.002,
-   "anglePct": 45,
+   "minEdge": 0,
+   "minWall": 0.0019,
+   "thick": 0.0599,
+   "avgTri": 0.00162,
+   "anglePct": 43,
    "pieces": 9,
-   "vpt": 1.21,
+   "vpt": 1.12,
    "cells": [
-    "14,3",
-    "15,3"
+    "15,3",
+    "14,3"
    ],
    "colors": [
     "#7a8491",
@@ -295819,12 +295825,12 @@
     "mounted",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.84,
+   "thickRel": 0.83,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0091 wants min 0.026"
+     "text": "G27 minWall 0.0019 wants min 0.006"
     }
    ]
   },
@@ -297200,12 +297206,12 @@
   {
    "kit": "m3-base",
    "name": "fish-slice",
-   "hash": "dd98bc800b",
+   "hash": "a99773a8eb",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
-    0.055,
-    0.037,
+    0.054,
+    0.032,
     0.28
    ],
    "tris": 610,
@@ -297213,16 +297219,16 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25456,
+   "bytes": 25460,
    "vtx": 633,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0087,
-   "minWall": 0.006,
-   "thick": 0.1955,
-   "avgTri": 0.00004,
-   "anglePct": 61,
+   "minTube": 0.0176,
+   "minWall": 0.0015,
+   "thick": 0.2045,
+   "avgTri": 0.00003,
+   "anglePct": 58,
    "pieces": 7,
    "vpt": 1.04,
    "cells": [
@@ -297239,7 +297245,14 @@
     "plastic"
    ],
    "variant": "m3-base/spatula",
-   "thickRel": 1.49
+   "thickRel": 1.55,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0015 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -313921,52 +313934,6 @@
   },
   {
    "kit": "m3-base",
-   "name": "ring-pull",
-   "hash": "70c04bdf34",
-   "kind": "obj-container-can",
-   "size": "s",
-   "wdh": [
-    0.035,
-    0.056,
-    0.008
-   ],
-   "tris": 766,
-   "tpu": 2233,
-   "mat": 1,
-   "bands": 1,
-   "calls": 1,
-   "bytes": 26464,
-   "vtx": 635,
-   "grounded": true,
-   "centered": true,
-   "minEdge": 0,
-   "minWall": 0.005,
-   "thick": 0.1014,
-   "avgTri": 0,
-   "anglePct": 30,
-   "pieces": 2,
-   "vpt": 0.83,
-   "cells": [
-    "15,3"
-   ],
-   "colors": [
-    "#7a8491"
-   ],
-   "tags": [
-    "comp",
-    "m3",
-    "metal-steel"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.005 wants min 0.006"
-    }
-   ]
-  },
-  {
-   "kit": "m3-base",
    "name": "ring",
    "hash": "a2e846d16a",
    "kind": "obj-equipment-apparel-jewellery-ring",
@@ -317081,13 +317048,13 @@
   {
    "kit": "m3-base",
    "name": "signet-ring-01",
-   "hash": "a4bc76849a",
+   "hash": "8256525fc2",
    "kind": "obj-equipment-apparel-jewellery-ring",
    "size": "s",
    "wdh": [
-    0.057,
+    0.052,
     0.026,
-    0.059
+    0.057
    ],
    "tris": 540,
    "tpu": 1574,
@@ -317099,10 +317066,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0064,
-   "thick": 0.0696,
+   "minWall": 0.0024,
+   "thick": 0.0613,
    "avgTri": 0.00001,
-   "anglePct": 41,
+   "anglePct": 35,
    "pieces": 1,
    "vpt": 0.81,
    "cells": [
@@ -317116,7 +317083,14 @@
     "metal-gold",
     "pickup"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0024 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
