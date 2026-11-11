@@ -75,42 +75,39 @@ the goal.
    with glbs in `examples/` next to this file; `examples/LIST.txt` gives each
    card's tag, why, and which version is right. Keep the quotes that matter
    per model.
-3. **Triage by script, no renders**: per model, the target wall (the kind's
-   `thin.min`, else 0.006), the thin part (`thicken.mjs --list`), and from
-   the thin map whether the thin faces can be seen from outside.
+3. **Triage** (`node tools/thin/triage.mjs [ids] [--kit k] --out
+   triage.json`, no renders): per model the target wall (the kind's
+   `thin.min`, at least 0.006), how much of the thin area is hidden inside,
+   what the thin part is, and the route: hidden, tool or careful. The route
+   table and its first-choice modes live in the script.
 
-### Quick pass (scripted, all models)
+### Quick pass (scripted, all hidden and tool models)
 
-Pick the first fix by what the thin spot is. Try the next only when one fails.
+`node tools/thin/quickpass.mjs triage.json --out <dir>` tries the fixes in the
+triage order and stops at the first that passes every gate. Hidden walls are
+dropped first (`tools/thin/hidden.mjs`); thicken modes come by what the thin
+part is (flat: `--flat`, bent sheet: `--sheet`, shell: `--inward`, small
+spot: `--local`), each aimed at the kind's `thin.min`, then at 0.006, with up
+to three passes; a model thin all over may end with a small whole-model
+scale-up. Every result goes back on its floor with fresh normals
+(`tools/thin/tidy.mjs`).
 
-| Thin spot | First | Then |
-| --- | --- | --- |
-| Hidden inside (gap between halves, buried layer, inner shell) | move or drop the hidden faces | careful pass |
-| Flat part (tag, card, coin, plate, flight) | `--flat` | `--sheet`, `--local` |
-| Bent sheet, fin, rim, curl | `--sheet` | `--flat`, `--local` |
-| Shell, cup, bowl or tube wall whose outline must stay | `--inward` (`--radial` for an upright cup) | `--sheet --inward`, `--local` |
-| Small spot on a thicker part | `--local` | `--local --away`, `--sheet --local` |
-| Anything else | default | `--local`, `--sheet` |
+A try fails when it is still under the aim, leaves or adds a G27 error, grows
+the outline more than the aim needs, changes the shape of the main face,
+closes an opening, adds glb-lint findings or back faces, or, for a hidden
+drop, changes more than a few pixels on 8 views. A failed try is dropped and the next one
+runs. Nothing touches `kits/workfiles` yet.
 
-Always write with `--out`, put the model back on its floor, and aim a little
-over the target (thicken lands low).
+The fresh checker (Checks) judges the sheets listed in `<dir>/checker.md` in
+one go. `ok` and same or better: `quickpass.mjs apply <dir>/report.json
+<ids>` puts it in place. Anything else goes to the careful pass with the
+checker's words. Hidden drops change nothing visible and need no checker.
 
-A try fails when it is still under the target by the lint's measure, adds a
-glb-lint error or back faces, moves the outline where it should stay, or
-closes a hole or gap. A failed try is dropped and the next one runs.
-
-A try that passes gets a before/after sheet, and the fresh checker (Checks)
-judges the sheets in bulk. `ok` and same or better: done. Anything else goes
-to the careful pass with the checker's words.
-
-Straight to the careful pass, since the tool modes are known to fail there:
-
-- a sharp blade, point or edge (the modes blunt or bend it);
-- a hollow part that should read as closed (cap, lid);
-- a model thin all over (scale-up candidate);
-- lettering, numbers, strings, threads, chains, or anything that makes the
-  type;
-- a model whose latest PO verdict asks for something specific.
+Triage sends these straight to the careful pass, since the tool modes are
+known to fail there: a sharp blade, point or edge; lettering, numbers,
+strings, threads or anything else that makes the type; a model whose latest
+PO verdict is not keep. Models the quick pass could not settle follow, with
+the list of what was tried and why it failed.
 
 ### Careful pass (only what the quick pass did not settle)
 
