@@ -87,8 +87,9 @@ the goal.
 triage order and stops at the first that passes every gate. Hidden walls are
 dropped first (`tools/thin/hidden.mjs`); thicken modes come by what the thin
 part is (flat: `--flat`, bent sheet: `--sheet`, shell: `--inward`, small
-spot: `--local`), each aimed at the kind's `thin.min`, then at 0.006, with up
-to three passes; a model thin all over may end with a small whole-model
+spot: `--local`), each aimed at 0.006 with up to three passes (`--aim kind`
+first aims at the kind's `thin.min`, which in a test made plates and hands
+too heavy); a model thin all over may end with a small whole-model
 scale-up. Every result goes back on its floor with fresh normals
 (`tools/thin/tidy.mjs`).
 

@@ -3,12 +3,13 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { loadMesh, hits, extentOf, measure, catalogModel, g27, dropHidden, tidy, backShare, FLOOR } from './lib.mjs';
 
-const HELP = `quickpass.mjs <triage.json> --out <dir> [--only kit/name,...] [--from <dir>]
+const HELP = `quickpass.mjs <triage.json> --out <dir> [--only kit/name,...] [--from <dir>] [--aim kind]
 quickpass.mjs apply <dir>/report.json [kit/name ...]
 
 Runs the lod quick pass on the models triage.mjs routed to hidden or tool.
 Per model it tries the listed fixes in order and stops at the first that
-passes every gate; a mode first aims at the kind's thin.min, then at 0.006.
+passes every gate; a mode aims at 0.006, or with --aim kind first at the
+kind's thin.min and then at 0.006.
   hidden  drop faces hidden inside the model (hidden.mjs)
   --...   a thicken.mjs mode, then tidy.mjs (floor and normals); up to 3
           passes while the wall still grows
@@ -142,7 +143,7 @@ for (const row of rows) {
   const gaps0 = occ0.map(gapsOf);
   const lint0 = lintCounts(before, kit, dir);
   const back0 = backShare(loadMesh(before));
-  const aims = row.target > FLOOR ? [row.target, FLOOR] : [FLOOR];
+  const aims = opt('--aim') === 'kind' && row.target > FLOOR ? [row.target, FLOOR] : [FLOOR];
   const plan = [...(row.route === 'hidden' ? ['hidden'] : []), ...row.modes];
   const tries = [];
   let chosen = null;
