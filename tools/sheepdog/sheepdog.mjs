@@ -50,8 +50,8 @@ record  reads <run>/<kind>/result.json for every kind of the run, applies its
 
 review  writes a list for tools/review/review.mjs build: one item per model
         changed in --run (default the latest) or doubted and not judged in an
-        earlier run, high doubt when one of its changes is doubted, low when
-        none is, grouped by kind. --base is the commit before the run.
+        earlier run, with the why of its doubted changes, grouped by kind.
+        --base is the commit before the run.
 
 verdicts takes the review page's verdicts (the file review.mjs apply reads):
         keep, keepbut, relax and other are ok; revert and retry are nok and put
@@ -383,11 +383,10 @@ function review() {
   for (const entry of log) {
     for (const c of entry.changes) {
       if (c.verdict !== null || (entry.run !== run && !c.doubt)) continue;
-      const item = items.get(c.id) ?? { model: c.id, group: entry.kind, change: [], note: [], doubt: 'low' };
+      const item = items.get(c.id) ?? { model: c.id, group: entry.kind, change: [], why: [] };
       item.change.push(c.change);
       if (c.doubt) {
-        item.doubt = 'high';
-        item.note.push(`${c.why}${c.lint?.length ? ` [lint: ${c.lint.map((f) => f.split(':')[0]).join(', ')}]` : ''}`);
+        item.why.push(`${c.why}${c.lint?.length ? ` [lint: ${c.lint.map((f) => f.split(':')[0]).join(', ')}]` : ''}`);
       }
       items.set(c.id, item);
     }
@@ -396,12 +395,12 @@ function review() {
     title: `Sheepdog ${run}`,
     base: flag('base', 'origin/main'),
     items: [...items.values()]
-      .sort((a, b) => (a.doubt === b.doubt ? a.group.localeCompare(b.group) || a.model.localeCompare(b.model) : a.doubt === 'high' ? -1 : 1))
-      .map((i) => ({ ...i, change: i.change.join('; '), note: i.note.join('; ') })),
+      .sort((a, b) => a.group.localeCompare(b.group) || a.model.localeCompare(b.model))
+      .map((i) => ({ ...i, change: i.change.join('; '), why: i.why.join('; ') || undefined })),
   };
   const out = resolve(flag('out', join(tmpdir(), 'sheepdog-review.json')));
   writeJson(out, list);
-  console.log(`${list.items.length} models, ${list.items.filter((i) => i.doubt === 'high').length} doubted -> ${out}`);
+  console.log(`${list.items.length} models, ${list.items.filter((i) => i.why).length} doubted -> ${out}`);
 }
 
 const OK = new Set(['keep', 'keepbut', 'relax', 'other']);
@@ -412,8 +411,9 @@ function verdicts() {
   const nok = new Set(list('nok'));
   if (flag('file')) {
     const text = readFileSync(resolve(flag('file')), 'utf8');
-    const items = text.trim().startsWith('{')
-      ? JSON.parse(text).items
+    const parsed = /^\s*[[{]/.test(text) ? JSON.parse(text) : null;
+    const items = parsed
+      ? (Array.isArray(parsed) ? parsed : parsed.items ?? parsed.docs).map((r) => r.data ?? r)
       : text.split('\n').filter((l) => l.includes(':')).map((l) => ({ model: l.slice(0, l.indexOf(':')).trim(), verdict: l.slice(l.indexOf(':') + 1).trim().split(/\s+[—-]\s+/)[0].trim().toLowerCase() }));
     for (const { model, verdict } of items) {
       if (OK.has(verdict)) ok.add(model);

@@ -64,9 +64,9 @@ say how bands and tags work. The agents get both as reading.
        node tools/sheepdog/sheepdog.mjs review --out <scratchpad>/review-list.json
        node tools/review/review.mjs brief
 
-   Doubted changes are high, the rest low; drop the low items of a type the
-   brief says to send only where doubt is high. Build, publish the page as an
-   artifact and link it in the PR.
+   Doubted changes carry their `why`; drop the items without one of a type
+   the brief says to send only where risk is high. Build, publish the page as
+   an artifact and link it in the PR.
 
 8. Report to the PO: the kinds, changes made and doubted per kind, the
    agents' notes (`notes` in the log) and the review link.
@@ -88,7 +88,8 @@ move a model to another kind of it.
 
 ## 2. Verdict run
 
-The PO pastes the review page's verdicts. Save them to the scratchpad and:
+Read the review page's verdicts (review skill, §3), save them to the
+scratchpad and:
 
     node tools/review/review.mjs apply <verdicts>
     node tools/sheepdog/sheepdog.mjs verdicts --file <verdicts>

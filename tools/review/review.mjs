@@ -18,40 +18,48 @@ build   renders every listed model before (at --base, default the list's
 
         list.json:
         { "title": "short name", "base": "<git ref>",
-          "items": [ { "model": "kit/name", "group": "heading",
-                       "change": "what was done", "note": "why it is doubtful",
-                       "doubt": "high" | "low", "types": ["size", …], "before": "<glb>",
-                       "thin": true } ] }
-        types is optional: size, tag, recolour, shape, geometry; derived when left out.
+          "items": [ { "model": "kit/name", "group": "kind or heading",
+                       "change": "what was done",
+                       "why": "why you doubt it; leave out when you don't",
+                       "proposal": "a proposal for the PO, if any",
+                       "warn": "a heads-up the PO must not miss, if any",
+                       "before": "<glb>", "thin": true } ] }
         before is optional: a glb shown as before instead of the one at base,
         such as the rejected source of a model new in the catalogue.
-        thin is optional: offers the kind's lower thin limits as relax
-        answers; when left out, set by "thin" or "thick" in change or note.
+        thin is optional: offers the kind's lower thin limits with Relax rule;
+        when left out, set by "thin" or "thick" in change or why.
 
-apply   takes the page's copied verdicts, or lines of "kit/name: verdict".
+        Risk is set here, the same for every flow: high when the item has a
+        why or a proposal, or the diff shows size x1.2 or more either way, a
+        kind change, triangles +-40% or more, 35% or more of the colour moved,
+        or vertices moved 5% or more of the model; low otherwise. A high-risk
+        card gets an amber edge and its reasons.
+
+apply   takes the verdicts the page saved (the artifact's db collection
+        "verdicts", read with ArtifactData list and saved as JSON: an array of
+        docs, or {items}), or lines of "kit/name: verdict".
         revert, retry and relax put the model's file and its tags back as they
-        were at base; keepbut, retry, relax and other are printed with their
-        comment as the work left.
+        were at base; keepbut, retry, relax, other and a kept proposal are
+        printed with their comment as the work left.
 
         Every verdict is logged in tools/review/log.json with the model's
-        kind and change types.
+        kind, change types and risk (as doubt).
 
 brief   with --review, only the reviews whose title holds that text, and
         every one of their verdicts with its change and comment.
-        prints how often each change type, doubt level and kind branch was
+        prints how often each change type, risk level and kind branch was
         kept or undone across all reviews, and advises what to send: every
-        change of a type undone 30% or more, only high-doubt ones of a type
+        change of a type undone 30% or more, only high-risk ones of a type
         undone 10% or less (5 verdicts at least), and a follow-up round for
         changes like the ones undone in the last review.
 
-verdicts: keep, keepbut, revert, retry, relax, other, later.
-flags:    what failed, tapped on the page: a change icon, tag chip, colour
-          swatch or number flags that value, an issue button names the
-          problem (too big, wobbly, lost detail, …), a tap on an after
-          picture drops a pin;
-          flags or pins without a verdict count as retry.
-marks:    great (spot on, beyond expectations) or bad (opposite of the goal,
-          high impact), next to the verdict; brief lists the latest of each.`;
+verdicts: keep (Keep), retry (Try again), revert (Undo), keepbut (Keep, but…),
+          relax (Relax rule), other, later.
+flags:    issue buttons (too big, wobbly, lost detail, …) shown after Try
+          again or Undo; a tap on a picture drops a pin; flags or pins
+          without a verdict count as retry.
+marks:    great (spot on) or bad (opposite of the goal), next to the
+          verdict; brief lists the latest of each.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const WORK = 'kits/workfiles';
@@ -68,6 +76,7 @@ const LOG = join(dirname(fileURLToPath(import.meta.url)), 'log.json');
 const MIN_SAMPLE = 5;
 const SEND_ALL = 0.3;
 const SEND_FEW = 0.1;
+const BIG_SIZE = 1.2;
 
 const args = process.argv.slice(2);
 const flag = (name, fallback) => {
@@ -134,9 +143,9 @@ const round = (v) => Math.round(v * 1000) / 1000;
 const longest = (wdh) => Math.max(...wdh);
 const strength = (value, mid, high) => (value >= high ? 'strong' : value >= mid ? 'mid' : 'low');
 
-function diff(model, base, tagsBefore, tagsAfter) {
+function diff(model, base, tagsBefore, tagsAfter, beforeFile) {
   const path = `${WORK}/${model}.glb`;
-  const before = facts(atRef(base, path));
+  const before = facts(beforeFile ? readFileSync(resolve(ROOT, beforeFile)) : atRef(base, path));
   const after = facts(existsSync(join(ROOT, path)) ? readFileSync(join(ROOT, path)) : null);
   const types = new Set();
   const out = [];
@@ -181,9 +190,9 @@ function diff(model, base, tagsBefore, tagsAfter) {
     }
     if (!types.has('size') && !types.has('geometry')) {
       const move = maxMove(before, after);
-      if (move > 1e-3) {
+      if (move === null || move > 1e-3) {
         types.add('shape');
-        out.push({ f: 'shape', move: Math.round(move * 1000) / 10, s: strength(move, 0.01, 0.05) });
+        out.push({ f: 'shape', move: move === null ? null : Math.round(move * 1000) / 10, s: move === null ? 'mid' : strength(move, 0.01, 0.05) });
       }
     }
   }
@@ -191,13 +200,13 @@ function diff(model, base, tagsBefore, tagsAfter) {
 }
 
 function maxMove(a, b) {
-  if (a.positions.length !== b.positions.length) return 1;
+  if (a.positions.length !== b.positions.length) return null;
   const scale = longest(a.wdh) || 1;
   let most = 0;
   for (let p = 0; p < a.positions.length; p++) {
     const x = a.positions[p];
     const y = b.positions[p];
-    if (x.length !== y.length) return 1;
+    if (x.length !== y.length) return null;
     for (let i = 0; i < x.length; i++) most = Math.max(most, Math.abs(x[i] - y[i]) / scale);
   }
   return most;
@@ -267,7 +276,19 @@ function pixelDiff(before, after, mask) {
     '-fill', 'white', '-opaque', '#f2f2f0', '-negate', '-format', '%[fx:mean*w*h]', 'info:']).toString()) || 1;
   return { share: Math.round((changed / covered) * 1000) / 10, boxes };
 }
-const basenameOf = (p) => p.split('/').pop();
+
+function riskReasons(item, d, added) {
+  const out = [];
+  if (item.why) out.push(item.why);
+  for (const f of d.facts) {
+    if (f.f === 'size' && Math.abs(Math.log(f.to / f.from)) >= Math.log(BIG_SIZE)) out.push(`size ×${f.factor}`);
+    if (f.f === 'kind' && !added) out.push('kind changed');
+    if (f.f === 'tris' && Math.abs(f.pct) >= 40) out.push(`triangles ${f.pct > 0 ? '+' : ''}${f.pct}%`);
+    if (f.f === 'colour' && f.changed >= 35) out.push(`${f.changed}% of the colour moved`);
+    if (f.f === 'shape' && f.move >= 5) out.push(`shape moved ${f.move}%`);
+  }
+  return out;
+}
 
 function build() {
   const listPath = args[1];
@@ -302,8 +323,8 @@ function build() {
   for (const side of ['before', 'after']) {
     if (readdirSync(join(out, side)).some((f) => f.endsWith('.glb'))) render(join(out, side), join(out, `r-${side}`), size);
   }
-  const atScale = (d) => d.facts.some((f) => f.f === 'size' && Math.abs(f.to / f.from - 1) >= 0.2);
-  const sized = list.items.filter((item) => atScale(diff(item.model, base, tagsBefore, tagsAfter)));
+  const atScale = (d) => d.facts.some((f) => f.f === 'size' && (Math.abs(Math.log(f.to / f.from)) >= Math.log(BIG_SIZE) || d.types.length === 1));
+  const sized = list.items.filter((item) => atScale(diff(item.model, base, tagsBefore, tagsAfter, item.before)));
   for (const side of ['before', 'after']) {
     if (!sized.length) break;
     const dir = join(out, `s-${side}`);
@@ -318,21 +339,28 @@ function build() {
   }
 
   const items = list.items.map((item) => {
-    const d = diff(item.model, base, tagsBefore, tagsAfter);
+    const d = diff(item.model, base, tagsBefore, tagsAfter, item.before);
+    const why = item.why ?? '';
     const png = (side, view) => join(out, `r-${side}`, key(item.model), `pbr_${view}.png`);
     const img = (side, view) => webp(png(side, view));
     const d1 = pixelDiff(png('before', 'iso'), png('after', 'iso'), join(out, 'diff', `${key(item.model)}-iso.png`));
     const d2 = pixelDiff(png('before', 'iso-back'), png('after', 'iso-back'), join(out, 'diff', `${key(item.model)}-back.png`));
     const pixels = Math.max(d1.share ?? 0, d2.share ?? 0);
-    const visual = (item.types ?? d.types).includes('recolour') || d1.boxes.length + d2.boxes.length > 0;
+    const visual = d.types.includes('recolour') || d1.boxes.length + d2.boxes.length > 0;
+    const added = !existsSync(join(out, 'before', `${key(item.model)}.glb`));
+    const reasons = riskReasons(item, d, added);
     return {
       model: item.model,
       group: item.group ?? '',
       change: item.change ?? '',
-      note: item.note ?? '',
-      doubt: item.doubt ?? 'low',
-      thin: (item.thin ?? /thin|thick/i.test(`${item.change} ${item.note}`)) ? thinSteps(item.model) : [],
-      types: item.types ?? d.types,
+      proposal: item.proposal ?? '',
+      warn: item.warn ?? '',
+      risk: reasons.length || item.proposal ? 'high' : 'low',
+      reasons,
+      added,
+      changed: added || d.types.length > 0,
+      thin: (item.thin ?? /thin|thick/i.test(`${item.change} ${why}`)) ? thinSteps(item.model) : [],
+      types: d.types,
       facts: d.facts,
       pixels,
       visual,
@@ -355,8 +383,11 @@ function build() {
 
 function apply() {
   const text = readFileSync(args[1], 'utf8');
-  const verdicts = text.trim().startsWith('{')
-    ? JSON.parse(text)
+  const parsed = /^\s*[[{]/.test(text) ? JSON.parse(text) : null;
+  const rows = parsed && (Array.isArray(parsed) ? parsed : parsed.items ?? parsed.docs);
+  const verdicts = rows
+    ? { review: parsed.review ?? rows[0]?.data?.review ?? rows[0]?.review, base: parsed.base ?? rows[0]?.data?.base ?? rows[0]?.base,
+        items: rows.map((r) => r.data ?? r) }
     : {
         items: text.split('\n').filter((l) => l.includes(':')).map((l) => {
           const [model, rest] = [l.slice(0, l.indexOf(':')).trim(), l.slice(l.indexOf(':') + 1).trim()];
@@ -371,7 +402,7 @@ function apply() {
   const reverted = [];
   const log = existsSync(LOG) ? JSON.parse(readFileSync(LOG, 'utf8')) : [];
   const at = new Date().toISOString().slice(0, 10);
-  for (const { model, verdict, mark, comment, change, types, doubt, flags, pins } of verdicts.items) {
+  for (const { model, verdict, mark, comment, change, proposal, types, doubt, flags, pins } of verdicts.items) {
     const kind = Object.entries(tagsOf(tags, model)).find(([, type]) => type === 'kind')?.[0] ?? null;
     log.push({ at, review: verdicts.review ?? null, model, kind, types: types?.length ? types : diff(model, base, baseTags, tags).types,
       doubt: doubt ?? null, verdict, ...(mark ? { mark } : {}), ...(change ? { change } : {}), ...(flags?.length ? { flags } : {}), ...(pins?.length ? { pins } : {}), comment: comment ?? '' });
@@ -387,6 +418,7 @@ function apply() {
         if (!(tag.id in want) && has) tag.models = tag.models.filter((m) => m !== model);
       }
     }
+    if (proposal && ['keep', 'keepbut'].includes(verdict)) left.push(`proposal ${model}  — do: ${proposal}${comment ? `; ${comment}` : ''}`);
     if (!['keep', 'later', 'revert'].includes(verdict)) left.push(`${verdict.padEnd(8)} ${model}${flags?.length ? `  [${flags.join('; ')}]` : ''}${pins?.length ? `  pins ${pins.join('; ')}` : ''}${comment ? `  — ${comment}` : ''}`);
   }
   writeFileSync(join(ROOT, TAGS), JSON.stringify(tags, null, 1) + '\n');
@@ -418,9 +450,9 @@ function brief() {
     const t = tally(rows);
     console.log(line(type, t));
     if (t.n >= MIN_SAMPLE && t.share >= SEND_ALL) advice.push(`send every ${type} change`);
-    if (t.n >= MIN_SAMPLE && t.share <= SEND_FEW) advice.push(`send only high-doubt ${type} changes`);
+    if (t.n >= MIN_SAMPLE && t.share <= SEND_FEW) advice.push(`send only high-risk ${type} changes`);
   }
-  console.log('\nby doubt');
+  console.log('\nby risk');
   for (const [doubt, rows] of groupBy((e) => e.doubt ?? 'unset')) console.log(line(doubt, tally(rows)));
   console.log('\nby kind branch');
   for (const [branch, rows] of groupBy((e) => e.kind?.split('-').slice(0, 2).join('-'))) console.log(line(branch, tally(rows)));
