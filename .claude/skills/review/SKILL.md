@@ -42,18 +42,22 @@ Risk is set by the tool, the same way for every flow: high when the item has a
 way, a kind change, ±40% triangles, 35% of the colour moved, or points moved
 5% of the model. A high-risk card gets an amber edge and its reasons in amber.
 
-The page keeps one layout for every flow. A card: kit/name with the group and
-badges beside it (size ×N for a size change of ×1.2 or more, new, no change,
-proposal only, tags only); before and after pictures (a slider by default,
-boxes on what changed) with ↻ in the picture for the back; one picture at
-half width when only kind or tags changed or nothing did; with Scale on, both
-at true size for a big size change; fact rows, old value left, new right; the
-note (reasons, change, proposal, warn); three big buttons Undo, Try again,
-Keep (Keep and Undo jump to the next card); a feedback row with ★, ✕✕, 💬
-(opens the comment box), Keep but…, Relax rule, the kind's lower thin limits
-for a thin change, and issue buttons. A tap on a change icon, tag chip,
-swatch or number flags that value; a tap on an after picture drops a numbered
-pin. The top bar switches Slider, Unjudged and Scale.
+The page keeps one layout for every flow. On top, an overview grid: one tile
+per model, an amber dot for high risk, the border coloured by verdict; a tap
+jumps to the card. A card: kit/name with the group and badges (size ×N for a
+size change of ×1.2 or more, new, no change, proposal only, tags only);
+before and after pictures (a slider by default, boxes on what changed) with ↻
+in the picture for the back; the true-size view when only size changed; a
+small picture beside the facts when only kind or tags changed or nothing did;
+fact rows, old value left, new right; the note (reasons, change, proposal,
+warn); three big buttons Undo, Try again, Keep (Keep and Undo jump to the next
+card; a second press marks ★ great on Keep, ✕✕ awful on Undo; a third clears);
+a row with Relax rule, Other and 💬; "What's wrong?" issue buttons after Try
+again or Undo, the kind's lower thin limits after Relax rule. The comment box
+opens with 💬, Try again, Relax rule or Other; Keep with a comment is keep
+but. A tap on a change icon, tag chip, swatch or number flags that value; a
+tap on an after picture drops a numbered pin. The top bar switches Slider,
+Unjudged and Scale.
 
 Publish `<out>/review.html` as an artifact with `capabilities: {db: {}}`,
 renamed `_v2`, `_v3`, … on each new round, and link it in the PR. Every tap
@@ -74,7 +78,7 @@ also work) and run
 | Keep        | `keep`    | nothing                 | a kept proposal: do it           |
 | Try again   | `retry`   | model and tags put back | a new attempt, per the comment   |
 | Undo        | `revert`  | model and tags put back | none                             |
-| Keep, but…  | `keepbut` | nothing                 | the follow-up in the comment     |
+| Keep + comment | `keepbut` | nothing                 | the follow-up in the comment     |
 | Relax rule  | `relax`   | model and tags put back | loosen or except the rule in `lint/*.json` |
 | Other       | `other`   | nothing                 | what the comment says            |
 | Later       | `later`   | nothing                 | left open                        |
