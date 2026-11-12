@@ -37,6 +37,7 @@ article.v-keep{border-color:var(--keep)}article.v-retry{border-color:var(--retry
 .wipe .h::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--accent);color:#fff;font:700 13px system-ui;padding:4px 8px;border-radius:10px;letter-spacing:2px}
 .cap{position:absolute;top:6px;font-size:12px;font-weight:700;color:#4a423b;background:rgba(255,255,255,.85);padding:1px 7px;border-radius:5px}
 .cap.l{left:6px}.cap.r{right:6px}
+.small{display:flex;align-items:center;gap:8px;color:var(--soft);font-size:13px}.small .pic{width:96px;flex:none}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .pic .bx{position:absolute;border:2px solid var(--box);border-radius:5px;box-shadow:0 0 0 1px rgba(255,255,255,.85)}
 .flipb{position:absolute;right:6px;bottom:6px;z-index:2;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.92);color:#2a2622;font:600 12px system-ui;cursor:pointer}
@@ -59,8 +60,7 @@ article.v-keep{border-color:var(--keep)}article.v-retry{border-color:var(--retry
 .sw.in{box-shadow:0 0 0 2px var(--card),0 0 0 3px var(--ink)}
 .none{color:var(--soft);font-weight:400}
 .main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
-.main button{display:grid;justify-items:center;gap:1px;min-height:56px;padding:6px 4px;border-radius:12px;border:2px solid;background:var(--card);font:700 17px system-ui,sans-serif;cursor:pointer}
-.main button small{font-size:11.5px;font-weight:500;opacity:.85}
+.main button{display:grid;place-items:center;min-height:52px;padding:6px 4px;border-radius:12px;border:2px solid;background:var(--card);font:700 17px system-ui,sans-serif;cursor:pointer}
 .main .keep{border-color:var(--keep);color:var(--keep)}.main .retry{border-color:var(--retry);color:var(--retry)}.main .revert{border-color:var(--undo);color:var(--undo)}
 .main .keep.on{background:var(--keep);color:#fff}.main .retry.on{background:var(--retry);color:#fff}.main .revert.on{background:var(--undo);color:#fff}
 .says{margin:6px 0 0;padding:6px 9px;border-radius:8px;background:var(--paper);font-size:13px}
@@ -88,7 +88,7 @@ button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outl
 <script id="data" type="application/json">%%DATA%%</script>
 <script>
 const D=JSON.parse(document.getElementById('data').textContent);
-const MAIN=[['keep','✓ Keep','stays'],['retry','↻ Try again','new attempt'],['revert','✕ Undo','back, done']];
+const MAIN=[['keep','✓ Keep'],['retry','↻ Try again'],['revert','✕ Undo']];
 const MORE=[['keepbut','Keep, but…'],['relax','Relax rule'],['other','Other'],['later','Later']];
 const SAYS={
   keep:['Keep','the change stays.'],
@@ -99,7 +99,7 @@ const SAYS={
   other:['Other','say what should happen.'],
   later:['Later','left open for a later round.'],
 };
-const PROPOSAL={keep:['✓ Do it','agree','the proposal gets done.'],retry:['↻ Rethink','other idea','say what to propose instead.'],revert:['✕ Don\'t','leave as is','nothing changes.']};
+const PROPOSAL={keep:['✓ Do it','the proposal gets done.'],retry:['↻ Rethink','say what to propose instead.'],revert:['✕ Don\'t','nothing changes.']};
 const NEED=new Set(['retry','keepbut','relax','other']);
 const ISSUE={size:['too big','too small','stretched'],tag:['wrong tag','tag missing'],recolour:['too dark','too light','parts blend','wrong part','too busy'],shape:['too thick','too thin','deformed','parts fused','lost detail'],geometry:['too blocky','too dense','holes','spikes','lost detail']};
 const K='review:'+D.title+':'+D.base;
@@ -162,6 +162,7 @@ const pins=(s,v)=>(s.p||[]).map((p,n)=>p[0]===v?`<i class="pin" data-pin="${n}" 
 function view(it,i,s){
   const v=back.has(i)?'back':'front',I=it.img,b=v==='front'?I.b1:I.b2,a=v==='front'?I.a1:I.a2,bx=it.boxes[v];
   const flipb=`<button type="button" class="flipb" data-flip>${v==='front'?'↻ Back':'↻ Front'}</button>`;
+  if(!it.visual&&!it.types.some(t=>t!=='tag'))return `<div class="small"><figure class="pic"><img src="${I.a1}" alt="model"></figure><span>${it.added?'New model':it.changed?'Looks the same':'No change'}</span></div>`;
   if(!it.visual)return `<div class="view"><figure class="pic" data-pinv="${v}"><img src="${a}" alt="model"><span class="cap l">${it.added?'New':it.changed?'After':'No change'}</span>${pins(s,v)}</figure>${flipb}</div>`;
   if(side)return `<div class="view"><div class="pair"><figure class="pic"><img src="${b}" alt="before"><span class="cap l">Before</span></figure><figure class="pic" data-pinv="${v}"><img src="${a}" alt="after"><span class="cap l">After</span>${boxes(bx)}${pins(s,v)}</figure></div>${flipb}</div>`;
   return `<div class="view"><div class="wipe" data-pinv="${v}"><img src="${b}" alt="before"><img class="a" src="${a}" alt="after"><div class="h"></div><span class="cap l">Before</span><span class="cap r">After</span>${pins(s,v)}</div>${flipb}</div><p class="tip">Drag to compare · tap to pin a spot</p>`;
@@ -175,21 +176,21 @@ function alerts(it){
   if(it.proposal)out.push(`<p class="alert info">💡 ${it.changed?'Also a proposal':'Proposal only, model not changed'}: ${esc(it.proposal)}</p>`);
   else if(it.added);
   else if(!it.changed)out.push(`<p class="alert info">No change to the model</p>`);
-  else if(!it.visual&&!it.scale)out.push(`<p class="alert info">Pictures look the same. Changed: ${it.types.map(t=>({tag:'tags',geometry:'mesh',shape:'shape',size:'size',recolour:'colour'}[t])).join(", ")}</p>`);
+  else if(!it.visual&&!it.scale&&it.types.some(t=>t!=='tag'))out.push(`<p class="alert info">Pictures look the same. Changed: ${it.types.map(t=>({tag:'tags',geometry:'mesh',shape:'shape',size:'size',recolour:'colour'}[t])).join(", ")}</p>`);
   return out.join('');
 }
 const checks=it=>it.reasons.filter(r=>!(it.scale&&r.startsWith('size')));
 function card(it,i){
   const s=st[it.model]||{},prop=it.proposal&&!it.changed;
   const issues=(s.v==='retry'||s.v==='revert'||(s.f||[]).length)?it.types.flatMap(t=>ISSUE[t]||[]).filter((x,k,a)=>a.indexOf(x)===k):[];
-  const hint=prop&&PROPOSAL[s.v]?[PROPOSAL[s.v][0].slice(2),PROPOSAL[s.v][2]]:s.v?SAYS[s.v]:null;
+  const hint=prop&&PROPOSAL[s.v]?[PROPOSAL[s.v][0].slice(2),PROPOSAL[s.v][1]]:s.v?SAYS[s.v]:null;
   return `<article data-i="${i}" class="${s.v?'v-'+(MAIN.some(m=>m[0]===s.v)?s.v:'other'):''}">
 <div class="head"><span class="name">${esc(it.model)}</span><span class="group">${esc(it.group)}</span></div>
 ${alerts(it)}
 ${it.change?`<p class="text"><span class="k">Changed:</span> ${esc(it.change)}</p>`:''}
 ${checks(it).length?`<p class="text why">⚑ Check: ${esc(checks(it).join(' · '))}</p>`:''}
 ${view(it,i,s)}${it.scale?scalePanel(it):''}${facts(it)}
-<div class="main">${MAIN.map(([v,l,sub])=>`<button type="button" class="${v} ${s.v===v?'on':''}" data-v="${v}" aria-pressed="${s.v===v}">${prop?PROPOSAL[v][0]:l}<small>${prop?PROPOSAL[v][1]:sub}</small></button>`).join('')}</div>
+<div class="main">${MAIN.map(([v,l])=>`<button type="button" class="${v} ${s.v===v?'on':''}" data-v="${v}" aria-pressed="${s.v===v}">${prop?PROPOSAL[v][0]:l}</button>`).join('')}</div>
 ${hint?`<p class="says"><b>${hint[0]}:</b> ${hint[1]}</p>`:''}
 ${issues.length||(it.thin||[]).length&&s.v==='relax'?`<div class="row"><span class="lb">What's wrong?</span>${issues.map(x=>`<button type="button" data-f="${esc(x)}" class="${(s.f||[]).includes(x)?'is':''}">${esc(x)}</button>`).join('')}${s.v==='relax'?(it.thin||[]).map(v=>`<button type="button" data-lim="thin limit ${v}" class="${(s.f||[]).includes('thin limit '+v)?'is':''}">thin to ${v}</button>`).join(''):''}</div>`:''}
 <textarea id="c${i}" placeholder="${NEED.has(s.v)?'Needed: '+esc(SAYS[s.v][1].replace(/^.*\. /,'')):'Comment (optional)'}" class="${NEED.has(s.v)&&!s.c&&!(s.f||[]).length?'need':''}">${esc(s.c||'')}</textarea>

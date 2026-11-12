@@ -45,7 +45,8 @@ on the card; the rest under "Probably fine", with a "Keep all open" button.
 
 A card shows, top down: name and group; heads-ups (much bigger or smaller with
 the factor, new model, no change to the model, proposal only, pictures look
-the same, `warn`); the change and what to check; one picture with a
+the same, `warn`); the change and what to check; a small thumbnail when only
+kind or tags changed or nothing did, else one big picture with a
 before/after slider (↻ for the back, "Side by side" in the top bar for boxes
 on what changed); for a big size change both at true size on a 1 m grid with
 the kind's limits; the before → after facts (size, triangles, kind, tags,
