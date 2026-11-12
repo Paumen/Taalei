@@ -154,7 +154,7 @@ async function flush(){
   sync('Saving…');
   try{
     for(const m of jobs){const s=st[m],ref=db.collection('verdicts').doc(docId(m)),it=D.items.find(x=>x.model===m);
-      if(!s||gone(s))await ref.delete();else await ref.set(verdictOf(it,s));
+      if(!s||gone(s))await ref.delete();else await ref.set(JSON.parse(JSON.stringify(verdictOf(it,s))));
       sent[m]=JSON.stringify(s||null)}
     sync('Saved for Claude');
   }catch(e){sync('Not saved: '+(e&&e.code||'error'))}
@@ -282,7 +282,7 @@ sync('Not saved for Claude: open the page in Claude');
 (async()=>{try{db=await window.claude?.use?.('db')}catch(e){db=null}
   if(!db)return;
   try{const snap=await db.collection('verdicts').get();const got={};
-    for(const d of snap.docs){const v=d.data();if(v&&v.model&&v.state){got[v.model]=v.state;sent[v.model]=JSON.stringify(v.state)}}
+    for(const d of snap.docs){const v=d.data();if(v&&v.model&&v.state){got[v.model]=JSON.parse(JSON.stringify(v.state));sent[v.model]=JSON.stringify(v.state)}}
     if(Object.keys(got).length){st=got;drawList()}
     sync('Saved for Claude');flush();
   }catch(e){db=null;sync('Not saved: '+(e&&e.code||'error'))}})();return}
@@ -310,7 +310,7 @@ sync('Not saved for Claude: open the page in Claude');
 (async()=>{try{db=await window.claude?.use?.('db')}catch(e){db=null}
   if(!db)return;
   try{const snap=await db.collection('verdicts').get();const got={};
-    for(const d of snap.docs){const v=d.data();if(v&&v.model&&v.state){got[v.model]=v.state;sent[v.model]=JSON.stringify(v.state)}}
+    for(const d of snap.docs){const v=d.data();if(v&&v.model&&v.state){got[v.model]=JSON.parse(JSON.stringify(v.state));sent[v.model]=JSON.stringify(v.state)}}
     if(Object.keys(got).length){st=got;drawList()}
     sync('Saved for Claude');flush();
   }catch(e){db=null;sync('Not saved: '+(e&&e.code||'error'))}})();
