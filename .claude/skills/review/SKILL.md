@@ -49,13 +49,13 @@ size change of ×1.2 or more, new, no change, proposal only, tags only);
 before and after pictures (a slider by default, boxes on what changed) with ↻
 in the picture for the back; the true-size view when only size changed; a
 small picture beside the facts when only kind or tags changed or nothing did;
-fact rows, old value left, new right; the note (reasons, change, proposal,
-warn); three big buttons Undo, Try again, Keep, each jumping to the next card
-(a second press clears); a small chip in each: ✕✕ awful on Undo, 💬 on Try
-again (opens the comment box, no jump), ★ great on Keep; a row with Relax
+fact rows, old value left, new right; three big buttons Undo, Try again, Keep, each jumping to the next card
+(a second press clears), each with a smaller twin beside it: ✕✕ (Undo,
+awful), 💬 (Try again, opens the comment box, no jump), ★ (Keep, great); a row with Relax
 rule, Other and 💬; "What's wrong?" issue buttons after Try again, the kind's
 lower thin limits after Relax rule. The comment box opens with 💬, Relax rule
-or Other; Keep with a comment is keep but. A tap on a change icon, tag chip, swatch or number flags that value; a
+or Other; Keep with a comment is keep but. The note (reasons, change, proposal, warn)
+sits beside kit/name. A tap on a change icon, tag chip, swatch or number flags that value; a
 tap on an after picture drops a numbered pin. The top bar switches Slider,
 Unjudged and Scale.
 

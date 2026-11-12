@@ -19,6 +19,7 @@ main{max-width:520px;margin:0 auto;padding-inline:12px;padding-block:0 76px}
 .switch[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--paper);font-weight:600}
 article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:10px;margin-bottom:10px}
 .head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin-bottom:8px}
+.head .hn{font-size:12.5px;color:var(--ink-soft);flex:1 1 160px;min-width:0}
 .grp{color:var(--ink-soft);font-size:12px}
 .view{position:relative}
 .flipb{position:absolute;right:6px;bottom:6px;z-index:2;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.92);color:#2f2a26;font:600 12px system-ui;cursor:pointer}.head .name{font-weight:650;font-size:14px;overflow-wrap:anywhere}
@@ -76,8 +77,9 @@ body.slide .wipe:not(.back){display:block}body.slide .pics.vis{display:none}
 .note{margin:8px 0 0;color:var(--ink-soft);font-size:13px}
 .main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}
 .main button{min-height:46px;border-radius:10px;border:2px solid;background:var(--card);font:700 16px system-ui,sans-serif;cursor:pointer}
-.main button{position:relative}.main .sub{position:absolute;top:3px;right:3px;display:grid;place-items:center;min-width:22px;height:20px;padding:0 4px;border-radius:999px;border:1px solid currentColor;font-size:11px;opacity:.7;background:var(--card)}
-.main .sub.on{opacity:1;background:var(--ink);color:#fff;border-color:var(--ink)}
+.pair{display:flex;min-width:0}.pair button:first-child{flex:1;min-width:0;border-radius:10px 0 0 10px}
+.main .sm{width:38px;flex:none;border-left-width:1px;border-radius:0 10px 10px 0;font-size:13px}
+.main .pair .sm.on{background:var(--ink);border-color:var(--ink);color:#fff}
 .main .keep{border-color:var(--keep);color:var(--keep)}.main .fail{border-color:var(--m2);color:var(--m2)}.main .undo{border-color:var(--revert);color:var(--revert)}
 .main .keep.on{background:var(--keep);color:#fff}.main .fail.on{background:var(--m2);color:#fff}.main .undo.on{background:var(--revert);color:#fff}
 .bd{font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--line);color:var(--ink);white-space:nowrap}
@@ -254,9 +256,9 @@ function issueRow(it,s){
 }
 function card(it,i){
   const s=st[it.model]||{};cur=s;ci=+i;
-  return `<article data-i="${i}" class="${s.m?'m-'+s.m:''} ${it.risk==='high'?'risk':''}"><div class="head"><span class="name">${esc(it.model)}</span>${it.group&&it.group!==it.model.split('/')[0]?`<span class="grp">${esc(it.group)}</span>`:''}${badges(it)}</div>
-${it.types.some(t=>t!=='tag')?pics(it)+factRows(it):`<div class="small">${pics(it)}${factRows(it)}</div>`}${rs(it).length||it.change||it.proposal||it.warn?`<p class="note">${rs(it).length?`<span class="rk">⚑ ${esc(rs(it).join(' · '))}</span> `:''}${esc(it.change)}${it.proposal?` <b>Proposal:</b> ${esc(it.proposal)}`:''}${it.warn?` <b class="rk">⚠ ${esc(it.warn)}</b>`:''}</p>`:''}
-<div class="main"><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert" title="Back to before, no new try">Undo<span class="sub ${s.m==='bad'?'on':''}" data-mk="bad" title="Awful: opposite of the goal">✕✕</span></button><button type="button" class="fail ${s.v==='retry'?'on':''}" data-v="retry" title="Back to before, then a new try">Try again<span class="sub ${talk.has(+i)||s.c?'on':''}" data-cm title="Say what to change">💬</span></button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep" >Keep<span class="sub ${s.m==='great'?'on':''}" data-mk="great" title="Great: spot on">★</span></button></div><div class="btns">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}<span class="gap"></span><button type="button" class="mark ${talk.has(+i)||s.c?'on':''}" data-talk title="Comment" aria-label="Comment">💬</button></div>${issueRow(it,s)}
+  return `<article data-i="${i}" class="${s.m?'m-'+s.m:''} ${it.risk==='high'?'risk':''}"><div class="head"><span class="name">${esc(it.model)}</span>${it.group&&it.group!==it.model.split('/')[0]?`<span class="grp">${esc(it.group)}</span>`:''}${badges(it)}<span class="hn">${rs(it).length?`<span class="rk">⚑ ${esc(rs(it).join(' · '))}</span> `:''}${esc(it.change)}${it.proposal?` <b>Proposal:</b> ${esc(it.proposal)}`:''}${it.warn?` <b class="rk">⚠ ${esc(it.warn)}</b>`:''}</span></div>
+${it.types.some(t=>t!=='tag')?pics(it)+factRows(it):`<div class="small">${pics(it)}${factRows(it)}</div>`}
+<div class="main"><span class="pair"><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert" title="Back to before, no new try">Undo</button><button type="button" class="undo sm ${s.m==='bad'?'on':''}" data-v="revert" data-mk="bad" title="Undo, awful: opposite of the goal">✕✕</button></span><span class="pair"><button type="button" class="fail ${s.v==='retry'?'on':''}" data-v="retry" title="Back to before, then a new try">Try again</button><button type="button" class="fail sm ${s.v==='retry'&&(talk.has(+i)||s.c)?'on':''}" data-v="retry" data-cm title="Try again, and say what to change">💬</button></span><span class="pair"><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button><button type="button" class="keep sm ${s.m==='great'?'on':''}" data-v="keep" data-mk="great" title="Keep, great: spot on">★</button></span></div><div class="btns">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}<span class="gap"></span><button type="button" class="mark ${talk.has(+i)||s.c?'on':''}" data-talk title="Comment" aria-label="Comment">💬</button></div>${issueRow(it,s)}
 <textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${talk.has(+i)||s.c||['relax','other'].includes(s.v)?'open':''} ${NEED[s.v]&&!s.c&&!(s.f||[]).some(x=>x.startsWith('thin limit'))?'need':''}">${esc(s.c||'')}</textarea></article>`;
 }
 function drawList(){
