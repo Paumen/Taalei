@@ -810,15 +810,17 @@ const WALL_SHARE = 0.2;
 const WALL_MIN_PART = 0.002;
 const WALL_FACING = -0.9;
 
-export function thinnestWall(glb) {
+export function wallParts(glb) {
   const key = (q) => q.map((x) => Math.round(x * 1e4)).join(',');
   const tris = [];
   for (const t of sceneTriangles(glb)) {
     const n = cross3(sub3(t.p[1], t.p[0]), sub3(t.p[2], t.p[0]));
     const len = Math.hypot(...n);
     if (len < 1e-12) continue;
-    tris.push({ p: t.p, n: n.map((x) => x / len), area: len / 2, keys: t.p.map(key) });
+    tris.push({ prim: t.prim, p: t.p, n: n.map((x) => x / len), area: len / 2, keys: t.p.map(key) });
   }
+  const meshOf = new Map();
+  (glb.json.meshes ?? []).forEach((m, i) => (m.primitives ?? []).forEach((q, j) => meshOf.set(q, { mesh: m.name ?? `mesh ${i}`, primitive: j })));
   const parent = tris.map((_, i) => i);
   const find = (i) => { while (parent[i] !== i) i = parent[i] = parent[parent[i]]; return i; };
   const owner = new Map();
@@ -835,9 +837,11 @@ export function thinnestWall(glb) {
   });
   const total = tris.reduce((s, t) => s + t.area, 0);
   const step = Math.max(1, Math.ceil(tris.length / WALL_SAMPLES));
-  let best = null;
+  const out = [];
   for (const own of parts.values()) {
-    if (own.reduce((s, t) => s + t.area, 0) < WALL_MIN_PART * total) continue;
+    const pts = own.flatMap((t) => t.p);
+    const where = { ...meshOf.get(own[0].prim), tris: own.length, min: [0, 1, 2].map((k) => Math.min(...pts.map((q) => q[k]))), max: [0, 1, 2].map((k) => Math.max(...pts.map((q) => q[k]))) };
+    if (own.reduce((s, t) => s + t.area, 0) < WALL_MIN_PART * total) { out.push({ ...where, wall: null, skipped: 'small' }); continue; }
     const hits = [];
     for (let i = 0; i < own.length; i += Math.min(step, Math.max(1, Math.floor(own.length / 8)))) {
       const t = own[i];
@@ -854,16 +858,21 @@ export function thinnestWall(glb) {
         const r = rayDistance(o, dir, b.p);
         return r !== null && r > from - 1e-5 && r < from + LAYER_GAP;
       }))) continue;
-      hits.push({ wall, area: t.area });
+      hits.push({ wall, area: t.area, at: o });
     }
-    if (!hits.length) continue;
+    if (!hits.length) { out.push({ ...where, wall: null, skipped: 'layer or open' }); continue; }
     hits.sort((a, b) => a.wall - b.wall);
     const sum = hits.reduce((s, h) => s + h.area, 0);
     let acc = 0, wall = hits[hits.length - 1].wall;
     for (const h of hits) { acc += h.area; if (acc >= WALL_SHARE * sum) { wall = h.wall; break; } }
-    if (best === null || wall < best) best = wall;
+    out.push({ ...where, wall, thinnest: hits[0].wall, at: hits[0].at });
   }
-  return best;
+  return out;
+}
+
+export function thinnestWall(glb) {
+  const walls = wallParts(glb).filter((p) => p.wall !== null).map((p) => p.wall);
+  return walls.length ? Math.min(...walls) : null;
 }
 
 const THICK_CELLS = 60;

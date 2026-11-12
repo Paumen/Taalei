@@ -62,22 +62,28 @@ function solve(normals, delta) {
 
 function model(glb) {
   const prims = editablePrimitives(glb.json);
-  if (prims.length !== 1) throw new Error('expects one editable primitive');
-  const prim = prims[0];
-  const M = primitiveMatrix(glb.json, prim);
-  if ([0, 4, 8].some((c) => Math.abs(Math.hypot(M[c], M[c + 1], M[c + 2]) - 1) > 1e-4)) throw new Error('expects no scale on the mesh node');
-  const local = readAccessor(glb, prim.attributes.POSITION).data;
-  const pos = new Float64Array(local.length);
-  for (let i = 0; i < local.length; i += 3) for (let r = 0; r < 3; r++) pos[i + r] = M[r] * local[i] + M[4 + r] * local[i + 1] + M[8 + r] * local[i + 2] + M[12 + r];
-  const idx = readAccessor(glb, prim.indices).data;
+  const all = (glb.json.meshes ?? []).flatMap((m) => m.primitives ?? []).filter((q) => (q.mode ?? 4) === 4);
+  if (!prims.length || prims.length < all.length) throw new Error('every triangle primitive needs its own vertex data (some share accessors)');
   const ids = new Map();
-  const vid = Array.from({ length: pos.length / 3 }, (_, i) => {
-    const k = [0, 1, 2].map((j) => Math.round(pos[i * 3 + j] * 1e4)).join(',');
-    if (!ids.has(k)) ids.set(k, ids.size);
-    return ids.get(k);
-  });
   const P = [];
-  vid.forEach((w, i) => { P[w] ??= [pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]]; });
+  const spans = [];
+  const idx = [];
+  let base = 0;
+  const vid = [];
+  for (const prim of prims) {
+    const M = primitiveMatrix(glb.json, prim);
+    if ([0, 4, 8].some((c) => Math.abs(Math.hypot(M[c], M[c + 1], M[c + 2]) - 1) > 1e-4)) throw new Error('expects no scale on the mesh nodes');
+    const local = readAccessor(glb, prim.attributes.POSITION).data;
+    for (let i = 0; i < local.length; i += 3) {
+      const q = [0, 1, 2].map((r) => M[r] * local[i] + M[4 + r] * local[i + 1] + M[8 + r] * local[i + 2] + M[12 + r]);
+      const k = q.map((v) => Math.round(v * 1e4)).join(',');
+      if (!ids.has(k)) { ids.set(k, ids.size); P.push(q); }
+      vid.push(ids.get(k));
+    }
+    for (const v of readAccessor(glb, prim.indices).data) idx.push(base + v);
+    spans.push({ prim, M, start: base, count: local.length / 3 });
+    base += local.length / 3;
+  }
   const tris = [];
   for (let t = 0; t + 2 < idx.length; t += 3) {
     const w = [vid[idx[t]], vid[idx[t + 1]], vid[idx[t + 2]]];
@@ -96,7 +102,7 @@ function model(glb) {
     if (!parts.has(t.part)) parts.set(t.part, []);
     parts.get(t.part).push(t);
   }
-  return { prim, M, vid, P, tris, parts };
+  return { spans, vid, P, tris, parts };
 }
 
 function walls(m) {
@@ -393,14 +399,17 @@ if (args.includes('--list')) process.exit(0);
 const only = opt('--parts')?.split(',').map(Number) ?? null;
 const side = args.includes('--away') ? 'away' : args.includes('--inward') ? 'inward' : null;
 const { next, done } = args.includes('--back') ? back(m, list, to, only) : grow(m, list, to, only, side, args.includes('--sheet'), args.includes('--local'), args.includes('--flat'), args.includes('--widen'), args.includes('--carry'), args.includes('--radial'), args.includes('--hidden'), Number(opt('--open') ?? 0));
-const { prim, vid, M } = m;
-const accessor = glb.json.accessors[prim.attributes.POSITION];
-const bytes = Buffer.alloc(accessor.count * 12);
-vid.forEach((w, i) => {
-  const d = next[w].map((v, r) => v - M[12 + r]);
-  [0, 1, 2].forEach((k) => bytes.writeFloatLE(M[k * 4] * d[0] + M[k * 4 + 1] * d[1] + M[k * 4 + 2] * d[2], i * 12 + k * 4));
-});
-repack(glb, new Map([[prim.attributes.POSITION, bytes]]));
+const { spans, vid } = m;
+const buffers = new Map();
+for (const { prim, M, start, count } of spans) {
+  const bytes = Buffer.alloc(count * 12);
+  for (let i = 0; i < count; i++) {
+    const d = next[vid[start + i]].map((v, r) => v - M[12 + r]);
+    [0, 1, 2].forEach((k) => bytes.writeFloatLE(M[k * 4] * d[0] + M[k * 4 + 1] * d[1] + M[k * 4 + 2] * d[2], i * 12 + k * 4));
+  }
+  buffers.set(prim.attributes.POSITION, bytes);
+}
+repack(glb, buffers);
 fixBounds(glb);
 const out = opt('--out') ?? file;
 writeGlb(out, glb.json, glb.bin, writeFileSync);

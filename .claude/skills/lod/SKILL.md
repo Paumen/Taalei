@@ -146,9 +146,12 @@ Indicators point at candidates; the render decides.
 
 **Too detailed**
 
-- **Thin parts**: `node lint/measures.mjs G27`. Map the thin faces with
+- **Thin parts**: `node lint/measures.mjs G27`. `tools/thin/walls.mjs <glb>`
+  lists each part the G27 wall check measures, with its mesh, wall and the
+  spot where it is thinnest. Map the thin faces with
   `tools/thin/thinmap.mjs` + `thinmap.py`, so the fix targets the part G27
-  means.
+  means. `thicken.mjs` works on models of several meshes; `slim.mjs` works on
+  one mesh at a time with `--mesh`.
 - **Dense overall**: sort `catalog/build/catalog.json` on `tpu` or `tris`, or
   `node lint/tpu.mjs` for models over budget.
 - **Dense for their kind**: in kinds of one shape (apple, book, cleaver,
