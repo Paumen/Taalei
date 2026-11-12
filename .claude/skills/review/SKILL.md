@@ -45,12 +45,12 @@ way, a kind change, ±40% triangles, 35% of the colour moved, or points moved
 The page keeps one layout for every flow. A card: name with badges (size ×N
 for a size change of ×1.2 or more, new, no change, proposal only, tags only),
 ★ and ✕✕ marks, ↻ for the other side; before and after pictures (a slider by
-default, boxes on what changed), a small thumbnail when only kind or tags
-changed or nothing did; with Scale on, both at true size for a big size
+default, boxes on what changed), one picture at half width when only kind or
+tags changed or nothing did; with Scale on, both at true size for a big size
 change; fact rows, old value left, new right; the note (reasons, change,
 proposal, warn); three big buttons Undo, Try again, Keep (Keep and Undo jump
 to the next card); a row with Keep but…, Relax rule, the kind's lower thin
-limits for a thin change, and issue buttons; and an always open comment box.
+limits for a thin change, and issue buttons; and a comment box that 💬 opens.
 A tap on a change icon, tag chip, swatch or number flags that value; a tap on
 an after picture drops a numbered pin. The top bar filters by change type and
 switches Slider, 2 angles, Unjudged and Scale.

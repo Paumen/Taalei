@@ -81,7 +81,7 @@ body.slide .wipe:not(.back){display:block}body.slide .pics.vis{display:none}
 .bd.big{background:var(--m3);color:#fff}
 article.risk{border-left:4px solid var(--m2)}
 .rk{color:var(--m2);font-weight:700}
-.thumb{width:96px}
+.thumb{width:50%}
 .btns{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:8px}
 .btns button{font:500 12px system-ui,-apple-system,"Segoe UI",sans-serif;padding:4px 8px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 
@@ -92,12 +92,12 @@ article.risk{border-left:4px solid var(--m2)}
 .btns button.flag{background:var(--revert);border-color:var(--revert);color:#fff;font-weight:600}
 .marks{display:inline-flex;gap:6px}
 .mark{display:inline-grid;place-items:center;width:30px;height:30px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);font:700 15px system-ui,sans-serif;cursor:pointer}
-.mark[data-flip].on{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.mark[data-talk]{font-size:13px}.mark[data-talk].on,.mark[data-flip].on{background:var(--ink);border-color:var(--ink);color:var(--card)}
 .mark.great.on{background:var(--m2);border-color:var(--m2);color:#fff}
 .mark.bad.on{background:var(--revert);border-color:var(--revert);color:#fff}
 article.m-great{border-color:var(--m2);box-shadow:0 0 0 1px var(--m2)}
 article.m-bad{border-color:var(--revert);box-shadow:0 0 0 1px var(--revert)}
-textarea{display:block;width:100%;margin-top:8px;font:13px system-ui,sans-serif;padding:8px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-height:34px;resize:vertical}
+textarea{display:none;width:100%;margin-top:8px;font:13px system-ui,sans-serif;padding:8px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-height:42px;resize:vertical}
 textarea.open{display:block}textarea.need{border-color:var(--m2)}
 button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:3;background:var(--card);border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
@@ -138,7 +138,7 @@ const K='review:'+D.title+':'+D.base;
 let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
 const gone=s=>!s.v&&!s.c&&!s.m&&!(s.f||[]).length&&!(s.p||[]).length;
-const shown=new Set(Object.keys(NAME));let two=false,openOnly=false,slide=true,scl=false,dragged=false;const flip=new Set();document.body.classList.add('slide');
+const shown=new Set(Object.keys(NAME));let two=false,openOnly=false,slide=true,scl=false,dragged=false;const flip=new Set(),talk=new Set();document.body.classList.add('slide');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LV={low:1,mid:2,strong:3};
 const mag=s=>`<span class="mag l${LV[s]||1}" title="${['','small','medium','large'][LV[s]||1]} change"><i></i><i></i><i></i></span>`;
@@ -226,10 +226,10 @@ function badges(it){
 function card(it,i){
   const s=st[it.model]||{};cur=s;ci=+i;
   const marks=Object.entries(MARK).map(([m,[g,t]])=>`<button type="button" class="mark ${m} ${s.m===m?'on':''}" data-m="${m}" title="${t}" aria-label="${t}" aria-pressed="${s.m===m}">${g}</button>`).join('');
-  return `<article data-i="${i}" class="${s.m?'m-'+s.m:''} ${it.risk==='high'?'risk':''}"><div class="head"><span class="name">${esc(it.model)}</span>${badges(it)}<span class="marks">${it.visual?`<button type="button" class="mark ${flip.has(+i)?'on':''}" data-flip title="Show the other side" aria-pressed="${flip.has(+i)}">↻</button>`:''}${marks}</span></div>
+  return `<article data-i="${i}" class="${s.m?'m-'+s.m:''} ${it.risk==='high'?'risk':''}"><div class="head"><span class="name">${esc(it.model)}</span>${badges(it)}<span class="marks"><button type="button" class="mark ${talk.has(+i)||s.c?'on':''}" data-talk title="Comment" aria-label="Comment">💬</button>${it.visual?`<button type="button" class="mark ${flip.has(+i)?'on':''}" data-flip title="Show the other side" aria-pressed="${flip.has(+i)}">↻</button>`:''}${marks}</span></div>
 ${pics(it)}${factRows(it)}${rs(it).length||it.change||it.proposal||it.warn?`<p class="note">${rs(it).length?`<span class="rk">⚑ ${esc(rs(it).join(' · '))}</span> `:''}${esc(it.change)}${it.proposal?` <b>Proposal:</b> ${esc(it.proposal)}`:''}${it.warn?` <b class="rk">⚠ ${esc(it.warn)}</b>`:''}</p>`:''}
 <div class="main"><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert" title="Back to before, no new try">Undo</button><button type="button" class="fail ${s.v==='retry'?'on':''}" data-v="retry" title="Back to before, then a new try">Try again</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button></div><div class="btns">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}${(it.thin||[]).map(v=>`<button type="button" data-lim="thin limit ${v}" class="${F('thin limit '+v)}">thin ${v}</button>`).join('')}${it.types.filter(t=>ISSUE[t]).map(t=>ISSUE[t].map((x,k)=>{const b=`<button type="button" ${fa(t+': '+x)} class="${F(t+': '+x)}">${x}</button>`;return b}).join('')).join('')}</div>
-<textarea rows="1" id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${NEED[s.v]&&!s.c&&!(s.f||[]).some(x=>x.startsWith('thin limit'))?'need':''}">${esc(s.c||'')}</textarea></article>`;
+<textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${talk.has(+i)||s.c?'open':''} ${NEED[s.v]&&!s.c&&!(s.f||[]).some(x=>x.startsWith('thin limit'))?'need':''}">${esc(s.c||'')}</textarea></article>`;
 }
 function drawList(){
   let html='',g=null;
@@ -254,6 +254,7 @@ document.addEventListener('click',e=>{
   const fl=e.target.closest('[data-f]');if(fl){const s=S(),k=fl.dataset.f;s.f=(s.f||[]).includes(k)?s.f.filter(x=>x!==k):[...(s.f||[]),k];R(s);return}
   const lm=e.target.closest('[data-lim]');if(lm){const s=S(),k=lm.dataset.lim,on=(s.f||[]).includes(k);s.f=(s.f||[]).filter(x=>!x.startsWith('thin limit'));if(!on){s.f.push(k);s.v='relax'}else if(s.v==='relax')s.v=undefined;R(s);return}
   const pn=e.target.closest('[data-pin]');if(pn){const s=S();s.p=s.p.filter((_,n)=>n!==+pn.dataset.pin);R(s);return}
+  if(e.target.closest('[data-talk]')){const i=+a.dataset.i;talk.has(i)?talk.delete(i):talk.add(i);redraw(a);if(talk.has(i))document.getElementById('c'+i).focus({preventScroll:true});return}
   const fp=e.target.closest('[data-flip]');if(fp){const i=+a.dataset.i;flip.has(+i)?flip.delete(i):flip.add(i);redraw(a);return}
   const fg=e.target.closest('[data-v2]');if(fg){if(dragged){dragged=false;return}const s=S(),r=fg.getBoundingClientRect();s.p=[...(s.p||[]),[fg.dataset.v2,+((e.clientX-r.left)/r.width).toFixed(3),+((e.clientY-r.top)/r.height).toFixed(3)]];R(s);return}
   const mk=e.target.closest('[data-m]');if(mk){const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
