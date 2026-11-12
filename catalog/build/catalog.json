@@ -38317,7 +38317,21 @@
     "plastic",
     "special-emissive"
    ],
-   "thickRel": 0.66
+   "backface": {
+    "share": 0.0015,
+    "view": "135/20",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 0.66,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 135/20 over 0.1%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "3dm-electronics",
@@ -39010,7 +39024,23 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.03
+   "backface": {
+    "share": 0.0036,
+    "view": "225/20",
+    "causes": {
+     "inside-out": 0.18,
+     "open": 0.8,
+     "inverted": 0.02
+    }
+   },
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 225/20 over 0.1%: open 80.0%, inside-out 18.0%, inverted 2.0%"
+    }
+   ]
   },
   {
    "kit": "3dm-guns",
@@ -40291,8 +40321,20 @@
     "3dm",
     "metal-steel"
    ],
+   "backface": {
+    "share": 0.0012,
+    "view": "270/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.25,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -44751,31 +44793,31 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "branch",
-   "hash": "b1fb072371",
+   "hash": "7290c3b7b3",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
    "wdh": [
     0.282,
     0.75,
-    0.284
+    0.285
    ],
-   "tris": 1515,
-   "tpu": 4417,
+   "tris": 1457,
+   "tpu": 4248,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 45552,
+   "bytes": 45204,
    "vtx": 1092,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0064,
-   "minWall": 0.0027,
-   "thick": 0.1036,
-   "avgTri": 0.00012,
+   "minTube": 0.0074,
+   "minWall": 0.0064,
+   "thick": 0.1031,
+   "avgTri": 0.00013,
    "anglePct": 2,
    "pieces": 10,
-   "vpt": 0.72,
+   "vpt": 0.75,
    "cells": [
     "3,0",
     "0,0"
@@ -44791,7 +44833,7 @@
    ],
    "variant": "aq-pond/branch",
    "backface": {
-    "share": 0.031,
+    "share": 0.0303,
     "view": "0/-89.9",
     "causes": {
      "inverted": 1
@@ -44802,12 +44844,7 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "3.1% of view 0/-89.9 over 0.5%: inverted 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0027 wants min 0.006"
+     "text": "3.0% of view 0/-89.9 over 0.5%: inverted 100.0%"
     }
    ]
   },
@@ -44815,7 +44852,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "dragonfly-a",
-   "hash": "4e21eadcb9",
+   "hash": "35eca33c16",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -44828,14 +44865,14 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 8180,
+   "bytes": 8176,
    "vtx": 165,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0026,
-   "thick": 0.0591,
-   "avgTri": 0.00001,
+   "minWall": 0.0062,
+   "thick": 0.0665,
+   "avgTri": 0.00002,
    "anglePct": 0,
    "pieces": 5,
    "vpt": 0.72,
@@ -44854,28 +44891,23 @@
    ],
    "variant": "aq-pond/dragonfly-a",
    "backface": {
-    "share": 0.8906,
+    "share": 0.8138,
     "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 0.43,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "89.1% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "81.4% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -44883,7 +44915,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "dragonfly-b",
-   "hash": "eb64dd2e4a",
+   "hash": "223aa2640e",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -44896,14 +44928,14 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 8180,
+   "bytes": 8176,
    "vtx": 165,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0026,
-   "thick": 0.0591,
-   "avgTri": 0.00001,
+   "minWall": 0.0062,
+   "thick": 0.0665,
+   "avgTri": 0.00002,
    "anglePct": 0,
    "pieces": 5,
    "vpt": 0.72,
@@ -44922,28 +44954,23 @@
    ],
    "variant": "aq-pond/dragonfly-a",
    "backface": {
-    "share": 0.8906,
+    "share": 0.8138,
     "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 0.43,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "89.1% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "81.4% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -44951,7 +44978,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "dragonfly-c",
-   "hash": "a4a0e5915a",
+   "hash": "6342106c83",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -44964,14 +44991,14 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 8180,
+   "bytes": 8176,
    "vtx": 165,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0026,
-   "thick": 0.0591,
-   "avgTri": 0.00001,
+   "minWall": 0.0062,
+   "thick": 0.0665,
+   "avgTri": 0.00002,
    "anglePct": 0,
    "pieces": 5,
    "vpt": 0.72,
@@ -44988,28 +45015,23 @@
    ],
    "variant": "aq-pond/dragonfly-a",
    "backface": {
-    "share": 0.8906,
+    "share": 0.8138,
     "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 0.43,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "89.1% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "81.4% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -45017,7 +45039,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "dragonfly",
-   "hash": "da52730a72",
+   "hash": "316a3f4268",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -45030,13 +45052,13 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7976,
+   "bytes": 7980,
    "vtx": 163,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.003,
-   "thick": 0.0592,
+   "minWall": 0.0062,
+   "thick": 0.0663,
    "avgTri": 0.00002,
    "anglePct": 0,
    "pieces": 5,
@@ -45054,28 +45076,23 @@
    ],
    "variant": "aq-pond/dragonfly",
    "backface": {
-    "share": 0.89,
+    "share": 0.817,
     "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 0.43,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "89.0% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "81.7% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -45171,28 +45188,28 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "green-frog",
-   "hash": "eb96795d11",
+   "hash": "e0031f4c87",
    "kind": "env-fauna-amphibian",
    "size": "s",
    "wdh": [
     0.091,
     0.095,
-    0.051
+    0.055
    ],
    "tris": 916,
    "tpu": 2671,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 31284,
+   "bytes": 31324,
    "vtx": 760,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0017,
-   "thick": 0.1266,
+   "minWall": 0.0067,
+   "thick": 0.1214,
    "avgTri": 0.00002,
-   "anglePct": 9,
+   "anglePct": 6,
    "pieces": 3,
    "vpt": 0.83,
    "cells": [
@@ -45208,26 +45225,19 @@
     "halloween"
    ],
    "variant": "aq-pond/green-frog",
-   "thickRel": 0.91,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0017 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.88
   },
   {
    "kit": "aq-pond",
    "collection": "aq",
    "name": "lily-blossom-a",
-   "hash": "cb6d160018",
+   "hash": "3e2e813bd9",
    "kind": "env-flora-waterplant-lilypad",
    "size": "s",
    "wdh": [
-    0.149,
-    0.149,
-    0.049
+    0.152,
+    0.152,
+    0.053
    ],
    "tris": 300,
    "tpu": 875,
@@ -45238,11 +45248,11 @@
    "vtx": 270,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0025,
-   "thick": 0.0509,
-   "avgTri": 0.00034,
-   "anglePct": 15,
+   "minEdge": 0.007,
+   "minWall": 0.0068,
+   "thick": 0.0715,
+   "avgTri": 0.00036,
+   "anglePct": 13,
    "pieces": 4,
    "vpt": 0.9,
    "cells": [
@@ -45261,26 +45271,19 @@
     "special-organic"
    ],
    "variant": "aq-pond/lily-blossom-c",
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0025 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.17
   },
   {
    "kit": "aq-pond",
    "collection": "aq",
    "name": "lily-blossom-b",
-   "hash": "9b139e785c",
+   "hash": "4f9b9a251e",
    "kind": "env-flora-waterplant-lilypad",
    "size": "s",
    "wdh": [
-    0.149,
-    0.149,
-    0.049
+    0.152,
+    0.152,
+    0.053
    ],
    "tris": 300,
    "tpu": 875,
@@ -45291,11 +45294,11 @@
    "vtx": 270,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0025,
-   "thick": 0.0509,
-   "avgTri": 0.00034,
-   "anglePct": 15,
+   "minEdge": 0.007,
+   "minWall": 0.0068,
+   "thick": 0.0715,
+   "avgTri": 0.00036,
+   "anglePct": 13,
    "pieces": 4,
    "vpt": 0.9,
    "cells": [
@@ -45316,41 +45319,34 @@
     "special-organic"
    ],
    "variant": "aq-pond/lily-blossom-c",
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0025 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.17
   },
   {
    "kit": "aq-pond",
    "collection": "aq",
    "name": "lily-blossom-c",
-   "hash": "01317cf99b",
+   "hash": "f0cafee321",
    "kind": "env-flora-waterplant-lilypad",
    "size": "s",
    "wdh": [
-    0.149,
-    0.149,
-    0.049
+    0.152,
+    0.152,
+    0.053
    ],
    "tris": 300,
    "tpu": 875,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11952,
+   "bytes": 11948,
    "vtx": 270,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0025,
-   "thick": 0.0519,
-   "avgTri": 0.00034,
-   "anglePct": 8,
+   "minEdge": 0.007,
+   "minWall": 0.0068,
+   "thick": 0.0723,
+   "avgTri": 0.00036,
+   "anglePct": 6,
    "pieces": 4,
    "vpt": 0.9,
    "cells": [
@@ -45369,14 +45365,7 @@
     "special-organic"
    ],
    "variant": "aq-pond/lily-blossom-c",
-   "thickRel": 0.99,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0025 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.18
   },
   {
    "kit": "aq-pond",
@@ -45417,7 +45406,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/lily-pad-a",
-   "thickRel": 1.11
+   "thickRel": 0.95
   },
   {
    "kit": "aq-pond",
@@ -45458,7 +45447,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/lily-pad-a",
-   "thickRel": 1.04
+   "thickRel": 0.89
   },
   {
    "kit": "aq-pond",
@@ -45671,7 +45660,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "red-dragonfly",
-   "hash": "243ff1e8f7",
+   "hash": "180c8a489b",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -45684,13 +45673,13 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 7644,
+   "bytes": 7648,
    "vtx": 153,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.003,
-   "thick": 0.0593,
+   "minWall": 0.0062,
+   "thick": 0.0658,
    "avgTri": 0.00002,
    "anglePct": 0,
    "pieces": 5,
@@ -45710,28 +45699,23 @@
    ],
    "variant": "aq-pond/dragonfly",
    "backface": {
-    "share": 0.8898,
+    "share": 0.8186,
     "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
-   "thickRel": 0.43,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "89.0% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "81.9% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.43 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -46026,11 +46010,11 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "swamp-calla-a",
-   "hash": "c91a5a3c13",
+   "hash": "3137f079bd",
    "kind": "env-flora-waterplant",
    "size": "s",
    "wdh": [
-    0.164,
+    0.167,
     0.16,
     0.237
    ],
@@ -46045,9 +46029,9 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0084,
-   "minWall": 0.0009,
-   "thick": 0.0531,
-   "avgTri": 0.00009,
+   "minWall": 0.0068,
+   "thick": 0.0584,
+   "avgTri": 0.0001,
    "anglePct": 1,
    "pieces": 11,
    "vpt": 0.68,
@@ -46067,25 +46051,18 @@
     "special-organic"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.87,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.82
   },
   {
    "kit": "aq-pond",
    "collection": "aq",
    "name": "swamp-calla-b",
-   "hash": "7d9bd0a902",
+   "hash": "ad83af4de2",
    "kind": "env-flora-waterplant",
    "size": "s",
    "wdh": [
     0.17,
-    0.219,
+    0.22,
     0.282
    ],
    "tris": 1078,
@@ -46099,10 +46076,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0064,
-   "minWall": 0.0009,
-   "thick": 0.0476,
-   "avgTri": 0.0001,
-   "anglePct": 0,
+   "minWall": 0.0068,
+   "thick": 0.0514,
+   "avgTri": 0.00011,
+   "anglePct": 1,
    "pieces": 14,
    "vpt": 0.68,
    "cells": [
@@ -46121,42 +46098,35 @@
     "special-organic"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.78,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.72
   },
   {
    "kit": "aq-pond",
    "collection": "aq",
    "name": "swamp-calla-c",
-   "hash": "d66c3e3bf0",
+   "hash": "74f9c27373",
    "kind": "env-flora-waterplant",
    "size": "s",
    "wdh": [
+    0.153,
     0.15,
-    0.148,
-    0.176
+    0.179
    ],
    "tris": 568,
    "tpu": 1656,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15668,
+   "bytes": 15672,
    "vtx": 335,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.002,
    "minTube": 0.0061,
-   "minWall": 0.0009,
-   "thick": 0.0403,
-   "avgTri": 0.00007,
-   "anglePct": 1,
+   "minWall": 0.0069,
+   "thick": 0.0506,
+   "avgTri": 0.00008,
+   "anglePct": 2,
    "pieces": 8,
    "vpt": 0.59,
    "cells": [
@@ -46170,14 +46140,7 @@
     "leaf-light"
    ],
    "variant": "aq-pond/swamp-calla-a",
-   "thickRel": 0.66,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.71
   },
   {
    "kit": "aq-pond",
@@ -46370,13 +46333,13 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "water-lettuce-a",
-   "hash": "3f6eebf41a",
+   "hash": "14560b2b96",
    "kind": "env-flora-waterplant",
    "size": "s",
    "wdh": [
     0.177,
     0.182,
-    0.066
+    0.071
    ],
    "tris": 584,
    "tpu": 1703,
@@ -46387,11 +46350,11 @@
    "vtx": 312,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0012,
-   "thick": 0.0551,
-   "avgTri": 0.00023,
-   "anglePct": 0,
+   "minEdge": 0.002,
+   "minWall": 0.0068,
+   "thick": 0.0807,
+   "avgTri": 0.00026,
+   "anglePct": 1,
    "pieces": 10,
    "vpt": 0.53,
    "cells": [
@@ -46405,26 +46368,19 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 0.9,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0012 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.13
   },
   {
    "kit": "aq-pond",
    "collection": "aq",
    "name": "water-lettuce-b",
-   "hash": "8453435249",
+   "hash": "e7759855c7",
    "kind": "env-flora-waterplant",
    "size": "s",
    "wdh": [
     0.203,
-    0.208,
-    0.062
+    0.209,
+    0.07
    ],
    "tris": 744,
    "tpu": 2169,
@@ -46435,10 +46391,11 @@
    "vtx": 398,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0012,
-   "thick": 0.0649,
-   "avgTri": 0.00029,
+   "minEdge": 0.003,
+   "minTube": 0.0275,
+   "minWall": 0.0067,
+   "thick": 0.0851,
+   "avgTri": 0.00032,
    "anglePct": 2,
    "pieces": 13,
    "vpt": 0.53,
@@ -46453,40 +46410,33 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0012 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.19
   },
   {
    "kit": "aq-pond",
    "collection": "aq",
    "name": "water-lettuce-c",
-   "hash": "8321674b9e",
+   "hash": "ccc2d90326",
    "kind": "env-flora-waterplant",
    "size": "s",
    "wdh": [
-    0.145,
-    0.127,
-    0.04
+    0.146,
+    0.129,
+    0.048
    ],
    "tris": 448,
    "tpu": 1306,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11924,
+   "bytes": 11920,
    "vtx": 240,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0013,
-   "thick": 0.0574,
-   "avgTri": 0.00012,
+   "minWall": 0.006,
+   "thick": 0.0802,
+   "avgTri": 0.00014,
    "anglePct": 1,
    "pieces": 8,
    "vpt": 0.54,
@@ -46501,41 +46451,34 @@
     "leaf-light"
    ],
    "variant": "aq-pond/water-lettuce-a",
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0013 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.12
   },
   {
    "kit": "aq-pond",
    "collection": "aq",
    "name": "yellow-frog",
-   "hash": "e4580d9b8b",
+   "hash": "edf44f5902",
    "kind": "env-fauna-amphibian",
    "size": "s",
    "wdh": [
     0.091,
     0.095,
-    0.051
+    0.055
    ],
    "tris": 916,
    "tpu": 2671,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 31032,
+   "bytes": 31068,
    "vtx": 752,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0017,
-   "thick": 0.1266,
+   "minWall": 0.0067,
+   "thick": 0.1214,
    "avgTri": 0.00002,
-   "anglePct": 9,
+   "anglePct": 6,
    "pieces": 3,
    "vpt": 0.82,
    "cells": [
@@ -46553,14 +46496,7 @@
     "halloween"
    ],
    "variant": "aq-pond/green-frog",
-   "thickRel": 0.91,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0017 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.88
   },
   {
    "kit": "architecture",
@@ -48471,7 +48407,7 @@
     "leaf-light",
     "special-organic"
    ],
-   "thickRel": 1.41
+   "thickRel": 1.21
   },
   {
    "kit": "avra-nature",
@@ -49499,8 +49435,20 @@
     "metal-iron-mid",
     "metal-steel"
    ],
+   "backface": {
+    "share": 0.0011,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.46,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 0/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -49558,7 +49506,21 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.56
+   "backface": {
+    "share": 0.0026,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.56,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "avra-weapons",
@@ -54633,7 +54595,21 @@
     "metal-iron-mid",
     "plastic"
    ],
-   "thickRel": 1.16
+   "backface": {
+    "share": 0.0016,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.16,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "cooking-assets",
@@ -61666,8 +61642,20 @@
     "metal-steel",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.9399,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.12,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "94.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -65292,7 +65280,21 @@
     "wood-dark"
    ],
    "variant": "emace-village/roof-shingle-a",
+   "backface": {
+    "share": 0.3769,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.99,
+     "inside-out": 0.01,
+     "other": 0
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "37.7% of view 0/-89.9 over 0.5%: inverted 99.0%, inside-out 1.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -66878,7 +66880,21 @@
     "comp",
     "stone-masonry-mid"
    ],
+   "backface": {
+    "share": 0.1977,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.97,
+     "inside-out": 0.03,
+     "other": 0
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "19.8% of view 0/-89.9 over 0.5%: inverted 97.0%, inside-out 3.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -66933,8 +66949,21 @@
     "wood-dark",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0222,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.91,
+     "other": 0.09
+    }
+   },
    "thickRel": 0.68,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.2% of view 0/-89.9 over 0.5%: inverted 91.0%, other 9.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -67921,12 +67950,24 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber-door",
+   "backface": {
+    "share": 0.445,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 1
+    }
+   },
    "thickRel": 1.18,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 1.431 over max 1.2 (str-part-wall-unit)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "44.5% of view 0/-89.9 over 0.5%: inverted 100.0%"
     },
     {
      "level": "warning",
@@ -67978,8 +68019,20 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber-door",
+   "backface": {
+    "share": 0.4485,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 1
+    }
+   },
    "thickRel": 1.28,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "44.9% of view 0/-89.9 over 0.5%: inverted 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -68030,8 +68083,21 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber",
+   "backface": {
+    "share": 0.649,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 1,
+     "other": 0
+    }
+   },
    "thickRel": 1.27,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "64.9% of view 0/-89.9 over 0.5%: inverted 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -69285,8 +69351,21 @@
     "special-food"
    ],
    "variant": "food-pack-2/apple-red",
+   "backface": {
+    "share": 0.0012,
+    "view": "90/50",
+    "causes": {
+     "open": 0.87,
+     "inside-out": 0.13
+    }
+   },
    "thickRel": 0.84,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: open 87.0%, inside-out 13.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -69337,8 +69416,21 @@
     "special-food"
    ],
    "variant": "food-pack-2/apple-red",
+   "backface": {
+    "share": 0.0012,
+    "view": "90/50",
+    "causes": {
+     "open": 0.87,
+     "inside-out": 0.13
+    }
+   },
    "thickRel": 0.84,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 90/50 over 0.1%: open 87.0%, inside-out 13.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -69473,8 +69565,22 @@
     "special-food"
    ],
    "variant": "food-pack-2/apricot",
+   "backface": {
+    "share": 0.0041,
+    "view": "90/50",
+    "causes": {
+     "inside-out": 0.42,
+     "open": 0.57,
+     "inverted": 0.01
+    }
+   },
    "thickRel": 0.9,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 90/50 over 0.1%: open 57.0%, inside-out 42.0%, inverted 1.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -101736,7 +101842,21 @@
     "ct",
     "metal-steel"
    ],
-   "thickRel": 1.11
+   "backface": {
+    "share": 0.1688,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.11,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "16.9% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "household",
@@ -104244,8 +104364,20 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/sign-hanging-plain",
+   "backface": {
+    "share": 0.0626,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.81,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "6.3% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -104299,7 +104431,21 @@
     "wood-light"
    ],
    "variant": "ipoly-signs/signpost-arrow-3",
-   "thickRel": 1.13
+   "backface": {
+    "share": 0.2066,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.13,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20.7% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ipoly-signs",
@@ -107808,8 +107954,21 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled-modular-corner-inner",
+   "backface": {
+    "share": 0.0029,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.65,
+     "other": 0.35
+    }
+   },
    "thickRel": 0.74,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/-89.9 over 0.1%: inverted 65.0%, other 35.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -107918,8 +108077,21 @@
     "wood-dark"
    ],
    "variant": "isa-bakery/wall-panelled-modular-corner-inner",
+   "backface": {
+    "share": 0.0132,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.72,
+     "other": 0.28
+    }
+   },
    "thickRel": 1.49,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.3% of view 0/-89.9 over 0.5%: inverted 72.0%, other 28.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -115184,12 +115356,25 @@
     "stone-masonry-mid"
    ],
    "variant": "isa-kitchen/wall-tiles-window-small",
+   "backface": {
+    "share": 0.0119,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.71,
+     "other": 0.29
+    }
+   },
    "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 1.247 over max 1.2 (str-part-wall-unit)"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.2% of view 0/-89.9 over 0.5%: inverted 71.0%, other 29.0%"
     },
     {
      "level": "warning",
@@ -118298,7 +118483,21 @@
     "leaf-light"
    ],
    "variant": "isa-plants/monstera-plant-large",
-   "thickRel": 0.53
+   "backface": {
+    "share": 0.0114,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.53,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.1% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "isa-plants",
@@ -118772,7 +118971,21 @@
     "scale-small"
    ],
    "variant": "isa-plants/pothos-plant-large",
-   "thickRel": 0.77
+   "backface": {
+    "share": 0.0246,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.77,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.5% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "isa-plants",
@@ -161449,7 +161662,7 @@
     "leaf-light"
    ],
    "variant": "kay-hexagon/waterlily-a",
-   "thickRel": 0.83
+   "thickRel": 0.71
   },
   {
    "kit": "kay-hexagon",
@@ -161490,7 +161703,7 @@
     "leaf-light"
    ],
    "variant": "kay-hexagon/waterlily-a",
-   "thickRel": 0.83
+   "thickRel": 0.71
   },
   {
    "kit": "kay-hexagon",
@@ -161650,7 +161863,7 @@
     "kay",
     "leaf-light"
    ],
-   "thickRel": 1.08
+   "thickRel": 0.92
   },
   {
    "kit": "kay-hexagon",
@@ -164886,7 +165099,21 @@
     "leaf-light",
     "plural"
    ],
+   "backface": {
+    "share": 0.2036,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1,
+     "inverted": 0,
+     "other": 0
+    }
+   },
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "20.4% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -177801,7 +178028,22 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-skeleton-1/hood",
-   "thickRel": 0.96
+   "backface": {
+    "share": 0.0026,
+    "view": "315/20",
+    "causes": {
+     "inverted": 0.97,
+     "other": 0.03
+    }
+   },
+   "thickRel": 0.96,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 315/20 over 0.1%: inverted 97.0%, other 3.0%"
+    }
+   ]
   },
   {
    "kit": "kay-skeleton-1",
@@ -193389,8 +193631,21 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-cave/gate",
+   "backface": {
+    "share": 0.018,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 0.97,
+     "inverted": 0.03
+    }
+   },
    "thickRel": 0.74,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.8% of view 0/-89.9 over 0.5%: open 97.0%, inverted 3.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -193437,8 +193692,21 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-cave/gate",
+   "backface": {
+    "share": 0.0235,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 0.82,
+     "inverted": 0.18
+    }
+   },
    "thickRel": 1.18,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.4% of view 0/-89.9 over 0.5%: open 82.0%, inverted 18.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -194059,12 +194327,24 @@
     "rubber"
    ],
    "variant": "ken-chars/wheelchair-power",
+   "backface": {
+    "share": 0.0028,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.62,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.748 over max 0.6 (obj-transport-land-wheelchair)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/20 over 0.1%: open 100.0%"
     },
     {
      "level": "warning",
@@ -199377,8 +199657,21 @@
     "metal-steel"
    ],
    "variant": "ken-factory/pipe-large-junction",
+   "backface": {
+    "share": 0.003,
+    "view": "270/50",
+    "causes": {
+     "open": 0.89,
+     "inverted": 0.11
+    }
+   },
    "thickRel": 0.63,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/50 over 0.1%: open 89.0%, inverted 11.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -201768,8 +202061,20 @@
     "special-food"
    ],
    "variant": "ken-food/burger",
+   "backface": {
+    "share": 0.1146,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.01,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "11.5% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -203001,8 +203306,20 @@
     "leaf-light",
     "special-food"
    ],
+   "backface": {
+    "share": 0.0038,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.5,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 0/-89.9 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -205390,8 +205707,21 @@
     "leaf-light",
     "special-food"
    ],
+   "backface": {
+    "share": 0.0052,
+    "view": "0/20",
+    "causes": {
+     "inverted": 0.99,
+     "other": 0.01
+    }
+   },
    "thickRel": 0.87,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.5% of view 0/20 over 0.5%: inverted 99.0%, other 1.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -207616,7 +207946,21 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.41
+   "backface": {
+    "share": 0.0014,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 180/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-furniture",
@@ -210137,8 +210481,20 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/kitchen-cabinet-upper",
+   "backface": {
+    "share": 0.0023,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.94,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -222698,7 +223054,19 @@
     "plural",
     "stone-rock"
    ],
+   "backface": {
+    "share": 0.0013,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 135/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -227485,8 +227853,20 @@
     "wood-dark"
    ],
    "variant": "ken-nature/tent-large-closed",
+   "backface": {
+    "share": 0.0102,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.64,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -229842,8 +230222,20 @@
    ],
    "specialBand": "1,1",
    "variant": "ken-pirate/ship-ghost",
+   "backface": {
+    "share": 0.0035,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.84,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 0/-89.9 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -235628,7 +236020,21 @@
     "textile-cloth-light"
    ],
    "variant": "ken-racing/flag-red",
-   "thickRel": 2.54
+   "backface": {
+    "share": 0.0044,
+    "view": "135/50",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.54,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 135/50 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -235675,7 +236081,21 @@
     "textile-cloth-light"
    ],
    "variant": "ken-racing/flag-red",
-   "thickRel": 2.54
+   "backface": {
+    "share": 0.0042,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.54,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -235722,7 +236142,21 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-racing/flag-red",
-   "thickRel": 2.54
+   "backface": {
+    "share": 0.0042,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.54,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -235769,7 +236203,21 @@
     "textile-cloth-light"
    ],
    "variant": "ken-racing/flag-red",
-   "thickRel": 2.54
+   "backface": {
+    "share": 0.0042,
+    "view": "135/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.54,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 135/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-racing",
@@ -237507,8 +237955,20 @@
     "textile-cloth-light"
    ],
    "variant": "ken-racing/tent-roof",
+   "backface": {
+    "share": 0.0456,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.85,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "4.6% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -240388,8 +240848,20 @@
     "plastic"
    ],
    "variant": "ken-roads/traffic-light",
+   "backface": {
+    "share": 0.0012,
+    "view": "315/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.45,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -240444,7 +240916,21 @@
     "mounted",
     "plastic"
    ],
-   "variant": "ken-roads/traffic-light-object-vertical"
+   "variant": "ken-roads/traffic-light-object-vertical",
+   "backface": {
+    "share": 0.0059,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.6% of view 0/20 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-roads",
@@ -240543,7 +241029,21 @@
     "mounted",
     "plastic"
    ],
-   "variant": "ken-roads/traffic-light-object-vertical"
+   "variant": "ken-roads/traffic-light-object-vertical",
+   "backface": {
+    "share": 0.0069,
+    "view": "0/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.7% of view 0/20 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-roads",
@@ -246353,8 +246853,20 @@
     "space"
    ],
    "variant": "ken-space/structure",
+   "backface": {
+    "share": 0.0017,
+    "view": "0/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.13,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -254552,8 +255064,20 @@
     "robin-hood"
    ],
    "variant": "ken-survival/tree",
+   "backface": {
+    "share": 0.0011,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.04,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -255552,8 +256076,20 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-town/fountain-round",
+   "backface": {
+    "share": 0.4889,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 1
+    }
+   },
    "thickRel": 0.97,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "48.9% of view 0/-89.9 over 0.5%: inverted 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -255603,8 +256139,21 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-town/fountain-square",
+   "backface": {
+    "share": 0.4766,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.94,
+     "other": 0.06
+    }
+   },
    "thickRel": 1,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "47.7% of view 0/-89.9 over 0.5%: inverted 94.0%, other 6.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -255654,8 +256203,20 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-town/fountain-square",
+   "backface": {
+    "share": 0.4874,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 1
+    }
+   },
    "thickRel": 0.97,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "48.7% of view 0/-89.9 over 0.5%: inverted 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -307126,7 +307687,7 @@
     "m3"
    ],
    "variant": "m3-base/lily-pad-01",
-   "thickRel": 1
+   "thickRel": 0.86
   },
   {
    "kit": "m3-base",
@@ -307166,7 +307727,7 @@
     "m3"
    ],
    "variant": "m3-base/lily-pad-01",
-   "thickRel": 1.25
+   "thickRel": 1.07
   },
   {
    "kit": "m3-base",
@@ -336521,6 +337082,20 @@
     "pm",
     "wood-dark",
     "wood-mid"
+   ],
+   "backface": {
+    "share": 0.6996,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "70.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
    ]
   },
   {
@@ -341485,8 +342060,20 @@
     "skin",
     "textile-cloth-mid"
    ],
+   "backface": {
+    "share": 0.0022,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.74,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/-89.9 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -341547,8 +342134,20 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0511,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.95,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "5.1% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -345351,8 +345950,20 @@
     "qua"
    ],
    "variant": "quat-cyberpunk/robot-large",
+   "backface": {
+    "share": 0.0027,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/-89.9 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -351713,7 +352324,21 @@
     "qua"
    ],
    "variant": "quat-fishing/lionfish",
-   "thickRel": 0.71
+   "backface": {
+    "share": 0.002,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.71,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 315/20 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -352169,7 +352794,21 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 1.2
+   "backface": {
+    "share": 0.0019,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.2,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 0/-89.9 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-fishing",
@@ -352964,8 +353603,21 @@
     "special-food"
    ],
    "variant": "quat-food/burger",
+   "backface": {
+    "share": 0.0186,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 0.99,
+     "inverted": 0.01
+    }
+   },
    "thickRel": 1,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.9% of view 0/-89.9 over 0.5%: open 99.0%, inverted 1.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -353021,8 +353673,21 @@
     "special-food"
    ],
    "variant": "quat-food/burger",
+   "backface": {
+    "share": 0.0019,
+    "view": "90/20",
+    "causes": {
+     "open": 0.96,
+     "inverted": 0.04
+    }
+   },
    "thickRel": 0.91,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 90/20 over 0.1%: open 96.0%, inverted 4.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -367137,7 +367802,7 @@
     "leaf-light",
     "qua"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.71
   },
   {
    "kit": "quat-nature",
@@ -369723,7 +370388,7 @@
     "qua"
    ],
    "variant": "quat-ocean/seaweed-1",
-   "thickRel": 0.8,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "error",
@@ -369771,7 +370436,7 @@
     "qua"
    ],
    "variant": "quat-ocean/seaweed-1",
-   "thickRel": 0.8,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "error",
@@ -369819,7 +370484,7 @@
     "qua"
    ],
    "variant": "quat-ocean/seaweed-1",
-   "thickRel": 0.98,
+   "thickRel": 0.83,
    "lint": [
     {
      "level": "error",
@@ -370027,7 +370692,21 @@
     "qua",
     "shell"
    ],
-   "thickRel": 2.12
+   "backface": {
+    "share": 0.0031,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.12,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 0/-89.9 over 0.1%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-ocean",
@@ -373071,12 +373750,24 @@
     "Yes"
    ],
    "variant": "quat-pirate/skeleton",
+   "backface": {
+    "share": 0.0012,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.6,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.363 under min 0.45 (char)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 315/20 over 0.1%: open 100.0%"
     },
     {
      "level": "warning",
@@ -373155,8 +373846,20 @@
     "Yes"
    ],
    "variant": "quat-pirate/skeleton",
+   "backface": {
+    "share": 0.0549,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.63,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "5.5% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -387760,7 +388463,21 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "variant": "quat-shoot/structure-a"
+   "variant": "quat-shoot/structure-a",
+   "backface": {
+    "share": 0.457,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "45.7% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-shoot",
@@ -387861,6 +388578,20 @@
     "plastic",
     "qua",
     "wood-mid"
+   ],
+   "backface": {
+    "share": 0.3833,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "38.3% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
    ]
   },
   {
@@ -398343,7 +399074,21 @@
     "wood-light"
    ],
    "variant": "quat-town/barracks-1-b",
-   "thickRel": 1.3
+   "backface": {
+    "share": 0.0349,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.3,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "3.5% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -405711,7 +406456,7 @@
     "leaf-light",
     "rgp"
    ],
-   "thickRel": 2.18,
+   "thickRel": 1.87,
    "lint": [
     {
      "level": "error",
@@ -433043,8 +433788,22 @@
     "special-food",
     "sty"
    ],
+   "backface": {
+    "share": 0.0406,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.88,
+     "open": 0.06,
+     "other": 0.06
+    }
+   },
    "thickRel": 0.65,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "4.1% of view 0/-89.9 over 0.5%: inverted 88.0%, open 6.0%, other 6.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -434204,8 +434963,20 @@
     "sty"
    ],
    "variant": "styloo-farm/grapes",
+   "backface": {
+    "share": 0.0021,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.31,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 45/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -434260,8 +435031,20 @@
     "sty"
    ],
    "variant": "styloo-farm/grapes",
+   "backface": {
+    "share": 0.0021,
+    "view": "45/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.31,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 45/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -434313,7 +435096,23 @@
     "sty"
    ],
    "variant": "styloo-farm/haystack-thick",
-   "thickRel": 0.74
+   "backface": {
+    "share": 0.0035,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.78,
+     "inside-out": 0.11,
+     "other": 0.11
+    }
+   },
+   "thickRel": 0.74,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 0/-89.9 over 0.1%: inverted 78.0%, inside-out 11.0%, other 11.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -434695,8 +435494,20 @@
     "tba",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.0043,
+    "view": "180/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.09,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 180/50 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -435383,7 +436194,21 @@
     "skin",
     "sty"
    ],
-   "thickRel": 1.22
+   "backface": {
+    "share": 0.0075,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 1
+    }
+   },
+   "thickRel": 1.22,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.8% of view 0/-89.9 over 0.5%: inverted 100.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -439441,8 +440266,20 @@
     "sty"
    ],
    "variant": "styloo-food/tomato",
+   "backface": {
+    "share": 0.0016,
+    "view": "315/20",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.03,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 315/20 over 0.1%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -451413,7 +452250,21 @@
     "wood-dark"
    ],
    "variant": "taalei-kit/balloon-basket-round",
-   "thickRel": 2.46
+   "backface": {
+    "share": 0.0069,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 2.46,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.7% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "taalei-kit",
@@ -454419,8 +455270,20 @@
     "storeys-1",
     "wood-dark"
    ],
+   "backface": {
+    "share": 0.7535,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.53,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "75.3% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -459580,7 +460443,22 @@
     "tba",
     "wood-dark"
    ],
-   "thickRel": 0.93
+   "backface": {
+    "share": 0.0048,
+    "view": "0/20",
+    "causes": {
+     "inverted": 0.68,
+     "other": 0.32
+    }
+   },
+   "thickRel": 0.93,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 0/20 over 0.1%: inverted 68.0%, other 32.0%"
+    }
+   ]
   },
   {
    "kit": "western",
@@ -472532,7 +473410,7 @@
     "leaf-light",
     "wizp"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.73
   },
   {
    "kit": "wizp-tree",
@@ -473042,7 +473920,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/waterlily-white",
-   "thickRel": 1.17
+   "thickRel": 1
   },
   {
    "kit": "wizp-tree",
@@ -473086,7 +473964,7 @@
     "wizp"
    ],
    "variant": "wizp-tree/waterlily-white",
-   "thickRel": 1.17
+   "thickRel": 1
   },
   {
    "kit": "wizp-village",
