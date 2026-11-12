@@ -88,7 +88,8 @@ move a model to another kind of it.
 
 ## 2. Verdict run
 
-The PO pastes the review page's verdicts. Save them to the scratchpad and:
+Read the review page's verdicts (review skill, §3), save them to the
+scratchpad and:
 
     node tools/review/review.mjs apply <verdicts>
     node tools/sheepdog/sheepdog.mjs verdicts --file <verdicts>

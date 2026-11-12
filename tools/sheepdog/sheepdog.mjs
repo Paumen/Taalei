@@ -411,8 +411,9 @@ function verdicts() {
   const nok = new Set(list('nok'));
   if (flag('file')) {
     const text = readFileSync(resolve(flag('file')), 'utf8');
-    const items = text.trim().startsWith('{')
-      ? JSON.parse(text).items
+    const parsed = /^\s*[[{]/.test(text) ? JSON.parse(text) : null;
+    const items = parsed
+      ? (Array.isArray(parsed) ? parsed : parsed.items ?? parsed.docs).map((r) => r.data ?? r)
       : text.split('\n').filter((l) => l.includes(':')).map((l) => ({ model: l.slice(0, l.indexOf(':')).trim(), verdict: l.slice(l.indexOf(':') + 1).trim().split(/\s+[—-]\s+/)[0].trim().toLowerCase() }));
     for (const { model, verdict } of items) {
       if (OK.has(verdict)) ok.add(model);

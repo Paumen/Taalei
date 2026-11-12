@@ -35,7 +35,9 @@ build   renders every listed model before (at --base, default the list's
         or vertices moved 5% or more of the model; low otherwise. A high-risk
         card gets an amber edge and its reasons.
 
-apply   takes the page's copied verdicts, or lines of "kit/name: verdict".
+apply   takes the verdicts the page saved (the artifact's db collection
+        "verdicts", read with ArtifactData list and saved as JSON: an array of
+        docs, or {items}), or lines of "kit/name: verdict".
         revert, retry and relax put the model's file and its tags back as they
         were at base; keepbut, retry, relax, other and a kept proposal are
         printed with their comment as the work left.
@@ -321,7 +323,7 @@ function build() {
   for (const side of ['before', 'after']) {
     if (readdirSync(join(out, side)).some((f) => f.endsWith('.glb'))) render(join(out, side), join(out, `r-${side}`), size);
   }
-  const atScale = (d) => d.facts.some((f) => f.f === 'size' && Math.abs(Math.log(f.to / f.from)) >= Math.log(BIG_SIZE));
+  const atScale = (d) => d.facts.some((f) => f.f === 'size' && (Math.abs(Math.log(f.to / f.from)) >= Math.log(BIG_SIZE) || d.types.length === 1));
   const sized = list.items.filter((item) => atScale(diff(item.model, base, tagsBefore, tagsAfter, item.before)));
   for (const side of ['before', 'after']) {
     if (!sized.length) break;
@@ -381,8 +383,11 @@ function build() {
 
 function apply() {
   const text = readFileSync(args[1], 'utf8');
-  const verdicts = text.trim().startsWith('{')
-    ? JSON.parse(text)
+  const parsed = /^\s*[[{]/.test(text) ? JSON.parse(text) : null;
+  const rows = parsed && (Array.isArray(parsed) ? parsed : parsed.items ?? parsed.docs);
+  const verdicts = rows
+    ? { review: parsed.review ?? rows[0]?.data?.review ?? rows[0]?.review, base: parsed.base ?? rows[0]?.data?.base ?? rows[0]?.base,
+        items: rows.map((r) => r.data ?? r) }
     : {
         items: text.split('\n').filter((l) => l.includes(':')).map((l) => {
           const [model, rest] = [l.slice(0, l.indexOf(':')).trim(), l.slice(l.indexOf(':') + 1).trim()];

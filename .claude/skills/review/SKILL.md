@@ -55,13 +55,17 @@ for a thin change, and issue buttons. A tap on a change icon, tag chip,
 swatch or number flags that value; a tap on an after picture drops a numbered
 pin. The top bar switches Slider, Unjudged and Scale.
 
-Publish `<out>/review.html` as an artifact, renamed `_v2`, `_v3`, … on each
-new round, and link it in the PR.
+Publish `<out>/review.html` as an artifact with `capabilities: {db: {}}`,
+renamed `_v2`, `_v3`, … on each new round, and link it in the PR. Every tap
+saves itself to the artifact's db collection `verdicts`, one doc per model;
+there is no copy button.
 
 ## 3. Verdicts
 
-The PO pastes the copied verdicts (JSON, or lines of
-`kit/name: verdict — comment`). Save them to the scratchpad and run
+When the PO says the review is done, read the verdicts yourself:
+`ArtifactData` `list` of collection `verdicts` on the review artifact. Save
+the docs as JSON in the scratchpad (lines of `kit/name: verdict — comment`
+also work) and run
 
     node tools/review/review.mjs apply <verdicts>
 
