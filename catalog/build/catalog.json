@@ -40796,7 +40796,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 1.21
+   "thickRel": 1.22
   },
   {
    "kit": "3dm-medieval",
@@ -74753,30 +74753,30 @@
   {
    "kit": "food-pack-2",
    "name": "pineapple",
-   "hash": "974d61ef9f",
+   "hash": "0bfed57d6b",
    "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
-    0.154,
-    0.146,
-    0.314
+    0.15,
+    0.141,
+    0.313
    ],
-   "tris": 1486,
-   "tpu": 4332,
+   "tris": 1006,
+   "tpu": 2933,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 37352,
-   "vtx": 845,
+   "bytes": 26020,
+   "vtx": 581,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0068,
-   "thick": 0.2436,
-   "avgTri": 0.00017,
-   "anglePct": 5,
-   "pieces": 2,
-   "vpt": 0.57,
+   "minEdge": 0.001,
+   "minWall": 0.0007,
+   "thick": 0.2489,
+   "avgTri": 0.00023,
+   "anglePct": 8,
+   "pieces": 5,
+   "vpt": 0.58,
    "cells": [
     "6,0",
     "3,1"
@@ -74789,12 +74789,12 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 1.01,
+   "thickRel": 1.03,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0068 wants min 0.012"
+     "text": "G27 minWall 0.0007 wants min 0.006"
     }
    ]
   },
@@ -139909,7 +139909,7 @@
     "metal-iron-mid",
     "pickup"
    ],
-   "thickRel": 1.12
+   "thickRel": 1.13
   },
   {
    "kit": "kay-dun-2",
@@ -290843,7 +290843,7 @@
   {
    "kit": "m3-base",
    "name": "cardboard-produce-tray",
-   "hash": "b8edb7190e",
+   "hash": "09adcc29cc",
    "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
@@ -290856,15 +290856,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 39024,
+   "bytes": 33852,
    "vtx": 847,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0061,
+   "minWall": 0.0022,
    "thick": 0.0594,
    "avgTri": 0.00076,
-   "anglePct": 92,
+   "anglePct": 89,
    "pieces": 1,
    "vpt": 0.98,
    "cells": [
@@ -290877,7 +290877,14 @@
     "m3",
     "paper-cardboard"
    ],
-   "thickRel": 0.5
+   "thickRel": 0.5,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0022 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -303668,7 +303675,7 @@
     "pickup"
    ],
    "variant": "m3-base/key",
-   "thickRel": 1.02
+   "thickRel": 1.04
   },
   {
    "kit": "m3-base",
@@ -303717,7 +303724,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.19,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "warning",
@@ -309987,7 +309994,7 @@
     "pickup"
    ],
    "variant": "m3-base/key",
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
@@ -347752,30 +347759,30 @@
    "kit": "quat-dun-2",
    "collection": "quat-dun",
    "name": "coins",
-   "hash": "58e16f6fbe",
+   "hash": "695087e22c",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
    "wdh": [
     0.057,
     0.057,
-    0.043
+    0.04
    ],
-   "tris": 532,
-   "tpu": 1551,
+   "tris": 1188,
+   "tpu": 3464,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 52352,
-   "vtx": 1392,
+   "bytes": 51052,
+   "vtx": 1328,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minWall": 0.006,
-   "thick": 0.1057,
-   "avgTri": 0.00004,
-   "anglePct": 60,
-   "pieces": 19,
-   "vpt": 2.62,
+   "minEdge": 0.003,
+   "minWall": 0.003,
+   "thick": 0.1098,
+   "avgTri": 0.00003,
+   "anglePct": 70,
+   "pieces": 35,
+   "vpt": 1.12,
    "cells": [
     "6,0"
    ],
@@ -347786,6 +347793,13 @@
     "metal-gold",
     "plural",
     "qua"
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.003 wants min 0.006"
+    }
    ]
   },
   {
@@ -349158,31 +349172,31 @@
   {
    "kit": "quat-essentials",
    "name": "keycard",
-   "hash": "770ae95df3",
+   "hash": "bc736e9b42",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
    "wdh": [
     0.08,
-    0.026,
+    0.021,
     0.21
    ],
-   "tris": 702,
-   "tpu": 2047,
+   "tris": 722,
+   "tpu": 2105,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 49140,
-   "vtx": 1224,
+   "bytes": 31212,
+   "vtx": 792,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.006,
-   "minWall": 0.0061,
-   "thick": 0.1114,
-   "avgTri": 0.00004,
+   "minWall": 0.0016,
+   "thick": 0.0881,
+   "avgTri": 0.00003,
    "anglePct": 80,
    "pieces": 3,
-   "vpt": 1.74,
+   "vpt": 1.1,
    "cells": [
     "15,3",
     "3,1",
@@ -349201,7 +349215,14 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0016 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-essentials",
@@ -375789,7 +375810,7 @@
     "qua"
    ],
    "variant": "quat-props/key-metal",
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "quat-props",
@@ -375830,7 +375851,7 @@
     "qua"
    ],
    "variant": "quat-props/key-metal",
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "quat-props",
@@ -376310,30 +376331,30 @@
   {
    "kit": "quat-props",
    "name": "scroll-1",
-   "hash": "d34e3f7a3c",
+   "hash": "33d833bdc1",
    "kind": "obj-equipment-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
     0.202,
     0.054,
-    0.051
+    0.05
    ],
-   "tris": 536,
-   "tpu": 1563,
+   "tris": 428,
+   "tpu": 1248,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 49336,
-   "vtx": 1295,
+   "bytes": 16024,
+   "vtx": 375,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0066,
-   "thick": 0.3057,
-   "avgTri": 0.00014,
-   "anglePct": 8,
+   "minWall": 0.003,
+   "thick": 0.3178,
+   "avgTri": 0.00021,
+   "anglePct": 10,
    "pieces": 2,
-   "vpt": 2.42,
+   "vpt": 0.88,
    "cells": [
     "5,2",
     "1,1"
@@ -376349,7 +376370,14 @@
     "sailing"
    ],
    "variant": "quat-props/scroll-1",
-   "thickRel": 3.77
+   "thickRel": 3.92,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.003 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-props",
@@ -379128,7 +379156,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 1.28
+   "thickRel": 1.3
   },
   {
    "kit": "quat-rpg",
@@ -379170,7 +379198,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 0.97
+   "thickRel": 0.98
   },
   {
    "kit": "quat-rpg",
@@ -379212,7 +379240,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 0.91
+   "thickRel": 0.92
   },
   {
    "kit": "quat-rpg",
@@ -379254,7 +379282,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "quat-rpg",
@@ -386490,7 +386518,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.86
   },
   {
    "kit": "quat-shoot",
@@ -389080,7 +389108,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "quat-space",
@@ -411559,30 +411587,31 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "grass",
-   "hash": "b5597b72ae",
+   "hash": "4a5b685f24",
    "kind": "env-flora-plant-grass",
    "size": "s",
    "wdh": [
-    0.274,
-    0.315,
-    0.074
+    0.269,
+    0.309,
+    0.073
    ],
-   "tris": 2016,
-   "tpu": 5878,
+   "tris": 2101,
+   "tpu": 6125,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 206444,
-   "vtx": 6026,
+   "bytes": 171692,
+   "vtx": 4924,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minWall": 0.0062,
-   "thick": 0.0673,
-   "avgTri": 0.00008,
-   "anglePct": 4,
-   "pieces": 72,
-   "vpt": 2.99,
+   "minEdge": 0.003,
+   "minTube": 0.0061,
+   "minWall": 0.0001,
+   "thick": 0.0546,
+   "avgTri": 0.00004,
+   "anglePct": 3,
+   "pieces": 83,
+   "vpt": 2.34,
    "cells": [
     "3,1"
    ],
@@ -411594,7 +411623,29 @@
     "plural",
     "rgp"
    ],
-   "variant": "rgp-medieval/grass"
+   "variant": "rgp-medieval/grass",
+   "backface": {
+    "share": 0.0275,
+    "view": "0/-89.9",
+    "causes": {
+     "inverted": 0.47,
+     "open": 0.35,
+     "inside-out": 0.07,
+     "other": 0.11
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.8% of view 0/-89.9 over 0.5%: inverted 47.0%, open 35.0%, other 11.0%, inside-out 7.0%"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0001 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -432666,31 +432717,31 @@
   {
    "kit": "styloo-farm",
    "name": "cherries",
-   "hash": "b2c4134eb5",
+   "hash": "f5589aa7f4",
    "kind": "obj-food-fruit-cherry",
    "size": "s",
    "wdh": [
     0.077,
     0.039,
-    0.083
+    0.082
    ],
-   "tris": 302,
-   "tpu": 880,
+   "tris": 494,
+   "tpu": 1440,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 17660,
+   "bytes": 18812,
    "vtx": 452,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.008,
-   "minWall": 0.0064,
-   "thick": 0.115,
-   "avgTri": 0.00003,
+   "minWall": 0.0005,
+   "thick": 0.0838,
+   "avgTri": 0.00002,
    "anglePct": 1,
-   "pieces": 5,
-   "vpt": 1.5,
+   "pieces": 8,
+   "vpt": 0.91,
    "cells": [
     "3,0",
     "3,1",
@@ -432707,12 +432758,17 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 0.48,
+   "thickRel": 0.35,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.48 wants min 0.5"
+     "text": "I01 thickRel 0.35 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0005 wants min 0.006"
     }
    ]
   },
@@ -438901,13 +438957,13 @@
   {
    "kit": "styloo-food",
    "name": "strawberry",
-   "hash": "456c216641",
+   "hash": "94168afeef",
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.044,
-    0.037,
-    0.053
+    0.039,
+    0.055
    ],
    "tris": 432,
    "tpu": 1259,
@@ -438919,8 +438975,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0091,
-   "thick": 0.2202,
+   "minWall": 0.0008,
+   "thick": 0.2137,
    "avgTri": 0.00002,
    "anglePct": 2,
    "pieces": 4,
@@ -438938,12 +438994,12 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 0.92,
+   "thickRel": 0.89,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0091 wants min 0.012"
+     "text": "G27 minWall 0.0008 wants min 0.006"
     }
    ]
   },
