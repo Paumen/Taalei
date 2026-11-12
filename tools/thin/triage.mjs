@@ -18,7 +18,7 @@ from <dir>/<kit>/<name>.glb instead of kits/workfiles.`;
 const MODES = {
   flat: ['--flat', '--sheet', '--local'],
   sheet: ['--sheet', '--flat', '--local'],
-  shell: ['--inward', '--inward --radial', '--sheet --inward', '--local'],
+  shell: ['--inward', '--inward --radial', '--sheet --inward', '--sheet', '--local'],
   local: ['--local', '--local --away', '--sheet --local'],
   other: ['', '--local', '--sheet'],
 };

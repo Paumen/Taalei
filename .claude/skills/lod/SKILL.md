@@ -94,8 +94,9 @@ scale-up. Every result goes back on its floor with fresh normals
 (`tools/thin/tidy.mjs`).
 
 A try fails when it is still under the aim, leaves or adds a G27 error, grows
-the outline more than the aim needs, changes the shape of the main face,
-closes an opening, adds glb-lint findings or back faces, or, for a hidden
+the outline more than the aim needs, changes the shape of the main face
+beyond that growth, closes a gap seen through the main face, covers a small
+accent part (a flower's centre), adds glb-lint findings or back faces, or, for a hidden
 drop, changes more than a few pixels on 8 views. A failed try is dropped and the next one
 runs. Nothing touches `kits/workfiles` yet.
 

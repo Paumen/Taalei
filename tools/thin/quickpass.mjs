@@ -1,7 +1,8 @@
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, symlinkSync, existsSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
-import { loadMesh, hits, extentOf, measure, catalogModel, g27, dropHidden, tidy, backShare, FLOOR } from './lib.mjs';
+import { loadMesh, hits, extentOf, measure, catalogModel, g27, dropHidden, tidy, backShare, directions, FLOOR } from './lib.mjs';
+import { dot } from '../import/mesh-edit.mjs';
 
 const HELP = `quickpass.mjs <triage.json> --out <dir> [--only kit/name,...] [--from <dir>] [--aim kind]
 quickpass.mjs apply <dir>/report.json [kit/name ...]
@@ -16,8 +17,12 @@ kind's thin.min and then at 0.006.
   scale   whole model scaled up just enough (at most 1.6x)
 Gates: the lint's wall measure reaches the aim and no G27 error is left or
 added; the outline grows no more than the aim needs and its main face keeps
-its shape; openings stay open; glb-lint finds nothing new; no new back faces
-show; a hidden drop changes at most 0.1% of the pixels on any of 8 views.
+its shape beyond that growth; no gap seen through the main face closes (gaps
+in the side views, such as between stacked leaves seen edge-on, may fill);
+a small part (an accent such as a flower's centre) keeps at least 70% of
+how much it was seen; glb-lint finds nothing
+new; no new back faces show; a hidden drop changes at most 0.1% of the
+pixels on any of 8 views.
 A model that passes gets a before/after sheet and close-up for the fresh
 checker; the rest are listed for the careful pass with what was tried.
 Nothing is written to kits/workfiles until 'apply', which copies the chosen
@@ -67,20 +72,86 @@ function occupancy(mesh, box) {
 }
 
 function gapsOf(grid) {
-  let gaps = 0;
-  for (let i = 1; i < grid.length - 1; i++) for (let j = 1; j < grid.length - 1; j++) {
-    if (grid[i][j]) continue;
-    const row = grid[i], col = grid.map((r) => r[j]);
-    if ((row.slice(0, j).some(Boolean) && row.slice(j + 1).some(Boolean)) || (col.slice(0, i).some(Boolean) && col.slice(i + 1).some(Boolean))) gaps++;
+  const n = grid.length;
+  const gap = grid.map((row, i) => row.map((x, j) => {
+    if (x || i === 0 || j === 0 || i === n - 1 || j === n - 1) return false;
+    const col = grid.map((r) => r[j]);
+    return (row.slice(0, j).some(Boolean) && row.slice(j + 1).some(Boolean)) || (col.slice(0, i).some(Boolean) && col.slice(i + 1).some(Boolean));
+  }));
+  const seen = gap.map((row) => row.map(() => false));
+  const groups = [];
+  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+    if (!gap[i][j] || seen[i][j]) continue;
+    const cells = [], stack = [[i, j]];
+    seen[i][j] = true;
+    while (stack.length) {
+      const [a, b] = stack.pop();
+      cells.push([a, b]);
+      for (const [x, y] of [[a + 1, b], [a - 1, b], [a, b + 1], [a, b - 1]]) {
+        if (gap[x]?.[y] && !seen[x][y]) { seen[x][y] = true; stack.push([x, y]); }
+      }
+    }
+    groups.push(cells);
   }
-  return gaps;
+  return { gap, groups };
 }
 
-function shapeChange(a, b, size) {
+function openingsLost(a, b, size) {
   const face = size.indexOf(Math.min(...size));
-  let xor = 0, union = 0;
-  a[face].forEach((row, i) => row.forEach((x, j) => { const y = b[face][i][j]; if (x || y) union++; if (x !== y) xor++; }));
-  return union ? xor / union : 0;
+  const before = gapsOf(a[face]), after = gapsOf(b[face]);
+  return before.groups.filter((cells) => cells.length >= 2 && !cells.some(([i, j]) => after.gap[i][j])).length;
+}
+
+function shapeChange(a, b, size, grow) {
+  const face = size.indexOf(Math.min(...size));
+  const n = a[face].length;
+  const r = Math.ceil(grow / (Math.max(...size) / n));
+  const near = (i, j) => {
+    for (let x = i - r; x <= i + r; x++) for (let y = j - r; y <= j + r; y++) if (a[face][x]?.[y]) return true;
+    return false;
+  };
+  let changed = 0, union = 0;
+  a[face].forEach((row, i) => row.forEach((x, j) => {
+    const y = b[face][i][j];
+    if (x || y) union++;
+    if ((x && !y) || (y && !near(i, j))) changed++;
+  }));
+  return union ? changed / union : 0;
+}
+
+function openness(mesh, t, dirs, far) {
+  let open = 0, all = 0;
+  for (const [a, b, c] of [[1 / 3, 1 / 3, 1 / 3], [0.7, 0.15, 0.15], [0.15, 0.7, 0.15], [0.15, 0.15, 0.7]]) {
+    const q = [0, 1, 2].map((r) => a * t.p[0][r] + b * t.p[1][r] + c * t.p[2][r] + t.n[r] * 1e-6);
+    for (const d of dirs) {
+      if (dot(d, t.n) <= 0.02) continue;
+      all++;
+      if (!hits(mesh, q, d, far).some(([, h]) => h !== t)) open++;
+    }
+  }
+  return all ? open / all : 0;
+}
+
+function coveredParts(before, after) {
+  const dirs = directions(48);
+  const total = before.tris.reduce((s, t) => s + t.area, 0);
+  const byAt = new Map(after.tris.map((t) => [t.at, t]));
+  const far0 = extentOf(before).diag, far1 = extentOf(after).diag;
+  const covered = [];
+  for (const part of before.parts.values()) {
+    const area = part.reduce((s, t) => s + t.area, 0);
+    if (area > 0.05 * total) continue;
+    let seen0 = 0, seen1 = 0;
+    for (const t of part) {
+      const v = openness(before, t, dirs, far0);
+      if (!v) continue;
+      seen0 += t.area * v;
+      const u = byAt.get(t.at);
+      if (u) seen1 += t.area * openness(after, u, dirs, far1);
+    }
+    if (seen0 > 0.02 * area && seen1 < 0.7 * seen0) covered.push(part.length);
+  }
+  return covered;
 }
 
 function lintCounts(file, kit, dir) {
@@ -138,9 +209,9 @@ for (const row of rows) {
   const model = catalogModel(row.id);
   const was = measure(before);
   const wasErrors = g27({ ...model, ...was }).filter((f) => f.level === 'error').length;
-  const box0 = extentOf(loadMesh(before));
-  const occ0 = occupancy(loadMesh(before), box0);
-  const gaps0 = occ0.map(gapsOf);
+  const mesh0 = loadMesh(before);
+  const box0 = extentOf(mesh0);
+  const occ0 = occupancy(mesh0, box0);
   const lint0 = lintCounts(before, kit, dir);
   const back0 = backShare(loadMesh(before));
   const aims = opt('--aim') === 'kind' && row.target > FLOOR ? [row.target, FLOOR] : [FLOOR];
@@ -168,7 +239,7 @@ for (const row of rows) {
             tidy(file, file, before);
             const w = measure(file).minWall ?? Infinity;
             t.passes = pass;
-            if (w >= aim - 1e-4 || w <= last + 1e-4) break;
+            if (w >= aim - 1e-4 || (pass > 1 && w <= last + 1e-4)) break;
             from = file;
             last = w;
           }
@@ -182,15 +253,18 @@ for (const row of rows) {
       const mesh = loadMesh(file);
       const box = extentOf(mesh);
       if (!mode.startsWith('scale') && mode !== 'hidden') {
-        const allow = 2 * Math.max(0, aim - (was.minWall ?? 0)) + 0.002;
+        const grow = Math.max(0, aim - (was.minWall ?? 0));
+        const allow = 2 * grow + 0.002;
         const grew = box.size.map((s, k) => s - box0.size[k]);
         if (grew.some((g) => g > allow)) { t.why = `outline grew ${(Math.max(...grew) * 1000).toFixed(1)} mm`; continue; }
         const occ = occupancy(mesh, box0);
-        if (occ.map(gapsOf).some((g, k) => gaps0[k] >= 8 && g < 0.8 * gaps0[k])) { t.why = 'openings closing'; continue; }
-        const change = shapeChange(occ0, occ, box0.size);
+        const lost = openingsLost(occ0, occ, box0.size);
+        if (lost) { t.why = `${lost} opening${lost > 1 ? 's' : ''} closed`; continue; }
+        const change = shapeChange(occ0, occ, box0.size, grow);
         if (change > 0.06) { t.why = `outline changed ${Math.round(change * 100)}%`; continue; }
       }
       if (backShare(mesh) > back0 + 0.002) { t.why = 'new back faces'; continue; }
+      if (mode !== 'hidden' && coveredParts(mesh0, mesh).length) { t.why = 'small part covered'; continue; }
       const lint = lintCounts(file, kit, dir);
       const added = Object.keys(lint).filter((k) => lint[k] > (lint0[k] ?? 0));
       if (added.length) { t.why = `glb-lint: ${added.join(', ')}`; continue; }
