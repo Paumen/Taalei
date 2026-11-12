@@ -25,7 +25,12 @@ line, not the centre point, so cups and glasses grow only in or out.
 --open <w> widens slots and gaps narrower than <w> in a flat part, so they
 still read as open once the part is thicker.
 --hidden keeps points that sit inside another part still, so a blade or
-shank set into a handle does not poke out through it.`;
+shank set into a handle does not poke out through it.
+--back moves only the hidden side of a thin wall deeper (a plate or pip sunk
+into a body, a hidden inner copy of a surface), so nothing visible changes.
+A point shared with a face seen from outside moves only when it ends up inside
+another part, no point leaves the model's bounds, and a move that leaves a
+hidden face seen from outside is undone.`;
 
 const LAYER = 0.026, GAP = 0.002, SHARE = 0.2, FACING = -0.9, MIN_AREA = 0.002;
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -153,6 +158,86 @@ function faceWall(own, t, P) {
     if (r !== null && r > 1e-5 && r < wall) wall = r;
   }
   return wall;
+}
+
+const DIRS = (() => {
+  const out = [];
+  for (let i = 0; out.length < 64; i++) {
+    const z = 1 - (2 * (i + 0.5)) / 128, r = Math.sqrt(1 - z * z), a = i * 2.39996;
+    out.push([r * Math.cos(a), r * Math.sin(a), z]);
+  }
+  return out;
+})();
+
+function seen(t, tris, P) {
+  const p = t.w.map((w) => P[w]);
+  const n = cross(sub(p[1], p[0]), sub(p[2], p[0])), l = Math.hypot(...n);
+  if (l < 1e-12) return false;
+  const u = n.map((x) => x / l);
+  const o = [0, 1, 2].map((k) => (p[0][k] + p[1][k] + p[2][k]) / 3 + u[k] * 1e-4);
+  return DIRS.some((d0) => {
+    const d = dot(d0, u) < 0 ? d0.map((x) => -x) : d0;
+    return !tris.some((b) => {
+      if (b === t) return false;
+      const r = ray(o, d, b.w.map((w) => P[w]));
+      return r !== null && r > 1e-5;
+    });
+  });
+}
+
+function back(m, list, to, only) {
+  const { P, tris, parts } = m;
+  const byVertex = new Map();
+  for (const t of tris) for (const w of t.w) (byVertex.get(w) ?? byVertex.set(w, []).get(w)).push(t);
+  const vis = new Map();
+  const isSeen = (t) => (vis.has(t) ? vis.get(t) : vis.set(t, seen(t, tris, P)).get(t));
+  const moves = new Map();
+  const done = [];
+  for (const p of list) {
+    if (only && !only.includes(p.id)) continue;
+    if (!p.counts || p.wall === null || p.wall >= to) continue;
+    const own = parts.get(p.key);
+    let n = 0;
+    for (const t of own) {
+      const wall = faceWall(own, t, P);
+      if (wall >= to || isSeen(t)) continue;
+      for (const w of t.w) {
+        const l = moves.get(w) ?? [];
+        if (!l.some((x) => dot(x.n, t.n) > 0.999)) l.push({ n: t.n, d: to * 1.04 - wall });
+        moves.set(w, l);
+      }
+      n++;
+    }
+    if (n) done.push({ id: p.id, from: p.wall, delta: 0 });
+  }
+  const dir = [0.5773, 0.5774, 0.5775];
+  const buried = (q, part) => {
+    const hits = new Map();
+    for (const t of tris) {
+      if (t.part === part) continue;
+      const r = ray(q, dir, t.w.map((v) => P[v]));
+      if (r !== null && r > 1e-6) hits.set(t.part, (hits.get(t.part) ?? 0) + 1);
+    }
+    return [...hits.values()].some((c) => c % 2 === 1);
+  };
+  const lo = [0, 1, 2].map((k) => Math.min(...P.map((q) => q[k])) - 1e-5);
+  const hi = [0, 1, 2].map((k) => Math.max(...P.map((q) => q[k])) + 1e-5);
+  const moved = new Map();
+  for (const [w, ns] of moves) {
+    const shift = solve(ns, Math.max(...ns.map((x) => x.d)));
+    const q = P[w].map((v, k) => v + shift[k]);
+    if (q.some((v, k) => v < lo[k] || v > hi[k])) continue;
+    if (byVertex.get(w).every((t) => !isSeen(t)) || buried(q, byVertex.get(w)[0].part)) moved.set(w, shift);
+  }
+  for (let round = 0; round < 4; round++) {
+    const next = P.map((q, w) => (moved.has(w) ? q.map((v, k) => v + moved.get(w)[k]) : q));
+    const bad = new Set();
+    for (const w of moved.keys()) for (const t of byVertex.get(w)) if (seen(t, tris, next)) t.w.forEach((v) => bad.add(v));
+    if (!bad.size) break;
+    for (const w of bad) moved.delete(w);
+  }
+  const next = P.map((q, w) => (moved.has(w) ? q.map((v, k) => v + moved.get(w)[k]) : q));
+  return { next, done, tris };
 }
 
 function thinAxis(pts) {
@@ -307,7 +392,7 @@ for (const p of list.filter((p) => p.counts).sort((a, b) => (a.wall ?? 9) - (b.w
 if (args.includes('--list')) process.exit(0);
 const only = opt('--parts')?.split(',').map(Number) ?? null;
 const side = args.includes('--away') ? 'away' : args.includes('--inward') ? 'inward' : null;
-const { next, done } = grow(m, list, to, only, side, args.includes('--sheet'), args.includes('--local'), args.includes('--flat'), args.includes('--widen'), args.includes('--carry'), args.includes('--radial'), args.includes('--hidden'), Number(opt('--open') ?? 0));
+const { next, done } = args.includes('--back') ? back(m, list, to, only) : grow(m, list, to, only, side, args.includes('--sheet'), args.includes('--local'), args.includes('--flat'), args.includes('--widen'), args.includes('--carry'), args.includes('--radial'), args.includes('--hidden'), Number(opt('--open') ?? 0));
 const { prim, vid, M } = m;
 const accessor = glb.json.accessors[prim.attributes.POSITION];
 const bytes = Buffer.alloc(accessor.count * 12);
