@@ -2,8 +2,11 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { readGlb, writeGlb, readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds } from '../import/mesh-edit.mjs';
 
-const HELP = `slim.mjs: cut triangles from a one-mesh workfile by parts.
+const HELP = `slim.mjs: cut triangles from a workfile by parts.
 A part is a shell: triangles welded on shared positions.
+A workfile with several meshes needs --mesh <name|index> on every command; it
+works on that mesh's one primitive in the mesh's own space and leaves the
+other meshes as they are. Without --mesh it lists the meshes.
 
   node tools/detail/slim.mjs parts <in.glb> [--all]
       list parts, biggest first: id, tris, size (local, PCA-aligned), centre, uv.
@@ -35,8 +38,16 @@ if (!cmd || !input || cmd === '--help') { console.log(HELP); process.exit(0); }
 
 const glb = readGlb(input);
 const { json } = glb;
-if (json.meshes.length !== 1 || json.meshes[0].primitives.length !== 1) throw new Error(`${input}: needs one mesh of one primitive`);
-const prim = json.meshes[0].primitives[0];
+const meshFlag = process.argv.indexOf('--mesh');
+const meshArg = meshFlag < 0 ? null : process.argv[meshFlag + 1];
+const meshIndex = meshArg === null ? (json.meshes.length === 1 ? 0 : -1) : /^\d+$/.test(meshArg) ? Number(meshArg) : json.meshes.findIndex((m) => m.name === meshArg);
+if (meshIndex < 0 || !json.meshes[meshIndex]) {
+  console.log(`${input}: pick a mesh with --mesh <name|index>:`);
+  json.meshes.forEach((m, i) => console.log(`  ${i}  ${m.name ?? '-'}  ${m.primitives.length} primitive(s), ${m.primitives.reduce((s, q) => s + (q.indices === undefined ? 0 : json.accessors[q.indices].count / 3), 0)} tris`));
+  process.exit(meshArg === null ? 0 : 1);
+}
+if (json.meshes[meshIndex].primitives.length !== 1) throw new Error(`${input}: mesh ${meshIndex} needs one primitive`);
+const prim = json.meshes[meshIndex].primitives[0];
 const P = readAccessor(glb, prim.attributes.POSITION).data;
 const N = prim.attributes.NORMAL === undefined ? null : readAccessor(glb, prim.attributes.NORMAL).data;
 const UV = readAccessor(glb, prim.attributes.TEXCOORD_0).data;
@@ -170,14 +181,17 @@ if (cmd !== 'edit') { console.log(HELP); process.exit(1); }
 let ops = opsArg.trim().startsWith('[') || opsArg.trim().startsWith('{') ? JSON.parse(opsArg) : JSON.parse(readFileSync(opsArg, 'utf8'));
 if (!Array.isArray(ops)) ops = [ops];
 
+const otherPos = new Map();
 const worldBounds = (Pa) => {
   const lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
   const W = worldMatrices(json);
   json.nodes.forEach((n, ni) => {
     if (n.mesh === undefined || !W[ni]) return;
     const M = W[ni];
-    for (let i = 0; i < Pa.length; i += 3) for (let k = 0; k < 3; k++) {
-      const v = M[k] * Pa[i] + M[4 + k] * Pa[i + 1] + M[8 + k] * Pa[i + 2] + M[12 + k];
+    if (n.mesh !== meshIndex && !otherPos.has(n.mesh)) otherPos.set(n.mesh, json.meshes[n.mesh].primitives.flatMap((q) => Array.from(readAccessor(glb, q.attributes.POSITION).data)));
+    const Q = n.mesh === meshIndex ? Pa : otherPos.get(n.mesh);
+    for (let i = 0; i < Q.length; i += 3) for (let k = 0; k < 3; k++) {
+      const v = M[k] * Q[i] + M[4 + k] * Q[i + 1] + M[8 + k] * Q[i + 2] + M[12 + k];
       lo[k] = Math.min(lo[k], v); hi[k] = Math.max(hi[k], v);
     }
   });

@@ -146,9 +146,12 @@ Indicators point at candidates; the render decides.
 
 **Too detailed**
 
-- **Thin parts**: `node lint/measures.mjs G27`. Map the thin faces with
+- **Thin parts**: `node lint/measures.mjs G27`. `tools/thin/walls.mjs <glb>`
+  lists each part the G27 wall check measures, with its mesh, wall and the
+  spot where it is thinnest. Map the thin faces with
   `tools/thin/thinmap.mjs` + `thinmap.py`, so the fix targets the part G27
-  means.
+  means. `thicken.mjs` works on models of several meshes; `slim.mjs` works on
+  one mesh at a time with `--mesh`.
 - **Dense overall**: sort `catalog/build/catalog.json` on `tpu` or `tris`, or
   `node lint/tpu.mjs` for models over budget.
 - **Dense for their kind**: in kinds of one shape (apple, book, cleaver,
@@ -196,7 +199,11 @@ peers use.
   and `--local` grow into openings. Near such a spot: grow only the faces that
   need it (`--parts`, `--local`), grow one side only (`--away`, `--inward`),
   keep slots open (`--open <w>`), keep a part set into another from poking
-  out (`--hidden`), or rebuild the part. Tool: `tools/thin/thicken.mjs`.
+  out (`--hidden`), or rebuild the part. Try `--back` first: many thin walls
+  are a plate, pip or label sunk into a body, or a hidden inner copy of a
+  surface, and moving only the hidden side fixes them with nothing visible
+  changing (kept: dice, abc-block, boombox, desk phones, ken-cave gate).
+  Tool: `tools/thin/thicken.mjs`.
 - **Fewer repeats**: fewer buttons, wheels, vents, bars, rings, tines,
   matches; the rest get thicker. The count matters as much as the look: does
   it still read as "covered in sprinkles" or "a spiral binding"? Kept:
