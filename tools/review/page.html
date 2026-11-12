@@ -17,10 +17,11 @@ main{max-width:520px;margin:0 auto;padding-inline:12px;padding-block:0 76px}
 .filter[aria-pressed=false]{opacity:.35}
 .switch{padding:3px 9px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink-soft);font:inherit;font-size:12px;cursor:pointer}
 .switch[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--paper);font-weight:600}
-h2{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);margin:14px 0 6px}
 article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:10px;margin-bottom:10px}
 .head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin-bottom:8px}
-.head .marks{margin-left:auto}.head .name{font-weight:650;font-size:14px;overflow-wrap:anywhere}
+.grp{color:var(--ink-soft);font-size:12px}
+.view{position:relative}
+.flipb{position:absolute;right:6px;bottom:6px;z-index:2;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.92);color:#2f2a26;font:600 12px system-ui;cursor:pointer}.head .name{font-weight:650;font-size:14px;overflow-wrap:anywhere}
 .type{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700}
 .type svg{width:18px;height:18px}
 .t-size{color:var(--t-size)}.t-tag{color:var(--t-tag)}.t-recolour{color:var(--t-colour)}.t-shape{color:var(--t-shape)}.t-geometry{color:var(--t-mesh)}
@@ -30,7 +31,7 @@ article{background:var(--card);border:1px solid var(--line);border-radius:var(--
 .pic img{display:block;width:100%;height:100%;object-fit:contain}
 .pic figcaption{position:absolute;left:6px;top:5px;font-size:11px;font-weight:600;color:#6b6058;background:rgba(255,255,255,.8);padding:1px 6px;border-radius:5px}
 .pic .bx{position:absolute;border:2px solid var(--box);border-radius:5px;box-shadow:0 0 0 1px rgba(255,255,255,.85)}
-.back{display:none}body.two .back{display:block}body.two.slide .wipe.back{display:block}
+.back{display:none}
 .rows{margin:10px 0 2px;display:grid;gap:8px}
 .row{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);align-items:center;gap:6px}
 .row .l{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 6px;align-items:center;text-align:right;min-width:0}
@@ -138,7 +139,7 @@ const K='review:'+D.title+':'+D.base;
 let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
 const gone=s=>!s.v&&!s.c&&!s.m&&!(s.f||[]).length&&!(s.p||[]).length;
-const shown=new Set(Object.keys(NAME));let two=false,openOnly=false,slide=true,scl=false,dragged=false;const flip=new Set(),talk=new Set();document.body.classList.add('slide');
+const shown=new Set(Object.keys(NAME));let openOnly=false,slide=true,scl=false,dragged=false;const flip=new Set(),talk=new Set();document.body.classList.add('slide');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LV={low:1,mid:2,strong:3};
 const mag=s=>`<span class="mag l${LV[s]||1}" title="${['','small','medium','large'][LV[s]||1]} change"><i></i><i></i><i></i></span>`;
@@ -207,12 +208,11 @@ function pics(it){
   if(!it.types.some(t=>t!=='tag'))return pic(it.img.a1,'','thumb','','front');
   if(!it.visual)return `<div class="pics">${pic(it.img.a1,'','','','front')}${pic(it.img.a2,'','','','back')}</div>`;
   const V=[['front',it.img.b1,it.img.a1,it.boxes.front],['back',it.img.b2,it.img.a2,it.boxes.back]];if(flip.has(ci))V.reverse();
-  return `<div class="pics vis">${V.map(([v,b,a,bx],k)=>pic(b,'',k?'back':'')+pic(a,'',k?'back':'',boxes(bx),v)).join('')}</div>${V.map(([v,b,a],k)=>wipe(b,a,k?'back':'',v)).join('')}`;
+  return `<div class="view"><button type="button" class="flipb" data-flip>↻ ${flip.has(ci)?'front':'back'}</button><div class="pics vis">${V.map(([v,b,a,bx],k)=>pic(b,'',k?'back':'')+pic(a,'',k?'back':'',boxes(bx),v)).join('')}</div>${V.map(([v,b,a],k)=>wipe(b,a,k?'back':'',v)).join('')}</div>`;
 }
 function drawTop(){
   document.getElementById('top').innerHTML=`<span class="title">${esc(D.title)}</span>`+
-  Object.keys(NAME).map(t=>`<button type="button" class="filter" data-t="${t}" aria-pressed="${shown.has(t)}" title="${NAME[t]}">${dot(t)}</button>`).join('')+
-  `<button type="button" class="switch" id="slide" aria-pressed="${slide}">Slider</button><button type="button" class="switch" id="two" aria-pressed="${two}">2 angles</button><button type="button" class="switch" id="open" aria-pressed="${openOnly}">Unjudged</button>`+(D.items.some(it=>it.scale)?`<button type="button" class="switch" id="scl" aria-pressed="${scl}">Scale</button>`:'');
+  `<button type="button" class="switch" id="slide" aria-pressed="${slide}">Slider</button><button type="button" class="switch" id="open" aria-pressed="${openOnly}">Unjudged</button>`+(D.items.some(it=>it.scale)?`<button type="button" class="switch" id="scl" aria-pressed="${scl}">Scale</button>`:'');
 }
 const rs=it=>it.reasons.filter(r=>!(it.scale&&r.startsWith('size')));
 function badges(it){
@@ -226,26 +226,24 @@ function badges(it){
 function card(it,i){
   const s=st[it.model]||{};cur=s;ci=+i;
   const marks=Object.entries(MARK).map(([m,[g,t]])=>`<button type="button" class="mark ${m} ${s.m===m?'on':''}" data-m="${m}" title="${t}" aria-label="${t}" aria-pressed="${s.m===m}">${g}</button>`).join('');
-  return `<article data-i="${i}" class="${s.m?'m-'+s.m:''} ${it.risk==='high'?'risk':''}"><div class="head"><span class="name">${esc(it.model)}</span>${badges(it)}<span class="marks"><button type="button" class="mark ${talk.has(+i)||s.c?'on':''}" data-talk title="Comment" aria-label="Comment">💬</button>${it.visual?`<button type="button" class="mark ${flip.has(+i)?'on':''}" data-flip title="Show the other side" aria-pressed="${flip.has(+i)}">↻</button>`:''}${marks}</span></div>
+  return `<article data-i="${i}" class="${s.m?'m-'+s.m:''} ${it.risk==='high'?'risk':''}"><div class="head"><span class="name">${esc(it.model)}</span>${it.group&&it.group!==it.model.split('/')[0]?`<span class="grp">${esc(it.group)}</span>`:''}${badges(it)}</div>
 ${pics(it)}${factRows(it)}${rs(it).length||it.change||it.proposal||it.warn?`<p class="note">${rs(it).length?`<span class="rk">⚑ ${esc(rs(it).join(' · '))}</span> `:''}${esc(it.change)}${it.proposal?` <b>Proposal:</b> ${esc(it.proposal)}`:''}${it.warn?` <b class="rk">⚠ ${esc(it.warn)}</b>`:''}</p>`:''}
-<div class="main"><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert" title="Back to before, no new try">Undo</button><button type="button" class="fail ${s.v==='retry'?'on':''}" data-v="retry" title="Back to before, then a new try">Try again</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button></div><div class="btns">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}${(it.thin||[]).map(v=>`<button type="button" data-lim="thin limit ${v}" class="${F('thin limit '+v)}">thin ${v}</button>`).join('')}${it.types.filter(t=>ISSUE[t]).map(t=>ISSUE[t].map((x,k)=>{const b=`<button type="button" ${fa(t+': '+x)} class="${F(t+': '+x)}">${x}</button>`;return b}).join('')).join('')}</div>
+<div class="main"><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert" title="Back to before, no new try">Undo</button><button type="button" class="fail ${s.v==='retry'?'on':''}" data-v="retry" title="Back to before, then a new try">Try again</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep">Keep</button></div><div class="btns">${marks}<button type="button" class="mark ${talk.has(+i)||s.c?'on':''}" data-talk title="Comment" aria-label="Comment">💬</button>${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}${(it.thin||[]).map(v=>`<button type="button" data-lim="thin limit ${v}" class="${F('thin limit '+v)}">thin ${v}</button>`).join('')}${it.types.filter(t=>ISSUE[t]).map(t=>ISSUE[t].map((x,k)=>{const b=`<button type="button" ${fa(t+': '+x)} class="${F(t+': '+x)}">${x}</button>`;return b}).join('')).join('')}</div>
 <textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${talk.has(+i)||s.c?'open':''} ${NEED[s.v]&&!s.c&&!(s.f||[]).some(x=>x.startsWith('thin limit'))?'need':''}">${esc(s.c||'')}</textarea></article>`;
 }
 function drawList(){
-  let html='',g=null;
-  D.items.forEach((it,i)=>{if(it.group!==g){g=it.group;if(g)html+=`<h2>${esc(g)}</h2>`}html+=card(it,i)});
+  let html='';
+  D.items.forEach((it,i)=>{html+=card(it,i)});
   document.getElementById('list').innerHTML=html;filter();count();
 }
 function filter(){
   document.querySelectorAll('article').forEach(a=>{const it=D.items[a.dataset.i];
     a.hidden=!((it.types.length===0||it.types.some(t=>shown.has(t)))&&(!openOnly||!(st[it.model]&&st[it.model].v)))});
-  document.querySelectorAll('h2').forEach(h=>{let n=h.nextElementSibling,any=false;while(n&&n.tagName==='ARTICLE'){if(!n.hidden)any=true;n=n.nextElementSibling}h.hidden=!any});
 }
 function count(){document.getElementById('n').textContent=`${Object.values(st).filter(s=>!gone(s)&&(s.v||s.m||(s.f||[]).length||(s.p||[]).length)).length} of ${D.items.length} judged`}
 function redraw(a){const i=a.dataset.i;const box=document.createElement('div');box.innerHTML=card(D.items[i],i);a.replaceWith(box.firstElementChild);count()}
 document.addEventListener('click',e=>{
   const t=e.target.closest('[data-t]');if(t){shown.has(t.dataset.t)?shown.delete(t.dataset.t):shown.add(t.dataset.t);drawTop();filter();return}
-  if(e.target.closest('#two')){two=!two;document.body.classList.toggle('two',two);drawTop();return}
   if(e.target.closest('#slide')){slide=!slide;document.body.classList.toggle('slide',slide);drawTop();return}
   if(e.target.closest('#open')){openOnly=!openOnly;drawTop();filter();return}
   if(e.target.closest('#scl')){scl=!scl;drawTop();drawList();return}
