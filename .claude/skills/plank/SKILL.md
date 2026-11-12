@@ -118,5 +118,5 @@ triangles: check `node lint/tpu.mjs` after `build-catalog.mjs`.
 
 ## 5. Review
 
-End with a review (`.claude/skills/review`). Put models with no boards,
-band moves and kept details in as high doubt. Retries go back through 2 to 4.
+End with a review (`.claude/skills/review`). Give models with no boards,
+band moves and kept details a `why`. Retries go back through 2 to 4.

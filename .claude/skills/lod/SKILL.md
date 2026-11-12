@@ -191,8 +191,8 @@ peers use.
 
 - **Thicken**: only the thin part grows, toward the kind's `thin.min`. Fall
   back to a lower wall (never under 0.006) only when the target can't be
-  reached while the model still reads as itself; its review card carries an
-  unmistakable fallback warning. Every mode is blind to a tip, opening or
+  reached while the model still reads as itself; its review item gets a
+  `warn` naming the fallback. Every mode is blind to a tip, opening or
   neighbour within 3 mm: `--sheet` bent tips (17 of 46 sent back), `--flat`
   lost outlines (7 of 11), `--inward` filled hollows (2 of 3), the default
   and `--local` grow into openings. Near such a spot: grow only the faces that
@@ -262,7 +262,7 @@ By how it looks, not by a number.
 - **Grey area** (a style call that could go either way): take the risk and
   send it to the review page. That is what the review page is for.
 - **Clean, looks fine**: no review card. While calibrating, a sample goes on
-  the review page as low doubt, to learn which fixes can pass unreviewed.
+  the review page without a `why`, to learn which fixes can pass unreviewed.
   Every round still ends with a review page, even if it holds only that
   sample.
 
@@ -344,7 +344,7 @@ Special proposals:
 - A change to lint logic.
 
 Proposals go on the review page. A proposal made without any other fix
-carries an unmistakable heads-up marker.
+is listed with only a `proposal`, so its card says proposal only.
 
 Special proposals always go on a separate page or tab.
 

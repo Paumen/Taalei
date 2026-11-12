@@ -64,9 +64,9 @@ say how bands and tags work. The agents get both as reading.
        node tools/sheepdog/sheepdog.mjs review --out <scratchpad>/review-list.json
        node tools/review/review.mjs brief
 
-   Doubted changes are high, the rest low; drop the low items of a type the
-   brief says to send only where doubt is high. Build, publish the page as an
-   artifact and link it in the PR.
+   Doubted changes carry their `why`; drop the items without one of a type
+   the brief says to send only where risk is high. Build, publish the page as
+   an artifact and link it in the PR.
 
 8. Report to the PO: the kinds, changes made and doubted per kind, the
    agents' notes (`notes` in the log) and the review link.
