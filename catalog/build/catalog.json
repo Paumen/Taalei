@@ -3829,8 +3829,8 @@
     "1.76": 1
    },
    "smooth": {
-    "smooth": 125,
-    "none": 17
+    "smooth": 126,
+    "none": 16
    },
    "members": [
     {
@@ -3873,8 +3873,8 @@
       "1.76": 1
      },
      "smooth": {
-      "smooth": 33,
-      "none": 4
+      "smooth": 34,
+      "none": 3
      }
     },
     {
@@ -63594,7 +63594,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "outhouse",
-   "hash": "5038d7b36f",
+   "hash": "f4488fb869",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -63602,23 +63602,23 @@
     1.224,
     2
    ],
-   "tris": 1412,
-   "tpu": 521,
+   "tris": 1244,
+   "tpu": 459,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 100220,
-   "vtx": 2818,
+   "bytes": 113784,
+   "vtx": 3040,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.026,
-   "minWall": 0.0009,
-   "thick": 0.0862,
-   "avgTri": 0.01734,
+   "minTube": 0.0265,
+   "minWall": 0.006,
+   "thick": 0.0863,
+   "avgTri": 0.01787,
    "anglePct": 69,
-   "pieces": 46,
-   "vpt": 2,
+   "pieces": 49,
+   "vpt": 2.44,
    "cells": [
     "2,0"
    ],
@@ -63629,30 +63629,17 @@
     "storeys-1",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0183,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.97,
-     "inside-out": 0.03
-    }
-   },
    "thickRel": 0.47,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.8% of view 0/-89.9 over 0.5%: inverted 97.0%, inside-out 3.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
      "text": "I01 thickRel 0.47 wants min 0.5"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.026"
     }
    ]
   },
@@ -65160,7 +65147,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "roof-shingle-b",
-   "hash": "10536a20d4",
+   "hash": "6fbe1a8f55",
    "kind": "str-part-roof",
    "size": "l",
    "wdh": [
@@ -65168,23 +65155,23 @@
     3.751,
     1.556
    ],
-   "tris": 6508,
-   "tpu": 237,
+   "tris": 5983,
+   "tpu": 218,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 551208,
+   "bytes": 583932,
    "vtx": 15955,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0297,
-   "minWall": 0.0004,
+   "minTube": 0.0262,
+   "minWall": 0.006,
    "thick": 0.1197,
-   "avgTri": 0.03465,
+   "avgTri": 0.03422,
    "anglePct": 18,
    "pieces": 157,
-   "vpt": 2.45,
+   "vpt": 2.67,
    "cells": [
     "2,0"
    ],
@@ -65196,26 +65183,11 @@
     "wood-dark"
    ],
    "variant": "emace-village/roof-shingle-a",
-   "backface": {
-    "share": 0.3931,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 1,
-     "inside-out": 0,
-     "open": 0,
-     "other": 0
-    }
-   },
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "39.3% of view 0/-89.9 over 0.5%: inverted 100.0%"
-    },
-    {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0004 wants min 0.006"
+     "text": "G27 minWall 0.006 wants min 0.026"
     }
    ]
   },
@@ -67284,7 +67256,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "town-hall",
-   "hash": "04225a39c9",
+   "hash": "012f49398d",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -67292,23 +67264,23 @@
     5.003,
     4.741
    ],
-   "tris": 16749,
-   "tpu": 81,
+   "tris": 16466,
+   "tpu": 80,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 1822020,
+   "bytes": 1818624,
    "vtx": 50608,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.026,
-   "minWall": 0.0009,
+   "minWall": 0.0034,
    "thick": 0.2183,
-   "avgTri": 0.05372,
+   "avgTri": 0.05247,
    "anglePct": 45,
-   "pieces": 1097,
-   "vpt": 3.02,
+   "pieces": 1106,
+   "vpt": 3.07,
    "cells": [
     "14,3",
     "12,3",
@@ -67330,26 +67302,12 @@
     "wood-dark",
     "wood-light"
    ],
-   "backface": {
-    "share": 0.8035,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 1,
-     "open": 0,
-     "inside-out": 0
-    }
-   },
    "thickRel": 1.02,
    "lint": [
     {
      "level": "error",
-     "check": "backface",
-     "text": "80.3% of view 0/-89.9 over 0.5%: inverted 100.0%"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
+     "text": "G27 minWall 0.0034 wants min 0.006"
     }
    ]
   },
@@ -77416,7 +77374,7 @@
     "stone-masonry-light"
    ],
    "variant": "fs-house/doorway",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "fs-house",
@@ -233067,7 +233025,7 @@
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
-   "thickRel": 1.16
+   "thickRel": 1.15
   },
   {
    "kit": "ken-proto",
@@ -233108,7 +233066,7 @@
     "wood-dark"
    ],
    "variant": "ken-proto/door-sliding",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-proto",
@@ -248196,7 +248154,7 @@
     "space"
    ],
    "variant": "ken-station/door-double",
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "ken-station",
@@ -253623,7 +253581,7 @@
     "metal-iron-dark",
     "metal-iron-mid"
    ],
-   "thickRel": 0.75
+   "thickRel": 0.74
   },
   {
    "kit": "ken-survival",
@@ -347370,7 +347328,7 @@
      "other": 0
     }
    },
-   "thickRel": 0.72,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "error",
@@ -347438,7 +347396,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.56,
+   "thickRel": 0.55,
    "lint": [
     {
      "level": "error",
@@ -364253,7 +364211,7 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "window-2",
-   "hash": "a0f0214853",
+   "hash": "5298e7a096",
    "kind": "str-part-window",
    "size": "m",
    "wdh": [
@@ -364261,23 +364219,23 @@
     0.169,
     0.615
    ],
-   "tris": 300,
-   "tpu": 875,
+   "tris": 220,
+   "tpu": 641,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 21528,
-   "vtx": 572,
+   "bytes": 23328,
+   "vtx": 602,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.006,
    "minTube": 0.026,
-   "minWall": 0.0004,
-   "thick": 0.0725,
-   "avgTri": 0.00659,
-   "anglePct": 86,
+   "minWall": 0.0064,
+   "thick": 0.0755,
+   "avgTri": 0.00742,
+   "anglePct": 77,
    "pieces": 7,
-   "vpt": 1.91,
+   "vpt": 2.74,
    "cells": [
     "3,2",
     "1,0",
@@ -364298,12 +364256,12 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.81,
+   "thickRel": 0.84,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0004 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.012"
     }
    ]
   },
@@ -365149,7 +365107,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.14,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "error",
@@ -409004,7 +408962,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "annex-1",
-   "hash": "ae5d6efd21",
+   "hash": "4ec4f14ba3",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
@@ -409012,23 +408970,23 @@
     0.819,
     1.051
    ],
-   "tris": 876,
-   "tpu": 1030,
+   "tris": 676,
+   "tpu": 795,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 47672,
-   "vtx": 1281,
+   "bytes": 55136,
+   "vtx": 1425,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.007,
    "minTube": 0.0379,
-   "minWall": 0.0005,
-   "thick": 0.049,
-   "avgTri": 0.01562,
-   "anglePct": 80,
+   "minWall": 0.0064,
+   "thick": 0.0496,
+   "avgTri": 0.01734,
+   "anglePct": 82,
    "pieces": 19,
-   "vpt": 1.46,
+   "vpt": 2.11,
    "cells": [
     "0,0",
     "2,0",
@@ -409048,9 +409006,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0005 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.026"
     }
    ]
   },
@@ -410648,7 +410606,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "door-a",
-   "hash": "b54efcf569",
+   "hash": "dded9ac6f1",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
@@ -410661,15 +410619,15 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 22584,
+   "bytes": 24768,
    "vtx": 593,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
+   "minEdge": 0.005,
    "minTube": 0.144,
-   "minWall": 0.0049,
+   "minWall": 0.0064,
    "thick": 0.0773,
-   "avgTri": 0.0063,
+   "avgTri": 0.00631,
    "anglePct": 77,
    "pieces": 18,
    "vpt": 1.63,
@@ -410693,9 +410651,9 @@
    "thickRel": 0.84,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0049 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.026"
     }
    ]
   },
@@ -410703,7 +410661,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "door-arch",
-   "hash": "4158a5b315",
+   "hash": "132089b7ea",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
@@ -410711,23 +410669,23 @@
     0.196,
     0.954
    ],
-   "tris": 1334,
-   "tpu": 2854,
+   "tris": 1149,
+   "tpu": 2458,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 71744,
-   "vtx": 1947,
+   "bytes": 83096,
+   "vtx": 2121,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.026,
-   "minWall": 0.0006,
-   "thick": 0.0662,
-   "avgTri": 0.00305,
-   "anglePct": 80,
+   "minWall": 0.0065,
+   "thick": 0.089,
+   "avgTri": 0.00339,
+   "anglePct": 83,
    "pieces": 23,
-   "vpt": 1.46,
+   "vpt": 1.85,
    "cells": [
     "0,0",
     "14,3",
@@ -410744,12 +410702,12 @@
     "stone-masonry-mid",
     "wood-light"
    ],
-   "thickRel": 0.72,
+   "thickRel": 0.97,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0006 wants min 0.006"
+     "text": "G27 minWall 0.0065 wants min 0.026"
     }
    ]
   },
@@ -410757,7 +410715,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "door-b",
-   "hash": "b528ddbc50",
+   "hash": "f4b14b76d5",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
@@ -410770,16 +410728,16 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 36200,
+   "bytes": 40496,
    "vtx": 953,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.005,
    "minTube": 0.0613,
-   "minWall": 0.0005,
-   "thick": 0.0521,
-   "avgTri": 0.00461,
-   "anglePct": 68,
+   "minWall": 0.0064,
+   "thick": 0.0673,
+   "avgTri": 0.00465,
+   "anglePct": 63,
    "pieces": 14,
    "vpt": 1.33,
    "cells": [
@@ -410799,12 +410757,12 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/door-a",
-   "thickRel": 0.57,
+   "thickRel": 0.73,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0005 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.026"
     }
    ]
   },
@@ -410812,7 +410770,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "door-porch",
-   "hash": "cc4cdfd241",
+   "hash": "fe8f4cc747",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
@@ -410820,23 +410778,23 @@
     0.884,
     1.059
    ],
-   "tris": 816,
-   "tpu": 1071,
+   "tris": 690,
+   "tpu": 905,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 48508,
-   "vtx": 1318,
+   "bytes": 78964,
+   "vtx": 2164,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.005,
    "minTube": 0.0504,
-   "minWall": 0.0005,
+   "minWall": 0.0064,
    "thick": 0.0611,
-   "avgTri": 0.00636,
+   "avgTri": 0.00753,
    "anglePct": 85,
    "pieces": 41,
-   "vpt": 1.62,
+   "vpt": 3.14,
    "cells": [
     "2,0",
     "6,1",
@@ -410856,9 +410814,9 @@
    "thickRel": 0.66,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0005 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.026"
     }
    ]
   },
