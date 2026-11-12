@@ -50,7 +50,7 @@ before and after pictures (a slider by default, boxes on what changed) with ↻
 in the picture for the back; the true-size view when only size changed; a
 small picture beside the facts when only kind or tags changed or nothing did;
 fact rows, old value left, new right; three big buttons Undo, Try again, Keep, each jumping to the next card
-(a second press clears), each with a smaller twin beside it: ✕✕ (Undo,
+(a second press clears), each with a smaller twin on its left: ✕✕ (Undo,
 awful), 💬 (Try again, opens the comment box, no jump), ★ (Keep, great); a row with Relax
 rule, Other and 💬; "What's wrong?" issue buttons after Try again, the kind's
 lower thin limits after Relax rule. The comment box opens with 💬, Relax rule
