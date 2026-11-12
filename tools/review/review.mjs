@@ -32,8 +32,8 @@ build   renders every listed model before (at --base, default the list's
         Risk is set here, the same for every flow: high when the item has a
         why or a proposal, or the diff shows size x1.2 or more either way, a
         kind change, triangles +-40% or more, 35% or more of the colour moved,
-        or vertices moved 5% or more of the model; low otherwise. High-risk
-        items come first, under "Check these first", with their reasons.
+        or vertices moved 5% or more of the model; low otherwise. A high-risk
+        card gets an amber edge and its reasons.
 
 apply   takes the page's copied verdicts, or lines of "kit/name: verdict".
         revert, retry and relax put the model's file and its tags back as they
@@ -373,7 +373,6 @@ function build() {
         : { a1: img('after', 'iso'), a2: img('after', 'iso-back') },
     };
   });
-  items.sort((a, b) => (a.risk === b.risk ? 0 : a.risk === 'high' ? -1 : 1));
   const data = JSON.stringify({ title: list.title, base, items }).replace(/</g, '\\u003c');
   const page = readFileSync(PAGE, 'utf8').replace('%%TITLE%%', () => list.title).replace('%%DATA%%', () => data);
   writeFileSync(join(out, 'review.html'), page);

@@ -40,22 +40,20 @@ the task. Leave out models already given a verdict. Order doesn't matter.
 Risk is set by the tool, the same way for every flow: high when the item has a
 `why` or `proposal`, or the diff shows a size change of ×1.2 or more either
 way, a kind change, ±40% triangles, 35% of the colour moved, or points moved
-5% of the model. High-risk items go under "Check these first" with the reasons
-on the card; the rest under "Probably fine", with a "Keep all open" button.
+5% of the model. A high-risk card gets an amber edge and its reasons in amber.
 
-A card shows, top down: name and group; heads-ups (much bigger or smaller with
-the factor, new model, no change to the model, proposal only, pictures look
-the same, `warn`); the change and what to check; a small thumbnail when only
-kind or tags changed or nothing did, else one big picture with a
-before/after slider (↻ for the back, "Side by side" in the top bar for boxes
-on what changed); for a big size change both at true size on a 1 m grid with
-the kind's limits; the before → after facts (size, triangles, kind, tags,
-colours, shape); three big buttons, ✓ Keep, ↻ Try again, ✕ Undo (✓ Do it,
-↻ Rethink, ✕ Don't for a proposal only); a line saying what the chosen verdict
-does; "What's wrong?" issue buttons after Try again or Undo; the comment box,
-always open; and More: Keep but…, Relax rule (with the kind's lower thin
-limits for a thin change), Other, Later, ★ Great, ✕✕ Awful. A tap on a picture
-drops a numbered pin. Keep and Later jump to the next card.
+The page keeps one layout for every flow. A card: name with badges (size ×N
+for a size change of ×1.2 or more, new, no change, proposal only, tags only),
+★ and ✕✕ marks, ↻ for the other side; before and after pictures (a slider by
+default, boxes on what changed), a small thumbnail when only kind or tags
+changed or nothing did; with Scale on, both at true size for a big size
+change; fact rows, old value left, new right; the note (reasons, change,
+proposal, warn); three big buttons Undo, Try again, Keep (Keep and Undo jump
+to the next card); a row with Keep but…, Relax rule, the kind's lower thin
+limits for a thin change, and issue buttons; and an always open comment box.
+A tap on a change icon, tag chip, swatch or number flags that value; a tap on
+an after picture drops a numbered pin. The top bar filters by change type and
+switches Slider, 2 angles, Unjudged and Scale.
 
 Publish `<out>/review.html` as an artifact, renamed `_v2`, `_v3`, … on each
 new round, and link it in the PR.
