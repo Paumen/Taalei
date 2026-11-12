@@ -76,6 +76,8 @@ body.slide .wipe:not(.back){display:block}body.slide .pics.vis{display:none}
 .note{margin:8px 0 0;color:var(--ink-soft);font-size:13px}
 .main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}
 .main button{min-height:46px;border-radius:10px;border:2px solid;background:var(--card);font:700 16px system-ui,sans-serif;cursor:pointer}
+.main button{position:relative}.main .sub{position:absolute;top:3px;right:3px;display:grid;place-items:center;min-width:22px;height:20px;padding:0 4px;border-radius:999px;border:1px solid currentColor;font-size:11px;opacity:.7;background:var(--card)}
+.main .sub.on{opacity:1;background:var(--ink);color:#fff;border-color:var(--ink)}
 .main .keep{border-color:var(--keep);color:var(--keep)}.main .fail{border-color:var(--m2);color:var(--m2)}.main .undo{border-color:var(--revert);color:var(--revert)}
 .main .keep.on{background:var(--keep);color:#fff}.main .fail.on{background:var(--m2);color:#fff}.main .undo.on{background:var(--revert);color:#fff}
 .bd{font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--line);color:var(--ink);white-space:nowrap}
@@ -161,7 +163,7 @@ async function flush(){
 }
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}clearTimeout(timer);timer=setTimeout(flush,500)};
 const gone=s=>!s.v&&!s.c&&!s.m&&!(s.f||[]).length&&!(s.p||[]).length;
-const shown=new Set(Object.keys(NAME));let openOnly=false,slide=true,scl=false,dragged=false;const flip=new Set(),talk=new Set();let jump=null;document.body.classList.add('slide');
+const shown=new Set(Object.keys(NAME));let openOnly=false,slide=true,scl=false,dragged=false;const flip=new Set(),talk=new Set();document.body.classList.add('slide');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LV={low:1,mid:2,strong:3};
 const mag=s=>`<span class="mag l${LV[s]||1}" title="${['','small','medium','large'][LV[s]||1]} change"><i></i><i></i><i></i></span>`;
@@ -247,15 +249,15 @@ function badges(it){
 }
 function issueRow(it,s){
   const lim=s.v==='relax'?(it.thin||[]).map(v=>`<button type="button" data-lim="thin limit ${v}" class="${F('thin limit '+v)}">thin ${v}</button>`):[];
-  const iss=s.v==='retry'||s.v==='revert'||(s.f||[]).some(x=>!x.startsWith('thin limit'))?it.types.filter(t=>ISSUE[t]).flatMap(t=>ISSUE[t].map(x=>`<button type="button" ${fa(t+': '+x)} class="${F(t+': '+x)}">${x}</button>`)):[];
+  const iss=s.v==='retry'||(s.f||[]).some(x=>!x.startsWith('thin limit'))?it.types.filter(t=>ISSUE[t]).flatMap(t=>ISSUE[t].map(x=>`<button type="button" ${fa(t+': '+x)} class="${F(t+': '+x)}">${x}</button>`)):[];
   return lim.length?`<div class="btns"><span class="lab">New thin limit:</span>${lim.join('')}</div>`:iss.length?`<div class="btns"><span class="lab">What's wrong?</span>${iss.join('')}</div>`:'';
 }
 function card(it,i){
   const s=st[it.model]||{};cur=s;ci=+i;
   return `<article data-i="${i}" class="${s.m?'m-'+s.m:''} ${it.risk==='high'?'risk':''}"><div class="head"><span class="name">${esc(it.model)}</span>${it.group&&it.group!==it.model.split('/')[0]?`<span class="grp">${esc(it.group)}</span>`:''}${badges(it)}</div>
 ${it.types.some(t=>t!=='tag')?pics(it)+factRows(it):`<div class="small">${pics(it)}${factRows(it)}</div>`}${rs(it).length||it.change||it.proposal||it.warn?`<p class="note">${rs(it).length?`<span class="rk">⚑ ${esc(rs(it).join(' · '))}</span> `:''}${esc(it.change)}${it.proposal?` <b>Proposal:</b> ${esc(it.proposal)}`:''}${it.warn?` <b class="rk">⚠ ${esc(it.warn)}</b>`:''}</p>`:''}
-<div class="main"><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert" title="Back to before, no new try. Press again for ✕✕ awful">Undo${s.v==='revert'&&s.m==='bad'?' ✕✕':''}</button><button type="button" class="fail ${s.v==='retry'?'on':''}" data-v="retry" title="Back to before, then a new try">Try again</button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep" title="Press again for ★ great">Keep${s.v==='keep'&&s.m==='great'?' ★':''}</button></div><div class="btns">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}<span class="gap"></span><button type="button" class="mark ${talk.has(+i)||s.c?'on':''}" data-talk title="Comment" aria-label="Comment">💬</button></div>${issueRow(it,s)}
-<textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${talk.has(+i)||s.c||['retry','relax','other'].includes(s.v)?'open':''} ${NEED[s.v]&&!s.c&&!(s.f||[]).some(x=>x.startsWith('thin limit'))?'need':''}">${esc(s.c||'')}</textarea></article>`;
+<div class="main"><button type="button" class="undo ${s.v==='revert'?'on':''}" data-v="revert" title="Back to before, no new try">Undo<span class="sub ${s.m==='bad'?'on':''}" data-mk="bad" title="Awful: opposite of the goal">✕✕</span></button><button type="button" class="fail ${s.v==='retry'?'on':''}" data-v="retry" title="Back to before, then a new try">Try again<span class="sub ${talk.has(+i)||s.c?'on':''}" data-cm title="Say what to change">💬</span></button><button type="button" class="keep ${s.v==='keep'?'on':''}" data-v="keep" >Keep<span class="sub ${s.m==='great'?'on':''}" data-mk="great" title="Great: spot on">★</span></button></div><div class="btns">${MORE.map(([v,l])=>`<button type="button" data-v="${v}" class="${s.v===v?'on':''}">${l}</button>`).join('')}<span class="gap"></span><button type="button" class="mark ${talk.has(+i)||s.c?'on':''}" data-talk title="Comment" aria-label="Comment">💬</button></div>${issueRow(it,s)}
+<textarea id="c${i}" placeholder="${esc(NEED[s.v]||'Comment')}" class="${talk.has(+i)||s.c||['relax','other'].includes(s.v)?'open':''} ${NEED[s.v]&&!s.c&&!(s.f||[]).some(x=>x.startsWith('thin limit'))?'need':''}">${esc(s.c||'')}</textarea></article>`;
 }
 function drawList(){
   let html='';
@@ -296,12 +298,15 @@ sync('Not saved for Claude: open the page in Claude');
   const fg=e.target.closest('[data-v2]');if(fg){if(dragged){dragged=false;return}const s=S(),r=fg.getBoundingClientRect();s.p=[...(s.p||[]),[fg.dataset.v2,+((e.clientX-r.left)/r.width).toFixed(3),+((e.clientY-r.top)/r.height).toFixed(3)]];R(s);return}
   const b=e.target.closest('[data-v]');if(!b)return;
   const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
-  const v=b.dataset.v,mk2={keep:'great',revert:'bad'}[v];clearTimeout(jump);
-  if(s.v!==v){s.v=v;s.m=undefined}else if(mk2&&!s.m)s.m=mk2;else{s.v=undefined;s.m=undefined}
-  if(gone(s))delete st[it.model];save();
-  const i=+a.dataset.i;redraw(a);
-  if(mk2&&s.v===v&&!s.m)jump=setTimeout(()=>{let n=document.querySelector(`article[data-i="${i}"]`).nextElementSibling;while(n&&(n.tagName!=='ARTICLE'||n.hidden))n=n.nextElementSibling;
-    if(n){const y=n.getBoundingClientRect().top+scrollY-document.getElementById('top').offsetHeight-6;scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}},800);
+  const v=b.dataset.v,i=+a.dataset.i,mk=e.target.closest('[data-mk]'),cm=e.target.closest('[data-cm]');
+  if(mk){s.v=v;s.m=s.m===mk.dataset.mk?undefined:mk.dataset.mk}
+  else if(cm){s.v=v;s.m=undefined;talk.has(i)&&!s.c?talk.delete(i):talk.add(i)}
+  else if(s.v===v){s.v=undefined;s.m=undefined}
+  else{s.v=v;s.m=undefined}
+  if(gone(s))delete st[it.model];save();redraw(a);
+  if(cm&&talk.has(i)){document.getElementById('c'+i).focus({preventScroll:true});return}
+  if(s.v===v&&b.closest('.main')){let n=document.querySelector(`article[data-i="${i}"]`).nextElementSibling;while(n&&(n.tagName!=='ARTICLE'||n.hidden))n=n.nextElementSibling;
+    if(n){const y=n.getBoundingClientRect().top+scrollY-document.getElementById('top').offsetHeight-6;scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}}
 });
 document.addEventListener('input',e=>{const a=e.target.closest('article');if(!a)return;const it=D.items[a.dataset.i],s=st[it.model]||(st[it.model]={});
   s.c=e.target.value;if(gone(s))delete st[it.model];save();e.target.classList.toggle('need',Boolean(NEED[s.v]&&!s.c&&!(s.f||[]).some(x=>x.startsWith('thin limit'))))});
