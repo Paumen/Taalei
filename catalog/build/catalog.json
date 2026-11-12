@@ -38323,12 +38323,12 @@
    "kit": "3dm-electronics",
    "collection": "3dm",
    "name": "usb-stick",
-   "hash": "6643f3877f",
+   "hash": "de0f303002",
    "kind": "obj-device-electronics-media",
    "size": "s",
    "wdh": [
     0.034,
-    0.104,
+    0.101,
     0.017
    ],
    "tris": 356,
@@ -38342,10 +38342,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0312,
-   "minWall": 0.0068,
-   "thick": 0.2554,
-   "avgTri": 0.00004,
-   "anglePct": 51,
+   "minWall": 0.0009,
+   "thick": 0.244,
+   "avgTri": 0.00003,
+   "anglePct": 65,
    "pieces": 6,
    "vpt": 1.11,
    "cells": [
@@ -38363,12 +38363,12 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 2.36,
+   "thickRel": 2.26,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0068 wants min 0.026"
+     "text": "G27 minWall 0.0009 wants min 0.006"
     }
    ]
   },
@@ -44815,7 +44815,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "dragonfly-a",
-   "hash": "3b53b2fc56",
+   "hash": "4e21eadcb9",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -44833,9 +44833,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0062,
-   "thick": 0.0635,
-   "avgTri": 0.00002,
+   "minWall": 0.0026,
+   "thick": 0.0591,
+   "avgTri": 0.00001,
    "anglePct": 0,
    "pieces": 5,
    "vpt": 0.72,
@@ -44853,12 +44853,29 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.46,
+   "backface": {
+    "share": 0.8906,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.43,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "89.1% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0026 wants min 0.006"
     }
    ]
   },
@@ -44866,7 +44883,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "dragonfly-b",
-   "hash": "39ad551cdb",
+   "hash": "eb64dd2e4a",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -44884,9 +44901,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0062,
-   "thick": 0.0635,
-   "avgTri": 0.00002,
+   "minWall": 0.0026,
+   "thick": 0.0591,
+   "avgTri": 0.00001,
    "anglePct": 0,
    "pieces": 5,
    "vpt": 0.72,
@@ -44904,12 +44921,29 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.46,
+   "backface": {
+    "share": 0.8906,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.43,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "89.1% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0026 wants min 0.006"
     }
    ]
   },
@@ -44917,7 +44951,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "dragonfly-c",
-   "hash": "0d9c72c911",
+   "hash": "a4a0e5915a",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -44935,9 +44969,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0062,
-   "thick": 0.0635,
-   "avgTri": 0.00002,
+   "minWall": 0.0026,
+   "thick": 0.0591,
+   "avgTri": 0.00001,
    "anglePct": 0,
    "pieces": 5,
    "vpt": 0.72,
@@ -44953,12 +44987,29 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly-a",
-   "thickRel": 0.46,
+   "backface": {
+    "share": 0.8906,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.43,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "89.1% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0026 wants min 0.006"
     }
    ]
   },
@@ -44966,7 +45017,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "dragonfly",
-   "hash": "ef24d7d4f0",
+   "hash": "da52730a72",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -44983,9 +45034,9 @@
    "vtx": 163,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.006,
-   "thick": 0.0638,
+   "minEdge": 0.001,
+   "minWall": 0.003,
+   "thick": 0.0592,
    "avgTri": 0.00002,
    "anglePct": 0,
    "pieces": 5,
@@ -45002,12 +45053,29 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly",
-   "thickRel": 0.46,
+   "backface": {
+    "share": 0.89,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.43,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "89.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.003 wants min 0.006"
     }
    ]
   },
@@ -45603,7 +45671,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "red-dragonfly",
-   "hash": "53063247e6",
+   "hash": "243ff1e8f7",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -45620,9 +45688,9 @@
    "vtx": 153,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.006,
-   "thick": 0.0635,
+   "minEdge": 0.001,
+   "minWall": 0.003,
+   "thick": 0.0593,
    "avgTri": 0.00002,
    "anglePct": 0,
    "pieces": 5,
@@ -45641,12 +45709,29 @@
     "aq"
    ],
    "variant": "aq-pond/dragonfly",
-   "thickRel": 0.46,
+   "backface": {
+    "share": 0.8898,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.43,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "89.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.003 wants min 0.006"
     }
    ]
   },
@@ -103312,7 +103397,7 @@
    "kit": "ipoly-glasses",
    "collection": "ipoly",
    "name": "sunglasses-round-amber",
-   "hash": "a4f27bdc80",
+   "hash": "88a3e3b353",
    "kind": "obj-equipment-apparel-glasses",
    "size": "s",
    "wdh": [
@@ -103330,10 +103415,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0068,
+   "minWall": 0.0037,
    "thick": 0.0513,
    "avgTri": 0.00005,
-   "anglePct": 41,
+   "anglePct": 45,
    "pieces": 7,
    "vpt": 1.05,
    "cells": [
@@ -103350,7 +103435,14 @@
     "plastic"
    ],
    "variant": "ipoly-glasses/glasses-round-azure",
-   "thickRel": 1.05
+   "thickRel": 1.05,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0037 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "ipoly-glasses",
@@ -166690,13 +166782,13 @@
   {
    "kit": "kay-mixed",
    "name": "flax-flower-a",
-   "hash": "a3b8b8ba6f",
+   "hash": "53522a26a2",
    "kind": "env-flora-plant-flower",
    "size": "s",
    "wdh": [
     0.15,
     0.1,
-    0.298
+    0.296
    ],
    "tris": 809,
    "tpu": 2359,
@@ -166707,12 +166799,12 @@
    "vtx": 580,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.003,
    "minTube": 0.0101,
-   "minWall": 0.0063,
-   "thick": 0.0879,
-   "avgTri": 0.00006,
-   "anglePct": 7,
+   "minWall": 0.0039,
+   "thick": 0.0842,
+   "avgTri": 0.00005,
+   "anglePct": 8,
    "pieces": 15,
    "vpt": 0.72,
    "cells": [
@@ -166731,12 +166823,19 @@
     "special-organic"
    ],
    "variant": "kay-mixed/flax-flower-a",
-   "thickRel": 1.27
+   "thickRel": 1.21,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0039 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
    "name": "flax-flower-b",
-   "hash": "c6437abd5c",
+   "hash": "c9c3d94d71",
    "kind": "env-flora-plant-flower",
    "size": "s",
    "wdh": [
@@ -166753,10 +166852,10 @@
    "vtx": 580,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
+   "minEdge": 0.003,
    "minTube": 0.0084,
-   "minWall": 0.0065,
-   "thick": 0.1031,
+   "minWall": 0.0039,
+   "thick": 0.1027,
    "avgTri": 0.00005,
    "anglePct": 0,
    "pieces": 15,
@@ -166777,7 +166876,14 @@
     "special-organic"
    ],
    "variant": "kay-mixed/flax-flower-a",
-   "thickRel": 1.49
+   "thickRel": 1.48,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0039 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "kay-mixed",
@@ -183176,12 +183282,12 @@
    "kit": "kay-tools",
    "collection": "kay-rpg",
    "name": "journal-open",
-   "hash": "64e9124c29",
+   "hash": "21322e00b2",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.284,
-    0.229,
+    0.224,
     0.105
    ],
    "tris": 502,
@@ -183195,9 +183301,9 @@
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0065,
-   "minWall": 0.0061,
-   "thick": 0.1,
-   "avgTri": 0.00035,
+   "minWall": 0.0033,
+   "thick": 0.1019,
+   "avgTri": 0.00034,
    "anglePct": 38,
    "pieces": 20,
    "vpt": 1.31,
@@ -183219,7 +183325,14 @@
     "paper-sheet",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0033 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "kay-tools",
@@ -224696,7 +224809,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.44,
+   "thickRel": 1.46,
    "lint": [
     {
      "level": "warning",
@@ -293274,7 +293387,7 @@
     "m3",
     "metal-gold"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.92
   },
   {
    "kit": "m3-base",
@@ -313455,7 +313568,7 @@
     "m3"
    ],
    "variant": "m3-base/pouch-01",
-   "thickRel": 0.7
+   "thickRel": 0.69
   },
   {
    "kit": "m3-base",
@@ -339645,7 +339758,7 @@
   {
    "kit": "props",
    "name": "plate-food-a",
-   "hash": "246f521da1",
+   "hash": "7279dc1a1d",
    "kind": "obj-food-meal-soup",
    "size": "s",
    "wdh": [
@@ -339662,10 +339775,10 @@
    "vtx": 415,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0061,
+   "minEdge": 0.002,
+   "minWall": 0.0019,
    "thick": 0.1245,
-   "avgTri": 0.00037,
+   "avgTri": 0.00036,
    "anglePct": 20,
    "pieces": 8,
    "vpt": 1.26,
@@ -339684,9 +339797,9 @@
    "thickRel": 0.7,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0061 wants min 0.012"
+     "text": "G27 minWall 0.0019 wants min 0.006"
     }
    ]
   },
@@ -346311,13 +346424,13 @@
    "kit": "quat-dun-1",
    "collection": "quat-dun",
    "name": "bag-coins",
-   "hash": "6c80ab24bb",
+   "hash": "f48c4b2e36",
    "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.186,
     0.093,
-    0.049
+    0.048
    ],
    "tris": 976,
    "tpu": 2845,
@@ -346328,11 +346441,11 @@
    "vtx": 1720,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0068,
-   "thick": 0.1812,
+   "minEdge": 0.001,
+   "minWall": 0.0014,
+   "thick": 0.1866,
    "avgTri": 0.00003,
-   "anglePct": 12,
+   "anglePct": 13,
    "pieces": 7,
    "vpt": 1.76,
    "cells": [
@@ -346349,7 +346462,14 @@
     "textile-cloth-light"
    ],
    "variant": "quat-dun-2/bag-coins",
-   "thickRel": 0.97
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0014 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-dun-1",
@@ -346393,7 +346513,7 @@
     "textile-rope"
    ],
    "variant": "quat-dun-2/bag-standing",
-   "thickRel": 1.29
+   "thickRel": 1.28
   },
   {
    "kit": "quat-dun-1",
@@ -347431,13 +347551,13 @@
    "kit": "quat-dun-2",
    "collection": "quat-dun",
    "name": "bag-coins",
-   "hash": "d731b4f0f5",
+   "hash": "9aefb48381",
    "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
     0.186,
     0.093,
-    0.049
+    0.048
    ],
    "tris": 976,
    "tpu": 2845,
@@ -347448,11 +347568,11 @@
    "vtx": 1720,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0068,
-   "thick": 0.1812,
+   "minEdge": 0.001,
+   "minWall": 0.0014,
+   "thick": 0.1866,
    "avgTri": 0.00003,
-   "anglePct": 12,
+   "anglePct": 13,
    "pieces": 7,
    "vpt": 1.76,
    "cells": [
@@ -347469,7 +347589,14 @@
     "textile-cloth-mid"
    ],
    "variant": "quat-dun-2/bag-coins",
-   "thickRel": 0.97
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0014 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-dun-2",
@@ -347513,7 +347640,7 @@
     "textile-rope"
    ],
    "variant": "quat-dun-2/bag-standing",
-   "thickRel": 1.29
+   "thickRel": 1.28
   },
   {
    "kit": "quat-dun-2",
@@ -380733,7 +380860,7 @@
     "qua",
     "textile-rope"
    ],
-   "thickRel": 1.19
+   "thickRel": 1.18
   },
   {
    "kit": "quat-rpg",
@@ -390948,7 +391075,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.65,
+   "thickRel": 1.66,
    "lint": [
     {
      "level": "error",
@@ -391006,7 +391133,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.08,
+   "thickRel": 1.09,
    "lint": [
     {
      "level": "error",
@@ -414619,7 +414746,7 @@
     "rgp",
     "textile-rope"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "rgp-medieval",
@@ -423668,7 +423795,7 @@
     "textile-rope"
    ],
    "variant": "rpg-mini/purse-a",
-   "thickRel": 0.59
+   "thickRel": 0.58
   },
   {
    "kit": "rpg-mini",
@@ -423713,7 +423840,7 @@
     "textile-rope"
    ],
    "variant": "rpg-mini/purse-a",
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "rpg-mini",
@@ -447687,12 +447814,12 @@
   {
    "kit": "styloo-school",
    "name": "radio",
-   "hash": "b25dd0b3a7",
+   "hash": "06004135cc",
    "kind": "obj-device-electronics-radio",
    "size": "s",
    "wdh": [
     0.25,
-    0.08,
+    0.079,
     0.126
    ],
    "tris": 1874,
@@ -447705,10 +447832,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0068,
-   "thick": 0.2404,
+   "minWall": 0.0036,
+   "thick": 0.2398,
    "avgTri": 0.00007,
-   "anglePct": 71,
+   "anglePct": 74,
    "pieces": 11,
    "vpt": 1.48,
    "cells": [
@@ -447725,7 +447852,14 @@
     "sty",
     "tba"
    ],
-   "thickRel": 1.37
+   "thickRel": 1.37,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0036 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
