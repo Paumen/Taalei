@@ -113,7 +113,7 @@ the list of what was tried and why it failed.
 
 ### Careful pass (only what the quick pass did not settle)
 
-One small, fresh sub agent per one or two models: a `general-purpose` Agent
+One small, fresh sub agent per model: a `general-purpose` Agent
 (not a fork), several at once in one message. Its brief: the model, its problem, the checker's
 or PO's words, what the quick pass tried, and the verdict quotes that matter,
 and that it follows `.claude/skills/lod/SKILL.md`. It works as the rest of
