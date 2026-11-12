@@ -1010,8 +1010,7 @@
     "0.14": 23
    },
    "smooth": {
-    "smooth": 57,
-    "none": 1
+    "smooth": 58
    },
    "members": [
     {
@@ -1053,8 +1052,7 @@
       "0.0434": 1
      },
      "smooth": {
-      "smooth": 2,
-      "none": 1
+      "smooth": 3
      }
     },
     {
@@ -5682,8 +5680,8 @@
     "0.0029": 1
    },
    "smooth": {
-    "smooth": 14,
-    "none": 6
+    "smooth": 15,
+    "none": 5
    },
    "kitCheck": {
     "factor": 0.88,
@@ -38336,7 +38334,7 @@
    "kit": "3dm-electronics",
    "collection": "3dm",
    "name": "usb-stick",
-   "hash": "de0f303002",
+   "hash": "4baebb8543",
    "kind": "obj-device-electronics-media",
    "size": "s",
    "wdh": [
@@ -38344,23 +38342,23 @@
     0.101,
     0.017
    ],
-   "tris": 356,
-   "tpu": 1038,
+   "tris": 268,
+   "tpu": 781,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 16344,
-   "vtx": 396,
+   "bytes": 25872,
+   "vtx": 660,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0312,
-   "minWall": 0.0009,
-   "thick": 0.244,
-   "avgTri": 0.00003,
-   "anglePct": 65,
-   "pieces": 6,
-   "vpt": 1.11,
+   "minWall": 0.0074,
+   "thick": 0.2439,
+   "avgTri": 0.00004,
+   "anglePct": 68,
+   "pieces": 2,
+   "vpt": 2.46,
    "cells": [
     "15,3",
     "4,2",
@@ -38376,12 +38374,12 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 2.26,
+   "thickRel": 2.25,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
+     "text": "G27 minWall 0.0074 wants min 0.026"
     }
    ]
   },
@@ -39099,31 +39097,31 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "molotov-cocktail",
-   "hash": "37ea8495a1",
+   "hash": "8bb550d88c",
    "kind": "obj-equipment-weapon-explosive",
    "size": "s",
    "wdh": [
     0.082,
-    0.147,
-    0.25
+    0.15,
+    0.253
    ],
-   "tris": 2828,
-   "tpu": 8245,
+   "tris": 2020,
+   "tpu": 5889,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 290028,
-   "vtx": 8484,
+   "bytes": 309204,
+   "vtx": 8856,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0685,
-   "minWall": 0.0017,
-   "thick": 0.1821,
+   "minTube": 0.0582,
+   "minWall": 0.0065,
+   "thick": 0.177,
    "avgTri": 0.00006,
    "anglePct": 1,
-   "pieces": 3,
-   "vpt": 3,
+   "pieces": 4,
+   "vpt": 4.38,
    "cells": [
     "2,0",
     "5,2"
@@ -39137,12 +39135,12 @@
     "glass",
     "textile-cloth-light"
    ],
-   "thickRel": 0.75,
+   "thickRel": 0.73,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0017 wants min 0.006"
+     "text": "G27 minWall 0.0065 wants min 0.012"
     }
    ]
   },
@@ -40798,7 +40796,7 @@
     "metal-steel",
     "pickup"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.21
   },
   {
    "kit": "3dm-medieval",
@@ -51712,7 +51710,7 @@
   {
    "kit": "colorful-city",
    "name": "delivery-truck",
-   "hash": "37a5beae6c",
+   "hash": "09fb6e9be8",
    "kind": "obj-transport-land-road-truck",
    "size": "m",
    "wdh": [
@@ -51725,16 +51723,16 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 34036,
+   "bytes": 37496,
    "vtx": 907,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0165,
-   "minWall": 0.0131,
-   "thick": 0.2457,
-   "avgTri": 0.01223,
-   "anglePct": 85,
+   "minTube": 0.0431,
+   "minWall": 0.0598,
+   "thick": 0.2453,
+   "avgTri": 0.01229,
+   "anglePct": 84,
    "pieces": 11,
    "vpt": 1.57,
    "cells": [
@@ -51755,19 +51753,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 1.06,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0165 wants min 0.026"
-    },
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0131 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.06
   },
   {
    "kit": "colorful-city",
@@ -56248,7 +56234,7 @@
   {
    "kit": "cooking-assets",
    "name": "toaster",
-   "hash": "998494732c",
+   "hash": "8f8041a4e7",
    "kind": "obj-device-appliance-toaster",
    "size": "s",
    "wdh": [
@@ -56256,27 +56242,27 @@
     0.325,
     0.2
    ],
-   "tris": 1596,
-   "tpu": 4653,
+   "tris": 236,
+   "tpu": 688,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 47044,
-   "vtx": 1126,
+   "bytes": 46060,
+   "vtx": 1306,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.004,
    "minTube": 0.0262,
-   "minWall": 0.0005,
-   "thick": 0.1773,
-   "avgTri": 0.00032,
+   "minWall": 0.0062,
+   "thick": 0.1395,
+   "avgTri": 0.00192,
    "anglePct": 76,
-   "pieces": 6,
-   "vpt": 0.71,
+   "pieces": 5,
+   "vpt": 5.53,
    "cells": [
     "8,0",
-    "13,3",
-    "15,3"
+    "15,3",
+    "13,3"
    ],
    "colors": [
     "#59534e",
@@ -56289,14 +56275,7 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0005 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.58
   },
   {
    "kit": "cooking-assets",
@@ -60369,7 +60348,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "bear-trophy",
-   "hash": "0d536f561e",
+   "hash": "26e4a5e79a",
    "kind": "obj-furnishing-decor-mount",
    "size": "s",
    "wdh": [
@@ -60382,17 +60361,17 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 115324,
-   "vtx": 3224,
+   "bytes": 129356,
+   "vtx": 3332,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0009,
+   "minEdge": 0.001,
+   "minWall": 0.0128,
    "thick": 0.1143,
    "avgTri": 0.00039,
    "anglePct": 10,
-   "pieces": 18,
-   "vpt": 1.83,
+   "pieces": 22,
+   "vpt": 1.89,
    "cells": [
     "2,0",
     "3,0",
@@ -60413,28 +60392,7 @@
     "skin",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0345,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.79,
-     "other": 0.21,
-     "open": 0
-    }
-   },
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "3.5% of view 0/-89.9 over 0.5%: inverted 79.0%, other 21.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.93
   },
   {
    "kit": "emace-village",
@@ -74837,30 +74795,30 @@
   {
    "kit": "food-pack-2",
    "name": "pineapple",
-   "hash": "0bfed57d6b",
+   "hash": "974d61ef9f",
    "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
-    0.15,
-    0.141,
-    0.313
+    0.154,
+    0.146,
+    0.314
    ],
-   "tris": 1006,
-   "tpu": 2933,
+   "tris": 1486,
+   "tpu": 4332,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 26020,
-   "vtx": 581,
+   "bytes": 37352,
+   "vtx": 845,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0007,
-   "thick": 0.2489,
-   "avgTri": 0.00023,
-   "anglePct": 8,
-   "pieces": 5,
-   "vpt": 0.58,
+   "minEdge": 0,
+   "minWall": 0.0068,
+   "thick": 0.2436,
+   "avgTri": 0.00017,
+   "anglePct": 5,
+   "pieces": 2,
+   "vpt": 0.57,
    "cells": [
     "6,0",
     "3,1"
@@ -74873,12 +74831,12 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 1.03,
+   "thickRel": 1.01,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
+     "text": "G27 minWall 0.0068 wants min 0.012"
     }
    ]
   },
@@ -98433,7 +98391,7 @@
     "ct",
     "wood-mid"
    ],
-   "thickRel": 2.82
+   "thickRel": 2.84
   },
   {
    "kit": "household",
@@ -102072,7 +102030,7 @@
     "ipoly",
     "metal-iron-dark"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.16
   },
   {
    "kit": "ipoly-concert",
@@ -102531,30 +102489,30 @@
    "kit": "ipoly-electronics",
    "collection": "ipoly",
    "name": "circuit-board",
-   "hash": "d49cbd3578",
+   "hash": "404b2d1639",
    "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
     0.066,
     0.087,
-    0.009
+    0.011
    ],
-   "tris": 742,
-   "tpu": 2163,
+   "tris": 718,
+   "tpu": 2093,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 47228,
+   "bytes": 51388,
    "vtx": 1290,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0021,
-   "thick": 0.0656,
+   "minEdge": 0,
+   "minWall": 0.0061,
+   "thick": 0.0796,
    "avgTri": 0.00002,
-   "anglePct": 96,
-   "pieces": 55,
-   "vpt": 1.74,
+   "anglePct": 95,
+   "pieces": 53,
+   "vpt": 1.8,
    "cells": [
     "1,1",
     "13,3",
@@ -102573,17 +102531,12 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.42,
+   "thickRel": 0.51,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0021 wants min 0.006"
+     "text": "G27 minWall 0.0061 wants min 0.026"
     }
    ]
   },
@@ -102591,26 +102544,26 @@
    "kit": "ipoly-electronics",
    "collection": "ipoly",
    "name": "ram",
-   "hash": "908869cf31",
+   "hash": "866eef7c9f",
    "kind": "obj-device-electronics-component",
    "size": "s",
    "wdh": [
     0.158,
     0.035,
-    0.006
+    0.009
    ],
    "tris": 1194,
    "tpu": 3481,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 50800,
+   "bytes": 57964,
    "vtx": 1318,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0036,
-   "thick": 0.1755,
+   "minWall": 0.0063,
+   "thick": 0.2024,
    "avgTri": 0.00002,
    "anglePct": 99,
    "pieces": 9,
@@ -102630,12 +102583,12 @@
     "metal-gold",
     "plastic"
    ],
-   "thickRel": 1.11,
+   "thickRel": 1.28,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0036 wants min 0.006"
+     "text": "G27 minWall 0.0063 wants min 0.026"
     }
    ]
   },
@@ -132589,7 +132542,7 @@
     "wood-dark"
    ],
    "variant": "kay-dun-1/dagger-uncommon",
-   "thickRel": 0.66
+   "thickRel": 0.65
   },
   {
    "kit": "kay-dun-1",
@@ -139998,7 +139951,7 @@
     "metal-iron-mid",
     "pickup"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.12
   },
   {
    "kit": "kay-dun-2",
@@ -155756,7 +155709,7 @@
   {
    "kit": "kay-hallow",
    "name": "floor-dirt-grave",
-   "hash": "5f35a3a661",
+   "hash": "4d9e449765",
    "kind": "str-part-floor-unit-dirt",
    "size": "m",
    "wdh": [
@@ -155769,17 +155722,17 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19532,
+   "bytes": 21452,
    "vtx": 502,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
-   "minTube": 0.0107,
-   "minWall": 0.0105,
+   "minTube": 0.0284,
+   "minWall": 0.0109,
    "thick": 0.063,
-   "avgTri": 0.014,
-   "anglePct": 47,
+   "avgTri": 0.01407,
+   "anglePct": 50,
    "pieces": 7,
    "vpt": 1.57,
    "cells": [
@@ -155798,14 +155751,9 @@
    "thickRel": 0.99,
    "lint": [
     {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0107 wants min 0.026"
-    },
-    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0105 wants min 0.026"
+     "text": "G27 minWall 0.0109 wants min 0.026"
     }
    ]
   },
@@ -162047,7 +161995,7 @@
     "kay",
     "plastic"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "kay-holiday",
@@ -162549,7 +162497,7 @@
     "kay",
     "textile-cloth-light"
    ],
-   "thickRel": 1.48,
+   "thickRel": 1.49,
    "lint": [
     {
      "level": "warning",
@@ -164504,7 +164452,7 @@
     "plastic",
     "scale-big"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "kay-minigame",
@@ -168020,7 +167968,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.61
   },
   {
    "kit": "kay-mixed",
@@ -168945,7 +168893,7 @@
     "scale-big"
    ],
    "variant": "kay-platformer/ball",
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "kay-platformer",
@@ -168991,7 +168939,7 @@
     "scale-big"
    ],
    "variant": "kay-platformer/ball",
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "kay-platformer",
@@ -224063,7 +224011,7 @@
   {
    "kit": "ken-nature",
    "name": "bed",
-   "hash": "3764c09909",
+   "hash": "b717eb216a",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
@@ -224076,18 +224024,18 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 14804,
-   "vtx": 368,
+   "bytes": 19320,
+   "vtx": 458,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0612,
-   "minWall": 0.0009,
-   "thick": 0.1414,
-   "avgTri": 0.00556,
+   "minEdge": 0.005,
+   "minTube": 0.0169,
+   "minWall": 0.0129,
+   "thick": 0.1418,
+   "avgTri": 0.00559,
    "anglePct": 75,
    "pieces": 2,
-   "vpt": 1.35,
+   "vpt": 1.68,
    "cells": [
     "8,0",
     "5,2",
@@ -224105,14 +224053,7 @@
     "wood-dark"
    ],
    "variant": "ken-nature/bed",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-nature",
@@ -238036,7 +237977,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 1.48
+   "thickRel": 1.45
   },
   {
    "kit": "ken-roads",
@@ -242308,7 +242249,7 @@
     "plastic",
     "wood-mid"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "ken-skate",
@@ -265232,7 +265173,7 @@
    "kit": "ken-water",
    "collection": "ken-city",
    "name": "ship-ocean-liner-small-anim",
-   "hash": "0283540e58",
+   "hash": "869ec08e76",
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
@@ -265245,18 +265186,18 @@
    "mat": 3,
    "bands": 5,
    "calls": 3,
-   "bytes": 763732,
-   "vtx": 11561,
+   "bytes": 787908,
+   "vtx": 11969,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0262,
-   "minWall": 0.0034,
+   "minEdge": 0.01,
+   "minTube": 0.0299,
+   "minWall": 0.0099,
    "thick": 0.1854,
    "avgTri": 0.03723,
    "anglePct": 54,
    "pieces": 59,
-   "vpt": 2.38,
+   "vpt": 2.47,
    "cells": [
     "5,2",
     "13,3",
@@ -265294,9 +265235,9 @@
      "text": "longest 9.196 under min 9.3 (obj-transport-watercraft-ship scale-big)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.0099 wants min 0.026"
     }
    ]
   },
@@ -268734,31 +268675,31 @@
   {
    "kit": "lpa-construction",
    "name": "barrier-a",
-   "hash": "9198370d41",
+   "hash": "367c2903d1",
    "kind": "str-barrier-fence-temporary",
    "size": "m",
    "wdh": [
     0.752,
-    0.217,
-    0.415
+    0.219,
+    0.416
    ],
-   "tris": 852,
-   "tpu": 2484,
+   "tris": 612,
+   "tpu": 1784,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 58232,
+   "bytes": 60460,
    "vtx": 1614,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minTube": 0.0146,
-   "minWall": 0.0141,
-   "thick": 0.0654,
-   "avgTri": 0.00066,
-   "anglePct": 4,
-   "pieces": 27,
-   "vpt": 1.89,
+   "minEdge": 0.008,
+   "minTube": 0.0266,
+   "minWall": 0.0228,
+   "thick": 0.0714,
+   "avgTri": 0.00092,
+   "anglePct": 21,
+   "pieces": 17,
+   "vpt": 2.64,
    "cells": [
     "15,3"
    ],
@@ -268769,17 +268710,12 @@
     "lpa",
     "metal-steel"
    ],
-   "thickRel": 0.91,
+   "thickRel": 0.98,
    "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0146 wants min 0.026"
-    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0141 wants min 0.026"
+     "text": "G27 minWall 0.0228 wants min 0.026"
     }
    ]
   },
@@ -269807,7 +269743,7 @@
     "plastic"
    ],
    "variant": "lpa-construction/fence-a",
-   "thickRel": 0.74
+   "thickRel": 0.73
   },
   {
    "kit": "lpa-construction",
@@ -269855,7 +269791,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.78,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "error",
@@ -278101,7 +278037,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 2.11
+   "thickRel": 2.1
   },
   {
    "kit": "lpa-tools",
@@ -278946,7 +278882,7 @@
   {
    "kit": "lpa-weapons",
    "name": "flail",
-   "hash": "8a296f5d6b",
+   "hash": "c611640e47",
    "kind": "obj-equipment-weapon-melee-warhammer",
    "size": "s",
    "wdh": [
@@ -278954,23 +278890,23 @@
     0.115,
     0.41
    ],
-   "tris": 1294,
-   "tpu": 3773,
+   "tris": 1358,
+   "tpu": 3959,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 96220,
-   "vtx": 2720,
+   "bytes": 212276,
+   "vtx": 6080,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.003,
    "minTube": 0.0444,
-   "minWall": 0.0026,
-   "thick": 0.185,
+   "minWall": 0.0064,
+   "thick": 0.186,
    "avgTri": 0.00005,
-   "anglePct": 6,
-   "pieces": 29,
-   "vpt": 2.1,
+   "anglePct": 13,
+   "pieces": 20,
+   "vpt": 4.48,
    "cells": [
     "15,3",
     "1,0"
@@ -278985,12 +278921,12 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/flail",
-   "thickRel": 1.18,
+   "thickRel": 1.19,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0026 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.012"
     }
    ]
   },
@@ -279337,7 +279273,7 @@
   {
    "kit": "lpa-weapons",
    "name": "mandolin",
-   "hash": "1c5ecbb049",
+   "hash": "efab789485",
    "kind": "obj-leisure-art-instrument-string",
    "size": "s",
    "wdh": [
@@ -279350,14 +279286,14 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 86928,
+   "bytes": 93880,
    "vtx": 2455,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.006,
    "minWall": 0.001,
-   "thick": 0.1979,
+   "thick": 0.1978,
    "avgTri": 0.0001,
    "anglePct": 49,
    "pieces": 26,
@@ -288441,7 +288377,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 2.46
+   "thickRel": 2.47
   },
   {
    "kit": "m3-base",
@@ -289530,7 +289466,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.72
+   "thickRel": 1.73
   },
   {
    "kit": "m3-base",
@@ -290949,7 +290885,7 @@
   {
    "kit": "m3-base",
    "name": "cardboard-produce-tray",
-   "hash": "09adcc29cc",
+   "hash": "b8edb7190e",
    "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
@@ -290962,15 +290898,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 33852,
+   "bytes": 39024,
    "vtx": 847,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0022,
+   "minWall": 0.0061,
    "thick": 0.0594,
    "avgTri": 0.00076,
-   "anglePct": 89,
+   "anglePct": 92,
    "pieces": 1,
    "vpt": 0.98,
    "cells": [
@@ -290983,14 +290919,7 @@
     "m3",
     "paper-cardboard"
    ],
-   "thickRel": 0.5,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0022 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.5
   },
   {
    "kit": "m3-base",
@@ -291070,7 +290999,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.09
   },
   {
    "kit": "m3-base",
@@ -294263,7 +294192,7 @@
     "rubber",
     "wood-mid"
    ],
-   "thickRel": 1.99
+   "thickRel": 2.01
   },
   {
    "kit": "m3-base",
@@ -294396,7 +294325,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.27,
+   "thickRel": 1.25,
    "lint": [
     {
      "level": "warning",
@@ -295273,7 +295202,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.25
   },
   {
    "kit": "m3-base",
@@ -303781,7 +303710,7 @@
     "pickup"
    ],
    "variant": "m3-base/key",
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -303830,7 +303759,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.21,
+   "thickRel": 1.19,
    "lint": [
     {
      "level": "warning",
@@ -310100,7 +310029,7 @@
     "pickup"
    ],
    "variant": "m3-base/key",
-   "thickRel": 1.03
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -324002,7 +323931,7 @@
     "m3",
     "plastic"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.51
   },
   {
    "kit": "m3-base",
@@ -325700,7 +325629,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.08,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -326300,7 +326229,7 @@
     "textile-rope",
     "wood-mid"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.02
   },
   {
    "kit": "m3-base",
@@ -336387,7 +336316,7 @@
   {
    "kit": "pm-store",
    "name": "present",
-   "hash": "fc0f09f886",
+   "hash": "91f42c0544",
    "kind": "obj-container-present",
    "size": "s",
    "wdh": [
@@ -336395,22 +336324,22 @@
     0.3,
     0.285
    ],
-   "tris": 279,
-   "tpu": 813,
+   "tris": 247,
+   "tpu": 720,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18244,
-   "vtx": 474,
+   "bytes": 19904,
+   "vtx": 486,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0034,
+   "minWall": 0.0184,
    "thick": 0.1724,
-   "avgTri": 0.00247,
-   "anglePct": 70,
+   "avgTri": 0.00211,
+   "anglePct": 71,
    "pieces": 15,
-   "vpt": 1.7,
+   "vpt": 1.97,
    "cells": [
     "8,0",
     "5,2"
@@ -336424,26 +336353,12 @@
     "pm",
     "textile-cloth-dark"
    ],
-   "backface": {
-    "share": 0.0018,
-    "view": "225/20",
-    "causes": {
-     "open": 0.54,
-     "inverted": 0.43,
-     "other": 0.03
-    }
-   },
    "thickRel": 0.76,
    "lint": [
     {
      "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 225/20 over 0.1%: open 54.0%, inverted 43.0%, other 3.0%"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0034 wants min 0.006"
+     "text": "G27 minWall 0.0184 wants min 0.026"
     }
    ]
   },
@@ -339937,7 +339852,7 @@
   {
    "kit": "props",
    "name": "plate-food-a",
-   "hash": "7279dc1a1d",
+   "hash": "b338dc4618",
    "kind": "obj-food-meal-soup",
    "size": "s",
    "wdh": [
@@ -339945,22 +339860,22 @@
     0.185,
     0.073
    ],
-   "tris": 330,
-   "tpu": 962,
+   "tris": 348,
+   "tpu": 1015,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16760,
-   "vtx": 415,
+   "bytes": 26892,
+   "vtx": 663,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0019,
-   "thick": 0.1245,
+   "minEdge": 0.004,
+   "minWall": 0.0063,
+   "thick": 0.1248,
    "avgTri": 0.00036,
-   "anglePct": 20,
+   "anglePct": 19,
    "pieces": 8,
-   "vpt": 1.26,
+   "vpt": 1.91,
    "cells": [
     "5,2",
     "5,0"
@@ -339973,12 +339888,12 @@
     "ceramic-light",
     "special-food"
    ],
-   "thickRel": 0.7,
+   "thickRel": 0.71,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0019 wants min 0.006"
+     "text": "G27 minWall 0.0063 wants min 0.012"
     }
    ]
   },
@@ -340441,7 +340356,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.76,
+   "thickRel": 1.77,
    "lint": [
     {
      "level": "warning",
@@ -340504,7 +340419,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.09,
+   "thickRel": 1.1,
    "lint": [
     {
      "level": "warning",
@@ -341089,7 +341004,7 @@
     "qua",
     "rubber"
    ],
-   "thickRel": 1.32,
+   "thickRel": 1.31,
    "lint": [
     {
      "level": "warning",
@@ -341850,7 +341765,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "survivor-shaun",
-   "hash": "9b8eaaaeaf",
+   "hash": "759cbb06f6",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -341858,23 +341773,23 @@
     0.434,
     0.496
    ],
-   "tris": 10880,
-   "tpu": 31720,
+   "tris": 9916,
+   "tpu": 28910,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 388940,
-   "vtx": 10068,
+   "bytes": 467232,
+   "vtx": 10836,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0438,
-   "minWall": 0.0017,
+   "minWall": 0.0039,
    "thick": 0.0945,
-   "avgTri": 0.00007,
+   "avgTri": 0.00008,
    "anglePct": 8,
-   "pieces": 52,
-   "vpt": 0.93,
+   "pieces": 54,
+   "vpt": 1.09,
    "cells": [
     "8,0",
     "1,1",
@@ -341900,24 +341815,12 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "backface": {
-    "share": 0.0251,
-    "view": "0/-89.9",
-    "causes": {
-     "open": 1
-    }
-   },
    "thickRel": 0.98,
    "lint": [
     {
      "level": "error",
-     "check": "backface",
-     "text": "2.5% of view 0/-89.9 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0017 wants min 0.006"
+     "text": "G27 minWall 0.0039 wants min 0.006"
     }
    ]
   },
@@ -347891,30 +347794,30 @@
    "kit": "quat-dun-2",
    "collection": "quat-dun",
    "name": "coins",
-   "hash": "695087e22c",
+   "hash": "58e16f6fbe",
    "kind": "obj-equipment-pocketitem-coin",
    "size": "s",
    "wdh": [
     0.057,
     0.057,
-    0.04
+    0.043
    ],
-   "tris": 1188,
-   "tpu": 3464,
+   "tris": 532,
+   "tpu": 1551,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 51052,
-   "vtx": 1328,
+   "bytes": 52352,
+   "vtx": 1392,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.003,
-   "thick": 0.1098,
-   "avgTri": 0.00003,
-   "anglePct": 70,
-   "pieces": 35,
-   "vpt": 1.12,
+   "minEdge": 0.006,
+   "minWall": 0.006,
+   "thick": 0.1057,
+   "avgTri": 0.00004,
+   "anglePct": 60,
+   "pieces": 19,
+   "vpt": 2.62,
    "cells": [
     "6,0"
    ],
@@ -347925,13 +347828,6 @@
     "metal-gold",
     "plural",
     "qua"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
-    }
    ]
   },
   {
@@ -349304,31 +349200,31 @@
   {
    "kit": "quat-essentials",
    "name": "keycard",
-   "hash": "bc736e9b42",
+   "hash": "770ae95df3",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
    "wdh": [
     0.08,
-    0.021,
+    0.026,
     0.21
    ],
-   "tris": 722,
-   "tpu": 2105,
+   "tris": 702,
+   "tpu": 2047,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 31212,
-   "vtx": 792,
+   "bytes": 49140,
+   "vtx": 1224,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.006,
-   "minWall": 0.0016,
-   "thick": 0.0881,
-   "avgTri": 0.00003,
+   "minWall": 0.0061,
+   "thick": 0.1114,
+   "avgTri": 0.00004,
    "anglePct": 80,
    "pieces": 3,
-   "vpt": 1.1,
+   "vpt": 1.74,
    "cells": [
     "15,3",
     "3,1",
@@ -349347,14 +349243,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.8,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0016 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.99
   },
   {
    "kit": "quat-essentials",
@@ -350924,12 +350813,12 @@
    "kit": "quat-fish",
    "collection": "quat-sea",
    "name": "fish-3",
-   "hash": "e4e937e09d",
+   "hash": "f72f43fd91",
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
-    0.036,
-    0.156,
+    0.037,
+    0.157,
     0.084
    ],
    "tris": 823,
@@ -350941,10 +350830,10 @@
    "vtx": 2475,
    "minEdge": 0.001,
    "minTube": 0.012,
-   "minWall": 0.003,
-   "thick": 0.1154,
+   "minWall": 0.0071,
+   "thick": 0.1155,
    "avgTri": 0.00003,
-   "anglePct": 2,
+   "anglePct": 5,
    "pieces": 13,
    "vpt": 3.01,
    "cells": [
@@ -350965,27 +350854,7 @@
     "Armature|Swim"
    ],
    "variant": "quat-fish/fish-1",
-   "backface": {
-    "share": 0.0084,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.64,
-     "open": 0.36
-    }
-   },
    "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "0.8% of view 0/-89.9 over 0.5%: inverted 64.0%, open 36.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -357332,7 +357201,7 @@
    "kit": "quat-guns",
    "collection": "quat-guns",
    "name": "revolver",
-   "hash": "740da5c975",
+   "hash": "0fc54f10cc",
    "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
@@ -357340,23 +357209,23 @@
     0.321,
     0.168
    ],
-   "tris": 1004,
-   "tpu": 2927,
+   "tris": 858,
+   "tpu": 2501,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 52508,
-   "vtx": 1407,
+   "bytes": 78480,
+   "vtx": 2085,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0312,
-   "minWall": 0.0036,
-   "thick": 0.13,
-   "avgTri": 0.00017,
-   "anglePct": 67,
+   "minWall": 0.0067,
+   "thick": 0.1304,
+   "avgTri": 0.00018,
+   "anglePct": 63,
    "pieces": 11,
-   "vpt": 1.4,
+   "vpt": 2.43,
    "cells": [
     "15,3",
     "1,0"
@@ -357371,14 +357240,7 @@
     "wood-mid"
    ],
    "variant": "quat-guns/revolver",
-   "thickRel": 0.91,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0036 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.91
   },
   {
    "kit": "quat-guns",
@@ -374489,7 +374351,7 @@
   {
    "kit": "quat-props",
    "name": "book-group-medium-2",
-   "hash": "0e90d4c124",
+   "hash": "5d35f020e6",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "m",
    "wdh": [
@@ -374497,22 +374359,22 @@
     0.174,
     0.208
    ],
-   "tris": 1368,
-   "tpu": 3988,
+   "tris": 746,
+   "tpu": 2175,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 76308,
-   "vtx": 2083,
+   "bytes": 103740,
+   "vtx": 2917,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0006,
-   "thick": 0.2934,
-   "avgTri": 0.00181,
-   "anglePct": 93,
+   "minEdge": 0.004,
+   "minWall": 0.0348,
+   "thick": 0.3156,
+   "avgTri": 0.00202,
+   "anglePct": 94,
    "pieces": 18,
-   "vpt": 1.52,
+   "vpt": 3.91,
    "cells": [
     "14,3",
     "6,1",
@@ -374532,19 +374394,12 @@
     "qua",
     "textile-cloth-mid"
    ],
-   "variant": "quat-props/book-group-medium-1",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0006 wants min 0.006"
-    }
-   ]
+   "variant": "quat-props/book-group-medium-1"
   },
   {
    "kit": "quat-props",
    "name": "book-group-medium-3",
-   "hash": "060767ab0c",
+   "hash": "b4173c1456",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "m",
    "wdh": [
@@ -374552,22 +374407,22 @@
     0.174,
     0.208
    ],
-   "tris": 1368,
-   "tpu": 3988,
+   "tris": 736,
+   "tpu": 2146,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 56788,
-   "vtx": 1473,
+   "bytes": 83140,
+   "vtx": 2277,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0006,
-   "thick": 0.2883,
-   "avgTri": 0.00181,
-   "anglePct": 93,
+   "minEdge": 0.003,
+   "minWall": 0.0265,
+   "thick": 0.3117,
+   "avgTri": 0.00203,
+   "anglePct": 94,
    "pieces": 18,
-   "vpt": 1.08,
+   "vpt": 3.09,
    "cells": [
     "6,1",
     "5,2",
@@ -374585,14 +374440,7 @@
     "qua",
     "textile-cloth-dark"
    ],
-   "variant": "quat-props/book-group-medium-1",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0006 wants min 0.006"
-    }
-   ]
+   "variant": "quat-props/book-group-medium-1"
   },
   {
    "kit": "quat-props",
@@ -375983,7 +375831,7 @@
     "qua"
    ],
    "variant": "quat-props/key-metal",
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "quat-props",
@@ -376024,7 +375872,7 @@
     "qua"
    ],
    "variant": "quat-props/key-metal",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "quat-props",
@@ -376504,30 +376352,30 @@
   {
    "kit": "quat-props",
    "name": "scroll-1",
-   "hash": "33d833bdc1",
+   "hash": "d34e3f7a3c",
    "kind": "obj-equipment-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
     0.202,
     0.054,
-    0.05
+    0.051
    ],
-   "tris": 428,
-   "tpu": 1248,
+   "tris": 536,
+   "tpu": 1563,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16024,
-   "vtx": 375,
+   "bytes": 49336,
+   "vtx": 1295,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.003,
-   "thick": 0.3178,
-   "avgTri": 0.00021,
-   "anglePct": 10,
+   "minWall": 0.0066,
+   "thick": 0.3057,
+   "avgTri": 0.00014,
+   "anglePct": 8,
    "pieces": 2,
-   "vpt": 0.88,
+   "vpt": 2.42,
    "cells": [
     "5,2",
     "1,1"
@@ -376543,14 +376391,7 @@
     "sailing"
    ],
    "variant": "quat-props/scroll-1",
-   "thickRel": 3.92,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
-    }
-   ]
+   "thickRel": 3.77
   },
   {
    "kit": "quat-props",
@@ -379329,7 +379170,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 1.3
+   "thickRel": 1.28
   },
   {
    "kit": "quat-rpg",
@@ -379371,7 +379212,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "quat-rpg",
@@ -379413,7 +379254,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "quat-rpg",
@@ -379455,7 +379296,7 @@
     "qua"
    ],
    "variant": "quat-rpg/key-2",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "quat-rpg",
@@ -385627,7 +385468,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 1.25,
+   "thickRel": 1.23,
    "lint": [
     {
      "level": "warning",
@@ -385696,7 +385537,7 @@
      "open": 0
     }
    },
-   "thickRel": 0.93,
+   "thickRel": 0.91,
    "lint": [
     {
      "level": "error",
@@ -385810,7 +385651,7 @@
     "wood-mid"
    ],
    "variant": "quat-shoot/barrier",
-   "thickRel": 0.94,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "error",
@@ -386263,7 +386104,7 @@
     "qua"
    ],
    "variant": "quat-shoot/fence",
-   "thickRel": 1.18,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "warning",
@@ -386313,7 +386154,7 @@
     "qua",
     "scale-big"
    ],
-   "thickRel": 0.65,
+   "thickRel": 0.64,
    "lint": [
     {
      "level": "error",
@@ -386366,7 +386207,7 @@
     "qua"
    ],
    "variant": "quat-shoot/fence",
-   "thickRel": 0.96,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -386691,7 +386532,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.85
   },
   {
    "kit": "quat-shoot",
@@ -386789,7 +386630,7 @@
     "rubber"
    ],
    "variant": "quat-shoot/knife-bowie",
-   "thickRel": 1.27,
+   "thickRel": 1.26,
    "lint": [
     {
      "level": "warning",
@@ -389281,7 +389122,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.79
   },
   {
    "kit": "quat-space",
@@ -395446,7 +395287,7 @@
   {
    "kit": "quat-sushi",
    "name": "salmon-whole",
-   "hash": "c616833ccd",
+   "hash": "a463ae891d",
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
@@ -395454,22 +395295,22 @@
     0.176,
     0.148
    ],
-   "tris": 646,
-   "tpu": 1883,
+   "tris": 718,
+   "tpu": 2093,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 23800,
-   "vtx": 574,
+   "bytes": 51588,
+   "vtx": 1294,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0008,
-   "thick": 0.1055,
-   "avgTri": 0.00006,
-   "anglePct": 1,
+   "minEdge": 0.002,
+   "minWall": 0.0072,
+   "thick": 0.107,
+   "avgTri": 0.00005,
+   "anglePct": 2,
    "pieces": 5,
-   "vpt": 0.89,
+   "vpt": 1.8,
    "cells": [
     "4,2",
     "6,1",
@@ -395484,26 +395325,7 @@
     "qua",
     "special-food"
    ],
-   "backface": {
-    "share": 0.0022,
-    "view": "180/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 0.68,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 180/20 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0008 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.69
   },
   {
    "kit": "quat-sushi",
@@ -409566,7 +409388,7 @@
     "rgp",
     "special-food"
    ],
-   "thickRel": 1.03,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "warning",
@@ -411779,31 +411601,30 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "grass",
-   "hash": "4a5b685f24",
+   "hash": "b5597b72ae",
    "kind": "env-flora-plant-grass",
    "size": "s",
    "wdh": [
-    0.269,
-    0.309,
-    0.073
+    0.274,
+    0.315,
+    0.074
    ],
-   "tris": 2101,
-   "tpu": 6125,
+   "tris": 2016,
+   "tpu": 5878,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 171692,
-   "vtx": 4924,
+   "bytes": 206444,
+   "vtx": 6026,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0061,
-   "minWall": 0.0001,
-   "thick": 0.0546,
-   "avgTri": 0.00004,
-   "anglePct": 3,
-   "pieces": 83,
-   "vpt": 2.34,
+   "minEdge": 0.004,
+   "minWall": 0.0062,
+   "thick": 0.0673,
+   "avgTri": 0.00008,
+   "anglePct": 4,
+   "pieces": 72,
+   "vpt": 2.99,
    "cells": [
     "3,1"
    ],
@@ -411815,29 +411636,7 @@
     "plural",
     "rgp"
    ],
-   "variant": "rgp-medieval/grass",
-   "backface": {
-    "share": 0.0275,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.47,
-     "open": 0.35,
-     "inside-out": 0.07,
-     "other": 0.11
-    }
-   },
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "2.8% of view 0/-89.9 over 0.5%: inverted 47.0%, open 35.0%, other 11.0%, inside-out 7.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0001 wants min 0.006"
-    }
-   ]
+   "variant": "rgp-medieval/grass"
   },
   {
    "kit": "rgp-medieval",
@@ -425524,7 +425323,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "sq-bowling",
@@ -425612,7 +425411,7 @@
     "sq"
    ],
    "variant": "sq-bowling/bowling-pin",
-   "thickRel": 1.76
+   "thickRel": 1.77
   },
   {
    "kit": "sq-bowling",
@@ -427311,31 +427110,31 @@
    "kit": "sq-casino",
    "collection": "sq-props",
    "name": "chip-tray",
-   "hash": "c1fcccbafe",
+   "hash": "1aaebfe331",
    "kind": "obj-leisure-game-gamble",
    "size": "s",
    "wdh": [
     0.207,
-    0.154,
+    0.157,
     0.068
    ],
-   "tris": 1356,
-   "tpu": 3953,
+   "tris": 1174,
+   "tpu": 3423,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 83328,
-   "vtx": 2302,
+   "bytes": 95712,
+   "vtx": 2503,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "minTube": 0.0093,
-   "minWall": 0.0023,
-   "thick": 0.165,
-   "avgTri": 0.00013,
-   "anglePct": 84,
+   "minWall": 0.006,
+   "thick": 0.1627,
+   "avgTri": 0.00015,
+   "anglePct": 82,
    "pieces": 64,
-   "vpt": 1.7,
+   "vpt": 2.13,
    "cells": [
     "5,2",
     "8,0",
@@ -427355,26 +427154,7 @@
     "sq",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0036,
-    "view": "315/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 1.36,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.4% of view 315/20 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0023 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.34
   },
   {
    "kit": "sq-casino",
@@ -432120,30 +431900,30 @@
   {
    "kit": "styloo-farm",
    "name": "apple-moss",
-   "hash": "ed8beb35aa",
+   "hash": "916a6f730d",
    "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
     0.115,
     0.112,
-    0.123
+    0.127
    ],
-   "tris": 234,
-   "tpu": 682,
+   "tris": 642,
+   "tpu": 1872,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10144,
-   "vtx": 230,
+   "bytes": 23736,
+   "vtx": 578,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0023,
-   "thick": 0.2398,
-   "avgTri": 0.00019,
-   "anglePct": 5,
-   "pieces": 5,
-   "vpt": 0.98,
+   "minEdge": 0,
+   "minWall": 0.0063,
+   "thick": 0.2396,
+   "avgTri": 0.00007,
+   "anglePct": 4,
+   "pieces": 4,
+   "vpt": 0.9,
    "cells": [
     "3,1",
     "3,0",
@@ -432161,54 +431941,42 @@
     "sty"
    ],
    "variant": "styloo-farm/apple",
-   "backface": {
-    "share": 0.0025,
-    "view": "180/20",
-    "causes": {
-     "open": 1
-    }
-   },
    "thickRel": 1,
    "lint": [
     {
      "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 180/20 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0023 wants min 0.006"
+     "text": "G27 minWall 0.0063 wants min 0.012"
     }
    ]
   },
   {
    "kit": "styloo-farm",
    "name": "apple",
-   "hash": "20d6e38c01",
+   "hash": "c03ba2b9cf",
    "kind": "obj-food-fruit-apple",
    "size": "s",
    "wdh": [
     0.115,
     0.112,
-    0.131
+    0.135
    ],
-   "tris": 234,
-   "tpu": 682,
+   "tris": 642,
+   "tpu": 1872,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 10136,
-   "vtx": 230,
+   "bytes": 23724,
+   "vtx": 578,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0023,
-   "thick": 0.2426,
-   "avgTri": 0.00019,
-   "anglePct": 5,
-   "pieces": 5,
-   "vpt": 0.98,
+   "minEdge": 0,
+   "minWall": 0.0063,
+   "thick": 0.242,
+   "avgTri": 0.00007,
+   "anglePct": 4,
+   "pieces": 4,
+   "vpt": 0.9,
    "cells": [
     "8,0",
     "3,0",
@@ -432226,24 +431994,12 @@
     "sty"
    ],
    "variant": "styloo-farm/apple",
-   "backface": {
-    "share": 0.0027,
-    "view": "225/20",
-    "causes": {
-     "open": 1
-    }
-   },
    "thickRel": 1.01,
    "lint": [
     {
      "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 225/20 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0023 wants min 0.006"
+     "text": "G27 minWall 0.0063 wants min 0.012"
     }
    ]
   },
@@ -432952,31 +432708,31 @@
   {
    "kit": "styloo-farm",
    "name": "cherries",
-   "hash": "f5589aa7f4",
+   "hash": "b2c4134eb5",
    "kind": "obj-food-fruit-cherry",
    "size": "s",
    "wdh": [
     0.077,
     0.039,
-    0.082
+    0.083
    ],
-   "tris": 494,
-   "tpu": 1440,
+   "tris": 302,
+   "tpu": 880,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 18812,
+   "bytes": 17660,
    "vtx": 452,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.008,
-   "minWall": 0.0005,
-   "thick": 0.0838,
-   "avgTri": 0.00002,
+   "minWall": 0.0064,
+   "thick": 0.115,
+   "avgTri": 0.00003,
    "anglePct": 1,
-   "pieces": 8,
-   "vpt": 0.91,
+   "pieces": 5,
+   "vpt": 1.5,
    "cells": [
     "3,0",
     "3,1",
@@ -432993,17 +432749,12 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 0.35,
+   "thickRel": 0.48,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.35 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0005 wants min 0.006"
+     "text": "I01 thickRel 0.48 wants min 0.5"
     }
    ]
   },
@@ -439192,13 +438943,13 @@
   {
    "kit": "styloo-food",
    "name": "strawberry",
-   "hash": "94168afeef",
+   "hash": "456c216641",
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
     0.044,
-    0.039,
-    0.055
+    0.037,
+    0.053
    ],
    "tris": 432,
    "tpu": 1259,
@@ -439210,8 +438961,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0008,
-   "thick": 0.2137,
+   "minWall": 0.0091,
+   "thick": 0.2202,
    "avgTri": 0.00002,
    "anglePct": 2,
    "pieces": 4,
@@ -439229,12 +438980,12 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 0.89,
+   "thickRel": 0.92,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0008 wants min 0.006"
+     "text": "G27 minWall 0.0091 wants min 0.012"
     }
    ]
   },
@@ -445250,31 +445001,31 @@
   {
    "kit": "styloo-school",
    "name": "curtain",
-   "hash": "fe36fa67cb",
+   "hash": "3e32c58b98",
    "kind": "obj-furnishing-textile-curtains",
    "size": "m",
    "wdh": [
     0.9,
-    0.054,
+    0.059,
     0.737
    ],
-   "tris": 377,
-   "tpu": 1044,
+   "tris": 324,
+   "tpu": 897,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 29044,
-   "vtx": 790,
+   "bytes": 45248,
+   "vtx": 1246,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0142,
-   "minWall": 0.0033,
-   "thick": 0.0416,
-   "avgTri": 0.00501,
-   "anglePct": 13,
-   "pieces": 44,
-   "vpt": 2.1,
+   "minEdge": 0.007,
+   "minTube": 0.0128,
+   "minWall": 0.0124,
+   "thick": 0.0426,
+   "avgTri": 0.00414,
+   "anglePct": 2,
+   "pieces": 2,
+   "vpt": 3.85,
    "cells": [
     "8,0",
     "15,3"
@@ -445289,28 +445040,7 @@
     "sty",
     "textile-cloth-dark"
    ],
-   "backface": {
-    "share": 0.0462,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.83,
-     "other": 0.11,
-     "open": 0.07
-    }
-   },
-   "thickRel": 0.66,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "4.6% of view 0/-89.9 over 0.5%: inverted 83.0%, other 11.0%, open 7.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0033 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.68
   },
   {
    "kit": "styloo-school",
@@ -449824,7 +449554,7 @@
    "kit": "styloo-weapons",
    "collection": "styloo-weapons",
    "name": "bayonet",
-   "hash": "16510af7bd",
+   "hash": "da3de3b0a9",
    "kind": "obj-equipment-weapon-melee-dagger",
    "size": "s",
    "wdh": [
@@ -449832,23 +449562,23 @@
     0.041,
     0.409
    ],
-   "tris": 1990,
-   "tpu": 5802,
+   "tris": 1095,
+   "tpu": 3192,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 106860,
-   "vtx": 2921,
+   "bytes": 145360,
+   "vtx": 4085,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.001,
    "minTube": 0.0292,
-   "minWall": 0.001,
-   "thick": 0.1794,
-   "avgTri": 0.00009,
-   "anglePct": 42,
+   "minWall": 0.0087,
+   "thick": 0.1797,
+   "avgTri": 0.00006,
+   "anglePct": 64,
    "pieces": 10,
-   "vpt": 1.47,
+   "vpt": 3.73,
    "cells": [
     "13,3",
     "15,3"
@@ -449866,9 +449596,9 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
+     "text": "G27 minWall 0.0087 wants min 0.012"
     }
    ]
   },
@@ -458932,7 +458662,7 @@
   {
    "kit": "western",
    "name": "bull-head",
-   "hash": "7a97f975b5",
+   "hash": "aed34e97fe",
    "kind": "obj-furnishing-decor-mount",
    "size": "s",
    "wdh": [
@@ -458945,13 +458675,13 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 83416,
+   "bytes": 88520,
    "vtx": 2402,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0056,
+   "minWall": 0.0062,
    "thick": 0.0789,
    "avgTri": 0.00045,
    "anglePct": 18,
@@ -458973,26 +458703,12 @@
     "skin",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0124,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.81,
-     "open": 0.17,
-     "other": 0.02
-    }
-   },
    "thickRel": 0.64,
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "1.2% of view 0/-89.9 over 0.5%: inverted 81.0%, open 17.0%, other 2.0%"
-    },
-    {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -459702,7 +459418,7 @@
     "rubber",
     "wood-dark"
    ],
-   "thickRel": 1.05
+   "thickRel": 1.06
   },
   {
    "kit": "western",
@@ -459758,7 +459474,7 @@
   {
    "kit": "western",
    "name": "signpost",
-   "hash": "482ddd9e08",
+   "hash": "a64b0b2d02",
    "kind": "str-fixture-marker-sign-signpost",
    "size": "m",
    "wdh": [
@@ -459766,23 +459482,23 @@
     0.057,
     0.535
    ],
-   "tris": 291,
-   "tpu": 848,
+   "tris": 247,
+   "tpu": 720,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25848,
-   "vtx": 709,
+   "bytes": 36412,
+   "vtx": 1001,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0106,
-   "minWall": 0.0023,
+   "minEdge": 0.003,
+   "minTube": 0.0062,
+   "minWall": 0.0062,
    "thick": 0.0717,
-   "avgTri": 0.00067,
-   "anglePct": 88,
-   "pieces": 15,
-   "vpt": 2.44,
+   "avgTri": 0.00081,
+   "anglePct": 89,
+   "pieces": 14,
+   "vpt": 4.05,
    "cells": [
     "2,0",
     "6,1"
@@ -459795,26 +459511,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0014,
-    "view": "90/20",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.1% of view 90/20 over 0.1%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0023 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.94
   },
   {
    "kit": "western",
@@ -474810,7 +474507,7 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.46
   },
   {
    "kit": "zombie-weapons",
@@ -474941,7 +474638,7 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "zombie-weapons",
@@ -474983,7 +474680,7 @@
     "metal-steel",
     "rubber"
    ],
-   "thickRel": 0.91,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "warning",
