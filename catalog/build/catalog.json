@@ -4358,7 +4358,7 @@
     "0.3104": 1,
     "0.5174": 3,
     "0.379": 1,
-    "0.2846": 1,
+    "0.3415": 1,
     "0.3881": 3
    },
    "smooth": {
@@ -59702,7 +59702,7 @@
     "leather",
     "paper-sheet"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.03
   },
   {
    "kit": "emace-80s",
@@ -125972,7 +125972,7 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-adventurers/spellbook-closed",
-   "thickRel": 1.02
+   "thickRel": 1
   },
   {
    "kit": "kay-adventurers",
@@ -131112,7 +131112,7 @@
     "textile-cloth-dark"
    ],
    "variant": "kay-dun-1/book-c",
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "kay-dun-1",
@@ -131154,7 +131154,7 @@
     "paper-sheet"
    ],
    "variant": "kay-dun-1/book-c",
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "kay-dun-1",
@@ -131196,7 +131196,7 @@
     "paper-sheet"
    ],
    "variant": "kay-dun-1/book-c",
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "kay-dun-1",
@@ -131239,7 +131239,7 @@
     "paper-sheet"
    ],
    "variant": "kay-dun-1/book-c",
-   "thickRel": 1.07
+   "thickRel": 1.06
   },
   {
    "kit": "kay-dun-1",
@@ -131285,7 +131285,7 @@
     "paper-sheet"
    ],
    "variant": "kay-dun-1/book-a",
-   "thickRel": 1.26
+   "thickRel": 1.23
   },
   {
    "kit": "kay-dun-1",
@@ -131331,7 +131331,7 @@
     "paper-sheet"
    ],
    "variant": "kay-dun-1/book-a",
-   "thickRel": 1.26
+   "thickRel": 1.23
   },
   {
    "kit": "kay-dun-1",
@@ -136026,7 +136026,7 @@
     "paper-sheet",
     "textile-cloth-dark"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.08
   },
   {
    "kit": "kay-dun-1",
@@ -166093,7 +166093,7 @@
     "paper-sheet",
     "special-organic"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.14
   },
   {
    "kit": "kay-mixed",
@@ -178469,7 +178469,7 @@
     "metal-iron-mid",
     "paper-sheet"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.01
   },
   {
    "kit": "kay-skeleton-1",
@@ -183546,7 +183546,7 @@
     "paper-sheet",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.86
+   "thickRel": 0.84
   },
   {
    "kit": "kay-tools",
@@ -280498,7 +280498,7 @@
     "textile-cloth-dark"
    ],
    "variant": "lpa-weapons/spellbook",
-   "thickRel": 0.83
+   "thickRel": 0.81
   },
   {
    "kit": "lpa-weapons",
@@ -309782,7 +309782,7 @@
     "metal-steel",
     "paper-sheet"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -378418,7 +378418,7 @@
   {
    "kit": "quat-rpg",
    "name": "axe-small",
-   "hash": "bc73a02423",
+   "hash": "b120f5268b",
    "kind": "obj-equipment-weapon-melee-axe-single",
    "size": "s",
    "wdh": [
@@ -378426,31 +378426,29 @@
     0.034,
     0.407
    ],
-   "tris": 712,
-   "tpu": 2076,
+   "tris": 582,
+   "tpu": 1697,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
-   "bytes": 48440,
-   "vtx": 1335,
+   "bytes": 40456,
+   "vtx": 1110,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0341,
-   "minWall": 0.0018,
+   "minWall": 0.0074,
    "thick": 0.1115,
-   "avgTri": 0.00011,
-   "anglePct": 35,
-   "pieces": 3,
-   "vpt": 1.88,
+   "avgTri": 0.00012,
+   "anglePct": 37,
+   "pieces": 2,
+   "vpt": 1.91,
    "cells": [
     "15,3",
     "14,3",
-    "3,0",
     "1,0"
    ],
    "colors": [
-    "#52301e",
     "#7a8491",
     "#88735f",
     "#9e6d44"
@@ -378467,8 +378465,13 @@
    "lint": [
     {
      "level": "error",
+     "check": "palette",
+     "text": "leather wants bark, has nickel taupe camel"
+    },
+    {
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0018 wants min 0.006"
+     "text": "G27 minWall 0.0074 wants min 0.012"
     }
    ]
   },
@@ -378664,30 +378667,30 @@
   {
    "kit": "quat-rpg",
    "name": "book-1-closed",
-   "hash": "a046f74f87",
+   "hash": "40a292ff3e",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.046,
-    0.155,
-    0.207
+    0.144,
+    0.204
    ],
-   "tris": 208,
-   "tpu": 606,
+   "tris": 112,
+   "tpu": 327,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12888,
-   "vtx": 320,
+   "bytes": 6248,
+   "vtx": 128,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.001,
-   "thick": 0.1444,
-   "avgTri": 0.00102,
-   "anglePct": 92,
-   "pieces": 9,
-   "vpt": 1.54,
+   "minEdge": 0.005,
+   "minWall": 0.0464,
+   "thick": 0.1531,
+   "avgTri": 0.00085,
+   "anglePct": 84,
+   "pieces": 1,
+   "vpt": 1.14,
    "cells": [
     "3,0",
     "5,2"
@@ -378703,42 +378706,35 @@
     "robin-hood"
    ],
    "variant": "quat-rpg/book-1-closed",
-   "thickRel": 0.9,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.96
   },
   {
    "kit": "quat-rpg",
    "name": "book-1-open",
-   "hash": "f8bb779e27",
+   "hash": "f3e203d848",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
    "wdh": [
-    0.226,
+    0.225,
     0.192,
-    0.036
+    0.038
    ],
-   "tris": 386,
-   "tpu": 1125,
+   "tris": 314,
+   "tpu": 915,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18840,
-   "vtx": 472,
+   "bytes": 13948,
+   "vtx": 330,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0009,
-   "thick": 0.0925,
-   "avgTri": 0.00071,
-   "anglePct": 41,
-   "pieces": 8,
-   "vpt": 1.22,
+   "minEdge": 0.004,
+   "minWall": 0.0067,
+   "thick": 0.0968,
+   "avgTri": 0.00074,
+   "anglePct": 48,
+   "pieces": 2,
+   "vpt": 1.05,
    "cells": [
     "3,0",
     "5,2"
@@ -378754,42 +378750,35 @@
     "robin-hood"
    ],
    "variant": "quat-rpg/book-1-open",
-   "thickRel": 0.78,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.8
   },
   {
    "kit": "quat-rpg",
    "name": "book-2-closed",
-   "hash": "7897e414f0",
+   "hash": "21be2ec24c",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.048,
-    0.155,
-    0.207
+    0.144,
+    0.204
    ],
-   "tris": 264,
-   "tpu": 770,
+   "tris": 168,
+   "tpu": 490,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16300,
-   "vtx": 416,
+   "bytes": 9656,
+   "vtx": 224,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.001,
-   "thick": 0.1443,
-   "avgTri": 0.00085,
-   "anglePct": 92,
-   "pieces": 13,
-   "vpt": 1.58,
+   "minEdge": 0.005,
+   "minWall": 0.0463,
+   "thick": 0.1528,
+   "avgTri": 0.00064,
+   "anglePct": 86,
+   "pieces": 5,
+   "vpt": 1.33,
    "cells": [
     "3,0",
     "5,2"
@@ -378805,42 +378794,36 @@
     "robin-hood"
    ],
    "variant": "quat-rpg/book-1-closed",
-   "thickRel": 0.9,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "quat-rpg",
    "name": "book-2-open",
-   "hash": "f981699c93",
+   "hash": "e99cffa183",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
    "wdh": [
-    0.24,
+    0.239,
     0.184,
-    0.043
+    0.049
    ],
-   "tris": 483,
-   "tpu": 1408,
+   "tris": 411,
+   "tpu": 1198,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27132,
-   "vtx": 713,
+   "bytes": 22220,
+   "vtx": 571,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.001,
-   "thick": 0.1116,
-   "avgTri": 0.00064,
-   "anglePct": 42,
-   "pieces": 18,
-   "vpt": 1.48,
+   "minEdge": 0.002,
+   "minTube": 0.0067,
+   "minWall": 0.0067,
+   "thick": 0.1202,
+   "avgTri": 0.00068,
+   "anglePct": 51,
+   "pieces": 12,
+   "vpt": 1.39,
    "cells": [
     "3,0",
     "5,2"
@@ -378856,47 +378839,40 @@
     "robin-hood"
    ],
    "variant": "quat-rpg/book-1-open",
-   "thickRel": 0.94,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.99
   },
   {
    "kit": "quat-rpg",
    "name": "book-3-closed",
-   "hash": "4233839cef",
+   "hash": "959871c8a6",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.081,
     0.173,
-    0.209
+    0.206
    ],
-   "tris": 794,
-   "tpu": 2315,
+   "tris": 698,
+   "tpu": 2035,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 34068,
-   "vtx": 871,
+   "bytes": 27320,
+   "vtx": 677,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0018,
-   "thick": 0.1569,
-   "avgTri": 0.00033,
-   "anglePct": 73,
-   "pieces": 17,
-   "vpt": 1.1,
+   "minWall": 0.0063,
+   "thick": 0.1578,
+   "avgTri": 0.00021,
+   "anglePct": 71,
+   "pieces": 9,
+   "vpt": 0.97,
    "cells": [
-    "6,1",
-    "5,2",
     "3,0",
-    "13,3"
+    "13,3",
+    "6,1",
+    "5,2"
    ],
    "colors": [
     "#3a3e4b",
@@ -378914,42 +378890,35 @@
     "robin-hood"
    ],
    "variant": "quat-rpg/book-1-closed",
-   "thickRel": 0.98,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0018 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.99
   },
   {
    "kit": "quat-rpg",
    "name": "book-3-open",
-   "hash": "e4ca6854a2",
+   "hash": "157dbd49ff",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
    "wdh": [
     0.227,
     0.195,
-    0.05
+    0.053
    ],
-   "tris": 356,
-   "tpu": 1038,
+   "tris": 260,
+   "tpu": 758,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 20240,
-   "vtx": 522,
+   "bytes": 13580,
+   "vtx": 330,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0008,
-   "thick": 0.1191,
-   "avgTri": 0.00089,
-   "anglePct": 42,
-   "pieces": 14,
-   "vpt": 1.47,
+   "minEdge": 0.004,
+   "minWall": 0.0066,
+   "thick": 0.1238,
+   "avgTri": 0.00097,
+   "anglePct": 52,
+   "pieces": 6,
+   "vpt": 1.27,
    "cells": [
     "5,2",
     "6,1",
@@ -378969,43 +378938,35 @@
     "robin-hood"
    ],
    "variant": "quat-rpg/book-1-open",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0008 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.02
   },
   {
    "kit": "quat-rpg",
    "name": "book-4-closed",
-   "hash": "53605b99e1",
+   "hash": "ac68fe448c",
    "kind": "obj-equipment-pocketitem-book-closed",
    "size": "s",
    "wdh": [
     0.054,
-    0.156,
-    0.209
+    0.146,
+    0.206
    ],
-   "tris": 508,
-   "tpu": 1481,
+   "tris": 412,
+   "tpu": 1201,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27876,
-   "vtx": 732,
+   "bytes": 21236,
+   "vtx": 540,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0441,
-   "minWall": 0.001,
-   "thick": 0.1426,
-   "avgTri": 0.00047,
-   "anglePct": 88,
-   "pieces": 16,
-   "vpt": 1.44,
+   "minWall": 0.0065,
+   "thick": 0.1507,
+   "avgTri": 0.00034,
+   "anglePct": 75,
+   "pieces": 8,
+   "vpt": 1.31,
    "cells": [
     "6,1",
     "5,2",
@@ -379024,46 +378985,39 @@
     "qua"
    ],
    "variant": "quat-rpg/book-1-closed",
-   "thickRel": 0.89,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.94
   },
   {
    "kit": "quat-rpg",
    "name": "book-4-open",
-   "hash": "29c8ab05a6",
+   "hash": "d69af38e95",
    "kind": "obj-equipment-pocketitem-book-open",
    "size": "s",
    "wdh": [
-    0.237,
+    0.227,
     0.195,
-    0.046
+    0.048
    ],
-   "tris": 310,
-   "tpu": 904,
+   "tris": 262,
+   "tpu": 764,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 16888,
-   "vtx": 426,
+   "bytes": 13676,
+   "vtx": 332,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0008,
-   "thick": 0.1131,
-   "avgTri": 0.00088,
-   "anglePct": 44,
-   "pieces": 10,
-   "vpt": 1.37,
+   "minEdge": 0.003,
+   "minWall": 0.0066,
+   "thick": 0.1159,
+   "avgTri": 0.00095,
+   "anglePct": 51,
+   "pieces": 6,
+   "vpt": 1.27,
    "cells": [
-    "3,0",
     "5,2",
-    "6,1"
+    "6,1",
+    "3,0"
    ],
    "colors": [
     "#3a3e4b",
@@ -379078,14 +379032,7 @@
     "qua"
    ],
    "variant": "quat-rpg/book-1-open",
-   "thickRel": 0.95,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0008 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.95
   },
   {
    "kit": "quat-rpg",
@@ -379660,29 +379607,29 @@
   {
    "kit": "quat-rpg",
    "name": "dart",
-   "hash": "bea8191840",
+   "hash": "1baadc8b52",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.036,
-    0.042,
-    0.205
+    0.045,
+    0.052,
+    0.246
    ],
    "tris": 168,
    "tpu": 490,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 11480,
+   "bytes": 11484,
    "vtx": 284,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0068,
-   "minWall": 0.0027,
-   "thick": 0.1787,
-   "avgTri": 0.00006,
-   "anglePct": 75,
+   "minTube": 0.0112,
+   "minWall": 0.0066,
+   "thick": 0.1958,
+   "avgTri": 0.00012,
+   "anglePct": 63,
    "pieces": 4,
    "vpt": 1.69,
    "cells": [
@@ -379701,14 +379648,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.61,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0027 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.67
   },
   {
    "kit": "quat-rpg",
@@ -380249,12 +380189,12 @@
   {
    "kit": "quat-rpg",
    "name": "parchment",
-   "hash": "55c61e1b94",
+   "hash": "dfb297b2c5",
    "kind": "obj-equipment-pocketitem-scroll-open",
    "size": "s",
    "wdh": [
     0.358,
-    0.147,
+    0.149,
     0.349
    ],
    "tris": 426,
@@ -380266,11 +380206,11 @@
    "vtx": 506,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.003,
-   "thick": 0.0784,
-   "avgTri": 0.00156,
-   "anglePct": 13,
+   "minEdge": 0.005,
+   "minWall": 0.0063,
+   "thick": 0.0808,
+   "avgTri": 0.00157,
+   "anglePct": 14,
    "pieces": 1,
    "vpt": 1.19,
    "cells": [
@@ -380285,14 +380225,7 @@
     "qua",
     "sailing"
    ],
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.003 wants min 0.006"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "quat-rpg",
@@ -381824,12 +381757,12 @@
   {
    "kit": "quat-rpg",
    "name": "ring-7",
-   "hash": "07abaa8390",
+   "hash": "b520958cfe",
    "kind": "obj-equipment-apparel-jewellery-ring",
    "size": "s",
    "wdh": [
     0.167,
-    0.05,
+    0.052,
     0.168
    ],
    "tris": 270,
@@ -381842,10 +381775,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minWall": 0.004,
-   "thick": 0.0441,
-   "avgTri": 0.00023,
-   "anglePct": 10,
+   "minWall": 0.0068,
+   "thick": 0.05,
+   "avgTri": 0.00024,
+   "anglePct": 9,
    "pieces": 1,
    "vpt": 0.94,
    "cells": [
@@ -381860,19 +381793,12 @@
     "qua"
    ],
    "variant": "quat-rpg/ring-2",
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.004 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.83
   },
   {
    "kit": "quat-rpg",
    "name": "scroll",
-   "hash": "554e2ea4aa",
+   "hash": "c17cf553fa",
    "kind": "obj-equipment-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
@@ -381889,12 +381815,12 @@
    "vtx": 1826,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0583,
-   "minWall": 0.0031,
-   "thick": 0.3911,
+   "minEdge": 0.002,
+   "minTube": 0.0518,
+   "minWall": 0.0062,
+   "thick": 0.3938,
    "avgTri": 0.00019,
-   "anglePct": 10,
+   "anglePct": 7,
    "pieces": 5,
    "vpt": 1.96,
    "cells": [
@@ -381912,14 +381838,7 @@
     "qua",
     "sailing"
    ],
-   "thickRel": 4.83,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0031 wants min 0.006"
-    }
-   ]
+   "thickRel": 4.86
   },
   {
    "kit": "quat-rpg",
@@ -420501,7 +420420,7 @@
     "paper-sheet",
     "rgp"
    ],
-   "thickRel": 0.99
+   "thickRel": 0.97
   },
   {
    "kit": "rgp-vintage",
@@ -444827,7 +444746,7 @@
     "sty"
    ],
    "variant": "styloo-school/book-red",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "styloo-school",
@@ -444869,7 +444788,7 @@
     "sty"
    ],
    "variant": "styloo-school/book-red",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "styloo-school",
@@ -444956,7 +444875,7 @@
     "textile-cloth-dark"
    ],
    "variant": "styloo-school/book-red",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "styloo-school",
