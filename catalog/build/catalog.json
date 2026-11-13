@@ -4581,8 +4581,8 @@
     "0.8": 22
    },
    "smooth": {
-    "smooth": 21,
-    "none": 1
+    "smooth": 11,
+    "none": 11
    }
   },
   {
@@ -128396,7 +128396,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.01,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "error",
@@ -223368,7 +223368,7 @@
     "textile-cloth-light"
    ],
    "variant": "ken-modular/tower-a",
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "ken-modular",
@@ -223533,7 +223533,7 @@
     "storeys-5"
    ],
    "variant": "ken-modular/tower-d",
-   "thickRel": 1.45
+   "thickRel": 1.46
   },
   {
    "kit": "ken-modular",
@@ -268728,7 +268728,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.03,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "error",
@@ -343360,7 +343360,7 @@
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-1-large",
-   "thickRel": 0.94
+   "thickRel": 0.95
   },
   {
    "kit": "quat-buildings-2",
@@ -396725,39 +396725,39 @@
   {
    "kit": "quat-textured",
    "name": "1-story-gable-roof",
-   "hash": "59971b15fa",
+   "hash": "1fedd8f38b",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    1.684,
+    1.693,
     1.904,
     1.62
    ],
-   "tris": 1684,
-   "tpu": 324,
+   "tris": 1301,
+   "tpu": 249,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 105708,
-   "vtx": 2939,
+   "bytes": 85232,
+   "vtx": 2371,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
+   "minEdge": 0.006,
    "minTube": 0.0264,
-   "minWall": 0.0182,
-   "thick": 0.2452,
-   "avgTri": 0.01873,
-   "anglePct": 63,
-   "pieces": 117,
-   "vpt": 1.75,
+   "minWall": 0.0314,
+   "thick": 0.2433,
+   "avgTri": 0.02189,
+   "anglePct": 72,
+   "pieces": 100,
+   "vpt": 1.82,
    "cells": [
+    "1,0",
+    "12,3",
     "3,2",
     "2,0",
     "8,0",
-    "12,3",
     "14,3",
-    "5,2",
-    "1,0"
+    "5,2"
    ],
    "colors": [
     "#57493d",
@@ -396779,19 +396779,12 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.33,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0182 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.32
   },
   {
    "kit": "quat-textured",
    "name": "2-story-2",
-   "hash": "e50d90fb35",
+   "hash": "826c69c343",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -396799,30 +396792,30 @@
     1.74,
     2.21
    ],
-   "tris": 4106,
-   "tpu": 618,
+   "tris": 2375,
+   "tpu": 358,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 235348,
-   "vtx": 6536,
+   "bytes": 145348,
+   "vtx": 4048,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0264,
-   "minWall": 0.0182,
-   "thick": 0.2723,
-   "avgTri": 0.0104,
-   "anglePct": 94,
-   "pieces": 221,
-   "vpt": 1.59,
+   "minWall": 0.0314,
+   "thick": 0.2715,
+   "avgTri": 0.0161,
+   "anglePct": 98,
+   "pieces": 152,
+   "vpt": 1.7,
    "cells": [
-    "14,3",
-    "5,2",
-    "12,3",
     "1,0",
-    "2,0",
+    "12,3",
     "3,2",
+    "5,2",
+    "14,3",
+    "2,0",
     "13,3"
    ],
    "colors": [
@@ -396846,10 +396839,11 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.0803,
+    "share": 0.1091,
     "view": "0/-89.9",
     "causes": {
-     "open": 1
+     "open": 0.99,
+     "inverted": 0.01
     }
    },
    "thickRel": 1.48,
@@ -396857,19 +396851,14 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "8.0% of view 0/-89.9 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0182 wants min 0.026"
+     "text": "10.9% of view 0/-89.9 over 0.5%: open 99.0%, inverted 1.0%"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "2-story-center",
-   "hash": "9ad50dd691",
+   "hash": "7a208767d9",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -396877,28 +396866,28 @@
     1.999,
     2.189
    ],
-   "tris": 3292,
-   "tpu": 388,
+   "tris": 2420,
+   "tpu": 286,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 192196,
-   "vtx": 5340,
+   "bytes": 151156,
+   "vtx": 4221,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0263,
-   "minWall": 0.0182,
-   "thick": 0.2268,
-   "avgTri": 0.01315,
-   "anglePct": 97,
-   "pieces": 173,
-   "vpt": 1.62,
+   "minEdge": 0,
+   "minTube": 0.0264,
+   "minWall": 0.0199,
+   "thick": 0.2265,
+   "avgTri": 0.01549,
+   "anglePct": 99,
+   "pieces": 153,
+   "vpt": 1.74,
    "cells": [
     "5,2",
+    "12,3",
     "3,2",
     "14,3",
-    "12,3",
     "13,3"
    ],
    "colors": [
@@ -396918,7 +396907,7 @@
     "storeys-2"
    ],
    "backface": {
-    "share": 0.8591,
+    "share": 0.3994,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -396929,19 +396918,19 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "85.9% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "39.9% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0182 wants min 0.026"
+     "text": "G27 minWall 0.0199 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "2-story-columns",
-   "hash": "d11071233c",
+   "hash": "0a35af4684",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -396949,30 +396938,30 @@
     1.991,
     2.215
    ],
-   "tris": 3620,
-   "tpu": 475,
+   "tris": 2269,
+   "tpu": 298,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 215780,
-   "vtx": 6015,
+   "bytes": 139640,
+   "vtx": 3889,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0264,
-   "minWall": 0.0402,
-   "thick": 0.2394,
-   "avgTri": 0.01344,
-   "anglePct": 95,
-   "pieces": 201,
-   "vpt": 1.66,
+   "minEdge": 0.006,
+   "minTube": 0.032,
+   "minWall": 0.032,
+   "thick": 0.2388,
+   "avgTri": 0.01812,
+   "anglePct": 98,
+   "pieces": 137,
+   "vpt": 1.71,
    "cells": [
+    "1,0",
+    "12,3",
+    "3,2",
     "5,2",
     "14,3",
-    "12,3",
-    "1,0",
     "2,0",
-    "3,2",
     "13,3"
    ],
    "colors": [
@@ -396996,11 +396985,11 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.0784,
+    "share": 0.1076,
     "view": "0/-89.9",
     "causes": {
-     "open": 1,
-     "inverted": 0
+     "open": 0.99,
+     "inverted": 0.01
     }
    },
    "thickRel": 1.3,
@@ -397008,14 +396997,14 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "7.8% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "10.8% of view 0/-89.9 over 0.5%: open 99.0%, inverted 1.0%"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "2-story-double",
-   "hash": "56583b93e9",
+   "hash": "e069e70493",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -397023,28 +397012,28 @@
     2.026,
     2.196
    ],
-   "tris": 4072,
-   "tpu": 473,
+   "tris": 2594,
+   "tpu": 301,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 242912,
-   "vtx": 6778,
+   "bytes": 164540,
+   "vtx": 4606,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0263,
-   "minWall": 0.0456,
-   "thick": 0.2393,
-   "avgTri": 0.01206,
-   "anglePct": 95,
-   "pieces": 222,
-   "vpt": 1.66,
+   "minEdge": 0,
+   "minTube": 0.0264,
+   "minWall": 0.0201,
+   "thick": 0.2389,
+   "avgTri": 0.01717,
+   "anglePct": 98,
+   "pieces": 167,
+   "vpt": 1.78,
    "cells": [
     "5,2",
+    "12,3",
     "3,2",
     "14,3",
-    "12,3",
     "13,3"
    ],
    "colors": [
@@ -397064,7 +397053,7 @@
     "storeys-2"
    ],
    "backface": {
-    "share": 0.1229,
+    "share": 0.1414,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -397075,14 +397064,19 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "12.3% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "14.1% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0201 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "2-story-gable-roof",
-   "hash": "5508a9f56b",
+   "hash": "f8d65bd1fc",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -397090,31 +397084,31 @@
     1.904,
     2.507
    ],
-   "tris": 3200,
-   "tpu": 388,
+   "tris": 1837,
+   "tpu": 223,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 188896,
-   "vtx": 5254,
+   "bytes": 116240,
+   "vtx": 3239,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0264,
-   "minWall": 0.0182,
-   "thick": 0.2523,
-   "avgTri": 0.01439,
-   "anglePct": 78,
-   "pieces": 189,
-   "vpt": 1.64,
+   "minWall": 0.0314,
+   "thick": 0.2516,
+   "avgTri": 0.02252,
+   "anglePct": 81,
+   "pieces": 128,
+   "vpt": 1.76,
    "cells": [
-    "14,3",
-    "5,2",
-    "12,3",
-    "8,0",
     "1,0",
-    "2,0",
-    "3,2"
+    "12,3",
+    "3,2",
+    "5,2",
+    "14,3",
+    "8,0",
+    "2,0"
    ],
    "colors": [
     "#57493d",
@@ -397136,19 +397130,12 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.37,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0182 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.37
   },
   {
    "kit": "quat-textured",
    "name": "2-story-sidehouse",
-   "hash": "9bd62faf68",
+   "hash": "a7552d13dc",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -397156,29 +397143,29 @@
     2.026,
     2.206
    ],
-   "tris": 5656,
-   "tpu": 456,
+   "tris": 3367,
+   "tpu": 271,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 333228,
-   "vtx": 9303,
+   "bytes": 212228,
+   "vtx": 5951,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
+   "minEdge": 0.008,
    "minTube": 0.0264,
-   "minWall": 0.0379,
-   "thick": 0.2105,
-   "avgTri": 0.01092,
-   "anglePct": 94,
-   "pieces": 334,
-   "vpt": 1.64,
+   "minWall": 0.0314,
+   "thick": 0.2103,
+   "avgTri": 0.01638,
+   "anglePct": 98,
+   "pieces": 248,
+   "vpt": 1.77,
    "cells": [
+    "1,0",
+    "12,3",
     "3,2",
     "5,2",
     "14,3",
-    "12,3",
-    "1,0",
     "13,3",
     "2,0"
    ],
@@ -397202,26 +397189,12 @@
     "wood-dark",
     "wood-mid"
    ],
-   "backface": {
-    "share": 0.097,
-    "view": "0/-89.9",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 1.14,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "9.7% of view 0/-89.9 over 0.5%: open 100.0%"
-    }
-   ]
+   "thickRel": 1.14
   },
   {
    "kit": "quat-textured",
    "name": "2-story-stairs",
-   "hash": "33d132ee96",
+   "hash": "2680dc9b9e",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -397229,30 +397202,30 @@
     2.026,
     2.196
    ],
-   "tris": 4126,
-   "tpu": 537,
+   "tris": 2384,
+   "tpu": 310,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 241532,
-   "vtx": 6725,
+   "bytes": 149480,
+   "vtx": 4175,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.0264,
-   "minWall": 0.0123,
-   "thick": 0.2307,
-   "avgTri": 0.0111,
-   "anglePct": 95,
-   "pieces": 228,
-   "vpt": 1.63,
+   "minWall": 0.0083,
+   "thick": 0.2301,
+   "avgTri": 0.01717,
+   "anglePct": 98,
+   "pieces": 158,
+   "vpt": 1.75,
    "cells": [
-    "14,3",
-    "5,2",
-    "12,3",
     "1,0",
-    "2,0",
+    "12,3",
     "3,2",
+    "5,2",
+    "14,3",
+    "2,0",
     "13,3"
    ],
    "colors": [
@@ -397276,7 +397249,7 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.1038,
+    "share": 0.1305,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -397287,19 +397260,19 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "10.4% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "13.1% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0123 wants min 0.026"
+     "text": "G27 minWall 0.0083 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "2-story-wide-2-doors",
-   "hash": "510385f5d0",
+   "hash": "ec007f140f",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -397307,28 +397280,28 @@
     1.804,
     2.198
    ],
-   "tris": 7848,
-   "tpu": 362,
+   "tris": 4904,
+   "tpu": 226,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 443244,
-   "vtx": 12330,
+   "bytes": 303880,
+   "vtx": 8527,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0263,
+   "minEdge": 0,
+   "minTube": 0.0264,
    "minWall": 0.028,
-   "thick": 0.2798,
-   "avgTri": 0.01169,
-   "anglePct": 97,
-   "pieces": 410,
-   "vpt": 1.57,
+   "thick": 0.2795,
+   "avgTri": 0.0167,
+   "anglePct": 99,
+   "pieces": 336,
+   "vpt": 1.74,
    "cells": [
     "5,2",
+    "12,3",
     "3,2",
     "14,3",
-    "12,3",
     "13,3"
    ],
    "colors": [
@@ -397349,7 +397322,7 @@
    ],
    "variant": "quat-textured/2-story-wide",
    "backface": {
-    "share": 0.7991,
+    "share": 0.2693,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -397360,14 +397333,14 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "79.9% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "26.9% of view 0/-89.9 over 0.5%: open 100.0%"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "2-story-wide",
-   "hash": "b6c7cc9a73",
+   "hash": "d6168af88e",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -397375,28 +397348,28 @@
     1.804,
     2.198
    ],
-   "tris": 5054,
-   "tpu": 417,
+   "tris": 3366,
+   "tpu": 277,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 284056,
-   "vtx": 7880,
+   "bytes": 206504,
+   "vtx": 5773,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0263,
-   "minWall": 0.0199,
+   "minEdge": 0,
+   "minTube": 0.0264,
+   "minWall": 0.028,
    "thick": 0.2329,
-   "avgTri": 0.01114,
-   "anglePct": 97,
-   "pieces": 259,
-   "vpt": 1.56,
+   "avgTri": 0.01536,
+   "anglePct": 99,
+   "pieces": 219,
+   "vpt": 1.72,
    "cells": [
     "5,2",
+    "12,3",
     "3,2",
     "14,3",
-    "12,3",
     "13,3"
    ],
    "colors": [
@@ -397417,7 +397390,7 @@
    ],
    "variant": "quat-textured/2-story-wide",
    "backface": {
-    "share": 0.7816,
+    "share": 0.3408,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -397428,19 +397401,14 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "78.2% of view 0/-89.9 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0199 wants min 0.026"
+     "text": "34.1% of view 0/-89.9 over 0.5%: open 100.0%"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "2-story",
-   "hash": "bfa20eda1b",
+   "hash": "f9dffcfd4f",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -397448,31 +397416,31 @@
     2.026,
     2.196
    ],
-   "tris": 3546,
-   "tpu": 462,
+   "tris": 2321,
+   "tpu": 302,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 214608,
-   "vtx": 5993,
+   "bytes": 148540,
+   "vtx": 4158,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0263,
-   "minWall": 0.0182,
-   "thick": 0.2303,
-   "avgTri": 0.01272,
-   "anglePct": 95,
-   "pieces": 217,
-   "vpt": 1.69,
+   "minTube": 0.0264,
+   "minWall": 0.0263,
+   "thick": 0.2297,
+   "avgTri": 0.0177,
+   "anglePct": 99,
+   "pieces": 165,
+   "vpt": 1.79,
    "cells": [
-    "14,3",
-    "5,2",
-    "12,3",
     "1,0",
+    "12,3",
     "3,2",
-    "13,3",
-    "2,0"
+    "5,2",
+    "14,3",
+    "2,0",
+    "13,3"
    ],
    "colors": [
     "#57493d",
@@ -397495,7 +397463,7 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.1038,
+    "share": 0.1305,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -397506,19 +397474,14 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "10.4% of view 0/-89.9 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0182 wants min 0.026"
+     "text": "13.1% of view 0/-89.9 over 0.5%: open 100.0%"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "3-story-balcony",
-   "hash": "a529efce06",
+   "hash": "8a87f524ad",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -397526,30 +397489,30 @@
     2.006,
     3.37
    ],
-   "tris": 5214,
-   "tpu": 447,
+   "tris": 3096,
+   "tpu": 265,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 296692,
-   "vtx": 8245,
+   "bytes": 188880,
+   "vtx": 5273,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.0264,
-   "minWall": 0.0123,
-   "thick": 0.2574,
-   "avgTri": 0.01177,
-   "anglePct": 96,
-   "pieces": 275,
-   "vpt": 1.58,
+   "minWall": 0.0083,
+   "thick": 0.2572,
+   "avgTri": 0.01825,
+   "anglePct": 99,
+   "pieces": 203,
+   "vpt": 1.7,
    "cells": [
-    "14,3",
-    "5,2",
-    "12,3",
     "1,0",
-    "2,0",
+    "12,3",
     "3,2",
+    "5,2",
+    "14,3",
+    "2,0",
     "13,3"
    ],
    "colors": [
@@ -397573,7 +397536,7 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.096,
+    "share": 0.1203,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -397584,19 +397547,19 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "9.6% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "12.0% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0123 wants min 0.026"
+     "text": "G27 minWall 0.0083 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "4-story-wide-2-doors",
-   "hash": "66d018b41c",
+   "hash": "9ffcea881c",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -397604,30 +397567,30 @@
     2.157,
     4.121
    ],
-   "tris": 13574,
-   "tpu": 280,
+   "tris": 7643,
+   "tpu": 157,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 750932,
-   "vtx": 20872,
+   "bytes": 480372,
+   "vtx": 13529,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minTube": 0.0263,
+   "minTube": 0.0264,
    "minWall": 0.028,
-   "thick": 0.1679,
-   "avgTri": 0.01042,
-   "anglePct": 97,
-   "pieces": 728,
-   "vpt": 1.54,
+   "thick": 0.168,
+   "avgTri": 0.01715,
+   "anglePct": 99,
+   "pieces": 582,
+   "vpt": 1.77,
    "cells": [
     "5,2",
+    "12,3",
     "3,2",
     "14,3",
-    "12,3",
-    "13,3",
-    "2,0"
+    "2,0",
+    "13,3"
    ],
    "colors": [
     "#57493d",
@@ -397649,7 +397612,7 @@
    ],
    "variant": "quat-textured/4-story",
    "backface": {
-    "share": 0.7127,
+    "share": 0.3328,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -397660,14 +397623,14 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "71.3% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "33.3% of view 0/-89.9 over 0.5%: open 100.0%"
     }
    ]
   },
   {
    "kit": "quat-textured",
    "name": "4-story",
-   "hash": "fc9141f7bc",
+   "hash": "eabbe1ee71",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -397675,28 +397638,28 @@
     2.026,
     4.073
    ],
-   "tris": 6872,
-   "tpu": 430,
+   "tris": 3983,
+   "tpu": 249,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 400432,
-   "vtx": 11176,
+   "bytes": 255640,
+   "vtx": 7193,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.0263,
-   "minWall": 0.0456,
-   "thick": 0.2913,
-   "avgTri": 0.0113,
-   "anglePct": 96,
-   "pieces": 359,
-   "vpt": 1.63,
+   "minEdge": 0,
+   "minTube": 0.0264,
+   "minWall": 0.0201,
+   "thick": 0.291,
+   "avgTri": 0.01814,
+   "anglePct": 98,
+   "pieces": 279,
+   "vpt": 1.81,
    "cells": [
-    "14,3",
     "5,2",
-    "3,2",
     "12,3",
+    "3,2",
+    "14,3",
     "13,3"
    ],
    "colors": [
@@ -397717,7 +397680,7 @@
    ],
    "variant": "quat-textured/4-story",
    "backface": {
-    "share": 0.1145,
+    "share": 0.1291,
     "view": "0/-89.9",
     "causes": {
      "open": 1
@@ -397728,7 +397691,12 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "11.5% of view 0/-89.9 over 0.5%: open 100.0%"
+     "text": "12.9% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0201 wants min 0.026"
     }
    ]
   },
