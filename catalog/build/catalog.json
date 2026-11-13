@@ -3647,7 +3647,7 @@
     "Buildings Pack (Jan 2019)": 9
    },
    "scales": {
-    "0.8": 9
+    "0.6": 9
    },
    "smooth": {
     "smooth": 9
@@ -343042,28 +343042,28 @@
   {
    "kit": "quat-buildings-2",
    "name": "building-1-large",
-   "hash": "608a34c1c2",
+   "hash": "c730638a7e",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
-    6.393,
-    2.195,
-    3.737
+    4.795,
+    1.646,
+    2.803
    ],
    "tris": 41516,
-   "tpu": 792,
+   "tpu": 1877,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 2230124,
+   "bytes": 2230136,
    "vtx": 54077,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0263,
-   "minWall": 0.0151,
-   "thick": 0.2209,
-   "avgTri": 0.0054,
+   "minEdge": 0.001,
+   "minTube": 0.0196,
+   "minWall": 0.0113,
+   "thick": 0.221,
+   "avgTri": 0.00304,
    "anglePct": 61,
    "pieces": 639,
    "vpt": 1.3,
@@ -343094,37 +343094,42 @@
    "thickRel": 0.93,
    "lint": [
     {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0196 wants min 0.026"
+    },
+    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0151 wants min 0.026"
+     "text": "G27 minWall 0.0113 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-buildings-2",
    "name": "building-1-small",
-   "hash": "4e5683065c",
+   "hash": "c3aaa8128a",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
-    2.998,
-    2.195,
-    3.731
+    2.248,
+    1.646,
+    2.798
    ],
    "tris": 16620,
-   "tpu": 677,
+   "tpu": 1605,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 902584,
+   "bytes": 902572,
    "vtx": 21927,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0263,
-   "minWall": 0.0256,
-   "thick": 0.2252,
-   "avgTri": 0.00619,
+   "minEdge": 0.001,
+   "minTube": 0.0196,
+   "minWall": 0.0192,
+   "thick": 0.2251,
+   "avgTri": 0.00348,
    "anglePct": 69,
    "pieces": 302,
    "vpt": 1.32,
@@ -343155,25 +343160,30 @@
    "thickRel": 0.95,
    "lint": [
     {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0196 wants min 0.026"
+    },
+    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0256 wants min 0.026"
+     "text": "G27 minWall 0.0192 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-buildings-2",
    "name": "building-2-large",
-   "hash": "415cafde5d",
+   "hash": "7de56ff513",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
-    4.573,
-    1.776,
-    4.744
+    3.43,
+    1.332,
+    3.558
    ],
    "tris": 15072,
-   "tpu": 391,
+   "tpu": 927,
    "mat": 1,
    "bands": 6,
    "calls": 1,
@@ -343182,12 +343192,12 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0261,
-   "minWall": 0.0148,
-   "thick": 0.154,
-   "avgTri": 0.0097,
+   "minTube": 0.0196,
+   "minWall": 0.0111,
+   "thick": 0.1541,
+   "avgTri": 0.00546,
    "anglePct": 86,
-   "pieces": 1012,
+   "pieces": 1016,
    "vpt": 1.26,
    "cells": [
     "14,3",
@@ -343216,53 +343226,45 @@
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-2-large",
-   "backface": {
-    "share": 0.0022,
-    "view": "45/50",
-    "causes": {
-     "open": 0.99,
-     "inverted": 0.01
-    }
-   },
    "thickRel": 0.65,
    "lint": [
     {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 45/50 over 0.1%: open 99.0%, inverted 1.0%"
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0196 wants min 0.026"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0148 wants min 0.026"
+     "text": "G27 minWall 0.0111 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-buildings-2",
    "name": "building-2-small",
-   "hash": "1ae7086b50",
+   "hash": "c4cc4f0c23",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
-    2.867,
-    1.989,
-    3.976
+    2.15,
+    1.492,
+    2.982
    ],
    "tris": 5160,
-   "tpu": 228,
+   "tpu": 539,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 270300,
+   "bytes": 270288,
    "vtx": 6466,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0,
-   "minWall": 0.0311,
-   "thick": 0.2381,
-   "avgTri": 0.01513,
+   "minWall": 0.0233,
+   "thick": 0.238,
+   "avgTri": 0.00851,
    "anglePct": 87,
    "pieces": 29,
    "vpt": 1.25,
@@ -343293,34 +343295,40 @@
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-2-large",
-   "thickRel": 1
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0233 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-buildings-2",
    "name": "building-3-big",
-   "hash": "b61d79c316",
+   "hash": "afcdef0228",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
-    3.764,
-    3.512,
-    4.542
+    2.823,
+    2.634,
+    3.406
    ],
    "tris": 7004,
-   "tpu": 117,
+   "tpu": 277,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 431776,
+   "bytes": 431788,
    "vtx": 10821,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.009,
-   "minTube": 0.0288,
-   "minWall": 0.0243,
-   "thick": 0.2528,
-   "avgTri": 0.01598,
+   "minEdge": 0.007,
+   "minTube": 0.0216,
+   "minWall": 0.0182,
+   "thick": 0.2529,
+   "avgTri": 0.00899,
    "anglePct": 86,
    "pieces": 96,
    "vpt": 1.54,
@@ -343354,37 +343362,42 @@
    "thickRel": 1.07,
    "lint": [
     {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0216 wants min 0.026"
+    },
+    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0243 wants min 0.026"
+     "text": "G27 minWall 0.0182 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-buildings-2",
    "name": "building-3-small",
-   "hash": "b9aa0b2a02",
+   "hash": "a4d86a6ce6",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
-    2.442,
-    3.517,
-    4.542
+    1.831,
+    2.638,
+    3.406
    ],
    "tris": 5242,
-   "tpu": 134,
+   "tpu": 319,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 344896,
+   "bytes": 344908,
    "vtx": 8766,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minTube": 0.0546,
-   "minWall": 0.0243,
-   "thick": 0.2325,
-   "avgTri": 0.01488,
+   "minEdge": 0.005,
+   "minTube": 0.0409,
+   "minWall": 0.0182,
+   "thick": 0.2324,
+   "avgTri": 0.00837,
    "anglePct": 86,
    "pieces": 90,
    "vpt": 1.67,
@@ -343420,35 +343433,35 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0243 wants min 0.026"
+     "text": "G27 minWall 0.0182 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-buildings-2",
    "name": "building-4",
-   "hash": "77620d1fd5",
+   "hash": "85d548c996",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
-    3.715,
-    3.085,
-    4.389
+    2.786,
+    2.313,
+    3.292
    ],
    "tris": 9740,
-   "tpu": 194,
+   "tpu": 459,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 489536,
+   "bytes": 489524,
    "vtx": 11600,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0262,
-   "minWall": 0.0247,
-   "thick": 0.2242,
-   "avgTri": 0.00892,
+   "minTube": 0.0196,
+   "minWall": 0.0185,
+   "thick": 0.2234,
+   "avgTri": 0.00502,
    "anglePct": 89,
    "pieces": 39,
    "vpt": 1.19,
@@ -343475,53 +343488,45 @@
     "storeys-4",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0013,
-    "view": "45/50",
-    "causes": {
-     "open": 0.86,
-     "inverted": 0.14
-    }
-   },
-   "thickRel": 0.95,
+   "thickRel": 0.94,
    "lint": [
     {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.1% of view 45/50 over 0.1%: open 86.0%, inverted 14.0%"
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0196 wants min 0.026"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0247 wants min 0.026"
+     "text": "G27 minWall 0.0185 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-buildings-2",
    "name": "house-1",
-   "hash": "e8976dcebc",
+   "hash": "e5bcee34d1",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    2.046,
-    3.096,
-    2.544
+    1.534,
+    2.322,
+    1.908
    ],
    "tris": 28354,
-   "tpu": 1760,
+   "tpu": 4172,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 1521804,
+   "bytes": 1521792,
    "vtx": 36877,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
+   "minEdge": 0.004,
    "minTube": 0,
-   "minWall": 0.0099,
-   "thick": 0.2025,
-   "avgTri": 0.0038,
+   "minWall": 0.0074,
+   "thick": 0.2023,
+   "avgTri": 0.00214,
    "anglePct": 54,
    "pieces": 167,
    "vpt": 1.3,
@@ -343557,35 +343562,35 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0099 wants min 0.026"
+     "text": "G27 minWall 0.0074 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-buildings-2",
    "name": "house-2",
-   "hash": "c18ab6b91f",
+   "hash": "f9ea839fbb",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
-    2.915,
-    2.467,
-    2.341
+    2.186,
+    1.851,
+    1.756
    ],
    "tris": 19714,
-   "tpu": 1171,
+   "tpu": 2775,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 1065096,
+   "bytes": 1065076,
    "vtx": 25845,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0265,
-   "minWall": 0.0283,
-   "thick": 0.2157,
-   "avgTri": 0.00511,
+   "minEdge": 0.004,
+   "minTube": 0.0198,
+   "minWall": 0.0212,
+   "thick": 0.2156,
+   "avgTri": 0.00287,
    "anglePct": 50,
    "pieces": 143,
    "vpt": 1.31,
@@ -343614,7 +343619,19 @@
     "storeys-1-5",
     "wood-dark"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.17,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minTube 0.0198 wants min 0.026"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0212 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "quat-cars",
