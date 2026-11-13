@@ -2107,7 +2107,7 @@
     "smooth": 48
    },
    "kitCheck": {
-    "factor": 0.99,
+    "factor": 1.08,
     "kinds": 7
    }
   },
@@ -5615,8 +5615,8 @@
     "none": 15
    },
    "kitCheck": {
-    "factor": 1.2,
-    "kinds": 18
+    "factor": 1.24,
+    "kinds": 19
    }
   },
   {
@@ -28449,7 +28449,7 @@
    "name": "Truck",
    "type": "kind",
    "description": "truck, bus, fire truck, garbage truck, ambulance, delivery truck",
-   "count": 32
+   "count": 25
   },
   {
    "id": "obj-transport-watercraft",
@@ -51386,7 +51386,7 @@
      "inverted": 0.21
     }
    },
-   "thickRel": 1.29,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "warning",
@@ -51445,7 +51445,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 1.21,
+   "thickRel": 1.13,
    "lint": [
     {
      "level": "warning",
@@ -51781,7 +51781,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 1.06
+   "thickRel": 0.99
   },
   {
    "kit": "colorful-city",
@@ -51843,7 +51843,7 @@
      "open": 0.67
     }
    },
-   "thickRel": 0.7,
+   "thickRel": 0.65,
    "lint": [
     {
      "level": "warning",
@@ -51900,7 +51900,7 @@
     "plastic",
     "rubber"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.17
   },
   {
    "kit": "colorful-city",
@@ -180226,7 +180226,7 @@
    "kit": "kay-space",
    "name": "spacetruck-large",
    "hash": "a78d065f73",
-   "kind": "obj-transport-land-road-truck",
+   "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
     0.683,
@@ -180276,13 +180276,13 @@
     "space"
    ],
    "variant": "kay-space/spacetruck-with-trailer",
-   "thickRel": 0.94
+   "thickRel": 1.01
   },
   {
    "kit": "kay-space",
    "name": "spacetruck-trailer",
    "hash": "07311d6fa0",
-   "kind": "obj-transport-land-road-truck",
+   "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
     0.649,
@@ -180327,13 +180327,13 @@
     "space"
    ],
    "variant": "kay-space/spacetruck-with-trailer",
-   "thickRel": 0.81
+   "thickRel": 0.87
   },
   {
    "kit": "kay-space",
    "name": "spacetruck-with-trailer",
    "hash": "f5d5caf4ec",
-   "kind": "obj-transport-land-road-truck",
+   "kind": "obj-transport-land-road",
    "size": "l",
    "wdh": [
     0.662,
@@ -180383,13 +180383,20 @@
     "space"
    ],
    "variant": "kay-space/spacetruck-with-trailer",
-   "thickRel": 1.03
+   "thickRel": 1.11,
+   "lint": [
+    {
+     "level": "error",
+     "check": "size",
+     "text": "longest 2.589 over max 2 (obj-transport-land-road)"
+    }
+   ]
   },
   {
    "kit": "kay-space",
    "name": "spacetruck",
    "hash": "918b044fc0",
-   "kind": "obj-transport-land-road-truck",
+   "kind": "obj-transport-land-road",
    "size": "m",
    "wdh": [
     0.662,
@@ -180438,7 +180445,7 @@
     "space"
    ],
    "variant": "kay-space/spacetruck-with-trailer",
-   "thickRel": 0.9
+   "thickRel": 0.97
   },
   {
    "kit": "kay-space",
@@ -189788,7 +189795,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.07,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -190343,7 +190350,7 @@
     "plastic"
    ],
    "variant": "ken-car/delivery",
-   "thickRel": 0.79,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
@@ -190406,7 +190413,7 @@
     "plastic"
    ],
    "variant": "ken-car/delivery",
-   "thickRel": 1.14,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -190469,7 +190476,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.18,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -190532,7 +190539,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 1.08,
+   "thickRel": 1.01,
    "lint": [
     {
      "level": "warning",
@@ -396318,12 +396325,12 @@
     "plastic",
     "qua"
    ],
-   "thickRel": 0.46,
+   "thickRel": 0.43,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.46 wants min 0.5"
+     "text": "I01 thickRel 0.43 wants min 0.5"
     },
     {
      "level": "warning",
@@ -408077,7 +408084,7 @@
     "plastic",
     "rgp"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.09
   },
   {
    "kit": "rgp-cars",
@@ -408129,7 +408136,7 @@
     "plastic",
     "rgp"
    ],
-   "thickRel": 1.05,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "warning",
@@ -408251,7 +408258,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.61,
+   "thickRel": 0.57,
    "lint": [
     {
      "level": "warning",
@@ -408323,7 +408330,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.61,
+   "thickRel": 0.57,
    "lint": [
     {
      "level": "warning",
@@ -408647,7 +408654,7 @@
     "plastic",
     "rgp"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.04
   },
   {
    "kit": "rgp-cars",
@@ -422179,7 +422186,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 1.22,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "warning",
@@ -422235,7 +422242,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 1.28,
+   "thickRel": 1.19,
    "lint": [
     {
      "level": "warning",
@@ -422296,7 +422303,7 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.97,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "warning",
@@ -422414,12 +422421,12 @@
     "metal-steel",
     "plastic"
    ],
-   "thickRel": 0.45,
+   "thickRel": 0.42,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.45 wants min 0.5"
+     "text": "I01 thickRel 0.42 wants min 0.5"
     },
     {
      "level": "warning",
@@ -422475,7 +422482,7 @@
     "metal-iron-dark",
     "plastic"
    ],
-   "thickRel": 1.34,
+   "thickRel": 1.25,
    "lint": [
     {
      "level": "warning",
@@ -448154,7 +448161,7 @@
     "rubber",
     "sty"
    ],
-   "thickRel": 1.35,
+   "thickRel": 1.26,
    "lint": [
     {
      "level": "warning",
@@ -453824,7 +453831,7 @@
     "textile-cloth-mid"
    ],
    "variant": "taalei-kit/military-truck",
-   "thickRel": 0.87,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "warning",
@@ -453881,7 +453888,7 @@
     "textile-cloth-light"
    ],
    "variant": "taalei-kit/military-truck",
-   "thickRel": 0.87,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "warning",
@@ -453939,7 +453946,7 @@
     "rubber"
    ],
    "variant": "taalei-kit/military-truck",
-   "thickRel": 0.87,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "warning",
@@ -455407,7 +455414,7 @@
    "kit": "taalei-kit",
    "name": "stair-truck-regional",
    "hash": "20455c9466",
-   "kind": "obj-transport-land-road-truck",
+   "kind": "obj-transport-land-road",
    "size": "l",
    "wdh": [
     1.074,
@@ -455455,12 +455462,12 @@
     "rubber"
    ],
    "variant": "taalei-kit/stair-truck",
-   "thickRel": 0.38,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.38 wants min 0.5"
+     "check": "size",
+     "text": "longest 2.088 over max 2 (obj-transport-land-road)"
     },
     {
      "level": "warning",
@@ -455473,7 +455480,7 @@
    "kit": "taalei-kit",
    "name": "stair-truck-widebody",
    "hash": "529e85b794",
-   "kind": "obj-transport-land-road-truck",
+   "kind": "obj-transport-land-road",
    "size": "l",
    "wdh": [
     1.074,
@@ -455520,12 +455527,12 @@
     "rubber"
    ],
    "variant": "taalei-kit/stair-truck",
-   "thickRel": 0.23,
+   "thickRel": 0.24,
    "lint": [
     {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.23 wants min 0.5"
+     "level": "error",
+     "check": "size",
+     "text": "longest 3.278 over max 2 (obj-transport-land-road)"
     },
     {
      "level": "warning",
@@ -455538,7 +455545,7 @@
    "kit": "taalei-kit",
    "name": "stair-truck",
    "hash": "d8eb1edfd5",
-   "kind": "obj-transport-land-road-truck",
+   "kind": "obj-transport-land-road",
    "size": "l",
    "wdh": [
     1.074,
@@ -455585,12 +455592,12 @@
     "rubber"
    ],
    "variant": "taalei-kit/stair-truck",
-   "thickRel": 0.3,
+   "thickRel": 0.32,
    "lint": [
     {
      "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.3 wants min 0.5"
+     "check": "size",
+     "text": "longest 2.462 over max 2 (obj-transport-land-road)"
     },
     {
      "level": "warning",
