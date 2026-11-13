@@ -381,11 +381,18 @@ triangles.
    rest of the batch. Then one model or twin pair at a time, never several
    sub agents at once.
 
-Any method that reaches the goal is fine, automatic decimation included. It
-can melt rounded edges, flatten thin parts, flip faces and leave messy
-meshes, so look at every result.
-
 The peers' triangle counts are a guide; the look decides.
+
+## Out of scope
+
+No automatic simplification or decimation:
+
+- These tools aim to cut triangles with little or no visual change; this
+  skill usually aims for the opposite.
+- Most models are already low-poly, so these tools do little or break things.
+- They can also melt rounded edges, flatten thin parts, flip faces or leave
+  messier meshes.
+- When they're worth using, that happens in a dedicated session.
 
 ## In scope
 
