@@ -50,7 +50,8 @@ different move or a hand-made one, and some need none.
 3. Take the seven lint baselines (`size`, `tpu`, `measures`, `backface`,
    `mat`, `palette`, `bands`), filtered to the batch's models.
 4. Look at the originals and at each kind's catalogue peers before choosing
-   settings.
+   settings. A finer type in a kind (an antique wardrobe with gold pulls
+   among plain ones) gets a minimum chunkiness, not the kind's average.
 
 ## 2. Size
 

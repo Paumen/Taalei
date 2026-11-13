@@ -31,7 +31,9 @@ Open every sheet. Judge every model on three questions:
 2. **Not like its peers.** A part coloured off from how the peers colour it
    (hoops, rims, handles, roofs), parts too thin or too thick for the family,
    proportions off, far smaller or bigger than its kit's intent explains,
-   much more or less detail.
+   much more or less detail. A finer type in the family (an antique
+   wardrobe with gold pulls among plain ones) may stay thinner than its
+   peers, above a minimum.
 3. **Less recognisable as the object.** Parts that should read apart merged
    in one colour, too many colours for the thing, a shape that is not what
    the real object looks like.

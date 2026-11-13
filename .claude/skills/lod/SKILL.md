@@ -36,6 +36,11 @@ For some models to read right, it can matter that:
 - **Type stays**: what makes the type within the kind (inlaid gems,
   dartboard numbers, a twisted candle, a glowing bulb, the band round a frag
   grenade). Losing it is wrong even when the kind still reads.
+- **A finer type stays finer**: a kind can hold types finer than the rest.
+  The quat-furniture wardrobes are antique, with curved legs, carving and
+  gold pulls; the other wardrobes are plain, with wooden knobs. They still
+  need a minimum chunkiness, but may stay thinner than most or all peers;
+  the kind's average is too much.
 
 ## Problems and indicators
 
@@ -161,7 +166,8 @@ Indicators point at candidates; the render decides.
 
 **Too coarse**
 
-- **Thick or chunky next to peers**: render the kind's line-up.
+- **Thick or chunky next to peers**: render the kind's line-up. Judge
+  against peers of the same type; a finer type may sit below them.
 - **Low `tpu` for the kind**: a blunt block where peers have shape.
 - **Earlier rounds**: models changed by a stylize, thicken or slim round
   (past review pages, git history after asking the PO, C12).
