@@ -354091,7 +354091,7 @@
   {
    "kit": "quat-furniture",
    "name": "bed-double",
-   "hash": "9ac6340780",
+   "hash": "5538dc16b7",
    "kind": "obj-furnishing-furniture-bed-double",
    "size": "m",
    "wdh": [
@@ -354099,23 +354099,23 @@
     0.954,
     0.368
    ],
-   "tris": 3988,
-   "tpu": 9244,
+   "tris": 3054,
+   "tpu": 7079,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 208084,
+   "bytes": 196876,
    "vtx": 4959,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0147,
-   "minWall": 0.0123,
-   "thick": 0.1443,
-   "avgTri": 0.00085,
+   "minWall": 0.0087,
+   "thick": 0.1439,
+   "avgTri": 0.00111,
    "anglePct": 49,
    "pieces": 15,
-   "vpt": 1.24,
+   "vpt": 1.62,
    "cells": [
     "8,0",
     "14,3",
@@ -354141,14 +354141,19 @@
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 9244 over max 5000 (obj-furnishing)"
+     "text": "tpu 7079 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0087 wants min 0.012"
     }
    ]
   },
   {
    "kit": "quat-furniture",
    "name": "bed-single",
-   "hash": "95d9bc0b40",
+   "hash": "2bf1f0b405",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
@@ -354156,23 +354161,23 @@
     0.954,
     0.368
    ],
-   "tris": 3040,
-   "tpu": 8863,
+   "tris": 2362,
+   "tpu": 6886,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 169060,
+   "bytes": 160924,
    "vtx": 4095,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0441,
-   "minWall": 0.0357,
-   "thick": 0.1831,
-   "avgTri": 0.00088,
+   "minWall": 0.0349,
+   "thick": 0.1828,
+   "avgTri": 0.00113,
    "anglePct": 50,
    "pieces": 13,
-   "vpt": 1.35,
+   "vpt": 1.73,
    "cells": [
     "8,0",
     "14,3",
@@ -354198,7 +354203,7 @@
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 8863 over max 5000 (obj-furnishing)"
+     "text": "tpu 6886 over max 5000 (obj-furnishing)"
     }
    ]
   },
