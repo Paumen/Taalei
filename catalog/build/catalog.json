@@ -60066,31 +60066,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "balcony",
-   "hash": "2841d4b1c0",
+   "hash": "c8ebf09b66",
    "kind": "str-canopy-shelter",
    "size": "l",
    "wdh": [
-    1.672,
-    0.968,
-    1.212
+    1.675,
+    0.971,
+    1.217
    ],
-   "tris": 1888,
-   "tpu": 962,
+   "tris": 1270,
+   "tpu": 642,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 136692,
-   "vtx": 3869,
+   "bytes": 105208,
+   "vtx": 3001,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0261,
-   "minWall": 0.0185,
-   "thick": 0.0651,
-   "avgTri": 0.01174,
-   "anglePct": 32,
+   "minTube": 0.0405,
+   "minWall": 0.0224,
+   "thick": 0.0656,
+   "avgTri": 0.01402,
+   "anglePct": 30,
    "pieces": 75,
-   "vpt": 2.05,
+   "vpt": 2.36,
    "cells": [
     "2,0",
     "1,0"
@@ -60108,7 +60108,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0185 wants min 0.026"
+     "text": "G27 minWall 0.0224 wants min 0.026"
     }
    ]
   },
@@ -60428,31 +60428,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "bed",
-   "hash": "14fcb2bd86",
+   "hash": "776107fea1",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
     0.414,
-    0.95,
-    0.369
+    0.953,
+    0.371
    ],
-   "tris": 1228,
-   "tpu": 3580,
+   "tris": 806,
+   "tpu": 2350,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 77492,
-   "vtx": 2143,
+   "bytes": 54416,
+   "vtx": 1501,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0262,
-   "minWall": 0.0067,
-   "thick": 0.1775,
-   "avgTri": 0.00314,
-   "anglePct": 61,
+   "minWall": 0.0193,
+   "thick": 0.1787,
+   "avgTri": 0.00378,
+   "anglePct": 57,
    "pieces": 22,
-   "vpt": 1.75,
+   "vpt": 1.86,
    "cells": [
     "5,2",
     "2,0",
@@ -60468,14 +60468,7 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 1.25,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0067 wants min 0.012"
-    }
-   ]
+   "thickRel": 1.26
   },
   {
    "kit": "emace-village",
@@ -61388,31 +61381,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "chair",
-   "hash": "ec0bb572fd",
+   "hash": "0db1b1809d",
    "kind": "obj-furnishing-furniture-seating-chair",
    "size": "s",
    "wdh": [
     0.222,
-    0.253,
-    0.4
+    0.254,
+    0.402
    ],
-   "tris": 204,
-   "tpu": 595,
+   "tris": 148,
+   "tpu": 431,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13516,
-   "vtx": 336,
+   "bytes": 12412,
+   "vtx": 312,
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
    "minTube": 0.0122,
    "minWall": 0.0112,
-   "thick": 0.0921,
-   "avgTri": 0.00176,
-   "anglePct": 42,
+   "thick": 0.0916,
+   "avgTri": 0.00245,
+   "anglePct": 51,
    "pieces": 10,
-   "vpt": 1.65,
+   "vpt": 2.11,
    "cells": [
     "2,0"
    ],
@@ -61422,8 +61415,20 @@
    "tags": [
     "wood-dark"
    ],
-   "thickRel": 0.8,
+   "backface": {
+    "share": 0.0125,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.79,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.3% of view 90/20 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -61921,31 +61926,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "crate-open",
-   "hash": "5c94d80037",
+   "hash": "5502b2c411",
    "kind": "obj-container-crate-cube",
    "size": "m",
    "wdh": [
-    0.5,
-    0.467,
+    0.503,
+    0.47,
     0.382
    ],
-   "tris": 932,
-   "tpu": 2717,
+   "tris": 364,
+   "tpu": 1061,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 65272,
-   "vtx": 1817,
+   "bytes": 36456,
+   "vtx": 1022,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0171,
-   "minWall": 0.0068,
-   "thick": 0.0612,
-   "avgTri": 0.00375,
-   "anglePct": 58,
+   "minEdge": 0.024,
+   "minTube": 0.0252,
+   "minWall": 0.0251,
+   "thick": 0.0635,
+   "avgTri": 0.00617,
+   "anglePct": 67,
    "pieces": 28,
-   "vpt": 1.95,
+   "vpt": 2.81,
    "cells": [
     "2,0"
    ],
@@ -61956,25 +61961,12 @@
     "wood-dark"
    ],
    "variant": "emace-village/crate",
-   "backface": {
-    "share": 0.0283,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 1,
-     "other": 0
-    }
-   },
-   "thickRel": 0.26,
+   "thickRel": 0.27,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "2.8% of view 0/-89.9 over 0.5%: inverted 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.26 wants min 0.5"
+     "text": "I01 thickRel 0.27 wants min 0.5"
     }
    ]
   },
@@ -62192,7 +62184,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "drying-rack-hanging",
-   "hash": "6da1c1cebf",
+   "hash": "f75403f6e9",
    "kind": "set",
    "size": "m",
    "wdh": [
@@ -62200,23 +62192,23 @@
     1.238,
     0.509
    ],
-   "tris": 3821,
-   "tpu": 9691,
+   "tris": 3741,
+   "tpu": 9488,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 275236,
-   "vtx": 7835,
+   "bytes": 272580,
+   "vtx": 7767,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0081,
    "minWall": 0.0061,
    "thick": 0.0926,
-   "avgTri": 0.00044,
+   "avgTri": 0.00046,
    "anglePct": 43,
    "pieces": 62,
-   "vpt": 2.05,
+   "vpt": 2.08,
    "cells": [
     "3,1",
     "2,0",
@@ -62240,15 +62232,15 @@
     "share": 0.1242,
     "view": "0/-89.9",
     "causes": {
-     "inverted": 0.9,
-     "other": 0.1
+     "inverted": 0.91,
+     "other": 0.09
     }
    },
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "12.4% of view 0/-89.9 over 0.5%: inverted 90.0%, other 10.0%"
+     "text": "12.4% of view 0/-89.9 over 0.5%: inverted 91.0%, other 9.0%"
     }
    ]
   },
@@ -62256,34 +62248,34 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "firewood-rack",
-   "hash": "b4ec497509",
+   "hash": "2d3f7a3373",
    "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
-    0.852,
+    0.676,
     0.291,
     0.575
    ],
-   "tris": 2799,
-   "tpu": 8160,
+   "tris": 2511,
+   "tpu": 7321,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 130604,
-   "vtx": 3508,
+   "bytes": 117888,
+   "vtx": 3164,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0313,
    "minWall": 0.0097,
-   "thick": 0.1465,
+   "thick": 0.1375,
    "avgTri": 0.00135,
-   "anglePct": 23,
-   "pieces": 40,
-   "vpt": 1.25,
+   "anglePct": 24,
+   "pieces": 36,
+   "vpt": 1.26,
    "cells": [
-    "0,0",
     "2,0",
+    "0,0",
     "3,0"
    ],
    "colors": [
@@ -62296,20 +62288,7 @@
     "plural",
     "wood-dark"
    ],
-   "backface": {
-    "share": 0.0029,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.7,
-     "open": 0.3
-    }
-   },
    "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 0/-89.9 over 0.1%: inverted 70.0%, open 30.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -63186,7 +63165,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "log-pile",
-   "hash": "b7d7914fcc",
+   "hash": "7c9556eb7d",
    "kind": "obj-resource-wood-log",
    "size": "l",
    "wdh": [
@@ -63194,26 +63173,26 @@
     1.927,
     0.532
    ],
-   "tris": 2106,
-   "tpu": 2293,
+   "tris": 1324,
+   "tpu": 1441,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 88184,
-   "vtx": 2312,
+   "bytes": 61020,
+   "vtx": 1611,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0652,
    "minWall": 0.0619,
-   "thick": 0.1883,
-   "avgTri": 0.00325,
+   "thick": 0.1754,
+   "avgTri": 0.0042,
    "anglePct": 7,
-   "pieces": 14,
-   "vpt": 1.1,
+   "pieces": 10,
+   "vpt": 1.22,
    "cells": [
-    "0,0",
     "2,0",
+    "0,0",
     "3,0"
    ],
    "colors": [
@@ -63226,20 +63205,6 @@
     "plural",
     "wood-dark",
     "wood-light"
-   ],
-   "backface": {
-    "share": 0.0133,
-    "view": "0/-89.9",
-    "causes": {
-     "open": 1
-    }
-   },
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.3% of view 0/-89.9 over 0.5%: open 100.0%"
-    }
    ]
   },
   {
@@ -63624,31 +63589,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "outhouse",
-   "hash": "f4488fb869",
+   "hash": "6050f310ce",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
     1.108,
     1.224,
-    2
+    2.001
    ],
-   "tris": 1244,
-   "tpu": 459,
+   "tris": 945,
+   "tpu": 348,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 113784,
-   "vtx": 3040,
+   "bytes": 76332,
+   "vtx": 2159,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0265,
    "minWall": 0.006,
-   "thick": 0.0863,
-   "avgTri": 0.01787,
-   "anglePct": 69,
+   "thick": 0.0869,
+   "avgTri": 0.02044,
+   "anglePct": 74,
    "pieces": 49,
-   "vpt": 2.44,
+   "vpt": 2.28,
    "cells": [
     "2,0"
    ],
@@ -65128,31 +65093,30 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "roof-shingle-a",
-   "hash": "ebc34ebfba",
+   "hash": "581794ee20",
    "kind": "str-part-roof",
    "size": "l",
    "wdh": [
     3.515,
-    3.786,
-    1.557
+    3.859,
+    1.628
    ],
-   "tris": 3258,
-   "tpu": 157,
+   "tris": 3042,
+   "tpu": 138,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 295328,
-   "vtx": 8569,
-   "grounded": true,
+   "bytes": 273296,
+   "vtx": 7921,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0297,
    "minWall": 0.0039,
-   "thick": 0.1248,
-   "avgTri": 0.04228,
-   "anglePct": 28,
-   "pieces": 161,
-   "vpt": 2.63,
+   "thick": 0.1271,
+   "avgTri": 0.05125,
+   "anglePct": 19,
+   "pieces": 143,
+   "vpt": 2.6,
    "cells": [
     "2,0"
    ],
@@ -65164,56 +65128,46 @@
     "wood-dark"
    ],
    "variant": "emace-village/roof-shingle-a",
-   "backface": {
-    "share": 0.088,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.96,
-     "inside-out": 0.04
-    }
-   },
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "8.8% of view 0/-89.9 over 0.5%: inverted 96.0%, inside-out 4.0%"
-    },
     {
      "level": "error",
      "check": "measures",
      "text": "G27 minWall 0.0039 wants min 0.006"
     }
+   ],
+   "mark": [
+    "grounded"
    ]
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "roof-shingle-b",
-   "hash": "8ddf0a112a",
+   "hash": "fdc96cc00b",
    "kind": "str-part-roof",
    "size": "l",
    "wdh": [
     4.703,
-    3.763,
+    3.796,
     1.568
    ],
-   "tris": 3482,
-   "tpu": 125,
+   "tris": 3182,
+   "tpu": 114,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 315872,
-   "vtx": 9169,
+   "bytes": 285264,
+   "vtx": 8269,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0283,
    "minWall": 0.0083,
-   "thick": 0.1211,
-   "avgTri": 0.04525,
-   "anglePct": 23,
-   "pieces": 175,
-   "vpt": 2.63,
+   "thick": 0.1224,
+   "avgTri": 0.05442,
+   "anglePct": 17,
+   "pieces": 150,
+   "vpt": 2.6,
    "cells": [
     "2,0"
    ],
@@ -65225,22 +65179,7 @@
     "wood-dark"
    ],
    "variant": "emace-village/roof-shingle-a",
-   "backface": {
-    "share": 0.2429,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 1,
-     "inside-out": 0,
-     "open": 0,
-     "other": 0
-    }
-   },
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "24.3% of view 0/-89.9 over 0.5%: inverted 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -66294,31 +66233,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "split-logs",
-   "hash": "8f409ac20b",
+   "hash": "e8b711b8ff",
    "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
-    0.669,
+    0.625,
     0.529,
-    0.217
+    0.204
    ],
-   "tris": 1628,
-   "tpu": 4746,
+   "tris": 1361,
+   "tpu": 3968,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 72488,
-   "vtx": 1911,
+   "bytes": 60164,
+   "vtx": 1576,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0737,
-   "minWall": 0.0456,
-   "thick": 0.0945,
-   "avgTri": 0.00064,
-   "anglePct": 8,
-   "pieces": 16,
-   "vpt": 1.17,
+   "minWall": 0.0697,
+   "thick": 0.0874,
+   "avgTri": 0.00061,
+   "anglePct": 9,
+   "pieces": 13,
+   "vpt": 1.16,
    "cells": [
     "0,0",
     "3,0"
@@ -66331,21 +66270,6 @@
     "bark",
     "plural",
     "wood-light"
-   ],
-   "backface": {
-    "share": 0.0041,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.51,
-     "open": 0.49
-    }
-   },
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.4% of view 0/-89.9 over 0.1%: inverted 51.0%, open 49.0%"
-    }
    ]
   },
   {
@@ -66512,32 +66436,32 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stairs-walled",
-   "hash": "8f3b21adfe",
+   "hash": "216967de61",
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
     2,
     1,
-    1.5
+    1.503
    ],
-   "tris": 854,
-   "tpu": 285,
+   "tris": 662,
+   "tpu": 220,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 68208,
-   "vtx": 1922,
+   "bytes": 55216,
+   "vtx": 1552,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.1018,
-   "minWall": 0.0063,
-   "thick": 0.0607,
-   "avgTri": 0.01236,
-   "anglePct": 42,
+   "minTube": 0.102,
+   "minWall": 0.0071,
+   "thick": 0.0606,
+   "avgTri": 0.01475,
+   "anglePct": 46,
    "pieces": 28,
-   "vpt": 2.25,
+   "vpt": 2.34,
    "cells": [
     "2,0"
    ],
@@ -66553,7 +66477,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0063 wants min 0.026"
+     "text": "G27 minWall 0.0071 wants min 0.026"
     }
    ]
   },
@@ -67012,31 +66936,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "table-long",
-   "hash": "550bc90590",
+   "hash": "4d5d457b3e",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
     0.949,
-    0.362,
-    0.312
+    0.364,
+    0.318
    ],
-   "tris": 288,
-   "tpu": 840,
+   "tris": 224,
+   "tpu": 653,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19020,
-   "vtx": 492,
+   "bytes": 18508,
+   "vtx": 488,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0426,
-   "minWall": 0.0365,
-   "thick": 0.1386,
-   "avgTri": 0.00557,
-   "anglePct": 63,
+   "minEdge": 0.009,
+   "minTube": 0.0453,
+   "minWall": 0.0366,
+   "thick": 0.1382,
+   "avgTri": 0.00755,
+   "anglePct": 42,
    "pieces": 11,
-   "vpt": 1.71,
+   "vpt": 2.18,
    "cells": [
     "1,0"
    ],
@@ -67046,7 +66970,7 @@
    "tags": [
     "wood-mid"
    ],
-   "thickRel": 1.35
+   "thickRel": 1.34
   },
   {
    "kit": "emace-village",
@@ -67314,7 +67238,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "town-hall",
-   "hash": "16e9dbc908",
+   "hash": "d7e8f79cd0",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -67322,23 +67246,23 @@
     5.003,
     4.757
    ],
-   "tris": 15327,
-   "tpu": 74,
+   "tris": 14233,
+   "tpu": 69,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 1419716,
-   "vtx": 41443,
+   "bytes": 1308128,
+   "vtx": 38161,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.026,
-   "minWall": 0.006,
-   "thick": 0.2184,
-   "avgTri": 0.05518,
-   "anglePct": 46,
-   "pieces": 1107,
-   "vpt": 2.7,
+   "minTube": 0.0063,
+   "minWall": 0.0047,
+   "thick": 0.2188,
+   "avgTri": 0.06379,
+   "anglePct": 40,
+   "pieces": 986,
+   "vpt": 2.68,
    "cells": [
     "14,3",
     "12,3",
@@ -67363,9 +67287,14 @@
    "thickRel": 1.02,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.006 wants min 0.026"
+     "text": "G27 minTube 0.0063 wants min 0.026"
+    },
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0047 wants min 0.006"
     }
    ]
   },
@@ -67721,31 +67650,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "wall-rack-tall",
-   "hash": "79f150295e",
+   "hash": "70c138b39f",
    "kind": "obj-furnishing-furniture-storage-rack",
    "size": "m",
    "wdh": [
     0.307,
-    0.105,
+    0.106,
     0.781
    ],
-   "tris": 224,
-   "tpu": 585,
+   "tris": 132,
+   "tpu": 345,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 45060,
-   "vtx": 1317,
+   "bytes": 15032,
+   "vtx": 396,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0135,
-   "minWall": 0.0124,
-   "thick": 0.1027,
-   "avgTri": 0.00177,
-   "anglePct": 77,
+   "minEdge": 0.012,
+   "minTube": 0.0137,
+   "minWall": 0.0137,
+   "thick": 0.1054,
+   "avgTri": 0.00321,
+   "anglePct": 76,
    "pieces": 11,
-   "vpt": 5.88,
+   "vpt": 3,
    "cells": [
     "1,0"
    ],
@@ -67756,37 +67685,37 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.29
   },
   {
    "kit": "emace-village",
    "collection": "emace",
    "name": "wall-timber-door",
-   "hash": "1128273bce",
+   "hash": "a7a2be9eac",
    "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
-    4.299,
+    4.325,
     0.216,
     1.431
    ],
-   "tris": 416,
-   "tpu": 313,
+   "tris": 304,
+   "tpu": 227,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 30628,
-   "vtx": 830,
+   "bytes": 24064,
+   "vtx": 646,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0652,
    "minWall": 0.0063,
-   "thick": 0.1113,
-   "avgTri": 0.0889,
-   "anglePct": 79,
+   "thick": 0.1135,
+   "avgTri": 0.11062,
+   "anglePct": 76,
    "pieces": 15,
-   "vpt": 2,
+   "vpt": 2.13,
    "cells": [
     "2,0",
     "5,2"
@@ -67802,13 +67731,13 @@
    ],
    "variant": "emace-village/wall-timber-door",
    "backface": {
-    "share": 0.445,
+    "share": 0.4226,
     "view": "0/-89.9",
     "causes": {
      "inverted": 1
     }
    },
-   "thickRel": 1.18,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "warning",
@@ -67818,7 +67747,7 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "44.5% of view 0/-89.9 over 0.5%: inverted 100.0%"
+     "text": "42.3% of view 0/-89.9 over 0.5%: inverted 100.0%"
     },
     {
      "level": "warning",
@@ -67831,31 +67760,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "wall-timber-window-door",
-   "hash": "8014aadd94",
+   "hash": "f74a8efa14",
    "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
-    3.002,
+    3.02,
     0.151,
-    0.999
+    1
    ],
-   "tris": 448,
-   "tpu": 915,
+   "tris": 376,
+   "tpu": 767,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 31588,
-   "vtx": 854,
+   "bytes": 27504,
+   "vtx": 740,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0285,
-   "minWall": 0.0063,
-   "thick": 0.12,
-   "avgTri": 0.03946,
-   "anglePct": 79,
+   "minWall": 0.0068,
+   "thick": 0.1212,
+   "avgTri": 0.04379,
+   "anglePct": 74,
    "pieces": 18,
-   "vpt": 1.91,
+   "vpt": 1.97,
    "cells": [
     "2,0",
     "5,2"
@@ -67871,23 +67800,23 @@
    ],
    "variant": "emace-village/wall-timber-door",
    "backface": {
-    "share": 0.4485,
+    "share": 0.4196,
     "view": "0/-89.9",
     "causes": {
      "inverted": 1
     }
    },
-   "thickRel": 1.28,
+   "thickRel": 1.29,
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "44.9% of view 0/-89.9 over 0.5%: inverted 100.0%"
+     "text": "42.0% of view 0/-89.9 over 0.5%: inverted 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0063 wants min 0.026"
+     "text": "G27 minWall 0.0068 wants min 0.026"
     }
    ]
   },
@@ -67895,31 +67824,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "wall-timber-windows",
-   "hash": "ce4121e139",
+   "hash": "e0c08f819c",
    "kind": "str-part-wall-unit-window",
    "size": "l",
    "wdh": [
-    3.01,
-    0.135,
-    1
+    3.05,
+    0.151,
+    1.003
    ],
-   "tris": 390,
-   "tpu": 796,
+   "tris": 310,
+   "tpu": 631,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25864,
-   "vtx": 686,
+   "bytes": 21868,
+   "vtx": 576,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minTube": 0.0988,
-   "minWall": 0.0066,
-   "thick": 0.1282,
-   "avgTri": 0.04869,
-   "anglePct": 80,
+   "minEdge": 0.007,
+   "minTube": 0.099,
+   "minWall": 0.0068,
+   "thick": 0.1297,
+   "avgTri": 0.05304,
+   "anglePct": 72,
    "pieces": 15,
-   "vpt": 1.76,
+   "vpt": 1.86,
    "cells": [
     "2,0",
     "5,2"
@@ -67934,25 +67863,12 @@
     "wood-dark"
    ],
    "variant": "emace-village/wall-timber",
-   "backface": {
-    "share": 0.649,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 1,
-     "other": 0
-    }
-   },
-   "thickRel": 1.27,
+   "thickRel": 1.29,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "64.9% of view 0/-89.9 over 0.5%: inverted 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0066 wants min 0.012"
+     "text": "G27 minWall 0.0068 wants min 0.012"
     }
    ]
   },
@@ -68019,7 +67935,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "watchtower",
-   "hash": "3369d139c3",
+   "hash": "9b89f0a177",
    "kind": "str-building-tower-watch",
    "size": "l",
    "wdh": [
@@ -68027,23 +67943,23 @@
     3.694,
     4.56
    ],
-   "tris": 4573,
-   "tpu": 80,
+   "tris": 4489,
+   "tpu": 78,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 340744,
-   "vtx": 9742,
+   "bytes": 332176,
+   "vtx": 9490,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0265,
    "minWall": 0.0174,
-   "thick": 0.1675,
-   "avgTri": 0.02594,
-   "anglePct": 20,
-   "pieces": 151,
-   "vpt": 2.13,
+   "thick": 0.1678,
+   "avgTri": 0.02665,
+   "anglePct": 22,
+   "pieces": 144,
+   "vpt": 2.11,
    "cells": [
     "2,0",
     "1,0"
@@ -68057,7 +67973,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1,
+   "thickRel": 1.01,
    "lint": [
     {
      "level": "warning",
@@ -328077,7 +327993,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.5,
+   "thickRel": 1.49,
    "lint": [
     {
      "level": "error",
@@ -402904,7 +402820,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/watchtower-2-b",
-   "thickRel": 1,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "warning",
@@ -417906,7 +417822,7 @@
     "wood-light"
    ],
    "variant": "rgp-medieval/watchtower",
-   "thickRel": 0.89
+   "thickRel": 0.88
   },
   {
    "kit": "rgp-medieval",

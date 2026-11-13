@@ -21,6 +21,8 @@ function fit(ts,open){
  const s0=sec(t0,t0+0.12*len),s1=sec(t1-0.12*len,t1);if(!s0||!s1)return null;
  for(const q of [s0,s1])for(const k of ['b','c'])if(q[k][1]-q[k][0]<0.012){const mid=(q[k][0]+q[k][1])/2;q[k]=[mid-0.006,mid+0.006]}
  for(const l of loc){const f=(l[0]-t0)/len;for(const k of ['b','c']){const lo=s0[k][0]+(s1[k][0]-s0[k][0])*f,hi=s0[k][1]+(s1[k][1]-s0[k][1])*f,x=l[k==='b'?1:2];if(x<lo-0.04||x>hi+0.04)return null}}
+ const lc=q=>{const d=q.map((x,k)=>x-m[k]);return [dot(d,ax[0]),dot(d,ax[1]),dot(d,ax[2])]};
+ for(const t of ts){const [pa,pb,pc]=[0,1,2].map(k=>vp(I[3*t+k]));const n=cross(pb.map((x,k)=>x-pa[k]),pc.map((x,k)=>x-pa[k]));const nl=Math.hypot(...n);if(nl<1e-10)continue;if(Math.abs(dot(n,ax[2]))/nl>0.95)continue;const c=lc([0,1,2].map(k=>(pa[k]+pb[k]+pc[k])/3));const f=(c[0]-t0)/len;const lo=s0.b[0]+(s1.b[0]-s0.b[0])*f,hi=s0.b[1]+(s1.b[1]-s0.b[1])*f;const tb=Math.max(0.02,0.15*(hi-lo)),tt=Math.max(0.02,0.1*len);if(c[1]-lo>tb&&hi-c[1]>tb&&c[0]-t0>tt&&t1-c[0]>tt)return null}
  let area=0,al=0,vol=0;for(const t of ts){const [a,b,c]=[0,1,2].map(k=>vp(I[3*t+k]));const n=cross(b.map((x,k)=>x-a[k]),c.map((x,k)=>x-a[k]));const A=Math.hypot(...n)/2;if(A<1e-12)continue;area+=A;const u=n.map(x=>x/(2*A));if(ax.some(e=>Math.abs(dot(u,e))>0.95))al+=A;vol+=dot(a.map((x,k)=>x-m[k]),n)/6}
  if(al/area<0.85)return null;
  const W=(t,b,c)=>[0,1,2].map(d=>m[d]+ax[0][d]*t+ax[1][d]*b+ax[2][d]*c);
