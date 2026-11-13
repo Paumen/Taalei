@@ -354091,31 +354091,31 @@
   {
    "kit": "quat-furniture",
    "name": "bed-double",
-   "hash": "d85e6a5766",
+   "hash": "ba5cb54dd7",
    "kind": "obj-furnishing-furniture-bed-double",
    "size": "m",
    "wdh": [
-    0.643,
-    0.95,
-    0.362
+    0.646,
+    0.954,
+    0.368
    ],
-   "tris": 5428,
-   "tpu": 12694,
+   "tris": 4756,
+   "tpu": 11025,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 257844,
-   "vtx": 5974,
+   "bytes": 231732,
+   "vtx": 5410,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.0147,
-   "minWall": 0.0068,
-   "thick": 0.1451,
-   "avgTri": 0.00082,
-   "anglePct": 45,
-   "pieces": 27,
-   "vpt": 1.1,
+   "minWall": 0.0123,
+   "thick": 0.1443,
+   "avgTri": 0.00071,
+   "anglePct": 39,
+   "pieces": 15,
+   "vpt": 1.14,
    "cells": [
     "8,0",
     "14,3",
@@ -354136,48 +354136,43 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/bed-double",
-   "thickRel": 1.13,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 12694 over max 5000 (obj-furnishing)"
-    },
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0068 wants min 0.012"
+     "text": "tpu 11025 over max 5000 (obj-furnishing)"
     }
    ]
   },
   {
    "kit": "quat-furniture",
    "name": "bed-single",
-   "hash": "6a120f0881",
+   "hash": "e7b27c1e18",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
-    0.48,
-    0.95,
-    0.362
+    0.483,
+    0.954,
+    0.368
    ],
-   "tris": 4400,
-   "tpu": 12828,
+   "tris": 3808,
+   "tpu": 11102,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 189828,
-   "vtx": 5059,
+   "bytes": 192872,
+   "vtx": 4551,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "minTube": 0.0442,
-   "minWall": 0.0068,
-   "thick": 0.1846,
-   "avgTri": 0.00077,
-   "anglePct": 44,
-   "pieces": 24,
-   "vpt": 1.15,
+   "minWall": 0.0359,
+   "thick": 0.1831,
+   "avgTri": 0.0007,
+   "anglePct": 39,
+   "pieces": 13,
+   "vpt": 1.2,
    "cells": [
     "8,0",
     "14,3",
@@ -354198,17 +354193,12 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/bed-double",
-   "thickRel": 1.3,
+   "thickRel": 1.29,
    "lint": [
     {
      "level": "error",
      "check": "tpu",
-     "text": "tpu 12828 over max 5000 (obj-furnishing)"
-    },
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0068 wants min 0.012"
+     "text": "tpu 11102 over max 5000 (obj-furnishing)"
     }
    ]
   },
@@ -370367,8 +370357,20 @@
     "Wave",
     "Yes"
    ],
+   "backface": {
+    "share": 0.0705,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.89,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "7.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -371185,12 +371187,24 @@
     "Yes"
    ],
    "variant": "quat-pirate/skeleton",
+   "backface": {
+    "share": 0.0012,
+    "view": "270/50",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.6,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 0.362 under min 0.45 (char)"
+    },
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.1% of view 270/50 over 0.1%: open 100.0%"
     },
     {
      "level": "error",
@@ -371269,8 +371283,20 @@
     "Yes"
    ],
    "variant": "quat-pirate/skeleton",
+   "backface": {
+    "share": 0.0538,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.63,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "5.4% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
