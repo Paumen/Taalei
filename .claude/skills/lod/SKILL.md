@@ -36,6 +36,11 @@ For some models to read right, it can matter that:
 - **Type stays**: what makes the type within the kind (inlaid gems,
   dartboard numbers, a twisted candle, a glowing bulb, the band round a frag
   grenade). Losing it is wrong even when the kind still reads.
+- **A finer type stays finer**: a kind can hold types finer than the rest.
+  The quat-furniture wardrobes are antique, with curved legs, carving and
+  gold pulls; the other wardrobes are plain, with wooden knobs. They still
+  need a minimum chunkiness, but may stay thinner than most or all peers;
+  the kind's average is too much.
 
 ## Problems and indicators
 
@@ -161,7 +166,8 @@ Indicators point at candidates; the render decides.
 
 **Too coarse**
 
-- **Thick or chunky next to peers**: render the kind's line-up.
+- **Thick or chunky next to peers**: render the kind's line-up. Judge
+  against peers of the same type; a finer type may sit below them.
 - **Low `tpu` for the kind**: a blunt block where peers have shape.
 - **Earlier rounds**: models changed by a stylize, thicken or slim round
   (past review pages, git history after asking the PO, C12).
@@ -309,6 +315,9 @@ Only PO verdicts count. They calibrate style; they never decide a model:
 - A past verdict never drops a model, marks it done, or replaces looking at
   it.
 - Pass verdicts on as quotes with the model they were on, never as rules.
+- An Undo or revert without a comment says only that one change went back,
+  not why. Never read a reason or a rule into it, and never leave a part
+  alone because of it.
 
 ## Edge cases: unusual outcomes and proposals
 
@@ -381,11 +390,18 @@ triangles.
    rest of the batch. Then one model or twin pair at a time, never several
    sub agents at once.
 
-Any method that reaches the goal is fine, automatic decimation included. It
-can melt rounded edges, flatten thin parts, flip faces and leave messy
-meshes, so look at every result.
-
 The peers' triangle counts are a guide; the look decides.
+
+## Out of scope
+
+No automatic simplification or decimation:
+
+- These tools aim to cut triangles with little or no visual change; this
+  skill usually aims for the opposite.
+- Most models are already low-poly, so these tools do little or break things.
+- They can also melt rounded edges, flatten thin parts, flip faces or leave
+  messier meshes.
+- When they're worth using, that happens in a dedicated session.
 
 ## In scope
 
