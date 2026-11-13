@@ -309,6 +309,9 @@ Only PO verdicts count. They calibrate style; they never decide a model:
 - A past verdict never drops a model, marks it done, or replaces looking at
   it.
 - Pass verdicts on as quotes with the model they were on, never as rules.
+- An Undo or revert without a comment says only that one change went back,
+  not why. Never read a reason or a rule into it, and never leave a part
+  alone because of it.
 
 ## Edge cases: unusual outcomes and proposals
 
