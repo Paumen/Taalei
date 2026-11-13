@@ -1,6 +1,6 @@
 ---
 name: lod
-description: Bring catalogue models to the catalogue's level of detail, not too detailed and not too coarse, so each still reads as the thing it represents. Use when asked to fix level of detail, thin parts, fiddly, dense, too chunky or too simplified models.
+description: Bring catalogue models to the catalogue's level of detail, not too detailed and not too coarse, so each still reads as the thing it represents. Use when asked to fix level of detail, thin parts, fiddly, dense, too chunky or too simplified models, or to simplify models, reduce tris or lower tpu.
 ---
 
 # Level of detail
@@ -363,16 +363,29 @@ unless that clearly wastes effort, because:
 Rarely, the outcome is that the model is rejected from the catalogue. That
 call is the PO's.
 
-## Out of scope
+## Simplifying dense models
 
-No automatic simplification or decimation:
+For a model or kit the PO asks to simplify, or one with several times the
+triangles of its kind's peers in other kits. The goal stays the look: the
+model reads as itself, at the peers' level of detail, with far fewer
+triangles.
 
-- These tools aim to cut triangles with little or no visual change; this
-  skill usually aims for the opposite.
-- Most models are already low-poly, so these tools do little or break things.
-- They can also melt rounded edges, flatten thin parts, flip faces or leave
-  messier meshes.
-- When they're worth using, that happens in a dedicated session.
+1. **Calibrate**: `node tools/review/review.mjs brief --review detail`, next
+   to the lod verdicts.
+2. **Find the triangles**: `slim.mjs parts <glb>`. They usually sit in a few
+   repeated parts: roof tile rows, window frames, bricks, bevelled blocks.
+3. **Cut by part**, with the Too detailed fixes: fewer and bigger repeats,
+   drop part, swap shape, rebuild part. Try `slim.mjs edit` first; write a
+   rebuild script only for parts it can't do.
+4. **One model first**: show the PO its before and after before touching the
+   rest of the batch. Then one model or twin pair at a time, never several
+   sub agents at once.
+
+Any method that reaches the goal is fine, automatic decimation included. It
+can melt rounded edges, flatten thin parts, flip faces and leave messy
+meshes, so look at every result.
+
+The peers' triangle counts are a guide; the look decides.
 
 ## In scope
 
