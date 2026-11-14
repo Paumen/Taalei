@@ -2082,8 +2082,9 @@
     "smooth": 48
    },
    "kitCheck": {
-    "factor": 1.08,
-    "kinds": 7
+    "factor": 1.38,
+    "kinds": 8,
+    "level": "warning"
    }
   },
   {
@@ -29164,7 +29165,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 621
+   "count": 622
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -29362,7 +29363,7 @@
    "name": "Building",
    "type": "kind",
    "description": "Building with no leaf that fits.",
-   "count": 415,
+   "count": 414,
    "color": "#7d4f3a"
   },
   {
@@ -29370,7 +29371,7 @@
    "name": "Work",
    "type": "kind",
    "description": "Building for work: agricultural, industrial, commercial.",
-   "count": 136
+   "count": 135
   },
   {
    "id": "str-part",
@@ -30063,7 +30064,7 @@
    "name": "Machine",
    "type": "kind",
    "description": "Standing industrial machinery: presses, pistons, scanners, conveyors, hoppers, cranes, car wash.",
-   "count": 72
+   "count": 73
   },
   {
    "id": "str-fixture-machinery-smelter",
@@ -30162,7 +30163,7 @@
    "name": "Industrial",
    "type": "kind",
    "description": "Building where material is worked or milled, with no leaf that fits.",
-   "count": 80
+   "count": 79
   },
   {
    "id": "str-access-mine",
@@ -30745,7 +30746,7 @@
    "name": "2 storeys",
    "type": "attribute",
    "description": "Two storeys read from the model.",
-   "count": 116,
+   "count": 115,
    "kinds": [
     "str-building"
    ]
@@ -30805,7 +30806,7 @@
    "name": "Modern",
    "type": "attribute",
    "description": "Building style. About 1900 to now, sci-fi included: town houses, suburban houses, offices, apartments, factories, silo farms, space bases. Gives Tech Modern.",
-   "count": 167,
+   "count": 166,
    "kinds": [
     "str-building"
    ]
@@ -41456,7 +41457,7 @@
     "space",
     "special-emissive"
    ],
-   "thickRel": 1.85
+   "thickRel": 1.84
   },
   {
    "kit": "3dm-scifi",
@@ -175545,7 +175546,7 @@
     "style-modern"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "kay-space",
@@ -175597,7 +175598,7 @@
     "style-modern"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.19
+   "thickRel": 1.18
   },
   {
    "kit": "kay-space",
@@ -175648,7 +175649,7 @@
     "storeys-1-5",
     "style-modern"
    ],
-   "thickRel": 1.38
+   "thickRel": 1.37
   },
   {
    "kit": "kay-space",
@@ -175702,7 +175703,7 @@
     "storeys-1",
     "style-modern"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.26
   },
   {
    "kit": "kay-space",
@@ -176281,7 +176282,7 @@
    "kit": "kay-space",
    "name": "drill-structure",
    "hash": "fee241256f",
-   "kind": "str-building-work-industrial",
+   "kind": "str-fixture-machinery",
    "size": "l",
    "wdh": [
     2.368,
@@ -176321,11 +176322,16 @@
     "metal-steel",
     "modern",
     "plastic",
-    "space",
-    "storeys-2",
-    "style-modern"
+    "space"
    ],
-   "thickRel": 0.91
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "size",
+     "text": "longest 2.706 over max 2.2 (str-fixture-machinery)"
+    }
+   ]
   },
   {
    "kit": "kay-space",
@@ -195544,7 +195550,7 @@
     "tba"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 1.79
+   "thickRel": 1.78
   },
   {
    "kit": "ken-factory",
@@ -195635,7 +195641,14 @@
     "tba"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 0.5
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "ken-factory",
@@ -195856,7 +195869,7 @@
     "metal-steel",
     "modern"
    ],
-   "thickRel": 0.59
+   "thickRel": 0.58
   },
   {
    "kit": "ken-factory",
@@ -195898,7 +195911,7 @@
     "metal-steel",
     "modern"
    ],
-   "thickRel": 0.61
+   "thickRel": 0.6
   },
   {
    "kit": "ken-factory",
@@ -196224,7 +196237,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-window",
-   "thickRel": 1.22
+   "thickRel": 1.21
   },
   {
    "kit": "ken-factory",
@@ -196274,7 +196287,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-window",
-   "thickRel": 1.22
+   "thickRel": 1.21
   },
   {
    "kit": "ken-factory",
@@ -197226,7 +197239,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 1.8
+   "thickRel": 1.79
   },
   {
    "kit": "ken-factory",
@@ -197311,7 +197324,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 2.41
+   "thickRel": 2.4
   },
   {
    "kit": "ken-factory",
@@ -197355,7 +197368,7 @@
     "tba"
    ],
    "variant": "ken-factory/robot-arm-a",
-   "thickRel": 1.54
+   "thickRel": 1.53
   },
   {
    "kit": "ken-factory",
@@ -197484,7 +197497,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "ken-factory",
@@ -210692,7 +210705,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-grave/altar-stone",
-   "thickRel": 1.92
+   "thickRel": 1.91
   },
   {
    "kit": "ken-grave",
@@ -241738,7 +241751,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-round-a",
-   "thickRel": 1.4
+   "thickRel": 1.39
   },
   {
    "kit": "ken-space",
@@ -241841,7 +241854,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-small-a",
-   "thickRel": 1.22
+   "thickRel": 1.21
   },
   {
    "kit": "ken-space",
@@ -242037,7 +242050,7 @@
     "space"
    ],
    "variant": "ken-space/machine-generator",
-   "thickRel": 1.32
+   "thickRel": 1.31
   },
   {
    "kit": "ken-space",
@@ -242144,7 +242157,7 @@
     "space"
    ],
    "variant": "ken-space/machine-wireless",
-   "thickRel": 0.85
+   "thickRel": 0.84
   },
   {
    "kit": "ken-space",
@@ -242194,7 +242207,7 @@
     "space"
    ],
    "variant": "ken-space/machine-wireless",
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-space",
@@ -381474,7 +381487,7 @@
      "inverted": 0.46
     }
    },
-   "thickRel": 1.83,
+   "thickRel": 1.82,
    "lint": [
     {
      "level": "error",
@@ -385087,7 +385100,7 @@
     "storeys-1",
     "style-modern"
    ],
-   "thickRel": 1.21,
+   "thickRel": 1.2,
    "lint": [
     {
      "level": "warning",
@@ -397687,7 +397700,7 @@
     "wood-light"
    ],
    "variant": "quat-town/storage-1-b",
-   "thickRel": 0.87
+   "thickRel": 0.86
   },
   {
    "kit": "quat-town",
@@ -397734,7 +397747,7 @@
     "wood-light"
    ],
    "variant": "quat-town/storage-1-b",
-   "thickRel": 1.05
+   "thickRel": 1.04
   },
   {
    "kit": "quat-town",
@@ -397903,7 +397916,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
-   "thickRel": 1.17,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "warning",
@@ -422080,7 +422093,7 @@
     "sq"
    ],
    "variant": "sq-carwash/blower-arch",
-   "thickRel": 0.62
+   "thickRel": 0.61
   },
   {
    "kit": "sq-carwash",
@@ -422522,7 +422535,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.03,
+   "thickRel": 1.02,
    "lint": [
     {
      "level": "warning",
@@ -430433,7 +430446,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.21,
+   "thickRel": 1.2,
    "lint": [
     {
      "level": "warning",
@@ -431120,7 +431133,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.94,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "warning",
@@ -431285,7 +431298,7 @@
     "sty"
    ],
    "variant": "styloo-farm/smelter",
-   "thickRel": 1.57,
+   "thickRel": 1.56,
    "lint": [
     {
      "level": "warning",
