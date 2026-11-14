@@ -29164,7 +29164,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 613
+   "count": 616
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -29185,7 +29185,7 @@
    "name": "Access",
    "type": "kind",
    "description": "Access with no leaf that fits.",
-   "count": 315,
+   "count": 319,
    "color": "#c98a5a"
   },
   {
@@ -29362,7 +29362,7 @@
    "name": "Building",
    "type": "kind",
    "description": "Building with no leaf that fits.",
-   "count": 438,
+   "count": 420,
    "color": "#7d4f3a"
   },
   {
@@ -29370,14 +29370,14 @@
    "name": "Work",
    "type": "kind",
    "description": "Building for work: agricultural, industrial, commercial.",
-   "count": 145
+   "count": 141
   },
   {
    "id": "str-part",
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 1107,
+   "count": 1118,
    "color": "#a8762a"
   },
   {
@@ -29626,6 +29626,13 @@
    "count": 17
   },
   {
+   "id": "str-part-module",
+   "name": "Building module",
+   "type": "kind",
+   "description": "Stackable section of a building: tower base, middle or top, crypt section or crypt roof.",
+   "count": 11
+  },
+  {
    "id": "str-fixture-marker",
    "name": "Marker",
    "type": "kind",
@@ -29716,7 +29723,7 @@
    "name": "Crypt",
    "type": "kind",
    "description": "Grave built as a house: a crypt or mausoleum you could enter.",
-   "count": 6
+   "count": 3
   },
   {
    "id": "str-fixture-marker-banner",
@@ -29908,7 +29915,7 @@
    "name": "Tower",
    "type": "kind",
    "description": "Tower-form building: tower, belltower, lighthouse.",
-   "count": 51
+   "count": 43
   },
   {
    "id": "str-building-work-industrial-mill",
@@ -29964,7 +29971,7 @@
    "name": "Religious",
    "type": "kind",
    "description": "Building or standing structure for worship.",
-   "count": 27
+   "count": 21
   },
   {
    "id": "str-building-religious-church",
@@ -30123,6 +30130,13 @@
    "count": 88
   },
   {
+   "id": "str-fixture-altar",
+   "name": "Altar",
+   "type": "kind",
+   "description": "Altar or altar stone standing free, a small open shrine.",
+   "count": 3
+  },
+  {
    "id": "str-building-residential",
    "name": "Residential",
    "type": "kind",
@@ -30141,10 +30155,10 @@
    "name": "Industrial",
    "type": "kind",
    "description": "Building where material is worked or milled, with no leaf that fits.",
-   "count": 89
+   "count": 85
   },
   {
-   "id": "str-building-work-industrial-mine",
+   "id": "str-access-mine",
    "name": "Mine",
    "type": "kind",
    "description": "Mine entrance cut into rock, with its portal frame and the rails, carts and crates around it.",
@@ -30308,8 +30322,8 @@
    "id": "str-building-religious-shrine",
    "name": "Shrine",
    "type": "kind",
-   "description": "shrine, gazebo, altar",
-   "count": 12
+   "description": "shrine, gazebo",
+   "count": 9
   },
   {
    "id": "str-building-work-commercial",
@@ -30694,7 +30708,7 @@
    "name": "Half storey",
    "type": "attribute",
    "description": "Half a storey read from the model: one low space under the roof, no full-height floor.",
-   "count": 12,
+   "count": 8,
    "kinds": [
     "str-building"
    ]
@@ -30704,7 +30718,7 @@
    "name": "1 storey",
    "type": "attribute",
    "description": "One storey read from the model.",
-   "count": 82,
+   "count": 80,
    "kinds": [
     "str-building"
    ]
@@ -30724,7 +30738,7 @@
    "name": "2 storeys",
    "type": "attribute",
    "description": "Two storeys read from the model.",
-   "count": 119,
+   "count": 118,
    "kinds": [
     "str-building"
    ]
@@ -30734,7 +30748,7 @@
    "name": "3 storeys",
    "type": "attribute",
    "description": "Three storeys read from the model.",
-   "count": 77,
+   "count": 76,
    "kinds": [
     "str-building"
    ]
@@ -30774,7 +30788,7 @@
    "name": "Historic",
    "type": "attribute",
    "description": "Building style. Built before about 1900, fantasy included: huts, temples, castles, timber frame, thatch, adobe, traditional Asian, Victorian.",
-   "count": 270,
+   "count": 252,
    "kinds": [
     "str-building"
    ]
@@ -35137,6 +35151,12 @@
    "longest.max": 1.4,
    "tpu.max": 5000
   },
+  "str-access-mine": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-access-path": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -35463,12 +35483,6 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
-  "str-building-work-industrial-mine": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
   "str-building-work-industrial-workshop": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -35512,6 +35526,12 @@
    "tpu.max": 5000
   },
   "str-fixture": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-fixture-altar": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -35900,6 +35920,12 @@
    "tpu.max": 5000
   },
   "str-part-mill": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-module": {
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
@@ -65869,7 +65895,7 @@
     "style-historic",
     "wood-dark"
    ],
-   "thickRel": 1.08,
+   "thickRel": 1.51,
    "lint": [
     {
      "level": "warning",
@@ -78361,7 +78387,7 @@
     "grid-1-5x0-5x0-5",
     "stone-masonry-light"
    ],
-   "thickRel": 2.61
+   "thickRel": 2.6
   },
   {
    "kit": "fs-temple",
@@ -124203,7 +124229,7 @@
    "collection": "kay-strategy",
    "name": "mine",
    "hash": "42a01ac167",
-   "kind": "str-building-work-industrial-mine",
+   "kind": "str-access-mine",
    "size": "l",
    "wdh": [
     3.081,
@@ -124249,11 +124275,9 @@
     "kay",
     "metal-iron-dark",
     "stone-rock",
-    "storeys-1",
-    "style-historic",
     "wood-dark"
    ],
-   "thickRel": 0.95
+   "thickRel": 1.59
   },
   {
    "kit": "kay-builder",
@@ -152106,7 +152130,7 @@
     "style-historic",
     "wood-dark"
    ],
-   "thickRel": 0.91
+   "thickRel": 1
   },
   {
    "kit": "kay-hallow",
@@ -155244,7 +155268,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.31
   },
   {
    "kit": "kay-hexagon",
@@ -156557,7 +156581,7 @@
    "collection": "kay-strategy",
    "name": "mine",
    "hash": "ca279381b3",
-   "kind": "str-building-work-industrial-mine",
+   "kind": "str-access-mine",
    "size": "l",
    "wdh": [
     2.893,
@@ -156601,13 +156625,11 @@
     "kay",
     "special-liquid",
     "stone-rock",
-    "storeys-2",
-    "style-historic",
     "textile-cloth-mid",
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.15
+   "thickRel": 1.93
   },
   {
    "kit": "kay-hexagon",
@@ -179302,7 +179324,7 @@
    "collection": "kay-undead",
    "name": "shrine",
    "hash": "7c71a99084",
-   "kind": "str-building-religious-shrine",
+   "kind": "str-fixture-altar",
    "size": "m",
    "wdh": [
     0.382,
@@ -179335,11 +179357,9 @@
     "grave",
     "halloween",
     "kay",
-    "stone-masonry-mid",
-    "storeys-0-5",
-    "style-historic"
+    "stone-masonry-mid"
    ],
-   "thickRel": 1.51
+   "thickRel": 2.05
   },
   {
    "kit": "kay-spook",
@@ -189880,7 +189900,7 @@
    "kit": "ken-castle",
    "name": "tower-base",
    "hash": "98500fd344",
-   "kind": "str-building-tower",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     1,
@@ -189916,15 +189936,14 @@
     "comp",
     "ken",
     "stone-masonry-dark",
-    "stone-masonry-mid",
-    "style-historic"
+    "stone-masonry-mid"
    ]
   },
   {
    "kit": "ken-castle",
    "name": "tower-hexagon-base",
    "hash": "0df0ae7d18",
-   "kind": "str-building-tower",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     0.9,
@@ -189958,8 +189977,7 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid",
-    "style-historic"
+    "stone-masonry-mid"
    ]
   },
   {
@@ -210631,7 +210649,7 @@
    "collection": "ken-village",
    "name": "altar-stone",
    "hash": "56ee417858",
-   "kind": "str-building-religious-shrine",
+   "kind": "str-fixture-altar",
    "size": "m",
    "wdh": [
     0.936,
@@ -210664,19 +210682,17 @@
     "grave",
     "halloween",
     "ken",
-    "stone-masonry-mid",
-    "storeys-0-5",
-    "style-historic"
+    "stone-masonry-mid"
    ],
    "variant": "ken-grave/altar-stone",
-   "thickRel": 1.41
+   "thickRel": 1.92
   },
   {
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "altar-wood",
    "hash": "f0d6c59475",
-   "kind": "str-building-religious-shrine",
+   "kind": "str-fixture-altar",
    "size": "m",
    "wdh": [
     0.941,
@@ -210713,12 +210729,10 @@
     "halloween",
     "ken",
     "stone-masonry-mid",
-    "storeys-0-5",
-    "style-historic",
     "wood-mid"
    ],
    "variant": "ken-grave/altar-stone",
-   "thickRel": 1.46
+   "thickRel": 1.99
   },
   {
    "kit": "ken-grave",
@@ -211464,7 +211478,7 @@
    "collection": "ken-village",
    "name": "crypt-large-roof",
    "hash": "57729fba5c",
-   "kind": "str-building-religious-crypt",
+   "kind": "str-part-module",
    "size": "l",
    "wdh": [
     1.779,
@@ -211501,8 +211515,7 @@
     "halloween",
     "ken",
     "stone-masonry-dark",
-    "stone-masonry-mid",
-    "style-historic"
+    "stone-masonry-mid"
    ]
   },
   {
@@ -211553,14 +211566,14 @@
     "style-historic"
    ],
    "variant": "ken-grave/crypt-large",
-   "thickRel": 1.11
+   "thickRel": 1.22
   },
   {
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "crypt-small-roof",
    "hash": "3d1eded212",
-   "kind": "str-building-religious-crypt",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     1.351,
@@ -211597,8 +211610,7 @@
     "halloween",
     "ken",
     "stone-masonry-dark",
-    "stone-masonry-mid",
-    "style-historic"
+    "stone-masonry-mid"
    ]
   },
   {
@@ -211647,14 +211659,14 @@
     "storeys-0-5",
     "style-historic"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.22
   },
   {
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "crypt-small",
    "hash": "b5db86639a",
-   "kind": "str-building-religious-crypt",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     1.215,
@@ -211692,9 +211704,7 @@
     "halloween",
     "ken",
     "stone-masonry-dark",
-    "stone-masonry-mid",
-    "storeys-0-5",
-    "style-historic"
+    "stone-masonry-mid"
    ],
    "variant": "ken-grave/crypt-large"
   },
@@ -228063,7 +228073,7 @@
    "kit": "ken-pirate",
    "name": "tower-base-door",
    "hash": "567a11857a",
-   "kind": "str-building-tower",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     0.948,
@@ -228098,7 +228108,6 @@
     "comp",
     "ken",
     "stone-masonry-dark",
-    "style-historic",
     "wood-light"
    ],
    "variant": "ken-pirate/tower-base"
@@ -228107,7 +228116,7 @@
    "kit": "ken-pirate",
    "name": "tower-base",
    "hash": "b54571ea75",
-   "kind": "str-building-tower",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     0.948,
@@ -228139,8 +228148,7 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-dark",
-    "style-historic"
+    "stone-masonry-dark"
    ],
    "variant": "ken-pirate/tower-base"
   },
@@ -228243,7 +228251,7 @@
    "kit": "ken-pirate",
    "name": "tower-middle-windows",
    "hash": "eaa4dd1862",
-   "kind": "str-building-tower",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     0.85,
@@ -228277,8 +228285,7 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid",
-    "style-historic"
+    "stone-masonry-mid"
    ],
    "variant": "ken-pirate/tower-complete-small"
   },
@@ -228286,7 +228293,7 @@
    "kit": "ken-pirate",
    "name": "tower-middle",
    "hash": "b18bb231a9",
-   "kind": "str-building-tower",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     0.916,
@@ -228318,8 +228325,7 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid",
-    "style-historic"
+    "stone-masonry-mid"
    ],
    "variant": "ken-pirate/tower-complete-small"
   },
@@ -228369,7 +228375,7 @@
    "kit": "ken-pirate",
    "name": "tower-top",
    "hash": "2464180e3f",
-   "kind": "str-building-tower",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     1.006,
@@ -228402,8 +228408,7 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid",
-    "style-historic"
+    "stone-masonry-mid"
    ],
    "variant": "ken-pirate/tower-complete-small"
   },
@@ -228411,7 +228416,7 @@
    "kit": "ken-pirate",
    "name": "tower-watch",
    "hash": "23b315d983",
-   "kind": "str-building-tower",
+   "kind": "str-part-module",
    "size": "m",
    "wdh": [
     0.915,
@@ -228443,8 +228448,7 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid",
-    "style-historic"
+    "stone-masonry-mid"
    ],
    "variant": "ken-pirate/tower-complete-small"
   },
@@ -234682,7 +234686,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.22
+   "thickRel": 1.21
   },
   {
    "kit": "ken-racing",
@@ -246173,7 +246177,7 @@
     "space"
    ],
    "variant": "ken-station/stairs",
-   "thickRel": 1.15
+   "thickRel": 1.14
   },
   {
    "kit": "ken-station",
@@ -264847,7 +264851,7 @@
      "doubled": 1
     }
    },
-   "thickRel": 1.04,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "error",
@@ -264911,7 +264915,7 @@
      "doubled": 1
     }
    },
-   "thickRel": 1.13,
+   "thickRel": 1.24,
    "lint": [
     {
      "level": "error",
@@ -264975,7 +264979,7 @@
      "doubled": 1
     }
    },
-   "thickRel": 1.13,
+   "thickRel": 1.23,
    "lint": [
     {
      "level": "error",
@@ -265334,7 +265338,7 @@
     "storeys-2",
     "style-historic"
    ],
-   "thickRel": 1
+   "thickRel": 1.1
   },
   {
    "kit": "loaf-gothic",
@@ -326068,7 +326072,7 @@
     "style-historic",
     "wood-dark"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.91
   },
   {
    "kit": "mali",
@@ -326205,7 +326209,7 @@
     "style-historic",
     "wood-dark"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.64
   },
   {
    "kit": "medieval-forge",
@@ -362842,7 +362846,7 @@
     "space"
    ],
    "variant": "quat-megakit/platform-ramp-4",
-   "thickRel": 1.29
+   "thickRel": 1.28
   },
   {
    "kit": "quat-megakit",
@@ -396864,7 +396868,7 @@
    "collection": "quat-medieval",
    "name": "mine",
    "hash": "5d0af0c402",
-   "kind": "str-building-work-industrial-mine",
+   "kind": "str-access-mine",
    "size": "l",
    "wdh": [
     2.569,
@@ -396908,12 +396912,10 @@
     "metal-iron-dark",
     "qua",
     "stone-masonry-mid",
-    "storeys-3",
-    "style-historic",
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.11,
+   "thickRel": 1.86,
    "lint": [
     {
      "level": "warning",
@@ -401821,7 +401823,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.86
   },
   {
    "kit": "rgp-asia",
@@ -402709,7 +402711,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.94
+   "thickRel": 1.33
   },
   {
    "kit": "rgp-asia",
@@ -402764,7 +402766,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.57,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -451091,7 +451093,7 @@
     "storeys-6",
     "style-historic"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.97
   },
   {
    "kit": "taalei-kit",
@@ -455624,7 +455626,7 @@
     "wood-mid"
    ],
    "variant": "wizp-asia/altar-a",
-   "thickRel": 0.63,
+   "thickRel": 0.88,
    "lint": [
     {
      "level": "warning",
@@ -455686,7 +455688,7 @@
     "wood-mid"
    ],
    "variant": "wizp-asia/altar-a",
-   "thickRel": 0.63,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "warning",
@@ -459771,7 +459773,7 @@
     "wizp",
     "wood-dark"
    ],
-   "thickRel": 0.71,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -460044,7 +460046,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 1.06,
+   "thickRel": 1.49,
    "lint": [
     {
      "level": "warning",
@@ -465445,7 +465447,7 @@
    "collection": "wizp-western",
    "name": "mine-entrance",
    "hash": "94fd81e73c",
-   "kind": "str-building-work-industrial-mine",
+   "kind": "str-access-mine",
    "size": "l",
    "wdh": [
     3.684,
@@ -465495,8 +465497,6 @@
     "metal-iron-dark",
     "special",
     "stone-rock",
-    "storeys-1",
-    "style-historic",
     "textile-cloth-mid",
     "wizp",
     "wood-dark",
@@ -465504,8 +465504,13 @@
     "wood-mid"
    ],
    "specialBand": "5,2",
-   "thickRel": 0.85,
+   "thickRel": 1.43,
    "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G15 bands 7 wants max 6"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -468689,7 +468694,7 @@
     "wizp",
     "wood-dark"
    ],
-   "thickRel": 0.71,
+   "thickRel": 1,
    "lint": [
     {
      "level": "warning",
@@ -468749,7 +468754,7 @@
     "wizp",
     "wood-dark"
    ],
-   "thickRel": 1.06,
+   "thickRel": 1.49,
    "lint": [
     {
      "level": "warning",

@@ -29824,6 +29824,25 @@
    ]
   },
   {
+   "id": "str-part-module",
+   "name": "Building module",
+   "type": "kind",
+   "description": "Stackable section of a building: tower base, middle or top, crypt section or crypt roof.",
+   "models": [
+    "ken-castle/tower-base",
+    "ken-castle/tower-hexagon-base",
+    "ken-pirate/tower-base-door",
+    "ken-pirate/tower-base",
+    "ken-pirate/tower-middle-windows",
+    "ken-pirate/tower-middle",
+    "ken-pirate/tower-top",
+    "ken-pirate/tower-watch",
+    "ken-grave/crypt-large-roof",
+    "ken-grave/crypt-small-roof",
+    "ken-grave/crypt-small"
+   ]
+  },
+  {
    "id": "str-fixture-marker",
    "name": "Marker",
    "type": "kind",
@@ -30152,9 +30171,6 @@
    "models": [
     "ken-grave/crypt-large",
     "kay-hallow/crypt",
-    "ken-grave/crypt-small-roof",
-    "ken-grave/crypt-small",
-    "ken-grave/crypt-large-roof",
     "ken-grave/crypt-small-roofed"
    ]
   },
@@ -30819,14 +30835,6 @@
     "quat-medieval/bell-tower",
     "taalei-kit/lighthouse",
     "wizp-mediev/wizard-tower",
-    "ken-pirate/tower-base-door",
-    "ken-castle/tower-base",
-    "ken-castle/tower-hexagon-base",
-    "ken-pirate/tower-base",
-    "ken-pirate/tower-middle",
-    "ken-pirate/tower-middle-windows",
-    "ken-pirate/tower-top",
-    "ken-pirate/tower-watch",
     "rgp-medieval/wall-tower"
    ]
   },
@@ -31584,6 +31592,17 @@
    ]
   },
   {
+   "id": "str-fixture-altar",
+   "name": "Altar",
+   "type": "kind",
+   "description": "Altar or altar stone standing free, a small open shrine.",
+   "models": [
+    "ken-grave/altar-stone",
+    "ken-grave/altar-wood",
+    "kay-spook/shrine"
+   ]
+  },
+  {
    "id": "str-building-residential",
    "name": "Residential",
    "type": "kind",
@@ -31665,7 +31684,7 @@
    ]
   },
   {
-   "id": "str-building-work-industrial-mine",
+   "id": "str-access-mine",
    "name": "Mine",
    "type": "kind",
    "description": "Mine entrance cut into rock, with its portal frame and the rails, carts and crates around it.",
@@ -32185,7 +32204,7 @@
    "id": "str-building-religious-shrine",
    "name": "Shrine",
    "type": "kind",
-   "description": "shrine, gazebo, altar",
+   "description": "shrine, gazebo",
    "models": [
     "rgp-asia/shrine",
     "wizp-asia/shrine-large",
@@ -32193,9 +32212,6 @@
     "wizp-asia/altar-b",
     "wizp-village/shrine",
     "wizp-asia/tower",
-    "ken-grave/altar-stone",
-    "ken-grave/altar-wood",
-    "kay-spook/shrine",
     "emace-village/wayside-shrine",
     "wizp-village/tower",
     "rgp-asia/shrine-small"
@@ -36969,16 +36985,12 @@
    "models": [
     "quat-farms/chicken-coop",
     "kay-hallow/crypt",
-    "ken-grave/crypt-small",
     "ken-grave/crypt-large",
     "wizp-village/shrine",
     "ken-grave/crypt-small-roofed",
-    "ken-grave/altar-stone",
-    "ken-grave/altar-wood",
     "emace-village/wayside-shrine",
     "emace-village/hutch",
-    "m3-base/kennel-01",
-    "kay-spook/shrine"
+    "m3-base/kennel-01"
    ]
   },
   {
@@ -37047,10 +37059,8 @@
     "quat-space/house-open",
     "quat-space/house-single",
     "loaf-gothic/structure-j",
-    "kay-builder/mine",
     "loaf-gothic/structure-e",
     "quat-town/house-1-3-a",
-    "wizp-mediev/mine-entrance",
     "emace-village/outhouse",
     "emace-village/hut",
     "emace-village/lean-to",
@@ -37217,7 +37227,6 @@
     "rgp-medieval/house-11-b",
     "loaf-gothic/structure-d",
     "loaf-gothic/structure-i",
-    "kay-hexagon/mine",
     "kay-space/drill-structure",
     "ken-commercial/tower-low-detail-wide-a",
     "loaf-gothic/structure-k",
@@ -37329,7 +37338,6 @@
     "lowpoly-buildings/apartment-5",
     "lowpoly-buildings/apartment-7",
     "lowpoly-buildings/apartment-8",
-    "quat-town/mine",
     "quat-town/wonder-1-a",
     "quat-town/wonder-1-b",
     "quat-town/wonder-2-c",
@@ -37480,7 +37488,6 @@
     "kay-builder/lumbermill",
     "kay-builder/mill-anim",
     "kay-builder/mill",
-    "kay-builder/mine",
     "kay-builder/watchtower",
     "kay-builder/watermill-anim",
     "kay-builder/watermill",
@@ -37497,7 +37504,6 @@
     "kay-hexagon/house-b",
     "kay-hexagon/lumbermill-anim",
     "kay-hexagon/lumbermill",
-    "kay-hexagon/mine",
     "kay-hexagon/ruin",
     "kay-hexagon/tavern",
     "kay-hexagon/tower-a",
@@ -37508,24 +37514,10 @@
     "kay-hexagon/watermill",
     "kay-hexagon/windmill-anim",
     "kay-hexagon/windmill",
-    "kay-spook/shrine",
-    "ken-castle/tower-base",
-    "ken-castle/tower-hexagon-base",
-    "ken-grave/altar-stone",
-    "ken-grave/altar-wood",
-    "ken-grave/crypt-large-roof",
     "ken-grave/crypt-large",
-    "ken-grave/crypt-small-roof",
     "ken-grave/crypt-small-roofed",
-    "ken-grave/crypt-small",
-    "ken-pirate/tower-base-door",
-    "ken-pirate/tower-base",
     "ken-pirate/tower-complete-large",
     "ken-pirate/tower-complete-small",
-    "ken-pirate/tower-middle-windows",
-    "ken-pirate/tower-middle",
-    "ken-pirate/tower-top",
-    "ken-pirate/tower-watch",
     "loaf-gothic/church-a",
     "loaf-gothic/church-b",
     "loaf-gothic/church-c",
@@ -37619,7 +37611,6 @@
     "quat-town/house-2-3-a",
     "quat-town/house-2-3-b",
     "quat-town/house-2-3-c",
-    "quat-town/mine",
     "quat-town/storage-1-a",
     "quat-town/storage-1-b",
     "quat-town/storage-1-c",
@@ -37704,7 +37695,6 @@
     "wizp-mediev/house-a",
     "wizp-mediev/house-b-anim",
     "wizp-mediev/house-b",
-    "wizp-mediev/mine-entrance",
     "wizp-mediev/sawmill",
     "wizp-mediev/silo",
     "wizp-mediev/smithy-anim",
