@@ -1,5 +1,5 @@
 {
- "tooling": "652a8ea19d61",
+ "tooling": "37ee9fb16b76",
  "views": 17,
  "size": 320,
  "models": {
@@ -44,7 +44,11 @@
   },
   "3dm-city-2/road-closed-barrier": {
    "hash": "214c2fe7db2f407b",
-   "share": 0
+   "share": 0.0081,
+   "view": "180/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "3dm-city-2/wheelie-bin": {
    "hash": "faf500e96e2004af",
@@ -198,10 +202,19 @@
   },
   "3dm-guns/grease-gun": {
    "hash": "ca596189f8584831",
-   "share": 0.0001,
-   "view": "135/50",
+   "share": 0.0015,
+   "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "doubled": 0.93,
+    "open": 0.07
+   },
+   "above": {
+    "share": 0.0005,
+    "view": "225/50",
+    "causes": {
+     "doubled": 0.92,
+     "open": 0.08
+    }
    }
   },
   "3dm-guns/luger": {
@@ -223,12 +236,13 @@
   },
   "3dm-guns/m4a1": {
    "hash": "eed03115a768de45",
-   "share": 0.0036,
-   "view": "225/20",
+   "share": 0.0078,
+   "view": "45/20",
    "causes": {
-    "inside-out": 0.18,
-    "open": 0.8,
-    "inverted": 0.02
+    "doubled": 0.59,
+    "inside-out": 0.07,
+    "open": 0.33,
+    "inverted": 0.01
    }
   },
   "3dm-guns/makarov": {
@@ -378,7 +392,11 @@
   },
   "3dm-industrial/work-light": {
    "hash": "81377740dfbb1ac1",
-   "share": 0
+   "share": 0.0025,
+   "view": "180/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "3dm-industrial/work-light-tripod": {
    "hash": "a53133376fa9009e",
@@ -440,10 +458,11 @@
   },
   "3dm-medieval/skeleton-key": {
    "hash": "11c57eea2544b5a7",
-   "share": 0.0008,
-   "view": "0/20",
+   "share": 0.0178,
+   "view": "270/20",
    "causes": {
-    "open": 1
+    "doubled": 0.96,
+    "open": 0.04
    }
   },
   "3dm-medieval/tankard": {
@@ -795,22 +814,28 @@
   },
   "aq-pond/branch": {
    "hash": "7290c3b7b3767468",
-   "share": 0.0303,
+   "share": 0.0402,
    "view": "0/-89.9",
    "causes": {
-    "inverted": 1
+    "doubled": 0.81,
+    "inverted": 0.19
    },
    "above": {
-    "share": 0.0044,
+    "share": 0.0311,
     "view": "315/20",
     "causes": {
-     "inverted": 1
+     "doubled": 0.95,
+     "inverted": 0.05
     }
    }
   },
   "aq-pond/branch-a": {
    "hash": "c5e849afed0f55d3",
-   "share": 0
+   "share": 0.007,
+   "view": "180/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "aq-pond/branch-b": {
    "hash": "ea1dc04dc46f0dba",
@@ -1218,7 +1243,11 @@
   },
   "avra-nature/cliff-low": {
    "hash": "8f76d22edfeec989",
-   "share": 0
+   "share": 0,
+   "view": "315/50",
+   "causes": {
+    "doubled": 1
+   }
   },
   "avra-nature/cobble": {
    "hash": "feb276e35d3ea124",
@@ -1315,7 +1344,11 @@
   },
   "avra-weapons/arming-sword": {
    "hash": "f650e590ffba2957",
-   "share": 0
+   "share": 0.0096,
+   "view": "0/50",
+   "causes": {
+    "doubled": 1
+   }
   },
   "avra-weapons/arrow": {
    "hash": "557e4e96d0f9b8db",
@@ -2556,36 +2589,31 @@
   },
   "emace-village/drying-rack-hanging": {
    "hash": "f75403f6e95e66b1",
-   "share": 0.1242,
+   "share": 0.1886,
    "view": "0/-89.9",
    "causes": {
-    "inverted": 0.91,
-    "other": 0.09
+    "doubled": 0.9,
+    "inverted": 0.09,
+    "other": 0.01
    },
    "above": {
-    "share": 0.0123,
-    "view": "90/20",
+    "share": 0.102,
+    "view": "225/20",
     "causes": {
-     "other": 0.34,
-     "inverted": 0.66
+     "doubled": 0.97,
+     "other": 0.01,
+     "inverted": 0.02
     }
    }
   },
   "emace-village/firewood-rack": {
    "hash": "c380475c324f3250",
-   "share": 0.0051,
-   "view": "0/-89.9",
+   "share": 0.0241,
+   "view": "0/20",
    "causes": {
-    "inverted": 0.75,
-    "open": 0.25
-   },
-   "above": {
-    "share": 0.0005,
-    "view": "315/50",
-    "causes": {
-     "inverted": 0.42,
-     "open": 0.58
-    }
+    "doubled": 0.96,
+    "inverted": 0.03,
+    "open": 0.01
    }
   },
   "emace-village/frying-pan-eggs": {
@@ -3092,13 +3120,15 @@
    "share": 0.1105,
    "view": "0/-89.9",
    "causes": {
-    "inverted": 1
+    "inverted": 0.86,
+    "doubled": 0.14
    },
    "above": {
-    "share": 0.0018,
+    "share": 0.0024,
     "view": "180/20",
     "causes": {
-     "inverted": 1
+     "doubled": 0.74,
+     "inverted": 0.26
     }
    }
   },
@@ -3349,9 +3379,10 @@
   "emace-village/watchtower": {
    "hash": "819d7553542bee02",
    "share": 0.0003,
-   "view": "225/20",
+   "view": "315/20",
    "causes": {
-    "open": 1
+    "open": 0.87,
+    "doubled": 0.13
    }
   },
   "emace-village/wattle-fence": {
@@ -3398,11 +3429,12 @@
   },
   "food-pack-2/apricot-leaf": {
    "hash": "566d8e6bcd0cf489",
-   "share": 0.0041,
+   "share": 0.0044,
    "view": "90/50",
    "causes": {
-    "inside-out": 0.42,
-    "open": 0.57,
+    "inside-out": 0.39,
+    "open": 0.54,
+    "doubled": 0.06,
     "inverted": 0.01
    }
   },
@@ -4050,11 +4082,11 @@
   },
   "food-pack-2/strawberry": {
    "hash": "ae095989a1d3a4eb",
-   "share": 0.0035,
-   "view": "315/50",
+   "share": 0.0052,
+   "view": "45/20",
    "causes": {
-    "open": 1,
-    "inverted": 0
+    "open": 0.85,
+    "doubled": 0.15
    }
   },
   "food-pack-2/t-bone": {
@@ -4131,18 +4163,20 @@
   },
   "food-pack/cheese-wheel-cut-holes": {
    "hash": "9af5735d28663a71",
-   "share": 0.002,
+   "share": 0.0038,
    "view": "0/-89.9",
    "causes": {
-    "inverted": 0.92,
-    "other": 0.08
+    "doubled": 0.4,
+    "inverted": 0.55,
+    "other": 0.05
    },
    "above": {
-    "share": 0.0009,
+    "share": 0.0016,
     "view": "270/50",
     "causes": {
-     "inverted": 0.89,
-     "other": 0.11
+     "doubled": 0.34,
+     "inverted": 0.59,
+     "other": 0.07
     }
    }
   },
@@ -6362,11 +6396,21 @@
   },
   "household/grandfather-clock": {
    "hash": "14e0b8dd53d8b59c",
-   "share": 0.0024,
-   "view": "315/50",
+   "share": 0.0316,
+   "view": "0/-89.9",
    "causes": {
-    "inverted": 0.9,
-    "open": 0.1
+    "doubled": 0.91,
+    "inverted": 0.08,
+    "open": 0.01
+   },
+   "above": {
+    "share": 0.0227,
+    "view": "0/20",
+    "causes": {
+     "doubled": 0.91,
+     "inverted": 0.08,
+     "open": 0.01
+    }
    }
   },
   "household/hair-dryer": {
@@ -6526,11 +6570,18 @@
    "share": 0
   },
   "household/table": {
-   "hash": "6026e525809c4b2d",
-   "share": 0.0082,
-   "view": "90/20",
+   "hash": "bd9d8c7dde839e36",
+   "share": 0.0528,
+   "view": "0/-89.9",
    "causes": {
     "open": 1
+   },
+   "above": {
+    "share": 0.0082,
+    "view": "90/20",
+    "causes": {
+     "open": 1
+    }
    }
   },
   "household/table-lamp": {
@@ -6834,7 +6885,11 @@
   },
   "ipoly-torture/pillory": {
    "hash": "e05ed3813b3c1dea",
-   "share": 0
+   "share": 0.0026,
+   "view": "315/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "ipoly-torture/pillory-post": {
    "hash": "b316420350f73ee3",
@@ -7895,27 +7950,21 @@
   },
   "isa-kitchen/wall-tiles-modular-window-large-a": {
    "hash": "d48c7e0b58f42182",
-   "share": 0.0009,
-   "view": "225/50",
+   "share": 0.0091,
+   "view": "0/20",
    "causes": {
-    "open": 1
+    "doubled": 0.85,
+    "open": 0.15
    }
   },
   "isa-kitchen/wall-tiles-modular-window-small": {
    "hash": "aa92581cbf0b94c5",
-   "share": 0.0119,
-   "view": "0/-89.9",
+   "share": 0.0174,
+   "view": "225/20",
    "causes": {
-    "inverted": 0.71,
-    "other": 0.29
-   },
-   "above": {
-    "share": 0.0021,
-    "view": "270/20",
-    "causes": {
-     "inverted": 0.63,
-     "other": 0.37
-    }
+    "doubled": 0.86,
+    "inverted": 0.1,
+    "other": 0.04
    }
   },
   "isa-kitchen/wall-tiles-window-large": {
@@ -13475,10 +13524,11 @@
   },
   "kay-proto/table-medium-decorated": {
    "hash": "a48753da17a1ce95",
-   "share": 0.0003,
-   "view": "45/20",
+   "share": 0.0463,
+   "view": "225/50",
    "causes": {
-    "open": 1
+    "doubled": 1,
+    "open": 0
    }
   },
   "kay-proto/table-medium-long": {
@@ -14171,7 +14221,18 @@
   },
   "kay-spook/branches": {
    "hash": "bc706fa42f16e808",
-   "share": 0
+   "share": 0.01,
+   "view": "0/-89.9",
+   "causes": {
+    "doubled": 1
+   },
+   "above": {
+    "share": 0.0086,
+    "view": "225/50",
+    "causes": {
+     "doubled": 1
+    }
+   }
   },
   "kay-spook/candle-bundle": {
    "hash": "38b166e291472b97",
@@ -15779,15 +15840,25 @@
    "share": 0.0002,
    "view": "225/50",
    "causes": {
-    "open": 1
+    "doubled": 0.42,
+    "open": 0.58
    }
   },
   "ken-commercial/skyscraper-b": {
    "hash": "dd9a7fb811663f26",
-   "share": 0.0001,
-   "view": "135/20",
+   "share": 0.0003,
+   "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "doubled": 0.48,
+    "open": 0.52
+   },
+   "above": {
+    "share": 0.0002,
+    "view": "135/20",
+    "causes": {
+     "doubled": 0.42,
+     "open": 0.58
+    }
    }
   },
   "ken-commercial/skyscraper-c": {
@@ -15795,7 +15866,8 @@
    "share": 0.0002,
    "view": "45/20",
    "causes": {
-    "open": 1
+    "doubled": 0.44,
+    "open": 0.56
    }
   },
   "ken-commercial/skyscraper-d": {
@@ -18817,10 +18889,11 @@
   },
   "ken-market/cash-register": {
    "hash": "4ee07b8c6860bcdf",
-   "share": 0.0009,
+   "share": 0.0343,
    "view": "0/20",
    "causes": {
-    "open": 1
+    "doubled": 0.98,
+    "open": 0.02
    }
   },
   "ken-market/clothing-rack": {
@@ -18881,7 +18954,11 @@
   },
   "ken-market/gacha-machine": {
    "hash": "79fd7e3a23c58539",
-   "share": 0
+   "share": 0.0064,
+   "view": "315/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "ken-market/hand-truck": {
    "hash": "403569b8ee67f0c9",
@@ -18909,11 +18986,19 @@
   },
   "ken-market/shelf-boxes": {
    "hash": "f33d5d5c80db88d7",
-   "share": 0
+   "share": 0.005,
+   "view": "90/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "ken-market/shelf-end": {
    "hash": "aac0c0e9de226ae9",
-   "share": 0
+   "share": 0.0068,
+   "view": "135/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "ken-market/shopping-basket": {
    "hash": "e98bd572084a15f2",
@@ -18933,10 +19018,11 @@
   },
   "ken-market/turnstile": {
    "hash": "00a368d73c6cdbe7",
-   "share": 0.003,
-   "view": "45/50",
+   "share": 0.0058,
+   "view": "0/50",
    "causes": {
-    "open": 1
+    "doubled": 0.65,
+    "open": 0.35
    }
   },
   "ken-market/wall": {
@@ -18945,7 +19031,11 @@
   },
   "ken-market/wall-corner": {
    "hash": "3052908472a5d3c8",
-   "share": 0
+   "share": 0.129,
+   "view": "315/50",
+   "causes": {
+    "doubled": 1
+   }
   },
   "ken-market/wall-door": {
    "hash": "de690c56373d9d4a",
@@ -21284,7 +21374,11 @@
   },
   "ken-skate/slope-smooth": {
    "hash": "818e6a9d40a47f8b",
-   "share": 0
+   "share": 0.0001,
+   "view": "90/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "ken-skate/steps": {
    "hash": "c03f65831708efdf",
@@ -23554,7 +23648,11 @@
   },
   "ken-train/railroad-damaged-corner-large": {
    "hash": "1d8d887dccdb9345",
-   "share": 0
+   "share": 0.0014,
+   "view": "315/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "ken-train/railroad-damaged-corner-small": {
    "hash": "3b8110d4d7b7ff37",
@@ -23630,17 +23728,19 @@
   },
   "ken-train/train-bullet": {
    "hash": "dd8410b6a9574d2b",
-   "share": 0.0353,
+   "share": 0.0364,
    "view": "0/-89.9",
    "causes": {
-    "open": 0.82,
-    "inverted": 0.18
+    "open": 0.49,
+    "doubled": 0.4,
+    "inverted": 0.11
    },
    "above": {
-    "share": 0.003,
-    "view": "180/20",
+    "share": 0.0138,
+    "view": "0/20",
     "causes": {
-     "open": 1
+     "doubled": 0.77,
+     "open": 0.23
     }
    }
   },
@@ -24165,15 +24265,29 @@
    "share": 0
   },
   "loaf-coffins/coffin-stone-a-1": {
-   "hash": "3b994a7cfdf7be0b",
-   "share": 0
-  },
-  "loaf-coffins/coffin-stone-a-2": {
-   "hash": "8ef587f49826540c",
-   "share": 0,
-   "view": "225/20",
+   "hash": "a7960bcde2601197",
+   "share": 1,
+   "view": "0/-89.9",
    "causes": {
     "open": 1
+   },
+   "above": {
+    "share": 0
+   }
+  },
+  "loaf-coffins/coffin-stone-a-2": {
+   "hash": "fb26a008001e5f10",
+   "share": 1,
+   "view": "0/-89.9",
+   "causes": {
+    "open": 1
+   },
+   "above": {
+    "share": 0,
+    "view": "225/20",
+    "causes": {
+     "open": 1
+    }
    }
   },
   "loaf-coffins/coffin-stone-a-3": {
@@ -24185,12 +24299,26 @@
    }
   },
   "loaf-coffins/coffin-stone-b-1": {
-   "hash": "6c1cb48cf53f7a7f",
-   "share": 0
+   "hash": "284d0dedcb249072",
+   "share": 1,
+   "view": "0/-89.9",
+   "causes": {
+    "open": 1
+   },
+   "above": {
+    "share": 0
+   }
   },
   "loaf-coffins/coffin-stone-b-2": {
-   "hash": "61472af25ad8475f",
-   "share": 0
+   "hash": "1e352bd9f4d69522",
+   "share": 1,
+   "view": "0/-89.9",
+   "causes": {
+    "open": 1
+   },
+   "above": {
+    "share": 0
+   }
   },
   "loaf-coffins/coffin-stone-b-3": {
    "hash": "01b3cc7187293119",
@@ -24235,15 +24363,27 @@
   },
   "loaf-gothic/church-a": {
    "hash": "742ade5139e7dd10",
-   "share": 0
+   "share": 0.0408,
+   "view": "180/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "loaf-gothic/church-b": {
    "hash": "1f640e9959c75d3e",
-   "share": 0
+   "share": 0.0255,
+   "view": "180/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "loaf-gothic/church-c": {
    "hash": "76971752b96cfb23",
-   "share": 0
+   "share": 0.0684,
+   "view": "180/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "loaf-gothic/post-a-top": {
    "hash": "6b2b34ebde70385a",
@@ -24259,10 +24399,11 @@
   },
   "loaf-gothic/structure-a": {
    "hash": "1f9acbbcdf69b383",
-   "share": 0,
-   "view": "45/20",
+   "share": 0.1011,
+   "view": "225/50",
    "causes": {
-    "open": 1
+    "doubled": 1,
+    "open": 0
    }
   },
   "loaf-gothic/structure-b": {
@@ -24287,7 +24428,11 @@
   },
   "loaf-gothic/structure-f": {
    "hash": "1f551517de3904b6",
-   "share": 0
+   "share": 0.0444,
+   "view": "135/50",
+   "causes": {
+    "doubled": 1
+   }
   },
   "loaf-gothic/structure-g": {
    "hash": "7acbf3e70349d1f3",
@@ -24299,7 +24444,11 @@
   },
   "loaf-gothic/structure-i": {
    "hash": "8b22835bd7c13c66",
-   "share": 0
+   "share": 0.0376,
+   "view": "135/50",
+   "causes": {
+    "doubled": 1
+   }
   },
   "loaf-gothic/structure-j": {
    "hash": "c4d8ead2422fe807",
@@ -24307,7 +24456,18 @@
   },
   "loaf-gothic/structure-k": {
    "hash": "355671bb143b853c",
-   "share": 0
+   "share": 0.1446,
+   "view": "0/-89.9",
+   "causes": {
+    "doubled": 1
+   },
+   "above": {
+    "share": 0.0348,
+    "view": "315/20",
+    "causes": {
+     "doubled": 1
+    }
+   }
   },
   "lowbudget/digger-a": {
    "hash": "df0108bda5de2e92",
@@ -24373,7 +24533,11 @@
   },
   "lpa-construction/barrier-c": {
    "hash": "97f19dd9087ef800",
-   "share": 0
+   "share": 0.0028,
+   "view": "270/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "lpa-construction/barrier-d": {
    "hash": "926f58a6a2d279b9",
@@ -24571,7 +24735,11 @@
   },
   "lpa-construction/portable-toilet-a": {
    "hash": "d72af0958586801e",
-   "share": 0
+   "share": 0.0005,
+   "view": "90/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "lpa-construction/portable-toilet-b": {
    "hash": "8dd544a2577b85b9",
@@ -26315,11 +26483,18 @@
    "share": 0
   },
   "m3-base/bedside-table-01": {
-   "hash": "ab2b882284658eeb",
-   "share": 0.0027,
-   "view": "90/50",
+   "hash": "49d1724241147079",
+   "share": 0.0137,
+   "view": "0/-89.9",
    "causes": {
     "open": 1
+   },
+   "above": {
+    "share": 0.0027,
+    "view": "90/50",
+    "causes": {
+     "open": 1
+    }
    }
   },
   "m3-base/bell-01": {
@@ -26596,7 +26771,11 @@
   },
   "m3-base/cast-iron-log-burner": {
    "hash": "53f648801d2d50ce",
-   "share": 0
+   "share": 0.0002,
+   "view": "90/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "m3-base/cast-iron-stove-door": {
    "hash": "592487fc7801af29",
@@ -27181,7 +27360,11 @@
   },
   "m3-base/drainage-grate-01": {
    "hash": "a2a2816c8099da80",
-   "share": 0
+   "share": 0.0049,
+   "view": "90/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "m3-base/drawer-key-hole": {
    "hash": "6715039f62fef612",
@@ -27790,7 +27973,11 @@
   },
   "m3-base/horn": {
    "hash": "112dac1bc51bdd11",
-   "share": 0
+   "share": 0.0025,
+   "view": "90/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "m3-base/horse-bit": {
    "hash": "76e36ab50b4fbbfe",
@@ -27954,10 +28141,11 @@
   },
   "m3-base/khukuri": {
    "hash": "b16185f228e618c6",
-   "share": 0.0028,
-   "view": "90/50",
+   "share": 0.0035,
+   "view": "225/20",
    "causes": {
-    "open": 1
+    "doubled": 0.91,
+    "open": 0.09
    }
   },
   "m3-base/kicker-01": {
@@ -28443,7 +28631,11 @@
   },
   "m3-base/microwave": {
    "hash": "ae70881e1abd1430",
-   "share": 0
+   "share": 0.0629,
+   "view": "0/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "m3-base/mid-century-starburst": {
    "hash": "fbf7b085ed9f008b",
@@ -28944,7 +29136,11 @@
   },
   "m3-base/pliers": {
    "hash": "60acb804645c989b",
-   "share": 0
+   "share": 0.0079,
+   "view": "0/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "m3-base/plinth": {
    "hash": "46e3032fb280d418",
@@ -29366,10 +29562,11 @@
   },
   "m3-base/sack-truck": {
    "hash": "af198c6b8e55a9ef",
-   "share": 0.0003,
-   "view": "270/50",
+   "share": 0.0004,
+   "view": "225/50",
    "causes": {
-    "open": 1
+    "open": 0.63,
+    "doubled": 0.37
    }
   },
   "m3-base/sai": {
@@ -29796,7 +29993,18 @@
   },
   "m3-base/stone-archway-04": {
    "hash": "fc2668dfac84f39a",
-   "share": 0
+   "share": 0.4651,
+   "view": "0/-89.9",
+   "causes": {
+    "doubled": 1
+   },
+   "above": {
+    "share": 0.0604,
+    "view": "180/50",
+    "causes": {
+     "doubled": 1
+    }
+   }
   },
   "m3-base/stone-tile-arrangement-01": {
    "hash": "cdbe0f20d5fb0138",
@@ -30533,25 +30741,35 @@
   },
   "mali/blacksmith": {
    "hash": "cf58cc266ca2237a",
-   "share": 0.0838,
+   "share": 0.1067,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "doubled": 0.37,
+    "open": 0.63
    },
    "above": {
-    "share": 0
+    "share": 0.0033,
+    "view": "270/50",
+    "causes": {
+     "doubled": 1
+    }
    }
   },
   "mali/civic-center": {
    "hash": "aa038c781ba9ab44",
-   "share": 0.56,
+   "share": 0.5667,
    "view": "0/-89.9",
    "causes": {
-    "inverted": 0.19,
-    "open": 0.81
+    "inverted": 0.17,
+    "open": 0.74,
+    "doubled": 0.08
    },
    "above": {
-    "share": 0
+    "share": 0.0047,
+    "view": "225/20",
+    "causes": {
+     "doubled": 1
+    }
    }
   },
   "mali/corral": {
@@ -30583,16 +30801,18 @@
   },
   "mali/farmstead": {
    "hash": "1494ab5788cc50bb",
-   "share": 0.7512,
+   "share": 0.7517,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 0.99,
+    "doubled": 0.01
    },
    "above": {
-    "share": 0.0003,
+    "share": 0.001,
     "view": "45/50",
     "causes": {
-     "open": 1
+     "doubled": 0.94,
+     "open": 0.06
     }
    }
   },
@@ -30624,7 +30844,18 @@
   },
   "mali/house-2": {
    "hash": "64088bb4412789a7",
-   "share": 0
+   "share": 0.0025,
+   "view": "0/-89.9",
+   "causes": {
+    "doubled": 1
+   },
+   "above": {
+    "share": 0.001,
+    "view": "90/20",
+    "causes": {
+     "doubled": 1
+    }
+   }
   },
   "mali/house-3": {
    "hash": "160396d87180e216",
@@ -30692,16 +30923,18 @@
   },
   "mali/storehouse": {
    "hash": "be94b429abf44347",
-   "share": 0.2282,
+   "share": 0.2314,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 0.94,
+    "doubled": 0.06
    },
    "above": {
-    "share": 0.0004,
-    "view": "315/50",
+    "share": 0.0023,
+    "view": "135/50",
     "causes": {
-     "open": 1
+     "doubled": 0.91,
+     "open": 0.09
     }
    }
   },
@@ -30778,7 +31011,11 @@
   },
   "medieval-forge/door-2": {
    "hash": "76fc94a6319b5260",
-   "share": 0
+   "share": 0,
+   "view": "0/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "medieval-forge/forceps": {
    "hash": "f0481fba8db69ad7",
@@ -31977,11 +32214,12 @@
   },
   "quat-apocalypse/dog-pug": {
    "hash": "47a2a23370e4d420",
-   "share": 0.0043,
-   "view": "180/20",
+   "share": 0.0241,
+   "view": "45/20",
    "causes": {
-    "open": 0.99,
-    "inverted": 0.01
+    "doubled": 0.95,
+    "open": 0.05,
+    "inverted": 0
    }
   },
   "quat-apocalypse/dog-shepherd": {
@@ -31999,10 +32237,11 @@
   },
   "quat-apocalypse/guitar": {
    "hash": "e1bcf6c12201067a",
-   "share": 0.0014,
-   "view": "90/50",
+   "share": 0.0015,
+   "view": "315/20",
    "causes": {
-    "open": 1
+    "doubled": 0.9,
+    "open": 0.1
    }
   },
   "quat-apocalypse/knife": {
@@ -32273,7 +32512,8 @@
    "share": 0.001,
    "view": "180/50",
    "causes": {
-    "inverted": 1
+    "inverted": 0.91,
+    "doubled": 0.09
    }
   },
   "quat-buildings/house": {
@@ -32322,10 +32562,11 @@
   },
   "quat-cyberpunk/air-conditioner": {
    "hash": "e6c101a5d4eacfc5",
-   "share": 0.0003,
-   "view": "180/20",
+   "share": 0.0006,
+   "view": "135/20",
    "causes": {
-    "open": 1
+    "doubled": 0.86,
+    "open": 0.14
    }
   },
   "quat-cyberpunk/air-conditioner-double": {
@@ -33273,15 +33514,17 @@
    "share": 0.0186,
    "view": "0/-89.9",
    "causes": {
-    "open": 0.99,
-    "inverted": 0.01
+    "doubled": 0.53,
+    "open": 0.47,
+    "inverted": 0
    },
    "above": {
-    "share": 0.0039,
-    "view": "45/20",
+    "share": 0.0124,
+    "view": "180/20",
     "causes": {
-     "open": 0.98,
-     "inverted": 0.02
+     "doubled": 0.65,
+     "open": 0.34,
+     "inverted": 0.01
     }
    }
   },
@@ -34005,11 +34248,12 @@
   },
   "quat-interior/houseplant-e": {
    "hash": "5f628e5ae5a188ed",
-   "share": 0.0006,
-   "view": "135/20",
+   "share": 0.0425,
+   "view": "180/20",
    "causes": {
-    "other": 0.53,
-    "inverted": 0.47
+    "doubled": 1,
+    "other": 0,
+    "inverted": 0
    }
   },
   "quat-interior/kitchen-counter-a": {
@@ -34968,11 +35212,12 @@
   },
   "quat-ocean/coral-5": {
    "hash": "303be9a206de83e0",
-   "share": 0.0016,
-   "view": "45/20",
+   "share": 0.0029,
+   "view": "225/20",
    "causes": {
-    "inverted": 0.37,
-    "open": 0.63
+    "doubled": 0.67,
+    "inverted": 0.12,
+    "open": 0.2
    }
   },
   "quat-ocean/coral-6": {
@@ -34982,10 +35227,11 @@
   "quat-ocean/coral-7": {
    "hash": "ec0a69dd6ddcb740",
    "share": 0.0014,
-   "view": "180/20",
+   "view": "0/-89.9",
    "causes": {
-    "inverted": 0.92,
-    "open": 0.08
+    "inverted": 0.72,
+    "doubled": 0.22,
+    "open": 0.06
    }
   },
   "quat-ocean/crab": {
@@ -35032,7 +35278,11 @@
   },
   "quat-ocean/lobster": {
    "hash": "79de9e0faae79c6b",
-   "share": 0
+   "share": 0.0071,
+   "view": "270/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "quat-ocean/octopus": {
    "hash": "86e53f1e00b478c3",
@@ -35780,7 +36030,11 @@
   },
   "quat-props/key-gold": {
    "hash": "6b0ee5bd6977528c",
-   "share": 0
+   "share": 0.0012,
+   "view": "45/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "quat-props/key-metal": {
    "hash": "af40c6ba2ac52714",
@@ -36440,10 +36694,11 @@
   },
   "quat-ruins/floor-standard-half": {
    "hash": "8f361a5691807dab",
-   "share": 0.0266,
+   "share": 0.0269,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 0.98,
+    "doubled": 0.02
    },
    "above": {
     "share": 0.0002,
@@ -36499,7 +36754,11 @@
   },
   "quat-ruins/statue-stag": {
    "hash": "df481c11af3ff30c",
-   "share": 0
+   "share": 0.0005,
+   "view": "0/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "quat-ruins/wall": {
    "hash": "dc9248bec357d1a1",
@@ -36702,12 +36961,10 @@
   "quat-scifi/rifle-assault-c": {
    "hash": "4ecef9a75f177d0c",
    "share": 0.0004,
-   "view": "0/-89.9",
+   "view": "45/20",
    "causes": {
-    "open": 1
-   },
-   "above": {
-    "share": 0
+    "doubled": 0.9,
+    "open": 0.1
    }
   },
   "quat-scifi/rifle-assault-d": {
@@ -36716,7 +36973,18 @@
   },
   "quat-scifi/smg": {
    "hash": "264e35e665e0579c",
-   "share": 0
+   "share": 0.0025,
+   "view": "0/-89.9",
+   "causes": {
+    "doubled": 1
+   },
+   "above": {
+    "share": 0.0014,
+    "view": "90/50",
+    "causes": {
+     "doubled": 1
+    }
+   }
   },
   "quat-scifi/sniper": {
    "hash": "2c72b5e8ce91e938",
@@ -36751,9 +37019,10 @@
    "share": 0.0004,
    "view": "270/20",
    "causes": {
-    "inverted": 0.69,
-    "other": 0.08,
-    "open": 0.23
+    "inverted": 0.6,
+    "doubled": 0.13,
+    "other": 0.07,
+    "open": 0.2
    }
   },
   "quat-ships/viking-boat": {
@@ -36770,11 +37039,12 @@
   },
   "quat-shoot/barricade-junk": {
    "hash": "6410fde4ba0b614f",
-   "share": 0.0044,
-   "view": "45/20",
+   "share": 0.0776,
+   "view": "180/20",
    "causes": {
-    "inverted": 0.55,
-    "other": 0.45
+    "doubled": 0.93,
+    "inverted": 0.04,
+    "other": 0.03
    }
   },
   "quat-shoot/barrier": {
@@ -37015,10 +37285,11 @@
   },
   "quat-shoot/structure-container": {
    "hash": "b9664a316e822f63",
-   "share": 0.0004,
-   "view": "90/20",
+   "share": 0.0018,
+   "view": "270/50",
    "causes": {
-    "open": 1
+    "doubled": 0.96,
+    "open": 0.04
    }
   },
   "quat-shoot/tank": {
@@ -37889,13 +38160,15 @@
    "share": 0.3994,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 0.99,
+    "doubled": 0.01
    },
    "above": {
-    "share": 0.0001,
+    "share": 0.0009,
     "view": "0/50",
     "causes": {
-     "open": 1
+     "doubled": 0.92,
+     "open": 0.08
     }
    }
   },
@@ -37919,13 +38192,15 @@
    "share": 0.1414,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 1,
+    "doubled": 0
    },
    "above": {
-    "share": 0,
-    "view": "180/50",
+    "share": 0.0001,
+    "view": "45/50",
     "causes": {
-     "open": 1
+     "doubled": 0.75,
+     "open": 0.25
     }
    }
   },
@@ -37975,13 +38250,15 @@
    "share": 0.3408,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 1,
+    "doubled": 0
    },
    "above": {
-    "share": 0,
-    "view": "45/20",
+    "share": 0.0007,
+    "view": "0/20",
     "causes": {
-     "open": 1
+     "doubled": 0.96,
+     "open": 0.04
     }
    }
   },
@@ -37990,10 +38267,15 @@
    "share": 0.2693,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 1,
+    "doubled": 0
    },
    "above": {
-    "share": 0
+    "share": 0.0003,
+    "view": "315/50",
+    "causes": {
+     "doubled": 1
+    }
    }
   },
   "quat-textured/3-story-balcony": {
@@ -38012,13 +38294,15 @@
    "share": 0.1291,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 1,
+    "doubled": 0
    },
    "above": {
     "share": 0.0001,
-    "view": "45/20",
+    "view": "315/20",
     "causes": {
-     "open": 1
+     "doubled": 0.67,
+     "open": 0.33
     }
    }
   },
@@ -38120,18 +38404,20 @@
   },
   "quat-town/archery-2-a": {
    "hash": "bbeb2a46f91241a2",
-   "share": 0.0042,
-   "view": "45/20",
+   "share": 0.0139,
+   "view": "90/50",
    "causes": {
-    "open": 1
+    "doubled": 0.92,
+    "open": 0.08
    }
   },
   "quat-town/archery-2-b": {
    "hash": "488398da8cc84ba1",
-   "share": 0.0039,
+   "share": 0.0053,
    "view": "315/20",
    "causes": {
-    "open": 1
+    "doubled": 0.73,
+    "open": 0.27
    }
   },
   "quat-town/archery-2-c": {
@@ -38379,13 +38665,15 @@
    "share": 0.0162,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 0.99,
+    "doubled": 0.01
    },
    "above": {
-    "share": 0.0011,
+    "share": 0.0012,
     "view": "45/20",
     "causes": {
-     "open": 1
+     "open": 0.92,
+     "doubled": 0.08
     }
    }
   },
@@ -38430,10 +38718,11 @@
   },
   "quat-town/house-2-3-c": {
    "hash": "1748f132e3adb066",
-   "share": 0.001,
-   "view": "225/20",
+   "share": 0.0017,
+   "view": "315/20",
    "causes": {
-    "open": 1
+    "open": 0.83,
+    "doubled": 0.17
    }
   },
   "quat-town/logs": {
@@ -38487,12 +38776,13 @@
   },
   "quat-town/market-2-a": {
    "hash": "35409b1859f9ce14",
-   "share": 0.0012,
+   "share": 0.002,
    "view": "135/20",
    "causes": {
-    "inverted": 0.8,
-    "inside-out": 0.1,
-    "open": 0.1
+    "doubled": 0.56,
+    "inverted": 0.35,
+    "inside-out": 0.04,
+    "open": 0.04
    }
   },
   "quat-town/market-2-b": {
@@ -38594,19 +38884,21 @@
   },
   "quat-town/port-2-a": {
    "hash": "ae442a8ee1899dd7",
-   "share": 0.0007,
+   "share": 0.0008,
    "view": "270/20",
    "causes": {
-    "inverted": 0.69,
-    "open": 0.31
+    "inverted": 0.63,
+    "open": 0.28,
+    "doubled": 0.09
    }
   },
   "quat-town/port-2-b": {
    "hash": "c06bdc9b467439df",
-   "share": 0.0011,
+   "share": 0.0012,
    "view": "225/20",
    "causes": {
-    "inverted": 1
+    "inverted": 0.81,
+    "doubled": 0.19
    }
   },
   "quat-town/rock-a": {
@@ -38708,8 +39000,15 @@
    "share": 0
   },
   "quat-town/town-center-2-c": {
-   "hash": "4b8d54bdaad81c93",
-   "share": 0
+   "hash": "3994278bd6bba46b",
+   "share": 0.7057,
+   "view": "0/-89.9",
+   "causes": {
+    "open": 1
+   },
+   "above": {
+    "share": 0
+   }
   },
   "quat-town/trees": {
    "hash": "97ca665bd843b92c",
@@ -38919,16 +39218,18 @@
   },
   "quat-town/wonder-walls-1": {
    "hash": "a07eca98f23dadb0",
-   "share": 0.0123,
+   "share": 0.0125,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "doubled": 0.22,
+    "open": 0.78
    },
    "above": {
-    "share": 0.0002,
-    "view": "135/20",
+    "share": 0.0006,
+    "view": "45/20",
     "causes": {
-     "open": 1
+     "doubled": 0.74,
+     "open": 0.26
     }
    }
   },
@@ -39908,7 +40209,11 @@
   },
   "rgp-medieval/house-3-a": {
    "hash": "c222ef71ef324361",
-   "share": 0
+   "share": 0.0001,
+   "view": "135/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "rgp-medieval/house-3-b": {
    "hash": "6b951373743daed7",
@@ -40332,20 +40637,14 @@
    "share": 0
   },
   "rgp-medieval/rock-formation-a": {
-   "hash": "d153aa42fcfc15f7",
-   "share": 0.0807,
+   "hash": "434438ec3a8e4619",
+   "share": 0.6658,
    "view": "0/-89.9",
    "causes": {
-    "open": 0.99,
-    "inverted": 0.01,
-    "other": 0
+    "open": 1
    },
    "above": {
-    "share": 0.0001,
-    "view": "270/20",
-    "causes": {
-     "other": 1
-    }
+    "share": 0
    }
   },
   "rgp-medieval/rock-formation-b": {
@@ -40671,7 +40970,11 @@
   },
   "rgp-props/dried-fish-1-a": {
    "hash": "3955af5e27495090",
-   "share": 0
+   "share": 0.0004,
+   "view": "45/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "rgp-props/fireplace-1-1-a": {
    "hash": "904b3f247253e8d5",
@@ -40679,11 +40982,19 @@
   },
   "rgp-props/fishing-rod-a": {
    "hash": "768aadd3b5f19a7d",
-   "share": 0
+   "share": 0.0018,
+   "view": "180/50",
+   "causes": {
+    "doubled": 1
+   }
   },
   "rgp-props/fishing-rod-c": {
    "hash": "f231123e4029044d",
-   "share": 0
+   "share": 0.0023,
+   "view": "180/50",
+   "causes": {
+    "doubled": 1
+   }
   },
   "rgp-props/hammer-1-a": {
    "hash": "85f6f4fe248bb809",
@@ -40907,14 +41218,19 @@
   },
   "rgs-proto/courtyard": {
    "hash": "b76bb67cf600021e",
-   "share": 0.3127,
+   "share": 0.3153,
    "view": "0/-89.9",
    "causes": {
-    "open": 0.97,
-    "inverted": 0.03
+    "open": 0.48,
+    "doubled": 0.5,
+    "inverted": 0.02
    },
    "above": {
-    "share": 0
+    "share": 0.0551,
+    "view": "45/20",
+    "causes": {
+     "doubled": 1
+    }
    }
   },
   "rgs-proto/fence": {
@@ -40954,13 +41270,18 @@
   },
   "rgs-proto/shop": {
    "hash": "5e8916338821430f",
-   "share": 0.7667,
+   "share": 0.7669,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "open": 0.93,
+    "doubled": 0.07
    },
    "above": {
-    "share": 0
+    "share": 0.0105,
+    "view": "90/20",
+    "causes": {
+     "doubled": 1
+    }
    }
   },
   "rgs-vehicles/ambulance": {
@@ -43026,21 +43347,23 @@
   },
   "styloo-guns/rocket-launcher": {
    "hash": "64547ffd1d4bc6dc",
-   "share": 0.0023,
+   "share": 0.0155,
    "view": "270/20",
    "causes": {
-    "inverted": 0.57,
-    "other": 0.38,
-    "open": 0.05
+    "doubled": 0.93,
+    "inverted": 0.04,
+    "other": 0.03,
+    "open": 0
    }
   },
   "styloo-guns/rocket-launcher-eyes": {
    "hash": "528a9a3682eda155",
-   "share": 0.0023,
+   "share": 0.0155,
    "view": "270/20",
    "causes": {
-    "inverted": 0.63,
-    "other": 0.37
+    "doubled": 0.94,
+    "inverted": 0.04,
+    "other": 0.02
    }
   },
   "styloo-guns/rocket-launcher-quad": {
@@ -43491,7 +43814,8 @@
    "share": 0.0018,
    "view": "180/20",
    "causes": {
-    "open": 1
+    "open": 0.96,
+    "doubled": 0.04
    }
   },
   "styloo-school/display-rack": {
@@ -44042,18 +44366,20 @@
   },
   "swords-tember/cephalopod": {
    "hash": "c870c399d5369a27",
-   "share": 0.0801,
+   "share": 0.1514,
    "view": "0/-89.9",
    "causes": {
-    "inverted": 0.85,
-    "other": 0.15
+    "doubled": 0.87,
+    "inverted": 0.11,
+    "other": 0.02
    },
    "above": {
-    "share": 0.0043,
+    "share": 0.0428,
     "view": "135/20",
     "causes": {
-     "inverted": 0.59,
-     "other": 0.41
+     "doubled": 0.96,
+     "inverted": 0.03,
+     "other": 0.02
     }
    }
   },
@@ -44070,16 +44396,18 @@
    "share": 0.1249,
    "view": "0/-89.9",
    "causes": {
-    "inverted": 0.95,
-    "other": 0.05,
-    "open": 0.01
+    "doubled": 0.71,
+    "inverted": 0.28,
+    "other": 0.01,
+    "open": 0
    },
    "above": {
-    "share": 0.0029,
-    "view": "270/20",
+    "share": 0.0153,
+    "view": "45/20",
     "causes": {
-     "inverted": 0.89,
-     "other": 0.11
+     "doubled": 0.88,
+     "inverted": 0.11,
+     "other": 0.01
     }
    }
   },
@@ -44105,18 +44433,20 @@
   },
   "swords-tember/floral": {
    "hash": "dfe6aae52c524d02",
-   "share": 0.0585,
+   "share": 0.0831,
    "view": "0/-89.9",
    "causes": {
-    "inverted": 0.77,
-    "other": 0.23
+    "doubled": 0.82,
+    "other": 0.05,
+    "inverted": 0.13
    },
    "above": {
-    "share": 0.0031,
-    "view": "315/20",
+    "share": 0.0189,
+    "view": "90/20",
     "causes": {
-     "inverted": 0.72,
-     "other": 0.28
+     "doubled": 0.88,
+     "inverted": 0.09,
+     "other": 0.03
     }
    }
   },
@@ -44130,25 +44460,28 @@
   },
   "swords-tember/pattern": {
    "hash": "9302fd1c78706e8c",
-   "share": 0.0015,
+   "share": 0.0052,
    "view": "0/-89.9",
    "causes": {
-    "open": 1
+    "doubled": 0.98,
+    "open": 0.02
    },
    "above": {
-    "share": 0.0006,
-    "view": "90/50",
+    "share": 0.004,
+    "view": "225/50",
     "causes": {
-     "open": 1
+     "doubled": 0.99,
+     "open": 0.01
     }
    }
   },
   "swords-tember/skull": {
    "hash": "b942f4425f20548b",
-   "share": 0.0003,
-   "view": "135/20",
+   "share": 0.0008,
+   "view": "180/20",
    "causes": {
-    "inverted": 1
+    "doubled": 0.83,
+    "inverted": 0.17
    }
   },
   "swords-tember/snake": {
@@ -44229,7 +44562,11 @@
   },
   "taalei-kit/boombox-doubledeck": {
    "hash": "513095d4daffedc0",
-   "share": 0
+   "share": 0.0006,
+   "view": "0/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "taalei-kit/copier": {
    "hash": "cccb2307b2c230c1",
@@ -44470,10 +44807,11 @@
   },
   "taalei-kit/scarecrow-pumpkin": {
    "hash": "12fab51ceb16e63e",
-   "share": 0.0001,
-   "view": "0/50",
+   "share": 0.0005,
+   "view": "270/50",
    "causes": {
-    "inverted": 1
+    "doubled": 0.93,
+    "inverted": 0.07
    }
   },
   "taalei-kit/scarecrow-tattered": {
@@ -44749,7 +45087,11 @@
   },
   "taalei-kit/typewriter-portable": {
    "hash": "d772c02e5111a48f",
-   "share": 0
+   "share": 0.0001,
+   "view": "225/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "taalei-kit/ufo": {
    "hash": "d63a7de3dcef98f0",
@@ -44990,21 +45332,13 @@
   },
   "western/bull-head": {
    "hash": "aed34e97fe75d15e",
-   "share": 0.0134,
-   "view": "0/-89.9",
+   "share": 0.0201,
+   "view": "180/20",
    "causes": {
-    "inverted": 0.82,
-    "open": 0.16,
-    "other": 0.02
-   },
-   "above": {
-    "share": 0.0007,
-    "view": "225/20",
-    "causes": {
-     "inverted": 0.29,
-     "open": 0.64,
-     "other": 0.07
-    }
+    "doubled": 0.87,
+    "inverted": 0.11,
+    "open": 0.02,
+    "other": 0
    }
   },
   "western/cactus-a": {
@@ -45141,11 +45475,19 @@
   },
   "wizp-asia/altar-a": {
    "hash": "937098733d136ca3",
-   "share": 0
+   "share": 0,
+   "view": "315/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "wizp-asia/altar-b": {
    "hash": "c9b7fe72da34d675",
-   "share": 0
+   "share": 0,
+   "view": "315/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "wizp-asia/arch-beam": {
    "hash": "831c7fca705b00d2",
@@ -45201,18 +45543,20 @@
   },
   "wizp-asia/door-left": {
    "hash": "8ac9acea7c755d5a",
-   "share": 0.0014,
-   "view": "135/50",
+   "share": 0.0016,
+   "view": "45/50",
    "causes": {
-    "open": 1
+    "open": 0.83,
+    "doubled": 0.17
    }
   },
   "wizp-asia/door-right": {
    "hash": "61e283164101f6fa",
-   "share": 0.0014,
+   "share": 0.0019,
    "view": "315/50",
    "causes": {
-    "open": 1
+    "doubled": 0.24,
+    "open": 0.76
    }
   },
   "wizp-asia/drum": {
@@ -46568,7 +46912,11 @@
   },
   "wizp-village/granary-large": {
    "hash": "0a1f90d063ee8d56",
-   "share": 0
+   "share": 0,
+   "view": "45/20",
+   "causes": {
+    "doubled": 1
+   }
   },
   "wizp-village/house-a": {
    "hash": "2ba93c13eb648294",
