@@ -11,7 +11,7 @@ const CFG = {
   doubledWarn: 0.01,
   atlas: { cols: 16, rows: 4, eps: 1e-3 },
   nonManifoldWarn: 0.02,
-  zfight: { cos: 0.9995, gap: 2e-4, share: 0.05 }, // gap: × largest size; share: of the smaller triangle
+  zfight: { cos: 0.9995, gap: 2e-4, share: 0.05, facing: 0.5 }, // gap: × largest size; share: of the smaller triangle; facing: of the surface
   rawExtentFar: 50,          // raw shape bigger than this (before node scale) = odd units
   house: { materials: 1, texture: 'Textures/colormap.png' },
   ignoreCodes: ['URI_GLB', 'BUFFER_VIEW_TARGET_MISSING'],
@@ -79,7 +79,7 @@ function analysePrim(P, N, I) {
   return { nt, nv, uniq: keys.size, zeroN, degen, flat, surf, doubled, nonMan, edges: edges.size, parts: used.size };
 }
 
-// ---------- z-fighting: same-facing triangles on one plane that overlap ----------
+// ---------- z-fighting: triangles on one plane that overlap ----------
 function triOverlap2D(A, B) {
   let poly = A;
   for (let k = 0; k < 3 && poly.length; k++) {
@@ -96,9 +96,28 @@ function triOverlap2D(A, B) {
   return Math.abs(a) / 2;
 }
 
+function hitFirst(tris, o, d, skip) {
+  let best = Infinity, hit = null;
+  for (const t of tris) {
+    if (skip.includes(t)) continue;
+    const [a, b, c] = t.p, e1 = sub(b, a), e2 = sub(c, a), h = cross(d, e2), det = dot(e1, h);
+    if (Math.abs(det) < 1e-14) continue;
+    const s = sub(o, a), u = dot(s, h) / det; if (u < 0 || u > 1) continue;
+    const q = cross(s, e1), v = dot(d, q) / det; if (v < 0 || u + v > 1) continue;
+    const r = dot(e2, q) / det; if (r > 0 && r < best) { best = r; hit = t; }
+  }
+  return hit;
+}
+
+const intoSolid = (tris, t, skip, past) => {
+  const o = [0, 1, 2].map(c => (t.p[0][c] + t.p[1][c] + t.p[2][c]) / 3 + t.n[c] * past);
+  const hit = hitFirst(tris, o, t.n, skip);
+  return !!hit && dot(hit.n, t.n) > 0;
+};
+
 function zFight(tris, ext) {
   const nt = tris.length, gap = ext * CFG.zfight.gap, cell = ext / 32;
-  const grid = new Map(), hit = new Uint8Array(nt);
+  const grid = new Map(), hit = new Uint8Array(nt), back = new Uint8Array(nt);
   tris.forEach((t, i) => {
     const lo = [0, 1, 2].map(c => Math.floor(Math.min(t.p[0][c], t.p[1][c], t.p[2][c]) / cell));
     const hi = [0, 1, 2].map(c => Math.floor(Math.max(t.p[0][c], t.p[1][c], t.p[2][c]) / cell));
@@ -111,7 +130,8 @@ function zFight(tris, ext) {
     const i = L[a], j = L[b], key = i * nt + j;
     if (seen.has(key)) continue; seen.add(key);
     const A = tris[i], B = tris[j];
-    if (dot(A.n, B.n) < CFG.zfight.cos) continue;
+    const facing = dot(A.n, B.n);
+    if (Math.abs(facing) < CFG.zfight.cos) continue;
     if (B.p.some(v => Math.abs(dot(A.n, sub(v, A.p[0]))) > gap)) continue;
     const ax = A.n.map(Math.abs), drop = ax[0] > ax[1] ? (ax[0] > ax[2] ? 0 : 2) : (ax[1] > ax[2] ? 1 : 2);
     const flat = t => {
@@ -119,11 +139,17 @@ function zFight(tris, ext) {
       return (q[1][0] - q[0][0]) * (q[2][1] - q[0][1]) - (q[1][1] - q[0][1]) * (q[2][0] - q[0][0]) < 0 ? q.reverse() : q;
     };
     if (triOverlap2D(flat(A), flat(B)) > CFG.zfight.share * Math.min(A.area, B.area) * ax[drop]) {
+      if (facing < 0) {
+        if (!intoSolid(tris, A, [A, B], gap * 2) && !intoSolid(tris, B, [A, B], gap * 2)) back[i] = back[j] = 1;
+        continue;
+      }
       const v = A.colour === B.colour ? 1 : 2;
       hit[i] = Math.max(hit[i], v); hit[j] = Math.max(hit[j], v);
     }
   }
-  return { seen: hit.filter(h => h === 2).length, hidden: hit.filter(h => h === 1).length };
+  let facing = 0, total = 0;
+  tris.forEach((t, i) => { total += t.area; if (back[i]) facing += t.area; });
+  return { seen: hit.filter(h => h === 2).length, hidden: hit.filter(h => h === 1).length, facingShare: total ? facing / total : 0 };
 }
 
 // ---------- per file ----------
@@ -216,6 +242,7 @@ async function lint(file) {
   if (xband) add('error', 'colour', `${xband} triangles with corners in different colormap cells (smeared band)`);
   const zf = zFight(tris, Math.max(...size));
   if (zf.seen) add('error', 'zfight', `${zf.seen} triangles overlap a different colour on the same plane (z-fighting flicker)`);
+  if (zf.facingShare >= CFG.zfight.facing) add('error', 'zfight', `${pct(zf.facingShare)} of the surface lies back to back with faces turned the other way on the same plane (z-fighting flicker)`);
   if (zf.hidden) add('info', 'zfight', `${zf.hidden} triangles overlap the same colour on the same plane`);
   if (T.nonMan / T.edges > CFG.nonManifoldWarn) add('info', 'geometry', `${pct(T.nonMan / T.edges)} edges shared by 3+ faces`);
 
