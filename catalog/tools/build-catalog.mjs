@@ -37,10 +37,14 @@ const BACKFACES = existsSync(join(ROOT, LINT_VARS.backface.file))
 const noBackface = [];
 const { belowExempt, belowKept } = LINT_VARS.backface;
 const aboveOnly = (kind) => belowExempt.some((k) => idUnder(kind, k)) && !belowKept.some((k) => idUnder(kind, k));
+const BELOW_VIEW = '0/-89.9';
 function backfaceOf(model) {
   const found = BACKFACES[model.id];
-  const m = (aboveOnly(model.kind) && found.above) || found;
-  if (m.share >= LINT_VARS.backface.warn) model.backface = { share: m.share, view: m.view, causes: m.causes };
+  const below = found.view === BELOW_VIEW && !aboveOnly(model.kind) ? found : null;
+  const hits = [['above', found.above ?? found], ['below', below]]
+    .filter(([side, m]) => m && m.share >= LINT_VARS.backface[side].warn)
+    .map(([side, m]) => ({ side, share: m.share, view: m.view, causes: m.causes }));
+  if (hits.length) model.backface = hits;
 }
 const stripNull = (key, value) => (value === null ? undefined : value);
 

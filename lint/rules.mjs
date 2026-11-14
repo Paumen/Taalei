@@ -433,10 +433,10 @@ export function measureFindingsFor(subject, rows, materialIds, vars, kindFields,
 export const isExempt = (model, vars) => vars.exemptKinds.some((k) => idUnder(model.kind, k));
 
 export function backfaceFindingsFor(model, vars) {
-  const share = model.backface?.share ?? 0;
-  const { warn, error } = vars.backface;
-  if (share < warn) return [];
-  return [{ level: share >= error ? 'error' : 'warning', ...model.backface, limit: share >= error ? error : warn }];
+  return (model.backface ?? []).map((hit) => {
+    const { warn, error } = vars.backface[hit.side];
+    return { level: hit.share >= error ? 'error' : 'warning', ...hit, limit: hit.share >= error ? error : warn };
+  });
 }
 
 const percent = (v) => `${(v * 100).toFixed(1)}%`;
