@@ -58,6 +58,7 @@ export const TAG_TYPES = [
   { type: 'attribute', head: 'Attributes', extra: true },
   { type: 'tag', head: 'Tags' },
   { type: 'theme', head: 'Theme', extra: true },
+  { type: 'tech', head: 'Tech', extra: true },
   { type: 'artist', head: 'Artist', extra: true },
 ];
 

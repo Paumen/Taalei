@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/three-addons/GLTFLoader.js';
-import { modelUrl } from './shared.js?v=06861d7ddb';
+import { modelUrl } from './shared.js?v=edc551c3ed';
 
 const GRID_MINOR = 0.1;
 const GRID_MAJOR = 0.2;

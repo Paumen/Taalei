@@ -260,7 +260,7 @@ const cacheLines = Object.keys(newCache)
 writeFileSync(CACHE_FILE, `{"tooling":${JSON.stringify(TOOLING)},"models":{\n${cacheLines.join(',\n')}\n}}\n`);
 console.log(`${fromCache} of ${Object.keys(newCache).length} workfiles came from ${relative(ROOT, CACHE_FILE)}`);
 
-const TYPES = ['material', 'kind', 'size', 'attribute', 'theme', 'artist', 'tag'];
+const TYPES = ['material', 'kind', 'size', 'attribute', 'theme', 'tech', 'artist', 'tag'];
 const KIND_TREE = readKindTree();
 
 const SOURCES = [
@@ -442,6 +442,11 @@ for (const model of models) {
 }
 if (noBackface.length) {
   console.warn(`! ${noBackface.length} workfiles have no current backface measure, run catalog/tools/backfaces.mjs first: ${noBackface.slice(0, 5).join(', ')}${noBackface.length > 5 ? ', …' : ''}`);
+}
+for (const tag of tags.tags.filter((t) => t.from)) {
+  const members = models.filter((m) => m.tags.includes(tag.id) || m.tags.some((t) => tag.from.includes(t)));
+  for (const model of members) if (!model.tags.includes(tag.id)) model.tags.push(tag.id);
+  tag.count = members.length;
 }
 for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
   const members = models.filter(belongs);
