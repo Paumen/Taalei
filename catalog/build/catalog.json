@@ -29362,7 +29362,7 @@
    "name": "Building",
    "type": "kind",
    "description": "Building with no leaf that fits.",
-   "count": 455,
+   "count": 438,
    "color": "#7d4f3a"
   },
   {
@@ -29370,14 +29370,14 @@
    "name": "Work",
    "type": "kind",
    "description": "Building for work: agricultural, industrial, commercial.",
-   "count": 162
+   "count": 145
   },
   {
    "id": "str-part",
    "name": "Part",
    "type": "kind",
    "description": "room, cellar, souterrain, dungeon",
-   "count": 1090,
+   "count": 1107,
    "color": "#a8762a"
   },
   {
@@ -29617,6 +29617,13 @@
    "type": "kind",
    "description": "Bracket or brace plate fixed to a wall, post or beam.",
    "count": 7
+  },
+  {
+   "id": "str-part-mill",
+   "name": "Mill part",
+   "type": "kind",
+   "description": "Part of a mill on its own: waterwheel, windmill sails, flume.",
+   "count": 17
   },
   {
    "id": "str-fixture-marker",
@@ -29907,8 +29914,8 @@
    "id": "str-building-work-industrial-mill",
    "name": "Mill",
    "type": "kind",
-   "description": "Mill driven by water or by wind, and the wheel or sails on their own.",
-   "count": 41
+   "description": "Mill driven by water or by wind.",
+   "count": 24
   },
   {
    "id": "str-fixture-utility-well",
@@ -30134,7 +30141,7 @@
    "name": "Industrial",
    "type": "kind",
    "description": "Building where material is worked or milled, with no leaf that fits.",
-   "count": 106
+   "count": 89
   },
   {
    "id": "str-building-work-industrial-mine",
@@ -30767,7 +30774,7 @@
    "name": "Historic",
    "type": "attribute",
    "description": "Building style. Built before about 1900, fantasy included: huts, temples, castles, timber frame, thatch, adobe, traditional Asian, Victorian.",
-   "count": 287,
+   "count": 270,
    "kinds": [
     "str-building"
    ]
@@ -35888,6 +35895,12 @@
   "str-part-gate-single": {
    "high.min": 0.8,
    "high.max": 1.6,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-part-mill": {
+   "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 5000
@@ -94333,7 +94346,7 @@
    "collection": "fs-modular",
    "name": "waterwheel-flume-brace-double",
    "hash": "9c5740392a",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "m",
    "wdh": [
     0.53,
@@ -94366,20 +94379,16 @@
     "comp",
     "fs",
     "mounted",
-    "style-historic",
     "wood-dark"
    ],
-   "variant": "fs-town/waterwheel",
-   "mark": [
-    "centered"
-   ]
+   "variant": "fs-town/waterwheel"
   },
   {
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "waterwheel-flume-brace",
    "hash": "ba7956e5ba",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "m",
    "wdh": [
     0.53,
@@ -94412,20 +94421,16 @@
     "comp",
     "fs",
     "mounted",
-    "style-historic",
     "wood-dark"
    ],
-   "variant": "fs-town/waterwheel",
-   "mark": [
-    "centered"
-   ]
+   "variant": "fs-town/waterwheel"
   },
   {
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "waterwheel-flume-curved",
    "hash": "6af86d40c4",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "s",
    "wdh": [
     0.397,
@@ -94457,7 +94462,6 @@
    "tags": [
     "comp",
     "fs",
-    "style-historic",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight"
@@ -94467,7 +94471,7 @@
    "collection": "fs-modular",
    "name": "waterwheel-flume-end",
    "hash": "8cd2179e8b",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "s",
    "wdh": [
     0.418,
@@ -94497,13 +94501,11 @@
    "tags": [
     "comp",
     "fs",
-    "style-historic",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -94511,7 +94513,7 @@
    "collection": "fs-modular",
    "name": "waterwheel-flume-pillar",
    "hash": "396e089365",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "m",
    "wdh": [
     0.106,
@@ -94543,7 +94545,6 @@
    "tags": [
     "comp",
     "fs",
-    "style-historic",
     "wood-dark"
    ],
    "variant": "fs-town/waterwheel"
@@ -94553,7 +94554,7 @@
    "collection": "fs-modular",
    "name": "waterwheel-flume-ramp-supported",
    "hash": "186c7e9456",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "m",
    "wdh": [
     0.53,
@@ -94586,7 +94587,6 @@
    "tags": [
     "comp",
     "fs",
-    "style-historic",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight"
@@ -94596,7 +94596,7 @@
    "collection": "fs-modular",
    "name": "waterwheel-flume-ramp",
    "hash": "2d6866887c",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "m",
    "wdh": [
     0.53,
@@ -94629,7 +94629,6 @@
    "tags": [
     "comp",
     "fs",
-    "style-historic",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight"
@@ -94639,7 +94638,7 @@
    "collection": "fs-modular",
    "name": "waterwheel-flume-straight",
    "hash": "a17878abd3",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "m",
    "wdh": [
     0.53,
@@ -94671,7 +94670,6 @@
    "tags": [
     "comp",
     "fs",
-    "style-historic",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight"
@@ -94681,7 +94679,7 @@
    "collection": "fs-modular",
    "name": "waterwheel",
    "hash": "e8ad1dcbfe",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     0.795,
@@ -94715,7 +94713,6 @@
     "fs",
     "hero",
     "mounted",
-    "style-historic",
     "wood-mid"
    ],
    "anim": [
@@ -94723,8 +94720,7 @@
    ],
    "variant": "fs-town/waterwheel",
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -94968,7 +94964,7 @@
    "collection": "fs-modular",
    "name": "windmill-blades",
    "hash": "ce2cf9c470",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     0.541,
@@ -95003,7 +94999,6 @@
     "comp",
     "fs",
     "mounted",
-    "style-historic",
     "textile-cloth-light",
     "wood-light"
    ],
@@ -95011,8 +95006,7 @@
     "spin"
    ],
    "mark": [
-    "grounded",
-    "centered"
+    "grounded"
    ]
   },
   {
@@ -252528,7 +252522,7 @@
    "collection": "ken-village",
    "name": "blade",
    "hash": "8b896e5508",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     0.1,
@@ -252563,13 +252557,9 @@
     "comp",
     "ken",
     "mounted",
-    "style-historic",
     "wood-light"
    ],
-   "variant": "ken-town/windmill",
-   "mark": [
-    "centered"
-   ]
+   "variant": "ken-town/windmill"
   },
   {
    "kit": "ken-town",
@@ -256603,7 +256593,7 @@
    "collection": "ken-village",
    "name": "watermill-wide",
    "hash": "85bad22c29",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     0.945,
@@ -256642,7 +256632,6 @@
     "ken",
     "metal-iron-dark",
     "mounted",
-    "style-historic",
     "wood-dark",
     "wood-mid"
    ],
@@ -256659,7 +256648,7 @@
    "collection": "ken-village",
    "name": "watermill",
    "hash": "fd3625ba9b",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     0.765,
@@ -256698,7 +256687,6 @@
     "ken",
     "metal-iron-dark",
     "mounted",
-    "style-historic",
     "wood-dark",
     "wood-mid"
    ],
@@ -256762,7 +256750,7 @@
    "collection": "ken-village",
    "name": "windmill",
    "hash": "65a89c7460",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     0.424,
@@ -256798,7 +256786,6 @@
     "comp",
     "ken",
     "mounted",
-    "style-historic",
     "textile-cloth-light",
     "wood-light"
    ],
@@ -413308,7 +413295,7 @@
    "collection": "rgp",
    "name": "waterwheel",
    "hash": "13fd4669e1",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     3.547,
@@ -413345,7 +413332,6 @@
     "metal-iron-dark",
     "mounted",
     "rgp",
-    "style-historic",
     "tba",
     "wood-mid"
    ]
@@ -460420,7 +460406,7 @@
    "collection": "wizp-eastern",
    "name": "waterwheel-anim",
    "hash": "bf32d7cabc",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     1.011,
@@ -460456,7 +460442,6 @@
     "animation",
     "asia",
     "comp",
-    "style-historic",
     "wizp",
     "wood-dark",
     "wood-light"
@@ -460471,7 +460456,7 @@
    "collection": "wizp-eastern",
    "name": "waterwheel",
    "hash": "9a39f99b65",
-   "kind": "str-building-work-industrial-mill",
+   "kind": "str-part-mill",
    "size": "l",
    "wdh": [
     1.011,
@@ -460506,7 +460491,6 @@
    "tags": [
     "asia",
     "comp",
-    "style-historic",
     "tba",
     "wizp",
     "wood-dark",
