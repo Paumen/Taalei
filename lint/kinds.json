@@ -5071,6 +5071,13 @@
        "high.min": 0.35,
        "high.max": 0.85,
        "tpu.max": 10000,
+       "scale": {
+        "small": {
+         "high.min": 0.175,
+         "high.max": 0.5
+        },
+        "big": 2
+       },
        "nouns": [
         "fence",
         "fence segment"
@@ -5080,13 +5087,6 @@
          "id": "str-barrier-fence-mid",
          "high.max": 0.8,
          "thin.min": 0.012,
-         "scale": {
-          "small": {
-           "high.min": 0.175,
-           "high.max": 0.5
-          },
-          "big": 2
-         },
          "nouns": [
           "mid fence",
           "low fence",
@@ -5096,13 +5096,6 @@
         {
          "id": "str-barrier-fence-gate",
          "high.max": 1.4,
-         "scale": {
-          "small": {
-           "high.min": 0.175,
-           "high.max": 0.5
-          },
-          "big": 2
-         },
          "nouns": [
           "gate (fence)",
           "turnstile",
