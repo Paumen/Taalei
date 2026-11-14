@@ -93824,7 +93824,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-0-5",
-     "style-historic",
+     "style-other",
      "wood-dark"
     ],
     "colors": [
@@ -93851,7 +93851,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-0-5",
-     "style-historic"
+     "style-other"
     ],
     "colors": [
      "#57493d",
@@ -93875,7 +93875,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-0-5",
-     "style-historic"
+     "style-other"
     ],
     "colors": [
      "#57493d",
@@ -93962,81 +93962,6 @@
      "#3a3e4b",
      "#7a8491",
      "#d8cfb7"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-fixture-altar",
-  "name": "Structure › Fixture › Altar",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "kay-spook",
-    "collection": "kay-undead",
-    "model": "shrine",
-    "hash": "7c71a99084",
-    "wdh": [
-     0.4,
-     0.4,
-     0.8
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "kay",
-     "stone-masonry-mid"
-    ],
-    "colors": [
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "altar-stone",
-    "hash": "56ee417858",
-    "wdh": [
-     0.95,
-     0.6,
-     0.45
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-mid"
-    ],
-    "colors": [
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "ken-grave",
-    "collection": "ken-village",
-    "model": "altar-wood",
-    "hash": "f0d6c59475",
-    "wdh": [
-     0.95,
-     0.6,
-     0.5
-    ],
-    "tags": [
-     "grave",
-     "halloween",
-     "ken",
-     "stone-masonry-mid",
-     "wood-mid"
-    ],
-    "colors": [
-     "#88735f",
-     "#9e6d44"
     ]
    }
   ]
@@ -94793,7 +94718,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -94814,7 +94739,7 @@
     "tags": [
      "earth-sand",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -94839,7 +94764,7 @@
      "rgp",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -94866,7 +94791,7 @@
      "stone-masonry-dark",
      "stone-masonry-light",
      "storeys-6",
-     "style-historic"
+     "style-other"
     ],
     "colors": [
      "#21552a",
@@ -94900,7 +94825,7 @@
     ],
     "tags": [
      "storeys-0-5",
-     "style-historic",
+     "style-farmstead",
      "wood-dark",
      "wood-mid"
     ],
@@ -94922,7 +94847,7 @@
      "ceramic-dark",
      "m3",
      "storeys-0-5",
-     "style-historic",
+     "style-farmstead",
      "wood-mid"
     ],
     "colors": [
@@ -94942,7 +94867,7 @@
     "tags": [
      "earth-sand",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -94966,10 +94891,9 @@
     ],
     "tags": [
      "ceramic-dark",
-     "modern",
      "qua",
      "storeys-0-5",
-     "style-modern",
+     "style-farmstead",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -94979,6 +94903,101 @@
      "#873a27",
      "#9e6d44",
      "#ca9f6e"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-fixture-altar",
+  "name": "Structure › Fixture › Altar",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "wayside-shrine",
+    "hash": "9ad44c769d",
+    "wdh": [
+     0.8,
+     0.75,
+     1.7
+    ],
+    "tags": [
+     "stone-masonry-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "kay-spook",
+    "collection": "kay-undead",
+    "model": "shrine",
+    "hash": "7c71a99084",
+    "wdh": [
+     0.4,
+     0.4,
+     0.8
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "kay",
+     "stone-masonry-mid"
+    ],
+    "colors": [
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "altar-stone",
+    "hash": "56ee417858",
+    "wdh": [
+     0.95,
+     0.6,
+     0.45
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-mid"
+    ],
+    "colors": [
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "ken-grave",
+    "collection": "ken-village",
+    "model": "altar-wood",
+    "hash": "f0d6c59475",
+    "wdh": [
+     0.95,
+     0.6,
+     0.5
+    ],
+    "tags": [
+     "grave",
+     "halloween",
+     "ken",
+     "stone-masonry-mid",
+     "wood-mid"
+    ],
+    "colors": [
+     "#88735f",
+     "#9e6d44"
     ]
    }
   ]
@@ -95359,111 +95378,6 @@
      "#3a3e4b",
      "#59534e",
      "#d8cfb7"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-fixture-utility-turbine",
-  "name": "Structure › Fixture › Utility › Turbine",
-  "category": "str-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 2,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "kay-space",
-    "model": "windturbine-tall",
-    "hash": "a3c56e20c2",
-    "wdh": [
-     2.25,
-     1.35,
-     4.05
-    ],
-    "tags": [
-     "kay",
-     "metal-steel",
-     "modern",
-     "plastic",
-     "space",
-     "tba"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-industrial",
-    "collection": "ken-city",
-    "model": "wind-turbine-low",
-    "hash": "4250f48763",
-    "wdh": [
-     1.35,
-     2.5,
-     3.95
-    ],
-    "tags": [
-     "hero",
-     "ken",
-     "metal-steel",
-     "modern",
-     "plastic",
-     "storeys-4",
-     "tba"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-industrial",
-    "collection": "ken-city",
-    "model": "wind-turbine",
-    "hash": "7ee9e22d30",
-    "wdh": [
-     1.35,
-     2.5,
-     5.1
-    ],
-    "tags": [
-     "hero",
-     "ken",
-     "metal-steel",
-     "modern",
-     "plastic",
-     "storeys-5",
-     "tba"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "windmill",
-    "hash": "5466c1fb14",
-    "wdh": [
-     0.85,
-     0.95,
-     3
-    ],
-    "tags": [
-     "lpa",
-     "metal-iron-dark",
-     "tba"
-    ],
-    "colors": [
-     "#3a3e4b"
     ]
    }
   ]
@@ -96046,7 +95960,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -96074,7 +95988,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-5",
-     "style-historic"
+     "style-medieval"
     ],
     "colors": [
      "#59534e",
@@ -96097,7 +96011,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-4",
-     "style-historic"
+     "style-medieval"
     ],
     "colors": [
      "#59534e",
@@ -96120,7 +96034,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-6",
-     "style-historic"
+     "style-medieval"
     ],
     "colors": [
      "#59534e",
@@ -96143,7 +96057,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-2",
-     "style-historic"
+     "style-classic"
     ],
     "colors": [
      "#59534e",
@@ -96179,7 +96093,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "textile-cloth-light",
      "wood-dark"
     ],
@@ -96208,7 +96122,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-farmstead",
      "wood-dark",
      "wood-light"
     ],
@@ -96236,7 +96150,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-farmstead",
      "wood-dark",
      "wood-light"
     ],
@@ -96264,7 +96178,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-farmstead",
      "wood-dark",
      "wood-light"
     ],
@@ -96290,7 +96204,7 @@
      "metal-iron-dark",
      "rgp",
      "storeys-1",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -96326,10 +96240,9 @@
     "tags": [
      "ceramic-dark",
      "metal-iron-mid",
-     "modern",
      "qua",
      "storeys-4",
-     "style-modern",
+     "style-farmstead",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -96355,10 +96268,9 @@
     "tags": [
      "ceramic-dark",
      "metal-iron-mid",
-     "modern",
      "qua",
      "storeys-4",
-     "style-modern",
+     "style-farmstead",
      "wood-dark",
      "wood-mid"
     ],
@@ -96384,7 +96296,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -96408,7 +96320,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -96435,7 +96347,7 @@
      "metal-gold",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark",
      "wood-light"
@@ -96691,6 +96603,133 @@
      "#873a27",
      "#9e6d44",
      "#f1a63b"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-fixture-utility-turbine",
+  "name": "Structure › Fixture › Utility › Turbine",
+  "category": "str-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 2,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "kay-space",
+    "model": "windturbine-tall",
+    "hash": "a3c56e20c2",
+    "wdh": [
+     2.25,
+     1.35,
+     4.05
+    ],
+    "tags": [
+     "kay",
+     "metal-steel",
+     "modern",
+     "plastic",
+     "space",
+     "tba"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-industrial",
+    "collection": "ken-city",
+    "model": "wind-turbine-low",
+    "hash": "4250f48763",
+    "wdh": [
+     1.35,
+     2.5,
+     3.95
+    ],
+    "tags": [
+     "hero",
+     "ken",
+     "metal-steel",
+     "modern",
+     "plastic",
+     "storeys-4",
+     "tba"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-industrial",
+    "collection": "ken-city",
+    "model": "wind-turbine",
+    "hash": "7ee9e22d30",
+    "wdh": [
+     1.35,
+     2.5,
+     5.1
+    ],
+    "tags": [
+     "hero",
+     "ken",
+     "metal-steel",
+     "modern",
+     "plastic",
+     "storeys-5",
+     "tba"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "windmill",
+    "hash": "5466c1fb14",
+    "wdh": [
+     0.85,
+     0.95,
+     3
+    ],
+    "tags": [
+     "lpa",
+     "metal-iron-dark",
+     "tba"
+    ],
+    "colors": [
+     "#3a3e4b"
+    ]
+   },
+   {
+    "slug": "taalei-kit",
+    "model": "windmill",
+    "hash": "92117677a0",
+    "wdh": [
+     1.25,
+     1.4,
+     3.2
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "wood-dark",
+     "wood-light",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#713e14",
+     "#9e6d44",
+     "#ca9f6e"
     ]
    }
   ]
@@ -98960,6 +98999,241 @@
   ]
  },
  {
+  "slug": "str-building-religious-shrine",
+  "name": "Structure › Building › Religious › Shrine",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "rgp-asia",
+    "model": "shrine-small",
+    "hash": "a39b3d399d",
+    "wdh": [
+     2.1,
+     2.1,
+     2.5
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "metal-gold",
+     "rgp",
+     "stone-masonry-mid",
+     "storeys-1",
+     "style-medieval",
+     "wood-dark",
+     "wood-light",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#ca9f6e",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "rgp-asia",
+    "model": "shrine",
+    "hash": "8c537a218c",
+    "wdh": [
+     1.95,
+     2.2,
+     2
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "metal-gold",
+     "rgp",
+     "stone-masonry-mid",
+     "storeys-1",
+     "style-medieval",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "altar-a",
+    "hash": "937098733d",
+    "wdh": [
+     2.2,
+     2.2,
+     1.85
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "hero",
+     "stone-masonry-mid",
+     "storeys-1",
+     "style-medieval",
+     "wizp",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "altar-b",
+    "hash": "c9b7fe72da",
+    "wdh": [
+     2.2,
+     2.2,
+     1.85
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "hero",
+     "stone-masonry-mid",
+     "storeys-1",
+     "style-medieval",
+     "wizp",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "shrine-large",
+    "hash": "06e21439e0",
+    "wdh": [
+     1.35,
+     1.1,
+     1.25
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "metal-gold",
+     "stone-masonry-mid",
+     "storeys-1",
+     "style-medieval",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "wizp-asia",
+    "collection": "wizp-eastern",
+    "model": "tower",
+    "hash": "a5597682b2",
+    "wdh": [
+     0.9,
+     1,
+     1.6
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "stone-masonry-mid",
+     "storeys-2",
+     "style-medieval",
+     "wizp",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "wizp-village",
+    "collection": "wizp-eastern",
+    "model": "shrine",
+    "hash": "2be1e3815e",
+    "wdh": [
+     0.65,
+     0.75,
+     1
+    ],
+    "tags": [
+     "asia",
+     "ceramic-dark",
+     "metal-gold",
+     "paper-sheet",
+     "storeys-0-5",
+     "style-medieval",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "wizp-village",
+    "collection": "wizp-eastern",
+    "model": "tower",
+    "hash": "6243627b98",
+    "wdh": [
+     0.9,
+     1,
+     1.6
+    ],
+    "tags": [
+     "asia",
+     "ceramic-light",
+     "paper-sheet",
+     "stone-masonry-light",
+     "storeys-2",
+     "style-medieval",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-canopy-shelter",
   "name": "Structure › Canopy › Shelter",
   "category": "str-gen",
@@ -100403,263 +100677,6 @@
   ]
  },
  {
-  "slug": "str-building-religious-shrine",
-  "name": "Structure › Building › Religious › Shrine",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "wayside-shrine",
-    "hash": "9ad44c769d",
-    "wdh": [
-     0.8,
-     0.75,
-     1.7
-    ],
-    "tags": [
-     "stone-masonry-mid",
-     "storeys-0-5",
-     "style-historic",
-     "wood-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "rgp-asia",
-    "model": "shrine-small",
-    "hash": "a39b3d399d",
-    "wdh": [
-     2.1,
-     2.1,
-     2.5
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "metal-gold",
-     "rgp",
-     "stone-masonry-mid",
-     "storeys-1",
-     "style-historic",
-     "wood-dark",
-     "wood-light",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#ca9f6e",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "rgp-asia",
-    "model": "shrine",
-    "hash": "8c537a218c",
-    "wdh": [
-     1.95,
-     2.2,
-     2
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "metal-gold",
-     "rgp",
-     "stone-masonry-mid",
-     "storeys-1",
-     "style-historic",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "altar-a",
-    "hash": "937098733d",
-    "wdh": [
-     2.2,
-     2.2,
-     1.85
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "hero",
-     "stone-masonry-mid",
-     "storeys-1",
-     "style-historic",
-     "wizp",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "altar-b",
-    "hash": "c9b7fe72da",
-    "wdh": [
-     2.2,
-     2.2,
-     1.85
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "hero",
-     "stone-masonry-mid",
-     "storeys-1",
-     "style-historic",
-     "wizp",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "shrine-large",
-    "hash": "06e21439e0",
-    "wdh": [
-     1.35,
-     1.1,
-     1.25
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "metal-gold",
-     "stone-masonry-mid",
-     "storeys-1",
-     "style-historic",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "wizp-asia",
-    "collection": "wizp-eastern",
-    "model": "tower",
-    "hash": "a5597682b2",
-    "wdh": [
-     0.9,
-     1,
-     1.6
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "stone-masonry-mid",
-     "storeys-2",
-     "style-historic",
-     "wizp",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "wizp-village",
-    "collection": "wizp-eastern",
-    "model": "shrine",
-    "hash": "2be1e3815e",
-    "wdh": [
-     0.65,
-     0.75,
-     1
-    ],
-    "tags": [
-     "asia",
-     "ceramic-dark",
-     "metal-gold",
-     "paper-sheet",
-     "storeys-0-5",
-     "style-historic",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "wizp-village",
-    "collection": "wizp-eastern",
-    "model": "tower",
-    "hash": "6243627b98",
-    "wdh": [
-     0.9,
-     1,
-     1.6
-    ],
-    "tags": [
-     "asia",
-     "ceramic-light",
-     "paper-sheet",
-     "stone-masonry-light",
-     "storeys-2",
-     "style-historic",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-building-work-agricultural-barn",
   "name": "Structure › Building › Work › Agricultural › Barn",
   "category": "str-gen",
@@ -100682,7 +100699,7 @@
     "tags": [
      "ceramic-dark",
      "storeys-3",
-     "style-historic",
+     "style-farmstead",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -100707,7 +100724,7 @@
     "tags": [
      "special-organic",
      "storeys-1",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -100730,10 +100747,9 @@
     ],
     "tags": [
      "ceramic-dark",
-     "modern",
      "qua",
      "storeys-3",
-     "style-modern",
+     "style-farmstead",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -100757,10 +100773,9 @@
     ],
     "tags": [
      "ceramic-dark",
-     "modern",
      "qua",
      "storeys-2",
-     "style-modern",
+     "style-farmstead",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -100784,10 +100799,9 @@
     ],
     "tags": [
      "ceramic-dark",
-     "modern",
      "qua",
      "storeys-2",
-     "style-modern",
+     "style-farmstead",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -100811,10 +100825,9 @@
     ],
     "tags": [
      "ceramic-dark",
-     "modern",
      "qua",
      "storeys-2",
-     "style-modern",
+     "style-farmstead",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -100839,7 +100852,7 @@
      "ceramic-dark",
      "storeys-2",
      "sty",
-     "style-historic",
+     "style-farmstead",
      "wood-dark",
      "wood-light"
     ],
@@ -100863,7 +100876,7 @@
      "ceramic-dark",
      "storeys-1",
      "sty",
-     "style-historic",
+     "style-farmstead",
      "wood-dark",
      "wood-light"
     ],
@@ -100886,7 +100899,7 @@
      "ceramic-dark",
      "storeys-2",
      "sty",
-     "style-historic",
+     "style-farmstead",
      "wood-dark",
      "wood-light"
     ],
@@ -101712,7 +101725,7 @@
      "kay",
      "stone-masonry-dark",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "textile-cloth-mid",
      "wood-dark",
      "wood-mid"
@@ -101742,7 +101755,7 @@
      "kay",
      "stone-masonry-dark",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "textile-cloth-dark",
      "wood-dark",
      "wood-mid"
@@ -101771,7 +101784,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-castle",
      "textile-cloth-mid",
      "wood-dark",
      "wood-mid"
@@ -101799,7 +101812,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "textile-cloth-mid",
      "wood-dark",
      "wood-mid"
@@ -101828,7 +101841,7 @@
      "ken",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-castle",
      "wood-light"
     ],
     "colors": [
@@ -101851,7 +101864,7 @@
      "ken",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-castle",
      "wood-light"
     ],
     "colors": [
@@ -101878,7 +101891,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -101904,7 +101917,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-castle",
      "wood-dark"
     ],
     "colors": [
@@ -101928,7 +101941,7 @@
      "sailing",
      "special-emissive",
      "storeys-4",
-     "style-historic",
+     "style-other",
      "tba",
      "wood-dark"
     ],
@@ -101956,7 +101969,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -103102,7 +103115,7 @@
      "metal-iron-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-mid",
      "wood-dark"
     ],
@@ -103135,7 +103148,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -103172,7 +103185,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -103207,7 +103220,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-dark",
      "wood-dark",
      "wood-mid"
@@ -103241,7 +103254,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "tba",
      "textile-cloth-dark",
      "wood-dark",
@@ -103271,7 +103284,7 @@
      "metal-iron-mid",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -103299,7 +103312,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -103329,7 +103342,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -103356,7 +103369,7 @@
      "metal-iron-dark",
      "stone-masonry-dark",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -103386,7 +103399,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-dark",
      "wizp",
      "wood-dark"
@@ -103419,7 +103432,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-dark",
      "wizp",
      "wood-dark"
@@ -103970,7 +103983,7 @@
     ],
     "tags": [
      "storeys-2",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -103994,7 +104007,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "wood-dark"
     ],
     "colors": [
@@ -104016,7 +104029,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-5",
-     "style-historic"
+     "style-desert"
     ],
     "colors": [
      "#59534e",
@@ -104038,7 +104051,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic"
+     "style-desert"
     ],
     "colors": [
      "#59534e",
@@ -104059,7 +104072,7 @@
     "tags": [
      "qua",
      "storeys-2",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-dark",
      "wood-dark",
      "wood-light"
@@ -104083,7 +104096,7 @@
     "tags": [
      "qua",
      "storeys-3",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-dark",
      "wood-dark",
      "wood-light"
@@ -104107,7 +104120,7 @@
     "tags": [
      "qua",
      "storeys-3",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-dark",
      "wood-dark",
      "wood-light"
@@ -104133,7 +104146,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-castle",
      "wood-dark"
     ],
     "colors": [
@@ -104156,7 +104169,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "textile-cloth-dark",
      "wood-dark"
     ],
@@ -104181,7 +104194,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "textile-cloth-dark",
      "wood-dark"
     ],
@@ -104207,7 +104220,7 @@
      "rgp",
      "special-organic",
      "storeys-2",
-     "style-historic",
+     "style-farmstead",
      "textile-rope",
      "wood-light"
     ],
@@ -104232,7 +104245,7 @@
      "bark",
      "rgp",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "textile-rope",
      "wood-light"
     ],
@@ -109399,6 +109412,610 @@
   ]
  },
  {
+  "slug": "str-building-work-industrial-mill",
+  "name": "Structure › Building › Work › Industrial › Mill",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "mill-anim",
+    "hash": "fbb47e61ed",
+    "wdh": [
+     3.2,
+     3.2,
+     3.8
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "hero",
+     "kay",
+     "stone-masonry-light",
+     "storeys-4",
+     "style-medieval",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "mill",
+    "hash": "7832d8bc3a",
+    "wdh": [
+     3.2,
+     3.2,
+     3.8
+    ],
+    "tags": [
+     "ceramic-dark",
+     "hero",
+     "kay",
+     "stone-masonry-light",
+     "storeys-4",
+     "style-medieval",
+     "tba",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "watermill-anim",
+    "hash": "ac4e62ecd6",
+    "wdh": [
+     2.95,
+     2.6,
+     3
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "kay",
+     "stone-masonry-mid",
+     "storeys-2",
+     "style-medieval",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "kay-builder",
+    "collection": "kay-strategy",
+    "model": "watermill",
+    "hash": "a01091d11e",
+    "wdh": [
+     2.95,
+     2.6,
+     3
+    ],
+    "tags": [
+     "ceramic-dark",
+     "kay",
+     "stone-masonry-mid",
+     "storeys-2",
+     "style-medieval",
+     "tba",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "watermill-anim",
+    "hash": "1f8631deed",
+    "wdh": [
+     1.9,
+     2.25,
+     2.85
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "stone-masonry-dark",
+     "storeys-3",
+     "style-medieval",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "watermill",
+    "hash": "82d1efa873",
+    "wdh": [
+     1.9,
+     2.25,
+     2.85
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "kay",
+     "stone-masonry-dark",
+     "storeys-3",
+     "style-medieval",
+     "tba",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "windmill-anim",
+    "hash": "1aab31213d",
+    "wdh": [
+     2.05,
+     1.45,
+     2.65
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "hero",
+     "kay",
+     "metal-iron-mid",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3",
+     "style-medieval",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "windmill",
+    "hash": "b58a7d4b90",
+    "wdh": [
+     2.05,
+     1.45,
+     2.65
+    ],
+    "tags": [
+     "ceramic-dark",
+     "hero",
+     "kay",
+     "metal-iron-mid",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3",
+     "style-medieval",
+     "tba",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#9e6d44",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-farms",
+    "collection": "quat-medieval",
+    "model": "windmill-anim",
+    "hash": "bb6a027566",
+    "wdh": [
+     2.35,
+     1.75,
+     3.4
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "hero",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-4",
+     "style-medieval",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-farms",
+    "collection": "quat-medieval",
+    "model": "windmill",
+    "hash": "185d421dd3",
+    "wdh": [
+     2.35,
+     1.75,
+     3.4
+    ],
+    "tags": [
+     "ceramic-dark",
+     "hero",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-4",
+     "style-medieval",
+     "tba",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#57493d",
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "quat-medieval",
+    "collection": "quat-medieval",
+    "model": "mill",
+    "hash": "09cde22273",
+    "wdh": [
+     3.75,
+     3.05,
+     4.5
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "leaf-light",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-4",
+     "style-medieval",
+     "tba",
+     "textile-cloth-mid",
+     "wood-dark"
+    ],
+    "colors": [
+     "#66852a",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "windmill-1",
+    "hash": "4fcfda0ae2",
+    "wdh": [
+     2.7,
+     1.3,
+     3.85
+    ],
+    "tags": [
+     "qua",
+     "storeys-4",
+     "style-early-medieval",
+     "tba",
+     "textile-cloth-light",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#21552a",
+     "#713e14",
+     "#ca9f6e",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-town",
+    "collection": "quat-medieval",
+    "model": "windmill-2",
+    "hash": "a5883a7d62",
+    "wdh": [
+     2.65,
+     1.9,
+     3.2
+    ],
+    "tags": [
+     "ceramic-dark",
+     "qua",
+     "stone-masonry-mid",
+     "storeys-3",
+     "style-medieval",
+     "tba",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "rgp-medieval",
+    "collection": "rgp",
+    "model": "windmill",
+    "hash": "16608cbd3b",
+    "wdh": [
+     4.7,
+     3.25,
+     6.1
+    ],
+    "tags": [
+     "hero",
+     "metal-iron-dark",
+     "rgp",
+     "special-organic",
+     "stone-masonry-mid",
+     "storeys-6",
+     "style-high-medieval",
+     "tba",
+     "textile-cloth-mid",
+     "textile-rope",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#713e14",
+     "#88735f",
+     "#907a66",
+     "#ca9f6e",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill-anim",
+    "hash": "86b2f783e9",
+    "wdh": [
+     1.6,
+     1.9,
+     2.6
+    ],
+    "tags": [
+     "animation",
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "storeys-1",
+     "sty",
+     "style-medieval",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#713e14",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill-large-anim",
+    "hash": "49885f9792",
+    "wdh": [
+     2.25,
+     1.65,
+     3.25
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "stone-masonry-mid",
+     "storeys-3",
+     "sty",
+     "style-medieval",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill-large",
+    "hash": "d0b99d61fc",
+    "wdh": [
+     2.25,
+     1.65,
+     3.25
+    ],
+    "tags": [
+     "ceramic-dark",
+     "glass-clear",
+     "hero",
+     "stone-masonry-mid",
+     "storeys-3",
+     "sty",
+     "style-medieval",
+     "tba",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "styloo-farm",
+    "model": "windmill",
+    "hash": "8e7112aeb3",
+    "wdh": [
+     1.6,
+     1.9,
+     2.6
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "storeys-1",
+     "sty",
+     "style-medieval",
+     "tba",
+     "textile-cloth-light",
+     "wood-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#713e14",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "windmill-anim",
+    "hash": "f0de1c2845",
+    "wdh": [
+     2.1,
+     1.4,
+     3
+    ],
+    "tags": [
+     "animation",
+     "ceramic-dark",
+     "hero",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3",
+     "style-medieval",
+     "textile-cloth-light",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "wizp-mediev",
+    "collection": "wizp-western",
+    "model": "windmill",
+    "hash": "7c572683bd",
+    "wdh": [
+     2.1,
+     1.4,
+     3
+    ],
+    "tags": [
+     "ceramic-dark",
+     "hero",
+     "stone-masonry-dark",
+     "stone-masonry-mid",
+     "storeys-3",
+     "style-medieval",
+     "tba",
+     "textile-cloth-light",
+     "wizp",
+     "wood-dark"
+    ],
+    "colors": [
+     "#57493d",
+     "#713e14",
+     "#873a27",
+     "#88735f",
+     "#d8cfb7"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-fixture-marker-sign-lettering",
   "name": "Structure › Fixture › Marker › Sign › Lettering",
   "category": "str-gen",
@@ -109867,7 +110484,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
@@ -109896,7 +110513,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-mid",
      "wood-dark"
     ],
@@ -109924,7 +110541,7 @@
      "metal-iron-mid",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark",
@@ -109959,7 +110576,7 @@
      "metal-iron-mid",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-castle",
      "wood-dark",
      "wood-mid"
     ],
@@ -109985,7 +110602,7 @@
     "tags": [
      "earth-sand",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -110008,7 +110625,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -110033,7 +110650,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -110057,7 +110674,7 @@
     "tags": [
      "qua",
      "storeys-2",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-dark",
      "textile-cloth-light",
      "wood-dark"
@@ -110081,7 +110698,7 @@
     "tags": [
      "qua",
      "storeys-4",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-light",
      "wood-dark"
     ],
@@ -110104,7 +110721,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
@@ -110130,7 +110747,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-castle",
      "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
@@ -110157,7 +110774,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
@@ -110184,7 +110801,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "textile-cloth-light",
      "textile-cloth-mid",
      "wood-dark"
@@ -110211,7 +110828,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-mid",
      "wood-dark",
      "wood-light"
@@ -110239,7 +110856,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-mid",
      "wood-dark",
      "wood-light"
@@ -110267,7 +110884,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-early-medieval",
      "textile-cloth-mid",
      "wood-dark",
      "wood-light"
@@ -110297,7 +110914,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -110327,7 +110944,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "wood-dark",
      "wood-light"
     ],
@@ -110357,7 +110974,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-4",
-     "style-historic",
+     "style-castle",
      "wood-dark",
      "wood-light"
     ],
@@ -110384,7 +111001,7 @@
      "rgp",
      "special-organic",
      "storeys-1",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -110407,7 +111024,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-dark",
      "wizp",
      "wood-dark",
@@ -110421,636 +111038,6 @@
      "#88735f",
      "#ca9f6e",
      "#f1a63b"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-building-work-industrial-mill",
-  "name": "Structure › Building › Work › Industrial › Mill",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "mill-anim",
-    "hash": "fbb47e61ed",
-    "wdh": [
-     3.2,
-     3.2,
-     3.8
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "hero",
-     "kay",
-     "stone-masonry-light",
-     "storeys-4",
-     "style-historic",
-     "textile-cloth-light",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "mill",
-    "hash": "7832d8bc3a",
-    "wdh": [
-     3.2,
-     3.2,
-     3.8
-    ],
-    "tags": [
-     "ceramic-dark",
-     "hero",
-     "kay",
-     "stone-masonry-light",
-     "storeys-4",
-     "style-historic",
-     "tba",
-     "textile-cloth-light",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "watermill-anim",
-    "hash": "ac4e62ecd6",
-    "wdh": [
-     2.95,
-     2.6,
-     3
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "kay",
-     "stone-masonry-mid",
-     "storeys-2",
-     "style-historic",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "kay-builder",
-    "collection": "kay-strategy",
-    "model": "watermill",
-    "hash": "a01091d11e",
-    "wdh": [
-     2.95,
-     2.6,
-     3
-    ],
-    "tags": [
-     "ceramic-dark",
-     "kay",
-     "stone-masonry-mid",
-     "storeys-2",
-     "style-historic",
-     "tba",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "watermill-anim",
-    "hash": "1f8631deed",
-    "wdh": [
-     1.9,
-     2.25,
-     2.85
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "stone-masonry-dark",
-     "storeys-3",
-     "style-historic",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "watermill",
-    "hash": "82d1efa873",
-    "wdh": [
-     1.9,
-     2.25,
-     2.85
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "kay",
-     "stone-masonry-dark",
-     "storeys-3",
-     "style-historic",
-     "tba",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "windmill-anim",
-    "hash": "1aab31213d",
-    "wdh": [
-     2.05,
-     1.45,
-     2.65
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "hero",
-     "kay",
-     "metal-iron-mid",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3",
-     "style-historic",
-     "textile-cloth-light",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#57493d",
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "windmill",
-    "hash": "b58a7d4b90",
-    "wdh": [
-     2.05,
-     1.45,
-     2.65
-    ],
-    "tags": [
-     "ceramic-dark",
-     "hero",
-     "kay",
-     "metal-iron-mid",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3",
-     "style-historic",
-     "tba",
-     "textile-cloth-light",
-     "wood-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#57493d",
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#9e6d44",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-farms",
-    "collection": "quat-medieval",
-    "model": "windmill-anim",
-    "hash": "bb6a027566",
-    "wdh": [
-     2.35,
-     1.75,
-     3.4
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "hero",
-     "modern",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-4",
-     "style-modern",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-farms",
-    "collection": "quat-medieval",
-    "model": "windmill",
-    "hash": "185d421dd3",
-    "wdh": [
-     2.35,
-     1.75,
-     3.4
-    ],
-    "tags": [
-     "ceramic-dark",
-     "hero",
-     "modern",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-4",
-     "style-modern",
-     "tba",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#57493d",
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "quat-medieval",
-    "collection": "quat-medieval",
-    "model": "mill",
-    "hash": "09cde22273",
-    "wdh": [
-     3.75,
-     3.05,
-     4.5
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "leaf-light",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-4",
-     "style-historic",
-     "tba",
-     "textile-cloth-mid",
-     "wood-dark"
-    ],
-    "colors": [
-     "#66852a",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "windmill-1",
-    "hash": "4fcfda0ae2",
-    "wdh": [
-     2.7,
-     1.3,
-     3.85
-    ],
-    "tags": [
-     "qua",
-     "storeys-4",
-     "style-historic",
-     "tba",
-     "textile-cloth-light",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#21552a",
-     "#713e14",
-     "#ca9f6e",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "quat-town",
-    "collection": "quat-medieval",
-    "model": "windmill-2",
-    "hash": "a5883a7d62",
-    "wdh": [
-     2.65,
-     1.9,
-     3.2
-    ],
-    "tags": [
-     "ceramic-dark",
-     "qua",
-     "stone-masonry-mid",
-     "storeys-3",
-     "style-historic",
-     "tba",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "rgp-medieval",
-    "collection": "rgp",
-    "model": "windmill",
-    "hash": "16608cbd3b",
-    "wdh": [
-     4.7,
-     3.25,
-     6.1
-    ],
-    "tags": [
-     "hero",
-     "metal-iron-dark",
-     "rgp",
-     "special-organic",
-     "stone-masonry-mid",
-     "storeys-6",
-     "style-historic",
-     "tba",
-     "textile-cloth-mid",
-     "textile-rope",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#713e14",
-     "#88735f",
-     "#907a66",
-     "#ca9f6e",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "windmill-anim",
-    "hash": "86b2f783e9",
-    "wdh": [
-     1.6,
-     1.9,
-     2.6
-    ],
-    "tags": [
-     "animation",
-     "metal-iron-dark",
-     "stone-masonry-mid",
-     "storeys-1",
-     "sty",
-     "style-historic",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#713e14",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "windmill-large-anim",
-    "hash": "49885f9792",
-    "wdh": [
-     2.25,
-     1.65,
-     3.25
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "stone-masonry-mid",
-     "storeys-3",
-     "sty",
-     "style-historic",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "windmill-large",
-    "hash": "d0b99d61fc",
-    "wdh": [
-     2.25,
-     1.65,
-     3.25
-    ],
-    "tags": [
-     "ceramic-dark",
-     "glass-clear",
-     "hero",
-     "stone-masonry-mid",
-     "storeys-3",
-     "sty",
-     "style-historic",
-     "tba",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "styloo-farm",
-    "model": "windmill",
-    "hash": "8e7112aeb3",
-    "wdh": [
-     1.6,
-     1.9,
-     2.6
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "stone-masonry-mid",
-     "storeys-1",
-     "sty",
-     "style-historic",
-     "tba",
-     "textile-cloth-light",
-     "wood-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#713e14",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "taalei-kit",
-    "model": "windmill",
-    "hash": "92117677a0",
-    "wdh": [
-     1.25,
-     1.4,
-     3.2
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "storeys-3",
-     "style-historic",
-     "wood-dark",
-     "wood-light",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#713e14",
-     "#9e6d44",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "windmill-anim",
-    "hash": "f0de1c2845",
-    "wdh": [
-     2.1,
-     1.4,
-     3
-    ],
-    "tags": [
-     "animation",
-     "ceramic-dark",
-     "hero",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3",
-     "style-historic",
-     "textile-cloth-light",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "wizp-mediev",
-    "collection": "wizp-western",
-    "model": "windmill",
-    "hash": "7c572683bd",
-    "wdh": [
-     2.1,
-     1.4,
-     3
-    ],
-    "tags": [
-     "ceramic-dark",
-     "hero",
-     "stone-masonry-dark",
-     "stone-masonry-mid",
-     "storeys-3",
-     "style-historic",
-     "tba",
-     "textile-cloth-light",
-     "wizp",
-     "wood-dark"
-    ],
-    "colors": [
-     "#57493d",
-     "#713e14",
-     "#873a27",
-     "#88735f",
-     "#d8cfb7"
     ]
    }
   ]
@@ -114582,7 +114569,7 @@
     "tags": [
      "stone-masonry-light",
      "storeys-1",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -114609,7 +114596,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114635,7 +114622,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114661,7 +114648,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114687,7 +114674,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114713,7 +114700,7 @@
      "plastic",
      "space",
      "storeys-1-5",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114740,7 +114727,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114767,7 +114754,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114794,7 +114781,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114821,7 +114808,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114847,7 +114834,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114872,7 +114859,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#1564a4",
@@ -114898,7 +114885,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114924,7 +114911,7 @@
      "plastic",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#3a3e4b",
@@ -114947,7 +114934,7 @@
      "leather",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "textile-cloth-light",
      "wood-dark"
     ],
@@ -114976,7 +114963,7 @@
      "qua",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#59534e",
@@ -114999,7 +114986,7 @@
      "qua",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#59534e",
@@ -115023,7 +115010,7 @@
      "qua",
      "space",
      "storeys-1-5",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#59534e",
@@ -115044,7 +115031,7 @@
     "tags": [
      "qua",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -115066,7 +115053,7 @@
     "tags": [
      "qua",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -115088,7 +115075,7 @@
     "tags": [
      "qua",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -115112,7 +115099,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -115138,7 +115125,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -115164,7 +115151,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -115188,11 +115175,10 @@
      "ceramic-dark",
      "metal-iron-dark",
      "metal-steel",
-     "modern",
      "stone-concrete",
      "stone-masonry-light",
      "storeys-1",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118170,7 +118156,7 @@
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "textile-cloth-light",
      "wood-dark"
     ],
@@ -118204,7 +118190,7 @@
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118230,11 +118216,10 @@
     "tags": [
      "glass-clear",
      "kay",
-     "modern",
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118263,7 +118248,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118294,7 +118279,7 @@
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "textile-cloth-dark",
      "textile-cloth-light",
      "wood-dark"
@@ -118327,7 +118312,7 @@
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118359,7 +118344,7 @@
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "textile-cloth-light",
      "wood-dark"
     ],
@@ -118392,7 +118377,7 @@
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-4",
-     "style-modern",
+     "style-classic",
      "textile-cloth-light",
      "wood-dark"
     ],
@@ -118635,13 +118620,12 @@
     ],
     "tags": [
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -118666,13 +118650,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -118698,12 +118681,11 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "storeys-4",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118726,12 +118708,11 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "storeys-4",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118754,13 +118735,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-5",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118784,13 +118764,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-4",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118814,13 +118793,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-4",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118844,13 +118822,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-4",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118873,13 +118850,12 @@
     ],
     "tags": [
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-4",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -118902,13 +118878,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern"
+     "style-classic"
     ],
     "colors": [
      "#57493d",
@@ -118930,13 +118905,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern"
+     "style-classic"
     ],
     "colors": [
      "#57493d",
@@ -118958,13 +118932,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern"
+     "style-classic"
     ],
     "colors": [
      "#57493d",
@@ -118986,13 +118959,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern"
+     "style-classic"
     ],
     "colors": [
      "#57493d",
@@ -119014,13 +118986,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -119046,13 +119017,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-4",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -119076,13 +119046,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-4",
-     "style-modern"
+     "style-classic"
     ],
     "colors": [
      "#57493d",
@@ -119119,7 +119088,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -119148,7 +119117,7 @@
      "kay",
      "stone-masonry-dark",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "textile-cloth-mid",
      "wood-dark",
      "wood-mid"
@@ -119602,11 +119571,10 @@
     "tags": [
      "glass-clear",
      "ken",
-     "modern",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1",
-     "style-modern"
+     "style-other"
     ],
     "colors": [
      "#873a27",
@@ -119628,11 +119596,10 @@
      "glass-clear",
      "ken",
      "metal-iron-dark",
-     "modern",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1",
-     "style-modern"
+     "style-other"
     ],
     "colors": [
      "#3a3e4b",
@@ -119653,11 +119620,10 @@
     ],
     "tags": [
      "ken",
-     "modern",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1",
-     "style-modern"
+     "style-other"
     ],
     "colors": [
      "#873a27",
@@ -119677,12 +119643,11 @@
     "tags": [
      "glass-clear",
      "ken",
-     "modern",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1",
-     "style-modern"
+     "style-other"
     ],
     "colors": [
      "#57493d",
@@ -119705,10 +119670,9 @@
      "ceramic-dark",
      "glass-clear",
      "ken",
-     "modern",
      "stone-masonry-light",
      "storeys-1-5",
-     "style-modern"
+     "style-other"
     ],
     "colors": [
      "#873a27",
@@ -119728,12 +119692,11 @@
     "tags": [
      "glass-clear",
      "ken",
-     "modern",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1",
-     "style-modern"
+     "style-other"
     ],
     "colors": [
      "#57493d",
@@ -119757,7 +119720,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -119781,7 +119744,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -119805,7 +119768,7 @@
      "leather",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-desert",
      "textile-cloth-dark",
      "textile-cloth-light",
      "wood-dark",
@@ -119836,7 +119799,7 @@
      "pm",
      "stone-masonry-light",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -119857,11 +119820,10 @@
     ],
     "tags": [
      "ceramic-dark",
-     "modern",
      "qua",
      "stone-masonry-light",
      "storeys-1",
-     "style-modern"
+     "style-classic"
     ],
     "colors": [
      "#57493d",
@@ -119915,7 +119877,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -119960,7 +119922,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark",
      "wood-light",
@@ -119990,7 +119952,7 @@
      "metal-gold",
      "paper-sheet",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -124125,7 +124087,7 @@
      "ceramic-dark",
      "glass-clear",
      "storeys-1-5",
-     "style-historic",
+     "style-farmstead",
      "wood-dark"
     ],
     "colors": [
@@ -124148,7 +124110,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -124172,7 +124134,7 @@
     "tags": [
      "special-organic",
      "storeys-1",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -124193,7 +124155,7 @@
     "tags": [
      "special-organic",
      "storeys-1",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -124215,7 +124177,7 @@
     ],
     "tags": [
      "storeys-1",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -124241,7 +124203,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-light"
     ],
     "colors": [
@@ -124273,7 +124235,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-light"
     ],
     "colors": [
@@ -124303,7 +124265,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -124330,7 +124292,7 @@
      "kay",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -124357,7 +124319,7 @@
      "kay",
      "stone-masonry-dark",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -124385,7 +124347,7 @@
      "kay",
      "stone-masonry-dark",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -124414,7 +124376,7 @@
      "kay",
      "stone-masonry-dark",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -124443,7 +124405,7 @@
      "kay",
      "stone-masonry-dark",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -124470,7 +124432,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-other",
      "wood-dark"
     ],
     "colors": [
@@ -124496,10 +124458,9 @@
      "ceramic-light",
      "glass-clear",
      "ken",
-     "modern",
      "stone-masonry-light",
      "storeys-1",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -124524,10 +124485,9 @@
      "ceramic-light",
      "glass-clear",
      "ken",
-     "modern",
      "stone-masonry-light",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125217,7 +125177,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-1-5",
-     "style-historic",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125242,7 +125202,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-1-5",
-     "style-historic",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125267,7 +125227,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-1-5",
-     "style-historic",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125292,7 +125252,7 @@
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic"
+     "style-classic"
     ],
     "colors": [
      "#57493d",
@@ -125316,7 +125276,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-3",
-     "style-historic",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125341,7 +125301,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-3",
-     "style-historic",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125366,7 +125326,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-1-5",
-     "style-historic",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125391,7 +125351,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-2",
-     "style-historic",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125416,7 +125376,7 @@
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic"
+     "style-classic"
     ],
     "colors": [
      "#59534e",
@@ -125439,7 +125399,7 @@
      "glass-clear",
      "stone-masonry-light",
      "storeys-2",
-     "style-historic",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -125464,7 +125424,7 @@
      "metal-iron-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125489,7 +125449,7 @@
      "metal-iron-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125514,7 +125474,7 @@
      "metal-iron-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125539,7 +125499,7 @@
      "metal-iron-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125563,7 +125523,7 @@
      "lpa",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125586,7 +125546,7 @@
      "lpa",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125607,7 +125567,7 @@
      "lpa",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125630,7 +125590,7 @@
      "lpa",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125652,7 +125612,7 @@
      "metal-iron-dark",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125677,7 +125637,7 @@
      "metal-iron-dark",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125701,7 +125661,7 @@
      "lpa",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125722,7 +125682,7 @@
      "lpa",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125744,7 +125704,7 @@
      "metal-iron-dark",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-desert",
      "wood-dark",
      "wood-mid"
     ],
@@ -125768,7 +125728,7 @@
      "lpa",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125789,7 +125749,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125812,7 +125772,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125835,7 +125795,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125858,7 +125818,7 @@
      "earth-sand",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-desert",
      "wood-dark"
     ],
     "colors": [
@@ -125881,7 +125841,7 @@
      "animation",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-farmstead",
      "wood-dark"
     ],
     "colors": [
@@ -125903,7 +125863,7 @@
     "tags": [
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-farmstead",
      "wood-dark"
     ],
     "colors": [
@@ -125924,12 +125884,11 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-concrete",
      "stone-masonry-light",
      "storeys-1-5",
-     "style-modern",
+     "style-classic",
      "wood-mid"
     ],
     "colors": [
@@ -125955,12 +125914,11 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -125986,13 +125944,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-concrete",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126019,13 +125976,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-concrete",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126052,13 +126008,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126084,12 +126039,11 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "storeys-3",
-     "style-modern",
+     "style-classic",
      "wood-mid"
     ],
     "colors": [
@@ -126114,12 +126068,11 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark"
     ],
     "colors": [
@@ -126147,7 +126100,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -126174,7 +126127,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -126199,7 +126152,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -126226,7 +126179,7 @@
      "qua",
      "sailing",
      "storeys-3",
-     "style-historic",
+     "style-other",
      "wood-dark",
      "wood-light"
     ],
@@ -126255,7 +126208,7 @@
      "qua",
      "sailing",
      "storeys-3",
-     "style-historic",
+     "style-other",
      "wood-dark",
      "wood-light"
     ],
@@ -126283,7 +126236,7 @@
      "qua",
      "sailing",
      "storeys-3",
-     "style-historic",
+     "style-other",
      "wood-dark",
      "wood-light"
     ],
@@ -126312,7 +126265,7 @@
      "sailing",
      "special",
      "storeys-5",
-     "style-historic",
+     "style-other",
      "textile-cloth-dark",
      "textile-rope",
      "wood-dark",
@@ -126343,7 +126296,7 @@
      "qua",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#7a8491",
@@ -126365,7 +126318,7 @@
      "qua",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#59534e",
@@ -126388,7 +126341,7 @@
      "qua",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#7a8491",
@@ -126410,7 +126363,7 @@
      "qua",
      "space",
      "storeys-1",
-     "style-modern"
+     "style-scifi"
     ],
     "colors": [
      "#59534e",
@@ -126430,13 +126383,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126462,13 +126414,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126494,13 +126445,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126526,13 +126476,12 @@
     "tags": [
      "ceramic-dark",
      "glass-clear",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126558,13 +126507,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126590,13 +126538,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126622,13 +126569,12 @@
     "tags": [
      "glass-clear",
      "metal-iron-mid",
-     "modern",
      "qua",
      "stone-masonry-dark",
      "stone-masonry-light",
      "stone-masonry-mid",
      "storeys-2",
-     "style-modern",
+     "style-classic",
      "wood-dark",
      "wood-mid"
     ],
@@ -126656,7 +126602,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -126678,7 +126624,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -126700,7 +126646,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -126722,7 +126668,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -126743,7 +126689,7 @@
     "tags": [
      "qua",
      "storeys-1",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -126767,7 +126713,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -126793,7 +126739,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -126817,7 +126763,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -126843,7 +126789,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -126869,7 +126815,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -126895,7 +126841,7 @@
      "qua",
      "stone-masonry-mid",
      "storeys-3",
-     "style-historic",
+     "style-castle",
      "wood-dark",
      "wood-light"
     ],
@@ -126921,7 +126867,7 @@
      "rgp",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-light",
      "wood-mid"
@@ -126950,7 +126896,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -126978,7 +126924,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127004,7 +126950,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127029,7 +126975,7 @@
      "rgp",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -127056,7 +127002,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -127084,7 +127030,7 @@
      "stone-masonry-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wood-dark",
      "wood-mid"
     ],
@@ -127111,7 +127057,7 @@
      "special-organic",
      "stone-masonry-dark",
      "storeys-2",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127136,7 +127082,7 @@
      "special-organic",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127161,7 +127107,7 @@
      "special-organic",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127186,7 +127132,7 @@
      "special-organic",
      "stone-masonry-dark",
      "storeys-1-5",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127211,7 +127157,7 @@
      "special-organic",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127236,7 +127182,7 @@
      "special-organic",
      "stone-masonry-mid",
      "storeys-1",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127259,7 +127205,7 @@
      "rgp",
      "special-organic",
      "storeys-1-5",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -127284,7 +127230,7 @@
      "special-organic",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127308,7 +127254,7 @@
      "rgp",
      "special-organic",
      "storeys-1-5",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -127333,7 +127279,7 @@
      "special-organic",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark"
     ],
     "colors": [
@@ -127358,7 +127304,7 @@
      "rgp",
      "special-organic",
      "storeys-1-5",
-     "style-historic",
+     "style-high-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -127383,7 +127329,7 @@
      "rgp",
      "special-organic",
      "storeys-1-5",
-     "style-historic",
+     "style-early-medieval",
      "wood-dark",
      "wood-light"
     ],
@@ -127408,7 +127354,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark",
      "wood-light",
@@ -127438,7 +127384,7 @@
      "hero",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark",
      "wood-light",
@@ -127467,7 +127413,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark",
      "wood-light",
@@ -127496,7 +127442,7 @@
      "sailing",
      "special-organic",
      "storeys-2",
-     "style-historic",
+     "style-high-medieval",
      "wizp",
      "wood-dark",
      "wood-light",
@@ -127526,7 +127472,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -127554,7 +127500,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -127583,7 +127529,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -127611,7 +127557,7 @@
      "special-emissive",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark"
     ],
@@ -127638,7 +127584,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark",
      "wood-light",
@@ -127667,7 +127613,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-2",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark",
      "wood-light",
@@ -127696,7 +127642,7 @@
      "ceramic-dark",
      "stone-masonry-mid",
      "storeys-1-5",
-     "style-historic",
+     "style-medieval",
      "wizp",
      "wood-dark",
      "wood-light",
