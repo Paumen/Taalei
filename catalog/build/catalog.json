@@ -3153,8 +3153,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 1.03,
-    "kinds": 42
+    "factor": 1.02,
+    "kinds": 43
    }
   },
   {
@@ -3346,7 +3346,7 @@
    },
    "kitCheck": {
     "factor": 1.05,
-    "kinds": 203
+    "kinds": 204
    }
   },
   {
@@ -4420,8 +4420,8 @@
     "none": 3
    },
    "kitCheck": {
-    "factor": 1.04,
-    "kinds": 27
+    "factor": 1.03,
+    "kinds": 28
    }
   },
   {
@@ -29320,7 +29320,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "Fence with no leaf that fits.",
-   "count": 179
+   "count": 174
   },
   {
    "id": "str-barrier-fence-roped",
@@ -29333,8 +29333,8 @@
    "id": "str-barrier-fence-temporary",
    "name": "Temporary",
    "type": "kind",
-   "description": "construction fence, crowd barrier, sandbags",
-   "count": 17
+   "description": "construction fence, sandbags",
+   "count": 12
   },
   {
    "id": "str-barrier-fence-iron",
@@ -30165,6 +30165,13 @@
    "count": 24
   },
   {
+   "id": "str-barrier-crowd",
+   "name": "Crowd barrier",
+   "type": "kind",
+   "description": "Free-standing steel barrier to hold back crowds: bike-rack barricade, crowd control barrier.",
+   "count": 5
+  },
+  {
    "id": "str-barrier-railing",
    "name": "Railing",
    "type": "kind",
@@ -30673,7 +30680,7 @@
    "name": "Modern",
    "type": "tech",
    "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
-   "count": 2044
+   "count": 2049
   },
   {
    "id": "storeys-0-5",
@@ -31686,6 +31693,7 @@
     "str-part-chimney",
     "str-part-pillar",
     "str-barrier-fence",
+    "str-barrier-crowd",
     "str-barrier-post",
     "str-barrier-hedge",
     "str-access-ladder",
@@ -31733,6 +31741,7 @@
     "str-part-chimney",
     "str-part-pillar",
     "str-barrier-fence",
+    "str-barrier-crowd",
     "str-access-ladder",
     "str-access-bridge-section",
     "str-access-bridge-long",
@@ -35179,6 +35188,13 @@
    "longest.max": 30,
    "tpu.max": 5000
   },
+  "str-barrier-crowd": {
+   "high.min": 0.35,
+   "high.max": 0.85,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
   "str-barrier-fence": {
    "high.min": 0.35,
    "high.max": 0.85,
@@ -36851,6 +36867,20 @@
    "longest.min": 0.05,
    "longest.max": 30,
    "tpu.max": 10000
+  },
+  "str-barrier-crowd scale-small": {
+   "high.min": 0.175,
+   "high.max": 0.5,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "str-barrier-crowd scale-big": {
+   "high.min": 0.7,
+   "high.max": 1.7,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
   },
   "str-barrier-post scale-small": {
    "high.min": 0.175,
@@ -99391,7 +99421,7 @@
    "collection": "ipoly",
    "name": "barricade",
    "hash": "705e8cd71f",
-   "kind": "str-barrier-fence-temporary",
+   "kind": "str-barrier-crowd",
    "size": "m",
    "wdh": [
     0.916,
@@ -99423,9 +99453,10 @@
    ],
    "tags": [
     "ipoly",
-    "metal-iron-dark"
+    "metal-iron-dark",
+    "modern"
    ],
-   "thickRel": 1.16
+   "thickRel": 0.74
   },
   {
    "kit": "ipoly-concert",
@@ -204186,7 +204217,7 @@
     "textile-rope",
     "wood-dark"
    ],
-   "thickRel": 2.01
+   "thickRel": 1.94
   },
   {
    "kit": "ken-forest-mini",
@@ -228907,7 +228938,7 @@
     "textile-rope",
     "wood-light"
    ],
-   "thickRel": 2.29
+   "thickRel": 2.22
   },
   {
    "kit": "ken-platformer",
@@ -235051,7 +235082,7 @@
     "ken",
     "metal-steel"
    ],
-   "thickRel": 1.45
+   "thickRel": 1.58
   },
   {
    "kit": "ken-roads",
@@ -265909,7 +265940,7 @@
    "kit": "lpa-construction",
    "name": "barrier-a",
    "hash": "367c2903d1",
-   "kind": "str-barrier-fence-temporary",
+   "kind": "str-barrier-crowd",
    "size": "m",
    "wdh": [
     0.752,
@@ -265941,9 +265972,10 @@
    ],
    "tags": [
     "lpa",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
-   "thickRel": 0.98,
+   "thickRel": 0.62,
    "lint": [
     {
      "level": "warning",
@@ -267004,7 +267036,7 @@
     "plastic"
    ],
    "variant": "lpa-construction/fence-a",
-   "thickRel": 0.73
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-construction",
@@ -267045,7 +267077,7 @@
     "metal-steel"
    ],
    "variant": "lpa-construction/fence-a",
-   "thickRel": 0.77
+   "thickRel": 0.84
   },
   {
    "kit": "lpa-construction",
@@ -291641,7 +291673,7 @@
    "kit": "m3-base",
    "name": "crowd-control-barrier",
    "hash": "71341f5b57",
-   "kind": "str-barrier-fence-temporary",
+   "kind": "str-barrier-crowd",
    "size": "m",
    "wdh": [
     1.05,
@@ -291673,7 +291705,8 @@
    ],
    "tags": [
     "m3",
-    "metal-iron-dark"
+    "metal-iron-dark",
+    "modern"
    ],
    "backface": {
     "share": 0.0045,
@@ -291682,7 +291715,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.25,
+   "thickRel": 0.8,
    "lint": [
     {
      "level": "warning",
@@ -317020,7 +317053,7 @@
     "mounted",
     "wood-mid"
    ],
-   "thickRel": 0.42,
+   "thickRel": 0.41,
    "lint": [
     {
      "level": "warning",
@@ -322720,7 +322753,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.06,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "warning",
@@ -323320,7 +323353,7 @@
     "textile-rope",
     "wood-mid"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.11
   },
   {
    "kit": "m3-base",
@@ -381759,7 +381792,7 @@
      "other": 0.03
     }
    },
-   "thickRel": 1.23,
+   "thickRel": 1.34,
    "lint": [
     {
      "level": "warning",
@@ -381834,7 +381867,7 @@
      "open": 0
     }
    },
-   "thickRel": 0.91,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "error",
@@ -381949,7 +381982,7 @@
     "wood-mid"
    ],
    "variant": "quat-shoot/barrier",
-   "thickRel": 0.92,
+   "thickRel": 1,
    "lint": [
     {
      "level": "error",
@@ -382375,7 +382408,7 @@
    "kit": "quat-shoot",
    "name": "fence-long",
    "hash": "b252620175",
-   "kind": "str-barrier-fence-temporary",
+   "kind": "str-barrier-crowd",
    "size": "m",
    "wdh": [
     0.97,
@@ -382407,10 +382440,11 @@
    ],
    "tags": [
     "metal-iron-dark",
+    "modern",
     "qua"
    ],
    "variant": "quat-shoot/fence",
-   "thickRel": 1.16,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
@@ -382460,7 +382494,7 @@
     "qua",
     "scale-big"
    ],
-   "thickRel": 0.64,
+   "thickRel": 0.69,
    "lint": [
     {
      "level": "warning",
@@ -382473,7 +382507,7 @@
    "kit": "quat-shoot",
    "name": "fence",
    "hash": "bc676246ed",
-   "kind": "str-barrier-fence-temporary",
+   "kind": "str-barrier-crowd",
    "size": "m",
    "wdh": [
     0.685,
@@ -382505,10 +382539,11 @@
    ],
    "tags": [
     "metal-iron-dark",
+    "modern",
     "qua"
    ],
    "variant": "quat-shoot/fence",
-   "thickRel": 0.94,
+   "thickRel": 0.6,
    "lint": [
     {
      "level": "warning",
@@ -399956,7 +399991,7 @@
     "wood-dark"
    ],
    "variant": "rgp-asia/fence-rope-a",
-   "thickRel": 1.17
+   "thickRel": 1.13
   },
   {
    "kit": "rgp-asia",
@@ -400001,7 +400036,7 @@
     "wood-dark"
    ],
    "variant": "rgp-asia/fence-rope-a",
-   "thickRel": 1.16
+   "thickRel": 1.12
   },
   {
    "kit": "rgp-asia",
@@ -460473,7 +460508,7 @@
     "wood-dark"
    ],
    "variant": "wizp-fish/rope-fence-short",
-   "thickRel": 2.55,
+   "thickRel": 2.47,
    "lint": [
     {
      "level": "warning",
@@ -460526,7 +460561,7 @@
     "wood-dark"
    ],
    "variant": "wizp-fish/rope-fence-short",
-   "thickRel": 1.94,
+   "thickRel": 1.88,
    "lint": [
     {
      "level": "warning",
