@@ -2353,7 +2353,7 @@
    ],
    "kitCheck": {
     "factor": 1.21,
-    "kinds": 54
+    "kinds": 55
    }
   },
   {
@@ -3346,7 +3346,7 @@
    },
    "kitCheck": {
     "factor": 1.05,
-    "kinds": 202
+    "kinds": 203
    }
   },
   {
@@ -4176,8 +4176,8 @@
     "none": 9
    },
    "kitCheck": {
-    "factor": 1.06,
-    "kinds": 38
+    "factor": 1.05,
+    "kinds": 37
    }
   },
   {
@@ -27749,8 +27749,8 @@
    "id": "obj-furnishing-light-lamp-ceiling",
    "name": "Ceiling lamp",
    "type": "kind",
-   "description": "ceiling lamp, ceiling light, disco ball",
-   "count": 28
+   "description": "Electric ceiling lamp or light, disco ball.",
+   "count": 25
   },
   {
    "id": "obj-furnishing-light-lamp-ceiling-fan",
@@ -27760,11 +27760,11 @@
    "count": 6
   },
   {
-   "id": "obj-furnishing-light-lamp-ceiling-chandelier",
+   "id": "obj-furnishing-light-lamp-chandelier",
    "name": "Chandelier",
    "type": "kind",
-   "description": "chandelier",
-   "count": 4
+   "description": "Chandelier with candles or candle-style arms, not electric.",
+   "count": 3
   },
   {
    "id": "obj-furnishing-light-lamp-table",
@@ -29252,6 +29252,13 @@
    "count": 27
   },
   {
+   "id": "str-access-ladder-steel",
+   "name": "Steel ladder",
+   "type": "kind",
+   "description": "Ladder of steel tube or section: pool ladder, stepladder, steel rung ladder.",
+   "count": 7
+  },
+  {
    "id": "str-access-stairs",
    "name": "Stairs",
    "type": "kind",
@@ -30003,6 +30010,13 @@
    "color": "#6e8f86"
   },
   {
+   "id": "str-fixture-utility-power",
+   "name": "Power line",
+   "type": "kind",
+   "description": "Electric power pole, overhead wires.",
+   "count": 8
+  },
+  {
    "id": "str-fixture-utility-antenna",
    "name": "Antenna",
    "type": "kind",
@@ -30659,7 +30673,7 @@
    "name": "Modern",
    "type": "tech",
    "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
-   "count": 1991
+   "count": 2027
   },
   {
    "id": "storeys-0-5",
@@ -34430,16 +34444,16 @@
    "longest.max": 0.7,
    "tpu.max": 5000
   },
-  "obj-furnishing-light-lamp-ceiling-chandelier": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.7,
-   "tpu.max": 5000
-  },
   "obj-furnishing-light-lamp-ceiling-fan": {
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 0.9,
+   "tpu.max": 5000
+  },
+  "obj-furnishing-light-lamp-chandelier": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.6,
    "tpu.max": 5000
   },
   "obj-furnishing-light-lamp-floor": {
@@ -35081,6 +35095,12 @@
    "longest.max": 1.4,
    "tpu.max": 5000
   },
+  "str-access-ladder-steel": {
+   "high.max": 8,
+   "longest.min": 0.65,
+   "longest.max": 1.4,
+   "tpu.max": 5000
+  },
   "str-access-path": {
    "high.max": 8,
    "longest.min": 0.05,
@@ -35669,6 +35689,12 @@
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 1.2,
+   "tpu.max": 5000
+  },
+  "str-fixture-utility-power": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
    "tpu.max": 5000
   },
   "str-fixture-utility-solar": {
@@ -36847,6 +36873,18 @@
    "tpu.max": 5000
   },
   "str-access-ladder scale-big": {
+   "high.max": 8,
+   "longest.min": 0.9,
+   "longest.max": 2.79,
+   "tpu.max": 5000
+  },
+  "str-access-ladder-steel scale-small": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 1,
+   "tpu.max": 5000
+  },
+  "str-access-ladder-steel scale-big": {
    "high.max": 8,
    "longest.min": 0.9,
    "longest.max": 2.79,
@@ -74316,7 +74354,14 @@
     "special-emissive"
    ],
    "variant": "fs-house/ceiling-fan-a",
-   "thickRel": 0.53
+   "thickRel": 0.45,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.45 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "fs-house",
@@ -74365,7 +74410,7 @@
     "wood-mid"
    ],
    "variant": "fs-house/ceiling-fan-a",
-   "thickRel": 0.61
+   "thickRel": 0.52
   },
   {
    "kit": "fs-house",
@@ -74405,12 +74450,13 @@
    ],
    "tags": [
     "fs",
+    "modern",
     "mounted",
     "special-emissive",
     "textile-cloth-light"
    ],
    "variant": "fs-house/ceiling-light",
-   "thickRel": 0.99
+   "thickRel": 0.85
   },
   {
    "kit": "fs-house",
@@ -74448,11 +74494,12 @@
    ],
    "tags": [
     "fs",
+    "modern",
     "mounted",
     "textile-cloth-light"
    ],
    "variant": "fs-house/ceiling-light",
-   "thickRel": 2.91
+   "thickRel": 2.49
   },
   {
    "kit": "fs-house",
@@ -85851,10 +85898,11 @@
    "tags": [
     "fs",
     "metal-iron-mid",
+    "modern",
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.87
   },
   {
    "kit": "fs-terrain",
@@ -96446,7 +96494,7 @@
     "modern",
     "mounted"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.62
   },
   {
    "kit": "household",
@@ -96492,7 +96540,7 @@
    "kit": "household",
    "name": "chandelier",
    "hash": "77412d60de",
-   "kind": "obj-furnishing-light-lamp-ceiling-chandelier",
+   "kind": "obj-furnishing-light-lamp-chandelier",
    "size": "s",
    "wdh": [
     0.412,
@@ -96534,12 +96582,17 @@
     "special-emissive",
     "wax"
    ],
-   "thickRel": 0.66,
+   "thickRel": 0.39,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
      "text": "tpu 6134 over max 5000 (obj-furnishing)"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.39 wants min 0.5"
     }
    ]
   },
@@ -98593,7 +98646,7 @@
    "kit": "household",
    "name": "stepladder",
    "hash": "6f2a9d8918",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
     0.581,
@@ -98625,7 +98678,8 @@
    ],
    "tags": [
     "ct",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "backface": {
     "share": 0.01,
@@ -160809,7 +160863,7 @@
    "collection": "kay-play",
    "name": "barrier-ladder",
    "hash": "6c0d67e942",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
     0.252,
@@ -160842,6 +160896,7 @@
    "tags": [
     "kay",
     "metal-steel",
+    "modern",
     "scale-small"
    ],
    "thickRel": 0.93
@@ -205840,7 +205895,7 @@
     "spin"
    ],
    "variant": "ken-furniture/ceiling-fan-anim",
-   "thickRel": 0.88
+   "thickRel": 0.76
   },
   {
    "kit": "ken-furniture",
@@ -205896,7 +205951,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.88,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "warning",
@@ -207860,11 +207915,12 @@
    "tags": [
     "ken",
     "metal-steel",
+    "modern",
     "mounted",
     "textile-cloth-light"
    ],
    "variant": "ken-furniture/lamp-round-table",
-   "thickRel": 2.85
+   "thickRel": 2.44
   },
   {
    "kit": "ken-furniture",
@@ -230286,7 +230342,7 @@
    "collection": "ken-mini",
    "name": "ladder-top",
    "hash": "ef6ecac3e3",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
     0.502,
@@ -230318,7 +230374,8 @@
    "tags": [
     "comp",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-proto/ladder"
   },
@@ -230327,7 +230384,7 @@
    "collection": "ken-mini",
    "name": "ladder",
    "hash": "936cf213b2",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
     0.552,
@@ -230359,7 +230416,8 @@
    ],
    "tags": [
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-proto/ladder",
    "thickRel": 0.98
@@ -232533,7 +232591,8 @@
    ],
    "tags": [
     "ken",
-    "metal-iron-dark"
+    "metal-iron-dark",
+    "modern"
    ],
    "thickRel": 0.61,
    "lint": [
@@ -235084,7 +235143,7 @@
    "collection": "ken-city",
    "name": "electricity-pole-single",
    "hash": "d53a60f17c",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-power",
    "size": "m",
    "wdh": [
     0.174,
@@ -235126,6 +235185,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "stone-masonry-dark",
     "wood-mid"
    ],
@@ -235137,7 +235197,7 @@
    "collection": "ken-city",
    "name": "electricity-pole-wide",
    "hash": "cb69d6ec5d",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-power",
    "size": "l",
    "wdh": [
     2.374,
@@ -235177,6 +235237,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "stone-masonry-dark",
     "wood-mid"
    ],
@@ -235188,7 +235249,7 @@
    "collection": "ken-city",
    "name": "electricity-pole",
    "hash": "c9f711f622",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-power",
    "size": "m",
    "wdh": [
     1.274,
@@ -235228,6 +235289,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "stone-masonry-dark",
     "wood-mid"
    ],
@@ -235239,7 +235301,7 @@
    "collection": "ken-city",
    "name": "electricity-side-single",
    "hash": "6cbfc75679",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-power",
    "size": "m",
    "wdh": [
     0.14,
@@ -235276,6 +235338,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "wood-mid"
    ],
@@ -235287,7 +235350,7 @@
    "collection": "ken-city",
    "name": "electricity-side-wide",
    "hash": "e26ec4f34f",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-power",
    "size": "l",
    "wdh": [
     2.34,
@@ -235324,6 +235387,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "wood-mid"
    ],
@@ -235335,7 +235399,7 @@
    "collection": "ken-city",
    "name": "electricity-side",
    "hash": "c6b222cf56",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-power",
    "size": "m",
    "wdh": [
     1.24,
@@ -235372,6 +235436,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "wood-mid"
    ],
@@ -235383,7 +235448,7 @@
    "collection": "ken-city",
    "name": "electricity-wires-wide",
    "hash": "acd7a7a304",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-power",
    "size": "l",
    "wdh": [
     2.216,
@@ -235417,6 +235482,7 @@
     "comp",
     "ken",
     "metal-iron-dark",
+    "modern",
     "mounted"
    ],
    "variant": "ken-roads/electricity-wires"
@@ -235426,7 +235492,7 @@
    "collection": "ken-city",
    "name": "electricity-wires",
    "hash": "3ed4348a25",
-   "kind": "str-fixture-utility",
+   "kind": "str-fixture-utility-power",
    "size": "m",
    "wdh": [
     1.113,
@@ -235460,6 +235526,7 @@
     "comp",
     "ken",
     "metal-iron-dark",
+    "modern",
     "mounted"
    ],
    "variant": "ken-roads/electricity-wires"
@@ -271276,7 +271343,14 @@
     "modern",
     "mounted"
    ],
-   "thickRel": 0.57
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.49 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "lpa-home",
@@ -271322,7 +271396,7 @@
     "mounted",
     "plastic"
    ],
-   "thickRel": 1.83
+   "thickRel": 1.57
   },
   {
    "kit": "lpa-home",
@@ -295846,10 +295920,11 @@
    "tags": [
     "m3",
     "metal-steel",
+    "modern",
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 5.19
+   "thickRel": 4.45
   },
   {
    "kit": "m3-base",
@@ -300495,7 +300570,7 @@
    "kit": "m3-base",
    "name": "iron-chandelier",
    "hash": "dd187636ee",
-   "kind": "obj-furnishing-light-lamp-ceiling-chandelier",
+   "kind": "obj-furnishing-light-lamp-chandelier",
    "size": "s",
    "wdh": [
     0.38,
@@ -300536,7 +300611,14 @@
     "special-emissive",
     "wax"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.37,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.37 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -310609,7 +310691,7 @@
    "kit": "m3-base",
    "name": "pool-ladder-01",
    "hash": "6d001c17fc",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
     0.289,
@@ -310640,7 +310722,8 @@
    ],
    "tags": [
     "m3",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "m3-base/pool-ladder-01",
    "thickRel": 0.73,
@@ -310656,7 +310739,7 @@
    "kit": "m3-base",
    "name": "pool-ladder-02",
    "hash": "fccec44cf7",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
     0.3,
@@ -310688,7 +310771,8 @@
    ],
    "tags": [
     "m3",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "m3-base/pool-ladder-01",
    "thickRel": 0.86,
@@ -354435,12 +354519,13 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-cluster-a",
-   "thickRel": 0.89
+   "thickRel": 0.76
   },
   {
    "kit": "quat-interior",
@@ -354481,12 +354566,13 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-cluster-a",
-   "thickRel": 1.17
+   "thickRel": 1
   },
   {
    "kit": "quat-interior",
@@ -354528,12 +354614,13 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-cube",
-   "thickRel": 0.72
+   "thickRel": 0.62
   },
   {
    "kit": "quat-interior",
@@ -354575,12 +354662,13 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-cube",
-   "thickRel": 3.12
+   "thickRel": 2.67
   },
   {
    "kit": "quat-interior",
@@ -354620,12 +354708,13 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-dome",
-   "thickRel": 1.84
+   "thickRel": 1.57
   },
   {
    "kit": "quat-interior",
@@ -354667,11 +354756,12 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
-   "thickRel": 1.73,
+   "thickRel": 1.48,
    "lint": [
     {
      "level": "warning",
@@ -354720,11 +354810,12 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
-   "thickRel": 0.79
+   "thickRel": 0.67
   },
   {
    "kit": "quat-interior",
@@ -354764,12 +354855,13 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
    "variant": "quat-interior/ceiling-light-dome",
-   "thickRel": 2.81
+   "thickRel": 2.41
   },
   {
    "kit": "quat-interior",
@@ -354808,11 +354900,12 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
-   "thickRel": 3.02
+   "thickRel": 2.58
   },
   {
    "kit": "quat-interior",
@@ -355011,7 +355104,7 @@
    "kit": "quat-interior",
    "name": "chandelier",
    "hash": "2fa6ddd20e",
-   "kind": "obj-furnishing-light-lamp-ceiling-chandelier",
+   "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
     0.355,
@@ -355045,11 +355138,12 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "mounted",
     "qua",
     "special-emissive"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.81
   },
   {
    "kit": "quat-interior",
@@ -371629,7 +371723,7 @@
    "kit": "quat-props",
    "name": "chandelier",
    "hash": "4482952417",
-   "kind": "obj-furnishing-light-lamp-ceiling-chandelier",
+   "kind": "obj-furnishing-light-lamp-chandelier",
    "size": "s",
    "wdh": [
     0.374,
@@ -371673,7 +371767,14 @@
     "wax",
     "wood-dark"
    ],
-   "thickRel": 0.7
+   "thickRel": 0.41,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "I01 thickRel 0.41 wants min 0.5"
+    }
+   ]
   },
   {
    "kit": "quat-props",
@@ -425852,7 +425953,7 @@
    "collection": "sq-props",
    "name": "pool-ladder",
    "hash": "14bdc509d2",
-   "kind": "str-access-ladder",
+   "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
     0.379,
@@ -425884,6 +425985,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "sq"
    ],
    "thickRel": 0.82,
@@ -426036,11 +426138,12 @@
     "hero",
     "metal-iron-dark",
     "metal-iron-mid",
+    "modern",
     "mounted",
     "sq",
     "tba"
    ],
-   "thickRel": 3.19
+   "thickRel": 2.73
   },
   {
    "kit": "sq-rink",
@@ -434813,7 +434916,7 @@
     "plastic",
     "sty"
    ],
-   "thickRel": 2.61
+   "thickRel": 2.23
   },
   {
    "kit": "styloo-furniture",
@@ -448712,7 +448815,8 @@
     "glass-clear",
     "metal-iron-dark",
     "metal-iron-mid",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "taalei-kit/movie-camera",
    "thickRel": 0.84
@@ -448763,6 +448867,7 @@
     "metal-iron-dark",
     "metal-iron-mid",
     "metal-steel",
+    "modern",
     "wood-dark"
    ],
    "variant": "taalei-kit/movie-camera",
@@ -448813,6 +448918,7 @@
     "glass-clear",
     "metal-gold",
     "metal-iron-dark",
+    "modern",
     "wood-dark",
     "wood-mid"
    ],
@@ -454351,10 +454457,11 @@
    ],
    "tags": [
     "metal-iron-mid",
+    "modern",
     "mounted",
     "special-emissive"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.03
   },
   {
    "kit": "western",

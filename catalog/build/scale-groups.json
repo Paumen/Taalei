@@ -2117,6 +2117,88 @@
   ]
  },
  {
+  "slug": "obj-furnishing-light-lamp-chandelier",
+  "name": "Object › Furnishing › Light › Lamp › Chandelier",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.2,
+   "longest.max": 0.6,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "chandelier",
+    "hash": "77412d60de",
+    "wdh": [
+     0.4,
+     0.4,
+     0.35
+    ],
+    "tags": [
+     "antique",
+     "ct",
+     "metal-iron-mid",
+     "mounted",
+     "special-emissive",
+     "wax"
+    ],
+    "colors": [
+     "#59534e",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "iron-chandelier",
+    "hash": "dd187636ee",
+    "wdh": [
+     0.4,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "m3",
+     "metal-iron-mid",
+     "mounted",
+     "special-emissive",
+     "wax"
+    ],
+    "colors": [
+     "#59534e",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-props",
+    "model": "chandelier",
+    "hash": "4482952417",
+    "wdh": [
+     0.35,
+     0.35,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "mounted",
+     "qua",
+     "special-emissive",
+     "wax",
+     "wood-dark"
+    ],
+    "colors": [
+     "#59534e",
+     "#713e14",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-leisure-art-easel",
   "name": "Object › Leisure › Art › Easel",
   "category": "obj-gen",
@@ -4047,108 +4129,6 @@
     "colors": [
      "#21552a",
      "#873a27"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-furnishing-light-lamp-ceiling-chandelier",
-  "name": "Object › Furnishing › Light › Lamp › Ceiling › Chandelier",
-  "category": "obj-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.7,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "household",
-    "model": "chandelier",
-    "hash": "77412d60de",
-    "wdh": [
-     0.4,
-     0.4,
-     0.35
-    ],
-    "tags": [
-     "antique",
-     "ct",
-     "metal-iron-mid",
-     "mounted",
-     "special-emissive",
-     "wax"
-    ],
-    "colors": [
-     "#59534e",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "iron-chandelier",
-    "hash": "dd187636ee",
-    "wdh": [
-     0.4,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "m3",
-     "metal-iron-mid",
-     "mounted",
-     "special-emissive",
-     "wax"
-    ],
-    "colors": [
-     "#59534e",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "chandelier",
-    "hash": "2fa6ddd20e",
-    "wdh": [
-     0.35,
-     0.35,
-     0.25
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-props",
-    "model": "chandelier",
-    "hash": "4482952417",
-    "wdh": [
-     0.35,
-     0.35,
-     0.4
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "mounted",
-     "qua",
-     "special-emissive",
-     "wax",
-     "wood-dark"
-    ],
-    "colors": [
-     "#59534e",
-     "#713e14",
-     "#d8cfb7",
-     "#f1a63b"
     ]
    }
   ]
@@ -22222,7 +22202,8 @@
     ],
     "tags": [
      "ken",
-     "metal-iron-dark"
+     "metal-iron-dark",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -22315,7 +22296,8 @@
      "glass-clear",
      "metal-iron-dark",
      "metal-iron-mid",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -22338,6 +22320,7 @@
      "metal-iron-dark",
      "metal-iron-mid",
      "metal-steel",
+     "modern",
      "wood-dark"
     ],
     "colors": [
@@ -22361,6 +22344,7 @@
      "glass-clear",
      "metal-gold",
      "metal-iron-dark",
+     "modern",
      "wood-dark",
      "wood-mid"
     ],
@@ -31654,392 +31638,6 @@
   ]
  },
  {
-  "slug": "obj-furnishing-light-lamp-ceiling",
-  "name": "Object › Furnishing › Light › Lamp › Ceiling",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.7,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "fs-house",
-    "collection": "fs-buildings",
-    "model": "ceiling-light-triple",
-    "hash": "2621724182",
-    "wdh": [
-     0.25,
-     0.3,
-     0.15
-    ],
-    "tags": [
-     "fs",
-     "mounted",
-     "special-emissive",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "fs-house",
-    "collection": "fs-buildings",
-    "model": "ceiling-light",
-    "hash": "f110967d27",
-    "wdh": [
-     0.25,
-     0.25,
-     0.2
-    ],
-    "tags": [
-     "fs",
-     "mounted",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "fs-terrain",
-    "collection": "fs-modular",
-    "model": "cave-prop-hanging-lamp",
-    "hash": "fe378b5408",
-    "wdh": [
-     0.15,
-     0.15,
-     0.3
-    ],
-    "tags": [
-     "fs",
-     "metal-iron-mid",
-     "mounted",
-     "special-emissive"
-    ],
-    "colors": [
-     "#59534e",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "lamp-square-ceiling",
-    "hash": "60b3e99dcd",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "ken",
-     "metal-steel",
-     "mounted",
-     "textile-cloth-light"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "ceiling-light",
-    "hash": "326b9a9e7b",
-    "wdh": [
-     0.25,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "lpa",
-     "metal-steel",
-     "modern",
-     "mounted",
-     "plastic"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "fluorescent-light-fitting",
-    "hash": "c3f2bc21c2",
-    "wdh": [
-     0.35,
-     0.04,
-     0.04
-    ],
-    "tags": [
-     "m3",
-     "metal-steel",
-     "mounted",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-cluster-a",
-    "hash": "5f113deb93",
-    "wdh": [
-     0.3,
-     0.3,
-     0.4
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-cluster-b",
-    "hash": "9cf3994335",
-    "wdh": [
-     0.25,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-cube-frame",
-    "hash": "b766d15a39",
-    "wdh": [
-     0.25,
-     0.3,
-     0.35
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-cube",
-    "hash": "b5a4323ec1",
-    "wdh": [
-     0.25,
-     0.25,
-     0.35
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-dome",
-    "hash": "ec42e8bc4f",
-    "wdh": [
-     0.2,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-icosahedron-triple",
-    "hash": "684dd69b1a",
-    "wdh": [
-     0.7,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-icosahedron",
-    "hash": "e7a30f31ae",
-    "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light-single",
-    "hash": "9d9cbda4be",
-    "wdh": [
-     0.1,
-     0.1,
-     0.25
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "ceiling-light",
-    "hash": "537e5546bc",
-    "wdh": [
-     0.2,
-     0.2,
-     0.3
-    ],
-    "tags": [
-     "metal-steel",
-     "mounted",
-     "qua",
-     "special-emissive"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "sq-rink",
-    "collection": "sq-props",
-    "model": "disco-ball",
-    "hash": "826d44e90e",
-    "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "glass-mirror",
-     "hero",
-     "metal-iron-dark",
-     "metal-iron-mid",
-     "mounted",
-     "sq",
-     "tba"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#59534e",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "styloo-furniture",
-    "model": "lamp",
-    "hash": "6147a5236f",
-    "wdh": [
-     0.2,
-     0.2,
-     0.35
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "modern",
-     "mounted",
-     "plastic",
-     "sty"
-    ],
-    "colors": [
-     "#59534e",
-     "#d8cfb7",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "western",
-    "model": "lamp-hanging",
-    "hash": "9a3f78f430",
-    "wdh": [
-     0.25,
-     0.25,
-     0.3
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "mounted",
-     "special-emissive"
-    ],
-    "colors": [
-     "#59534e",
-     "#f1a63b"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-kitchenware-cookware-pan-frying",
   "name": "Object › Kitchenware › Cookware › Pan › Frying",
   "category": "obj-gen",
@@ -33116,6 +32714,429 @@
     "colors": [
      "#3a3e4b",
      "#ca9f6e"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-furnishing-light-lamp-ceiling",
+  "name": "Object › Furnishing › Light › Lamp › Ceiling",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.15,
+   "longest.max": 0.7,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "fs-house",
+    "collection": "fs-buildings",
+    "model": "ceiling-light-triple",
+    "hash": "2621724182",
+    "wdh": [
+     0.25,
+     0.3,
+     0.15
+    ],
+    "tags": [
+     "fs",
+     "modern",
+     "mounted",
+     "special-emissive",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "fs-house",
+    "collection": "fs-buildings",
+    "model": "ceiling-light",
+    "hash": "f110967d27",
+    "wdh": [
+     0.25,
+     0.25,
+     0.2
+    ],
+    "tags": [
+     "fs",
+     "modern",
+     "mounted",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "fs-terrain",
+    "collection": "fs-modular",
+    "model": "cave-prop-hanging-lamp",
+    "hash": "fe378b5408",
+    "wdh": [
+     0.15,
+     0.15,
+     0.3
+    ],
+    "tags": [
+     "fs",
+     "metal-iron-mid",
+     "modern",
+     "mounted",
+     "special-emissive"
+    ],
+    "colors": [
+     "#59534e",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "lamp-square-ceiling",
+    "hash": "60b3e99dcd",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "modern",
+     "mounted",
+     "textile-cloth-light"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "ceiling-light",
+    "hash": "326b9a9e7b",
+    "wdh": [
+     0.25,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "lpa",
+     "metal-steel",
+     "modern",
+     "mounted",
+     "plastic"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "fluorescent-light-fitting",
+    "hash": "c3f2bc21c2",
+    "wdh": [
+     0.35,
+     0.04,
+     0.04
+    ],
+    "tags": [
+     "m3",
+     "metal-steel",
+     "modern",
+     "mounted",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-cluster-a",
+    "hash": "5f113deb93",
+    "wdh": [
+     0.3,
+     0.3,
+     0.4
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-cluster-b",
+    "hash": "9cf3994335",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-cube-frame",
+    "hash": "b766d15a39",
+    "wdh": [
+     0.25,
+     0.3,
+     0.35
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-cube",
+    "hash": "b5a4323ec1",
+    "wdh": [
+     0.25,
+     0.25,
+     0.35
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-dome",
+    "hash": "ec42e8bc4f",
+    "wdh": [
+     0.2,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-icosahedron-triple",
+    "hash": "684dd69b1a",
+    "wdh": [
+     0.7,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-icosahedron",
+    "hash": "e7a30f31ae",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light-single",
+    "hash": "9d9cbda4be",
+    "wdh": [
+     0.1,
+     0.1,
+     0.25
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "ceiling-light",
+    "hash": "537e5546bc",
+    "wdh": [
+     0.2,
+     0.2,
+     0.3
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "chandelier",
+    "hash": "2fa6ddd20e",
+    "wdh": [
+     0.35,
+     0.35,
+     0.25
+    ],
+    "tags": [
+     "metal-steel",
+     "modern",
+     "mounted",
+     "qua",
+     "special-emissive"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "sq-rink",
+    "collection": "sq-props",
+    "model": "disco-ball",
+    "hash": "826d44e90e",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "glass-mirror",
+     "hero",
+     "metal-iron-dark",
+     "metal-iron-mid",
+     "modern",
+     "mounted",
+     "sq",
+     "tba"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#59534e",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "styloo-furniture",
+    "model": "lamp",
+    "hash": "6147a5236f",
+    "wdh": [
+     0.2,
+     0.2,
+     0.35
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "modern",
+     "mounted",
+     "plastic",
+     "sty"
+    ],
+    "colors": [
+     "#59534e",
+     "#d8cfb7",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "western",
+    "model": "lamp-hanging",
+    "hash": "9a3f78f430",
+    "wdh": [
+     0.25,
+     0.25,
+     0.3
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "modern",
+     "mounted",
+     "special-emissive"
+    ],
+    "colors": [
+     "#59534e",
+     "#f1a63b"
     ]
    }
   ]
@@ -93424,6 +93445,57 @@
   ]
  },
  {
+  "slug": "str-fixture-utility",
+  "name": "Structure › Fixture › Utility",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "quat-cyberpunk",
+    "model": "cable-long",
+    "hash": "96bddf0a98",
+    "wdh": [
+     0.25,
+     0.15,
+     1.25
+    ],
+    "tags": [
+     "modern",
+     "mounted",
+     "qua",
+     "rubber"
+    ],
+    "colors": [
+     "#59534e"
+    ]
+   },
+   {
+    "slug": "quat-cyberpunk",
+    "model": "cable",
+    "hash": "1f7e0446bc",
+    "wdh": [
+     0.2,
+     0.15,
+     0.8
+    ],
+    "tags": [
+     "modern",
+     "mounted",
+     "qua",
+     "rubber"
+    ],
+    "colors": [
+     "#59534e"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-fixture-utility-well-scale-big",
   "name": "Structure › Fixture › Utility › Well · scale-big",
   "category": "str-gen",
@@ -94262,6 +94334,100 @@
   ]
  },
  {
+  "slug": "str-access-ladder-scale-small",
+  "name": "Structure › Access › Ladder · scale-small",
+  "category": "str-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.5,
+   "longest.max": 1,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "ken-cave",
+    "model": "ladder",
+    "hash": "5ef86e62a4",
+    "wdh": [
+     0.3,
+     0.07,
+     0.75
+    ],
+    "tags": [
+     "ken",
+     "scale-small",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14"
+    ]
+   },
+   {
+    "slug": "ken-forest-mini",
+    "collection": "ken-mini",
+    "model": "ladder",
+    "hash": "e2b3733e56",
+    "wdh": [
+     0.6,
+     0.15,
+     1.2
+    ],
+    "tags": [
+     "ken",
+     "scale-small",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "ken-platformer",
+    "collection": "ken-mini",
+    "model": "ladder",
+    "hash": "2f43724e84",
+    "wdh": [
+     0.6,
+     0.1,
+     1.2
+    ],
+    "tags": [
+     "ken",
+     "scale-small",
+     "wood-dark",
+     "wood-light"
+    ],
+    "colors": [
+     "#713e14",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "lpa-desert",
+    "model": "ladder-b",
+    "hash": "db66e64d65",
+    "wdh": [
+     0.3,
+     0.09,
+     0.9
+    ],
+    "tags": [
+     "lpa",
+     "scale-small",
+     "wood-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#713e14",
+     "#9e6d44"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-access-platform-catwalk",
   "name": "Structure › Access › Platform › Catwalk",
   "category": "str-gen",
@@ -95070,114 +95236,106 @@
   ]
  },
  {
-  "slug": "str-access-ladder-scale-small",
-  "name": "Structure › Access › Ladder · scale-small",
+  "slug": "str-access-ladder-steel",
+  "name": "Structure › Access › Ladder › Steel",
   "category": "str-gen",
-  "byLongest": true,
   "limits": {
    "high.max": 8,
-   "longest.min": 0.5,
-   "longest.max": 1,
+   "longest.min": 0.65,
+   "longest.max": 1.4,
    "tpu.max": 5000
   },
   "items": [
    {
-    "slug": "kay-minigame",
-    "collection": "kay-play",
-    "model": "barrier-ladder",
-    "hash": "6c0d67e942",
+    "slug": "household",
+    "model": "stepladder",
+    "hash": "6f2a9d8918",
     "wdh": [
-     0.25,
-     0.05,
-     0.5
+     0.6,
+     0.35,
+     1.1
     ],
     "tags": [
-     "kay",
+     "ct",
      "metal-steel",
-     "scale-small"
+     "modern"
     ],
     "colors": [
      "#7a8491"
     ]
    },
    {
-    "slug": "ken-cave",
+    "slug": "ken-proto",
+    "collection": "ken-mini",
     "model": "ladder",
-    "hash": "5ef86e62a4",
+    "hash": "936cf213b2",
+    "wdh": [
+     0.55,
+     0.15,
+     1
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "modern"
+    ],
+    "colors": [
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "pool-ladder-01",
+    "hash": "6d001c17fc",
     "wdh": [
      0.3,
-     0.07,
+     0.35,
+     0.8
+    ],
+    "tags": [
+     "m3",
+     "metal-steel",
+     "modern"
+    ],
+    "colors": [
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "pool-ladder-02",
+    "hash": "fccec44cf7",
+    "wdh": [
+     0.3,
+     0.25,
      0.75
     ],
     "tags": [
-     "ken",
-     "scale-small",
-     "wood-dark"
+     "m3",
+     "metal-steel",
+     "modern"
     ],
     "colors": [
-     "#713e14"
+     "#7a8491"
     ]
    },
    {
-    "slug": "ken-forest-mini",
-    "collection": "ken-mini",
-    "model": "ladder",
-    "hash": "e2b3733e56",
+    "slug": "sq-pool",
+    "collection": "sq-props",
+    "model": "pool-ladder",
+    "hash": "14bdc509d2",
     "wdh": [
-     0.6,
-     0.15,
-     1.2
-    ],
-    "tags": [
-     "ken",
-     "scale-small",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#713e14",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "ken-platformer",
-    "collection": "ken-mini",
-    "model": "ladder",
-    "hash": "2f43724e84",
-    "wdh": [
-     0.6,
-     0.1,
-     1.2
-    ],
-    "tags": [
-     "ken",
-     "scale-small",
-     "wood-dark",
-     "wood-light"
-    ],
-    "colors": [
-     "#713e14",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "lpa-desert",
-    "model": "ladder-b",
-    "hash": "db66e64d65",
-    "wdh": [
-     0.3,
-     0.09,
+     0.4,
+     0.25,
      0.9
     ],
     "tags": [
-     "lpa",
-     "scale-small",
-     "wood-dark",
-     "wood-mid"
+     "metal-steel",
+     "modern",
+     "sq"
     ],
     "colors": [
-     "#713e14",
-     "#9e6d44"
+     "#7a8491"
     ]
    }
   ]
@@ -97257,6 +97415,164 @@
   ]
  },
  {
+  "slug": "str-fixture-utility-power",
+  "name": "Structure › Fixture › Utility › Power",
+  "category": "str-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "ken-roads",
+    "collection": "ken-city",
+    "model": "electricity-pole-single",
+    "hash": "d53a60f17c",
+    "wdh": [
+     0.15,
+     0.45,
+     1.15
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-dark",
+     "metal-steel",
+     "modern",
+     "stone-masonry-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#713e14",
+     "#7a8491",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "ken-roads",
+    "collection": "ken-city",
+    "model": "electricity-pole-wide",
+    "hash": "cb69d6ec5d",
+    "wdh": [
+     2.35,
+     0.45,
+     1.15
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-dark",
+     "metal-steel",
+     "modern",
+     "stone-masonry-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "ken-roads",
+    "collection": "ken-city",
+    "model": "electricity-pole",
+    "hash": "c9f711f622",
+    "wdh": [
+     1.25,
+     0.45,
+     1.15
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-dark",
+     "metal-steel",
+     "modern",
+     "stone-masonry-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "ken-roads",
+    "collection": "ken-city",
+    "model": "electricity-side-single",
+    "hash": "6cbfc75679",
+    "wdh": [
+     0.15,
+     0.95,
+     1.15
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-dark",
+     "modern",
+     "stone-masonry-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "ken-roads",
+    "collection": "ken-city",
+    "model": "electricity-side-wide",
+    "hash": "e26ec4f34f",
+    "wdh": [
+     2.35,
+     0.95,
+     1.15
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-dark",
+     "modern",
+     "stone-masonry-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "ken-roads",
+    "collection": "ken-city",
+    "model": "electricity-side",
+    "hash": "c6b222cf56",
+    "wdh": [
+     1.25,
+     0.95,
+     1.15
+    ],
+    "tags": [
+     "ken",
+     "metal-iron-dark",
+     "modern",
+     "stone-masonry-dark",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#9e6d44"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "str-access-ramp",
   "name": "Structure › Access › Ramp",
   "category": "str-gen",
@@ -98806,196 +99122,6 @@
   ]
  },
  {
-  "slug": "str-fixture-utility",
-  "name": "Structure › Fixture › Utility",
-  "category": "str-gen",
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.05,
-   "longest.max": 30,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "ken-roads",
-    "collection": "ken-city",
-    "model": "electricity-pole-single",
-    "hash": "d53a60f17c",
-    "wdh": [
-     0.15,
-     0.45,
-     1.15
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-dark",
-     "metal-steel",
-     "stone-masonry-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#713e14",
-     "#7a8491",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "ken-roads",
-    "collection": "ken-city",
-    "model": "electricity-pole-wide",
-    "hash": "cb69d6ec5d",
-    "wdh": [
-     2.35,
-     0.45,
-     1.15
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-dark",
-     "metal-steel",
-     "stone-masonry-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "ken-roads",
-    "collection": "ken-city",
-    "model": "electricity-pole",
-    "hash": "c9f711f622",
-    "wdh": [
-     1.25,
-     0.45,
-     1.15
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-dark",
-     "metal-steel",
-     "stone-masonry-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "ken-roads",
-    "collection": "ken-city",
-    "model": "electricity-side-single",
-    "hash": "6cbfc75679",
-    "wdh": [
-     0.15,
-     0.95,
-     1.15
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "ken-roads",
-    "collection": "ken-city",
-    "model": "electricity-side-wide",
-    "hash": "e26ec4f34f",
-    "wdh": [
-     2.35,
-     0.95,
-     1.15
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "ken-roads",
-    "collection": "ken-city",
-    "model": "electricity-side",
-    "hash": "c6b222cf56",
-    "wdh": [
-     1.25,
-     0.95,
-     1.15
-    ],
-    "tags": [
-     "ken",
-     "metal-iron-dark",
-     "stone-masonry-dark",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "quat-cyberpunk",
-    "model": "cable-long",
-    "hash": "96bddf0a98",
-    "wdh": [
-     0.25,
-     0.15,
-     1.25
-    ],
-    "tags": [
-     "modern",
-     "mounted",
-     "qua",
-     "rubber"
-    ],
-    "colors": [
-     "#59534e"
-    ]
-   },
-   {
-    "slug": "quat-cyberpunk",
-    "model": "cable",
-    "hash": "1f7e0446bc",
-    "wdh": [
-     0.2,
-     0.15,
-     0.8
-    ],
-    "tags": [
-     "modern",
-     "mounted",
-     "qua",
-     "rubber"
-    ],
-    "colors": [
-     "#59534e"
-    ]
-   }
-  ]
- },
- {
   "slug": "str-fixture-utility-well",
   "name": "Structure › Fixture › Utility › Well",
   "category": "str-gen",
@@ -99204,6 +99330,179 @@
     "colors": [
      "#713e14",
      "#88735f"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "str-access-ladder",
+  "name": "Structure › Access › Ladder",
+  "category": "str-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.65,
+   "longest.max": 1.4,
+   "tpu.max": 5000
+  },
+  "items": [
+   {
+    "slug": "emace-village",
+    "collection": "emace",
+    "model": "ladder",
+    "hash": "2fff7634dc",
+    "wdh": [
+     0.4,
+     0.09,
+     0.9
+    ],
+    "tags": [
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14"
+    ]
+   },
+   {
+    "slug": "kay-hexagon",
+    "collection": "kay-strategy",
+    "model": "ladder",
+    "hash": "936d4bd63e",
+    "wdh": [
+     0.45,
+     0.09,
+     1.4
+    ],
+    "tags": [
+     "kay",
+     "wood-mid"
+    ],
+    "colors": [
+     "#9e6d44"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "ladder-a",
+    "hash": "c0ec3ef0d6",
+    "wdh": [
+     0.25,
+     0.45,
+     1.05
+    ],
+    "tags": [
+     "lpa",
+     "metal-steel",
+     "modern",
+     "rubber"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "lpa-construction",
+    "model": "ladder-c",
+    "hash": "8986b5ac91",
+    "wdh": [
+     0.25,
+     0.05,
+     1.1
+    ],
+    "tags": [
+     "lpa",
+     "metal-steel"
+    ],
+    "colors": [
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "ladder",
+    "hash": "02ac5ab6ba",
+    "wdh": [
+     0.4,
+     0.09,
+     1.1
+    ],
+    "tags": [
+     "lpa",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14"
+    ]
+   },
+   {
+    "slug": "lpa-west",
+    "model": "ladder",
+    "hash": "7eeea2738b",
+    "wdh": [
+     0.3,
+     0.07,
+     1.2
+    ],
+    "tags": [
+     "lpa",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "steel-ladder",
+    "hash": "9c449d22e2",
+    "wdh": [
+     0.1,
+     0.03,
+     1.1
+    ],
+    "tags": [
+     "m3",
+     "metal-steel",
+     "modern",
+     "rubber"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "wooden-ladder",
+    "hash": "3722b41518",
+    "wdh": [
+     0.15,
+     0.03,
+     1.1
+    ],
+    "tags": [
+     "m3",
+     "wood-dark"
+    ],
+    "colors": [
+     "#713e14"
+    ]
+   },
+   {
+    "slug": "rgs-proto",
+    "model": "ladder",
+    "hash": "5559062c35",
+    "wdh": [
+     0.6,
+     0.06,
+     1.2
+    ],
+    "tags": [
+     "wood-mid"
+    ],
+    "colors": [
+     "#9e6d44"
     ]
    }
   ]
@@ -104141,266 +104440,6 @@
     "colors": [
      "#3a3e4b",
      "#713e14"
-    ]
-   }
-  ]
- },
- {
-  "slug": "str-access-ladder",
-  "name": "Structure › Access › Ladder",
-  "category": "str-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.65,
-   "longest.max": 1.4,
-   "tpu.max": 5000
-  },
-  "items": [
-   {
-    "slug": "emace-village",
-    "collection": "emace",
-    "model": "ladder",
-    "hash": "2fff7634dc",
-    "wdh": [
-     0.4,
-     0.09,
-     0.9
-    ],
-    "tags": [
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14"
-    ]
-   },
-   {
-    "slug": "household",
-    "model": "stepladder",
-    "hash": "6f2a9d8918",
-    "wdh": [
-     0.6,
-     0.35,
-     1.1
-    ],
-    "tags": [
-     "ct",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "kay-hexagon",
-    "collection": "kay-strategy",
-    "model": "ladder",
-    "hash": "936d4bd63e",
-    "wdh": [
-     0.45,
-     0.09,
-     1.4
-    ],
-    "tags": [
-     "kay",
-     "wood-mid"
-    ],
-    "colors": [
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "ken-proto",
-    "collection": "ken-mini",
-    "model": "ladder",
-    "hash": "936cf213b2",
-    "wdh": [
-     0.55,
-     0.15,
-     1
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "ladder-a",
-    "hash": "c0ec3ef0d6",
-    "wdh": [
-     0.25,
-     0.45,
-     1.05
-    ],
-    "tags": [
-     "lpa",
-     "metal-steel",
-     "modern",
-     "rubber"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "lpa-construction",
-    "model": "ladder-c",
-    "hash": "8986b5ac91",
-    "wdh": [
-     0.25,
-     0.05,
-     1.1
-    ],
-    "tags": [
-     "lpa",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "ladder",
-    "hash": "02ac5ab6ba",
-    "wdh": [
-     0.4,
-     0.09,
-     1.1
-    ],
-    "tags": [
-     "lpa",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14"
-    ]
-   },
-   {
-    "slug": "lpa-west",
-    "model": "ladder",
-    "hash": "7eeea2738b",
-    "wdh": [
-     0.3,
-     0.07,
-     1.2
-    ],
-    "tags": [
-     "lpa",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "pool-ladder-01",
-    "hash": "6d001c17fc",
-    "wdh": [
-     0.3,
-     0.35,
-     0.8
-    ],
-    "tags": [
-     "m3",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "pool-ladder-02",
-    "hash": "fccec44cf7",
-    "wdh": [
-     0.3,
-     0.25,
-     0.75
-    ],
-    "tags": [
-     "m3",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "steel-ladder",
-    "hash": "9c449d22e2",
-    "wdh": [
-     0.1,
-     0.03,
-     1.1
-    ],
-    "tags": [
-     "m3",
-     "metal-steel",
-     "modern",
-     "rubber"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "wooden-ladder",
-    "hash": "3722b41518",
-    "wdh": [
-     0.15,
-     0.03,
-     1.1
-    ],
-    "tags": [
-     "m3",
-     "wood-dark"
-    ],
-    "colors": [
-     "#713e14"
-    ]
-   },
-   {
-    "slug": "rgs-proto",
-    "model": "ladder",
-    "hash": "5559062c35",
-    "wdh": [
-     0.6,
-     0.06,
-     1.2
-    ],
-    "tags": [
-     "wood-mid"
-    ],
-    "colors": [
-     "#9e6d44"
-    ]
-   },
-   {
-    "slug": "sq-pool",
-    "collection": "sq-props",
-    "model": "pool-ladder",
-    "hash": "14bdc509d2",
-    "wdh": [
-     0.4,
-     0.25,
-     0.9
-    ],
-    "tags": [
-     "metal-steel",
-     "sq"
-    ],
-    "colors": [
-     "#7a8491"
     ]
    }
   ]

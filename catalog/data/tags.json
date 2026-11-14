@@ -23403,7 +23403,7 @@
    "id": "obj-furnishing-light-lamp-ceiling",
    "name": "Ceiling lamp",
    "type": "kind",
-   "description": "ceiling lamp, ceiling light, disco ball",
+   "description": "Electric ceiling lamp or light, disco ball.",
    "models": [
     "fs-house/ceiling-light",
     "lpa-home/ceiling-light",
@@ -23422,7 +23422,8 @@
     "m3-base/fluorescent-light-fitting",
     "fs-terrain/cave-prop-hanging-lamp",
     "ken-furniture/lamp-square-ceiling",
-    "quat-interior/ceiling-light-icosahedron-triple"
+    "quat-interior/ceiling-light-icosahedron-triple",
+    "quat-interior/chandelier"
    ]
   },
   {
@@ -23440,14 +23441,13 @@
    ]
   },
   {
-   "id": "obj-furnishing-light-lamp-ceiling-chandelier",
+   "id": "obj-furnishing-light-lamp-chandelier",
    "name": "Chandelier",
    "type": "kind",
-   "description": "chandelier",
+   "description": "Chandelier with candles or candle-style arms, not electric.",
    "models": [
     "household/chandelier",
     "m3-base/iron-chandelier",
-    "quat-interior/chandelier",
     "quat-props/chandelier"
    ]
   },
@@ -28015,30 +28015,38 @@
     "rgp-asia/ladder",
     "fs-town/ladder-a",
     "kay-hexagon/ladder",
-    "kay-minigame/barrier-ladder",
     "ken-cave/ladder",
     "ken-forest-mini/ladder",
     "ken-platformer/ladder",
     "ken-platformer/ladder-broken",
     "ken-platformer/ladder-long",
-    "ken-proto/ladder",
-    "ken-proto/ladder-top",
     "lpa-desert/ladder-a",
     "lpa-desert/ladder-b",
     "props/stairs-a",
     "rgp-medieval/ladder-long",
-    "sq-pool/pool-ladder",
-    "household/stepladder",
     "lpa-home/ladder",
     "lpa-construction/ladder-c",
     "lpa-construction/ladder-a",
     "lpa-west/ladder",
     "emace-village/ladder",
-    "m3-base/pool-ladder-01",
-    "m3-base/pool-ladder-02",
     "m3-base/steel-ladder",
     "m3-base/wooden-ladder",
     "rgs-proto/ladder"
+   ]
+  },
+  {
+   "id": "str-access-ladder-steel",
+   "name": "Steel ladder",
+   "type": "kind",
+   "description": "Ladder of steel tube or section: pool ladder, stepladder, steel rung ladder.",
+   "models": [
+    "kay-minigame/barrier-ladder",
+    "ken-proto/ladder",
+    "ken-proto/ladder-top",
+    "sq-pool/pool-ladder",
+    "m3-base/pool-ladder-01",
+    "m3-base/pool-ladder-02",
+    "household/stepladder"
    ]
   },
   {
@@ -31185,6 +31193,17 @@
    "type": "kind",
    "description": "Standing works that serve a settlement: utility pole, power line, tank, pipe, solar panel, turbine, antenna, hydrant, well, fountain.",
    "models": [
+    "quat-cyberpunk/cable",
+    "quat-cyberpunk/cable-long"
+   ],
+   "color": "#6e8f86"
+  },
+  {
+   "id": "str-fixture-utility-power",
+   "name": "Power line",
+   "type": "kind",
+   "description": "Electric power pole, overhead wires.",
+   "models": [
     "ken-roads/electricity-pole-single",
     "ken-roads/electricity-pole-wide",
     "ken-roads/electricity-pole",
@@ -31192,11 +31211,8 @@
     "ken-roads/electricity-wires",
     "ken-roads/electricity-side-single",
     "ken-roads/electricity-side-wide",
-    "ken-roads/electricity-side",
-    "quat-cyberpunk/cable",
-    "quat-cyberpunk/cable-long"
-   ],
-   "color": "#6e8f86"
+    "ken-roads/electricity-side"
+   ]
   },
   {
    "id": "str-fixture-utility-antenna",
@@ -36873,12 +36889,13 @@
     "obj-device-appliance-toaster",
     "obj-device-electronics-audio-mic",
     "obj-device-electronics-audio-speaker",
+    "obj-device-electronics-camera",
     "obj-device-electronics-computer",
     "obj-device-electronics-media",
     "obj-device-electronics-screen",
     "obj-equipment-weapon-explosive-mine",
     "obj-furnishing-bathroom-shower",
-    "obj-furnishing-light-lamp-ceiling-fan",
+    "obj-furnishing-light-lamp-ceiling",
     "obj-furnishing-light-lamp-floor",
     "obj-furnishing-light-lamp-spot",
     "obj-furnishing-light-lamp-table",
@@ -36888,6 +36905,7 @@
     "obj-transport-air-space",
     "obj-transport-land-rail-motor",
     "obj-transport-land-road",
+    "str-access-ladder-steel",
     "str-building-tower-skyscraper",
     "str-building-work-industrial-factory",
     "str-fixture-installation",
@@ -36896,6 +36914,7 @@
     "str-fixture-machinery-crane",
     "str-fixture-machinery-hopper",
     "str-fixture-utility-antenna",
+    "str-fixture-utility-power",
     "str-fixture-utility-solar",
     "str-part-corridor"
    ],

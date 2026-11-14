@@ -3353,13 +3353,13 @@
              "nouns": [
               "ceiling fan"
              ]
-            },
-            {
-             "id": "obj-furnishing-light-lamp-ceiling-chandelier",
-             "nouns": [
-              "chandelier"
-             ]
             }
+           ]
+          },
+          {
+           "id": "obj-furnishing-light-lamp-chandelier",
+           "nouns": [
+            "chandelier"
            ]
           },
           {
@@ -5377,6 +5377,16 @@
         "ladder",
         "short ladder",
         "long ladder"
+       ],
+       "children": [
+        {
+         "id": "str-access-ladder-steel",
+         "nouns": [
+          "steel ladder",
+          "pool ladder",
+          "stepladder"
+         ]
+        }
        ]
       },
       {
@@ -5680,10 +5690,18 @@
       {
        "id": "str-fixture-utility",
        "nouns": [
-        "utility pole",
-        "power line"
+        "utility"
        ],
        "children": [
+        {
+         "id": "str-fixture-utility-power",
+         "nouns": [
+          "utility pole",
+          "power pole",
+          "power line",
+          "overhead wires"
+         ]
+        },
         {
          "id": "str-fixture-utility-well",
          "longest.min": 0.8,
