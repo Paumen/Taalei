@@ -30679,8 +30679,8 @@
    "id": "modern",
    "name": "Modern",
    "type": "tech",
-   "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
-   "count": 2049
+   "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material or style in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
+   "count": 2113
   },
   {
    "id": "storeys-0-5",
@@ -30758,6 +30758,56 @@
    "type": "attribute",
    "description": "Six storeys read from the model.",
    "count": 11,
+   "kinds": [
+    "str-building"
+   ]
+  },
+  {
+   "id": "style-ancient",
+   "name": "Ancient",
+   "type": "attribute",
+   "description": "Building style. Before the middle ages: huts, lean-tos, tents, temples, pyramids, the coliseum.",
+   "count": 4,
+   "kinds": [
+    "str-building"
+   ]
+  },
+  {
+   "id": "style-medieval",
+   "name": "Medieval",
+   "type": "attribute",
+   "description": "Building style. Middle ages to about 1800, fantasy included: castles, timber frame, thatch, traditional Asian, adobe.",
+   "count": 279,
+   "kinds": [
+    "str-building"
+   ]
+  },
+  {
+   "id": "style-industrial",
+   "name": "Industrial",
+   "type": "attribute",
+   "description": "Building style. About 1800 to 1920: Victorian, wild west, brick terraces, early shops and farms.",
+   "count": 38,
+   "kinds": [
+    "str-building"
+   ]
+  },
+  {
+   "id": "style-modern",
+   "name": "Modern",
+   "type": "attribute",
+   "description": "Building style. About 1920 to now: suburban houses, offices, apartments, factories, garages. Gives Tech Modern.",
+   "count": 112,
+   "kinds": [
+    "str-building"
+   ]
+  },
+  {
+   "id": "style-futuristic",
+   "name": "Futuristic",
+   "type": "attribute",
+   "description": "Building style. Sci-fi, space and cyberpunk. Gives Tech Modern.",
+   "count": 22,
    "kinds": [
     "str-building"
    ]
@@ -46688,6 +46738,7 @@
    "tags": [
     "ceramic-dark",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -46798,6 +46849,7 @@
     "ceramic-dark",
     "glass-clear",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -46857,6 +46909,7 @@
     "hero",
     "stone-masonry-mid",
     "storeys-6",
+    "style-medieval",
     "wood-mid"
    ],
    "variant": "architecture/castle",
@@ -46897,7 +46950,8 @@
    ],
    "tags": [
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-ancient"
    ],
    "thickRel": 0.34
   },
@@ -46945,6 +46999,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -47094,6 +47149,7 @@
     "hero",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "wood-mid"
    ],
    "variant": "architecture/castle",
@@ -58576,6 +58632,7 @@
    "tags": [
     "special-organic",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -61081,6 +61138,7 @@
    "tags": [
     "special-organic",
     "storeys-1",
+    "style-ancient",
     "wood-dark"
    ],
    "backface": {
@@ -61139,6 +61197,7 @@
    ],
    "tags": [
     "storeys-0-5",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -61273,6 +61332,7 @@
    "tags": [
     "special-organic",
     "storeys-1",
+    "style-ancient",
     "wood-dark",
     "wood-mid"
    ],
@@ -61697,6 +61757,7 @@
    ],
    "tags": [
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.47,
@@ -63759,6 +63820,7 @@
    "tags": [
     "stone-masonry-light",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -65045,6 +65107,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -65723,6 +65786,7 @@
    ],
    "tags": [
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -65819,6 +65883,7 @@
    "tags": [
     "stone-masonry-mid",
     "storeys-0-5",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 1.08,
@@ -94331,6 +94396,7 @@
     "comp",
     "fs",
     "mounted",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "fs-town/waterwheel",
@@ -94376,6 +94442,7 @@
     "comp",
     "fs",
     "mounted",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "fs-town/waterwheel",
@@ -94420,6 +94487,7 @@
    "tags": [
     "comp",
     "fs",
+    "style-medieval",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight"
@@ -94459,6 +94527,7 @@
    "tags": [
     "comp",
     "fs",
+    "style-medieval",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight",
@@ -94504,6 +94573,7 @@
    "tags": [
     "comp",
     "fs",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "fs-town/waterwheel"
@@ -94546,6 +94616,7 @@
    "tags": [
     "comp",
     "fs",
+    "style-medieval",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight"
@@ -94588,6 +94659,7 @@
    "tags": [
     "comp",
     "fs",
+    "style-medieval",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight"
@@ -94629,6 +94701,7 @@
    "tags": [
     "comp",
     "fs",
+    "style-medieval",
     "wood-mid"
    ],
    "variant": "fs-town/waterwheel-flume-straight"
@@ -94672,6 +94745,7 @@
     "fs",
     "hero",
     "mounted",
+    "style-medieval",
     "wood-mid"
    ],
    "anim": [
@@ -94959,6 +95033,7 @@
     "comp",
     "fs",
     "mounted",
+    "style-medieval",
     "textile-cloth-light",
     "wood-light"
    ],
@@ -109931,6 +110006,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-light"
    ],
    "anim": [
@@ -110002,6 +110078,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-light"
    ],
    "variant": "isa-homely/house-anim",
@@ -123426,6 +123503,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-light",
     "textile-cloth-mid",
     "wood-dark"
@@ -123479,6 +123557,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark"
    ],
@@ -123623,6 +123702,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark"
    ],
@@ -123866,6 +123946,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "anim": [
@@ -123922,6 +124003,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "kay-builder/house-anim",
@@ -123974,6 +124056,7 @@
     "metal-iron-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark"
    ],
@@ -124082,6 +124165,7 @@
     "kay",
     "stone-masonry-light",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-light",
     "wood-dark",
     "wood-mid"
@@ -124141,6 +124225,7 @@
     "kay",
     "stone-masonry-light",
     "storeys-4",
+    "style-medieval",
     "tba",
     "textile-cloth-light",
     "wood-dark",
@@ -124201,6 +124286,7 @@
     "metal-iron-dark",
     "stone-rock",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.95
@@ -124784,6 +124870,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.92
@@ -124833,6 +124920,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark"
    ],
@@ -124886,6 +124974,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "tba",
     "textile-cloth-mid",
     "wood-dark"
@@ -125215,6 +125304,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-modern",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -125345,6 +125435,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-modern",
     "wood-dark"
    ],
    "variant": "kay-city/building-a-no-base",
@@ -125464,9 +125555,11 @@
    "tags": [
     "glass-clear",
     "kay",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-modern",
     "wood-dark"
    ],
    "variant": "kay-city/building-c-no-base",
@@ -125586,6 +125679,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-modern",
     "wood-dark"
    ],
    "variant": "kay-city/building-c-no-base",
@@ -125706,6 +125800,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
+    "style-modern",
     "textile-cloth-dark",
     "textile-cloth-light",
     "wood-dark"
@@ -125830,6 +125925,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
+    "style-modern",
     "wood-dark"
    ],
    "variant": "kay-city/building-f",
@@ -125959,6 +126055,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
+    "style-modern",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -126091,6 +126188,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-4",
+    "style-modern",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -152041,6 +152139,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-0-5",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.91
@@ -154265,6 +154364,7 @@
     "metal-iron-mid",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-light",
     "textile-cloth-mid",
     "wood-dark",
@@ -154328,6 +154428,7 @@
     "metal-iron-mid",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -154441,6 +154542,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -154512,6 +154614,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -154925,6 +155028,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-5",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -155172,6 +155276,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -156065,6 +156170,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "anim": [
@@ -156123,6 +156229,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "kay-hexagon/house-a-anim",
@@ -156180,6 +156287,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "anim": [
@@ -156239,6 +156347,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "kay-hexagon/house-b-anim",
@@ -156342,6 +156451,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-dark",
     "wood-dark",
     "wood-mid"
@@ -156409,6 +156519,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "tba",
     "textile-cloth-dark",
     "wood-dark",
@@ -156527,6 +156638,7 @@
     "special-liquid",
     "stone-rock",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark",
     "wood-mid"
@@ -156945,6 +157057,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.61
@@ -157263,6 +157376,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark",
     "wood-mid"
@@ -157407,6 +157521,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark",
     "wood-mid"
@@ -157465,6 +157580,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-dark",
     "wood-dark",
     "wood-mid"
@@ -157519,6 +157635,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark",
     "wood-mid"
@@ -157578,6 +157695,7 @@
     "kay",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark",
     "wood-mid"
@@ -158220,6 +158338,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -158281,6 +158400,7 @@
     "kay",
     "stone-masonry-dark",
     "storeys-3",
+    "style-medieval",
     "tba",
     "wood-dark",
     "wood-mid"
@@ -158536,6 +158656,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-light",
     "wood-dark",
     "wood-mid"
@@ -158601,6 +158722,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "tba",
     "textile-cloth-light",
     "wood-dark",
@@ -164260,6 +164382,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-industrial",
     "wood-dark"
    ],
    "thickRel": 0.76
@@ -175314,7 +175437,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "kay-space/basemodule-a",
    "thickRel": 1.17
@@ -175365,7 +175489,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "kay-space/basemodule-a",
    "thickRel": 1.24
@@ -175416,7 +175541,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "kay-space/basemodule-a",
    "thickRel": 1.24
@@ -175467,7 +175593,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "kay-space/basemodule-a",
    "thickRel": 1.19
@@ -175518,7 +175645,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1-5"
+    "storeys-1-5",
+    "style-futuristic"
    ],
    "thickRel": 1.38
   },
@@ -175571,7 +175699,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "thickRel": 1.27
   },
@@ -176193,7 +176322,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-2"
+    "storeys-2",
+    "style-futuristic"
    ],
    "thickRel": 0.91
   },
@@ -179242,7 +179372,8 @@
     "halloween",
     "kay",
     "stone-masonry-mid",
-    "storeys-0-5"
+    "storeys-0-5",
+    "style-medieval"
    ],
    "thickRel": 1.51
   },
@@ -189821,7 +189952,8 @@
     "comp",
     "ken",
     "stone-masonry-dark",
-    "stone-masonry-mid"
+    "stone-masonry-mid",
+    "style-medieval"
    ]
   },
   {
@@ -189862,7 +189994,8 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid"
+    "stone-masonry-mid",
+    "style-medieval"
    ]
   },
   {
@@ -191278,9 +191411,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "variant": "ken-commercial/building-b",
    "thickRel": 1.21
@@ -191334,9 +191469,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "variant": "ken-commercial/building-b",
    "thickRel": 1.07
@@ -191394,9 +191531,11 @@
     "ken",
     "leaf-dark",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "ken-commercial/building-b",
    "thickRel": 1.09
@@ -191454,9 +191593,11 @@
     "ken",
     "leaf-light",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 1.1
   },
@@ -191511,9 +191652,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1
   },
@@ -191571,9 +191714,11 @@
     "ken",
     "leaf-dark",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/building-f",
    "thickRel": 1.16,
@@ -191636,9 +191781,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/building-f",
    "thickRel": 1.23
@@ -191694,9 +191841,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "variant": "ken-commercial/building-h",
    "thickRel": 1.09
@@ -191752,9 +191901,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/building-h",
    "thickRel": 1.23
@@ -191812,9 +191963,11 @@
     "ken",
     "leaf-light",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "thickRel": 1.02
   },
@@ -191869,9 +192022,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 0.97
   },
@@ -191926,9 +192081,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "thickRel": 1.23
   },
@@ -191983,9 +192140,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-6"
+    "storeys-6",
+    "style-modern"
    ],
    "thickRel": 1.54
   },
@@ -192040,9 +192199,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-6"
+    "storeys-6",
+    "style-modern"
    ],
    "thickRel": 0.91
   },
@@ -192216,7 +192377,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-6"
+    "storeys-6",
+    "style-modern"
    ],
    "thickRel": 0.85
   },
@@ -192275,7 +192437,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-6"
+    "storeys-6",
+    "style-modern"
    ],
    "thickRel": 0.94
   },
@@ -192336,7 +192499,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-6"
+    "storeys-6",
+    "style-modern"
    ],
    "thickRel": 0.88
   },
@@ -192397,7 +192561,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-6"
+    "storeys-6",
+    "style-modern"
    ],
    "thickRel": 1
   },
@@ -192458,7 +192623,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-6"
+    "storeys-6",
+    "style-modern"
    ],
    "thickRel": 0.98
   },
@@ -192509,7 +192675,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "thickRel": 1
   },
@@ -192561,7 +192728,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-b",
    "thickRel": 1.07
@@ -192614,7 +192782,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-b",
    "thickRel": 1.12
@@ -192663,7 +192832,8 @@
     "metal-steel",
     "modern",
     "stone-masonry-light",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-b",
    "thickRel": 1.09
@@ -192709,7 +192879,8 @@
     "metal-steel",
     "modern",
     "stone-masonry-light",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-b",
    "thickRel": 1.07
@@ -192758,7 +192929,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-b",
    "thickRel": 1.1
@@ -192810,7 +192982,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-b",
    "thickRel": 1.09
@@ -192859,7 +193032,8 @@
     "metal-steel",
     "modern",
     "stone-masonry-light",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-h",
    "thickRel": 1.13
@@ -192912,7 +193086,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-h",
    "thickRel": 0.94
@@ -192965,7 +193140,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-h",
    "thickRel": 1.08
@@ -193014,7 +193190,8 @@
     "metal-steel",
     "modern",
     "stone-masonry-light",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-l",
    "thickRel": 1.08
@@ -193067,7 +193244,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-l",
    "thickRel": 1.06
@@ -193120,7 +193298,8 @@
     "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-l",
    "thickRel": 0.96
@@ -193166,7 +193345,8 @@
     "metal-steel",
     "modern",
     "stone-masonry-light",
-    "storeys-1-5"
+    "storeys-1-5",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-l",
    "thickRel": 0.84
@@ -193216,7 +193396,8 @@
     "metal-steel",
     "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-l",
    "thickRel": 0.49,
@@ -193272,7 +193453,8 @@
     "metal-steel",
     "modern",
     "stone-masonry-light",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "variant": "ken-commercial/tower-low-detail-l",
    "thickRel": 0.55
@@ -210519,7 +210701,8 @@
     "halloween",
     "ken",
     "stone-masonry-mid",
-    "storeys-0-5"
+    "storeys-0-5",
+    "style-medieval"
    ],
    "variant": "ken-grave/altar-stone",
    "thickRel": 1.41
@@ -210567,6 +210750,7 @@
     "ken",
     "stone-masonry-mid",
     "storeys-0-5",
+    "style-medieval",
     "wood-mid"
    ],
    "variant": "ken-grave/altar-stone",
@@ -211353,7 +211537,8 @@
     "halloween",
     "ken",
     "stone-masonry-dark",
-    "stone-masonry-mid"
+    "stone-masonry-mid",
+    "style-medieval"
    ]
   },
   {
@@ -211400,7 +211585,8 @@
     "ken",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-0-5"
+    "storeys-0-5",
+    "style-medieval"
    ],
    "variant": "ken-grave/crypt-large",
    "thickRel": 1.11
@@ -211447,7 +211633,8 @@
     "halloween",
     "ken",
     "stone-masonry-dark",
-    "stone-masonry-mid"
+    "stone-masonry-mid",
+    "style-medieval"
    ]
   },
   {
@@ -211493,7 +211680,8 @@
     "ken",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-0-5"
+    "storeys-0-5",
+    "style-medieval"
    ],
    "thickRel": 1.11
   },
@@ -211541,7 +211729,8 @@
     "ken",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-0-5"
+    "storeys-0-5",
+    "style-medieval"
    ],
    "variant": "ken-grave/crypt-large"
   },
@@ -216009,7 +216198,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 1.32
   },
@@ -216070,7 +216260,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 1.13
   },
@@ -216131,7 +216322,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 0.6
   },
@@ -216189,7 +216381,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 0.99
   },
@@ -216247,7 +216440,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 0.73
   },
@@ -216305,7 +216499,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 0.75
   },
@@ -216363,7 +216558,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 1.01
   },
@@ -216421,7 +216617,8 @@
     "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "variant": "ken-industrial/factory-h",
    "thickRel": 0.89
@@ -216483,7 +216680,8 @@
     "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "variant": "ken-industrial/factory-h",
    "thickRel": 1.13
@@ -216545,7 +216743,8 @@
     "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-1-5"
+    "storeys-1-5",
+    "style-modern"
    ],
    "thickRel": 1.17
   },
@@ -216603,7 +216802,8 @@
     "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "thickRel": 1.19
   },
@@ -216661,7 +216861,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 0.72
   },
@@ -216719,7 +216920,8 @@
     "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-1-5"
+    "storeys-1-5",
+    "style-modern"
    ],
    "thickRel": 0.84
   },
@@ -216777,7 +216979,8 @@
     "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 0.97
   },
@@ -216835,7 +217038,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.36
   },
@@ -216899,7 +217103,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "thickRel": 1.13,
    "lint": [
@@ -216964,7 +217169,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 0.81
   },
@@ -217025,7 +217231,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 1.02
   },
@@ -217083,7 +217290,8 @@
     "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "thickRel": 1.47
   },
@@ -217144,7 +217352,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 0.97
   },
@@ -220142,8 +220351,10 @@
     "ceramic-light",
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-light",
     "storeys-1",
+    "style-modern",
     "wood-dark"
    ],
    "variant": "ken-modular/house-a",
@@ -220196,8 +220407,10 @@
     "ceramic-light",
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-light",
     "storeys-2",
+    "style-modern",
     "wood-dark"
    ],
    "variant": "ken-modular/house-a",
@@ -220250,8 +220463,10 @@
     "ceramic-light",
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-light",
     "storeys-2",
+    "style-modern",
     "wood-dark"
    ],
    "variant": "ken-modular/house-a",
@@ -220305,9 +220520,11 @@
     "ceramic-dark",
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
     "storeys-3",
+    "style-modern",
     "textile-cloth-light"
    ],
    "variant": "ken-modular/tower-a",
@@ -220360,9 +220577,11 @@
     "ceramic-dark",
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "ken-modular/tower-a",
    "thickRel": 1.01
@@ -220415,10 +220634,12 @@
    "tags": [
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
+    "style-modern",
     "textile-cloth-light"
    ],
    "variant": "ken-modular/tower-d",
@@ -220470,10 +220691,12 @@
    "tags": [
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "variant": "ken-modular/tower-d",
    "thickRel": 1.46
@@ -227911,6 +228134,7 @@
     "comp",
     "ken",
     "stone-masonry-dark",
+    "style-medieval",
     "wood-light"
    ],
    "variant": "ken-pirate/tower-base"
@@ -227951,7 +228175,8 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-dark"
+    "stone-masonry-dark",
+    "style-medieval"
    ],
    "variant": "ken-pirate/tower-base"
   },
@@ -227997,6 +228222,7 @@
     "ken",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-light"
    ],
    "thickRel": 1.16
@@ -228043,6 +228269,7 @@
     "ken",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-light"
    ],
    "variant": "ken-pirate/tower-complete-small",
@@ -228086,7 +228313,8 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid"
+    "stone-masonry-mid",
+    "style-medieval"
    ],
    "variant": "ken-pirate/tower-complete-small"
   },
@@ -228126,7 +228354,8 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid"
+    "stone-masonry-mid",
+    "style-medieval"
    ],
    "variant": "ken-pirate/tower-complete-small"
   },
@@ -228209,7 +228438,8 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid"
+    "stone-masonry-mid",
+    "style-medieval"
    ],
    "variant": "ken-pirate/tower-complete-small"
   },
@@ -228249,7 +228479,8 @@
    "tags": [
     "comp",
     "ken",
-    "stone-masonry-mid"
+    "stone-masonry-mid",
+    "style-medieval"
    ],
    "variant": "ken-pirate/tower-complete-small"
   },
@@ -233798,9 +234029,11 @@
    "tags": [
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "variant": "ken-racing/pits-garage",
    "thickRel": 1.05
@@ -233851,9 +234084,11 @@
     "glass-clear",
     "ken",
     "metal-iron-dark",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "thickRel": 1.06
   },
@@ -233896,9 +234131,11 @@
    ],
    "tags": [
     "ken",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "variant": "ken-racing/pits-garage",
    "thickRel": 0.5
@@ -233947,10 +234184,12 @@
    "tags": [
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "thickRel": 0.78
   },
@@ -233995,8 +234234,10 @@
     "ceramic-dark",
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-light",
-    "storeys-1-5"
+    "storeys-1-5",
+    "style-modern"
    ],
    "variant": "ken-racing/pits-office",
    "thickRel": 1.08
@@ -234045,10 +234286,12 @@
    "tags": [
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "variant": "ken-racing/pits-office",
    "thickRel": 0.83
@@ -241357,7 +241600,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "ken-space/hangar-large-a",
    "thickRel": 0.77
@@ -241411,7 +241655,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "ken-space/hangar-large-a",
    "thickRel": 1.29
@@ -241462,7 +241707,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "ken-space/hangar-round-a",
    "thickRel": 1.26
@@ -241513,7 +241759,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "ken-space/hangar-round-a",
    "thickRel": 1.4
@@ -241563,7 +241810,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "ken-space/hangar-round-a",
    "thickRel": 1.17
@@ -241614,7 +241862,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "ken-space/hangar-small-a",
    "thickRel": 1.22
@@ -241665,7 +241914,8 @@
     "modern",
     "plastic",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "ken-space/hangar-small-a",
    "thickRel": 1.13
@@ -247757,8 +248007,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-1-5"
+    "storeys-1-5",
+    "style-modern"
    ],
    "thickRel": 1.1
   },
@@ -247814,8 +248066,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.2
   },
@@ -247870,8 +248124,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.17
   },
@@ -247927,8 +248183,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-d",
    "thickRel": 1.18
@@ -247985,8 +248243,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-d",
    "thickRel": 1.22
@@ -248043,8 +248303,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-f",
    "thickRel": 1.07
@@ -248100,8 +248362,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-g",
    "thickRel": 0.98
@@ -248155,8 +248419,10 @@
     "ceramic-dark",
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-g",
    "thickRel": 1.29
@@ -248212,8 +248478,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-f",
    "backface": {
@@ -248282,8 +248550,10 @@
     "ceramic-dark",
     "glass-clear",
     "ken",
+    "modern",
     "stone-masonry-light",
-    "storeys-1-5"
+    "storeys-1-5",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-f",
    "thickRel": 1.23
@@ -248341,8 +248611,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.2
   },
@@ -248399,8 +248671,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-dark",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.11
   },
@@ -248455,8 +248729,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "thickRel": 0.86
   },
@@ -248512,8 +248788,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 0.93
   },
@@ -248570,8 +248848,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.1
   },
@@ -248628,9 +248908,11 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.15,
    "lint": [
@@ -248697,9 +248979,11 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.04,
    "lint": [
@@ -248763,8 +249047,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-s",
    "thickRel": 0.9
@@ -248822,8 +249108,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "ken-suburban/house-s",
    "thickRel": 1
@@ -248880,8 +249168,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.08
   },
@@ -248937,8 +249227,10 @@
     "glass-clear",
     "ken",
     "leaf-light",
+    "modern",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "thickRel": 1.1
   },
@@ -252301,6 +252593,7 @@
     "comp",
     "ken",
     "mounted",
+    "style-medieval",
     "wood-light"
    ],
    "variant": "ken-town/windmill",
@@ -256379,6 +256672,7 @@
     "ken",
     "metal-iron-dark",
     "mounted",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -256434,6 +256728,7 @@
     "ken",
     "metal-iron-dark",
     "mounted",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -256533,6 +256828,7 @@
     "comp",
     "ken",
     "mounted",
+    "style-medieval",
     "textile-cloth-light",
     "wood-light"
    ],
@@ -264583,7 +264879,8 @@
     "ceramic-dark",
     "glass-clear",
     "stone-masonry-light",
-    "storeys-5"
+    "storeys-5",
+    "style-medieval"
    ],
    "variant": "loaf-gothic/church-a",
    "backface": {
@@ -264646,7 +264943,8 @@
     "ceramic-dark",
     "glass-clear",
     "stone-masonry-light",
-    "storeys-4"
+    "storeys-4",
+    "style-medieval"
    ],
    "variant": "loaf-gothic/church-a",
    "backface": {
@@ -264709,7 +265007,8 @@
     "ceramic-dark",
     "glass-clear",
     "stone-masonry-light",
-    "storeys-6"
+    "storeys-6",
+    "style-medieval"
    ],
    "variant": "loaf-gothic/church-a",
    "backface": {
@@ -264905,6 +265204,7 @@
     "glass-clear",
     "stone-masonry-light",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "loaf-gothic/structure-b",
@@ -264972,6 +265272,7 @@
     "glass-clear",
     "stone-masonry-light",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "loaf-gothic/structure-b",
@@ -265024,6 +265325,7 @@
     "glass-clear",
     "stone-masonry-light",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.79
@@ -265072,7 +265374,8 @@
     "ceramic-dark",
     "glass-clear",
     "stone-masonry-light",
-    "storeys-2"
+    "storeys-2",
+    "style-medieval"
    ],
    "thickRel": 1
   },
@@ -265122,7 +265425,8 @@
     "glass-clear",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-1"
+    "storeys-1",
+    "style-medieval"
    ],
    "thickRel": 1.15
   },
@@ -265173,6 +265477,7 @@
     "glass-clear",
     "stone-masonry-light",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "loaf-gothic/structure-f",
@@ -265239,6 +265544,7 @@
     "glass-clear",
     "stone-masonry-light",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "loaf-gothic/structure-f",
@@ -265291,6 +265597,7 @@
     "glass-clear",
     "stone-masonry-light",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 1.09
@@ -265342,6 +265649,7 @@
     "glass-clear",
     "stone-masonry-light",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -265404,7 +265712,8 @@
     "glass-clear",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-1"
+    "storeys-1",
+    "style-medieval"
    ],
    "thickRel": 1
   },
@@ -265455,6 +265764,7 @@
     "glass-clear",
     "stone-masonry-light",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -265683,9 +265993,11 @@
    "tags": [
     "glass-clear",
     "gua",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 0.8
   },
@@ -265732,9 +266044,11 @@
    "tags": [
     "glass-clear",
     "gua",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 0.83
   },
@@ -265780,9 +266094,11 @@
    "tags": [
     "glass-clear",
     "gua",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-modern"
    ],
    "thickRel": 0.71
   },
@@ -265829,9 +266145,11 @@
    "tags": [
     "glass-clear",
     "gua",
+    "modern",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-modern"
    ],
    "thickRel": 1.04
   },
@@ -269676,6 +269994,7 @@
     "metal-iron-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -269734,6 +270053,7 @@
     "metal-iron-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -269798,6 +270118,7 @@
     "metal-iron-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -269858,6 +270179,7 @@
     "metal-iron-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -269909,6 +270231,7 @@
     "lpa",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -269962,6 +270285,7 @@
     "lpa",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "lpa-desert/large-building-a",
@@ -270008,6 +270332,7 @@
     "lpa",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -270063,6 +270388,7 @@
     "lpa",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "lpa-desert/large-building-a",
@@ -270115,6 +270441,7 @@
     "metal-iron-dark",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -270169,6 +270496,7 @@
     "metal-iron-dark",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -270214,6 +270542,7 @@
     "lpa",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "lpa-desert/medium-building-a",
@@ -270262,6 +270591,7 @@
     "lpa",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "lpa-desert/medium-building-a",
@@ -270402,6 +270732,7 @@
     "metal-iron-dark",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -270448,6 +270779,7 @@
     "lpa",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "lpa-desert/medium-building-a",
@@ -283829,6 +284161,7 @@
     "lpa",
     "metal-iron-dark",
     "storeys-3",
+    "style-industrial",
     "tba"
    ],
    "thickRel": 1.45
@@ -300979,6 +301312,7 @@
     "ceramic-dark",
     "m3",
     "storeys-0-5",
+    "style-industrial",
     "wood-mid"
    ],
    "thickRel": 0.88,
@@ -324798,6 +325132,7 @@
    "tags": [
     "earth-sand",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 1.03
@@ -324847,6 +325182,7 @@
     "metal-iron-mid",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -324917,6 +325253,7 @@
     "earth-sand",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -324985,6 +325322,7 @@
    "tags": [
     "earth-sand",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -325033,7 +325371,8 @@
    "tags": [
     "earth-sand",
     "stone-masonry-mid",
-    "storeys-5"
+    "storeys-5",
+    "style-medieval"
    ],
    "thickRel": 1.48,
    "lint": [
@@ -325155,6 +325494,7 @@
     "earth-sand",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -325221,7 +325561,8 @@
    "tags": [
     "earth-sand",
     "stone-masonry-mid",
-    "storeys-3"
+    "storeys-3",
+    "style-medieval"
    ],
    "thickRel": 1.54
   },
@@ -325270,6 +325611,7 @@
     "earth-sand",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.67
@@ -325318,6 +325660,7 @@
     "earth-sand",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -325380,6 +325723,7 @@
     "earth-sand",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -325443,6 +325787,7 @@
     "earth-sand",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -325503,6 +325848,7 @@
     "earth-sand",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.55
@@ -325559,6 +325905,7 @@
     "leather",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "textile-cloth-dark",
     "textile-cloth-light",
     "wood-dark",
@@ -325631,7 +325978,8 @@
    "tags": [
     "earth-sand",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-medieval"
    ],
    "thickRel": 1.3,
    "lint": [
@@ -325691,6 +326039,7 @@
     "leather",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -325758,6 +326107,7 @@
     "earth-sand",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.83
@@ -325894,6 +326244,7 @@
    "tags": [
     "earth-sand",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.58
@@ -327835,6 +328186,7 @@
     "animation",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "anim": [
@@ -327885,6 +328237,7 @@
    "tags": [
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "nature-assets/house-anim",
@@ -333671,6 +334024,7 @@
     "pm",
     "stone-masonry-light",
     "storeys-1",
+    "style-industrial",
     "wood-dark"
    ],
    "thickRel": 0.97
@@ -339501,7 +339855,8 @@
     "ceramic-dark",
     "qua",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-industrial"
    ],
    "thickRel": 0.75
   },
@@ -339556,6 +339911,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -339615,6 +339971,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -339670,11 +340027,13 @@
    "tags": [
     "ceramic-dark",
     "glass-clear",
+    "modern",
     "qua",
     "stone-concrete",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-modern"
    ],
    "backface": {
     "share": 0.001,
@@ -339748,10 +340107,12 @@
    "tags": [
     "ceramic-dark",
     "glass-clear",
+    "modern",
     "qua",
     "stone-concrete",
     "stone-masonry-light",
     "storeys-1-5",
+    "style-modern",
     "wood-mid"
    ],
    "thickRel": 1.29,
@@ -339811,10 +340172,12 @@
    "tags": [
     "ceramic-dark",
     "glass-clear",
+    "modern",
     "qua",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-modern",
     "wood-dark",
     "wood-mid"
    ],
@@ -339870,11 +340233,13 @@
    "tags": [
     "ceramic-dark",
     "glass-clear",
+    "modern",
     "qua",
     "stone-concrete",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-modern",
     "wood-dark",
     "wood-mid"
    ],
@@ -339937,11 +340302,13 @@
    "tags": [
     "ceramic-dark",
     "glass-clear",
+    "modern",
     "qua",
     "stone-concrete",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-modern",
     "wood-dark",
     "wood-mid"
    ],
@@ -340003,11 +340370,13 @@
    "tags": [
     "ceramic-dark",
     "glass-clear",
+    "modern",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-modern",
     "wood-dark",
     "wood-mid"
    ],
@@ -340073,6 +340442,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-1",
+    "style-industrial",
     "textile-cloth-dark"
    ],
    "thickRel": 1
@@ -340126,6 +340496,7 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "storeys-4",
+    "style-industrial",
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-1-large",
@@ -340180,6 +340551,7 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "storeys-4",
+    "style-industrial",
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-1-large",
@@ -340237,6 +340609,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-5",
+    "style-industrial",
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-2-large",
@@ -340301,6 +340674,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-4",
+    "style-industrial",
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-2-large",
@@ -340365,6 +340739,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-4",
+    "style-industrial",
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-3-big",
@@ -340429,6 +340804,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-4",
+    "style-industrial",
     "wood-dark"
    ],
    "variant": "quat-buildings-2/building-3-big",
@@ -340497,6 +340873,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-4",
+    "style-industrial",
     "wood-dark"
    ],
    "thickRel": 0.94
@@ -340550,10 +340927,12 @@
    "tags": [
     "ceramic-dark",
     "glass-clear",
+    "modern",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
     "storeys-3",
+    "style-modern",
     "wood-mid"
    ],
    "thickRel": 1.18,
@@ -340612,10 +340991,12 @@
    "tags": [
     "ceramic-dark",
     "glass-clear",
+    "modern",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
     "storeys-2",
+    "style-modern",
     "wood-dark"
    ],
    "thickRel": 1.12,
@@ -346687,6 +347068,7 @@
     "ceramic-dark",
     "qua",
     "storeys-3",
+    "style-industrial",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -346739,6 +347121,7 @@
     "ceramic-dark",
     "qua",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -346790,6 +347173,7 @@
     "ceramic-dark",
     "qua",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -346842,6 +347226,7 @@
     "ceramic-dark",
     "qua",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -346894,6 +347279,7 @@
     "ceramic-dark",
     "qua",
     "storeys-0-5",
+    "style-industrial",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -347046,6 +347432,7 @@
     "metal-iron-mid",
     "qua",
     "storeys-4",
+    "style-industrial",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -347106,6 +347493,7 @@
     "metal-iron-mid",
     "qua",
     "storeys-4",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -347164,6 +347552,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-4",
+    "style-industrial",
     "wood-dark",
     "wood-light"
    ],
@@ -347224,6 +347613,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-4",
+    "style-industrial",
     "tba",
     "wood-dark",
     "wood-light"
@@ -359169,6 +359559,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-5",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.72
@@ -359346,6 +359737,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 1.22,
@@ -359785,6 +360177,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-medieval/fantasy-house",
@@ -359839,6 +360232,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-medieval/fantasy-house-2",
@@ -359899,6 +360293,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-medieval/fantasy-house-2",
@@ -359950,6 +360345,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-medieval/fantasy-house",
@@ -360011,6 +360407,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.7
@@ -360068,6 +360465,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 1.33,
@@ -360130,6 +360528,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 1.08,
@@ -360412,6 +360811,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "tba",
     "textile-cloth-mid",
     "wood-dark"
@@ -368091,6 +368491,7 @@
     "qua",
     "sailing",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -368168,6 +368569,7 @@
     "qua",
     "sailing",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -368241,6 +368643,7 @@
     "qua",
     "sailing",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -368308,6 +368711,7 @@
     "sailing",
     "special",
     "storeys-5",
+    "style-medieval",
     "textile-cloth-dark",
     "textile-rope",
     "wood-dark",
@@ -384694,7 +385098,8 @@
     "modern",
     "qua",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "thickRel": 1.21,
    "lint": [
@@ -384748,7 +385153,8 @@
     "modern",
     "qua",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "thickRel": 1.12,
    "lint": [
@@ -384908,7 +385314,8 @@
     "modern",
     "qua",
     "space",
-    "storeys-1-5"
+    "storeys-1-5",
+    "style-futuristic"
    ],
    "thickRel": 1.1
   },
@@ -384995,7 +385402,8 @@
     "modern",
     "qua",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "thickRel": 1.02,
    "lint": [
@@ -385049,7 +385457,8 @@
     "modern",
     "qua",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "thickRel": 1.62,
    "lint": [
@@ -385100,7 +385509,8 @@
     "modern",
     "qua",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "quat-space/house-single",
    "thickRel": 0.63
@@ -385148,7 +385558,8 @@
     "modern",
     "plural",
     "qua",
-    "space"
+    "space",
+    "style-futuristic"
    ],
    "lint": [
     {
@@ -385200,7 +385611,8 @@
     "modern",
     "qua",
     "space",
-    "storeys-1"
+    "storeys-1",
+    "style-futuristic"
    ],
    "variant": "quat-space/house-single",
    "thickRel": 1.38
@@ -392804,6 +393216,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -392863,6 +393276,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -392917,7 +393331,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-industrial"
    ],
    "thickRel": 0.95,
    "lint": [
@@ -392982,6 +393397,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -393036,7 +393452,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-industrial"
    ],
    "thickRel": 1.01,
    "lint": [
@@ -393101,6 +393518,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -393160,6 +393578,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -393219,6 +393638,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -393276,11 +393696,13 @@
    "tags": [
     "glass-clear",
     "metal-iron-mid",
+    "modern",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "quat-textured/2-story-wide",
    "thickRel": 1.18
@@ -393330,11 +393752,13 @@
    "tags": [
     "glass-clear",
     "metal-iron-mid",
+    "modern",
     "qua",
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-modern"
    ],
    "variant": "quat-textured/2-story-wide",
    "thickRel": 0.98
@@ -393393,6 +393817,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-2",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -393452,6 +393877,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-3",
+    "style-industrial",
     "wood-dark",
     "wood-mid"
    ],
@@ -393516,6 +393942,7 @@
     "stone-masonry-light",
     "stone-masonry-mid",
     "storeys-4",
+    "style-industrial",
     "wood-dark"
    ],
    "variant": "quat-textured/4-story",
@@ -393570,7 +393997,8 @@
     "stone-masonry-dark",
     "stone-masonry-light",
     "stone-masonry-mid",
-    "storeys-4"
+    "storeys-4",
+    "style-industrial"
    ],
    "variant": "quat-textured/4-story",
    "thickRel": 1.23,
@@ -393993,6 +394421,7 @@
    "tags": [
     "qua",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-dark",
     "textile-cloth-light",
     "wood-dark"
@@ -394040,6 +394469,7 @@
    "tags": [
     "qua",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -394089,6 +394519,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-light",
     "textile-cloth-mid",
     "wood-dark"
@@ -394143,6 +394574,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-light",
     "textile-cloth-mid",
     "wood-dark"
@@ -394211,6 +394643,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-light",
     "textile-cloth-mid",
     "wood-dark"
@@ -394279,6 +394712,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-light",
     "textile-cloth-mid",
     "wood-dark"
@@ -394348,6 +394782,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark",
     "wood-light"
@@ -394403,6 +394838,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark",
     "wood-light"
@@ -394458,6 +394894,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-mid",
     "wood-dark",
     "wood-light"
@@ -394517,6 +394954,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -394575,6 +395013,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -394633,6 +395072,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -394733,6 +395173,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -394788,6 +395229,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -394843,6 +395285,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395040,6 +395483,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/house-1-1-b",
@@ -395093,6 +395537,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/house-1-1-b",
@@ -395146,6 +395591,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/house-1-1-b",
@@ -395192,6 +395638,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/house-1-2-b",
@@ -395248,6 +395695,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395297,6 +395745,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395342,6 +395791,7 @@
    "tags": [
     "qua",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395395,6 +395845,7 @@
     "plural",
     "qua",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ]
@@ -395445,6 +395896,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395495,6 +395947,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/house-2-1-b",
@@ -395546,6 +395999,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395598,6 +396052,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395670,6 +396125,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395737,6 +396193,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395788,6 +396245,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395860,6 +396318,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -395919,6 +396378,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -396459,6 +396919,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -397178,6 +397639,7 @@
    "tags": [
     "qua",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -397224,6 +397686,7 @@
    "tags": [
     "qua",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -397270,6 +397733,7 @@
    "tags": [
     "qua",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -397324,6 +397788,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
@@ -397384,6 +397849,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
@@ -397437,6 +397903,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
@@ -397539,6 +398006,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -398291,6 +398759,7 @@
    "tags": [
     "qua",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-dark",
     "wood-dark",
     "wood-light"
@@ -398340,6 +398809,7 @@
    "tags": [
     "qua",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-dark",
     "wood-dark",
     "wood-light"
@@ -398389,6 +398859,7 @@
    "tags": [
     "qua",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-dark",
     "wood-dark",
     "wood-light"
@@ -398440,6 +398911,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/watchtower-2-b",
@@ -398502,6 +398974,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-dark",
     "wood-dark"
    ],
@@ -398561,6 +399034,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "textile-cloth-dark",
     "wood-dark"
    ],
@@ -398618,6 +399092,7 @@
    "tags": [
     "qua",
     "storeys-4",
+    "style-medieval",
     "tba",
     "textile-cloth-light",
     "wood-dark",
@@ -398673,6 +399148,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "tba",
     "textile-cloth-light",
     "wood-dark"
@@ -398720,6 +399196,7 @@
    "tags": [
     "qua",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -398766,6 +399243,7 @@
    "tags": [
     "qua",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -398812,6 +399290,7 @@
    "tags": [
     "qua",
     "storeys-4",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -398860,7 +399339,8 @@
     "hero",
     "qua",
     "stone-masonry-mid",
-    "storeys-2"
+    "storeys-2",
+    "style-medieval"
    ],
    "variant": "quat-town/wonder-2-b",
    "thickRel": 0.92
@@ -398910,6 +399390,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/wonder-2-b",
@@ -398957,6 +399438,7 @@
    "tags": [
     "qua",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-dark",
     "wood-dark",
     "wood-light"
@@ -399005,6 +399487,7 @@
     "qua",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "quat-town/wonder-walls-1",
@@ -399719,6 +400202,7 @@
     "rgp",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -400664,6 +401148,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -400723,6 +401208,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 1.09,
@@ -400781,6 +401267,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.74,
@@ -400838,6 +401325,7 @@
     "rgp",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -400899,6 +401387,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -401338,6 +401827,7 @@
     "rgp",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -401392,6 +401882,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark",
     "wood-mid"
    ],
@@ -402223,6 +402714,7 @@
     "rgp",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -402278,6 +402770,7 @@
     "rgp",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -404554,6 +405047,7 @@
     "comp",
     "rgp",
     "special-organic",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -404606,6 +405100,7 @@
     "comp",
     "rgp",
     "special-organic",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -404659,6 +405154,7 @@
     "comp",
     "rgp",
     "special-organic",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -404706,6 +405202,7 @@
     "rgp",
     "special-organic",
     "stone-masonry-mid",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "rgp-medieval/annex-4-a"
@@ -404754,6 +405251,7 @@
     "rgp",
     "special-organic",
     "stone-masonry-mid",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "rgp-medieval/annex-4-a",
@@ -404811,6 +405309,7 @@
     "rgp",
     "special-organic",
     "stone-masonry-dark",
+    "style-medieval",
     "wood-dark"
    ]
   },
@@ -407483,6 +407982,7 @@
     "special-organic",
     "stone-masonry-dark",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.92
@@ -407533,6 +408033,7 @@
     "special-organic",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "rgp-medieval/house-11-a",
@@ -407584,6 +408085,7 @@
     "special-organic",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "rgp-medieval/house-11-a",
@@ -407635,6 +408137,7 @@
     "special-organic",
     "stone-masonry-dark",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "rgp-medieval/house-3-a",
@@ -407686,6 +408189,7 @@
     "special-organic",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "rgp-medieval/house-3-a",
@@ -407735,6 +408239,7 @@
     "special-organic",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.89
@@ -407782,6 +408287,7 @@
     "rgp",
     "special-organic",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -407834,6 +408340,7 @@
     "special-organic",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "rgp-medieval/house-6-a",
@@ -407882,6 +408389,7 @@
     "rgp",
     "special-organic",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -407947,6 +408455,7 @@
     "special-organic",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.82,
@@ -408002,6 +408511,7 @@
     "rgp",
     "special-organic",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -408051,6 +408561,7 @@
     "rgp",
     "special-organic",
     "storeys-1-5",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -411330,6 +411841,7 @@
     "metal-iron-dark",
     "rgp",
     "storeys-1",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -411696,6 +412208,7 @@
     "rgp",
     "special-organic",
     "storeys-1",
+    "style-medieval",
     "wood-dark"
    ],
    "backface": {
@@ -412679,6 +413192,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wood-dark"
    ],
    "thickRel": 0.81
@@ -412729,6 +413243,7 @@
     "rgp",
     "special-organic",
     "storeys-2",
+    "style-medieval",
     "textile-rope",
     "wood-light"
    ],
@@ -412778,6 +413293,7 @@
     "bark",
     "rgp",
     "storeys-1-5",
+    "style-medieval",
     "textile-rope",
     "wood-light"
    ],
@@ -412826,6 +413342,7 @@
     "metal-iron-dark",
     "mounted",
     "rgp",
+    "style-medieval",
     "tba",
     "wood-mid"
    ]
@@ -412989,6 +413506,7 @@
     "special-organic",
     "stone-masonry-mid",
     "storeys-6",
+    "style-medieval",
     "tba",
     "textile-cloth-mid",
     "textile-rope",
@@ -416839,8 +417357,10 @@
     "#d8cfb7"
    ],
    "tags": [
+    "modern",
     "stone-masonry-light",
-    "storeys-1"
+    "storeys-1",
+    "style-modern"
    ],
    "backface": {
     "share": 0.0105,
@@ -427446,6 +427966,7 @@
     "ceramic-dark",
     "storeys-2",
     "sty",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -427508,6 +428029,7 @@
     "ceramic-dark",
     "storeys-1",
     "sty",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -427575,6 +428097,7 @@
     "ceramic-dark",
     "storeys-2",
     "sty",
+    "style-medieval",
     "wood-dark",
     "wood-light"
    ],
@@ -430589,6 +431112,7 @@
     "stone-masonry-dark",
     "storeys-2",
     "sty",
+    "style-medieval",
     "wood-dark"
    ],
    "anim": [
@@ -430657,6 +431181,7 @@
     "stone-masonry-dark",
     "storeys-2",
     "sty",
+    "style-medieval",
     "wood-dark"
    ],
    "variant": "styloo-farm/smelter-large-anim",
@@ -430716,7 +431241,8 @@
     "special-emissive",
     "stone-masonry-dark",
     "storeys-1",
-    "sty"
+    "sty",
+    "style-medieval"
    ],
    "variant": "styloo-farm/smelter",
    "thickRel": 1,
@@ -430768,7 +431294,8 @@
     "special-emissive",
     "stone-masonry-dark",
     "storeys-1",
-    "sty"
+    "sty",
+    "style-medieval"
    ],
    "variant": "styloo-farm/smelter",
    "thickRel": 1.61,
@@ -431502,6 +432029,7 @@
     "stone-masonry-mid",
     "storeys-1",
     "sty",
+    "style-medieval",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -431561,6 +432089,7 @@
     "stone-masonry-mid",
     "storeys-3",
     "sty",
+    "style-medieval",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -431619,6 +432148,7 @@
     "stone-masonry-mid",
     "storeys-3",
     "sty",
+    "style-medieval",
     "tba",
     "textile-cloth-light",
     "wood-dark"
@@ -431684,6 +432214,7 @@
     "stone-masonry-mid",
     "storeys-1-5",
     "sty",
+    "style-medieval",
     "textile-cloth-light",
     "wood-dark"
    ],
@@ -431750,6 +432281,7 @@
     "stone-masonry-mid",
     "storeys-1-5",
     "sty",
+    "style-medieval",
     "tba",
     "textile-cloth-light",
     "wood-dark"
@@ -431816,6 +432348,7 @@
     "stone-masonry-mid",
     "storeys-1",
     "sty",
+    "style-medieval",
     "tba",
     "textile-cloth-light",
     "wood-dark"
@@ -448637,6 +449170,7 @@
     "sailing",
     "special-emissive",
     "storeys-4",
+    "style-industrial",
     "tba",
     "wood-dark"
    ],
@@ -449598,6 +450132,7 @@
     "stone-concrete",
     "stone-masonry-light",
     "storeys-1",
+    "style-industrial",
     "wood-dark"
    ],
    "thickRel": 0.53,
@@ -450563,7 +451098,8 @@
     "metal-gold",
     "stone-masonry-dark",
     "stone-masonry-light",
-    "storeys-6"
+    "storeys-6",
+    "style-ancient"
    ],
    "thickRel": 0.88
   },
@@ -452209,6 +452745,7 @@
    "tags": [
     "metal-iron-dark",
     "storeys-3",
+    "style-medieval",
     "wood-dark",
     "wood-light",
     "wood-mid"
@@ -455091,6 +455628,7 @@
     "hero",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-mid"
@@ -455152,6 +455690,7 @@
     "hero",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-mid"
@@ -456630,6 +457169,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -457131,6 +457671,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light",
@@ -457195,6 +457736,7 @@
     "hero",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light",
@@ -457270,6 +457812,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light",
@@ -457333,6 +457876,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light",
@@ -459233,6 +459777,7 @@
     "metal-gold",
     "stone-masonry-mid",
     "storeys-1",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -459504,6 +460049,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light"
@@ -459906,6 +460452,7 @@
     "animation",
     "asia",
     "comp",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light"
@@ -459955,6 +460502,7 @@
    "tags": [
     "asia",
     "comp",
+    "style-medieval",
     "tba",
     "wizp",
     "wood-dark",
@@ -460669,6 +461217,7 @@
     "sailing",
     "special-organic",
     "storeys-2",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light",
@@ -464625,6 +465174,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -464683,6 +465233,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -464740,6 +465291,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -464798,6 +465350,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -464955,6 +465508,7 @@
     "special",
     "stone-rock",
     "storeys-1",
+    "style-medieval",
     "textile-cloth-mid",
     "wizp",
     "wood-dark",
@@ -465598,6 +466152,7 @@
     "metal-iron-dark",
     "stone-masonry-dark",
     "storeys-1",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -465652,6 +466207,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -465712,6 +466268,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "textile-cloth-dark",
     "wizp",
     "wood-dark"
@@ -465776,6 +466333,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "textile-cloth-dark",
     "wizp",
     "wood-dark"
@@ -465835,6 +466393,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "textile-cloth-dark",
     "wizp",
     "wood-dark",
@@ -465892,6 +466451,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "textile-cloth-light",
     "wizp",
     "wood-dark"
@@ -465951,6 +466511,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "tba",
     "textile-cloth-light",
     "wizp",
@@ -466008,6 +466569,7 @@
     "special-emissive",
     "stone-masonry-mid",
     "storeys-3",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -467520,6 +468082,7 @@
     "metal-gold",
     "stone-masonry-mid",
     "storeys-4",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light"
@@ -467574,6 +468137,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light",
@@ -467637,6 +468201,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-2",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light",
@@ -467712,6 +468277,7 @@
     "ceramic-dark",
     "stone-masonry-mid",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark",
     "wood-light",
@@ -468066,6 +468632,7 @@
     "metal-gold",
     "paper-sheet",
     "storeys-1-5",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -468130,6 +468697,7 @@
     "metal-gold",
     "paper-sheet",
     "storeys-0-5",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],
@@ -468189,6 +468757,7 @@
     "paper-sheet",
     "stone-masonry-light",
     "storeys-2",
+    "style-medieval",
     "wizp",
     "wood-dark"
    ],

@@ -402,6 +402,11 @@ function readTags(known) {
     .filter(([id]) => !(perModel.get(id) ?? []).some((t) => t.startsWith('storeys-') || LINT_VARS.exemptTags.includes(t)))
     .map(([id]) => id);
   if (noStoreys.length) throw new Error(`building without a storeys tag: ${noStoreys.join(', ')}`);
+  const noStyle = [...kindsPer]
+    .filter(([id, k]) => known.has(id) && k.some(isBuilding))
+    .filter(([id]) => !(perModel.get(id) ?? []).some((t) => t.startsWith('style-') || LINT_VARS.exemptTags.includes(t)))
+    .map(([id]) => id);
+  if (noStyle.length) throw new Error(`building without a style tag: ${noStyle.join(', ')}`);
 
   const clashes = tags.filter((t) => DERIVED.some((a) => a.id === t.id)).map((t) => t.id);
   if (clashes.length) console.warn(`! tag is in tags.json but is also derived: ${clashes.join(', ')}`);
