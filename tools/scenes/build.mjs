@@ -92,11 +92,13 @@ function addWater({ from, to, y = 0, cell, tone = 0.5 }) {
     doubleSided: true,
     alphaMode: 'OPAQUE',
   });
-  const uv = [(cell[0] + 0.5) / COLORMAP_CELLS[0], (cell[1] + tone) / COLORMAP_CELLS[1]];
+  const [near, far = near] = [tone].flat();
+  const u = (cell[0] + 0.5) / COLORMAP_CELLS[0];
+  const v = (t) => (cell[1] + t) / COLORMAP_CELLS[1];
   const attributes = {
     POSITION: addAccessor(new Float32Array([x0, y, z0, x0, y, z1, x1, y, z1, x1, y, z0]), 'VEC3', 34962, { min: [x0, y, z0], max: [x1, y, z1] }),
     NORMAL: addAccessor(new Float32Array([0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]), 'VEC3', 34962),
-    TEXCOORD_0: addAccessor(new Float32Array([...uv, ...uv, ...uv, ...uv]), 'VEC2', 34962),
+    TEXCOORD_0: addAccessor(new Float32Array([u, v(near), u, v(far), u, v(far), u, v(near)]), 'VEC2', 34962),
   };
   const indices = addAccessor(new Uint16Array([0, 1, 2, 0, 2, 3]), 'SCALAR', 34963);
   out.meshes.push({ name: 'water', primitives: [{ attributes, indices, material }] });
