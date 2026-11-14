@@ -444,7 +444,8 @@ if (noBackface.length) {
   console.warn(`! ${noBackface.length} workfiles have no current backface measure, run catalog/tools/backfaces.mjs first: ${noBackface.slice(0, 5).join(', ')}${noBackface.length > 5 ? ', …' : ''}`);
 }
 for (const tag of tags.tags.filter((t) => t.from)) {
-  const members = models.filter((m) => m.tags.includes(tag.id) || m.tags.some((t) => tag.from.includes(t)));
+  const members = models.filter((m) => m.tags.includes(tag.id) || m.tags.some((t) => tag.from.includes(t))
+    || (tag.kinds ?? []).some((k) => kindIs(m.kind, k)));
   for (const model of members) if (!model.tags.includes(tag.id)) model.tags.push(tag.id);
   tag.count = members.length;
 }
