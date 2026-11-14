@@ -4281,8 +4281,8 @@
     "0.665": 1
    },
    "smooth": {
-    "smooth": 74,
-    "none": 4
+    "smooth": 73,
+    "none": 5
    },
    "kitCheck": {
     "factor": 1.04,
@@ -56656,7 +56656,7 @@
    "tags": [
     "wood-light"
    ],
-   "thickRel": 2.11
+   "thickRel": 2.14
   },
   {
    "kit": "dungeon-2",
@@ -64473,7 +64473,7 @@
    "tags": [
     "wood-mid"
    ],
-   "thickRel": 1.32
+   "thickRel": 1.34
   },
   {
    "kit": "emace-village",
@@ -76488,7 +76488,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "fs-house",
@@ -76531,7 +76531,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.96
   },
   {
    "kit": "fs-house",
@@ -98591,7 +98591,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.28,
+   "thickRel": 1.29,
    "lint": [
     {
      "level": "error",
@@ -102529,7 +102529,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.77
   },
   {
    "kit": "isa-bakery",
@@ -111025,7 +111025,7 @@
     "wood-mid"
    ],
    "variant": "isa-kitchen/table-a",
-   "thickRel": 1.22
+   "thickRel": 1.24
   },
   {
    "kit": "isa-kitchen",
@@ -117921,7 +117921,7 @@
     "isa",
     "wood-light"
    ],
-   "thickRel": 0.72
+   "thickRel": 0.73
   },
   {
    "kit": "isa-playground",
@@ -120273,7 +120273,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.27
   },
   {
    "kit": "jb-kitchen",
@@ -120318,7 +120318,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.29
+   "thickRel": 1.31
   },
   {
    "kit": "jb-kitchen",
@@ -132627,7 +132627,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "kay-dun-1",
@@ -132667,7 +132667,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1.17
+   "thickRel": 1.19
   },
   {
    "kit": "kay-dun-1",
@@ -137567,7 +137567,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/table-long",
-   "thickRel": 0.86
+   "thickRel": 0.87
   },
   {
    "kit": "kay-dun-2",
@@ -137673,7 +137673,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "table-long-tablecloth-decorated-a",
-   "hash": "d9de4ea7ba",
+   "hash": "86cb547024",
    "kind": "set",
    "size": "m",
    "wdh": [
@@ -137681,23 +137681,23 @@
     1.2,
     0.566
    ],
-   "tris": 2180,
-   "tpu": 4199,
+   "tris": 2067,
+   "tpu": 3982,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 92432,
-   "vtx": 2434,
+   "bytes": 87500,
+   "vtx": 2301,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.06,
-   "minWall": 0.0201,
-   "thick": 0.1299,
-   "avgTri": 0.00228,
-   "anglePct": 52,
+   "minWall": 0.0195,
+   "thick": 0.1214,
+   "avgTri": 0.00202,
+   "anglePct": 58,
    "pieces": 25,
-   "vpt": 1.12,
+   "vpt": 1.11,
    "cells": [
     "1,0",
     "5,2",
@@ -137719,13 +137719,27 @@
     "special-food",
     "textile-cloth-light",
     "wood-mid"
+   ],
+   "backface": {
+    "share": 0.0258,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.6% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
    ]
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "table-long-tablecloth",
-   "hash": "3a4c080fdd",
+   "hash": "e9893e1890",
    "kind": "obj-furnishing-furniture-table",
    "size": "m",
    "wdh": [
@@ -137733,23 +137747,23 @@
     0.6,
     0.3
    ],
-   "tris": 404,
-   "tpu": 802,
+   "tris": 366,
+   "tpu": 726,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25296,
-   "vtx": 670,
+   "bytes": 23788,
+   "vtx": 630,
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
    "minTube": 0.06,
    "minWall": 0.0569,
-   "thick": 0.112,
-   "avgTri": 0.00864,
-   "anglePct": 71,
+   "thick": 0.1,
+   "avgTri": 0.00793,
+   "anglePct": 77,
    "pieces": 8,
-   "vpt": 1.66,
+   "vpt": 1.72,
    "cells": [
     "1,0",
     "8,0"
@@ -137764,7 +137778,21 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/table-long",
-   "thickRel": 1.07
+   "backface": {
+    "share": 0.026,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.6% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -137806,7 +137834,7 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/table-long",
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "kay-dun-2",
@@ -137848,7 +137876,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 0.63
+   "thickRel": 0.64
   },
   {
    "kit": "kay-dun-2",
@@ -137905,7 +137933,7 @@
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "table-medium-tablecloth-decorated-b",
-   "hash": "11911c1fb5",
+   "hash": "b7afe5ea9a",
    "kind": "set",
    "size": "m",
    "wdh": [
@@ -137913,21 +137941,21 @@
     0.6,
     0.566
    ],
-   "tris": 1268,
-   "tpu": 3697,
+   "tris": 1227,
+   "tpu": 3577,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 57748,
-   "vtx": 1521,
+   "bytes": 56000,
+   "vtx": 1474,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
    "minTube": 0.06,
    "minWall": 0.0195,
-   "thick": 0.0975,
-   "avgTri": 0.00235,
-   "anglePct": 49,
+   "thick": 0.0908,
+   "avgTri": 0.00214,
+   "anglePct": 54,
    "pieces": 20,
    "vpt": 1.2,
    "cells": [
@@ -137950,13 +137978,27 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "variant": "kay-dun-2/table-medium-decorated-a"
+   "variant": "kay-dun-2/table-medium-decorated-a",
+   "backface": {
+    "share": 0.0353,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "3.5% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
    "collection": "kay-interior",
    "name": "table-medium-tablecloth",
-   "hash": "074f2f3cc9",
+   "hash": "1b925e9544",
    "kind": "obj-furnishing-furniture-table-square",
    "size": "m",
    "wdh": [
@@ -137964,23 +138006,23 @@
     0.6,
     0.3
    ],
-   "tris": 308,
-   "tpu": 898,
+   "tris": 282,
+   "tpu": 822,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 21464,
-   "vtx": 568,
+   "bytes": 20412,
+   "vtx": 540,
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
    "minTube": 0.06,
-   "minWall": 0.043,
-   "thick": 0.0825,
-   "avgTri": 0.00689,
-   "anglePct": 61,
+   "minWall": 0.0569,
+   "thick": 0.0733,
+   "avgTri": 0.00638,
+   "anglePct": 71,
    "pieces": 10,
-   "vpt": 1.84,
+   "vpt": 1.91,
    "cells": [
     "1,0",
     "8,0"
@@ -137995,7 +138037,21 @@
     "wood-mid"
    ],
    "variant": "kay-dun-2/table-medium",
-   "thickRel": 0.91
+   "backface": {
+    "share": 0.0404,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.81,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "4.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "kay-dun-2",
@@ -144745,7 +144801,7 @@
     "plastic"
    ],
    "variant": "kay-food/table-kitchen-b-large",
-   "thickRel": 1.08
+   "thickRel": 1.1
   },
   {
    "kit": "kay-food",
@@ -144888,7 +144944,7 @@
     "metal-steel"
    ],
    "variant": "kay-food/table-kitchen-b-large",
-   "thickRel": 1.08
+   "thickRel": 1.1
   },
   {
    "kit": "kay-food",
@@ -150821,7 +150877,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.52
   },
   {
    "kit": "kay-furniture",
@@ -150862,7 +150918,7 @@
     "kay",
     "wood-mid"
    ],
-   "thickRel": 1.16
+   "thickRel": 1.17
   },
   {
    "kit": "kay-furniture",
@@ -168536,7 +168592,7 @@
     "wood-mid"
    ],
    "variant": "kay-proto/table-medium",
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "kay-proto",
@@ -168580,7 +168636,7 @@
     "wood-mid"
    ],
    "variant": "kay-proto/table-medium",
-   "thickRel": 0.89
+   "thickRel": 0.9
   },
   {
    "kit": "kay-proto",
@@ -201129,7 +201185,7 @@
   {
    "kit": "ken-food",
    "name": "pancakes",
-   "hash": "270947d906",
+   "hash": "02cbfca0e7",
    "kind": "obj-food-baked-pastry-pancake",
    "size": "s",
    "wdh": [
@@ -201137,22 +201193,22 @@
     0.226,
     0.059
    ],
-   "tris": 4422,
-   "tpu": 12892,
+   "tris": 4302,
+   "tpu": 12542,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 128196,
-   "vtx": 3130,
+   "bytes": 123444,
+   "vtx": 3004,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minWall": 0.0145,
    "thick": 0.1114,
-   "avgTri": 0.00004,
-   "anglePct": 64,
+   "avgTri": 0.00003,
+   "anglePct": 61,
    "pieces": 6,
-   "vpt": 0.71,
+   "vpt": 0.7,
    "cells": [
     "1,0",
     "6,0",
@@ -201169,17 +201225,17 @@
     "special-food"
    ],
    "backface": {
-    "share": 0.0024,
-    "view": "270/20",
+    "share": 0.2335,
+    "view": "0/-89.9",
     "causes": {
      "open": 1
     }
    },
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.2% of view 270/20 over 0.1%: open 100.0%"
+     "text": "23.4% of view 0/-89.9 over 0.5%: open 100.0%"
     }
    ]
   },
@@ -208455,7 +208511,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.97,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "warning",
@@ -208555,7 +208611,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.95,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -208642,7 +208698,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/table-coffee",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "ken-furniture",
@@ -208686,7 +208742,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/table-cross",
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "ken-furniture",
@@ -208727,7 +208783,7 @@
     "wood-mid"
    ],
    "variant": "ken-furniture/table-cross",
-   "thickRel": 1.01
+   "thickRel": 1.02
   },
   {
    "kit": "ken-furniture",
@@ -208778,7 +208834,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.97,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "warning",
@@ -208879,7 +208935,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.96,
+   "thickRel": 0.98,
    "lint": [
     {
      "level": "warning",
@@ -218770,7 +218826,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.49
   },
   {
    "kit": "ken-mini-dun",
@@ -223798,7 +223854,7 @@
   {
    "kit": "ken-nature",
    "name": "tree-pine-round-c",
-   "hash": "98f0c20f8d",
+   "hash": "ed61f83023",
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
@@ -223806,22 +223862,22 @@
     0.666,
     1.503
    ],
-   "tris": 268,
-   "tpu": 364,
+   "tris": 218,
+   "tpu": 296,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 14540,
-   "vtx": 360,
+   "bytes": 12320,
+   "vtx": 300,
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
-   "minWall": 0.2069,
-   "thick": 0.2019,
-   "avgTri": 0.01233,
-   "anglePct": 28,
+   "minWall": 0.2375,
+   "thick": 0.1993,
+   "avgTri": 0.01128,
+   "anglePct": 34,
    "pieces": 1,
-   "vpt": 1.34,
+   "vpt": 1.38,
    "cells": [
     "1,1",
     "3,0"
@@ -223836,7 +223892,21 @@
     "leaf-dark"
    ],
    "variant": "ken-nature/tree-pine-round-c",
-   "thickRel": 1.03
+   "backface": {
+    "share": 0.0259,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.01,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "2.6% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "ken-nature",
@@ -245141,7 +245211,7 @@
     "tba"
    ],
    "variant": "ken-station/table-display",
-   "thickRel": 1.41
+   "thickRel": 1.43
   },
   {
    "kit": "ken-station",
@@ -245194,7 +245264,7 @@
     "tba"
    ],
    "variant": "ken-station/table-display",
-   "thickRel": 1.62
+   "thickRel": 1.64
   },
   {
    "kit": "ken-station",
@@ -245241,7 +245311,7 @@
     "space"
    ],
    "variant": "ken-station/table-inset",
-   "thickRel": 1.62
+   "thickRel": 1.64
   },
   {
    "kit": "ken-station",
@@ -245289,7 +245359,7 @@
     "space"
    ],
    "variant": "ken-station/table-inset",
-   "thickRel": 1.82
+   "thickRel": 1.85
   },
   {
    "kit": "ken-station",
@@ -245336,7 +245406,7 @@
     "space"
    ],
    "variant": "ken-station/table",
-   "thickRel": 1.76
+   "thickRel": 1.78
   },
   {
    "kit": "ken-station",
@@ -245383,7 +245453,7 @@
     "space"
    ],
    "variant": "ken-station/table",
-   "thickRel": 2.07
+   "thickRel": 2.1
   },
   {
    "kit": "ken-station",
@@ -253598,7 +253668,7 @@
     "wood-mid"
    ],
    "variant": "ken-town/stall-red",
-   "thickRel": 0.69
+   "thickRel": 0.7
   },
   {
    "kit": "ken-town",
@@ -262414,7 +262484,7 @@
   {
    "kit": "loaf-coffins",
    "name": "coffin-stone-b-1",
-   "hash": "6c1cb48cf5",
+   "hash": "284d0dedcb",
    "kind": "obj-container-coffin",
    "size": "m",
    "wdh": [
@@ -262422,23 +262492,23 @@
     0.75,
     0.358
    ],
-   "tris": 64,
-   "tpu": 187,
+   "tris": 60,
+   "tpu": 175,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 5700,
-   "vtx": 120,
+   "bytes": 5420,
+   "vtx": 112,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.023,
    "minWall": 0.0137,
    "thick": 0.1233,
-   "avgTri": 0.04719,
+   "avgTri": 0.03759,
    "anglePct": 100,
    "pieces": 4,
-   "vpt": 1.88,
+   "vpt": 1.87,
    "cells": [
     "14,3",
     "12,3"
@@ -262452,8 +262522,20 @@
     "stone-masonry-mid"
    ],
    "variant": "loaf-coffins/coffin-stone-b-1",
+   "backface": {
+    "share": 1,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.6,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -262464,7 +262546,7 @@
   {
    "kit": "loaf-coffins",
    "name": "coffin-stone-b-2",
-   "hash": "61472af25a",
+   "hash": "1e352bd9f4",
    "kind": "obj-container-coffin",
    "size": "m",
    "wdh": [
@@ -262472,23 +262554,23 @@
     0.75,
     0.236
    ],
-   "tris": 52,
-   "tpu": 152,
+   "tris": 48,
+   "tpu": 140,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 4748,
-   "vtx": 92,
+   "bytes": 4468,
+   "vtx": 84,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.053,
    "minWall": 0.0437,
    "thick": 0.1276,
-   "avgTri": 0.05463,
+   "avgTri": 0.04325,
    "anglePct": 100,
    "pieces": 3,
-   "vpt": 1.77,
+   "vpt": 1.75,
    "cells": [
     "14,3",
     "12,3"
@@ -262502,7 +262584,21 @@
     "stone-masonry-mid"
    ],
    "variant": "loaf-coffins/coffin-stone-b-1",
-   "thickRel": 0.63
+   "backface": {
+    "share": 1,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.63,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "loaf-coffins",
@@ -269857,7 +269953,7 @@
     "lpa",
     "wood-dark"
    ],
-   "thickRel": 1.04
+   "thickRel": 1.05
   },
   {
    "kit": "lpa-home",
@@ -271943,7 +272039,7 @@
     "lpa",
     "wood-dark"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.27
   },
   {
    "kit": "lpa-home",
@@ -288784,7 +288880,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "m3-base",
@@ -288824,7 +288920,7 @@
     "m3",
     "wood-mid"
    ],
-   "thickRel": 1.47
+   "thickRel": 1.49
   },
   {
    "kit": "m3-base",
@@ -291994,7 +292090,7 @@
   {
    "kit": "m3-base",
    "name": "dragonfly-wings",
-   "hash": "22459cd97e",
+   "hash": "4e662415bc",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
@@ -292002,20 +292098,20 @@
     0.042,
     0
    ],
-   "tris": 416,
+   "tris": 272,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 15820,
-   "vtx": 368,
+   "bytes": 10088,
+   "vtx": 216,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "thick": 0.1122,
-   "avgTri": 0.00002,
+   "avgTri": 0.00001,
    "anglePct": 100,
    "pieces": 4,
-   "vpt": 0.88,
+   "vpt": 0.79,
    "cells": [
     "4,2"
    ],
@@ -292025,6 +292121,20 @@
    "tags": [
     "comp",
     "m3"
+   ],
+   "backface": {
+    "share": 1,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
    ]
   },
   {
@@ -311129,7 +311239,7 @@
   {
    "kit": "m3-base",
    "name": "rope-twist-01",
-   "hash": "f769043ea1",
+   "hash": "8e98556aa5",
    "kind": "obj-equipment-tool-supplies-rope",
    "size": "s",
    "wdh": [
@@ -311137,13 +311247,13 @@
     0.031,
     0.138
    ],
-   "tris": 2426,
-   "tpu": 7073,
+   "tris": 2381,
+   "tpu": 6942,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 86500,
-   "vtx": 2200,
+   "bytes": 84664,
+   "vtx": 2151,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -311151,9 +311261,9 @@
    "minWall": 0.0307,
    "thick": 0.3813,
    "avgTri": 0.00001,
-   "anglePct": 9,
+   "anglePct": 5,
    "pieces": 1,
-   "vpt": 0.91,
+   "vpt": 0.9,
    "cells": [
     "14,2"
    ],
@@ -311167,18 +311277,18 @@
    ],
    "variant": "m3-base/rope-twist-01",
    "backface": {
-    "share": 0.0024,
-    "view": "0/20",
+    "share": 0.7194,
+    "view": "0/-89.9",
     "causes": {
-     "open": 0.72,
-     "inverted": 0.28
+     "open": 0.99,
+     "inverted": 0.01
     }
    },
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.2% of view 0/20 over 0.1%: open 72.0%, inverted 28.0%"
+     "text": "71.9% of view 0/-89.9 over 0.5%: open 99.0%, inverted 1.0%"
     }
    ]
   },
@@ -311320,7 +311430,7 @@
   {
    "kit": "m3-base",
    "name": "rope-twist-05",
-   "hash": "6d6d817b4b",
+   "hash": "cee5334d6c",
    "kind": "obj-equipment-tool-supplies-rope",
    "size": "s",
    "wdh": [
@@ -311328,13 +311438,13 @@
     0.028,
     0.138
    ],
-   "tris": 1378,
-   "tpu": 4017,
+   "tris": 1291,
+   "tpu": 3764,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 68032,
-   "vtx": 1820,
+   "bytes": 64600,
+   "vtx": 1729,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -311342,9 +311452,9 @@
    "minWall": 0.0104,
    "thick": 0.3579,
    "avgTri": 0.00001,
-   "anglePct": 13,
+   "anglePct": 7,
    "pieces": 1,
-   "vpt": 1.32,
+   "vpt": 1.34,
    "cells": [
     "14,2"
    ],
@@ -311356,7 +311466,21 @@
     "m3",
     "textile-rope"
    ],
-   "variant": "m3-base/rope-twist-01"
+   "variant": "m3-base/rope-twist-01",
+   "backface": {
+    "share": 0.6577,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "65.8% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "m3-base",
@@ -331763,7 +331887,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.34,
+   "thickRel": 1.36,
    "lint": [
     {
      "level": "error",
@@ -334909,7 +335033,7 @@
    "tags": [
     "wood-mid"
    ],
-   "thickRel": 1.13
+   "thickRel": 1.14
   },
   {
    "kit": "props",
@@ -336383,7 +336507,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "survivor-matt",
-   "hash": "98ee12cb2e",
+   "hash": "8ba8ab084f",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -336391,13 +336515,13 @@
     0.289,
     0.486
    ],
-   "tris": 2980,
-   "tpu": 8688,
+   "tris": 2940,
+   "tpu": 8571,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 120180,
-   "vtx": 3150,
+   "bytes": 118532,
+   "vtx": 3106,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -336405,7 +336529,7 @@
    "minWall": 0.0067,
    "thick": 0.091,
    "avgTri": 0.00014,
-   "anglePct": 6,
+   "anglePct": 5,
    "pieces": 14,
    "vpt": 1.06,
    "cells": [
@@ -336433,8 +336557,20 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
+   "backface": {
+    "share": 0.0511,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 0.95,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "5.1% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -336505,7 +336641,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "survivor-shaun",
-   "hash": "87bdfabc2d",
+   "hash": "dcc318f056",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -336513,20 +336649,20 @@
     0.434,
     0.496
    ],
-   "tris": 10191,
-   "tpu": 29711,
+   "tris": 9936,
+   "tpu": 28968,
    "mat": 1,
    "bands": 6,
    "calls": 1,
-   "bytes": 479972,
-   "vtx": 11131,
+   "bytes": 468304,
+   "vtx": 10862,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0438,
-   "minWall": 0.0038,
+   "minWall": 0.0039,
    "thick": 0.0945,
-   "avgTri": 0.00009,
+   "avgTri": 0.00008,
    "anglePct": 7,
    "pieces": 56,
    "vpt": 1.09,
@@ -336556,8 +336692,8 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.001,
-    "view": "270/20",
+    "share": 0.0052,
+    "view": "0/-89.9",
     "causes": {
      "open": 1
     }
@@ -336565,14 +336701,14 @@
    "thickRel": 0.98,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.1% of view 270/20 over 0.1%: open 100.0%"
+     "text": "0.5% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0038 wants min 0.006"
+     "text": "G27 minWall 0.0039 wants min 0.006"
     }
    ]
   },
@@ -337142,7 +337278,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "zombie-half",
-   "hash": "9a707ab408",
+   "hash": "619a86e459",
    "kind": "char-undead",
    "size": "s",
    "wdh": [
@@ -337150,22 +337286,22 @@
     0.188,
     0.472
    ],
-   "tris": 1804,
-   "tpu": 5259,
+   "tris": 1744,
+   "tpu": 5085,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 55908,
-   "vtx": 1362,
+   "bytes": 53500,
+   "vtx": 1298,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minWall": 0.0115,
-   "thick": 0.1662,
-   "avgTri": 0.00019,
+   "thick": 0.1659,
+   "avgTri": 0.00018,
    "anglePct": 6,
    "pieces": 6,
-   "vpt": 0.75,
+   "vpt": 0.74,
    "cells": [
     "3,1",
     "8,0",
@@ -337188,8 +337324,20 @@
     "skin",
     "textile-cloth-dark"
    ],
+   "backface": {
+    "share": 0.1048,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
    "thickRel": 1.23,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "10.5% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -338864,7 +339012,7 @@
   {
    "kit": "quat-cyberpunk",
    "name": "computer",
-   "hash": "ec2e94d03c",
+   "hash": "a96a378eea",
    "kind": "obj-device-electronics-computer-terminal",
    "size": "m",
    "wdh": [
@@ -338872,21 +339020,21 @@
     0.44,
     0.705
    ],
-   "tris": 1030,
-   "tpu": 2982,
+   "tris": 1005,
+   "tpu": 2909,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 45168,
-   "vtx": 1171,
+   "bytes": 44060,
+   "vtx": 1141,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.012,
    "minWall": 0.012,
-   "thick": 0.1708,
-   "avgTri": 0.00152,
-   "anglePct": 53,
+   "thick": 0.1705,
+   "avgTri": 0.0015,
+   "anglePct": 51,
    "pieces": 6,
    "vpt": 1.14,
    "cells": [
@@ -338905,19 +339053,19 @@
     "qua"
    ],
    "backface": {
-    "share": 0.0029,
-    "view": "315/50",
+    "share": 0.2478,
+    "view": "0/-89.9",
     "causes": {
-     "inverted": 0.52,
-     "open": 0.48
+     "open": 0.94,
+     "inverted": 0.06
     }
    },
    "thickRel": 1.03,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.3% of view 315/50 over 0.1%: inverted 52.0%, open 48.0%"
+     "text": "24.8% of view 0/-89.9 over 0.5%: open 94.0%, inverted 6.0%"
     }
    ]
   },
@@ -342459,7 +342607,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.87
+   "thickRel": 0.89
   },
   {
    "kit": "quat-dun-2",
@@ -342503,7 +342651,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "quat-essentials",
@@ -351071,7 +351219,7 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/table",
-   "thickRel": 0.7
+   "thickRel": 0.71
   },
   {
    "kit": "quat-furniture",
@@ -351115,7 +351263,7 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/table",
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "quat-furniture",
@@ -351998,7 +352146,7 @@
   {
    "kit": "quat-interior",
    "name": "bed-single",
-   "hash": "337d0b3f37",
+   "hash": "1b2bc84034",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
@@ -352006,21 +352154,21 @@
     0.95,
     0.352
    ],
-   "tris": 434,
-   "tpu": 1265,
+   "tris": 410,
+   "tpu": 1195,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 19092,
-   "vtx": 467,
+   "bytes": 18116,
+   "vtx": 441,
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
    "minTube": 0.0398,
    "minWall": 0.0365,
-   "thick": 0.1579,
-   "avgTri": 0.00648,
-   "anglePct": 62,
+   "thick": 0.1553,
+   "avgTri": 0.00624,
+   "anglePct": 65,
    "pieces": 4,
    "vpt": 1.08,
    "cells": [
@@ -352039,7 +352187,21 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 1.11
+   "backface": {
+    "share": 0.0175,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 1.09,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.8% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-interior",
@@ -368833,7 +368995,7 @@
   {
    "kit": "quat-props",
    "name": "cabinet",
-   "hash": "5adc17bedf",
+   "hash": "62a47c95cd",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
@@ -368841,23 +369003,23 @@
     0.208,
     0.539
    ],
-   "tris": 1110,
-   "tpu": 3236,
+   "tris": 1048,
+   "tpu": 3055,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 52768,
-   "vtx": 1394,
+   "bytes": 48716,
+   "vtx": 1279,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.002,
    "minTube": 0.1819,
-   "minWall": 0.028,
-   "thick": 0.142,
-   "avgTri": 0.0026,
-   "anglePct": 82,
+   "minWall": 0.0092,
+   "thick": 0.1365,
+   "avgTri": 0.00213,
+   "anglePct": 77,
    "pieces": 18,
-   "vpt": 1.26,
+   "vpt": 1.22,
    "cells": [
     "15,3",
     "1,0",
@@ -368875,19 +369037,23 @@
     "wood-mid"
    ],
    "backface": {
-    "share": 0.0038,
+    "share": 0.4916,
     "view": "0/-89.9",
     "causes": {
-     "inverted": 0.33,
-     "open": 0.67
+     "open": 1
     }
    },
-   "thickRel": 0.62,
+   "thickRel": 0.6,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.4% of view 0/-89.9 over 0.1%: open 67.0%, inverted 33.0%"
+     "text": "49.2% of view 0/-89.9 over 0.5%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0092 wants min 0.012"
     }
    ]
   },
@@ -370757,7 +370923,7 @@
     "qua",
     "wood-dark"
    ],
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "quat-props",
@@ -371148,7 +371314,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.03
+   "thickRel": 1.04
   },
   {
    "kit": "quat-rpg",
@@ -376412,7 +376578,7 @@
   {
    "kit": "quat-ruins",
    "name": "floor-squares",
-   "hash": "25a76cf060",
+   "hash": "b8d2f54cd5",
    "kind": "str-part-floor-unit-stone",
    "size": "m",
    "wdh": [
@@ -376420,21 +376586,21 @@
     0.998,
     0.054
    ],
-   "tris": 416,
-   "tpu": 598,
+   "tris": 413,
+   "tpu": 594,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 27428,
-   "vtx": 731,
+   "bytes": 27252,
+   "vtx": 726,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0496,
+   "minWall": 0.2359,
    "thick": 0.0453,
-   "avgTri": 0.00394,
-   "anglePct": 30,
+   "avgTri": 0.00381,
+   "anglePct": 28,
    "pieces": 16,
    "vpt": 1.76,
    "cells": [
@@ -376453,9 +376619,8 @@
     "share": 0.1197,
     "view": "270/50",
     "causes": {
-     "inverted": 0.44,
-     "open": 0.56,
-     "other": 0
+     "inverted": 0.38,
+     "open": 0.62
     }
    },
    "thickRel": 0.74,
@@ -376463,7 +376628,7 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "12.0% of view 270/50 over 0.5%: open 56.0%, inverted 44.0%"
+     "text": "12.0% of view 270/50 over 0.5%: open 62.0%, inverted 38.0%"
     }
    ]
   },
@@ -378455,7 +378620,7 @@
   {
    "kit": "quat-scifi-mod",
    "name": "pod",
-   "hash": "b8da2c46a7",
+   "hash": "b67109c66b",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -378463,22 +378628,22 @@
     0.615,
     1.228
    ],
-   "tris": 2330,
-   "tpu": 3872,
+   "tris": 2246,
+   "tpu": 3733,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 103924,
-   "vtx": 2763,
+   "bytes": 99808,
+   "vtx": 2651,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minWall": 0.0093,
    "thick": 0.2317,
-   "avgTri": 0.00226,
-   "anglePct": 50,
+   "avgTri": 0.00211,
+   "anglePct": 44,
    "pieces": 21,
-   "vpt": 1.19,
+   "vpt": 1.18,
    "cells": [
     "15,3",
     "6,1",
@@ -378500,8 +378665,8 @@
     "share": 0.0148,
     "view": "315/50",
     "causes": {
-     "inverted": 1,
-     "other": 0
+     "open": 0.54,
+     "inverted": 0.46
     }
    },
    "thickRel": 1.8,
@@ -378509,7 +378674,7 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "1.5% of view 315/50 over 0.5%: inverted 100.0%"
+     "text": "1.5% of view 315/50 over 0.5%: open 54.0%, inverted 46.0%"
     },
     {
      "level": "warning",
@@ -393908,7 +394073,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "pine-trees",
-   "hash": "e19556668b",
+   "hash": "6d8ed281a9",
    "kind": "env-flora-tree-conifer",
    "size": "l",
    "wdh": [
@@ -393916,23 +394081,23 @@
     3.451,
     1.576
    ],
-   "tris": 4224,
-   "tpu": 218,
+   "tris": 2878,
+   "tpu": 149,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 175096,
-   "vtx": 4636,
+   "bytes": 118184,
+   "vtx": 3110,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0866,
-   "minWall": 0.0408,
-   "thick": 0.0547,
-   "avgTri": 0.00719,
+   "minWall": 0.0786,
+   "thick": 0.054,
+   "avgTri": 0.00676,
    "anglePct": 10,
    "pieces": 80,
-   "vpt": 1.1,
+   "vpt": 1.08,
    "cells": [
     "3,0",
     "1,1"
@@ -393946,6 +394111,20 @@
     "leaf-dark",
     "plural",
     "qua"
+   ],
+   "backface": {
+    "share": 0.9538,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "95.4% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
    ]
   },
   {
@@ -394014,7 +394193,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "port-1-b",
-   "hash": "7a2bc23762",
+   "hash": "e09e95acf8",
    "kind": "str-access-platform-dock",
    "size": "l",
    "wdh": [
@@ -394022,23 +394201,23 @@
     3.963,
     1.942
    ],
-   "tris": 2968,
-   "tpu": 105,
+   "tris": 2727,
+   "tpu": 96,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 195648,
-   "vtx": 5514,
+   "bytes": 183036,
+   "vtx": 5165,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.026,
    "minWall": 0.0131,
-   "thick": 0.0509,
-   "avgTri": 0.01797,
-   "anglePct": 72,
+   "thick": 0.0506,
+   "avgTri": 0.01874,
+   "anglePct": 74,
    "pieces": 200,
-   "vpt": 1.86,
+   "vpt": 1.89,
    "cells": [
     "0,0",
     "2,0",
@@ -394057,19 +394236,18 @@
    ],
    "variant": "quat-town/port-1-a",
    "backface": {
-    "share": 0.002,
-    "view": "270/50",
+    "share": 0.0065,
+    "view": "0/-89.9",
     "causes": {
-     "inverted": 0.96,
-     "open": 0.04
+     "open": 1
     }
    },
    "thickRel": 0.57,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.2% of view 270/50 over 0.1%: inverted 96.0%, open 4.0%"
+     "text": "0.7% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
@@ -398717,7 +398895,7 @@
   {
    "kit": "rgp-asia",
    "name": "platform-deck",
-   "hash": "43053da568",
+   "hash": "6d1563bb3b",
    "kind": "str-access-platform-deck",
    "size": "l",
    "wdh": [
@@ -398725,23 +398903,23 @@
     3.391,
     0.893
    ],
-   "tris": 822,
-   "tpu": 73,
+   "tris": 732,
+   "tpu": 65,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 52668,
-   "vtx": 1294,
+   "bytes": 47972,
+   "vtx": 1181,
    "grounded": true,
    "centered": true,
    "minEdge": 0.04,
    "minTube": 0.0396,
-   "minWall": 0.0304,
+   "minWall": 0.0396,
    "thick": 0.0488,
-   "avgTri": 0.06169,
-   "anglePct": 86,
+   "avgTri": 0.05006,
+   "anglePct": 100,
    "pieces": 67,
-   "vpt": 1.57,
+   "vpt": 1.61,
    "cells": [
     "2,0",
     "0,0"
@@ -398756,7 +398934,21 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.7
+   "backface": {
+    "share": 0.8068,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.7,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "80.7% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-asia",
@@ -400049,7 +400241,7 @@
     "rgp",
     "wood-mid"
    ],
-   "thickRel": 0.73
+   "thickRel": 0.74
   },
   {
    "kit": "rgp-asia",
@@ -402573,7 +402765,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "bench-backrest",
-   "hash": "e7388957dd",
+   "hash": "ab4b8932d4",
    "kind": "obj-furnishing-furniture-seating-bench-backrest",
    "size": "m",
    "wdh": [
@@ -402581,23 +402773,23 @@
     0.29,
     0.45
    ],
-   "tris": 496,
-   "tpu": 1446,
+   "tris": 438,
+   "tpu": 1277,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 30664,
-   "vtx": 818,
+   "bytes": 27564,
+   "vtx": 732,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
    "minTube": 0.0331,
-   "minWall": 0.0178,
+   "minWall": 0.0134,
    "thick": 0.075,
-   "avgTri": 0.00241,
-   "anglePct": 39,
+   "avgTri": 0.002,
+   "anglePct": 35,
    "pieces": 30,
-   "vpt": 1.65,
+   "vpt": 1.67,
    "cells": [
     "1,0",
     "2,0",
@@ -402614,7 +402806,21 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.84
+   "backface": {
+    "share": 0.8027,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.84,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "80.3% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "rgp-medieval",
@@ -404297,7 +404503,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "grass",
-   "hash": "e2ce16442b",
+   "hash": "4a5b685f24",
    "kind": "env-flora-plant-grass",
    "size": "s",
    "wdh": [
@@ -404305,13 +404511,13 @@
     0.309,
     0.073
    ],
-   "tris": 2180,
-   "tpu": 6356,
+   "tris": 2101,
+   "tpu": 6125,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 178788,
-   "vtx": 5131,
+   "bytes": 171692,
+   "vtx": 4924,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -404321,7 +404527,7 @@
    "avgTri": 0.00004,
    "anglePct": 3,
    "pieces": 83,
-   "vpt": 2.35,
+   "vpt": 2.34,
    "cells": [
     "3,1"
    ],
@@ -404335,20 +404541,20 @@
    ],
    "variant": "rgp-medieval/grass",
    "backface": {
-    "share": 0.026,
+    "share": 0.0275,
     "view": "0/-89.9",
     "causes": {
-     "inverted": 0.51,
-     "open": 0.29,
-     "inside-out": 0.08,
-     "other": 0.12
+     "inverted": 0.47,
+     "open": 0.35,
+     "inside-out": 0.07,
+     "other": 0.11
     }
    },
    "lint": [
     {
      "level": "error",
      "check": "backface",
-     "text": "2.6% of view 0/-89.9 over 0.5%: inverted 51.0%, open 29.0%, other 12.0%, inside-out 8.0%"
+     "text": "2.8% of view 0/-89.9 over 0.5%: inverted 47.0%, open 35.0%, other 11.0%, inside-out 7.0%"
     },
     {
      "level": "error",
@@ -405443,7 +405649,7 @@
     "wood-mid"
    ],
    "variant": "rgp-medieval/market-table-1",
-   "thickRel": 0.93
+   "thickRel": 0.94
   },
   {
    "kit": "rgp-medieval",
@@ -405488,7 +405694,7 @@
     "wood-mid"
    ],
    "variant": "rgp-medieval/market-table-1",
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "rgp-medieval",
@@ -405533,7 +405739,7 @@
     "wood-mid"
    ],
    "variant": "rgp-medieval/market-table-1",
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "rgp-medieval",
@@ -405575,7 +405781,7 @@
     "wood-mid"
    ],
    "variant": "rgp-medieval/market-table-1",
-   "thickRel": 0.72
+   "thickRel": 0.73
   },
   {
    "kit": "rgp-medieval",
@@ -409529,7 +409735,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 0.96
+   "thickRel": 0.97
   },
   {
    "kit": "rgp-medieval",
@@ -421669,7 +421875,7 @@
     "metal-iron-dark",
     "sq"
    ],
-   "thickRel": 0.76
+   "thickRel": 0.77
   },
   {
    "kit": "sq-lab",
@@ -422047,7 +422253,7 @@
     "sq",
     "wood-light"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "sq-laundry",
@@ -423996,7 +424202,7 @@
    "kit": "sq-studio",
    "collection": "sq-props",
    "name": "drum-kit",
-   "hash": "c4eb7e29bf",
+   "hash": "d89ea36e15",
    "kind": "obj-leisure-art-instrument-drum",
    "size": "m",
    "wdh": [
@@ -424004,13 +424210,13 @@
     0.629,
     0.642
    ],
-   "tris": 1746,
-   "tpu": 5090,
+   "tris": 1684,
+   "tpu": 4910,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 85160,
-   "vtx": 1962,
+   "bytes": 81856,
+   "vtx": 1882,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
@@ -424018,7 +424224,7 @@
    "minWall": 0.0069,
    "thick": 0.0843,
    "avgTri": 0.00096,
-   "anglePct": 44,
+   "anglePct": 43,
    "pieces": 53,
    "vpt": 1.12,
    "cells": [
@@ -424042,8 +424248,8 @@
     "sq"
    ],
    "backface": {
-    "share": 0.004,
-    "view": "0/20",
+    "share": 0.0059,
+    "view": "0/-89.9",
     "causes": {
      "open": 1
     }
@@ -424051,14 +424257,9 @@
    "thickRel": 0.53,
    "lint": [
     {
-     "level": "warning",
-     "check": "tpu",
-     "text": "tpu 5090 over max 5000 (obj-leisure-art-instrument)"
-    },
-    {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.4% of view 0/20 over 0.1%: open 100.0%"
+     "text": "0.6% of view 0/-89.9 over 0.5%: open 100.0%"
     }
    ]
   },
@@ -427837,7 +428038,7 @@
   {
    "kit": "styloo-farm",
    "name": "soil",
-   "hash": "f979c93984",
+   "hash": "f3a5f4ace0",
    "kind": "env-terrain-ground-field",
    "size": "m",
    "wdh": [
@@ -427845,13 +428046,13 @@
     1.193,
     0.001
    ],
-   "tris": 208,
-   "tpu": 184,
+   "tris": 104,
+   "tpu": 92,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13308,
-   "vtx": 334,
+   "bytes": 8008,
+   "vtx": 188,
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
@@ -427859,7 +428060,7 @@
    "avgTri": 0.01494,
    "anglePct": 100,
    "pieces": 21,
-   "vpt": 1.61,
+   "vpt": 1.81,
    "cells": [
     "12,3"
    ],
@@ -427870,7 +428071,21 @@
     "earth-soil",
     "sty"
    ],
-   "thickRel": 0.67
+   "backface": {
+    "share": 1,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.67,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100.0% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-farm",
@@ -435834,7 +436049,7 @@
     "sty"
    ],
    "variant": "styloo-school/art-table",
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "styloo-school",
@@ -435877,7 +436092,7 @@
     "wood-mid"
    ],
    "variant": "styloo-school/art-table",
-   "thickRel": 1.06
+   "thickRel": 1.07
   },
   {
    "kit": "styloo-school",
@@ -436563,7 +436778,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.25
   },
   {
    "kit": "styloo-school",
@@ -450813,7 +451028,7 @@
   {
    "kit": "western",
    "name": "bed",
-   "hash": "829b7dc276",
+   "hash": "86dc8821a4",
    "kind": "obj-furnishing-furniture-bed-double",
    "size": "m",
    "wdh": [
@@ -450821,22 +451036,22 @@
     1.079,
     0.593
    ],
-   "tris": 386,
-   "tpu": 640,
+   "tris": 368,
+   "tpu": 611,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26792,
-   "vtx": 721,
+   "bytes": 25980,
+   "vtx": 699,
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
-   "minWall": 0.0363,
+   "minWall": 0.0376,
    "thick": 0.115,
-   "avgTri": 0.00965,
-   "anglePct": 60,
+   "avgTri": 0.00769,
+   "anglePct": 75,
    "pieces": 5,
-   "vpt": 1.87,
+   "vpt": 1.9,
    "cells": [
     "2,0",
     "8,0",
@@ -450852,7 +451067,21 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "thickRel": 0.89
+   "backface": {
+    "share": 0.7472,
+    "view": "0/-89.9",
+    "causes": {
+     "open": 1
+    }
+   },
+   "thickRel": 0.89,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "74.7% of view 0/-89.9 over 0.5%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "western",
