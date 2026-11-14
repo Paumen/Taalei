@@ -176207,7 +176207,7 @@
     "kay",
     "space"
    ],
-   "thickRel": 5.79
+   "thickRel": 4.24
   },
   {
    "kit": "kay-space",
@@ -239144,7 +239144,7 @@
     "ken",
     "space"
    ],
-   "thickRel": 1.83
+   "thickRel": 1.34
   },
   {
    "kit": "ken-space",
@@ -352825,7 +352825,7 @@
   {
    "kit": "quat-interior",
    "name": "curtains-single",
-   "hash": "fa53d9c40d",
+   "hash": "53a74fd17f",
    "kind": "obj-furnishing-textile-curtains",
    "size": "m",
    "wdh": [
@@ -352833,23 +352833,22 @@
     0.163,
     0.901
    ],
-   "tris": 544,
-   "tpu": 1232,
+   "tris": 299,
+   "tpu": 677,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 29072,
-   "vtx": 758,
+   "bytes": 17180,
+   "vtx": 433,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.004,
-   "minWall": 0.0031,
-   "thick": 0.1266,
-   "avgTri": 0.00252,
-   "anglePct": 50,
+   "minEdge": 0.004,
+   "minWall": 0.0114,
+   "thick": 0.1267,
+   "avgTri": 0.00239,
+   "anglePct": 40,
    "pieces": 3,
-   "vpt": 1.39,
+   "vpt": 1.45,
    "cells": [
     "15,3",
     "8,0"
@@ -352864,17 +352863,27 @@
     "qua",
     "textile-cloth-dark"
    ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0095,
+     "view": "90/20",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
    "thickRel": 2.01,
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.004 wants min 0.012"
+     "check": "backface",
+     "text": "0.9% of view 90/20 over 0.5%: open 100.0%"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0031 wants min 0.006"
+     "text": "G27 minWall 0.0114 wants min 0.012"
     }
    ]
   },
@@ -427029,30 +427038,29 @@
   {
    "kit": "styloo-farm",
    "name": "soil",
-   "hash": "31815ec766",
+   "hash": "7c861031fa",
    "kind": "env-terrain-ground-field",
    "size": "m",
    "wdh": [
     1.35,
     1.193,
-    0.011
+    0.001
    ],
-   "tris": 500,
-   "tpu": 444,
+   "tris": 130,
+   "tpu": 115,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 34220,
-   "vtx": 932,
+   "bytes": 9028,
+   "vtx": 215,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minWall": 0.0099,
+   "minEdge": 0.013,
    "thick": 0.0377,
-   "avgTri": 0.0064,
-   "anglePct": 98,
+   "avgTri": 0.02362,
+   "anglePct": 100,
    "pieces": 21,
-   "vpt": 1.86,
+   "vpt": 1.65,
    "cells": [
     "12,3"
    ],
@@ -427063,14 +427071,7 @@
     "earth-soil",
     "sty"
    ],
-   "thickRel": 0.67,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0099 wants min 0.026"
-    }
-   ]
+   "thickRel": 0.67
   },
   {
    "kit": "styloo-farm",
@@ -458705,7 +458706,7 @@
     "stone-rock",
     "wizp"
    ],
-   "thickRel": 1.22,
+   "thickRel": 0.89,
    "lint": [
     {
      "level": "warning",
@@ -458717,30 +458718,30 @@
   {
    "kit": "wizp-lava",
    "name": "lava-pit-corner",
-   "hash": "f4f16ef315",
+   "hash": "177a9df634",
    "kind": "env-terrain-ground-pit",
    "size": "m",
    "wdh": [
     1.38,
     1.38,
-    0.08
+    0.079
    ],
-   "tris": 180,
-   "tpu": 135,
+   "tris": 100,
+   "tpu": 75,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12356,
-   "vtx": 308,
+   "bytes": 7300,
+   "vtx": 165,
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
-   "minWall": 0.0072,
-   "thick": 0.0336,
-   "avgTri": 0.02241,
-   "anglePct": 91,
+   "minWall": 0.0101,
+   "thick": 0.0422,
+   "avgTri": 0.0405,
+   "anglePct": 96,
    "pieces": 3,
-   "vpt": 1.71,
+   "vpt": 1.65,
    "cells": [
     "12,3",
     "6,0"
@@ -458754,42 +458755,42 @@
     "stone-rock",
     "wizp"
    ],
-   "thickRel": 1,
+   "thickRel": 0.92,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0072 wants min 0.026"
+     "text": "G27 minWall 0.0101 wants min 0.026"
     }
    ]
   },
   {
    "kit": "wizp-lava",
    "name": "lava-pit-edge-a",
-   "hash": "2f6d77795f",
+   "hash": "016c755ab3",
    "kind": "env-terrain-ground-pit",
    "size": "m",
    "wdh": [
     1.38,
     1.38,
-    0.079
+    0.074
    ],
-   "tris": 152,
-   "tpu": 114,
+   "tris": 96,
+   "tpu": 72,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9116,
-   "vtx": 212,
+   "bytes": 6380,
+   "vtx": 137,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minWall": 0.0099,
-   "thick": 0.0335,
-   "avgTri": 0.02596,
-   "anglePct": 94,
+   "minEdge": 0.005,
+   "minWall": 0.0049,
+   "thick": 0.0459,
+   "avgTri": 0.04242,
+   "anglePct": 97,
    "pieces": 1,
-   "vpt": 1.39,
+   "vpt": 1.43,
    "cells": [
     "12,3",
     "6,0"
@@ -458807,39 +458808,39 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0099 wants min 0.026"
+     "text": "G27 minWall 0.0049 wants min 0.006"
     }
    ]
   },
   {
    "kit": "wizp-lava",
    "name": "lava-pit-edge-b",
-   "hash": "14a651e285",
+   "hash": "8c56904b23",
    "kind": "env-terrain-ground-pit",
    "size": "m",
    "wdh": [
     1.38,
     1.38,
-    0.079
+    0.074
    ],
-   "tris": 152,
-   "tpu": 114,
+   "tris": 96,
+   "tpu": 72,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 9116,
-   "vtx": 212,
+   "bytes": 6380,
+   "vtx": 137,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minWall": 0.0099,
-   "thick": 0.0335,
-   "avgTri": 0.02598,
-   "anglePct": 93,
+   "minEdge": 0.005,
+   "minWall": 0.0049,
+   "thick": 0.0457,
+   "avgTri": 0.04244,
+   "anglePct": 97,
    "pieces": 1,
-   "vpt": 1.39,
+   "vpt": 1.43,
    "cells": [
     "12,3",
     "6,0"
@@ -458857,39 +458858,39 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0099 wants min 0.026"
+     "text": "G27 minWall 0.0049 wants min 0.006"
     }
    ]
   },
   {
    "kit": "wizp-lava",
    "name": "lava-pit-inner-corner-a",
-   "hash": "e080704f4a",
+   "hash": "b82daae3a7",
    "kind": "env-terrain-ground-pit",
    "size": "m",
    "wdh": [
     1.38,
     1.38,
-    0.079
+    0.074
    ],
-   "tris": 180,
-   "tpu": 135,
+   "tris": 110,
+   "tpu": 83,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 10196,
-   "vtx": 240,
+   "bytes": 6928,
+   "vtx": 151,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minWall": 0.0099,
-   "thick": 0.0335,
-   "avgTri": 0.02187,
-   "anglePct": 93,
+   "minEdge": 0.005,
+   "minWall": 0.074,
+   "thick": 0.0473,
+   "avgTri": 0.03785,
+   "anglePct": 97,
    "pieces": 1,
-   "vpt": 1.33,
+   "vpt": 1.37,
    "cells": [
     "12,3",
     "6,0"
@@ -458904,14 +458905,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/lava-pit-inner-corner-a",
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0099 wants min 0.026"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "wizp-lava",
@@ -458954,7 +458948,7 @@
     "wizp"
    ],
    "variant": "wizp-lava/lava-pit-inner-corner-a",
-   "thickRel": 1.4
+   "thickRel": 1.03
   },
   {
    "kit": "wizp-lava",
@@ -459002,7 +458996,7 @@
      }
     }
    ],
-   "thickRel": 0.99,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "error",
