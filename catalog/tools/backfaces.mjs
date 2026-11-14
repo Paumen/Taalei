@@ -26,7 +26,8 @@ if (flag('--help') || flag('-h')) {
 Renders every workfile from ${VIEWS.length - 1} views above the horizon and one from below and records, per model,
 the largest share of its silhouette that shows back faces in one view (and, under
 "above", the same without the view from below when that differs), and why
-those faces show: inverted (wound against its normals, its neighbours, or facing
+those faces show: doubled (two copies of one face turned opposite ways,
+which flicker), inverted (wound against its normals, its neighbours, or facing
 into solid material), inside-out (a closed shell wound inward), open (a
 single-sided surface seen from behind) or other (a face turned towards a gap or
 another part). Writes catalog/build/backfaces.json, which build-catalog.mjs reads.
@@ -92,10 +93,33 @@ const backSide = new THREE.ShaderMaterial({
       gl_FragColor = vec4(mod(id, 256.0), mod(floor(id / 256.0), 256.0), floor(id / 65536.0), 255.0) / 255.0;
     }\`,
 });
+const backTwin = new THREE.ShaderMaterial({
+  side: THREE.BackSide,
+  depthFunc: THREE.LessEqualDepth,
+  vertexShader,
+  fragmentShader: backSide.fragmentShader,
+});
+function doubledOf(flat, tris) {
+  const p = flat.attributes.position.array;
+  const key = (i) => p[i * 3].toFixed(5) + ',' + p[i * 3 + 1].toFixed(5) + ',' + p[i * 3 + 2].toFixed(5);
+  const seen = new Map(), out = [];
+  for (let t = 0; t < tris; t++) {
+    const k = [key(t * 3), key(t * 3 + 1), key(t * 3 + 2)];
+    if (k[0] === k[1] || k[1] === k[2] || k[0] === k[2]) continue;
+    const r = k.indexOf([...k].sort()[0]);
+    const turn = [k[r], k[(r + 1) % 3], k[(r + 2) % 3]];
+    const id = [...k].sort().join('|');
+    const list = seen.get(id) ?? [];
+    list.push({ t, turn: turn.join('|') });
+    seen.set(id, list);
+  }
+  for (const list of seen.values()) if (list.length > 1 && new Set(list.map((x) => x.turn)).size > 1) for (const x of list) out.push(x.t);
+  return out;
+}
 const loader = new GLTFLoader();
 const pixels = new Uint8Array(S * S * 4);
 
-function classifier(parts, radius) {
+function classifier(parts, radius, doubled) {
   const corners = [], normals = [];
   const weld = new Map();
   const v = new THREE.Vector3(), m = new THREE.Vector3();
@@ -171,6 +195,7 @@ function classifier(parts, radius) {
     return hitNormal.dot(dir) > 0;
   };
   return (t) => {
+    if (doubled.has(t)) return 'doubled';
     if (inverted[t]) return 'inverted';
     const r = root(t);
     if (open.has(r)) return 'open';
@@ -184,6 +209,7 @@ window.measure = async (url) => {
   const scene = new THREE.Scene();
   scene.add(gltf.scene);
   const parts = [];
+  const doubled = new Set();
   let offset = 0;
   gltf.scene.traverse((o) => {
     if (!o.isMesh) return;
@@ -194,7 +220,24 @@ window.measure = async (url) => {
     for (let t = 0; t < tris; t++) ids[t * 3] = ids[t * 3 + 1] = ids[t * 3 + 2] = offset + t;
     flat.setAttribute('tri', new THREE.BufferAttribute(ids, 1));
     o.geometry = flat;
-    parts.push({ mesh: o, geometry: original });
+    const twin = doubledOf(flat, tris);
+    let pair = null;
+    if (twin.length) {
+      const keep = new Float32Array(twin.length * 9), keepIds = new Float32Array(twin.length * 3);
+      twin.forEach((t, i) => {
+        for (let k = 0; k < 9; k++) keep[i * 9 + k] = flat.attributes.position.array[t * 9 + k];
+        keepIds[i * 3] = keepIds[i * 3 + 1] = keepIds[i * 3 + 2] = offset + t;
+        doubled.add(offset + t);
+      });
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.BufferAttribute(keep, 3));
+      g.setAttribute('tri', new THREE.BufferAttribute(keepIds, 1));
+      pair = new THREE.Mesh(g, backTwin);
+      pair.matrixAutoUpdate = false;
+      o.updateWorldMatrix(true, false);
+      pair.matrix.copy(o.matrixWorld);
+    }
+    parts.push({ mesh: o, geometry: original, pair });
     offset += tris;
   });
   const box = new THREE.Box3().setFromObject(gltf.scene);
@@ -216,6 +259,7 @@ window.measure = async (url) => {
     renderer.render(scene, camera);
     for (const { mesh } of parts) mesh.material = backSide;
     renderer.render(scene, camera);
+    for (const { pair } of parts) if (pair) renderer.render(pair, camera);
     renderer.readRenderTargetPixels(target, 0, 0, S, S, pixels);
     let fill = 0, back = 0;
     const above = el > 0;
@@ -232,7 +276,7 @@ window.measure = async (url) => {
     if (share > worst.share) worst = { share, view: az + '/' + el };
     if (above && share > worstAbove.share) worstAbove = { share, view: az + '/' + el };
   }
-  const cause = seen.size ? classifier(parts, radius) : null;
+  const cause = seen.size ? classifier(parts, radius, doubled) : null;
   const summary = (faces, w) => {
     if (!faces.size) return { share: 0 };
     const causes = {};
