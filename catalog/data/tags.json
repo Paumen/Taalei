@@ -36897,8 +36897,7 @@
     "plastic",
     "rubber",
     "glass-screen",
-    "style-modern",
-    "style-futuristic"
+    "style-modern"
    ],
    "kinds": [
     "char-robot",
@@ -37442,23 +37441,15 @@
    ]
   },
   {
-   "id": "style-ancient",
-   "name": "Ancient",
+   "id": "style-historic",
+   "name": "Historic",
    "type": "attribute",
-   "description": "Building style. Before the middle ages: huts, lean-tos, tents, temples, pyramids, the coliseum.",
+   "description": "Building style. Built before about 1900, fantasy included: huts, temples, castles, timber frame, thatch, adobe, traditional Asian, Victorian.",
    "models": [
     "architecture/coliseum",
     "emace-village/hut",
     "emace-village/lean-to",
-    "taalei-kit/stepped-pyramid"
-   ]
-  },
-  {
-   "id": "style-medieval",
-   "name": "Medieval",
-   "type": "attribute",
-   "description": "Building style. Middle ages to about 1800, fantasy included: castles, timber frame, thatch, traditional Asian, adobe.",
-   "models": [
+    "taalei-kit/stepped-pyramid",
     "architecture/barn",
     "architecture/cabin",
     "architecture/castle",
@@ -37737,60 +37728,18 @@
     "wizp-village/house-c",
     "wizp-village/shop",
     "wizp-village/shrine",
-    "wizp-village/tower"
-   ]
-  },
-  {
-   "id": "style-industrial",
-   "name": "Industrial",
-   "type": "attribute",
-   "description": "Building style. About 1800 to 1920: Victorian, wild west, brick terraces, early shops and farms.",
-   "models": [
+    "wizp-village/tower",
     "kay-mixed/haunted-manor-house",
-    "lpa-west/windmill",
     "m3-base/kennel-01",
     "pm-store/shop",
-    "quat-buildings/bank",
-    "quat-buildings/flat-2",
-    "quat-buildings/flat",
-    "quat-buildings/shop",
-    "quat-buildings-2/building-1-large",
-    "quat-buildings-2/building-1-small",
-    "quat-buildings-2/building-2-large",
-    "quat-buildings-2/building-2-small",
-    "quat-buildings-2/building-3-big",
-    "quat-buildings-2/building-3-small",
-    "quat-buildings-2/building-4",
-    "quat-farms/barn-large",
-    "quat-farms/barn-open",
-    "quat-farms/barn-small",
-    "quat-farms/barn",
-    "quat-farms/chicken-coop",
-    "quat-farms/silo-house",
-    "quat-farms/silo",
-    "quat-farms/windmill-anim",
-    "quat-farms/windmill",
-    "quat-textured/1-story-gable-roof",
-    "quat-textured/2-story-2",
-    "quat-textured/2-story-center",
-    "quat-textured/2-story-columns",
-    "quat-textured/2-story-double",
-    "quat-textured/2-story-gable-roof",
-    "quat-textured/2-story-sidehouse",
-    "quat-textured/2-story-stairs",
-    "quat-textured/2-story",
-    "quat-textured/3-story-balcony",
-    "quat-textured/4-story-wide-2-doors",
-    "quat-textured/4-story",
-    "taalei-kit/lighthouse",
-    "taalei-kit/roundhouse"
+    "taalei-kit/lighthouse"
    ]
   },
   {
    "id": "style-modern",
    "name": "Modern",
    "type": "attribute",
-   "description": "Building style. About 1920 to now: suburban houses, offices, apartments, factories, garages. Gives Tech Modern.",
+   "description": "Building style. About 1900 to now, sci-fi included: town houses, suburban houses, offices, apartments, factories, silo farms, space bases. Gives Tech Modern.",
    "models": [
     "kay-city/building-a-no-base",
     "kay-city/building-b-no-base",
@@ -37903,15 +37852,7 @@
     "quat-buildings-2/house-2",
     "quat-textured/2-story-wide-2-doors",
     "quat-textured/2-story-wide",
-    "rgs-proto/shop"
-   ]
-  },
-  {
-   "id": "style-futuristic",
-   "name": "Futuristic",
-   "type": "attribute",
-   "description": "Building style. Sci-fi, space and cyberpunk. Gives Tech Modern.",
-   "models": [
+    "rgs-proto/shop",
     "kay-space/basemodule-a",
     "kay-space/basemodule-b",
     "kay-space/basemodule-c",
@@ -37933,7 +37874,41 @@
     "quat-space/house-long",
     "quat-space/house-open",
     "quat-space/house-pod",
-    "quat-space/house-single"
+    "quat-space/house-single",
+    "lpa-west/windmill",
+    "quat-buildings/bank",
+    "quat-buildings/flat-2",
+    "quat-buildings/flat",
+    "quat-buildings/shop",
+    "quat-buildings-2/building-1-large",
+    "quat-buildings-2/building-1-small",
+    "quat-buildings-2/building-2-large",
+    "quat-buildings-2/building-2-small",
+    "quat-buildings-2/building-3-big",
+    "quat-buildings-2/building-3-small",
+    "quat-buildings-2/building-4",
+    "quat-farms/barn-large",
+    "quat-farms/barn-open",
+    "quat-farms/barn-small",
+    "quat-farms/barn",
+    "quat-farms/chicken-coop",
+    "quat-farms/silo-house",
+    "quat-farms/silo",
+    "quat-farms/windmill-anim",
+    "quat-farms/windmill",
+    "quat-textured/1-story-gable-roof",
+    "quat-textured/2-story-2",
+    "quat-textured/2-story-center",
+    "quat-textured/2-story-columns",
+    "quat-textured/2-story-double",
+    "quat-textured/2-story-gable-roof",
+    "quat-textured/2-story-sidehouse",
+    "quat-textured/2-story-stairs",
+    "quat-textured/2-story",
+    "quat-textured/3-story-balcony",
+    "quat-textured/4-story-wide-2-doors",
+    "quat-textured/4-story",
+    "taalei-kit/roundhouse"
    ]
   },
   {
