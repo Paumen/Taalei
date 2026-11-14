@@ -59877,7 +59877,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "cobble-path-corner",
-   "hash": "58fcc27d82",
+   "hash": "5053a942ae",
    "kind": "str-access-path",
    "size": "m",
    "wdh": [
@@ -59885,22 +59885,22 @@
     0.855,
     0.149
    ],
-   "tris": 163,
-   "tpu": 300,
+   "tris": 190,
+   "tpu": 350,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12444,
-   "vtx": 309,
+   "bytes": 14304,
+   "vtx": 362,
    "grounded": true,
    "centered": true,
    "minEdge": 0.061,
    "minWall": 0.0782,
    "thick": 0.0902,
-   "avgTri": 0.01016,
-   "anglePct": 26,
+   "avgTri": 0.01118,
+   "anglePct": 42,
    "pieces": 13,
-   "vpt": 1.9,
+   "vpt": 1.91,
    "cells": [
     "14,3",
     "12,3"
@@ -59913,21 +59913,7 @@
     "stone-masonry-mid"
    ],
    "variant": "emace-village/cobble-path-a",
-   "backface": {
-    "share": 0.9202,
-    "view": "0/-89.9",
-    "causes": {
-     "open": 1
-    }
-   },
-   "thickRel": 1.56,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "92.0% of view 0/-89.9 over 0.5%: open 100.0%"
-    }
-   ]
+   "thickRel": 1.56
   },
   {
    "kit": "emace-village",
@@ -303753,7 +303739,7 @@
   {
    "kit": "m3-base",
    "name": "launch-box-05",
-   "hash": "cbfdb48443",
+   "hash": "26ebc573a0",
    "kind": "str-fixture-leisure-playground-skate",
    "size": "l",
    "wdh": [
@@ -303761,21 +303747,22 @@
     3.572,
     0.522
    ],
-   "tris": 424,
-   "tpu": 47,
+   "tris": 430,
+   "tpu": 48,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11764,
-   "vtx": 241,
+   "bytes": 12056,
+   "vtx": 249,
    "grounded": true,
    "centered": true,
    "minEdge": 0.036,
-   "thick": 0.0652,
-   "avgTri": 0.02484,
-   "anglePct": 18,
+   "minWall": 0.0493,
+   "thick": 0.0651,
+   "avgTri": 0.04699,
+   "anglePct": 57,
    "pieces": 1,
-   "vpt": 0.57,
+   "vpt": 0.58,
    "cells": [
     "13,3"
    ],
@@ -303786,24 +303773,12 @@
     "m3",
     "stone-concrete"
    ],
-   "backface": {
-    "share": 1,
-    "view": "0/-89.9",
-    "causes": {
-     "open": 1
-    }
-   },
    "thickRel": 0.49,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "longest 3.572 over max 3 (str-fixture-leisure-playground)"
-    },
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "100.0% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
@@ -320156,7 +320131,7 @@
   {
    "kit": "m3-base",
    "name": "vent-cover-01",
-   "hash": "5bcb5a729a",
+   "hash": "fbf409a18e",
    "kind": "str-fixture-installation",
    "size": "s",
    "wdh": [
@@ -320192,20 +320167,7 @@
     "metal-steel",
     "mounted"
    ],
-   "backface": {
-    "share": 0.096,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 0.89,
-     "open": 0.11
-    }
-   },
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "9.6% of view 0/-89.9 over 0.5%: inverted 89.0%, open 11.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -378055,7 +378017,7 @@
   {
    "kit": "quat-ruins",
    "name": "column-bridge-support",
-   "hash": "7f683209d2",
+   "hash": "f1d22a7a8b",
    "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
@@ -378074,7 +378036,7 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.204,
-   "minWall": 0.0062,
+   "minWall": 0.0028,
    "thick": 0.296,
    "avgTri": 0.00299,
    "anglePct": 73,
@@ -378091,24 +378053,12 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "backface": {
-    "share": 0.0331,
-    "view": "0/-89.9",
-    "causes": {
-     "inverted": 1
-    }
-   },
    "thickRel": 1.12,
    "lint": [
     {
      "level": "error",
-     "check": "backface",
-     "text": "3.3% of view 0/-89.9 over 0.5%: inverted 100.0%"
-    },
-    {
-     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0062 wants min 0.026"
+     "text": "G27 minWall 0.0028 wants min 0.006"
     }
    ]
   },
