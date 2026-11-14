@@ -14,6 +14,7 @@ const SIDES = {
   west: { normal: [-1, 0, 0], rot: 90 },
 };
 const CORNERS = [['north', 'east'], ['south', 'east'], ['south', 'west'], ['north', 'west']];
+const COLORMAP_CELLS = [16, 4];
 
 const layoutPath = path.resolve(process.argv[2] ?? '');
 if (!process.argv[2] || !fs.existsSync(layoutPath)) {
@@ -54,6 +55,53 @@ function dedupe(kind, value) {
     out[kind].push(value);
   }
   return keyed[kind].get(key);
+}
+
+function addImage(bytes, name, mimeType) {
+  const hash = crypto.createHash('sha1').update(bytes).digest('hex');
+  if (!keyed.images.has(hash)) {
+    out.bufferViews.push({ buffer: 0, byteOffset: addBytes(bytes), byteLength: bytes.length });
+    keyed.images.set(hash, out.images.length);
+    out.images.push({ name, mimeType, bufferView: out.bufferViews.length - 1 });
+  }
+  return keyed.images.get(hash);
+}
+
+function addAccessor(array, type, target, extra) {
+  const bytes = Buffer.from(array.buffer, array.byteOffset, array.byteLength);
+  out.bufferViews.push({ buffer: 0, byteOffset: addBytes(bytes), byteLength: bytes.length, target });
+  const width = { SCALAR: 1, VEC2: 2, VEC3: 3 }[type];
+  out.accessors.push({
+    bufferView: out.bufferViews.length - 1,
+    componentType: array instanceof Uint16Array ? 5123 : 5126,
+    count: array.length / width,
+    type,
+    ...extra,
+  });
+  return out.accessors.length - 1;
+}
+
+function addWater({ from, to, y = 0, cell, tone = 0.5 }) {
+  const [x0, z0] = from;
+  const [x1, z1] = to;
+  const source = addImage(fs.readFileSync(path.join(ROOT, 'kits/colormap.png')), 'colormap', 'image/png');
+  const texture = dedupe('textures', { sampler: dedupe('samplers', { minFilter: 9987 }), source });
+  const material = dedupe('materials', {
+    name: 'colormap',
+    pbrMetallicRoughness: { baseColorTexture: { index: texture }, metallicFactor: 0, roughnessFactor: 1 },
+    doubleSided: true,
+    alphaMode: 'OPAQUE',
+  });
+  const uv = [(cell[0] + 0.5) / COLORMAP_CELLS[0], (cell[1] + tone) / COLORMAP_CELLS[1]];
+  const attributes = {
+    POSITION: addAccessor(new Float32Array([x0, y, z0, x0, y, z1, x1, y, z1, x1, y, z0]), 'VEC3', 34962, { min: [x0, y, z0], max: [x1, y, z1] }),
+    NORMAL: addAccessor(new Float32Array([0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]), 'VEC3', 34962),
+    TEXCOORD_0: addAccessor(new Float32Array([...uv, ...uv, ...uv, ...uv]), 'VEC2', 34962),
+  };
+  const indices = addAccessor(new Uint16Array([0, 1, 2, 0, 2, 3]), 'SCALAR', 34963);
+  out.meshes.push({ name: 'water', primitives: [{ attributes, indices, material }] });
+  out.nodes.push({ name: 'water', mesh: out.meshes.length - 1 });
+  return out.nodes.length - 1;
 }
 
 function remapMaterial(material, textureMap) {
@@ -122,13 +170,7 @@ function loadModel(id) {
       const start = view.byteOffset ?? 0;
       bytes = bin.subarray(start, start + view.byteLength);
     }
-    const hash = crypto.createHash('sha1').update(bytes).digest('hex');
-    if (!keyed.images.has(hash)) {
-      out.bufferViews.push({ buffer: 0, byteOffset: addBytes(bytes), byteLength: bytes.length });
-      keyed.images.set(hash, out.images.length);
-      out.images.push({ name: image.name ?? 'colormap', mimeType, bufferView: out.bufferViews.length - 1 });
-    }
-    return keyed.images.get(hash);
+    return addImage(bytes, image.name ?? 'colormap', mimeType);
   });
   const textureMap = (json.textures ?? []).map(({ name, ...t }) => dedupe('textures', {
     ...t,
@@ -288,7 +330,9 @@ const zoneNodes = Object.entries(layout.zones).map(([zone, items]) => {
   return addGroup(zone, nodes);
 });
 
-out.scenes[0].nodes.push(addGroup(sceneName, [...(room ? [addGroup('room', room.children)] : []), addGroup('zones', zoneNodes)]));
+const water = layout.water ? [addWater({ ...layout.water, y: floorTop + (layout.water.y ?? 0) })] : [];
+
+out.scenes[0].nodes.push(addGroup(sceneName, [...(room ? [addGroup('room', room.children)] : []), ...water, addGroup('zones', zoneNodes)]));
 out.buffers[0].byteLength = binLength;
 if (extensions.size) out.extensionsUsed = [...extensions].sort();
 for (const k of ['textures', 'images', 'samplers', 'materials']) if (!out[k].length) delete out[k];
