@@ -1,15 +1,15 @@
-import { renderTagEditor, effectiveKind } from './tag-edits.js?v=d249a25050';
+import { renderTagEditor, effectiveKind } from './tag-edits.js?v=6b031f2bd9';
 import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=50bdb27530';
-import { colorSwatches, setBands } from './color-edits.js?v=59da1e14dd';
-import { renderCommentBox } from './comments.js?v=ed62ec964f';
-import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=7cfc9fa2c4';
+import { colorSwatches, setBands } from './color-edits.js?v=06777eaf97';
+import { renderCommentBox } from './comments.js?v=99a5550112';
+import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=0794733140';
 import { stamped } from './stamps.js?v=04e3ee3113';
 import {
   number, readableBytes, dimensions, longest, kindParent, kindChain,
   SIZE_CLASSES, LINT_LEVELS, LINT_CHECKS, lintLevels, lintChecks, lintText,
   withParents, collectColors, hydrate, WORKFILES, modelUrl, flatMode, setLighting, copyWithFeedback, saveFile,
-} from './shared.js?v=06861d7ddb';
-import './bouwstempel.js?v=964f9eed53';
+} from './shared.js?v=edc551c3ed';
+import './bouwstempel.js?v=78c2b0271e';
 
 const DIRECTIONS = [
   { id: 'links', sign: '←', name: 'Left', default: 'Discard' },
@@ -80,6 +80,7 @@ const TAG_TYPES = [
   { type: 'attribute', head: 'Attribute' },
   { type: 'tag', head: 'Tag' },
   { type: 'theme', head: 'Theme' },
+  { type: 'tech', head: 'Tech' },
   { type: 'artist', head: 'Artist' },
 ];
 
@@ -586,7 +587,7 @@ function makeBeforeViewer(after, src, name) {
 }
 
 async function drawScaleCard(model, canvas) {
-  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=1a4089f5a1'));
+  if (!drawAtScale) ({ drawFamily: drawAtScale } = await import('./scale-draw.js?v=f855b888f0'));
   const scale = (model.tags ?? []).find((t) => t.startsWith('scale-'));
   const limits = (scale && limitsPerKind[`${model.kind} ${scale}`]) ?? limitsPerKind[model.kind] ?? {};
   const high = model.wdh[2];

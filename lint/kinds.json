@@ -3104,10 +3104,22 @@
          ],
          "nouns": [
           "train",
-          "locomotive",
-          "tram",
+          "steam locomotive",
           "railway carriage",
           "freight wagon"
+         ],
+         "children": [
+          {
+           "id": "obj-transport-land-rail-motor",
+           "nouns": [
+            "electric train",
+            "diesel locomotive",
+            "tram",
+            "subway train",
+            "bullet train",
+            "monorail"
+           ]
+          }
          ]
         }
        ]
@@ -3341,13 +3353,13 @@
              "nouns": [
               "ceiling fan"
              ]
-            },
-            {
-             "id": "obj-furnishing-light-lamp-ceiling-chandelier",
-             "nouns": [
-              "chandelier"
-             ]
             }
+           ]
+          },
+          {
+           "id": "obj-furnishing-light-lamp-chandelier",
+           "nouns": [
+            "chandelier"
            ]
           },
           {
@@ -3984,9 +3996,22 @@
          },
          "nouns": [
           "stove",
-          "range",
-          "cooktop",
+          "wood stove",
+          "log burner",
           "barbecue"
+         ],
+         "children": [
+          {
+           "id": "obj-device-appliance-stove-range",
+           "nouns": [
+            "range",
+            "cooktop",
+            "gas stove",
+            "electric stove",
+            "induction hob",
+            "griddle"
+           ]
+          }
          ]
         },
         {
@@ -4835,6 +4860,26 @@
         "bracket",
         "brace plate"
        ]
+      },
+      {
+       "id": "str-part-mill",
+       "thin.min": 0.006,
+       "nouns": [
+        "waterwheel",
+        "water wheel",
+        "windmill blade",
+        "sail (windmill)",
+        "flume",
+        "water channel"
+       ]
+      },
+      {
+       "id": "str-part-module",
+       "nouns": [
+        "tower section",
+        "building module",
+        "crypt section"
+       ]
       }
      ]
     },
@@ -4954,8 +4999,7 @@
         {
          "id": "str-building-religious-shrine",
          "nouns": [
-          "shrine",
-          "altar"
+          "shrine"
          ]
         }
        ]
@@ -5017,21 +5061,7 @@
            "nouns": [
             "watermill",
             "windmill",
-            "mill",
-            "waterwheel",
-            "water wheel",
-            "windmill blade",
-            "sail (windmill)",
-            "flume",
-            "water channel"
-           ]
-          },
-          {
-           "id": "str-building-work-industrial-mine",
-           "nouns": [
-            "mine",
-            "mine entrance",
-            "mine portal"
+            "mill"
            ]
           },
           {
@@ -5119,7 +5149,6 @@
          "id": "str-barrier-fence-temporary",
          "nouns": [
           "construction fence",
-          "crowd barrier",
           "sandbags"
          ]
         },
@@ -5129,6 +5158,23 @@
           "rope fence"
          ]
         }
+       ]
+      },
+      {
+       "id": "str-barrier-crowd",
+       "high.min": 0.35,
+       "high.max": 0.85,
+       "scale": {
+        "small": {
+         "high.min": 0.175,
+         "high.max": 0.5
+        },
+        "big": 2
+       },
+       "nouns": [
+        "crowd barrier",
+        "crowd control barrier",
+        "bike rack barrier"
        ]
       },
       {
@@ -5352,6 +5398,16 @@
         "ladder",
         "short ladder",
         "long ladder"
+       ],
+       "children": [
+        {
+         "id": "str-access-ladder-steel",
+         "nouns": [
+          "steel ladder",
+          "pool ladder",
+          "stepladder"
+         ]
+        }
        ]
       },
       {
@@ -5419,6 +5475,14 @@
         "rail track",
         "railway track",
         "minecart track"
+       ]
+      },
+      {
+       "id": "str-access-mine",
+       "nouns": [
+        "mine",
+        "mine entrance",
+        "mine portal"
        ]
       }
      ]
@@ -5655,10 +5719,18 @@
       {
        "id": "str-fixture-utility",
        "nouns": [
-        "utility pole",
-        "power line"
+        "utility"
        ],
        "children": [
+        {
+         "id": "str-fixture-utility-power",
+         "nouns": [
+          "utility pole",
+          "power pole",
+          "power line",
+          "overhead wires"
+         ]
+        },
         {
          "id": "str-fixture-utility-well",
          "longest.min": 0.8,
@@ -5722,7 +5794,9 @@
           "small": 0.5
          },
          "nouns": [
-          "wind turbine"
+          "wind turbine",
+          "wind pump",
+          "windpump"
          ]
         },
         {
@@ -5781,6 +5855,14 @@
           "car wash curtain",
           "car wash blower",
           "vacuum station"
+         ]
+        },
+        {
+         "id": "str-fixture-machinery-smelter",
+         "longest.max": 4,
+         "nouns": [
+          "smelter",
+          "smelting furnace"
          ]
         }
        ]
@@ -5980,6 +6062,13 @@
         "air conditioner",
         "vent cover",
         "radiator"
+       ]
+      },
+      {
+       "id": "str-fixture-altar",
+       "nouns": [
+        "altar",
+        "altar stone"
        ]
       }
      ]

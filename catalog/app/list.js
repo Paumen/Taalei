@@ -3,8 +3,8 @@ import {
   number, unit, readableBytes, longest, kindChain, rootRank, modelUrl, foldVariants,
   span, glyph, flatMode, setLighting, watchViewers,
   makeSelection, choiceChip, copyPathsOnClick, copyWithFeedback,
-} from './shared.js?v=06861d7ddb';
-import './bouwstempel.js?v=964f9eed53';
+} from './shared.js?v=edc551c3ed';
+import './bouwstempel.js?v=78c2b0271e';
 
 const el = (sel) => document.querySelector(sel);
 

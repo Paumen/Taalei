@@ -1,7 +1,7 @@
-import { drawFamily, loadModel } from './scale-draw.js?v=1a4089f5a1';
+import { drawFamily, loadModel } from './scale-draw.js?v=f855b888f0';
 import { stamped } from './stamps.js?v=04e3ee3113';
-import { WORKFILES, kindChain, readStore, writeStore, saveFile, unit } from './shared.js?v=06861d7ddb';
-import './bouwstempel.js?v=964f9eed53';
+import { WORKFILES, kindChain, readStore, writeStore, saveFile, unit } from './shared.js?v=edc551c3ed';
+import './bouwstempel.js?v=78c2b0271e';
 
 const STORE_KEY = 'taaleiland-kind-limits-v1';
 const MIN_MODELS = 3;

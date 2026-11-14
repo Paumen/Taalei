@@ -1,7 +1,7 @@
-import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=d249a25050';
-import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=59da1e14dd';
-import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=ed62ec964f';
-import { meta, saveFile } from './shared.js?v=06861d7ddb';
+import { pendingCount, clearEdits, allEdits, onChange as onTagEdit } from './tag-edits.js?v=6b031f2bd9';
+import { markCount, clearMarks, allMarks, onChange as onMark } from './color-edits.js?v=06777eaf97';
+import { commentCount, clearComments, allComments, allViews, onChange as onComment } from './comments.js?v=99a5550112';
+import { meta, saveFile } from './shared.js?v=edc551c3ed';
 
 const NOTE = [
   'One extract per session, whatever was staged in the browser.',

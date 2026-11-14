@@ -264,7 +264,7 @@ const cacheLines = Object.keys(newCache)
 writeFileSync(CACHE_FILE, `{"tooling":${JSON.stringify(TOOLING)},"models":{\n${cacheLines.join(',\n')}\n}}\n`);
 console.log(`${fromCache} of ${Object.keys(newCache).length} workfiles came from ${relative(ROOT, CACHE_FILE)}`);
 
-const TYPES = ['material', 'kind', 'size', 'attribute', 'theme', 'artist', 'tag'];
+const TYPES = ['material', 'kind', 'size', 'attribute', 'theme', 'tech', 'artist', 'tag'];
 const KIND_TREE = readKindTree();
 
 const SOURCES = [
@@ -406,6 +406,11 @@ function readTags(known) {
     .filter(([id]) => !(perModel.get(id) ?? []).some((t) => t.startsWith('storeys-') || LINT_VARS.exemptTags.includes(t)))
     .map(([id]) => id);
   if (noStoreys.length) throw new Error(`building without a storeys tag: ${noStoreys.join(', ')}`);
+  const noStyle = [...kindsPer]
+    .filter(([id, k]) => known.has(id) && k.some(isBuilding))
+    .filter(([id]) => !(perModel.get(id) ?? []).some((t) => t.startsWith('style-') || LINT_VARS.exemptTags.includes(t)))
+    .map(([id]) => id);
+  if (noStyle.length) throw new Error(`building without a style tag: ${noStyle.join(', ')}`);
 
   const clashes = tags.filter((t) => DERIVED.some((a) => a.id === t.id)).map((t) => t.id);
   if (clashes.length) console.warn(`! tag is in tags.json but is also derived: ${clashes.join(', ')}`);
@@ -446,6 +451,13 @@ for (const model of models) {
 }
 if (noBackface.length) {
   console.warn(`! ${noBackface.length} workfiles have no current backface measure, run catalog/tools/backfaces.mjs first: ${noBackface.slice(0, 5).join(', ')}${noBackface.length > 5 ? ', …' : ''}`);
+}
+for (const tag of tags.tags.filter((t) => t.from)) {
+  const members = models.filter((m) => m.tags.includes(tag.id) || m.tags.some((t) => tag.from.includes(t))
+    || (tag.kinds ?? []).some((k) => kindIs(m.kind, k))
+    || (tag.pairs ?? []).some((p) => m.tags.includes(p.tag) && kindIs(m.kind, p.kind)));
+  for (const model of members) if (!model.tags.includes(tag.id)) model.tags.push(tag.id);
+  tag.count = members.length;
 }
 for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
   const members = models.filter(belongs);
