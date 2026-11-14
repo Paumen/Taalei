@@ -1,5 +1,5 @@
 {
- "note": "Manual tags per model. type is material (what it is made of, closed, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), theme (a theme set a model belongs to), tech (a technology a model needs to exist; from lists materials and kinds lists kinds that give it at build, models adds the rest by hand), attribute (a property read off the model in steps, such as storeys), artist (a maker whose kits have no source in bronkits.mjs) or tag (anything else worth finding, such as flags). size, animation and the bronkits.mjs artists are derived at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/app/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog/build/catalog.json. po: true marks a tag only the PO assigns.",
+ "note": "Manual tags per model. type is material (what it is made of, closed, parented — a model carries the subtype it is, never the parent on top), kind (what it is — the tree in lint/kinds.json, exactly one per model; the id is the path, so the parent is the id minus its last segment), theme (a theme set a model belongs to), tech (a technology a model needs to exist; from lists materials, kinds lists kinds and pairs lists tag and kind pairs that give it at build, models adds the rest by hand), attribute (a property read off the model in steps, such as storeys), artist (a maker whose kits have no source in bronkits.mjs) or tag (anything else worth finding, such as flags). size, animation and the bronkits.mjs artists are derived at build and never listed here. Descriptions state the membership rule, not the members: the models list is the membership. Set with catalog/app/swipe.html or the model panel in index.html; build-catalog.mjs attaches them to catalog/build/catalog.json. po: true marks a tag only the PO assigns.",
  "tags": [
   {
    "id": "mineral",
@@ -22472,7 +22472,20 @@
    "id": "obj-device-appliance-stove",
    "name": "Stove",
    "type": "kind",
-   "description": "Appliance with burners or plates to cook on: stove, range, cooktop.",
+   "description": "Stove that burns wood or charcoal: wood stove, log burner, barbecue. Gas and electric ones are under Range.",
+   "models": [
+    "kay-mixed/wood-stove",
+    "m3-base/cast-iron-log-burner",
+    "m3-base/cast-iron-stove-door",
+    "household/barbecue",
+    "taalei-kit/barbecue"
+   ]
+  },
+  {
+   "id": "obj-device-appliance-stove-range",
+   "name": "Range",
+   "type": "kind",
+   "description": "Gas, electric or induction stove, range or cooktop.",
    "models": [
     "cooking-assets/stove-b",
     "cooking-assets/stove-induction",
@@ -22482,7 +22495,6 @@
     "kay-food/stove-single-countertop",
     "kay-food/stove-single",
     "kay-food/stove",
-    "kay-mixed/wood-stove",
     "ken-furniture/kitchen-stove-electric",
     "ken-furniture/kitchen-stove",
     "quat-sushi/oven",
@@ -22490,12 +22502,8 @@
     "household/stove",
     "lpa-home/stove",
     "quat-interior/oven",
-    "m3-base/cast-iron-log-burner",
-    "m3-base/cast-iron-stove-door",
     "fs-house/stove-hood",
-    "quat-interior/kitchen-stove",
-    "household/barbecue",
-    "taalei-kit/barbecue"
+    "quat-interior/kitchen-stove"
    ]
   },
   {
@@ -25005,14 +25013,8 @@
    "id": "obj-transport-land-rail",
    "name": "Rail vehicle",
    "type": "kind",
-   "description": "Vehicle running on rails: train, locomotive, tram, railway carriage.",
+   "description": "Vehicle running on rails pulled by steam or not powered: steam locomotive, railway carriage, freight wagon. Electric and diesel ones are under Motor rail.",
    "models": [
-    "ken-space/monorail-train-box",
-    "ken-space/monorail-train-cargo",
-    "ken-space/monorail-train-end",
-    "ken-space/monorail-train-flat",
-    "ken-space/monorail-train-front",
-    "ken-space/monorail-train-passenger",
     "ken-train/carriage-box",
     "ken-train/carriage-coal",
     "ken-train/carriage-container-blue",
@@ -25025,13 +25027,31 @@
     "ken-train/carriage-tank-large",
     "ken-train/carriage-tank",
     "ken-train/carriage-wood",
+    "ken-train/locomotive-a",
+    "ken-train/locomotive-b",
+    "ken-train/locomotive-c",
+    "ken-train/locomotive-passenger-a",
+    "ken-train/locomotive-passenger-b",
+    "ken-train/locomotive-a-train",
+    "ken-train/locomotive-b-passenger-train"
+   ]
+  },
+  {
+   "id": "obj-transport-land-rail-motor",
+   "name": "Motor rail",
+   "type": "kind",
+   "description": "Rail vehicle driven by electric or diesel power: electric or diesel train, tram, subway, bullet train, monorail.",
+   "models": [
+    "ken-space/monorail-train-box",
+    "ken-space/monorail-train-cargo",
+    "ken-space/monorail-train-end",
+    "ken-space/monorail-train-flat",
+    "ken-space/monorail-train-front",
+    "ken-space/monorail-train-passenger",
     "ken-train/diesel-a",
     "ken-train/diesel-b",
     "ken-train/diesel-box",
     "ken-train/diesel-c",
-    "ken-train/locomotive-a",
-    "ken-train/locomotive-b",
-    "ken-train/locomotive-c",
     "ken-train/train-bullet",
     "ken-train/train-city",
     "ken-train/train-double",
@@ -25040,8 +25060,6 @@
     "ken-train/tram-classic",
     "ken-train/tram-modern",
     "ken-train/tram-round",
-    "ken-train/locomotive-passenger-a",
-    "ken-train/locomotive-passenger-b",
     "ken-train/diesel-box-b",
     "ken-train/diesel-box-c",
     "ken-space/monorail-train-commuter",
@@ -25049,8 +25067,6 @@
     "ken-train/diesel-box-train",
     "ken-train/diesel-a-train",
     "ken-train/diesel-c-train",
-    "ken-train/locomotive-a-train",
-    "ken-train/locomotive-b-passenger-train",
     "ken-train/diesel-box-passenger-train",
     "ken-train/train-electric-bullet-b",
     "ken-train/train-electric-bullet-c",
@@ -36835,7 +36851,7 @@
    "id": "modern",
    "name": "Modern",
    "type": "tech",
-   "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material in from or with a kind under kinds; the models list holds the rest by hand.",
+   "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
    "from": [
     "plastic",
     "rubber",
@@ -36853,6 +36869,7 @@
     "obj-device-appliance-fridge",
     "obj-device-appliance-kitchen",
     "obj-device-appliance-oven",
+    "obj-device-appliance-stove-range",
     "obj-device-appliance-toaster",
     "obj-device-electronics-audio-mic",
     "obj-device-electronics-audio-speaker",
@@ -36869,6 +36886,7 @@
     "obj-kitchenware-tableware-drinkware-takeaway",
     "obj-transport-air-plane",
     "obj-transport-air-space",
+    "obj-transport-land-rail-motor",
     "obj-transport-land-road",
     "str-building-tower-skyscraper",
     "str-building-work-industrial-factory",
@@ -36880,6 +36898,12 @@
     "str-fixture-utility-antenna",
     "str-fixture-utility-solar",
     "str-part-corridor"
+   ],
+   "pairs": [
+    {
+     "tag": "space",
+     "kind": "str"
+    }
    ],
    "models": []
   },

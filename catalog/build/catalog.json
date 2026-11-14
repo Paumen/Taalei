@@ -953,7 +953,7 @@
    },
    "kitCheck": {
     "factor": 1.03,
-    "kinds": 56
+    "kinds": 57
    }
   },
   {
@@ -2594,7 +2594,7 @@
    ],
    "kitCheck": {
     "factor": 1,
-    "kinds": 23
+    "kinds": 24
    }
   },
   {
@@ -27412,8 +27412,15 @@
    "id": "obj-device-appliance-stove",
    "name": "Stove",
    "type": "kind",
-   "description": "Appliance with burners or plates to cook on: stove, range, cooktop.",
+   "description": "Stove that burns wood or charcoal: wood stove, log burner, barbecue. Gas and electric ones are under Range.",
    "count": 22
+  },
+  {
+   "id": "obj-device-appliance-stove-range",
+   "name": "Range",
+   "type": "kind",
+   "description": "Gas, electric or induction stove, range or cooktop.",
+   "count": 17
   },
   {
    "id": "obj-device-appliance-oven",
@@ -28334,8 +28341,15 @@
    "id": "obj-transport-land-rail",
    "name": "Rail vehicle",
    "type": "kind",
-   "description": "Vehicle running on rails: train, locomotive, tram, railway carriage.",
+   "description": "Vehicle running on rails pulled by steam or not powered: steam locomotive, railway carriage, freight wagon. Electric and diesel ones are under Motor rail.",
    "count": 55
+  },
+  {
+   "id": "obj-transport-land-rail-motor",
+   "name": "Motor rail",
+   "type": "kind",
+   "description": "Rail vehicle driven by electric or diesel power: electric or diesel train, tram, subway, bullet train, monorail.",
+   "count": 36
   },
   {
    "id": "obj-transport-air",
@@ -30644,8 +30658,8 @@
    "id": "modern",
    "name": "Modern",
    "type": "tech",
-   "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material in from or with a kind under kinds; the models list holds the rest by hand.",
-   "count": 1880
+   "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
+   "count": 1991
   },
   {
    "id": "storeys-0-5",
@@ -32939,6 +32953,12 @@
    "longest.max": 0.8,
    "tpu.max": 10000
   },
+  "obj-device-appliance-stove-range": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
   "obj-device-appliance-toaster": {
    "high.max": 8,
    "longest.min": 0.2,
@@ -34958,6 +34978,13 @@
    "longest.max": 30,
    "tpu.max": 10000
   },
+  "obj-transport-land-rail-motor": {
+   "high.min": 0.6,
+   "high.max": 1.3,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
   "obj-transport-land-road": {
    "high.max": 30,
    "longest.min": 0.8,
@@ -36602,6 +36629,18 @@
    "tpu.max": 10000
   },
   "obj-device-appliance-stove scale-big": {
+   "high.max": 8,
+   "longest.min": 0.6,
+   "longest.max": 1.6,
+   "tpu.max": 10000
+  },
+  "obj-device-appliance-stove-range scale-small": {
+   "high.max": 0.4,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
+  "obj-device-appliance-stove-range scale-big": {
    "high.max": 8,
    "longest.min": 0.6,
    "longest.max": 1.6,
@@ -54282,7 +54321,7 @@
    "kit": "cooking-assets",
    "name": "stove-b",
    "hash": "b196dcf43c",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.59,
@@ -54320,6 +54359,7 @@
     "metal-iron-dark",
     "metal-iron-mid",
     "metal-steel",
+    "modern",
     "scale-small"
    ],
    "variant": "cooking-assets/stove",
@@ -54329,7 +54369,7 @@
    "kit": "cooking-assets",
    "name": "stove-induction",
    "hash": "43b655e8cc",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "s",
    "wdh": [
     0.274,
@@ -54385,7 +54425,7 @@
    "kit": "cooking-assets",
    "name": "stove",
    "hash": "a68b483b05",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "s",
    "wdh": [
     0.297,
@@ -54423,6 +54463,7 @@
     "metal-iron-dark",
     "metal-iron-mid",
     "metal-steel",
+    "modern",
     "scale-small"
    ],
    "variant": "cooking-assets/stove",
@@ -76606,7 +76647,7 @@
    "collection": "fs-buildings",
    "name": "stove-hood",
    "hash": "b305bb1b9d",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.36,
@@ -76645,6 +76686,7 @@
     "glass-clear",
     "metal-iron-mid",
     "metal-steel",
+    "modern",
     "scale-big"
    ],
    "thickRel": 0.89
@@ -98645,7 +98687,7 @@
    "kit": "household",
    "name": "stove",
    "hash": "3eb3b35b03",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.342,
@@ -98683,7 +98725,8 @@
     "ct",
     "glass-clear",
     "metal-iron-mid",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "thickRel": 1.03
   },
@@ -111252,7 +111295,7 @@
    "collection": "isa-tt",
    "name": "stove",
    "hash": "5665342c5c",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.581,
@@ -111291,6 +111334,7 @@
     "isa",
     "metal-iron-mid",
     "metal-steel",
+    "modern",
     "tba"
    ],
    "thickRel": 0.95
@@ -144915,7 +144959,7 @@
    "collection": "kay-interior",
    "name": "stove-countertop",
    "hash": "5300edb3e1",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.524,
@@ -144953,7 +144997,8 @@
     "comp",
     "kay",
     "metal-iron-mid",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "kay-food/stove"
   },
@@ -145008,7 +145053,7 @@
    "collection": "kay-interior",
    "name": "stove-single-countertop",
    "hash": "42dc2ce749",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.524,
@@ -145046,7 +145091,8 @@
     "comp",
     "kay",
     "metal-iron-mid",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "kay-food/stove"
   },
@@ -145055,7 +145101,7 @@
    "collection": "kay-interior",
    "name": "stove-single",
    "hash": "26f9c60d6c",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.6,
@@ -145094,6 +145140,7 @@
     "kay",
     "metal-iron-mid",
     "metal-steel",
+    "modern",
     "scale-small"
    ],
    "variant": "kay-food/stove",
@@ -145104,7 +145151,7 @@
    "collection": "kay-interior",
    "name": "stove",
    "hash": "78fa350299",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.6,
@@ -145143,6 +145190,7 @@
     "kay",
     "metal-iron-mid",
     "metal-steel",
+    "modern",
     "scale-small"
    ],
    "variant": "kay-food/stove",
@@ -176470,6 +176518,7 @@
    "tags": [
     "kay",
     "metal-steel",
+    "modern",
     "space"
    ],
    "thickRel": 0.56
@@ -207579,7 +207628,7 @@
    "kit": "ken-furniture",
    "name": "kitchen-stove-electric",
    "hash": "330b106d50",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "s",
    "wdh": [
     0.449,
@@ -207623,6 +207672,7 @@
     "ken",
     "metal-iron-mid",
     "metal-steel",
+    "modern",
     "tba",
     "wood-mid"
    ],
@@ -207633,7 +207683,7 @@
    "kit": "ken-furniture",
    "name": "kitchen-stove",
    "hash": "8f7c2aa57e",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "s",
    "wdh": [
     0.447,
@@ -207674,6 +207724,7 @@
     "glass-clear",
     "ken",
     "metal-iron-mid",
+    "modern",
     "tba",
     "wood-mid"
    ],
@@ -239591,6 +239642,7 @@
     "ceramic-light",
     "ken",
     "metal-steel",
+    "modern",
     "space",
     "tba"
    ],
@@ -239636,6 +239688,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "modern",
     "space",
     "tba"
    ],
@@ -240022,6 +240075,7 @@
     "grid-1x1",
     "ken",
     "metal-steel",
+    "modern",
     "space"
    ],
    "thickRel": 0.54
@@ -241844,6 +241898,7 @@
    "tags": [
     "ken",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-space/monorail-track-support",
@@ -241888,6 +241943,7 @@
    "tags": [
     "ken",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-space/monorail-track-support",
@@ -241897,7 +241953,7 @@
    "kit": "ken-space",
    "name": "monorail-train-box",
    "hash": "b18b081c9c",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.702,
@@ -241938,13 +241994,13 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "ken-space",
    "name": "monorail-train-cargo",
    "hash": "febd677741",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.702,
@@ -241989,13 +242045,13 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 0.69
+   "thickRel": 0.68
   },
   {
    "kit": "ken-space",
    "name": "monorail-train-commuter",
    "hash": "6d4f612645",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.842,
@@ -242042,13 +242098,13 @@
     "tba"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 1.45
+   "thickRel": 1.42
   },
   {
    "kit": "ken-space",
    "name": "monorail-train-end",
    "hash": "5ed85c6349",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.702,
@@ -242094,13 +242150,13 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-front",
-   "thickRel": 0.95
+   "thickRel": 0.93
   },
   {
    "kit": "ken-space",
    "name": "monorail-train-flat",
    "hash": "e7fc8c12c8",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.702,
@@ -242147,7 +242203,7 @@
    "kit": "ken-space",
    "name": "monorail-train-freight",
    "hash": "f930c7403b",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.842,
@@ -242197,13 +242253,13 @@
     "tba"
    ],
    "variant": "ken-space/monorail-train-commuter",
-   "thickRel": 1.32
+   "thickRel": 1.31
   },
   {
    "kit": "ken-space",
    "name": "monorail-train-front",
    "hash": "b845fddbc9",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.842,
@@ -242247,13 +242303,13 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-front",
-   "thickRel": 0.94
+   "thickRel": 0.92
   },
   {
    "kit": "ken-space",
    "name": "monorail-train-passenger",
    "hash": "68b4fce0eb",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.702,
@@ -242299,7 +242355,7 @@
     "space"
    ],
    "variant": "ken-space/monorail-train-front",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "ken-space",
@@ -242485,6 +242541,7 @@
    "tags": [
     "ken",
     "metal-gold",
+    "modern",
     "space"
    ],
    "variant": "ken-space/rail",
@@ -242529,6 +242586,7 @@
    "tags": [
     "ken",
     "metal-gold",
+    "modern",
     "space"
    ],
    "variant": "ken-space/rail",
@@ -243349,6 +243407,7 @@
     "ceramic-light",
     "ken",
     "metal-iron-dark",
+    "modern",
     "space"
    ],
    "thickRel": 0.91
@@ -243395,6 +243454,7 @@
     "ceramic-light",
     "ken",
     "metal-iron-dark",
+    "modern",
     "space"
    ],
    "variant": "ken-space/stairs",
@@ -243442,6 +243502,7 @@
     "ceramic-light",
     "ken",
     "metal-iron-dark",
+    "modern",
     "space"
    ],
    "variant": "ken-space/stairs",
@@ -243990,6 +244051,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/balcony-floor",
@@ -244034,6 +244096,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "thickRel": 1.06
@@ -244077,6 +244140,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/balcony-floor",
@@ -245216,6 +245280,7 @@
    "tags": [
     "ken",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/door-double",
@@ -245353,6 +245418,7 @@
    "tags": [
     "ken",
     "metal-steel",
+    "modern",
     "space"
    ],
    "thickRel": 1.4
@@ -245398,6 +245464,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/floor",
@@ -245444,6 +245511,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/floor",
@@ -245775,6 +245843,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/stairs",
@@ -245820,6 +245889,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/stairs-small-corner"
@@ -245864,6 +245934,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/stairs-small-corner"
@@ -246054,6 +246125,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/stairs",
@@ -246199,6 +246271,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ]
   },
@@ -246243,6 +246316,7 @@
     "ken",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/structure",
@@ -246646,6 +246720,7 @@
     "grid-1x1",
     "ken",
     "metal-iron-dark",
+    "modern",
     "space",
     "textile-cloth-mid"
    ],
@@ -246692,6 +246767,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "modern",
     "space",
     "textile-cloth-mid"
    ],
@@ -246738,6 +246814,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "modern",
     "space",
     "textile-cloth-mid"
    ],
@@ -246782,6 +246859,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "modern",
     "space"
    ],
    "variant": "ken-station/wall-corner-round",
@@ -246825,6 +246903,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "modern",
     "space"
    ],
    "variant": "ken-station/wall-corner",
@@ -247166,6 +247245,7 @@
     "grid-1x1",
     "ken",
     "metal-steel",
+    "modern",
     "space"
    ],
    "variant": "ken-station/wall-pillar",
@@ -247259,6 +247339,7 @@
     "comp",
     "ken",
     "metal-steel",
+    "modern",
     "mounted",
     "space"
    ],
@@ -247304,6 +247385,7 @@
     "comp",
     "ken",
     "metal-iron-dark",
+    "modern",
     "mounted",
     "space"
    ],
@@ -247403,6 +247485,7 @@
     "grid-1x1",
     "ken",
     "metal-iron-dark",
+    "modern",
     "space"
    ],
    "variant": "ken-station/wall",
@@ -256912,7 +256995,7 @@
    "collection": "ken-city",
    "name": "diesel-a-train",
    "hash": "6d2c03be75",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.839,
@@ -256950,17 +257033,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-a-train",
-   "thickRel": 1.23
+   "thickRel": 1.22
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "diesel-a",
    "hash": "42f048d02e",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.726,
@@ -257000,17 +257084,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-a-train",
-   "thickRel": 1.01
+   "thickRel": 0.99
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "diesel-b",
    "hash": "e9992a5bc9",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.605,
@@ -257051,17 +257136,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-b",
-   "thickRel": 0.94
+   "thickRel": 0.92
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "diesel-box-b",
    "hash": "f4026853eb",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.786,
@@ -257097,17 +257183,18 @@
    ],
    "tags": [
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-box-passenger-train",
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "diesel-box-c",
    "hash": "88fbae1815",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.817,
@@ -257143,10 +257230,11 @@
    ],
    "tags": [
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-box-passenger-train",
-   "thickRel": 1.03,
+   "thickRel": 1.01,
    "lint": [
     {
      "level": "warning",
@@ -257160,7 +257248,7 @@
    "collection": "ken-city",
    "name": "diesel-box-passenger-train",
    "hash": "4432e9da7f",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.817,
@@ -257201,10 +257289,11 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-box-passenger-train",
-   "thickRel": 1.37,
+   "thickRel": 1.35,
    "lint": [
     {
      "level": "warning",
@@ -257218,7 +257307,7 @@
    "collection": "ken-city",
    "name": "diesel-box-train",
    "hash": "936e2a8891",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.817,
@@ -257262,9 +257351,10 @@
     "glass-clear",
     "ken",
     "metal-steel",
+    "modern",
     "wood-light"
    ],
-   "thickRel": 1.18,
+   "thickRel": 1.17,
    "lint": [
     {
      "level": "warning",
@@ -257278,7 +257368,7 @@
    "collection": "ken-city",
    "name": "diesel-box",
    "hash": "2f695c297a",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.817,
@@ -257319,10 +257409,11 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-box-passenger-train",
-   "thickRel": 0.98,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -257336,7 +257427,7 @@
    "collection": "ken-city",
    "name": "diesel-c-train",
    "hash": "6210f77443",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.839,
@@ -257377,17 +257468,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-c-train",
-   "thickRel": 1.27
+   "thickRel": 1.25
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "diesel-c",
    "hash": "4bf637ce39",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "m",
    "wdh": [
     0.605,
@@ -257426,10 +257518,11 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/diesel-b",
-   "thickRel": 0.99
+   "thickRel": 0.98
   },
   {
    "kit": "ken-train",
@@ -258870,7 +258963,7 @@
    "collection": "ken-city",
    "name": "train-bullet",
    "hash": "dd8410b6a9",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.799,
@@ -258910,7 +259003,8 @@
     "glass-clear",
     "hero",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-bullet",
    "backface": {
@@ -258922,7 +259016,7 @@
      "inverted": 0.11
     }
    },
-   "thickRel": 1.82,
+   "thickRel": 1.8,
    "lint": [
     {
      "level": "error",
@@ -258936,7 +259030,7 @@
    "collection": "ken-city",
    "name": "train-city",
    "hash": "2e11c72e34",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.787,
@@ -258979,6 +259073,7 @@
     "hero",
     "ken",
     "metal-steel",
+    "modern",
     "special-emissive"
    ],
    "variant": "ken-train/train-bullet",
@@ -258989,7 +259084,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.21,
+   "thickRel": 1.19,
    "lint": [
     {
      "level": "warning",
@@ -259008,7 +259103,7 @@
    "collection": "ken-city",
    "name": "train-double",
    "hash": "d67d204d39",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.777,
@@ -259051,17 +259146,18 @@
     "hero",
     "ken",
     "metal-steel",
+    "modern",
     "special-emissive"
    ],
    "variant": "ken-train/train-bullet",
-   "thickRel": 1.55
+   "thickRel": 1.53
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-bullet-b",
    "hash": "fd830496bc",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.787,
@@ -259101,17 +259197,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 1.14
+   "thickRel": 1.12
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-bullet-c",
    "hash": "d1ec7dfb8c",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.787,
@@ -259152,17 +259249,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 1.14
+   "thickRel": 1.12
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-city-b",
    "hash": "3f73c8fff1",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.787,
@@ -259203,10 +259301,11 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 0.75,
+   "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
@@ -259220,7 +259319,7 @@
    "collection": "ken-city",
    "name": "train-electric-city-c",
    "hash": "02d2297104",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.665,
@@ -259260,17 +259359,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-double-b",
    "hash": "b75ea9d2fa",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.777,
@@ -259311,17 +259411,18 @@
     "glass-clear",
     "ken",
     "metal-steel",
+    "modern",
     "special-emissive"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 0.98
+   "thickRel": 0.96
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-double-c",
    "hash": "2436533404",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.777,
@@ -259363,17 +259464,18 @@
     "glass-clear",
     "ken",
     "metal-steel",
+    "modern",
     "special-emissive"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 0.98
+   "thickRel": 0.97
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-square-b",
    "hash": "88abe4c0f1",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.787,
@@ -259414,17 +259516,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 0.96
+   "thickRel": 0.95
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-square-c",
    "hash": "ffe361a444",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.665,
@@ -259465,17 +259568,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 0.97
+   "thickRel": 0.96
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-subway-b",
    "hash": "1245b340d9",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.665,
@@ -259513,17 +259617,18 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 1.07
+   "thickRel": 1.05
   },
   {
    "kit": "ken-train",
    "collection": "ken-city",
    "name": "train-electric-subway-c",
    "hash": "eeca60ed19",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.817,
@@ -259562,10 +259667,11 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-electric-bullet-b",
-   "thickRel": 1.07,
+   "thickRel": 1.06,
    "lint": [
     {
      "level": "warning",
@@ -259579,7 +259685,7 @@
    "collection": "ken-city",
    "name": "train-square",
    "hash": "954b56e5d8",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.787,
@@ -259620,7 +259726,8 @@
     "glass-clear",
     "hero",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
    "variant": "ken-train/train-bullet",
    "backface": {
@@ -259630,7 +259737,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.17,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "warning",
@@ -259649,7 +259756,7 @@
    "collection": "ken-city",
    "name": "train-subway",
    "hash": "717c2786eb",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.923,
@@ -259692,6 +259799,7 @@
     "hero",
     "ken",
     "metal-steel",
+    "modern",
     "special-emissive"
    ],
    "variant": "ken-train/train-bullet",
@@ -259702,7 +259810,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.75,
+   "thickRel": 1.72,
    "lint": [
     {
      "level": "warning",
@@ -259721,7 +259829,7 @@
    "collection": "ken-city",
    "name": "tram-classic",
    "hash": "707b305e0b",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.756,
@@ -259762,9 +259870,10 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
-   "thickRel": 0.69,
+   "thickRel": 0.68,
    "lint": [
     {
      "level": "warning",
@@ -259778,7 +259887,7 @@
    "collection": "ken-city",
    "name": "tram-modern",
    "hash": "6264f915d0",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.682,
@@ -259819,9 +259928,10 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
-   "thickRel": 0.73,
+   "thickRel": 0.72,
    "lint": [
     {
      "level": "warning",
@@ -259835,7 +259945,7 @@
    "collection": "ken-city",
    "name": "tram-round",
    "hash": "6d6a6fbd6b",
-   "kind": "obj-transport-land-rail",
+   "kind": "obj-transport-land-rail-motor",
    "size": "l",
    "wdh": [
     0.758,
@@ -259876,9 +259986,10 @@
    "tags": [
     "glass-clear",
     "ken",
-    "metal-steel"
+    "metal-steel",
+    "modern"
    ],
-   "thickRel": 0.68,
+   "thickRel": 0.67,
    "lint": [
     {
      "level": "warning",
@@ -273376,7 +273487,7 @@
    "kit": "lpa-home",
    "name": "stove",
    "hash": "0ea0108b91",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.435,
@@ -273419,6 +273530,7 @@
     "glass-clear",
     "lpa",
     "metal-steel",
+    "modern",
     "tba"
    ],
    "thickRel": 1.22
@@ -356724,7 +356836,7 @@
    "kit": "quat-interior",
    "name": "kitchen-stove",
    "hash": "efe129ecd7",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.383,
@@ -357078,7 +357190,7 @@
    "kit": "quat-interior",
    "name": "oven",
    "hash": "a4f7e28093",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.404,
@@ -357115,6 +357227,7 @@
    "tags": [
     "glass-clear",
     "metal-steel",
+    "modern",
     "qua"
    ],
    "thickRel": 1.2
@@ -360787,6 +360900,7 @@
     "comp",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ]
@@ -360936,6 +361050,7 @@
     "comp",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ]
@@ -360980,6 +361095,7 @@
     "comp",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ]
@@ -361075,6 +361191,7 @@
     "grid-h1",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -361120,6 +361237,7 @@
     "grid-h1",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -361304,6 +361422,7 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -361405,6 +361524,7 @@
     "grid-1x1",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -361449,6 +361569,7 @@
     "grid-1x1",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -361501,6 +361622,7 @@
     "grid-1x1",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -361552,6 +361674,7 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -361930,6 +362053,7 @@
    "tags": [
     "grid-1x1",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -361974,6 +362098,7 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362019,6 +362144,7 @@
     "grid-1x1",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362060,6 +362186,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362104,6 +362231,7 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362198,6 +362326,7 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362244,6 +362373,7 @@
     "grid-1-5x1-5",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362370,6 +362500,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362415,6 +362546,7 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362460,6 +362592,7 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362501,6 +362634,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362548,6 +362682,7 @@
     "glass-clear",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362597,6 +362732,7 @@
     "grid-1x1",
     "metal-iron-dark",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362639,6 +362775,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362680,6 +362817,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -362723,6 +362861,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -380680,6 +380819,7 @@
    ],
    "tags": [
     "metal-iron-dark",
+    "modern",
     "mounted",
     "qua",
     "space"
@@ -384361,6 +384501,7 @@
    "tags": [
     "glass-tinted",
     "metal-steel",
+    "modern",
     "qua",
     "space",
     "storeys-1"
@@ -384414,6 +384555,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space",
     "storeys-1"
@@ -384573,6 +384715,7 @@
    "tags": [
     "glass-tinted",
     "metal-steel",
+    "modern",
     "qua",
     "space",
     "storeys-1-5"
@@ -384659,6 +384802,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space",
     "storeys-1"
@@ -384712,6 +384856,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space",
     "storeys-1"
@@ -384762,6 +384907,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space",
     "storeys-1"
@@ -384809,6 +384955,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "plural",
     "qua",
     "space"
@@ -384860,6 +385007,7 @@
    ],
    "tags": [
     "metal-steel",
+    "modern",
     "qua",
     "space",
     "storeys-1"
@@ -384904,6 +385052,7 @@
    "tags": [
     "comp",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ]
@@ -386886,6 +387035,7 @@
    "tags": [
     "ceramic-light",
     "metal-steel",
+    "modern",
     "qua",
     "space"
    ],
@@ -390801,7 +390951,7 @@
    "kit": "quat-sushi",
    "name": "oven",
    "hash": "854a63ea5b",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "s",
    "wdh": [
     0.446,
@@ -422996,7 +423146,7 @@
    "collection": "sq-props",
    "name": "griddle-station",
    "hash": "a1bd6d477c",
-   "kind": "obj-device-appliance-stove",
+   "kind": "obj-device-appliance-stove-range",
    "size": "m",
    "wdh": [
     0.5,

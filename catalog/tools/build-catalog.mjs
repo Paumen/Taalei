@@ -445,7 +445,8 @@ if (noBackface.length) {
 }
 for (const tag of tags.tags.filter((t) => t.from)) {
   const members = models.filter((m) => m.tags.includes(tag.id) || m.tags.some((t) => tag.from.includes(t))
-    || (tag.kinds ?? []).some((k) => kindIs(m.kind, k)));
+    || (tag.kinds ?? []).some((k) => kindIs(m.kind, k))
+    || (tag.pairs ?? []).some((p) => m.tags.includes(p.tag) && kindIs(m.kind, p.kind)));
   for (const model of members) if (!model.tags.includes(tag.id)) model.tags.push(tag.id);
   tag.count = members.length;
 }

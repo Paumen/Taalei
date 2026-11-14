@@ -1,64 +1,5 @@
 [
  {
-  "slug": "obj-device-appliance-stove-scale-big",
-  "name": "Object › Device › Appliance › Stove · scale-big",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.6,
-   "longest.max": 1.6,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "fs-house",
-    "collection": "fs-buildings",
-    "model": "stove-hood",
-    "hash": "b305bb1b9d",
-    "wdh": [
-     0.35,
-     0.4,
-     1.35
-    ],
-    "tags": [
-     "fs",
-     "glass-clear",
-     "metal-iron-mid",
-     "metal-steel",
-     "scale-big"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "kay-mixed",
-    "model": "wood-stove",
-    "hash": "d04a3348de",
-    "wdh": [
-     0.35,
-     0.35,
-     0.8
-    ],
-    "tags": [
-     "hero",
-     "kay",
-     "metal-iron-dark",
-     "metal-iron-mid",
-     "scale-big",
-     "tba"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#59534e"
-    ]
-   }
-  ]
- },
- {
   "slug": "obj-food",
   "name": "Object › Food",
   "category": "obj-gen",
@@ -766,6 +707,78 @@
      "#7a8491",
      "#873a27",
      "#b5d5e3"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "obj-device-appliance-stove",
+  "name": "Object › Device › Appliance › Stove",
+  "category": "obj-gen",
+  "byLongest": true,
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "barbecue",
+    "hash": "4cdd4e9c17",
+    "wdh": [
+     0.5,
+     0.2,
+     0.5
+    ],
+    "tags": [
+     "ct",
+     "metal-iron-mid",
+     "metal-steel"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "m3-base",
+    "model": "cast-iron-log-burner",
+    "hash": "53f648801d",
+    "wdh": [
+     0.25,
+     0.25,
+     0.5
+    ],
+    "tags": [
+     "glass-clear",
+     "m3",
+     "metal-iron-dark"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "taalei-kit",
+    "model": "barbecue",
+    "hash": "e7fe9c96ac",
+    "wdh": [
+     0.4,
+     0.35,
+     0.6
+    ],
+    "tags": [
+     "metal-iron-mid",
+     "metal-steel",
+     "wood-mid"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#9e6d44"
     ]
    }
   ]
@@ -2468,10 +2481,9 @@
   ]
  },
  {
-  "slug": "obj-device-appliance-stove-scale-small",
-  "name": "Object › Device › Appliance › Stove · scale-small",
+  "slug": "obj-device-appliance-stove-range-scale-small",
+  "name": "Object › Device › Appliance › Stove › Range · scale-small",
   "category": "obj-gen",
-  "byLongest": true,
   "limits": {
    "high.max": 0.4,
    "longest.min": 0.3,
@@ -2493,6 +2505,7 @@
      "metal-iron-dark",
      "metal-iron-mid",
      "metal-steel",
+     "modern",
      "scale-small"
     ],
     "colors": [
@@ -2515,6 +2528,7 @@
      "metal-iron-dark",
      "metal-iron-mid",
      "metal-steel",
+     "modern",
      "scale-small"
     ],
     "colors": [
@@ -2538,6 +2552,7 @@
      "kay",
      "metal-iron-mid",
      "metal-steel",
+     "modern",
      "scale-small"
     ],
     "colors": [
@@ -2561,6 +2576,7 @@
      "kay",
      "metal-iron-mid",
      "metal-steel",
+     "modern",
      "scale-small"
     ],
     "colors": [
@@ -15093,6 +15109,237 @@
   ]
  },
  {
+  "slug": "obj-device-appliance-stove-range",
+  "name": "Object › Device › Appliance › Stove › Range",
+  "category": "obj-gen",
+  "limits": {
+   "high.max": 8,
+   "longest.min": 0.3,
+   "longest.max": 0.8,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "household",
+    "model": "stove",
+    "hash": "3eb3b35b03",
+    "wdh": [
+     0.35,
+     0.4,
+     0.5
+    ],
+    "tags": [
+     "ct",
+     "glass-clear",
+     "metal-iron-mid",
+     "metal-steel",
+     "modern"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "isa-kitchen",
+    "collection": "isa-tt",
+    "model": "stove",
+    "hash": "5665342c5c",
+    "wdh": [
+     0.6,
+     0.5,
+     0.4
+    ],
+    "tags": [
+     "ceramic-light",
+     "isa",
+     "metal-iron-mid",
+     "metal-steel",
+     "modern",
+     "tba"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-stove-electric",
+    "hash": "330b106d50",
+    "wdh": [
+     0.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "ceramic-light",
+     "glass-clear",
+     "ken",
+     "metal-iron-mid",
+     "metal-steel",
+     "modern",
+     "tba",
+     "wood-mid"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#9e6d44",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "ken-furniture",
+    "model": "kitchen-stove",
+    "hash": "8f7c2aa57e",
+    "wdh": [
+     0.45,
+     0.45,
+     0.45
+    ],
+    "tags": [
+     "ceramic-light",
+     "glass-clear",
+     "ken",
+     "metal-iron-mid",
+     "modern",
+     "tba",
+     "wood-mid"
+    ],
+    "colors": [
+     "#59534e",
+     "#9e6d44",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "lpa-home",
+    "model": "stove",
+    "hash": "0ea0108b91",
+    "wdh": [
+     0.45,
+     0.4,
+     0.5
+    ],
+    "tags": [
+     "ceramic-light",
+     "glass-clear",
+     "lpa",
+     "metal-steel",
+     "modern",
+     "tba"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3",
+     "#d8cfb7"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "kitchen-stove",
+    "hash": "efe129ecd7",
+    "wdh": [
+     0.4,
+     0.4,
+     0.5
+    ],
+    "tags": [
+     "glass-clear",
+     "metal-iron-mid",
+     "metal-steel",
+     "modern",
+     "plastic",
+     "qua",
+     "stone-masonry-mid"
+    ],
+    "colors": [
+     "#21552a",
+     "#59534e",
+     "#7a8491",
+     "#88735f",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "quat-interior",
+    "model": "oven",
+    "hash": "a4f7e28093",
+    "wdh": [
+     0.4,
+     0.4,
+     0.5
+    ],
+    "tags": [
+     "glass-clear",
+     "metal-steel",
+     "modern",
+     "qua"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "quat-sushi",
+    "model": "oven",
+    "hash": "854a63ea5b",
+    "wdh": [
+     0.45,
+     0.4,
+     0.45
+    ],
+    "tags": [
+     "glass-clear",
+     "metal-iron-mid",
+     "metal-steel",
+     "modern",
+     "plastic",
+     "qua"
+    ],
+    "colors": [
+     "#59534e",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "sq-fastfood",
+    "collection": "sq-props",
+    "model": "griddle-station",
+    "hash": "a1bd6d477c",
+    "wdh": [
+     0.5,
+     0.35,
+     0.4
+    ],
+    "tags": [
+     "metal-iron-dark",
+     "metal-steel",
+     "modern",
+     "plastic",
+     "sq"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#59534e",
+     "#7a8491",
+     "#873a27"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-device-electronics-phone",
   "name": "Object › Device › Electronics › Phone",
   "category": "obj-gen",
@@ -21542,290 +21789,6 @@
     ],
     "colors": [
      "#59534e"
-    ]
-   }
-  ]
- },
- {
-  "slug": "obj-device-appliance-stove",
-  "name": "Object › Device › Appliance › Stove",
-  "category": "obj-gen",
-  "byLongest": true,
-  "limits": {
-   "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 0.8,
-   "tpu.max": 10000
-  },
-  "items": [
-   {
-    "slug": "household",
-    "model": "barbecue",
-    "hash": "4cdd4e9c17",
-    "wdh": [
-     0.5,
-     0.2,
-     0.5
-    ],
-    "tags": [
-     "ct",
-     "metal-iron-mid",
-     "metal-steel"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "household",
-    "model": "stove",
-    "hash": "3eb3b35b03",
-    "wdh": [
-     0.35,
-     0.4,
-     0.5
-    ],
-    "tags": [
-     "ct",
-     "glass-clear",
-     "metal-iron-mid",
-     "metal-steel"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "isa-kitchen",
-    "collection": "isa-tt",
-    "model": "stove",
-    "hash": "5665342c5c",
-    "wdh": [
-     0.6,
-     0.5,
-     0.4
-    ],
-    "tags": [
-     "ceramic-light",
-     "isa",
-     "metal-iron-mid",
-     "metal-steel",
-     "tba"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-stove-electric",
-    "hash": "330b106d50",
-    "wdh": [
-     0.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "ceramic-light",
-     "glass-clear",
-     "ken",
-     "metal-iron-mid",
-     "metal-steel",
-     "tba",
-     "wood-mid"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#9e6d44",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "ken-furniture",
-    "model": "kitchen-stove",
-    "hash": "8f7c2aa57e",
-    "wdh": [
-     0.45,
-     0.45,
-     0.45
-    ],
-    "tags": [
-     "ceramic-light",
-     "glass-clear",
-     "ken",
-     "metal-iron-mid",
-     "tba",
-     "wood-mid"
-    ],
-    "colors": [
-     "#59534e",
-     "#9e6d44",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "lpa-home",
-    "model": "stove",
-    "hash": "0ea0108b91",
-    "wdh": [
-     0.45,
-     0.4,
-     0.5
-    ],
-    "tags": [
-     "ceramic-light",
-     "glass-clear",
-     "lpa",
-     "metal-steel",
-     "tba"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3",
-     "#d8cfb7"
-    ]
-   },
-   {
-    "slug": "m3-base",
-    "model": "cast-iron-log-burner",
-    "hash": "53f648801d",
-    "wdh": [
-     0.25,
-     0.25,
-     0.5
-    ],
-    "tags": [
-     "glass-clear",
-     "m3",
-     "metal-iron-dark"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "kitchen-stove",
-    "hash": "efe129ecd7",
-    "wdh": [
-     0.4,
-     0.4,
-     0.5
-    ],
-    "tags": [
-     "glass-clear",
-     "metal-iron-mid",
-     "metal-steel",
-     "modern",
-     "plastic",
-     "qua",
-     "stone-masonry-mid"
-    ],
-    "colors": [
-     "#21552a",
-     "#59534e",
-     "#7a8491",
-     "#88735f",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-interior",
-    "model": "oven",
-    "hash": "a4f7e28093",
-    "wdh": [
-     0.4,
-     0.4,
-     0.5
-    ],
-    "tags": [
-     "glass-clear",
-     "metal-steel",
-     "qua"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "quat-sushi",
-    "model": "oven",
-    "hash": "854a63ea5b",
-    "wdh": [
-     0.45,
-     0.4,
-     0.45
-    ],
-    "tags": [
-     "glass-clear",
-     "metal-iron-mid",
-     "metal-steel",
-     "modern",
-     "plastic",
-     "qua"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "sq-fastfood",
-    "collection": "sq-props",
-    "model": "griddle-station",
-    "hash": "a1bd6d477c",
-    "wdh": [
-     0.5,
-     0.35,
-     0.4
-    ],
-    "tags": [
-     "metal-iron-dark",
-     "metal-steel",
-     "modern",
-     "plastic",
-     "sq"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#59534e",
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "taalei-kit",
-    "model": "barbecue",
-    "hash": "e7fe9c96ac",
-    "wdh": [
-     0.4,
-     0.35,
-     0.6
-    ],
-    "tags": [
-     "metal-iron-mid",
-     "metal-steel",
-     "wood-mid"
-    ],
-    "colors": [
-     "#59534e",
-     "#7a8491",
-     "#9e6d44"
     ]
    }
   ]
@@ -66830,6 +66793,415 @@
   ]
  },
  {
+  "slug": "obj-transport-land-rail",
+  "name": "Object › Transport › Land › Rail",
+  "category": "obj-transport",
+  "limits": {
+   "high.min": 0.6,
+   "high.max": 1.3,
+   "longest.min": 0.05,
+   "longest.max": 30,
+   "tpu.max": 10000
+  },
+  "items": [
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-box",
+    "hash": "b086f933f7",
+    "wdh": [
+     0.75,
+     1.65,
+     0.8
+    ],
+    "tags": [
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-coal",
+    "hash": "83ca44d4b1",
+    "wdh": [
+     0.75,
+     1.65,
+     1
+    ],
+    "tags": [
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-container-blue",
+    "hash": "1dfc92de3a",
+    "wdh": [
+     0.6,
+     1.65,
+     0.8
+    ],
+    "tags": [
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#1564a4",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-container-green",
+    "hash": "2f46890b4e",
+    "wdh": [
+     0.6,
+     1.65,
+     0.8
+    ],
+    "tags": [
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-container-red",
+    "hash": "65b080759c",
+    "wdh": [
+     0.6,
+     1.65,
+     0.8
+    ],
+    "tags": [
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-dirt",
+    "hash": "0352c064b0",
+    "wdh": [
+     0.75,
+     1.65,
+     1
+    ],
+    "tags": [
+     "earth-soil",
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#57493d",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-flatbed-wood",
+    "hash": "f8d1b51396",
+    "wdh": [
+     0.65,
+     1.65,
+     0.7
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "wood-light"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-flatbed",
+    "hash": "994eec8934",
+    "wdh": [
+     0.65,
+     1.65,
+     0.7
+    ],
+    "tags": [
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-lumber",
+    "hash": "1414e1e78d",
+    "wdh": [
+     0.65,
+     1.65,
+     0.7
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#9e6d44",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-tank-large",
+    "hash": "aa008e393f",
+    "wdh": [
+     0.85,
+     1.65,
+     1.05
+    ],
+    "tags": [
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#7a8491",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-tank",
+    "hash": "395aaaf0b4",
+    "wdh": [
+     0.85,
+     1.65,
+     1.05
+    ],
+    "tags": [
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#7a8491",
+     "#873a27"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "carriage-wood",
+    "hash": "a3e52756de",
+    "wdh": [
+     0.75,
+     1.65,
+     0.95
+    ],
+    "tags": [
+     "ken",
+     "metal-steel",
+     "wood-mid"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#9e6d44",
+     "#ca9f6e"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "locomotive-a-train",
+    "hash": "c722d3fa18",
+    "wdh": [
+     0.85,
+     4.85,
+     1.05
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#21552a",
+     "#3a3e4b",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "locomotive-a",
+    "hash": "7bc656e167",
+    "wdh": [
+     0.85,
+     1.55,
+     1
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#21552a",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "locomotive-b-passenger-train",
+    "hash": "bf7115fc69",
+    "wdh": [
+     0.8,
+     4.75,
+     1
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "locomotive-b",
+    "hash": "21d0af6caa",
+    "wdh": [
+     0.8,
+     1.55,
+     1
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "locomotive-c",
+    "hash": "3d1d1c5f25",
+    "wdh": [
+     0.85,
+     1.7,
+     1
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#1564a4",
+     "#7a8491",
+     "#873a27",
+     "#b5d5e3",
+     "#f1a63b"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "locomotive-passenger-a",
+    "hash": "ab8d27c21d",
+    "wdh": [
+     0.7,
+     1.55,
+     1
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#b5d5e3",
+     "#ce7954"
+    ]
+   },
+   {
+    "slug": "ken-train",
+    "collection": "ken-city",
+    "model": "locomotive-passenger-b",
+    "hash": "c3a40e2bff",
+    "wdh": [
+     0.75,
+     1.55,
+     1
+    ],
+    "tags": [
+     "glass-clear",
+     "ken",
+     "metal-steel"
+    ],
+    "colors": [
+     "#3a3e4b",
+     "#7a8491",
+     "#b5d5e3",
+     "#ce7954"
+    ]
+   }
+  ]
+ },
+ {
   "slug": "obj-transport-land-road-truck",
   "name": "Object › Transport › Land › Road vehicle › Truck",
   "category": "obj-transport",
@@ -69388,8 +69760,8 @@
   ]
  },
  {
-  "slug": "obj-transport-land-rail",
-  "name": "Object › Transport › Land › Rail",
+  "slug": "obj-transport-land-rail-motor",
+  "name": "Object › Transport › Land › Rail › Motor",
   "category": "obj-transport",
   "limits": {
    "high.min": 0.6,
@@ -69575,244 +69947,6 @@
    {
     "slug": "ken-train",
     "collection": "ken-city",
-    "model": "carriage-box",
-    "hash": "b086f933f7",
-    "wdh": [
-     0.75,
-     1.65,
-     0.8
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-coal",
-    "hash": "83ca44d4b1",
-    "wdh": [
-     0.75,
-     1.65,
-     1
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-container-blue",
-    "hash": "1dfc92de3a",
-    "wdh": [
-     0.6,
-     1.65,
-     0.8
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#1564a4",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-container-green",
-    "hash": "2f46890b4e",
-    "wdh": [
-     0.6,
-     1.65,
-     0.8
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-container-red",
-    "hash": "65b080759c",
-    "wdh": [
-     0.6,
-     1.65,
-     0.8
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-dirt",
-    "hash": "0352c064b0",
-    "wdh": [
-     0.75,
-     1.65,
-     1
-    ],
-    "tags": [
-     "earth-soil",
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#57493d",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-flatbed-wood",
-    "hash": "f8d1b51396",
-    "wdh": [
-     0.65,
-     1.65,
-     0.7
-    ],
-    "tags": [
-     "ken",
-     "metal-steel",
-     "wood-light"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-flatbed",
-    "hash": "994eec8934",
-    "wdh": [
-     0.65,
-     1.65,
-     0.7
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-lumber",
-    "hash": "1414e1e78d",
-    "wdh": [
-     0.65,
-     1.65,
-     0.7
-    ],
-    "tags": [
-     "ken",
-     "metal-steel",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#9e6d44",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-tank-large",
-    "hash": "aa008e393f",
-    "wdh": [
-     0.85,
-     1.65,
-     1.05
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-tank",
-    "hash": "395aaaf0b4",
-    "wdh": [
-     0.85,
-     1.65,
-     1.05
-    ],
-    "tags": [
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#7a8491",
-     "#873a27"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "carriage-wood",
-    "hash": "a3e52756de",
-    "wdh": [
-     0.75,
-     1.65,
-     0.95
-    ],
-    "tags": [
-     "ken",
-     "metal-steel",
-     "wood-mid"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#9e6d44",
-     "#ca9f6e"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
     "model": "diesel-a-train",
     "hash": "6d2c03be75",
     "wdh": [
@@ -69823,7 +69957,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -69845,7 +69980,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -69868,7 +70004,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -69890,7 +70027,8 @@
     ],
     "tags": [
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#21552a",
@@ -69910,7 +70048,8 @@
     ],
     "tags": [
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#21552a",
@@ -69931,7 +70070,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#21552a",
@@ -69955,6 +70095,7 @@
      "glass-clear",
      "ken",
      "metal-steel",
+     "modern",
      "wood-light"
     ],
     "colors": [
@@ -69979,7 +70120,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#21552a",
@@ -70002,7 +70144,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#1564a4",
@@ -70025,170 +70168,14 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
      "#7a8491",
      "#b5d5e3",
      "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "locomotive-a-train",
-    "hash": "c722d3fa18",
-    "wdh": [
-     0.85,
-     4.85,
-     1.05
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#21552a",
-     "#3a3e4b",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "locomotive-a",
-    "hash": "7bc656e167",
-    "wdh": [
-     0.85,
-     1.55,
-     1
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#21552a",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "locomotive-b-passenger-train",
-    "hash": "bf7115fc69",
-    "wdh": [
-     0.8,
-     4.75,
-     1
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "locomotive-b",
-    "hash": "21d0af6caa",
-    "wdh": [
-     0.8,
-     1.55,
-     1
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "locomotive-c",
-    "hash": "3d1d1c5f25",
-    "wdh": [
-     0.85,
-     1.7,
-     1
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#1564a4",
-     "#7a8491",
-     "#873a27",
-     "#b5d5e3",
-     "#f1a63b"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "locomotive-passenger-a",
-    "hash": "ab8d27c21d",
-    "wdh": [
-     0.7,
-     1.55,
-     1
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#b5d5e3",
-     "#ce7954"
-    ]
-   },
-   {
-    "slug": "ken-train",
-    "collection": "ken-city",
-    "model": "locomotive-passenger-b",
-    "hash": "c3a40e2bff",
-    "wdh": [
-     0.75,
-     1.55,
-     1
-    ],
-    "tags": [
-     "glass-clear",
-     "ken",
-     "metal-steel"
-    ],
-    "colors": [
-     "#3a3e4b",
-     "#7a8491",
-     "#b5d5e3",
-     "#ce7954"
     ]
    },
    {
@@ -70205,7 +70192,8 @@
      "glass-clear",
      "hero",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#1564a4",
@@ -70229,6 +70217,7 @@
      "hero",
      "ken",
      "metal-steel",
+     "modern",
      "special-emissive"
     ],
     "colors": [
@@ -70254,6 +70243,7 @@
      "hero",
      "ken",
      "metal-steel",
+     "modern",
      "special-emissive"
     ],
     "colors": [
@@ -70277,7 +70267,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#1564a4",
@@ -70300,7 +70291,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#1564a4",
@@ -70323,7 +70315,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -70346,7 +70339,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -70370,6 +70364,7 @@
      "glass-clear",
      "ken",
      "metal-steel",
+     "modern",
      "special-emissive"
     ],
     "colors": [
@@ -70394,6 +70389,7 @@
      "glass-clear",
      "ken",
      "metal-steel",
+     "modern",
      "special-emissive"
     ],
     "colors": [
@@ -70417,7 +70413,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#21552a",
@@ -70440,7 +70437,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#21552a",
@@ -70463,7 +70461,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -70485,7 +70484,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -70508,7 +70508,8 @@
      "glass-clear",
      "hero",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#21552a",
@@ -70533,6 +70534,7 @@
      "hero",
      "ken",
      "metal-steel",
+     "modern",
      "special-emissive"
     ],
     "colors": [
@@ -70556,7 +70558,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -70579,7 +70582,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#1564a4",
@@ -70602,7 +70606,8 @@
     "tags": [
      "glass-clear",
      "ken",
-     "metal-steel"
+     "metal-steel",
+     "modern"
     ],
     "colors": [
      "#3a3e4b",
@@ -97314,6 +97319,7 @@
      "ken",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -97333,6 +97339,7 @@
     "tags": [
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -97376,6 +97383,7 @@
     "tags": [
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -113099,6 +113107,7 @@
      "ken",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -113912,6 +113921,7 @@
      "ceramic-light",
      "ken",
      "metal-iron-dark",
+     "modern",
      "space"
     ],
     "colors": [
@@ -113933,6 +113943,7 @@
      "ceramic-light",
      "ken",
      "metal-iron-dark",
+     "modern",
      "space"
     ],
     "colors": [
@@ -113954,6 +113965,7 @@
      "ceramic-light",
      "ken",
      "metal-iron-dark",
+     "modern",
      "space"
     ],
     "colors": [
@@ -114192,6 +114204,7 @@
     "tags": [
      "ceramic-light",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -115199,6 +115212,7 @@
     "tags": [
      "glass-tinted",
      "metal-steel",
+     "modern",
      "qua",
      "space",
      "storeys-1"
@@ -115220,6 +115234,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space",
      "storeys-1"
@@ -115242,6 +115257,7 @@
     "tags": [
      "glass-tinted",
      "metal-steel",
+     "modern",
      "qua",
      "space",
      "storeys-1-5"
@@ -116481,6 +116497,7 @@
     ],
     "tags": [
      "metal-iron-dark",
+     "modern",
      "mounted",
      "qua",
      "space"
@@ -117551,6 +117568,7 @@
     "tags": [
      "ken",
      "metal-gold",
+     "modern",
      "space"
     ],
     "colors": [
@@ -117570,6 +117588,7 @@
     "tags": [
      "ken",
      "metal-gold",
+     "modern",
      "space"
     ],
     "colors": [
@@ -117748,6 +117767,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -117766,6 +117786,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -117784,6 +117805,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -120146,6 +120168,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -120165,6 +120188,7 @@
     "tags": [
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -120185,6 +120209,7 @@
     "tags": [
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -120204,6 +120229,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -125812,6 +125838,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space",
      "storeys-1"
@@ -125832,6 +125859,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space",
      "storeys-1"
@@ -125853,6 +125881,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space",
      "storeys-1"
@@ -125873,6 +125902,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space",
      "storeys-1"
@@ -128015,6 +128045,7 @@
     "tags": [
      "ken",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -128053,6 +128084,7 @@
     "tags": [
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -128585,6 +128617,7 @@
      "ceramic-light",
      "ken",
      "metal-steel",
+     "modern",
      "space",
      "tba"
     ],
@@ -128606,6 +128639,7 @@
     "tags": [
      "ken",
      "metal-iron-dark",
+     "modern",
      "space",
      "tba"
     ],
@@ -130715,6 +130749,7 @@
      "ken",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -130735,6 +130770,7 @@
      "ken",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -130755,6 +130791,7 @@
      "ken",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -130776,6 +130813,7 @@
      "ken",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -130797,6 +130835,7 @@
      "ken",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -130816,6 +130855,7 @@
     "tags": [
      "grid-1x1",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -130835,6 +130875,7 @@
     "tags": [
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -130856,6 +130897,7 @@
      "grid-1x1",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -130875,6 +130917,7 @@
     ],
     "tags": [
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -130895,6 +130938,7 @@
      "grid-1-5x1-5",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -130955,6 +130999,7 @@
      "glass-clear",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -130978,6 +131023,7 @@
      "grid-1x1",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -133317,6 +133363,7 @@
      "ken",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -135778,6 +135825,7 @@
     "tags": [
      "kay",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -135948,6 +135996,7 @@
      "grid-1x1",
      "ken",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -136774,6 +136823,7 @@
     "tags": [
      "ken",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -136793,6 +136843,7 @@
     "tags": [
      "ken",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -137174,6 +137225,7 @@
      "grid-h1",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -137195,6 +137247,7 @@
      "grid-h1",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -139593,6 +139646,7 @@
     "tags": [
      "ken",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -140042,6 +140096,7 @@
     "tags": [
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -141837,6 +141892,7 @@
      "grid-1x1",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -141858,6 +141914,7 @@
      "grid-1x1",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
@@ -145046,6 +145103,7 @@
      "grid-1x1",
      "ken",
      "metal-iron-dark",
+     "modern",
      "space",
      "textile-cloth-mid"
     ],
@@ -145067,6 +145125,7 @@
     "tags": [
      "ken",
      "metal-iron-dark",
+     "modern",
      "space",
      "textile-cloth-mid"
     ],
@@ -145088,6 +145147,7 @@
     "tags": [
      "ken",
      "metal-iron-dark",
+     "modern",
      "space",
      "textile-cloth-mid"
     ],
@@ -145109,6 +145169,7 @@
     "tags": [
      "ken",
      "metal-iron-dark",
+     "modern",
      "space"
     ],
     "colors": [
@@ -145128,6 +145189,7 @@
     "tags": [
      "ken",
      "metal-iron-dark",
+     "modern",
      "space"
     ],
     "colors": [
@@ -145171,6 +145233,7 @@
      "grid-1x1",
      "ken",
      "metal-steel",
+     "modern",
      "space"
     ],
     "colors": [
@@ -145191,6 +145254,7 @@
      "grid-1x1",
      "ken",
      "metal-iron-dark",
+     "modern",
      "space"
     ],
     "colors": [
@@ -145851,6 +145915,7 @@
      "grid-1x1",
      "metal-iron-dark",
      "metal-steel",
+     "modern",
      "qua",
      "space"
     ],
