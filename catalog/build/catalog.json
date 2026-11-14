@@ -5255,8 +5255,8 @@
     "none": 5
    },
    "kitCheck": {
-    "factor": 1.02,
-    "kinds": 41
+    "factor": 1.03,
+    "kinds": 42
    }
   },
   {
@@ -29164,7 +29164,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 617
+   "count": 621
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -29362,7 +29362,7 @@
    "name": "Building",
    "type": "kind",
    "description": "Building with no leaf that fits.",
-   "count": 419,
+   "count": 415,
    "color": "#7d4f3a"
   },
   {
@@ -29370,7 +29370,7 @@
    "name": "Work",
    "type": "kind",
    "description": "Building for work: agricultural, industrial, commercial.",
-   "count": 140
+   "count": 136
   },
   {
    "id": "str-part",
@@ -29936,7 +29936,7 @@
    "name": "Workshop",
    "type": "kind",
    "description": "Building where material is worked: metal at a forge, timber at a saw.",
-   "count": 15
+   "count": 11
   },
   {
    "id": "str-building-residential-house",
@@ -30063,7 +30063,14 @@
    "name": "Machine",
    "type": "kind",
    "description": "Standing industrial machinery: presses, pistons, scanners, conveyors, hoppers, cranes, car wash.",
-   "count": 68
+   "count": 72
+  },
+  {
+   "id": "str-fixture-machinery-smelter",
+   "name": "Smelter",
+   "type": "kind",
+   "description": "Smelting furnace that pours molten metal.",
+   "count": 4
   },
   {
    "id": "str-fixture-machinery-crane",
@@ -30155,7 +30162,7 @@
    "name": "Industrial",
    "type": "kind",
    "description": "Building where material is worked or milled, with no leaf that fits.",
-   "count": 84
+   "count": 80
   },
   {
    "id": "str-access-mine",
@@ -30718,7 +30725,7 @@
    "name": "1 storey",
    "type": "attribute",
    "description": "One storey read from the model.",
-   "count": 80,
+   "count": 78,
    "kinds": [
     "str-building"
    ]
@@ -30738,7 +30745,7 @@
    "name": "2 storeys",
    "type": "attribute",
    "description": "Two storeys read from the model.",
-   "count": 118,
+   "count": 116,
    "kinds": [
     "str-building"
    ]
@@ -30788,7 +30795,7 @@
    "name": "Historic",
    "type": "attribute",
    "description": "Building style. Built before about 1900, fantasy included: huts, temples, castles, timber frame, thatch, adobe, traditional Asian, Victorian.",
-   "count": 252,
+   "count": 248,
    "kinds": [
     "str-building"
    ]
@@ -32298,6 +32305,7 @@
   "str-fixture-machinery-conveyor",
   "str-fixture-machinery-crane",
   "str-fixture-machinery-hopper",
+  "str-fixture-machinery-smelter",
   "str-fixture-marker-banner",
   "str-fixture-marker-flag",
   "str-fixture-marker-grave",
@@ -35637,6 +35645,12 @@
    "high.max": 8,
    "longest.min": 0.4,
    "longest.max": 1,
+   "tpu.max": 5000
+  },
+  "str-fixture-machinery-smelter": {
+   "high.max": 8,
+   "longest.min": 0.4,
+   "longest.max": 4,
    "tpu.max": 5000
   },
   "str-fixture-marker": {
@@ -40269,7 +40283,7 @@
     "rubber",
     "tba"
    ],
-   "thickRel": 0.43,
+   "thickRel": 0.44,
    "lint": [
     {
      "level": "warning",
@@ -41442,7 +41456,7 @@
     "space",
     "special-emissive"
    ],
-   "thickRel": 1.82
+   "thickRel": 1.85
   },
   {
    "kit": "3dm-scifi",
@@ -57214,7 +57228,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.5
+   "thickRel": 1.52
   },
   {
    "kit": "dungeon-2",
@@ -63833,7 +63847,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 1.01
+   "thickRel": 1
   },
   {
    "kit": "emace-village",
@@ -124050,7 +124064,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 0.98
+   "thickRel": 0.93
   },
   {
    "kit": "kay-builder",
@@ -154540,7 +154554,7 @@
    ],
    "alpha": true,
    "variant": "kay-hexagon/blacksmith-anim",
-   "thickRel": 1.23
+   "thickRel": 1.16
   },
   {
    "kit": "kay-hexagon",
@@ -154608,7 +154622,7 @@
    ],
    "specialBand": "3,2",
    "variant": "kay-hexagon/blacksmith-anim",
-   "thickRel": 1.06
+   "thickRel": 1
   },
   {
    "kit": "kay-hexagon",
@@ -156449,7 +156463,7 @@
     "crane_cycle"
    ],
    "variant": "kay-hexagon/lumbermill-anim",
-   "thickRel": 0.84
+   "thickRel": 0.79
   },
   {
    "kit": "kay-hexagon",
@@ -156514,7 +156528,7 @@
     "wood-mid"
    ],
    "variant": "kay-hexagon/lumbermill-anim",
-   "thickRel": 0.84
+   "thickRel": 0.79
   },
   {
    "kit": "kay-hexagon",
@@ -175427,7 +175441,7 @@
     "style-modern"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.17
+   "thickRel": 1.16
   },
   {
    "kit": "kay-space",
@@ -175479,7 +175493,7 @@
     "style-modern"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.25
+   "thickRel": 1.23
   },
   {
    "kit": "kay-space",
@@ -175531,7 +175545,7 @@
     "style-modern"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.25
+   "thickRel": 1.24
   },
   {
    "kit": "kay-space",
@@ -175583,7 +175597,7 @@
     "style-modern"
    ],
    "variant": "kay-space/basemodule-a",
-   "thickRel": 1.2
+   "thickRel": 1.19
   },
   {
    "kit": "kay-space",
@@ -175634,7 +175648,7 @@
     "storeys-1-5",
     "style-modern"
    ],
-   "thickRel": 1.39
+   "thickRel": 1.38
   },
   {
    "kit": "kay-space",
@@ -175688,7 +175702,7 @@
     "storeys-1",
     "style-modern"
    ],
-   "thickRel": 1.28
+   "thickRel": 1.27
   },
   {
    "kit": "kay-space",
@@ -176311,7 +176325,7 @@
     "storeys-2",
     "style-modern"
    ],
-   "thickRel": 0.92
+   "thickRel": 0.91
   },
   {
    "kit": "kay-space",
@@ -195530,7 +195544,7 @@
     "tba"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 1.76
+   "thickRel": 1.79
   },
   {
    "kit": "ken-factory",
@@ -195575,7 +195589,7 @@
     "tba"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 1.21
+   "thickRel": 1.23
   },
   {
    "kit": "ken-factory",
@@ -195621,14 +195635,7 @@
     "tba"
    ],
    "variant": "ken-factory/crane",
-   "thickRel": 0.49,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.49 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.5
   },
   {
    "kit": "ken-factory",
@@ -195765,7 +195772,7 @@
     "metal-steel",
     "modern"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.65
   },
   {
    "kit": "ken-factory",
@@ -195807,7 +195814,7 @@
     "metal-steel",
     "modern"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "ken-factory",
@@ -195849,7 +195856,7 @@
     "metal-steel",
     "modern"
    ],
-   "thickRel": 0.58
+   "thickRel": 0.59
   },
   {
    "kit": "ken-factory",
@@ -195891,7 +195898,7 @@
     "metal-steel",
     "modern"
    ],
-   "thickRel": 0.6
+   "thickRel": 0.61
   },
   {
    "kit": "ken-factory",
@@ -196026,7 +196033,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine",
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -196073,7 +196080,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-connection-pipe",
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -196120,7 +196127,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-connection-pipe",
-   "thickRel": 0.79
+   "thickRel": 0.8
   },
   {
    "kit": "ken-factory",
@@ -196167,7 +196174,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine",
-   "thickRel": 1.24
+   "thickRel": 1.26
   },
   {
    "kit": "ken-factory",
@@ -196217,7 +196224,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-window",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "ken-factory",
@@ -196267,7 +196274,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine-window",
-   "thickRel": 1.2
+   "thickRel": 1.22
   },
   {
    "kit": "ken-factory",
@@ -196314,7 +196321,7 @@
     "plastic"
    ],
    "variant": "ken-factory/machine",
-   "thickRel": 0.99
+   "thickRel": 1
   },
   {
    "kit": "ken-factory",
@@ -197177,7 +197184,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 1.8
+   "thickRel": 1.82
   },
   {
    "kit": "ken-factory",
@@ -197219,7 +197226,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 1.77
+   "thickRel": 1.8
   },
   {
    "kit": "ken-factory",
@@ -197262,7 +197269,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 2.28
+   "thickRel": 2.31
   },
   {
    "kit": "ken-factory",
@@ -197304,7 +197311,7 @@
     "metal-steel"
    ],
    "variant": "ken-factory/piston-round",
-   "thickRel": 2.38
+   "thickRel": 2.41
   },
   {
    "kit": "ken-factory",
@@ -197348,7 +197355,7 @@
     "tba"
    ],
    "variant": "ken-factory/robot-arm-a",
-   "thickRel": 1.51
+   "thickRel": 1.54
   },
   {
    "kit": "ken-factory",
@@ -197393,7 +197400,7 @@
     "tba"
    ],
    "variant": "ken-factory/robot-arm-a",
-   "thickRel": 1.46
+   "thickRel": 1.48
   },
   {
    "kit": "ken-factory",
@@ -197435,7 +197442,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 0.81
+   "thickRel": 0.82
   },
   {
    "kit": "ken-factory",
@@ -197477,7 +197484,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.9
   },
   {
    "kit": "ken-factory",
@@ -241572,7 +241579,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-large-a",
-   "thickRel": 0.77
+   "thickRel": 0.76
   },
   {
    "kit": "ken-space",
@@ -241627,7 +241634,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-large-a",
-   "thickRel": 1.3
+   "thickRel": 1.29
   },
   {
    "kit": "ken-space",
@@ -241679,7 +241686,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-round-a",
-   "thickRel": 1.27
+   "thickRel": 1.25
   },
   {
    "kit": "ken-space",
@@ -241731,7 +241738,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-round-a",
-   "thickRel": 1.41
+   "thickRel": 1.4
   },
   {
    "kit": "ken-space",
@@ -241782,7 +241789,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-round-a",
-   "thickRel": 1.17
+   "thickRel": 1.16
   },
   {
    "kit": "ken-space",
@@ -241834,7 +241841,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-small-a",
-   "thickRel": 1.23
+   "thickRel": 1.22
   },
   {
    "kit": "ken-space",
@@ -241886,7 +241893,7 @@
     "style-modern"
    ],
    "variant": "ken-space/hangar-small-a",
-   "thickRel": 1.14
+   "thickRel": 1.12
   },
   {
    "kit": "ken-space",
@@ -242030,7 +242037,7 @@
     "space"
    ],
    "variant": "ken-space/machine-generator",
-   "thickRel": 1.3
+   "thickRel": 1.32
   },
   {
    "kit": "ken-space",
@@ -242083,7 +242090,7 @@
     "space"
    ],
    "variant": "ken-space/machine-generator",
-   "thickRel": 1.51
+   "thickRel": 1.53
   },
   {
    "kit": "ken-space",
@@ -242137,7 +242144,7 @@
     "space"
    ],
    "variant": "ken-space/machine-wireless",
-   "thickRel": 0.83
+   "thickRel": 0.85
   },
   {
    "kit": "ken-space",
@@ -242187,7 +242194,7 @@
     "space"
    ],
    "variant": "ken-space/machine-wireless",
-   "thickRel": 0.98
+   "thickRel": 1
   },
   {
    "kit": "ken-space",
@@ -266889,7 +266896,7 @@
     "rubber",
     "tba"
    ],
-   "thickRel": 0.82
+   "thickRel": 0.83
   },
   {
    "kit": "lpa-construction",
@@ -267128,12 +267135,12 @@
     "plastic",
     "tba"
    ],
-   "thickRel": 0.35,
+   "thickRel": 0.36,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.35 wants min 0.5"
+     "text": "I01 thickRel 0.36 wants min 0.5"
     },
     {
      "level": "warning",
@@ -325151,7 +325158,7 @@
      "doubled": 1
     }
    },
-   "thickRel": 1,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -326010,7 +326017,7 @@
      "open": 0.09
     }
    },
-   "thickRel": 0.82,
+   "thickRel": 0.81,
    "lint": [
     {
      "level": "warning",
@@ -340005,7 +340012,7 @@
      "doubled": 0.09
     }
    },
-   "thickRel": 1.13,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "warning",
@@ -359719,7 +359726,7 @@
     "style-historic",
     "wood-dark"
    ],
-   "thickRel": 1.22,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "warning",
@@ -360447,7 +360454,7 @@
     "style-historic",
     "wood-dark"
    ],
-   "thickRel": 1.33,
+   "thickRel": 1.25,
    "lint": [
     {
      "level": "warning",
@@ -381467,7 +381474,7 @@
      "inverted": 0.46
     }
    },
-   "thickRel": 1.8,
+   "thickRel": 1.83,
    "lint": [
     {
      "level": "error",
@@ -385080,7 +385087,7 @@
     "storeys-1",
     "style-modern"
    ],
-   "thickRel": 1.22,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "warning",
@@ -385135,7 +385142,7 @@
     "storeys-1",
     "style-modern"
    ],
-   "thickRel": 1.12,
+   "thickRel": 1.11,
    "lint": [
     {
      "level": "warning",
@@ -385296,7 +385303,7 @@
     "storeys-1-5",
     "style-modern"
    ],
-   "thickRel": 1.1
+   "thickRel": 1.09
   },
   {
    "kit": "quat-space",
@@ -397633,7 +397640,7 @@
     "wood-light"
    ],
    "variant": "quat-town/storage-1-b",
-   "thickRel": 0.68
+   "thickRel": 0.67
   },
   {
    "kit": "quat-town",
@@ -397727,7 +397734,7 @@
     "wood-light"
    ],
    "variant": "quat-town/storage-1-b",
-   "thickRel": 1.06
+   "thickRel": 1.05
   },
   {
    "kit": "quat-town",
@@ -397781,7 +397788,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
-   "thickRel": 0.96,
+   "thickRel": 0.95,
    "lint": [
     {
      "level": "warning",
@@ -397842,7 +397849,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
-   "thickRel": 1.3
+   "thickRel": 1.29
   },
   {
    "kit": "quat-town",
@@ -397896,7 +397903,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
-   "thickRel": 1.18,
+   "thickRel": 1.17,
    "lint": [
     {
      "level": "warning",
@@ -422073,7 +422080,7 @@
     "sq"
    ],
    "variant": "sq-carwash/blower-arch",
-   "thickRel": 0.61
+   "thickRel": 0.62
   },
   {
    "kit": "sq-carwash",
@@ -422126,7 +422133,7 @@
     "tba"
    ],
    "variant": "sq-carwash/brush-arch",
-   "thickRel": 0.68
+   "thickRel": 0.69
   },
   {
    "kit": "sq-carwash",
@@ -422231,7 +422238,7 @@
     "sq"
    ],
    "variant": "sq-carwash/blower-arch",
-   "thickRel": 0.55,
+   "thickRel": 0.56,
    "lint": [
     {
      "level": "warning",
@@ -422515,7 +422522,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 1.01,
+   "thickRel": 1.03,
    "lint": [
     {
      "level": "warning",
@@ -422575,7 +422582,7 @@
     "rubber",
     "sq"
    ],
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "sq-casino",
@@ -430426,7 +430433,7 @@
      "open": 1
     }
    },
-   "thickRel": 1.19,
+   "thickRel": 1.21,
    "lint": [
     {
      "level": "warning",
@@ -431057,7 +431064,7 @@
    "kit": "styloo-farm",
    "name": "smelter-large-anim",
    "hash": "84caaaf5ef",
-   "kind": "str-building-work-industrial-workshop",
+   "kind": "str-fixture-machinery-smelter",
    "size": "l",
    "wdh": [
     2.678,
@@ -431098,9 +431105,7 @@
     "metal-iron-dark",
     "special-emissive",
     "stone-masonry-dark",
-    "storeys-2",
     "sty",
-    "style-historic",
     "wood-dark"
    ],
    "anim": [
@@ -431115,7 +431120,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.96,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -431128,7 +431133,7 @@
    "kit": "styloo-farm",
    "name": "smelter-large",
    "hash": "f08e89ce2c",
-   "kind": "str-building-work-industrial-workshop",
+   "kind": "str-fixture-machinery-smelter",
    "size": "l",
    "wdh": [
     2.678,
@@ -431167,9 +431172,7 @@
     "metal-iron-dark",
     "special-emissive",
     "stone-masonry-dark",
-    "storeys-2",
     "sty",
-    "style-historic",
     "wood-dark"
    ],
    "variant": "styloo-farm/smelter-large-anim",
@@ -431180,7 +431183,7 @@
      "open": 1
     }
    },
-   "thickRel": 0.97,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -431193,7 +431196,7 @@
    "kit": "styloo-farm",
    "name": "smelter-medium",
    "hash": "3dba525214",
-   "kind": "str-building-work-industrial-workshop",
+   "kind": "str-fixture-machinery-smelter",
    "size": "l",
    "wdh": [
     2.101,
@@ -431228,12 +431231,10 @@
     "metal-iron-dark",
     "special-emissive",
     "stone-masonry-dark",
-    "storeys-1",
-    "sty",
-    "style-historic"
+    "sty"
    ],
    "variant": "styloo-farm/smelter",
-   "thickRel": 1,
+   "thickRel": 0.97,
    "lint": [
     {
      "level": "warning",
@@ -431246,7 +431247,7 @@
    "kit": "styloo-farm",
    "name": "smelter",
    "hash": "63b51e6270",
-   "kind": "str-building-work-industrial-workshop",
+   "kind": "str-fixture-machinery-smelter",
    "size": "l",
    "wdh": [
     1.929,
@@ -431281,12 +431282,10 @@
     "metal-iron-dark",
     "special-emissive",
     "stone-masonry-dark",
-    "storeys-1",
-    "sty",
-    "style-historic"
+    "sty"
    ],
    "variant": "styloo-farm/smelter",
-   "thickRel": 1.61,
+   "thickRel": 1.57,
    "lint": [
     {
      "level": "warning",
@@ -466141,7 +466140,7 @@
     "wizp",
     "wood-dark"
    ],
-   "thickRel": 0.55,
+   "thickRel": 0.52,
    "lint": [
     {
      "level": "warning",
@@ -466263,7 +466262,7 @@
    ],
    "alpha": true,
    "variant": "wizp-mediev/smithy-anim",
-   "thickRel": 1.29
+   "thickRel": 1.21
   },
   {
    "kit": "wizp-mediev",
@@ -466324,7 +466323,7 @@
     "wood-dark"
    ],
    "variant": "wizp-mediev/smithy-anim",
-   "thickRel": 1.3
+   "thickRel": 1.22
   },
   {
    "kit": "wizp-mediev",
