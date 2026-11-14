@@ -8,7 +8,7 @@ import { Worker } from 'node:worker_threads';
 import { readKindTree, kindIs, SIZES, sizeOf } from './kinds.mjs';
 import { buildScaleGroups, byLongest } from './scale-groups.mjs';
 import { atlasKey, readAtlas, hex, round, COLUMNS, ROWS } from './measure.mjs';
-import { attributeKinds, buildChecks, buildKitScales, checkModel, isBuilding, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
+import { attributeKinds, buildChecks, buildKitScales, checkModel, idUnder, isBuilding, limitsForModel, SCALE_PREFIX } from '../../lint/rules.mjs';
 import { BRONKITS } from './bronkits.mjs';
 import { stampPages } from './stamp.mjs';
 
@@ -35,10 +35,12 @@ const BACKFACES = existsSync(join(ROOT, LINT_VARS.backface.file))
   ? JSON.parse(readFileSync(join(ROOT, LINT_VARS.backface.file), 'utf8')).models
   : {};
 const noBackface = [];
-function backfaceOf(id, hash) {
-  const m = BACKFACES[id];
-  if (m?.hash !== hash) { noBackface.push(id); return {}; }
-  return m.share >= LINT_VARS.backface.warn ? { backface: { share: m.share, view: m.view, causes: m.causes } } : {};
+const { belowExempt, belowKept } = LINT_VARS.backface;
+const aboveOnly = (kind) => belowExempt.some((k) => idUnder(kind, k)) && !belowKept.some((k) => idUnder(kind, k));
+function backfaceOf(model) {
+  const found = BACKFACES[model.id];
+  const m = (aboveOnly(model.kind) && found.above) || found;
+  if (m.share >= LINT_VARS.backface.warn) model.backface = { share: m.share, view: m.view, causes: m.causes };
 }
 const stripNull = (key, value) => (value === null ? undefined : value);
 
@@ -231,7 +233,6 @@ for (const slug of kitSlugs) {
       bytes: entry.bytes,
       cells: entry.lanes,
       ...JSON.parse(JSON.stringify(entry.fields)),
-      ...backfaceOf(`${slug}/${name}`, entry.hash),
     });
   }
 
@@ -258,9 +259,6 @@ const cacheLines = Object.keys(newCache)
   .map((path) => `${JSON.stringify(path)}:${JSON.stringify(newCache[path])}`);
 writeFileSync(CACHE_FILE, `{"tooling":${JSON.stringify(TOOLING)},"models":{\n${cacheLines.join(',\n')}\n}}\n`);
 console.log(`${fromCache} of ${Object.keys(newCache).length} workfiles came from ${relative(ROOT, CACHE_FILE)}`);
-if (noBackface.length) {
-  console.warn(`! ${noBackface.length} workfiles have no current backface measure, run catalog/tools/backfaces.mjs first: ${noBackface.slice(0, 5).join(', ')}${noBackface.length > 5 ? ', …' : ''}`);
-}
 
 const TYPES = ['material', 'kind', 'size', 'attribute', 'theme', 'artist', 'tag'];
 const KIND_TREE = readKindTree();
@@ -435,10 +433,15 @@ for (const model of models) {
   const own = tags.perModel.get(model.id) ?? [];
   model.kind = own.find((id) => typeOf.get(id) === 'kind') ?? null;
   model.size = sizeOf(model.wdh);
+  if (BACKFACES[model.id]?.hash.startsWith(model.hash)) backfaceOf(model);
+  else noBackface.push(model.id);
   const rest = own.filter((id) => !['kind', 'size'].includes(typeOf.get(id)));
   model.tags = rest;
   const specialBand = own.includes('special') && specialReasons[model.id]?.match(/\b\d+,\d+\b/)?.[0];
   if (specialBand) model.specialBand = specialBand;
+}
+if (noBackface.length) {
+  console.warn(`! ${noBackface.length} workfiles have no current backface measure, run catalog/tools/backfaces.mjs first: ${noBackface.slice(0, 5).join(', ')}${noBackface.length > 5 ? ', …' : ''}`);
 }
 for (const { id, name, type = 'tag', description, belongs } of DERIVED) {
   const members = models.filter(belongs);

@@ -24,7 +24,8 @@ const value = (name, fallback) => {
 if (flag('--help') || flag('-h')) {
   console.log(`backfaces.mjs [--kit slug] [--force] [--jobs n]
 Renders every workfile from ${VIEWS.length - 1} views above the horizon and one from below and records, per model,
-the largest share of its silhouette that shows back faces in one view, and why
+the largest share of its silhouette that shows back faces in one view (and, under
+"above", the same without the view from below when that differs), and why
 those faces show: inverted (wound against its normals, its neighbours, or facing
 into solid material), inside-out (a closed shell wound inward), open (a
 single-sided surface seen from behind) or other (a face turned towards a gap or
@@ -202,8 +203,8 @@ window.measure = async (url) => {
   const fov = 35;
   const camera = new THREE.PerspectiveCamera(fov, 1, radius / 100, radius * 100);
   const distance = radius / Math.sin((fov / 2) * Math.PI / 180) * 1.05;
-  const seen = new Map();
-  let worst = { share: 0, view: null };
+  const seen = new Map(), seenAbove = new Map();
+  let worst = { share: 0, view: null }, worstAbove = { share: 0, view: null };
   for (const [az, el] of ${JSON.stringify(VIEWS)}) {
     const a = az * Math.PI / 180, e = el * Math.PI / 180;
     camera.position.set(centre.x + distance * Math.cos(e) * Math.sin(a), centre.y + distance * Math.sin(e),
@@ -217,6 +218,7 @@ window.measure = async (url) => {
     renderer.render(scene, camera);
     renderer.readRenderTargetPixels(target, 0, 0, S, S, pixels);
     let fill = 0, back = 0;
+    const above = el > 0;
     for (let i = 0; i < pixels.length; i += 4) {
       if (pixels[i + 3] < 128) continue;
       fill++;
@@ -224,24 +226,28 @@ window.measure = async (url) => {
       if (!id) continue;
       back++;
       seen.set(id - 1, (seen.get(id - 1) ?? 0) + 1);
+      if (above) seenAbove.set(id - 1, (seenAbove.get(id - 1) ?? 0) + 1);
     }
     const share = fill ? back / fill : 0;
     if (share > worst.share) worst = { share, view: az + '/' + el };
+    if (above && share > worstAbove.share) worstAbove = { share, view: az + '/' + el };
   }
-  const causes = {};
-  let total = 0;
-  if (seen.size) {
-    const cause = classifier(parts, radius);
-    for (const [id, n] of [...seen].sort((x, y) => y[1] - x[1]).slice(0, SAMPLE)) {
+  const cause = seen.size ? classifier(parts, radius) : null;
+  const summary = (faces, w) => {
+    if (!faces.size) return { share: 0 };
+    const causes = {};
+    let total = 0;
+    for (const [id, n] of [...faces].sort((x, y) => y[1] - x[1]).slice(0, SAMPLE)) {
       const why = cause(id);
       causes[why] = (causes[why] ?? 0) + n;
       total += n;
     }
-  }
+    for (const k of Object.keys(causes)) causes[k] = Math.round(causes[k] / total * 100) / 100;
+    return { share: Math.round(w.share * 1e4) / 1e4, view: w.view, causes };
+  };
+  const all = summary(seen, worst), top = summary(seenAbove, worstAbove);
   gltf.scene.traverse((o) => { if (o.isMesh) o.geometry.dispose(); });
-  if (!seen.size) return { share: 0 };
-  for (const k of Object.keys(causes)) causes[k] = Math.round(causes[k] / total * 100) / 100;
-  return { share: Math.round(worst.share * 1e4) / 1e4, view: worst.view, causes };
+  return top.share === all.share ? all : { ...all, above: top };
 };
 window.ready = true;
 </script>`;
