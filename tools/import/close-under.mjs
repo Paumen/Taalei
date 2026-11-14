@@ -12,7 +12,7 @@ the edge of a hole in the lowest --band (0.15) of the model straight down to
 the model's lowest point first and caps it there, for ground pieces that dip
 below their own edge. --back <d> instead gives every open part (a single
 sheet such as a cloth, wing or skin) a back side: a copy turned the other
-way <d> (in world size) behind it, joined to it along the open edge. Writes in place.`);
+way <d> (in world size) behind it, joined to it along the open edge. A new triangle that would lie on an\nexisting one (a doubled face, which flickers) is left out. Writes in place.`);
   process.exit(0);
 }
 const opt = (name, fallback) => { const i = args.indexOf(name); return i < 0 ? fallback : args[i + 1]; };
@@ -108,7 +108,9 @@ function close(file) {
   const ys = Array.from({ length: P.length / 3 }, (_, i) => P[3 * i + 1]);
   const floor = ys.reduce((a, b) => Math.min(a, b), Infinity), top = ys.reduce((a, b) => Math.max(a, b), -Infinity);
   const toWorld = (n) => unit([0, 1, 2].map((r) => M[r] * n[0] + M[4 + r] * n[1] + M[8 + r] * n[2]));
-  const add = vertexAdder(glb, prim);
+  const adder = vertexAdder(glb, prim);
+  const placed = new Map();
+  const add = { add: (from, set) => { const id = adder.add(from, set); placed.set(id, set.POSITION ?? pos(from)); return id; }, commit: (...a) => adder.commit(...a) };
   const tris = [...I];
   let caps = 0, capTris = 0;
   if (back) {
@@ -202,7 +204,20 @@ function close(file) {
     caps++;
     capTris += faces.length;
   }
-  console.log(`${file}  ${loops.length} open loops, capped ${caps} (${capTris} tris)`);
+  const at = (i) => placed.get(i) ?? pos(i);
+  const faceKey = (t) => [0, 1, 2].map((k) => at(tris[t + k]).map((x) => Math.round(x / 1e-5)).join(',')).sort().join('|');
+  const before = new Set();
+  for (let t = 0; t < I.length; t += 3) before.add(faceKey(t));
+  const kept = tris.slice(0, I.length);
+  let doubled = 0;
+  for (let t = I.length; t < tris.length; t += 3) {
+    const key = faceKey(t);
+    if (before.has(key)) { doubled++; continue; }
+    before.add(key);
+    kept.push(tris[t], tris[t + 1], tris[t + 2]);
+  }
+  tris.splice(0, tris.length, ...kept);
+  console.log(`${file}  ${loops.length} open loops, capped ${caps} (${capTris - doubled} tris${doubled ? `, ${doubled} left out that would double a face` : ''})`);
   if (!caps || dry) return;
   const replaced = new Map();
   add.commit(tris, replaced);
