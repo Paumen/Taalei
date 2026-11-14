@@ -25955,7 +25955,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1548,
+   "count": 1552,
    "parent": "polymer"
   },
   {
@@ -30673,7 +30673,7 @@
    "name": "Modern",
    "type": "tech",
    "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
-   "count": 2040
+   "count": 2044
   },
   {
    "id": "storeys-0-5",
@@ -344811,11 +344811,20 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
+    "plastic",
     "qua",
     "space"
    ],
    "variant": "quat-essentials/ammo-box",
-   "thickRel": 0.97
+   "thickRel": 0.97,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has slate nickel"
+    }
+   ]
   },
   {
    "kit": "quat-essentials",
@@ -344960,12 +344969,19 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
+    "plastic",
     "qua",
     "space"
    ],
    "variant": "quat-essentials/barrel-b",
    "thickRel": 1.02,
    "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has slate nickel"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -345011,12 +345027,19 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
+    "plastic",
     "qua",
     "space"
    ],
    "variant": "quat-essentials/barrel-b",
    "thickRel": 1.01,
    "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has slate nickel"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -345062,11 +345085,18 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
+    "modern",
+    "plastic",
     "qua",
     "space"
    ],
    "thickRel": 0.96,
    "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has nickel slate"
+    },
     {
      "level": "warning",
      "check": "measures",
