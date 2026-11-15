@@ -5566,8 +5566,8 @@
     "1.595": 1
    },
    "smooth": {
-    "smooth": 98,
-    "none": 15
+    "smooth": 97,
+    "none": 16
    },
    "kitCheck": {
     "factor": 1.24,
@@ -98343,7 +98343,7 @@
   {
    "kit": "household",
    "name": "stepladder",
-   "hash": "1b64b1ec2c",
+   "hash": "b44ad07651",
    "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
@@ -98351,23 +98351,23 @@
     0.34,
     1.075
    ],
-   "tris": 514,
-   "tpu": 976,
+   "tris": 838,
+   "tpu": 1591,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 34240,
-   "vtx": 928,
+   "bytes": 83996,
+   "vtx": 2422,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0308,
-   "minWall": 0.007,
-   "thick": 0.0758,
-   "avgTri": 0.00345,
-   "anglePct": 46,
-   "pieces": 59,
-   "vpt": 1.81,
+   "minEdge": 0,
+   "minTube": 0.0269,
+   "minWall": 0.0255,
+   "thick": 0.0768,
+   "avgTri": 0.00198,
+   "anglePct": 41,
+   "pieces": 33,
+   "vpt": 2.89,
    "cells": [
     "15,3"
    ],
@@ -98379,27 +98379,12 @@
     "metal-steel",
     "modern"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.01,
-     "view": "270/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 0.67,
+   "thickRel": 0.68,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.0% of view 270/20 over 0.5%: open 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.007 wants min 0.026"
+     "text": "G27 minWall 0.0255 wants min 0.026"
     }
    ]
   },
@@ -189708,7 +189693,7 @@
   {
    "kit": "ken-cave",
    "name": "gate-metal-bars",
-   "hash": "1f779b723e",
+   "hash": "02940757b7",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
@@ -189716,23 +189701,23 @@
     0.351,
     1
    ],
-   "tris": 722,
-   "tpu": 1473,
+   "tris": 780,
+   "tpu": 1592,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 53760,
-   "vtx": 1498,
+   "bytes": 58460,
+   "vtx": 1634,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0326,
+   "minTube": 0.026,
    "minWall": 0.0065,
    "thick": 0.0801,
-   "avgTri": 0.00966,
-   "anglePct": 59,
-   "pieces": 67,
-   "vpt": 2.07,
+   "avgTri": 0.00974,
+   "anglePct": 57,
+   "pieces": 92,
+   "vpt": 2.09,
    "cells": [
     "14,3",
     "6,1"
@@ -189751,20 +189736,20 @@
    "backface": [
     {
      "side": "above",
-     "share": 0.0069,
-     "view": "0/50",
+     "share": 0.0025,
+     "view": "180/20",
      "causes": {
-      "open": 0.96,
-      "inverted": 0.04
+      "open": 0.91,
+      "inverted": 0.09
      }
     }
    ],
    "thickRel": 0.74,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "0.7% of view 0/50 over 0.5%: open 96.0%, inverted 4.0%"
+     "text": "0.3% of view 180/20 over 0.2%: open 91.0%, inverted 9.0%"
     },
     {
      "level": "warning",
@@ -321171,30 +321156,30 @@
   {
    "kit": "m3-base",
    "name": "wood-onlay-01",
-   "hash": "beb5e5886e",
+   "hash": "ed6548f59a",
    "kind": "obj-furnishing-decor",
    "size": "m",
    "wdh": [
     0.553,
     0.121,
-    0.006
+    0.007
    ],
-   "tris": 1912,
-   "tpu": 5574,
+   "tris": 2309,
+   "tpu": 6732,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 73852,
-   "vtx": 1901,
+   "bytes": 114348,
+   "vtx": 3092,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0067,
+   "minWall": 0.0064,
    "thick": 0.1525,
-   "avgTri": 0.00003,
-   "anglePct": 34,
+   "avgTri": 0.00004,
+   "anglePct": 52,
    "pieces": 1,
-   "vpt": 0.99,
+   "vpt": 1.34,
    "cells": [
     "1,0"
    ],
@@ -321209,7 +321194,7 @@
    "backface": [
     {
      "side": "below",
-     "share": 0.9859,
+     "share": 0.0445,
      "view": "0/-89.9",
      "causes": {
       "open": 1
@@ -321218,14 +321203,14 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "98.6% of view 0/-89.9 over 5.0%: open 100.0%"
+     "text": "4.5% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0067 wants min 0.012"
+     "text": "G27 minWall 0.0064 wants min 0.012"
     }
    ]
   },
@@ -355417,7 +355402,7 @@
   {
    "kit": "quat-interior",
    "name": "knife",
-   "hash": "86070ca6b0",
+   "hash": "32fcfcbe36",
    "kind": "obj-kitchenware-tableware-cutlery-knife",
    "size": "s",
    "wdh": [
@@ -355425,13 +355410,13 @@
     0.202,
     0.003
    ],
-   "tris": 112,
-   "tpu": 327,
+   "tris": 116,
+   "tpu": 338,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5772,
-   "vtx": 112,
+   "bytes": 6180,
+   "vtx": 124,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -355441,7 +355426,7 @@
    "avgTri": 0.00004,
    "anglePct": 95,
    "pieces": 1,
-   "vpt": 1,
+   "vpt": 1.07,
    "cells": [
     "15,3"
    ],
@@ -355452,23 +355437,8 @@
     "metal-steel",
     "qua"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0294,
-     "view": "180/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 1.55,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "2.9% of view 180/20 over 0.5%: open 100.0%"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -366840,7 +366810,7 @@
   {
    "kit": "quat-pirate",
    "name": "pirate-captain",
-   "hash": "fee9933cbb",
+   "hash": "5732971f92",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -366848,22 +366818,22 @@
     0.536,
     0.62
    ],
-   "tris": 9416,
-   "tpu": 27452,
+   "tris": 9476,
+   "tpu": 27627,
    "mat": 1,
    "bands": 7,
    "calls": 3,
-   "bytes": 805492,
-   "vtx": 9179,
+   "bytes": 837892,
+   "vtx": 9243,
    "grounded": true,
    "minEdge": 0.001,
    "minTube": 0.0288,
    "minWall": 0.0065,
-   "thick": 0.0854,
+   "thick": 0.0855,
    "avgTri": 0.00013,
    "anglePct": 2,
    "pieces": 20,
-   "vpt": 0.97,
+   "vpt": 0.98,
    "cells": [
     "6,1",
     "8,0",
@@ -366912,7 +366882,7 @@
    "backface": [
     {
      "side": "below",
-     "share": 0.0705,
+     "share": 0.006,
      "view": "0/-89.9",
      "causes": {
       "open": 1
@@ -366922,9 +366892,9 @@
    "thickRel": 0.89,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "7.0% of view 0/-89.9 over 5.0%: open 100.0%"
+     "text": "0.6% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
@@ -446649,7 +446619,7 @@
   {
    "kit": "taalei-kit",
    "name": "ornament",
-   "hash": "358664dc5b",
+   "hash": "422931d4da",
    "kind": "obj-leisure-art",
    "size": "s",
    "wdh": [
@@ -446657,23 +446627,23 @@
     0.267,
     0.008
    ],
-   "tris": 4088,
-   "tpu": 11918,
+   "tris": 2576,
+   "tpu": 7510,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 308792,
-   "vtx": 8839,
+   "bytes": 264148,
+   "vtx": 7728,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0129,
+   "minWall": 0.008,
    "thick": 0.036,
-   "avgTri": 0.00001,
-   "anglePct": 11,
+   "avgTri": 0.00003,
+   "anglePct": 76,
    "pieces": 1,
-   "vpt": 2.16,
+   "vpt": 3,
    "cells": [
     "6,0"
    ],
@@ -446683,40 +446653,12 @@
    "tags": [
     "metal-gold"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0034,
-     "view": "225/20",
-     "causes": {
-      "open": 1
-     }
-    },
-    {
-     "side": "below",
-     "share": 0.9939,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 0.32,
    "lint": [
     {
      "level": "warning",
-     "check": "tpu",
-     "text": "tpu 11918 over max 10000 (obj)"
-    },
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 225/20 over 0.2%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "99.4% of view 0/-89.9 over 5.0%: open 100.0%"
+     "check": "measures",
+     "text": "G27 minWall 0.008 wants min 0.012"
     }
    ]
   },
