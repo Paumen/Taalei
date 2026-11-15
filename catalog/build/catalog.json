@@ -73041,7 +73041,7 @@
   {
    "kit": "food-pack-2",
    "name": "strawberry",
-   "hash": "ae095989a1",
+   "hash": "82a0658da9",
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
@@ -73049,22 +73049,22 @@
     0.049,
     0.051
    ],
-   "tris": 638,
-   "tpu": 1860,
+   "tris": 727,
+   "tpu": 2120,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25484,
-   "vtx": 633,
+   "bytes": 34568,
+   "vtx": 900,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minWall": 0,
    "thick": 0.2173,
    "avgTri": 0.00002,
    "anglePct": 6,
-   "pieces": 5,
-   "vpt": 0.99,
+   "pieces": 1,
+   "vpt": 1.24,
    "cells": [
     "8,0",
     "3,1"
@@ -73077,25 +73077,7 @@
     "leaf-light",
     "special-food"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0052,
-     "view": "45/20",
-     "causes": {
-      "open": 0.85,
-      "doubled": 0.15
-     }
-    }
-   ],
-   "thickRel": 0.9,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "0.5% of view 45/20 over 0.5%: open 85.0%, doubled 15.0%"
-    }
-   ]
+   "thickRel": 0.9
   },
   {
    "kit": "food-pack-2",
@@ -161958,7 +161940,7 @@
   {
    "kit": "kay-mixed",
    "name": "autumn-wreath",
-   "hash": "4ab96e9dd3",
+   "hash": "267022e2dc",
    "kind": "obj-furnishing-decor-wreath",
    "size": "s",
    "wdh": [
@@ -161971,16 +161953,16 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 314148,
+   "bytes": 314152,
    "vtx": 8933,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0199,
-   "thick": 0.0729,
+   "minWall": 0,
+   "thick": 0.073,
    "avgTri": 0.00015,
    "anglePct": 2,
-   "pieces": 135,
+   "pieces": 117,
    "vpt": 2,
    "cells": [
     "3,0",
@@ -162003,11 +161985,10 @@
    "backface": [
     {
      "side": "above",
-     "share": 0.0086,
-     "view": "90/20",
+     "share": 0.0038,
+     "view": "270/20",
      "causes": {
-      "open": 0.98,
-      "inverted": 0.02
+      "open": 1
      }
     }
    ],
@@ -162019,9 +162000,9 @@
      "text": "tpu 12991 over max 7000 (obj-furnishing-decor)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "0.9% of view 90/20 over 0.5%: open 98.0%, inverted 2.0%"
+     "text": "0.4% of view 270/20 over 0.2%: open 100.0%"
     }
    ]
   },
@@ -369599,7 +369580,7 @@
   {
    "kit": "quat-props",
    "name": "cabinet",
-   "hash": "62a47c95cd",
+   "hash": "4213e70a4f",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
@@ -369607,23 +369588,23 @@
     0.208,
     0.539
    ],
-   "tris": 1048,
-   "tpu": 3055,
+   "tris": 1058,
+   "tpu": 3085,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 48716,
-   "vtx": 1279,
+   "bytes": 49736,
+   "vtx": 1309,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.1819,
    "minWall": 0.0092,
-   "thick": 0.1365,
-   "avgTri": 0.00213,
-   "anglePct": 77,
-   "pieces": 18,
-   "vpt": 1.22,
+   "thick": 0.1364,
+   "avgTri": 0.0022,
+   "anglePct": 78,
+   "pieces": 19,
+   "vpt": 1.24,
    "cells": [
     "15,3",
     "1,0",
@@ -369640,23 +369621,8 @@
     "wood-dark",
     "wood-mid"
    ],
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.4916,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 0.6,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "49.2% of view 0/-89.9 over 5.0%: open 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -382086,7 +382052,7 @@
   {
    "kit": "quat-shoot",
    "name": "structure-a",
-   "hash": "e43aa5feaa",
+   "hash": "fbdbc9130d",
    "kind": "set",
    "size": "l",
    "wdh": [
@@ -382094,23 +382060,23 @@
     2.902,
     2.835
    ],
-   "tris": 4681,
-   "tpu": 148,
+   "tris": 4859,
+   "tpu": 153,
    "mat": 1,
    "bands": 7,
    "calls": 1,
-   "bytes": 299360,
-   "vtx": 8432,
+   "bytes": 312140,
+   "vtx": 8798,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minTube": 0.0125,
-   "minWall": 0.0061,
+   "minWall": 0.006,
    "thick": 0.1562,
-   "avgTri": 0.01319,
-   "anglePct": 59,
-   "pieces": 68,
-   "vpt": 1.8,
+   "avgTri": 0.01408,
+   "anglePct": 61,
+   "pieces": 71,
+   "vpt": 1.81,
    "cells": [
     "15,3",
     "6,0",
@@ -382140,7 +382106,7 @@
    "backface": [
     {
      "side": "below",
-     "share": 0.1018,
+     "share": 0.005,
      "view": "0/-89.9",
      "causes": {
       "open": 1
@@ -382149,9 +382115,9 @@
    ],
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "10.2% of view 0/-89.9 over 5.0%: open 100.0%"
+     "text": "0.5% of view 0/-89.9 over 0.5%: open 100.0%"
     }
    ]
   },
@@ -404634,7 +404600,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "firewood",
-   "hash": "722c71bfdf",
+   "hash": "522c29d327",
    "kind": "obj-resource-wood-log",
    "size": "s",
    "wdh": [
@@ -404642,21 +404608,21 @@
     0.497,
     0.207
    ],
-   "tris": 3014,
-   "tpu": 8787,
+   "tris": 3022,
+   "tpu": 8810,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 99560,
-   "vtx": 2500,
+   "bytes": 100120,
+   "vtx": 2516,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minWall": 0.1792,
-   "thick": 0.0691,
-   "avgTri": 0.00016,
-   "anglePct": 8,
+   "thick": 0.0703,
+   "avgTri": 0.00018,
+   "anglePct": 7,
    "pieces": 7,
    "vpt": 0.83,
    "cells": [
@@ -404673,24 +404639,7 @@
     "rgp",
     "wood-light"
    ],
-   "variant": "rgp-props/cut-wood-1-a",
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.4767,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "47.7% of view 0/-89.9 over 5.0%: open 100.0%"
-    }
-   ]
+   "variant": "rgp-props/cut-wood-1-a"
   },
   {
    "kit": "rgp-medieval",
@@ -427530,29 +427479,30 @@
   {
    "kit": "styloo-farm",
    "name": "leaf",
-   "hash": "7ff8fa2b5d",
+   "hash": "322479ce82",
    "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
     0.027,
     0.05,
-    0.008
+    0.011
    ],
-   "tris": 72,
-   "tpu": 210,
+   "tris": 154,
+   "tpu": 449,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3848,
-   "vtx": 64,
+   "bytes": 12924,
+   "vtx": 332,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.0695,
-   "avgTri": 0.00001,
-   "anglePct": 2,
+   "minWall": 0.0072,
+   "thick": 0.1647,
+   "avgTri": 0.00002,
+   "anglePct": 38,
    "pieces": 1,
-   "vpt": 0.89,
+   "vpt": 2.16,
    "cells": [
     "3,1"
    ],
@@ -427564,23 +427514,6 @@
     "leaf-light",
     "piece",
     "sty"
-   ],
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.9992,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "99.9% of view 0/-89.9 over 5.0%: open 100.0%"
-    }
    ]
   },
   {
@@ -443359,7 +443292,7 @@
   {
    "kit": "swords-tember",
    "name": "coral",
-   "hash": "1e6d5140eb",
+   "hash": "d625942dbb",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -443367,23 +443300,22 @@
     0.069,
     0.761
    ],
-   "tris": 2830,
-   "tpu": 7589,
+   "tris": 2893,
+   "tpu": 7758,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 192868,
-   "vtx": 4918,
+   "bytes": 186092,
+   "vtx": 5225,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0144,
    "minWall": 0.0015,
-   "thick": 0.1214,
+   "thick": 0.1213,
    "avgTri": 0.00008,
    "anglePct": 15,
-   "pieces": 10,
-   "vpt": 1.74,
+   "pieces": 38,
+   "vpt": 1.81,
    "cells": [
     "4,2",
     "5,0",
@@ -443403,41 +443335,8 @@
     "metal-gold",
     "shell"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0153,
-     "view": "45/20",
-     "causes": {
-      "doubled": 0.88,
-      "inverted": 0.11,
-      "other": 0.01
-     }
-    },
-    {
-     "side": "below",
-     "share": 0.1249,
-     "view": "0/-89.9",
-     "causes": {
-      "doubled": 0.71,
-      "inverted": 0.28,
-      "other": 0.01,
-      "open": 0
-     }
-    }
-   ],
    "thickRel": 0.83,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.5% of view 45/20 over 0.5%: doubled 88.0%, inverted 11.0%, other 1.0%"
-    },
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "12.5% of view 0/-89.9 over 5.0%: doubled 71.0%, inverted 28.0%, other 1.0%"
-    },
     {
      "level": "error",
      "check": "measures",
@@ -455140,7 +455039,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "ore-jade",
-   "hash": "711648c7f7",
+   "hash": "5f943eab00",
    "kind": "env-terrain-rock",
    "size": "m",
    "wdh": [
@@ -455148,22 +455047,22 @@
     0.532,
     0.236
    ],
-   "tris": 240,
-   "tpu": 700,
+   "tris": 248,
+   "tpu": 723,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19760,
-   "vtx": 529,
+   "bytes": 20544,
+   "vtx": 552,
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
    "minWall": 0.0295,
-   "thick": 0.1131,
-   "avgTri": 0.00233,
-   "anglePct": 5,
+   "thick": 0.1137,
+   "avgTri": 0.00309,
+   "anglePct": 30,
    "pieces": 11,
-   "vpt": 2.2,
+   "vpt": 2.23,
    "cells": [
     "1,1"
    ],
@@ -455176,24 +455075,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/ore-gold",
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.8678,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 0.54,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "86.8% of view 0/-89.9 over 5.0%: open 100.0%"
-    }
-   ]
+   "thickRel": 0.54
   },
   {
    "kit": "wizp-asia",
