@@ -60412,7 +60412,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "firewood-rack",
-   "hash": "7e9ae28951",
+   "hash": "3a9b60f54e",
    "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
@@ -60420,23 +60420,23 @@
     0.291,
     0.575
    ],
-   "tris": 2031,
-   "tpu": 5921,
+   "tris": 1985,
+   "tpu": 5787,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 97788,
-   "vtx": 2626,
+   "bytes": 93704,
+   "vtx": 2507,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0313,
-   "minWall": 0.0068,
-   "thick": 0.1286,
+   "minWall": 0.0097,
+   "thick": 0.1288,
    "avgTri": 0.00143,
-   "anglePct": 25,
+   "anglePct": 27,
    "pieces": 29,
-   "vpt": 1.29,
+   "vpt": 1.26,
    "cells": [
     "2,0",
     "0,0",
@@ -60452,28 +60452,11 @@
     "plural",
     "wood-dark"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0095,
-     "view": "0/20",
-     "causes": {
-      "inverted": 0.68,
-      "inside-out": 0.27,
-      "open": 0.05
-     }
-    }
-   ],
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "0.9% of view 0/20 over 0.5%: inverted 68.0%, inside-out 27.0%, open 5.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0068 wants min 0.026"
+     "text": "G27 minWall 0.0097 wants min 0.026"
     }
    ]
   },
@@ -62482,7 +62465,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "porch",
-   "hash": "49bbd2f36e",
+   "hash": "0816193568",
    "kind": "str-access-platform-deck",
    "size": "l",
    "wdh": [
@@ -62490,24 +62473,24 @@
     1.501,
     0.5
    ],
-   "tris": 2156,
-   "tpu": 684,
+   "tris": 1969,
+   "tpu": 624,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 148036,
-   "vtx": 4173,
+   "bytes": 148548,
+   "vtx": 4224,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.026,
-   "minWall": 0.006,
-   "thick": 0.1006,
-   "avgTri": 0.01007,
-   "anglePct": 32,
+   "minWall": 0.0061,
+   "thick": 0.1041,
+   "avgTri": 0.01059,
+   "anglePct": 35,
    "pieces": 48,
-   "vpt": 1.94,
+   "vpt": 2.15,
    "cells": [
     "5,2",
     "14,3",
@@ -62528,27 +62511,11 @@
     "wood-dark",
     "wood-mid"
    ],
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.1215,
-     "view": "0/-89.9",
-     "causes": {
-      "inverted": 0.99,
-      "other": 0.01
-     }
-    }
-   ],
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "12.2% of view 0/-89.9 over 5.0%: inverted 99.0%, other 1.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.006 wants min 0.026"
+     "text": "G27 minWall 0.0061 wants min 0.026"
     }
    ]
   },
@@ -201563,7 +201530,7 @@
   {
    "kit": "ken-food",
    "name": "pancakes",
-   "hash": "02cbfca0e7",
+   "hash": "75ce09c331",
    "kind": "obj-food-baked-pastry-pancake",
    "size": "s",
    "wdh": [
@@ -201571,25 +201538,25 @@
     0.226,
     0.059
    ],
-   "tris": 4302,
-   "tpu": 12542,
+   "tris": 4448,
+   "tpu": 12968,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 123444,
-   "vtx": 3004,
+   "bytes": 158240,
+   "vtx": 4064,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0145,
-   "thick": 0.1114,
-   "avgTri": 0.00003,
+   "minWall": 0.0069,
+   "thick": 0.1115,
+   "avgTri": 0.00004,
    "anglePct": 61,
-   "pieces": 6,
-   "vpt": 0.7,
+   "pieces": 8,
+   "vpt": 0.91,
    "cells": [
-    "1,0",
     "6,0",
+    "1,0",
     "0,0"
    ],
    "colors": [
@@ -201602,34 +201569,11 @@
     "plural",
     "special-food"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0024,
-     "view": "270/20",
-     "causes": {
-      "open": 1
-     }
-    },
-    {
-     "side": "below",
-     "share": 0.2335,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "lint": [
     {
      "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 270/20 over 0.2%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "23.4% of view 0/-89.9 over 5.0%: open 100.0%"
+     "check": "measures",
+     "text": "G27 minWall 0.0069 wants min 0.012"
     }
    ]
   },
@@ -331340,7 +331284,7 @@
   {
    "kit": "pm-store",
    "name": "dj-booth",
-   "hash": "e001327325",
+   "hash": "d0e0663471",
    "kind": "obj-device-electronics-audio",
    "size": "m",
    "wdh": [
@@ -331348,23 +331292,23 @@
     0.235,
     0.237
    ],
-   "tris": 1086,
-   "tpu": 3166,
+   "tris": 1096,
+   "tpu": 3195,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 73004,
-   "vtx": 2032,
+   "bytes": 74024,
+   "vtx": 2062,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minWall": 0.0098,
    "thick": 0.2981,
-   "avgTri": 0.00129,
-   "anglePct": 79,
-   "pieces": 90,
-   "vpt": 1.87,
+   "avgTri": 0.0014,
+   "anglePct": 81,
+   "pieces": 93,
+   "vpt": 1.88,
    "cells": [
     "13,3",
     "5,2",
@@ -331384,7 +331328,7 @@
    "backface": [
     {
      "side": "below",
-     "share": 0.2046,
+     "share": 0.0094,
      "view": "0/-89.9",
      "causes": {
       "open": 1
@@ -331394,9 +331338,9 @@
    "thickRel": 1.58,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "20.5% of view 0/-89.9 over 5.0%: open 100.0%"
+     "text": "0.9% of view 0/-89.9 over 0.5%: open 100.0%"
     },
     {
      "level": "warning",
@@ -332172,7 +332116,7 @@
   {
    "kit": "pm-store",
    "name": "rug",
-   "hash": "b124dfd008",
+   "hash": "f88f5dd42c",
    "kind": "obj-furnishing-textile-rug",
    "size": "m",
    "wdh": [
@@ -332180,23 +332124,23 @@
     0.528,
     0.048
    ],
-   "tris": 242,
-   "tpu": 706,
+   "tris": 246,
+   "tpu": 717,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17136,
-   "vtx": 444,
+   "bytes": 17544,
+   "vtx": 456,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0127,
-   "minWall": 0.0075,
+   "minWall": 0.0073,
    "thick": 0.0913,
-   "avgTri": 0.00184,
-   "anglePct": 58,
-   "pieces": 3,
-   "vpt": 1.83,
+   "avgTri": 0.00187,
+   "anglePct": 57,
+   "pieces": 5,
+   "vpt": 1.85,
    "cells": [
     "8,0",
     "6,0"
@@ -332210,30 +332154,12 @@
     "textile-cloth-dark"
    ],
    "variant": "pm-store/rug",
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.0672,
-     "view": "0/-89.9",
-     "causes": {
-      "inverted": 0.41,
-      "inside-out": 0.18,
-      "other": 0.3,
-      "open": 0.11
-     }
-    }
-   ],
    "thickRel": 1.55,
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "6.7% of view 0/-89.9 over 5.0%: inverted 41.0%, other 30.0%, inside-out 18.0%, open 11.0%"
-    },
-    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0075 wants min 0.012"
+     "text": "G27 minWall 0.0073 wants min 0.012"
     }
    ]
   },
@@ -385381,31 +385307,31 @@
   {
    "kit": "quat-space",
    "name": "stairs",
-   "hash": "22d484d82b",
+   "hash": "126befd72b",
    "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.412,
     0.685,
-    0.308
+    0.306
    ],
-   "tris": 221,
-   "tpu": 644,
+   "tris": 236,
+   "tpu": 688,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17616,
-   "vtx": 462,
+   "bytes": 17000,
+   "vtx": 440,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.01,
-   "minTube": 0.0265,
+   "minEdge": 0.011,
+   "minTube": 0,
    "minWall": 0.0165,
-   "thick": 0.0778,
-   "avgTri": 0.00416,
+   "thick": 0.0866,
+   "avgTri": 0.00384,
    "anglePct": 98,
-   "pieces": 13,
-   "vpt": 2.09,
+   "pieces": 12,
+   "vpt": 1.86,
    "cells": [
     "15,3",
     "5,2"
@@ -385422,23 +385348,8 @@
     "space"
    ],
    "variant": "quat-space/ramp",
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0131,
-     "view": "180/50",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 1.22,
+   "thickRel": 1.35,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.3% of view 180/50 over 0.5%: open 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -443650,7 +443561,7 @@
   {
    "kit": "swords-tember",
    "name": "floral",
-   "hash": "9849f173ec",
+   "hash": "562f86ca91",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -443658,13 +443569,13 @@
     0.073,
     0.646
    ],
-   "tris": 1790,
-   "tpu": 5219,
+   "tris": 1801,
+   "tpu": 5251,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 158984,
-   "vtx": 4249,
+   "bytes": 149848,
+   "vtx": 4297,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -443673,8 +443584,8 @@
    "thick": 0.1662,
    "avgTri": 0.00007,
    "anglePct": 8,
-   "pieces": 42,
-   "vpt": 2.37,
+   "pieces": 53,
+   "vpt": 2.39,
    "cells": [
     "15,3",
     "3,1",
@@ -443694,20 +443605,12 @@
    "backface": [
     {
      "side": "above",
-     "share": 0.0033,
-     "view": "90/20",
+     "share": 0.0029,
+     "view": "135/20",
      "causes": {
-      "inverted": 0.66,
-      "other": 0.34
-     }
-    },
-    {
-     "side": "below",
-     "share": 0.0545,
-     "view": "0/-89.9",
-     "causes": {
-      "inverted": 0.72,
-      "other": 0.28
+      "open": 0.51,
+      "other": 0.26,
+      "inverted": 0.23
      }
     }
    ],
@@ -443716,12 +443619,7 @@
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.3% of view 90/20 over 0.2%: inverted 66.0%, other 34.0%"
-    },
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "5.5% of view 0/-89.9 over 5.0%: inverted 72.0%, other 28.0%"
+     "text": "0.3% of view 135/20 over 0.2%: open 51.0%, other 26.0%, inverted 23.0%"
     }
    ]
   },
@@ -455200,7 +455098,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "ore-gold",
-   "hash": "80f103e3f2",
+   "hash": "e46b7e4732",
    "kind": "env-terrain-rock",
    "size": "m",
    "wdh": [
@@ -455208,22 +455106,22 @@
     0.532,
     0.236
    ],
-   "tris": 240,
-   "tpu": 700,
+   "tris": 248,
+   "tpu": 723,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19372,
-   "vtx": 517,
+   "bytes": 20348,
+   "vtx": 546,
    "grounded": true,
    "centered": true,
    "minEdge": 0.014,
    "minWall": 0.0295,
-   "thick": 0.1131,
-   "avgTri": 0.00233,
-   "anglePct": 5,
+   "thick": 0.1136,
+   "avgTri": 0.00309,
+   "anglePct": 30,
    "pieces": 11,
-   "vpt": 2.15,
+   "vpt": 2.2,
    "cells": [
     "6,0"
    ],
@@ -455236,24 +455134,7 @@
     "wizp"
    ],
    "variant": "wizp-asia/ore-gold",
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.8678,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 0.54,
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "86.8% of view 0/-89.9 over 5.0%: open 100.0%"
-    }
-   ]
+   "thickRel": 0.54
   },
   {
    "kit": "wizp-asia",
