@@ -284,8 +284,8 @@ By how it looks, not by a number.
   send it to the review page. That is what the review page is for.
 - **Clean, looks fine**: no review card. While calibrating, a sample goes on
   the review page without a `why`, to learn which fixes can pass unreviewed.
-  Every round still ends with a review page, even if it holds only that
-  sample.
+  Every round still ends with a review, even if it holds only that sample;
+  one or two models go to the PO in chat instead of a page.
 
 ## Checks
 
