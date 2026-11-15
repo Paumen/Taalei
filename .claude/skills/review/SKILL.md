@@ -9,6 +9,9 @@ Any task that decides per model hands its doubtful changes to the PO this way,
 before the PR is merged. Every flow uses the same list fields and the same
 page; the tool, not the flow, decides risk and what the page shows.
 
+With only one or two doubtful models, skip the page: show their before/after
+renders in chat and ask for a verdict there.
+
 ## 0. Calibrate
 
 Run `node tools/review/review.mjs brief` before choosing what to send. It reads
