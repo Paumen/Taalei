@@ -3785,8 +3785,8 @@
     "1.76": 1
    },
    "smooth": {
-    "smooth": 120,
-    "none": 22
+    "smooth": 119,
+    "none": 23
    },
    "members": [
     {
@@ -3850,8 +3850,8 @@
       "2": 94
      },
      "smooth": {
-      "smooth": 75,
-      "none": 19
+      "smooth": 74,
+      "none": 20
      }
     }
    ],
@@ -392437,7 +392437,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "farm-2-a",
-   "hash": "6bbda8f554",
+   "hash": "c2f7198e09",
    "kind": "str-building-work-agricultural",
    "size": "l",
    "wdh": [
@@ -392500,7 +392500,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "farm-2-b",
-   "hash": "28f2ad3266",
+   "hash": "6dc354e155",
    "kind": "str-building-work-agricultural",
    "size": "l",
    "wdh": [
@@ -392563,7 +392563,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "farm-2-c",
-   "hash": "0c66dfcaf8",
+   "hash": "e0fc03b1df",
    "kind": "str-building-work-agricultural",
    "size": "l",
    "wdh": [
@@ -393184,7 +393184,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-1-a",
-   "hash": "64f67971e7",
+   "hash": "6096986c54",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -393246,7 +393246,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-1-b",
-   "hash": "3213db57d5",
+   "hash": "83bf693024",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -393305,7 +393305,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-1-c",
-   "hash": "e4a8814c84",
+   "hash": "dd3c3f6c8b",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -393365,7 +393365,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-2-a",
-   "hash": "f18dec8254",
+   "hash": "a5456e09cb",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -393425,7 +393425,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-2-b",
-   "hash": "a75471c599",
+   "hash": "9efd41885f",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -393485,7 +393485,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-2-c",
-   "hash": "c54670a5e6",
+   "hash": "d286d22689",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -393665,31 +393665,31 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "house-2-3-c",
-   "hash": "d19ee1e254",
+   "hash": "e10a9e9ce5",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
     2.706,
     2.922,
-    2.16
+    2.149
    ],
-   "tris": 2724,
-   "tpu": 159,
+   "tris": 2442,
+   "tpu": 144,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 234220,
-   "vtx": 6764,
+   "bytes": 223344,
+   "vtx": 6477,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
+   "minEdge": 0.012,
    "minTube": 0.026,
-   "minWall": 0.0222,
-   "thick": 0.1418,
-   "avgTri": 0.02433,
-   "anglePct": 81,
-   "pieces": 380,
-   "vpt": 2.48,
+   "minWall": 0.0154,
+   "thick": 0.1417,
+   "avgTri": 0.02659,
+   "anglePct": 83,
+   "pieces": 159,
+   "vpt": 2.65,
    "cells": [
     "8,0",
     "14,3",
@@ -393717,7 +393717,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0222 wants min 0.026"
+     "text": "G27 minWall 0.0154 wants min 0.026"
     }
    ]
   },
@@ -393931,7 +393931,22 @@
     "wood-light"
    ],
    "variant": "quat-town/market-1-b",
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0023,
+     "view": "135/20",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.2%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -394004,7 +394019,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-2-b",
-   "hash": "0b71bf428a",
+   "hash": "63c5e2e736",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -394012,24 +394027,23 @@
     3.765,
     1.223
    ],
-   "tris": 2937,
-   "tpu": 166,
+   "tris": 3470,
+   "tpu": 197,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
-   "bytes": 217968,
-   "vtx": 6216,
+   "bytes": 240780,
+   "vtx": 6829,
    "minEdge": 0.003,
    "minTube": 0.078,
-   "minWall": 0.0245,
+   "minWall": 0.0104,
    "thick": 0.0492,
-   "avgTri": 0.01743,
-   "anglePct": 75,
-   "pieces": 136,
-   "vpt": 2.12,
+   "avgTri": 0.01483,
+   "anglePct": 76,
+   "pieces": 100,
+   "vpt": 1.97,
    "cells": [
     "2,0",
-    "0,0",
     "5,2",
     "8,0",
     "14,3",
@@ -394043,7 +394057,6 @@
     "#873a27",
     "#88735f",
     "#9e6d44",
-    "#ca9f6e",
     "#d8cfb7",
     "#f1a63b"
    ],
@@ -394063,7 +394076,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-2-c",
-   "hash": "a22b8359fd",
+   "hash": "648f6e89bd",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -394071,25 +394084,24 @@
     3.971,
     1.228
    ],
-   "tris": 5884,
-   "tpu": 312,
+   "tris": 7471,
+   "tpu": 396,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
-   "bytes": 446916,
-   "vtx": 12818,
+   "bytes": 514776,
+   "vtx": 14641,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.026,
-   "minWall": 0.0223,
+   "minTube": 0.078,
+   "minWall": 0.0052,
    "thick": 0.05,
-   "avgTri": 0.01641,
+   "avgTri": 0.01302,
    "anglePct": 74,
-   "pieces": 296,
-   "vpt": 2.18,
+   "pieces": 186,
+   "vpt": 1.96,
    "cells": [
     "2,0",
-    "0,0",
     "5,2",
     "8,0",
     "14,3",
@@ -394103,7 +394115,6 @@
     "#873a27",
     "#88735f",
     "#9e6d44",
-    "#ca9f6e",
     "#d8cfb7",
     "#f1a63b"
    ],
@@ -394117,7 +394128,14 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "variant": "quat-town/market-2-b"
+   "variant": "quat-town/market-2-b",
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0052 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -394895,7 +394913,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-b",
-   "hash": "6c137ee29a",
+   "hash": "b994b801e3",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -394903,23 +394921,23 @@
     2.932,
     1.523
    ],
-   "tris": 2168,
-   "tpu": 172,
+   "tris": 2411,
+   "tpu": 191,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 134024,
-   "vtx": 3738,
+   "bytes": 144668,
+   "vtx": 4025,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.026,
-   "minWall": 0.0225,
+   "minWall": 0.0059,
    "thick": 0.1329,
-   "avgTri": 0.02703,
-   "anglePct": 69,
-   "pieces": 112,
-   "vpt": 1.72,
+   "avgTri": 0.0243,
+   "anglePct": 70,
+   "pieces": 94,
+   "vpt": 1.67,
    "cells": [
     "2,0",
     "0,0",
@@ -394941,9 +394959,9 @@
    "thickRel": 0.85,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0225 wants min 0.026"
+     "text": "G27 minWall 0.0059 wants min 0.006"
     }
    ]
   },
@@ -395072,34 +395090,34 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-b",
-   "hash": "6e7a3ab1c9",
+   "hash": "a814485a75",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     2.49,
     2.286,
-    1.82
+    1.81
    ],
-   "tris": 3622,
-   "tpu": 350,
+   "tris": 3462,
+   "tpu": 336,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 265416,
-   "vtx": 7570,
+   "bytes": 249096,
+   "vtx": 7090,
    "grounded": true,
    "minEdge": 0.003,
    "minTube": 0.0772,
-   "minWall": 0.0223,
-   "thick": 0.2163,
-   "avgTri": 0.01861,
-   "anglePct": 83,
-   "pieces": 125,
-   "vpt": 2.09,
+   "minWall": 0.0119,
+   "thick": 0.2164,
+   "avgTri": 0.01934,
+   "anglePct": 84,
+   "pieces": 120,
+   "vpt": 2.05,
    "cells": [
-    "8,0",
     "14,3",
     "2,0",
+    "8,0",
     "1,0"
    ],
    "colors": [
@@ -395122,7 +395140,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0223 wants min 0.026"
+     "text": "G27 minWall 0.0119 wants min 0.026"
     }
    ],
    "mark": [
@@ -395133,35 +395151,35 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-2-c",
-   "hash": "8221136a8f",
+   "hash": "b18222f4ae",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
     3.621,
     2.869,
-    1.844
+    1.834
    ],
-   "tris": 4652,
-   "tpu": 243,
+   "tris": 4495,
+   "tpu": 236,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 352648,
-   "vtx": 10103,
+   "bytes": 343096,
+   "vtx": 9834,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0,
-   "minWall": 0.0095,
-   "thick": 0.1797,
-   "avgTri": 0.02157,
-   "anglePct": 81,
-   "pieces": 184,
-   "vpt": 2.17,
+   "minWall": 0.0235,
+   "thick": 0.1803,
+   "avgTri": 0.0224,
+   "anglePct": 80,
+   "pieces": 183,
+   "vpt": 2.19,
    "cells": [
-    "8,0",
     "14,3",
     "2,0",
+    "8,0",
     "1,0"
    ],
    "colors": [
@@ -395179,12 +395197,12 @@
     "wood-dark"
    ],
    "variant": "quat-town/storage-2-c",
-   "thickRel": 1.14,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0095 wants min 0.026"
+     "text": "G27 minWall 0.0235 wants min 0.026"
     }
    ]
   },
@@ -395236,7 +395254,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "tower-house-2",
-   "hash": "db76ad004d",
+   "hash": "70c748bdce",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
