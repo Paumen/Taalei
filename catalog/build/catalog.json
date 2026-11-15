@@ -312574,7 +312574,7 @@
   {
    "kit": "m3-base",
    "name": "rope-twist-05",
-   "hash": "6d6d817b4b",
+   "hash": "5112199e45",
    "kind": "obj-equipment-tool-supplies-rope",
    "size": "s",
    "wdh": [
@@ -312582,8 +312582,8 @@
     0.028,
     0.138
    ],
-   "tris": 1378,
-   "tpu": 4017,
+   "tris": 1329,
+   "tpu": 3875,
    "mat": 1,
    "bands": 1,
    "calls": 1,
@@ -312596,9 +312596,9 @@
    "minWall": 0.0104,
    "thick": 0.3579,
    "avgTri": 0.00001,
-   "anglePct": 13,
+   "anglePct": 10,
    "pieces": 1,
-   "vpt": 1.32,
+   "vpt": 1.37,
    "cells": [
     "14,2"
    ],
@@ -380569,7 +380569,7 @@
   {
    "kit": "quat-shoot",
    "name": "barricade-junk",
-   "hash": "04988be2b7",
+   "hash": "6410fde4ba",
    "kind": "str-barrier-fence-temporary",
    "size": "l",
    "wdh": [
@@ -380577,8 +380577,8 @@
     0.477,
     0.913
    ],
-   "tris": 2980,
-   "tpu": 4185,
+   "tris": 2997,
+   "tpu": 4209,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -380588,12 +380588,12 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.026,
-   "minWall": 0.0066,
+   "minWall": 0.0065,
    "thick": 0.0902,
-   "avgTri": 0.00213,
+   "avgTri": 0.00216,
    "anglePct": 46,
    "pieces": 67,
-   "vpt": 2.1,
+   "vpt": 2.09,
    "cells": [
     "1,0",
     "13,3",
@@ -380616,17 +380616,6 @@
     "textile-cloth-mid",
     "wood-mid"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.013,
-     "view": "0/20",
-     "causes": {
-      "inverted": 0.55,
-      "other": 0.45
-     }
-    }
-   ],
    "thickRel": 1.34,
    "lint": [
     {
@@ -380635,14 +380624,9 @@
      "text": "high 0.913 over max 0.85 (str-barrier-fence)"
     },
     {
-     "level": "error",
-     "check": "backface",
-     "text": "1.3% of view 0/20 over 0.5%: inverted 55.0%, other 45.0%"
-    },
-    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0066 wants min 0.026"
+     "text": "G27 minWall 0.0065 wants min 0.026"
     }
    ]
   },
@@ -444017,7 +444001,7 @@
   {
    "kit": "swords-tember",
    "name": "cephalopod",
-   "hash": "ba3add808d",
+   "hash": "c870c399d5",
    "kind": "obj-equipment-weapon-melee-sword-curved",
    "size": "m",
    "wdh": [
@@ -444025,8 +444009,8 @@
     0.123,
     0.573
    ],
-   "tris": 2231,
-   "tpu": 6504,
+   "tris": 2239,
+   "tpu": 6528,
    "mat": 1,
    "bands": 5,
    "calls": 1,
@@ -444041,7 +444025,7 @@
    "avgTri": 0.00006,
    "anglePct": 7,
    "pieces": 10,
-   "vpt": 1.71,
+   "vpt": 1.7,
    "cells": [
     "8,0",
     "6,0",
@@ -444063,38 +444047,8 @@
     "metal-steel",
     "wood-dark"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0148,
-     "view": "180/50",
-     "causes": {
-      "inverted": 0.73,
-      "other": 0.27
-     }
-    },
-    {
-     "side": "below",
-     "share": 0.0823,
-     "view": "0/-89.9",
-     "causes": {
-      "inverted": 0.75,
-      "other": 0.25
-     }
-    }
-   ],
    "thickRel": 0.78,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.5% of view 180/50 over 0.5%: inverted 73.0%, other 27.0%"
-    },
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "8.2% of view 0/-89.9 over 5.0%: inverted 75.0%, other 25.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
