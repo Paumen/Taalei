@@ -60412,31 +60412,31 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "firewood-rack",
-   "hash": "4643fd7739",
+   "hash": "7e9ae28951",
    "kind": "obj-resource-wood-log",
    "size": "m",
    "wdh": [
     0.676,
-    0.292,
+    0.291,
     0.575
    ],
-   "tris": 2112,
-   "tpu": 6157,
+   "tris": 2031,
+   "tpu": 5921,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 103968,
-   "vtx": 2804,
+   "bytes": 97788,
+   "vtx": 2626,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0313,
-   "minWall": 0.0069,
-   "thick": 0.1282,
-   "avgTri": 0.00146,
+   "minWall": 0.0068,
+   "thick": 0.1286,
+   "avgTri": 0.00143,
    "anglePct": 25,
    "pieces": 29,
-   "vpt": 1.33,
+   "vpt": 1.29,
    "cells": [
     "2,0",
     "0,0",
@@ -60452,11 +60452,28 @@
     "plural",
     "wood-dark"
    ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0095,
+     "view": "0/20",
+     "causes": {
+      "inverted": 0.68,
+      "inside-out": 0.27,
+      "open": 0.05
+     }
+    }
+   ],
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.9% of view 0/20 over 0.5%: inverted 68.0%, inside-out 27.0%, open 5.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0069 wants min 0.026"
+     "text": "G27 minWall 0.0068 wants min 0.026"
     }
    ]
   },
@@ -201546,30 +201563,30 @@
   {
    "kit": "ken-food",
    "name": "pancakes",
-   "hash": "9b00e0b65a",
+   "hash": "02cbfca0e7",
    "kind": "obj-food-baked-pastry-pancake",
    "size": "s",
    "wdh": [
     0.195,
     0.226,
-    0.07
+    0.059
    ],
-   "tris": 4681,
-   "tpu": 13647,
+   "tris": 4302,
+   "tpu": 12542,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 143128,
-   "vtx": 3548,
+   "bytes": 123444,
+   "vtx": 3004,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minWall": 0.0145,
-   "thick": 0.1085,
-   "avgTri": 0.00004,
-   "anglePct": 58,
+   "thick": 0.1114,
+   "avgTri": 0.00003,
+   "anglePct": 61,
    "pieces": 6,
-   "vpt": 0.76,
+   "vpt": 0.7,
    "cells": [
     "1,0",
     "6,0",
@@ -201584,6 +201601,36 @@
     "ken",
     "plural",
     "special-food"
+   ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0024,
+     "view": "270/20",
+     "causes": {
+      "open": 1
+     }
+    },
+    {
+     "side": "below",
+     "share": 0.2335,
+     "view": "0/-89.9",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 270/20 over 0.2%: open 100.0%"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "23.4% of view 0/-89.9 over 5.0%: open 100.0%"
+    }
    ]
   },
   {
@@ -292751,31 +292798,28 @@
   {
    "kit": "m3-base",
    "name": "dragonfly-wings",
-   "hash": "7bf66c706f",
+   "hash": "4e662415bc",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
     0.14,
     0.042,
-    0.008
+    0
    ],
-   "tris": 842,
-   "tpu": 2455,
+   "tris": 272,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 39568,
-   "vtx": 1030,
+   "bytes": 10088,
+   "vtx": 216,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0132,
-   "minWall": 0.0077,
-   "thick": 0.1533,
+   "thick": 0.1122,
    "avgTri": 0.00001,
-   "anglePct": 67,
+   "anglePct": 100,
    "pieces": 4,
-   "vpt": 1.22,
+   "vpt": 0.79,
    "cells": [
     "4,2"
    ],
@@ -292785,6 +292829,23 @@
    "tags": [
     "comp",
     "m3"
+   ],
+   "backface": [
+    {
+     "side": "below",
+     "share": 1,
+     "view": "0/-89.9",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100.0% of view 0/-89.9 over 5.0%: open 100.0%"
+    }
    ]
   },
   {
@@ -332111,31 +332172,31 @@
   {
    "kit": "pm-store",
    "name": "rug",
-   "hash": "f89cdd016a",
+   "hash": "b124dfd008",
    "kind": "obj-furnishing-textile-rug",
    "size": "m",
    "wdh": [
-    0.265,
+    0.263,
     0.528,
     0.048
    ],
-   "tris": 345,
-   "tpu": 1006,
+   "tris": 242,
+   "tpu": 706,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 24956,
-   "vtx": 669,
+   "bytes": 17136,
+   "vtx": 444,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0127,
-   "minWall": 0.0065,
-   "thick": 0.0909,
-   "avgTri": 0.00164,
-   "anglePct": 48,
+   "minWall": 0.0075,
+   "thick": 0.0913,
+   "avgTri": 0.00184,
+   "anglePct": 58,
    "pieces": 3,
-   "vpt": 1.94,
+   "vpt": 1.83,
    "cells": [
     "8,0",
     "6,0"
@@ -332149,12 +332210,30 @@
     "textile-cloth-dark"
    ],
    "variant": "pm-store/rug",
-   "thickRel": 1.54,
+   "backface": [
+    {
+     "side": "below",
+     "share": 0.0672,
+     "view": "0/-89.9",
+     "causes": {
+      "inverted": 0.41,
+      "inside-out": 0.18,
+      "other": 0.3,
+      "open": 0.11
+     }
+    }
+   ],
+   "thickRel": 1.55,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "6.7% of view 0/-89.9 over 5.0%: inverted 41.0%, other 30.0%, inside-out 18.0%, open 11.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0065 wants min 0.012"
+     "text": "G27 minWall 0.0075 wants min 0.012"
     }
    ]
   },
@@ -366854,7 +366933,7 @@
   {
    "kit": "quat-pirate",
    "name": "pirate-captain",
-   "hash": "f97c9eb228",
+   "hash": "fee9933cbb",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -366862,13 +366941,13 @@
     0.536,
     0.62
    ],
-   "tris": 9892,
-   "tpu": 28840,
+   "tris": 9416,
+   "tpu": 27452,
    "mat": 1,
    "bands": 7,
    "calls": 3,
-   "bytes": 878920,
-   "vtx": 9984,
+   "bytes": 805492,
+   "vtx": 9179,
    "grounded": true,
    "minEdge": 0.001,
    "minTube": 0.0288,
@@ -366877,7 +366956,7 @@
    "avgTri": 0.00013,
    "anglePct": 2,
    "pieces": 20,
-   "vpt": 1.01,
+   "vpt": 0.97,
    "cells": [
     "6,1",
     "8,0",
@@ -366923,8 +367002,23 @@
     "Wave",
     "Yes"
    ],
+   "backface": [
+    {
+     "side": "below",
+     "share": 0.0705,
+     "view": "0/-89.9",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
    "thickRel": 0.89,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "7.0% of view 0/-89.9 over 5.0%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -385287,31 +385381,31 @@
   {
    "kit": "quat-space",
    "name": "stairs",
-   "hash": "0371add312",
+   "hash": "22d484d82b",
    "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
     0.412,
     0.685,
-    0.322
+    0.308
    ],
-   "tris": 249,
-   "tpu": 726,
+   "tris": 221,
+   "tpu": 644,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19704,
-   "vtx": 522,
+   "bytes": 17616,
+   "vtx": 462,
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
    "minTube": 0.0265,
    "minWall": 0.0165,
-   "thick": 0.0787,
-   "avgTri": 0.00422,
-   "anglePct": 94,
+   "thick": 0.0778,
+   "avgTri": 0.00416,
+   "anglePct": 98,
    "pieces": 13,
-   "vpt": 2.1,
+   "vpt": 2.09,
    "cells": [
     "15,3",
     "5,2"
@@ -385328,8 +385422,23 @@
     "space"
    ],
    "variant": "quat-space/ramp",
-   "thickRel": 1.23,
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0131,
+     "view": "180/50",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
+   "thickRel": 1.22,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.3% of view 180/50 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -443541,7 +443650,7 @@
   {
    "kit": "swords-tember",
    "name": "floral",
-   "hash": "eea9bcf2eb",
+   "hash": "9849f173ec",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -443549,23 +443658,23 @@
     0.073,
     0.646
    ],
-   "tris": 1973,
-   "tpu": 5752,
+   "tris": 1790,
+   "tpu": 5219,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 173788,
-   "vtx": 4643,
+   "bytes": 158984,
+   "vtx": 4249,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0125,
    "minWall": 0,
-   "thick": 0.1676,
+   "thick": 0.1662,
    "avgTri": 0.00007,
-   "anglePct": 7,
+   "anglePct": 8,
    "pieces": 42,
-   "vpt": 2.35,
+   "vpt": 2.37,
    "cells": [
     "15,3",
     "3,1",
@@ -443584,22 +443693,35 @@
    ],
    "backface": [
     {
+     "side": "above",
+     "share": 0.0033,
+     "view": "90/20",
+     "causes": {
+      "inverted": 0.66,
+      "other": 0.34
+     }
+    },
+    {
      "side": "below",
-     "share": 0.0289,
+     "share": 0.0545,
      "view": "0/-89.9",
      "causes": {
-      "inside-out": 0.37,
-      "inverted": 0.47,
-      "other": 0.16
+      "inverted": 0.72,
+      "other": 0.28
      }
     }
    ],
-   "thickRel": 1.15,
+   "thickRel": 1.14,
    "lint": [
     {
      "level": "warning",
      "check": "backface",
-     "text": "2.9% of view 0/-89.9 over 0.5%: inverted 47.0%, inside-out 37.0%, other 16.0%"
+     "text": "0.3% of view 90/20 over 0.2%: inverted 66.0%, other 34.0%"
+    },
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "5.5% of view 0/-89.9 over 5.0%: inverted 72.0%, other 28.0%"
     }
    ]
   },
