@@ -2,6 +2,7 @@ import { renderTagEditor, effectiveKind } from './tag-edits.js?v=6b031f2bd9';
 import { makeChipStrip, layoutChips, syncChips, showChipState as showState, chipName, nextState } from './chiprij.js?v=50bdb27530';
 import { colorSwatches, setBands } from './color-edits.js?v=06777eaf97';
 import { renderCommentBox } from './comments.js?v=99a5550112';
+import { isFlagged } from './flags.js?v=c1424a703a';
 import { mountExtractBar, setPageParts, downloadExtract } from './extract.js?v=0794733140';
 import { stamped } from './stamps.js?v=04e3ee3113';
 import {
@@ -198,7 +199,8 @@ const valuesOf = {
 };
 
 function matches(model) {
-  const { search } = state.filters;
+  const { search, flagged } = state.filters;
+  if (flagged && !isFlagged(model.id)) return false;
   for (const field of FILTER_FIELDS) {
     if (!passes(valuesOf[field](model), state.filters[field] ?? {}, { all: !ANY_FIELDS.has(field) && field !== 'kinds', tree: field === 'kinds' })) return false;
   }
@@ -258,6 +260,7 @@ function setupFilters() {
     search: el('#zoek').value.trim(),
     ...Object.fromEntries(FILTER_FIELDS.map((f) => [f, { ...draft[f] }])),
     shuffle: el('#schud').checked,
+    flagged: el('#gevlagd').checked,
   };
 }
 
@@ -427,6 +430,7 @@ function fillSetup() {
   for (const button of colorButtons) showState(button, draft.colors[button.dataset.hex]);
   el('#zoek').value = state.filters.search;
   el('#schud').checked = state.filters.shuffle;
+  el('#gevlagd').checked = Boolean(state.filters.flagged);
   el('#zes').checked = state.six;
   showSix(state.six);
   for (const direction of DIRECTIONS) el(`#label-${direction.id}`).value = state.labels[direction.id];
@@ -998,6 +1002,7 @@ async function start() {
   el('#opzet-wis').addEventListener('click', () => {
     for (const field of FILTER_FIELDS) draft[field] = {};
     el('#zoek').value = '';
+    el('#gevlagd').checked = false;
     for (const button of colorButtons) showState(button, undefined);
     syncFilterChips();
     setupCount();

@@ -40,6 +40,14 @@
       </svg>
     </button>
 
+    <button class="icoon-knop" id="gevlagd" type="button" aria-pressed="false" aria-label="Flagged"
+            title="Flagged — show only the models you flagged in this browser">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 21V4"/>
+        <path d="M6 4h11l-2 4 2 4H6"/>
+      </svg>
+    </button>
+
     <button class="icoon-knop" id="filterpaneel" type="button" aria-pressed="false" aria-expanded="false" aria-label="Filters"
             title="Filters — show the lint, check, artist and theme filters as well">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -158,6 +166,7 @@
     <div class="detail-keuze detail-keuze-verticaal" id="detail-opmerking"></div>
     <div class="detail-acties">
       <button id="detail-kopieer">Copy path</button>
+      <button id="detail-vlag" aria-pressed="false">Flag</button>
       <button id="detail-selecteer" aria-pressed="false">Add to selection</button>
       <a id="detail-download" download>Download .glb</a>
     </div>
@@ -180,5 +189,5 @@
 </div>
 
 <script src="catalog/app/vendor/model-viewer.min.js" type="module"></script>
-<script src="catalog/app/catalog.js?v=32872a1bfb" type="module"></script></body>
+<script src="catalog/app/catalog.js?v=6e3a652040" type="module"></script></body>
 </html>

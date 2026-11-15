@@ -5,6 +5,7 @@ import {
 } from './chiprij.js?v=50bdb27530';
 import { colorSwatches, setBands } from './color-edits.js?v=06777eaf97';
 import { renderCommentBox, hasComment, onChange as onComment } from './comments.js?v=99a5550112';
+import { isFlagged, setFlag, onChange as onFlag } from './flags.js?v=c1424a703a';
 import { mountExtractBar, setPageParts } from './extract.js?v=0794733140';
 import { stamped, withHash } from './stamps.js?v=04e3ee3113';
 import {
@@ -62,6 +63,8 @@ let filtersOpen = false;
 let swipe = null;
 let refreshExtract = () => {};
 let commentDirty = false;
+let flaggedOnly = false;
+let activeId = '';
 
 const colorState = new Map();
 let colorKeys = [];
@@ -125,6 +128,9 @@ function makeCard(model, kits, variants = []) {
   if (levels.length) {
     glyphs.append(glyph(levels.includes('error') ? 'lint-fout' : 'lint-waarschuwing', '⚠',
       model.lint.map(lintText).join('\n')));
+  }
+  if (isFlagged(model.id)) {
+    glyphs.append(glyph('vlag', '⚑', 'Flagged — unflag it in the model panel'));
   }
   if (hasComment(model)) {
     glyphs.append(glyph('opmerking', '✎', 'Carries a comment — read it in the model panel'));
@@ -539,6 +545,8 @@ function fillFacts(lines) {
 function showDetail(model) {
   const kit = register.kits.get(model.group);
   activePath = model.path;
+  activeId = model.id;
+  showFlag();
   document.querySelector('#detail-naam').textContent = model.name;
   document.querySelector('#detail-herkomst').textContent = kit?.name ?? model.group;
 
@@ -742,6 +750,23 @@ detail.addEventListener('close', () => {
   refresh();
 });
 
+const detailFlag = document.querySelector('#detail-vlag');
+
+function showFlag() {
+  const on = isFlagged(activeId);
+  detailFlag.textContent = on ? 'Unflag' : 'Flag';
+  detailFlag.setAttribute('aria-pressed', String(on));
+}
+
+detailFlag.addEventListener('click', () => setFlag(activeId, !isFlagged(activeId)));
+
+onFlag(() => {
+  if (detail.open) {
+    showFlag();
+    commentDirty = true;
+  } else refresh();
+});
+
 onComment(() => {
   refreshExtract();
   if (detail.open) commentDirty = true;
@@ -907,6 +932,7 @@ function modelFilter() {
   const kindHit = (own) =>
     (!deepest.length || own.some((k) => deepest.includes(k))) && !own.some((k) => notKinds.includes(k));
   return (model) =>
+    (!flaggedOnly || isFlagged(model.id)) &&
     matches(model.colors ?? [], colorState, { any: colorKeys }) &&
     kindHit(model.kind ? kindChain(model.kind) : [WITHOUT]) &&
     matches(withParents(model.tags ?? []), tagState) &&
@@ -986,6 +1012,13 @@ async function start() {
     selectMode = !selectMode;
     selectButton.setAttribute('aria-pressed', String(selectMode));
     document.body.classList.toggle('kiesmodus', selectMode);
+  });
+
+  const flagButton = document.querySelector('#gevlagd');
+  flagButton.addEventListener('click', () => {
+    flaggedOnly = !flaggedOnly;
+    flagButton.setAttribute('aria-pressed', String(flaggedOnly));
+    filter();
   });
 
   const filterButton = document.querySelector('#filterpaneel');
