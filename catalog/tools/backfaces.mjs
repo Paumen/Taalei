@@ -24,7 +24,7 @@ const value = (name, fallback) => {
 if (flag('--help') || flag('-h')) {
   console.log(`backfaces.mjs [--kit slug] [--force] [--jobs n]
 Renders every workfile from ${VIEWS.length - 1} views above the horizon and one from below and records, per model,
-the largest share of its silhouette that shows back faces in one view (and, under
+the share of its silhouette that shows back faces in every view, the largest one (and, under
 "above", the same without the view from below when that differs), and why
 those faces show: doubled (two copies of one face turned opposite ways,
 which flicker), inverted (wound against its normals, its neighbours, or facing
@@ -248,6 +248,7 @@ window.measure = async (url) => {
   const distance = radius / Math.sin((fov / 2) * Math.PI / 180) * 1.05;
   const seen = new Map(), seenAbove = new Map();
   let worst = { share: 0, view: null }, worstAbove = { share: 0, view: null };
+  const perView = {};
   for (const [az, el] of ${JSON.stringify(VIEWS)}) {
     const a = az * Math.PI / 180, e = el * Math.PI / 180;
     camera.position.set(centre.x + distance * Math.cos(e) * Math.sin(a), centre.y + distance * Math.sin(e),
@@ -273,6 +274,7 @@ window.measure = async (url) => {
       if (above) seenAbove.set(id - 1, (seenAbove.get(id - 1) ?? 0) + 1);
     }
     const share = fill ? back / fill : 0;
+    if (share >= 1e-4) perView[az + '/' + el] = Math.round(share * 1e4) / 1e4;
     if (share > worst.share) worst = { share, view: az + '/' + el };
     if (above && share > worstAbove.share) worstAbove = { share, view: az + '/' + el };
   }
@@ -291,7 +293,8 @@ window.measure = async (url) => {
   };
   const all = summary(seen, worst), top = summary(seenAbove, worstAbove);
   gltf.scene.traverse((o) => { if (o.isMesh) o.geometry.dispose(); });
-  return top.share === all.share ? all : { ...all, above: top };
+  const views = Object.keys(perView).length ? { views: perView } : {};
+  return top.share === all.share ? { ...all, ...views } : { ...all, above: top, ...views };
 };
 window.ready = true;
 </script>`;
