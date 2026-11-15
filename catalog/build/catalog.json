@@ -338318,8 +338318,23 @@
     "skin",
     "textile-cloth-dark"
    ],
+   "backface": [
+    {
+     "side": "below",
+     "share": 0.1048,
+     "view": "0/-89.9",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
    "thickRel": 1.23,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "10.5% of view 0/-89.9 over 5.0%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -385767,8 +385782,23 @@
     "space"
    ],
    "variant": "quat-space/ramp",
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0131,
+     "view": "180/50",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
    "thickRel": 1.22,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.3% of view 180/50 over 0.5%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -434179,7 +434209,26 @@
     "wood-mid"
    ],
    "variant": "styloo-guns/rocket-launcher",
-   "thickRel": 0.86
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0155,
+     "view": "270/20",
+     "causes": {
+      "doubled": 0.94,
+      "inverted": 0.04,
+      "other": 0.02
+     }
+    }
+   ],
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.6% of view 270/20 over 0.5%: doubled 94.0%, inverted 4.0%, other 2.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-guns",
@@ -434234,7 +434283,7 @@
    "kit": "styloo-guns",
    "collection": "styloo-weapons",
    "name": "rocket-launcher",
-   "hash": "64547ffd1d",
+   "hash": "0e0b515bf4",
    "kind": "obj-equipment-weapon-ranged-launcher",
    "size": "m",
    "wdh": [
@@ -434242,8 +434291,8 @@
     0.083,
     0.193
    ],
-   "tris": 2082,
-   "tpu": 6070,
+   "tris": 2081,
+   "tpu": 6067,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -434280,7 +434329,27 @@
     "wood-mid"
    ],
    "variant": "styloo-guns/rocket-launcher",
-   "thickRel": 0.86
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0098,
+     "view": "270/20",
+     "causes": {
+      "doubled": 0.89,
+      "inverted": 0.06,
+      "other": 0.04,
+      "open": 0.01
+     }
+    }
+   ],
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "1.0% of view 270/20 over 0.5%: doubled 89.0%, inverted 6.0%, other 4.0%, open 1.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-guns",
