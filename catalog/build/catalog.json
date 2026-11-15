@@ -73084,7 +73084,7 @@
   {
    "kit": "food-pack-2",
    "name": "strawberry",
-   "hash": "0200ca6c49",
+   "hash": "ae095989a1",
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
@@ -73092,22 +73092,22 @@
     0.049,
     0.051
    ],
-   "tris": 666,
-   "tpu": 1942,
+   "tris": 638,
+   "tpu": 1860,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27860,
-   "vtx": 702,
+   "bytes": 25484,
+   "vtx": 633,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minWall": 0,
-   "thick": 0.2179,
+   "thick": 0.2173,
    "avgTri": 0.00002,
    "anglePct": 6,
    "pieces": 5,
-   "vpt": 1.05,
+   "vpt": 0.99,
    "cells": [
     "8,0",
     "3,1"
@@ -73123,19 +73123,20 @@
    "backface": [
     {
      "side": "above",
-     "share": 0.0033,
-     "view": "180/20",
+     "share": 0.0052,
+     "view": "45/20",
      "causes": {
-      "open": 1
+      "open": 0.85,
+      "doubled": 0.15
      }
     }
    ],
-   "thickRel": 0.91,
+   "thickRel": 0.9,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "backface",
-     "text": "0.3% of view 180/20 over 0.2%: open 100.0%"
+     "text": "0.5% of view 45/20 over 0.5%: open 85.0%, doubled 15.0%"
     }
    ]
   },
