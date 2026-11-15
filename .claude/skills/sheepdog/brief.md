@@ -60,7 +60,7 @@ the run dir. Tools, all in place:
 | `tools/import/fold-material.mjs --material <name> --to <band>` | folds a stray material into the colormap |
 | `tools/import/glass-uv.mjs` | gives each glass piece one soft stripe |
 | `tools/import/upright.mjs [--up] [--front]` | turns, grounds and centres |
-| `tools/import/backface-fix.mjs` | flips and caps back faces, at most 11 triangles |
+| `tools/import/backface-fix.mjs` | flips, caps and backs faces seen from behind |
 | `tools/import/scale.mjs --by <factor> <file>` | resizes one model |
 | `tools/detail/slim.mjs` | cuts triangles by dropping, thinning or swapping parts; see `.claude/skills/lod/SKILL.md` |
 | `tools/import/end-grain.mjs [--up] [--to <band>]` | gives cut log ends growth rings |

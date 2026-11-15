@@ -23,9 +23,9 @@ place with `tools/import/upright.mjs`, which also grounds and centres it.
 A kit's size is set in place with `tools/import/scale.mjs --to` (or `--by` for a kit
 with per-model factors), which writes it into the geometry.
 Back faces (`G28`) are repaired in place with `tools/import/backface-fix.mjs`: it
-flips faces and caps open outlines, adding at most 11 triangles to a model. Measure
-again with `catalog/tools/backfaces.mjs` and put back every model whose share did
-not drop.
+removes or parts doubled faces, flips faces seen only from behind, caps flat holes
+and gives one-sided faces a back side. Measure again with `catalog/tools/backfaces.mjs`,
+run the other lints and render, and put back every model that did not get better.
 
 ## 1. Is the source pack already in the repo?
 
