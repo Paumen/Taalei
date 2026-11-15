@@ -2136,8 +2136,8 @@
     "0.7541": 1
    },
    "smooth": {
-    "smooth": 188,
-    "none": 39
+    "smooth": 190,
+    "none": 37
    },
    "members": [
     {
@@ -2163,8 +2163,7 @@
       "1.185": 1
      },
      "smooth": {
-      "smooth": 16,
-      "none": 1
+      "smooth": 17
      }
     },
     {
@@ -2257,8 +2256,8 @@
       "1.0890306": 2
      },
      "smooth": {
-      "smooth": 25,
-      "none": 3
+      "smooth": 26,
+      "none": 2
      }
     },
     {
@@ -38144,7 +38143,7 @@
     "plastic",
     "textile-cloth-light"
    ],
-   "thickRel": 0.8,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "warning",
@@ -49129,7 +49128,7 @@
    "kit": "avra-weapons",
    "collection": "avra",
    "name": "arming-sword",
-   "hash": "f650e590ff",
+   "hash": "bb4128818d",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -49137,13 +49136,13 @@
     0.061,
     0.597
    ],
-   "tris": 708,
-   "tpu": 2064,
+   "tris": 716,
+   "tpu": 2087,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 37968,
-   "vtx": 1006,
+   "bytes": 38656,
+   "vtx": 1026,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
@@ -49151,9 +49150,9 @@
    "minWall": 0.0067,
    "thick": 0.1343,
    "avgTri": 0.00014,
-   "anglePct": 27,
+   "anglePct": 28,
    "pieces": 11,
-   "vpt": 1.42,
+   "vpt": 1.43,
    "cells": [
     "15,3",
     "13,3",
@@ -49172,23 +49171,8 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0096,
-     "view": "0/50",
-     "causes": {
-      "doubled": 1
-     }
-    }
-   ],
    "thickRel": 0.92,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.0% of view 0/50 over 0.5%: doubled 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -98464,7 +98448,7 @@
   {
    "kit": "household",
    "name": "stepladder",
-   "hash": "6f2a9d8918",
+   "hash": "1b64b1ec2c",
    "kind": "str-access-ladder-steel",
    "size": "m",
    "wdh": [
@@ -98472,23 +98456,23 @@
     0.34,
     1.075
    ],
-   "tris": 400,
-   "tpu": 759,
+   "tris": 514,
+   "tpu": 976,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 26004,
-   "vtx": 692,
+   "bytes": 34240,
+   "vtx": 928,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0308,
-   "minWall": 0.0293,
+   "minWall": 0.007,
    "thick": 0.0758,
-   "avgTri": 0.00379,
-   "anglePct": 49,
+   "avgTri": 0.00345,
+   "anglePct": 46,
    "pieces": 59,
-   "vpt": 1.73,
+   "vpt": 1.81,
    "cells": [
     "15,3"
    ],
@@ -98516,6 +98500,11 @@
      "level": "error",
      "check": "backface",
      "text": "1.0% of view 270/20 over 0.5%: open 100.0%"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.007 wants min 0.026"
     }
    ]
   },
@@ -112096,7 +112085,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-modular-window-large-a",
-   "hash": "d48c7e0b58",
+   "hash": "a49fa2e678",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -112104,22 +112093,22 @@
     0.063,
     1.01
    ],
-   "tris": 441,
-   "tpu": 891,
+   "tris": 453,
+   "tpu": 915,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 32460,
-   "vtx": 885,
+   "bytes": 33492,
+   "vtx": 915,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
-   "minWall": 0.0121,
+   "minWall": 0.0079,
    "thick": 0.0885,
-   "avgTri": 0.00249,
+   "avgTri": 0.00246,
    "anglePct": 83,
    "pieces": 1,
-   "vpt": 2.01,
+   "vpt": 2.02,
    "cells": [
     "14,3",
     "5,2"
@@ -112135,23 +112124,12 @@
     "stone-masonry-light"
    ],
    "variant": "isa-kitchen/wall-tiles-window-small",
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0091,
-     "view": "0/20",
-     "causes": {
-      "doubled": 0.85,
-      "open": 0.15
-     }
-    }
-   ],
    "thickRel": 0.88,
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "0.9% of view 0/20 over 0.5%: doubled 85.0%, open 15.0%"
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0079 wants min 0.012"
     }
    ]
   },
@@ -177303,21 +177281,21 @@
    "kit": "kay-spook",
    "collection": "kay-undead",
    "name": "branches",
-   "hash": "bc706fa42f",
+   "hash": "d7104aa397",
    "kind": "env-remains-deadwood-branch",
    "size": "m",
    "wdh": [
     0.645,
     0.653,
-    0.157
+    0.165
    ],
-   "tris": 496,
-   "tpu": 1446,
+   "tris": 508,
+   "tpu": 1481,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 20836,
-   "vtx": 514,
+   "bytes": 21868,
+   "vtx": 544,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -177327,7 +177305,7 @@
    "avgTri": 0.00018,
    "anglePct": 6,
    "pieces": 8,
-   "vpt": 1.04,
+   "vpt": 1.07,
    "cells": [
     "3,0"
    ],
@@ -177340,36 +177318,6 @@
     "halloween",
     "kay",
     "plural"
-   ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0086,
-     "view": "225/50",
-     "causes": {
-      "doubled": 1
-     }
-    },
-    {
-     "side": "below",
-     "share": 0.01,
-     "view": "0/-89.9",
-     "causes": {
-      "doubled": 1
-     }
-    }
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "0.9% of view 225/50 over 0.5%: doubled 100.0%"
-    },
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "1.0% of view 0/-89.9 over 0.5%: doubled 100.0%"
-    }
    ]
   },
   {
@@ -183161,31 +183109,31 @@
    "kit": "ken-arcade",
    "collection": "ken-mini",
    "name": "floor",
-   "hash": "84e690c084",
+   "hash": "bee65a86fb",
    "kind": "str-part-floor-unit-tiled",
    "size": "m",
    "wdh": [
     0.997,
     0.997,
-    0.053
+    0.057
    ],
-   "tris": 26,
-   "tpu": 37,
+   "tris": 76,
+   "tpu": 109,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 3212,
-   "vtx": 50,
+   "bytes": 7568,
+   "vtx": 176,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
-   "minWall": 0.4985,
+   "minEdge": 0.007,
+   "minWall": 0.0069,
    "thick": 0.0452,
-   "avgTri": 0.08413,
-   "anglePct": 100,
+   "avgTri": 0.05814,
+   "anglePct": 99,
    "pieces": 2,
-   "vpt": 1.92,
+   "vpt": 2.32,
    "cells": [
     "14,3",
     "12,3"
@@ -183200,22 +183148,12 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0103,
-     "view": "45/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 0.93,
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "1.0% of view 45/20 over 0.5%: open 100.0%"
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0069 wants min 0.026"
     }
    ]
   },
@@ -191792,7 +191730,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-commercial/parasol-table-a",
-   "thickRel": 1.09,
+   "thickRel": 1.05,
    "lint": [
     {
      "level": "warning",
@@ -191849,7 +191787,7 @@
     "plastic"
    ],
    "variant": "ken-commercial/parasol-table-a",
-   "thickRel": 0.97,
+   "thickRel": 0.93,
    "lint": [
     {
      "level": "warning",
@@ -217946,31 +217884,31 @@
    "kit": "ken-market",
    "collection": "ken-mini",
    "name": "floor-tiles",
-   "hash": "c138a739ab",
+   "hash": "cba5a151ae",
    "kind": "str-part-floor-unit-tiled",
    "size": "m",
    "wdh": [
     0.997,
     0.997,
-    0.053
+    0.057
    ],
-   "tris": 26,
-   "tpu": 37,
+   "tris": 76,
+   "tpu": 109,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3224,
-   "vtx": 50,
+   "bytes": 7580,
+   "vtx": 176,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.05,
-   "minWall": 0.4985,
+   "minEdge": 0.007,
+   "minWall": 0.0069,
    "thick": 0.0452,
-   "avgTri": 0.08413,
-   "anglePct": 100,
+   "avgTri": 0.05814,
+   "anglePct": 99,
    "pieces": 2,
-   "vpt": 1.92,
+   "vpt": 2.32,
    "cells": [
     "5,2"
    ],
@@ -217982,22 +217920,12 @@
     "grid-1x1",
     "ken"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0103,
-     "view": "45/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 0.93,
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "1.0% of view 45/20 over 0.5%: open 100.0%"
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0069 wants min 0.026"
     }
    ]
   },
@@ -219157,31 +219085,31 @@
    "kit": "ken-mini-dun",
    "collection": "ken-mini",
    "name": "floor-detail",
-   "hash": "39319e2397",
+   "hash": "e0b0acb8d7",
    "kind": "str-part-floor-unit-stone",
    "size": "m",
    "wdh": [
     0.997,
     0.997,
-    0.053
+    0.059
    ],
-   "tris": 128,
-   "tpu": 184,
+   "tris": 196,
+   "tpu": 282,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13592,
-   "vtx": 356,
+   "bytes": 19036,
+   "vtx": 512,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.015,
-   "minWall": 0.0498,
-   "thick": 0.0347,
-   "avgTri": 0.01966,
-   "anglePct": 95,
+   "minEdge": 0.009,
+   "minWall": 0.0062,
+   "thick": 0.0361,
+   "avgTri": 0.02408,
+   "anglePct": 97,
    "pieces": 15,
-   "vpt": 2.78,
+   "vpt": 2.61,
    "cells": [
     "14,3"
    ],
@@ -219193,22 +219121,12 @@
     "ken",
     "stone-masonry-mid"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0109,
-     "view": "45/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 0.56,
+   "thickRel": 0.59,
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "1.1% of view 45/20 over 0.5%: open 100.0%"
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0062 wants min 0.012"
     }
    ]
   },
@@ -234148,31 +234066,31 @@
   {
    "kit": "ken-racing",
    "name": "tent-roof-double",
-   "hash": "fa3660175c",
+   "hash": "2eec258d6c",
    "kind": "str-canopy-gazebo",
    "size": "l",
    "wdh": [
-    1.654,
-    1.461,
-    0.936
+    1.656,
+    1.476,
+    0.938
    ],
-   "tris": 204,
-   "tpu": 90,
+   "tris": 596,
+   "tpu": 260,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13772,
-   "vtx": 344,
+   "bytes": 47752,
+   "vtx": 1332,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minTube": 0.0319,
-   "minWall": 0.0068,
-   "thick": 0.087,
-   "avgTri": 0.0384,
-   "anglePct": 34,
+   "minEdge": 0.002,
+   "minTube": 0.0323,
+   "minWall": 0.0061,
+   "thick": 0.0932,
+   "avgTri": 0.02629,
+   "anglePct": 31,
    "pieces": 4,
-   "vpt": 1.69,
+   "vpt": 2.23,
    "cells": [
     "5,2",
     "15,3"
@@ -234187,27 +234105,12 @@
     "textile-cloth-light"
    ],
    "variant": "ken-racing/tent-roof",
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.009,
-     "view": "0/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 0.85,
+   "thickRel": 0.91,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "0.9% of view 0/20 over 0.5%: open 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0068 wants min 0.026"
+     "text": "G27 minWall 0.0061 wants min 0.026"
     }
    ]
   },
@@ -331996,29 +331899,30 @@
   {
    "kit": "pm-store",
    "name": "ground-garden",
-   "hash": "a4eb1e3b99",
+   "hash": "829516c54e",
    "kind": "env-terrain-ground-field",
    "size": "l",
    "wdh": [
     2.098,
     2.098,
-    0.02
+    0.021
    ],
-   "tris": 751,
-   "tpu": 244,
+   "tris": 1904,
+   "tpu": 618,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34200,
-   "vtx": 882,
+   "bytes": 138948,
+   "vtx": 3939,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
+   "minEdge": 0.007,
+   "minWall": 0.0069,
    "thick": 0.0333,
-   "avgTri": 0.01623,
+   "avgTri": 0.01291,
    "anglePct": 97,
    "pieces": 7,
-   "vpt": 1.17,
+   "vpt": 2.07,
    "cells": [
     "3,1",
     "12,3"
@@ -332032,23 +331936,12 @@
     "leaf-light",
     "pm"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.016,
-     "view": "0/20",
-     "causes": {
-      "open": 1,
-      "inverted": 0
-     }
-    }
-   ],
    "thickRel": 0.59,
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "1.6% of view 0/20 over 0.5%: open 100.0%"
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0069 wants min 0.026"
     }
    ]
   },
@@ -338379,7 +338272,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "zombie-half",
-   "hash": "619a86e459",
+   "hash": "a923c40564",
    "kind": "char-undead",
    "size": "s",
    "wdh": [
@@ -338387,22 +338280,22 @@
     0.188,
     0.472
    ],
-   "tris": 1744,
-   "tpu": 5085,
+   "tris": 1803,
+   "tpu": 5257,
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 53500,
-   "vtx": 1298,
+   "bytes": 55904,
+   "vtx": 1362,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minWall": 0.0115,
-   "thick": 0.1659,
-   "avgTri": 0.00018,
+   "thick": 0.1662,
+   "avgTri": 0.00019,
    "anglePct": 6,
    "pieces": 6,
-   "vpt": 0.74,
+   "vpt": 0.76,
    "cells": [
     "3,1",
     "8,0",
@@ -338425,23 +338318,8 @@
     "skin",
     "textile-cloth-dark"
    ],
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.1048,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 1.23,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "10.5% of view 0/-89.9 over 5.0%: open 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -379672,7 +379550,7 @@
   {
    "kit": "quat-scifi-mod",
    "name": "pipes",
-   "hash": "e997a5ef21",
+   "hash": "27d876c2cb",
    "kind": "str-fixture-utility-pipe",
    "size": "m",
    "wdh": [
@@ -379680,23 +379558,23 @@
     0.143,
     0.415
    ],
-   "tris": 404,
-   "tpu": 1178,
+   "tris": 824,
+   "tpu": 2402,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 28244,
-   "vtx": 684,
+   "bytes": 65932,
+   "vtx": 1704,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
+   "minEdge": 0.004,
    "minTube": 0.0261,
-   "minWall": 0.0168,
+   "minWall": 0.0101,
    "thick": 0.1335,
-   "avgTri": 0.00329,
-   "anglePct": 26,
+   "avgTri": 0.00196,
+   "anglePct": 23,
    "pieces": 13,
-   "vpt": 1.69,
+   "vpt": 2.07,
    "cells": [
     "6,1"
    ],
@@ -379710,34 +379588,19 @@
     "qua",
     "space"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0144,
-     "view": "90/50",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 2.04,
    "lint": [
     {
-     "level": "error",
-     "check": "backface",
-     "text": "1.4% of view 90/50 over 0.5%: open 100.0%"
-    },
-    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0168 wants min 0.026"
+     "text": "G27 minWall 0.0101 wants min 0.026"
     }
    ]
   },
   {
    "kit": "quat-scifi-mod",
    "name": "pod",
-   "hash": "b67109c66b",
+   "hash": "b8da2c46a7",
    "kind": "str-fixture-machinery",
    "size": "m",
    "wdh": [
@@ -379745,22 +379608,22 @@
     0.615,
     1.228
    ],
-   "tris": 2246,
-   "tpu": 3733,
+   "tris": 2330,
+   "tpu": 3872,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 99808,
-   "vtx": 2651,
+   "bytes": 103924,
+   "vtx": 2763,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minWall": 0.0093,
    "thick": 0.2317,
-   "avgTri": 0.00211,
-   "anglePct": 44,
+   "avgTri": 0.00226,
+   "anglePct": 50,
    "pieces": 21,
-   "vpt": 1.18,
+   "vpt": 1.19,
    "cells": [
     "15,3",
     "6,1",
@@ -379785,8 +379648,8 @@
      "share": 0.0148,
      "view": "315/50",
      "causes": {
-      "open": 0.54,
-      "inverted": 0.46
+      "inverted": 1,
+      "other": 0
      }
     }
    ],
@@ -379795,7 +379658,7 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "1.5% of view 315/50 over 0.5%: open 54.0%, inverted 46.0%"
+     "text": "1.5% of view 315/50 over 0.5%: inverted 100.0%"
     },
     {
      "level": "warning",
@@ -385863,7 +385726,7 @@
   {
    "kit": "quat-space",
    "name": "stairs",
-   "hash": "22d484d82b",
+   "hash": "b8fd744a7b",
    "kind": "str-access-stairs-open",
    "size": "m",
    "wdh": [
@@ -385871,23 +385734,23 @@
     0.685,
     0.308
    ],
-   "tris": 221,
-   "tpu": 644,
+   "tris": 424,
+   "tpu": 1236,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 17616,
-   "vtx": 462,
+   "bytes": 34292,
+   "vtx": 945,
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
    "minTube": 0.0265,
-   "minWall": 0.0165,
-   "thick": 0.0778,
-   "avgTri": 0.00416,
-   "anglePct": 98,
+   "minWall": 0.007,
+   "thick": 0.0795,
+   "avgTri": 0.00359,
+   "anglePct": 89,
    "pieces": 13,
-   "vpt": 2.09,
+   "vpt": 2.23,
    "cells": [
     "15,3",
     "5,2"
@@ -385904,27 +385767,12 @@
     "space"
    ],
    "variant": "quat-space/ramp",
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0131,
-     "view": "180/50",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 1.22,
+   "thickRel": 1.24,
    "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.3% of view 180/50 over 0.5%: open 100.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0165 wants min 0.026"
+     "text": "G27 minWall 0.007 wants min 0.026"
     }
    ]
   },
@@ -392357,7 +392205,7 @@
   {
    "kit": "quat-textured",
    "name": "sign-barbershop",
-   "hash": "3229dcd895",
+   "hash": "19708b866e",
    "kind": "str-fixture-marker-sign-lettering",
    "size": "l",
    "wdh": [
@@ -392365,23 +392213,23 @@
     0.039,
     0.173
    ],
-   "tris": 1206,
-   "tpu": 3516,
+   "tris": 1308,
+   "tpu": 3813,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 60716,
-   "vtx": 1622,
+   "bytes": 71004,
+   "vtx": 1924,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0549,
-   "minWall": 0.0064,
-   "thick": 0.3297,
-   "avgTri": 0.0005,
-   "anglePct": 68,
+   "minWall": 0.006,
+   "thick": 0.3296,
+   "avgTri": 0.00051,
+   "anglePct": 65,
    "pieces": 11,
-   "vpt": 1.34,
+   "vpt": 1.47,
    "cells": [
     "13,3"
    ],
@@ -392394,23 +392242,6 @@
     "mounted",
     "plastic",
     "qua"
-   ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0132,
-     "view": "180/50",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "backface",
-     "text": "1.3% of view 180/50 over 0.5%: open 100.0%"
-    }
    ]
   },
   {
@@ -392750,7 +392581,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "archery-2-a",
-   "hash": "bbeb2a46f9",
+   "hash": "61c36f4334",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -392758,8 +392589,8 @@
     2.002,
     2.498
    ],
-   "tris": 4780,
-   "tpu": 346,
+   "tris": 4762,
+   "tpu": 345,
    "mat": 1,
    "bands": 4,
    "calls": 1,
@@ -392772,10 +392603,10 @@
    "minTube": 0.009,
    "minWall": 0.0094,
    "thick": 0.0899,
-   "avgTri": 0.00991,
-   "anglePct": 83,
+   "avgTri": 0.00993,
+   "anglePct": 84,
    "pieces": 348,
-   "vpt": 1.83,
+   "vpt": 1.84,
    "cells": [
     "2,0",
     "14,3",
@@ -392802,11 +392633,11 @@
    "backface": [
     {
      "side": "above",
-     "share": 0.0139,
-     "view": "90/50",
+     "share": 0.0058,
+     "view": "45/20",
      "causes": {
-      "doubled": 0.92,
-      "open": 0.08
+      "open": 0.99,
+      "doubled": 0.01
      }
     }
    ],
@@ -392815,7 +392646,7 @@
     {
      "level": "error",
      "check": "backface",
-     "text": "1.4% of view 90/50 over 0.5%: doubled 92.0%, open 8.0%"
+     "text": "0.6% of view 45/20 over 0.5%: open 99.0%, doubled 1.0%"
     }
    ]
   },
@@ -434302,31 +434133,31 @@
    "kit": "styloo-guns",
    "collection": "styloo-weapons",
    "name": "rocket-launcher-eyes",
-   "hash": "528a9a3682",
+   "hash": "c69dba8c7c",
    "kind": "obj-equipment-weapon-ranged-launcher",
    "size": "m",
    "wdh": [
-    0.531,
+    0.539,
     0.084,
     0.193
    ],
-   "tris": 2116,
-   "tpu": 6169,
+   "tris": 2128,
+   "tpu": 6204,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 122700,
-   "vtx": 3391,
+   "bytes": 123704,
+   "vtx": 3420,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0283,
    "minWall": 0.0083,
-   "thick": 0.1392,
+   "thick": 0.1403,
    "avgTri": 0.00008,
    "anglePct": 18,
    "pieces": 12,
-   "vpt": 1.6,
+   "vpt": 1.61,
    "cells": [
     "1,1",
     "1,0",
@@ -434351,21 +434182,20 @@
    "backface": [
     {
      "side": "above",
-     "share": 0.0155,
+     "share": 0.0023,
      "view": "270/20",
      "causes": {
-      "doubled": 0.94,
-      "inverted": 0.04,
-      "other": 0.02
+      "other": 0.5,
+      "inverted": 0.5
      }
     }
    ],
-   "thickRel": 0.86,
+   "thickRel": 0.87,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "1.6% of view 270/20 over 0.5%: doubled 94.0%, inverted 4.0%, other 2.0%"
+     "text": "0.2% of view 270/20 over 0.2%: other 50.0%, inverted 50.0%"
     }
    ]
   },
@@ -434422,27 +434252,27 @@
    "kit": "styloo-guns",
    "collection": "styloo-weapons",
    "name": "rocket-launcher",
-   "hash": "64547ffd1d",
+   "hash": "7c2e31c554",
    "kind": "obj-equipment-weapon-ranged-launcher",
    "size": "m",
    "wdh": [
-    0.531,
+    0.539,
     0.083,
     0.193
    ],
-   "tris": 2082,
-   "tpu": 6070,
+   "tris": 2094,
+   "tpu": 6105,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 121912,
-   "vtx": 3373,
+   "bytes": 122912,
+   "vtx": 3402,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0273,
    "minWall": 0.0083,
-   "thick": 0.1394,
+   "thick": 0.1402,
    "avgTri": 0.00008,
    "anglePct": 18,
    "pieces": 12,
@@ -434471,22 +434301,20 @@
    "backface": [
     {
      "side": "above",
-     "share": 0.0155,
+     "share": 0.0023,
      "view": "270/20",
      "causes": {
-      "doubled": 0.93,
-      "inverted": 0.04,
-      "other": 0.03,
-      "open": 0
+      "other": 0.5,
+      "inverted": 0.5
      }
     }
    ],
-   "thickRel": 0.86,
+   "thickRel": 0.87,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "backface",
-     "text": "1.6% of view 270/20 over 0.5%: doubled 93.0%, inverted 4.0%, other 3.0%"
+     "text": "0.2% of view 270/20 over 0.2%: other 50.0%, inverted 50.0%"
     }
    ]
   },
