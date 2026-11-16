@@ -371,7 +371,8 @@
     "5.688": 1
    },
    "smooth": {
-    "smooth": 10
+    "smooth": 8,
+    "none": 2
    },
    "kitCheck": {
     "factor": 1,
@@ -25544,7 +25545,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2191,
+   "count": 2193,
    "parent": "metal"
   },
   {
@@ -25847,7 +25848,7 @@
    "name": "Cloth mid",
    "type": "material",
    "description": "Mid cloth: sacks, hessian, grips, wraps.",
-   "count": 217,
+   "count": 215,
    "parent": "textile-cloth"
   },
   {
@@ -25941,7 +25942,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1539,
+   "count": 1541,
    "parent": "polymer"
   },
   {
@@ -30694,7 +30695,7 @@
    "name": "Modern",
    "type": "tech",
    "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material or style in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
-   "count": 2083
+   "count": 2085
   },
   {
    "id": "storeys-0-5",
@@ -47002,99 +47003,111 @@
   {
    "kit": "architecture",
    "name": "ferris-wheel-anim",
-   "hash": "1b9f3263f9",
+   "hash": "4a42ae5e0f",
    "kind": "str-fixture-leisure",
    "size": "l",
    "wdh": [
-    2.382,
-    0.492,
-    2.689
+    2.503,
+    0.67,
+    2.711
    ],
-   "tris": 9647,
-   "tpu": 3061,
+   "tris": 4724,
+   "tpu": 1039,
    "mat": 1,
-   "bands": 3,
-   "calls": 14,
-   "bytes": 494812,
-   "vtx": 10958,
+   "bands": 5,
+   "calls": 12,
+   "bytes": 308884,
+   "vtx": 7920,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.012,
-   "minWall": 0.0131,
-   "thick": 0.0699,
-   "avgTri": 0.00138,
-   "anglePct": 31,
-   "pieces": 114,
-   "vpt": 1.14,
+   "minEdge": 0.012,
+   "minTube": 0.024,
+   "minWall": 0.0184,
+   "thick": 0.0547,
+   "avgTri": 0.00391,
+   "anglePct": 69,
+   "pieces": 153,
+   "vpt": 1.68,
    "cells": [
     "6,1",
+    "15,3",
+    "8,0",
     "5,2",
-    "14,3"
+    "4,2"
    ],
    "colors": [
+    "#1564a4",
     "#3a3e4b",
-    "#88735f",
+    "#7a8491",
+    "#873a27",
     "#d8cfb7"
    ],
    "tags": [
     "animation",
     "hero",
     "metal-iron-dark",
-    "textile-cloth-mid"
+    "metal-steel",
+    "modern",
+    "plastic"
    ],
    "anim": [
     "spin"
    ],
    "variant": "architecture/ferris-wheel-anim",
-   "thickRel": 0.55
+   "thickRel": 0.43
   },
   {
    "kit": "architecture",
    "name": "ferris-wheel",
-   "hash": "e2c81ec106",
+   "hash": "3bd74f9e35",
    "kind": "str-fixture-leisure",
    "size": "l",
    "wdh": [
-    2.382,
-    0.492,
-    2.689
+    2.503,
+    0.67,
+    2.711
    ],
-   "tris": 6279,
-   "tpu": 1992,
+   "tris": 4724,
+   "tpu": 1039,
    "mat": 1,
-   "bands": 3,
+   "bands": 5,
    "calls": 1,
-   "bytes": 406136,
-   "vtx": 11470,
+   "bytes": 283220,
+   "vtx": 7920,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minTube": 0.012,
-   "minWall": 0.0131,
-   "thick": 0.0697,
-   "avgTri": 0.00215,
-   "anglePct": 30,
-   "pieces": 114,
-   "vpt": 1.83,
+   "minEdge": 0.012,
+   "minTube": 0.0239,
+   "minWall": 0.0184,
+   "thick": 0.0547,
+   "avgTri": 0.00391,
+   "anglePct": 69,
+   "pieces": 153,
+   "vpt": 1.68,
    "cells": [
+    "6,1",
+    "15,3",
+    "8,0",
     "5,2",
-    "14,3",
-    "6,1"
+    "4,2"
    ],
    "colors": [
+    "#1564a4",
     "#3a3e4b",
-    "#88735f",
+    "#7a8491",
+    "#873a27",
     "#d8cfb7"
    ],
    "tags": [
     "hero",
     "metal-iron-dark",
-    "tba",
-    "textile-cloth-mid"
+    "metal-steel",
+    "modern",
+    "plastic",
+    "tba"
    ],
    "variant": "architecture/ferris-wheel-anim",
-   "thickRel": 0.55
+   "thickRel": 0.43
   },
   {
    "kit": "architecture",
@@ -393469,7 +393482,24 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/market-1-b"
+   "variant": "quat-town/market-1-b",
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0023,
+     "view": "135/20",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.2%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
