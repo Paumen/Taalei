@@ -434,6 +434,33 @@ for (const model of models) {
   if (group) model.variant = group;
 }
 
+const sameShape = new Map();
+for (const model of models) {
+  const key = `${model.kit}|${model.shape}`;
+  sameShape.set(key, [...(sameShape.get(key) ?? []), model]);
+}
+const groupOf = new Map(variants.groups.map((g) => [g.id, g]));
+for (const twins of sameShape.values()) {
+  if (twins.length < 2) continue;
+  const rank = (m) => (groupOf.get(m.variant)?.main === m.id ? 0 : m.variant ? 1 : 2);
+  const [base, ...rest] = [...twins].sort((a, b) => rank(a) - rank(b) || a.name.length - b.name.length || a.name.localeCompare(b.name));
+  let group = groupOf.get(base.variant);
+  if (!group) {
+    group = { id: base.id, type: 'color-variant', main: base.id, members: [base.id] };
+    variants.groups.push(group);
+    groupOf.set(group.id, group);
+    base.variant = group.id;
+  }
+  for (const model of rest) {
+    model.recolourOf = base.id;
+    if (model.variant === group.id) continue;
+    const old = groupOf.get(model.variant);
+    if (old) old.members = old.members.filter((id) => id !== model.id);
+    model.variant = group.id;
+    group.members.push(model.id);
+  }
+}
+
 const tags = readTags(new Set(models.map((m) => m.id)));
 
 const typeOf = new Map(tags.tags.map((t) => [t.id, t.type ?? 'tag']));
@@ -625,6 +652,7 @@ const rows = models.map((m) => {
     alpha: m.alpha || undefined,
     pbr: m.pbr || undefined,
     variant: m.variant,
+    recolourOf: m.recolourOf,
     backface: m.backface,
   };
   return row;

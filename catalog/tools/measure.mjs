@@ -12,6 +12,25 @@ export const COLUMNS = 16;
 export const ROWS = 4;
 const SMOOTH_SHARE = 0.01;
 
+const BYTES = { 5120: 1, 5121: 1, 5122: 2, 5123: 2, 5125: 4, 5126: 4 };
+const PARTS = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4 };
+
+export function shapeOf({ json, bin }) {
+  const hash = createHash('sha1');
+  for (const mesh of json.meshes ?? []) {
+    for (const primitive of mesh.primitives) {
+      for (const index of [primitive.attributes.POSITION, primitive.indices]) {
+        if (index === undefined) continue;
+        const accessor = json.accessors[index], view = json.bufferViews[accessor.bufferView];
+        const size = BYTES[accessor.componentType] * PARTS[accessor.type];
+        const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0), stride = view.byteStride ?? size;
+        for (let i = 0; i < accessor.count; i++) hash.update(bin.subarray(start + i * stride, start + i * stride + size));
+      }
+    }
+  }
+  return hash.digest('hex').slice(0, 16);
+}
+
 export const round = (v, n) => Math.round(v * 10 ** n) / 10 ** n;
 
 const atlasKeys = new Map();
@@ -110,6 +129,7 @@ function measureFile(dir, file) {
       badNormals: badNormals(glb),
       thickness: thickness(glb),
       averageTriangleArea: scene.averageTriangleArea,
+      shape: shapeOf(glb),
       strictAnglePercent: scene.strictAnglePercent,
       pieces: meshParts(glb, Infinity).length,
       ...((gltf.animations ?? []).length
