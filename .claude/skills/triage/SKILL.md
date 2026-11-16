@@ -38,8 +38,6 @@ better makes a blanket a dull hard block.
 
 ## Asking the PO
 
-- Automatic simplification only after the PO approves it. Show one model's
-  before and after first.
 - If the type-making parts must be cut to reach the budget, ask instead.
 - A label you're unsure of goes to the PO with its render.
 
