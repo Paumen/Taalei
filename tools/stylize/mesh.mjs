@@ -3,7 +3,6 @@ import { readGlb, writeGlb, readAccessor } from '../../catalog/tools/glb.mjs';
 import { repack, fixBounds } from '../import/mesh-edit.mjs';
 
 export const BINS = 100;
-export const HELD = /^obj-(equipment-(weapon|tool)|kitchenware-cookware-utensil|kitchenware-tableware-(cutlery|drinkware)|container-bottle-glass)/;
 
 export function loadModel(path) {
   const glb = readGlb(path);

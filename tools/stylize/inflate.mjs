@@ -1,6 +1,6 @@
 import { readFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { loadModel, saveModel, bounds, weldedNormals, HELD } from './mesh.mjs';
+import { loadModel, saveModel, bounds, weldedNormals } from './mesh.mjs';
 
 const HELP = `inflate.mjs <batch.json> [name,...]
 
@@ -28,7 +28,7 @@ for (const n of only ? only.split(',') : Object.keys(B.models)) {
   const { P, F, UV } = model;
   const b = bounds(P);
   const L = Math.max(...b.size);
-  const k = conf.models?.[n] ?? (HELD.test(B.models[n]) ? 0 : conf.default ?? 0.03);
+  const k = conf.models?.[n] ?? (conf.default ?? 0.03);
   const push = k * [...b.size].sort((x, y) => x - y)[1];
   const mask = B.inflateUv?.[n];
   const G = weldedNormals(P, F);

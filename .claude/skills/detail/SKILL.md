@@ -69,8 +69,8 @@ next to its original and its peers, and lean on the learnings (§6).
   stay open and rounded; a solid block is not a buckle.
 - A seam, ridge or groove that marks a type (the band round a frag grenade)
   stays, even on a body that could become a plain sphere.
-- A swapped part never goes thinner than the original's thinnest tube, or
-  `G27` fails.
+- A swapped part never goes thinner than the original's thinnest tube and never under
+  0.006, or `G27` fails.
 
 ## 4. Tool
 
@@ -94,15 +94,14 @@ Swapped shapes fit the part's oriented box: check the axis (`axis`, `flip`,
 
 ## 5. Process
 
-1. Hand batches to sub agents, with past kept and ★ changes as the bar.
-2. Per model: render the original and the result in `pbr` and `claywire`
+1. Per model: render the original and the result in `pbr` and `claywire`
    from two angles or more, and in `faceorient`; new magenta is a defect.
    `node lint/glb-lint.mjs <file> --only-problems` shows nothing new.
-3. Colour variants that share geometry get identical edits.
-4. Rebuild (`catalog-assets` §6), run the seven lints and `golden`, and
+2. Colour variants that share geometry get identical edits.
+3. Rebuild (`catalog-assets` §6), run the seven lints and `golden`, and
    compare with the baselines: no new errors, including `G27` thin sticks
    from new strips and `palette` from lost colour accents.
-5. Put every changed model on a `review` page titled `Detail: …`, easy-to-see
+4. Put every changed model on a `review` page titled `Detail: …`, easy-to-see
    changes first, and apply the verdicts.
 
 ## 6. Calibrate

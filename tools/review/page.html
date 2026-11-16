@@ -148,7 +148,7 @@ const NEED=Object.fromEntries(MORE.filter(m=>m[2]).map(m=>[m[0],m[2]]));
 const K='review:'+D.title+':'+D.base;
 let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
 const docId=m=>m.replace(/\//g,'~').replace(/[^A-Za-z0-9_.~:@+-]/g,'_');
-const verdictOf=(it,s)=>({review:D.title,base:D.base,model:it.model,verdict:s.v==='keep'&&s.c?'keepbut':s.v||(s.m==='great'?'keep':s.m==='bad'?'revert':(s.f||[]).length||(s.p||[]).length?'retry':'other'),mark:s.m||'',flags:s.f||[],pins:(s.p||[]).map((p,n)=>`${n+1}: ${p[0]} ${p[1]},${p[2]}`),comment:s.c||'',change:it.change||'',proposal:it.proposal||'',types:it.types,doubt:it.risk,state:s});
+const verdictOf=(it,s)=>({review:D.title,base:D.base,model:it.model,verdict:s.v==='keep'&&s.c?'keepbut':s.v||(s.c?'other':'later'),mark:s.m||'',flags:s.f||[],pins:(s.p||[]).map((p,n)=>`${n+1}: ${p[0]} ${p[1]},${p[2]}`),comment:s.c||'',change:it.change||'',proposal:it.proposal||'',types:it.types,doubt:it.risk,state:s});
 let db=null,sent={},timer=null;
 const sync=t=>{document.getElementById('sync').textContent=t};
 async function flush(){

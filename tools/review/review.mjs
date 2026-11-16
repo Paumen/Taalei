@@ -48,15 +48,14 @@ apply   takes the verdicts the page saved (the artifact's db collection
 brief   with --review, only the reviews whose title holds that text.
         prints how often each change type, risk level and kind branch was
         kept or undone across all reviews, and advises what to send: every
-        change of a type undone 30% or more, only high-risk ones of a type
-        undone 10% or less (5 verdicts at least), and a follow-up round for
+        change of a type undone 30% or more (5 verdicts at least), and a follow-up round for
         changes like the ones undone in the last review.
 
 verdicts: keep (Keep), retry (Try again), revert (Undo), keepbut (Keep, but…),
           relax (Relax rule), other, later.
 flags:    issue buttons (too big, wobbly, lost detail, …) shown after Try
-          again or Undo; a tap on a picture drops a pin; flags or pins
-          without a verdict count as retry.
+          again or Undo; a tap on a picture drops a pin; flags, pins or
+          marks without a verdict stay open (later).
 marks:    great (spot on) or bad (opposite of the goal), next to the
           verdict; brief lists the latest of each.`;
 
@@ -74,7 +73,7 @@ const REVERTS = new Set(['revert', 'retry', 'relax']);
 const LOG = join(dirname(fileURLToPath(import.meta.url)), 'log.json');
 const MIN_SAMPLE = 5;
 const SEND_ALL = 0.3;
-const SEND_FEW = 0.1;
+
 const BIG_SIZE = 1.2;
 
 const args = process.argv.slice(2);
@@ -454,7 +453,7 @@ function brief() {
     const t = tally(rows);
     console.log(line(type, t));
     if (t.n >= MIN_SAMPLE && t.share >= SEND_ALL) advice.push(`send every ${type} change`);
-    if (t.n >= MIN_SAMPLE && t.share <= SEND_FEW) advice.push(`send only high-risk ${type} changes`);
+    
   }
   console.log('\nby risk');
   for (const [doubt, rows] of groupBy((e) => e.doubt ?? 'unset')) console.log(line(doubt, tally(rows)));

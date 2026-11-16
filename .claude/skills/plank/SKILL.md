@@ -29,8 +29,7 @@ map until it is right; only then tone.
 ## 3. Tone
 
 Default: `plank-tone.mjs <file>`. When its board map is wrong, map the
-boards by hand (below). Tones are shuffled at random. Never pick or change a
-tone because of the boards next to it.
+boards by hand (below). Tones are shuffled at random.
 
 Flags for the default run:
 

@@ -129,9 +129,8 @@ The main session runs the fresh checker.
 
 A retry answers the comment: it names what was wrong and changes the
 approach, not a setting. The same tool with a slightly different number is
-not a retry. Retries go to one sub agent with only the retried models. After two
-approaches the checker judged failed, the latest attempt goes onto the review
-page; whether it failed is the PO's call. This limit counts fixer and checker
+not a retry. Retries go to one sub agent with only the retried models. One retry at most: when the checker judges that failed too, the latest
+attempt goes onto the review page; whether it failed is the PO's call. This limit counts fixer and checker
 rounds only, never PO verdicts: a PO retry always gets another try.
 
 ### End of round
@@ -241,9 +240,7 @@ peers use.
 
 **Any**
 
-- **New or changed tool**: when that helps.
-- **Anything else**: any other creative attempt, as long as it aims at the
-  goal.
+Other fixes, and new or changed tools, are allowed.
 
 ## Where a result goes
 
@@ -364,14 +361,5 @@ call is the PO's.
 
 ## In scope
 
-- Other problems spotted along the way, like broken or misshapen meshes, get
-  fixed too when that isn't too complicated.
-- Indicators and lints sometimes flag things that don't mean the style is
-  wrong. When it isn't too complicated, a fix that clears the flag is fine
-  even if the look stays (mostly) the same, for example closing a thin sheet
-  into a solid shape.
 - When a changed model is tied to others, like variants or modular pieces
   that must still fit, those always change along with it.
-
-Not too complicated: not far more effort than any other model in the batch
-takes.

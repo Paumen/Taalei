@@ -11,7 +11,7 @@ without losing what it is. Read `docs/asset_style_guide.md` first; the lints
 decide what is allowed. `catalog-assets` §6 is the rebuild.
 
 The tools in `tools/stylize/` cover the common, generic part: resize, the
-three proportion moves and inflation. Held items get the resize only. They suit plain single-mesh models and
+three proportion moves and inflation.  They suit plain single-mesh models and
 are a first pass, not the method. Look at every model after it; many need a
 different move or a hand-made one, and some need none.
 
@@ -133,9 +133,6 @@ Then `inflate.mjs` pushes the surface out and scales back to size:
   few percent between runs; models near the 4× stick limit can flip moves.
 - `taaleiland.schaal` records the kit-wide factor only; per-model resizes are
   not recorded there.
-- A lint minimum can be wrong for a part. For example, a 12 mm minimum on a
-  dart needle turns it into a cone. Raise it with the PO rather than forcing
-  the shape.
 - Thickening open shells (a key hole, a button) exposes their hollow backs.
   Leave them, or close them first.
 
@@ -143,9 +140,7 @@ Then `inflate.mjs` pushes the surface out and scales back to size:
 
 - Misformed most: held items. Cooking utensils 71%, guns 58%, melee weapons
   57%, cutlery 55%, two-hand tools 50%, glassware 50%; long held items (2.5 to
-  5x longer than wide) 56%. The tools now only resize these kinds; a model in
-  `shapeHeld` gets the shape moves anyway, so name one there only with a plan
-  for grip and head.
+  5x longer than wide) 56%. 
 - Too strong most: flowers 92%, cattails 89%, pans 45%, bathroom 32%, tables
   30%, lamps 29%. Thin stems, legs, poles and pan walls got too thick: use
   `noStick` and inflate 0.01 or less there.
@@ -186,12 +181,10 @@ Then `inflate.mjs` pushes the surface out and scales back to size:
 - **Thin furniture** (boards, legs, slats, shelves): thicken each part on
   its own toward the kind's peers, and move hardware out with the surface it
   sits on rather than scaling it.
-- **Rebuild when patching keeps failing.** When a model is retried twice
-  and each round only patched the source mesh, build it new instead: plain
-  boxes, prisms and cylinders in the peers' proportions, with the source's
-  features, colours and size listed and kept. In Nov 2026 four rejected
-  FantasyProps models failed three patch rounds and were all kept once
-  rebuilt.
+- **Rebuild a part when patching keeps failing.** When a part is retried
+  twice and each round only patched the source mesh, build that part new
+  instead: plain boxes, prisms and cylinders in the peers' proportions, with
+  the source's features, colours and size kept. The rest of the model stays.
 - Before sending, render each model from four sides at full tile size:
   stray slivers, uneven shapes and parts poking through often only show
   there.
