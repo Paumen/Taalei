@@ -64,6 +64,7 @@ let swipe = null;
 let refreshExtract = () => {};
 let commentDirty = false;
 let flaggedOnly = false;
+let hideRecolours = false;
 let activeId = '';
 
 const colorState = new Map();
@@ -134,9 +135,15 @@ function makeCard(model, kits, variants = []) {
   if (hasComment(model)) {
     glyphs.append(glyph('opmerking', '✎', 'Carries a comment — read it in the model panel'));
   }
-  if (variants.length) {
-    glyphs.append(glyph('variant', String(variants.length + 1),
-      `${variants.length + 1} variants of the same model — viewable in the model panel`));
+  const recolours = variants.filter((v) => v.recolourOf).length + (model.recolourOf ? 1 : 0);
+  const shapes = variants.length + 1 - recolours;
+  if (shapes > 1) {
+    glyphs.append(glyph('variant', String(shapes),
+      `${shapes} variants of the same model — viewable in the model panel`));
+  }
+  if (recolours) {
+    glyphs.append(glyph('variant', `◑${recolours}`,
+      `${recolours} colour version${recolours > 1 ? 's' : ''} of the same shape — viewable in the model panel`));
   }
 
   card.append(box, glyphs);
@@ -500,6 +507,8 @@ const detailAnimation = document.querySelector('#detail-animatie');
 const detailAnimationChoice = document.querySelector('#detail-animatie-keuze');
 const detailVariant = document.querySelector('#detail-variant');
 const detailVariantChoice = document.querySelector('#detail-variant-keuze');
+const detailColour = document.querySelector('#detail-colour');
+const detailColourChoice = document.querySelector('#detail-colour-choice');
 let activePath = '';
 const register = { models: new Map(), kits: new Map(), kinds: new Map(), variants: new Map(), tags: new Map() };
 
@@ -652,18 +661,16 @@ function showDetail(model) {
   const members = (register.variants.get(model.variant) ?? [])
     .map((id) => register.models.get(id))
     .filter((v) => v && (v.id === model.id || hit(v)));
-  detailVariant.hidden = members.length < 2;
-  detailVariantChoice.replaceChildren(
-    ...members.map((v) =>
-      choiceChip(
-        v.kit === model.kit ? v.name : `${v.name} (${v.kit})`,
-        v.id === model.id,
-        () => showDetail(v),
-        detailVariantChoice,
-        v.path,
-      ),
-    ),
-  );
+  const baseId = model.recolourOf ?? model.id;
+  const shapes = members.filter((v) => !v.recolourOf);
+  const colours = members.filter((v) => v.id === baseId || v.recolourOf === baseId);
+  const chipsFor = (list, chosenId, parent) =>
+    list.map((v) =>
+      choiceChip(v.kit === model.kit ? v.name : `${v.name} (${v.kit})`, v.id === chosenId, () => showDetail(v), parent, v.path));
+  detailVariant.hidden = shapes.length < 2;
+  detailVariantChoice.replaceChildren(...chipsFor(shapes, baseId, detailVariantChoice));
+  detailColour.hidden = colours.length < 2;
+  detailColourChoice.replaceChildren(...chipsFor(colours, model.id, detailColourChoice));
 
   detailViewer.replaceChildren(viewer);
 
@@ -932,6 +939,7 @@ function modelFilter() {
     (!deepest.length || own.some((k) => deepest.includes(k))) && !own.some((k) => notKinds.includes(k));
   return (model) =>
     (!flaggedOnly || isFlagged(model.id)) &&
+    (!hideRecolours || !model.recolourOf) &&
     matches(model.colors ?? [], colorState, { any: colorKeys }) &&
     kindHit(model.kind ? kindChain(model.kind) : [WITHOUT]) &&
     matches(withParents(model.tags ?? []), tagState) &&
@@ -1011,6 +1019,13 @@ async function start() {
     selectMode = !selectMode;
     selectButton.setAttribute('aria-pressed', String(selectMode));
     document.body.classList.toggle('kiesmodus', selectMode);
+  });
+
+  const recolourButton = document.querySelector('#recolours');
+  recolourButton.addEventListener('click', () => {
+    hideRecolours = !hideRecolours;
+    recolourButton.setAttribute('aria-pressed', String(hideRecolours));
+    filter();
   });
 
   const flagButton = document.querySelector('#gevlagd');
