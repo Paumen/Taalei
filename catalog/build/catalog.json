@@ -39528,31 +39528,31 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "luger",
-   "hash": "3a5bf7e14b",
+   "hash": "e4f1e9d0f1",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
     0.046,
-    0.253,
+    0.25,
     0.168
    ],
-   "tris": 2633,
-   "tpu": 7676,
+   "tris": 2651,
+   "tpu": 7729,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 129088,
-   "vtx": 3492,
+   "bytes": 128748,
+   "vtx": 3478,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0342,
-   "minWall": 0.0064,
-   "thick": 0.1125,
+   "minTube": 0.0343,
+   "minWall": 0.0049,
+   "thick": 0.1116,
    "avgTri": 0.00008,
-   "anglePct": 25,
-   "pieces": 24,
-   "vpt": 1.33,
+   "anglePct": 29,
+   "pieces": 23,
+   "vpt": 1.31,
    "cells": [
     "13,3",
     "15,3",
@@ -39569,7 +39569,14 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.78
+   "thickRel": 0.78,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0049 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "3dm-guns",
@@ -39621,7 +39628,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "m4a1",
-   "hash": "21514f402d",
+   "hash": "32b585887c",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-assault",
    "size": "s",
    "wdh": [
@@ -39629,23 +39636,23 @@
     0.448,
     0.144
    ],
-   "tris": 2849,
-   "tpu": 8306,
+   "tris": 2855,
+   "tpu": 8324,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 207340,
-   "vtx": 5897,
+   "bytes": 200144,
+   "vtx": 5671,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.021,
-   "minWall": 0.008,
+   "minWall": 0.0039,
    "thick": 0.1427,
    "avgTri": 0.00008,
    "anglePct": 18,
-   "pieces": 133,
-   "vpt": 2.07,
+   "pieces": 132,
+   "vpt": 1.99,
    "cells": [
     "13,3",
     "15,3"
@@ -39659,24 +39666,12 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0036,
-     "view": "225/20",
-     "causes": {
-      "inside-out": 0.18,
-      "open": 0.8,
-      "inverted": 0.02
-     }
-    }
-   ],
    "thickRel": 1.03,
    "lint": [
     {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.4% of view 225/20 over 0.2%: open 80.0%, inside-out 18.0%, inverted 2.0%"
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0039 wants min 0.006"
     }
    ]
   },
@@ -39884,31 +39879,31 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "shotgun",
-   "hash": "0cd18cf8b6",
+   "hash": "62152956b1",
    "kind": "obj-equipment-weapon-ranged-firearm-shotgun",
    "size": "m",
    "wdh": [
     0.047,
     0.55,
-    0.163
+    0.164
    ],
-   "tris": 1016,
-   "tpu": 2962,
+   "tris": 978,
+   "tpu": 2851,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 54976,
-   "vtx": 1479,
+   "bytes": 53436,
+   "vtx": 1438,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0292,
-   "minWall": 0.0083,
-   "thick": 0.1656,
-   "avgTri": 0.00014,
-   "anglePct": 31,
-   "pieces": 10,
-   "vpt": 1.46,
+   "minTube": 0.0289,
+   "minWall": 0.0069,
+   "thick": 0.1648,
+   "avgTri": 0.00015,
+   "anglePct": 50,
+   "pieces": 9,
+   "vpt": 1.47,
    "cells": [
     "13,3",
     "2,0",
@@ -39924,7 +39919,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.01
   },
   {
    "kit": "3dm-guns",
@@ -40023,7 +40018,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "suomi-kp",
-   "hash": "f2b77d99ee",
+   "hash": "3e8b8a8780",
    "kind": "obj-equipment-weapon-ranged-firearm-smg",
    "size": "s",
    "wdh": [
@@ -40031,22 +40026,23 @@
     0.435,
     0.108
    ],
-   "tris": 2584,
-   "tpu": 7534,
+   "tris": 2144,
+   "tpu": 6251,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 163528,
-   "vtx": 4577,
+   "bytes": 136600,
+   "vtx": 3818,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0063,
+   "minTube": 0.0172,
+   "minWall": 0.0027,
    "thick": 0.1856,
    "avgTri": 0.00005,
-   "anglePct": 23,
-   "pieces": 30,
-   "vpt": 1.77,
+   "anglePct": 31,
+   "pieces": 29,
+   "vpt": 1.78,
    "cells": [
     "13,3",
     "15,3",
@@ -40065,7 +40061,14 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.26,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0027 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "3dm-industrial",
@@ -340575,7 +340578,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "rifle",
-   "hash": "491b5eb21d",
+   "hash": "d79f5878a8",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "s",
    "wdh": [
@@ -340583,23 +340586,23 @@
     0.45,
     0.147
    ],
-   "tris": 1018,
-   "tpu": 2968,
+   "tris": 1074,
+   "tpu": 3131,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 61036,
-   "vtx": 1670,
+   "bytes": 63068,
+   "vtx": 1723,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0178,
-   "minWall": 0.0065,
+   "minWall": 0.004,
    "thick": 0.1397,
-   "avgTri": 0.00013,
+   "avgTri": 0.00012,
    "anglePct": 31,
    "pieces": 18,
-   "vpt": 1.64,
+   "vpt": 1.6,
    "cells": [
     "13,3",
     "15,3",
@@ -340616,7 +340619,14 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.004 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -340673,7 +340683,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "smg",
-   "hash": "20d7f2b702",
+   "hash": "93b1f5a262",
    "kind": "obj-equipment-weapon-ranged-firearm-smg",
    "size": "s",
    "wdh": [
@@ -340686,18 +340696,18 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 77588,
-   "vtx": 2119,
+   "bytes": 78792,
+   "vtx": 2157,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0111,
-   "minWall": 0.0062,
-   "thick": 0.1157,
+   "minWall": 0.0064,
+   "thick": 0.1155,
    "avgTri": 0.00015,
-   "anglePct": 35,
+   "anglePct": 42,
    "pieces": 14,
-   "vpt": 1.53,
+   "vpt": 1.56,
    "cells": [
     "13,3",
     "15,3",
@@ -383166,7 +383176,7 @@
    "kit": "quat-scifi",
    "collection": "quat-guns",
    "name": "sniper-b",
-   "hash": "113eae2880",
+   "hash": "712d5ffd85",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
@@ -383174,23 +383184,23 @@
     0.635,
     0.158
    ],
-   "tris": 2899,
-   "tpu": 8452,
+   "tris": 2947,
+   "tpu": 8592,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 124352,
-   "vtx": 3295,
+   "bytes": 125440,
+   "vtx": 3320,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0284,
-   "minWall": 0.0072,
+   "minTube": 0.0283,
+   "minWall": 0.0055,
    "thick": 0.1731,
    "avgTri": 0.00008,
    "anglePct": 28,
    "pieces": 18,
-   "vpt": 1.14,
+   "vpt": 1.13,
    "cells": [
     "6,1",
     "15,3",
@@ -383210,13 +383220,20 @@
     "space"
    ],
    "variant": "quat-scifi/sniper",
-   "thickRel": 1.08
+   "thickRel": 1.08,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0055 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-scifi",
    "collection": "quat-guns",
    "name": "sniper",
-   "hash": "2c72b5e8ce",
+   "hash": "15af9e524b",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
@@ -383224,23 +383241,23 @@
     0.692,
     0.152
    ],
-   "tris": 2194,
-   "tpu": 6397,
+   "tris": 2242,
+   "tpu": 6536,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 93344,
-   "vtx": 2460,
+   "bytes": 94432,
+   "vtx": 2485,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.012,
    "minWall": 0.0064,
    "thick": 0.2054,
-   "avgTri": 0.00015,
-   "anglePct": 84,
+   "avgTri": 0.00014,
+   "anglePct": 83,
    "pieces": 16,
-   "vpt": 1.12,
+   "vpt": 1.11,
    "cells": [
     "6,1",
     "15,3",
@@ -436884,7 +436901,7 @@
    "kit": "styloo-guns",
    "collection": "styloo-weapons",
    "name": "assault-rifle-short",
-   "hash": "308a33022b",
+   "hash": "99c54bdd08",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-assault",
    "size": "s",
    "wdh": [
@@ -436892,22 +436909,22 @@
     0.383,
     0.215
    ],
-   "tris": 1931,
-   "tpu": 5630,
+   "tris": 1750,
+   "tpu": 5102,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 107956,
-   "vtx": 2965,
+   "bytes": 97680,
+   "vtx": 2678,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0081,
+   "minWall": 0.0069,
    "thick": 0.1118,
-   "avgTri": 0.0001,
-   "anglePct": 44,
-   "pieces": 15,
-   "vpt": 1.54,
+   "avgTri": 0.00011,
+   "anglePct": 45,
+   "pieces": 13,
+   "vpt": 1.53,
    "cells": [
     "13,3",
     "1,0",
@@ -436931,7 +436948,7 @@
    "kit": "styloo-guns",
    "collection": "styloo-weapons",
    "name": "assault-rifle",
-   "hash": "8c6e6a6102",
+   "hash": "1139bd7576",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-assault",
    "size": "m",
    "wdh": [
@@ -436939,23 +436956,23 @@
     0.604,
     0.214
    ],
-   "tris": 1863,
-   "tpu": 5431,
+   "tris": 1847,
+   "tpu": 5385,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 106152,
-   "vtx": 2922,
+   "bytes": 104872,
+   "vtx": 2885,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0255,
-   "minWall": 0.012,
+   "minTube": 0.0235,
+   "minWall": 0.0045,
    "thick": 0.125,
    "avgTri": 0.00011,
    "anglePct": 35,
    "pieces": 16,
-   "vpt": 1.57,
+   "vpt": 1.56,
    "cells": [
     "1,0",
     "13,3",
@@ -436973,7 +436990,14 @@
     "wood-mid"
    ],
    "variant": "styloo-guns/assault-rifle",
-   "thickRel": 0.9
+   "thickRel": 0.9,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0045 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "styloo-guns",
@@ -475952,7 +475976,7 @@
   {
    "kit": "zombie-weapons",
    "name": "sniper-rifle",
-   "hash": "d66e296453",
+   "hash": "53a8d390e6",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
@@ -475960,13 +475984,13 @@
     0.649,
     0.152
    ],
-   "tris": 1254,
-   "tpu": 3656,
+   "tris": 1270,
+   "tpu": 3703,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 66988,
-   "vtx": 1811,
+   "bytes": 66668,
+   "vtx": 1798,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -475974,9 +475998,9 @@
    "minWall": 0.0064,
    "thick": 0.199,
    "avgTri": 0.00013,
-   "anglePct": 39,
+   "anglePct": 38,
    "pieces": 9,
-   "vpt": 1.44,
+   "vpt": 1.42,
    "cells": [
     "15,3",
     "2,0",
