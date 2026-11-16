@@ -9,8 +9,8 @@ description: Read a catalogue extract — the JSON the browser stages with tag e
 before deciding anything. This skill is about finding the geometry a mark
 refers to, which the bible does not cover.
 
-`CLAUDE.md` binds every step: never look at earlier commits or PRs, and never
-leave assumptions or commentary in a code file.
+Canon binds every step: ask before reading earlier commits or PRs (C12), and
+no new code comments (C06).
 
 A tag edit is applied. A colour mark is diagnosed first, then applied with
 `tools/import/recolour.mjs`, which moves a band, or the part of it on named

@@ -13,8 +13,8 @@ The tool is `tools/sheepdog/sheepdog.mjs` (`--help` lists every command). It
 logs every picked kind in `tools/sheepdog/log.json`, so a random pick never
 returns a kind; `--kind` picks a kind on purpose, also one logged before.
 
-`CLAUDE.md` binds: never look at earlier commits or PRs, no comments or
-assumptions in code, English only. `docs/asset_style_guide.md` decides
+`canon.md` binds: C06 (no new code comments), C08 (English), C12 (ask before
+reading git history or past PRs). `docs/asset_style_guide.md` decides
 materials, colours and sizes; `.claude/skills/catalog-assets/SKILL.md` §3–4
 say how bands and tags work. The agents get both as reading.
 

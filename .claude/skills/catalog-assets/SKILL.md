@@ -9,9 +9,9 @@ description: Work on the Taalei catalogue — add a source pack so its models sh
 and variants. Read it before deciding anything; this skill only says in what
 order to do the work and which tool does each part.
 
-Two rules from `CLAUDE.md` bind every step: never look at earlier commits or
-PRs, and never leave assumptions, rules or commentary as comments in a code
-file — put them here, in the bible, or in the PR.
+Two canon rules bind every step: ask before reading earlier commits or PRs
+(C12), and no new code comments (C06) — put assumptions, rules and commentary
+here, in the bible, or in the PR.
 
 A workfile in `kits/workfiles` is the asset itself. No model is dropped
 because of a lint error; §7 says how to work one. A wrong band is moved in place

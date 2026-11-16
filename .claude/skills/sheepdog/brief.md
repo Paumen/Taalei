@@ -14,7 +14,6 @@ Repo root: the current working directory. Run dir: `{{dir}}`.
 - `.claude/skills/catalog-assets/SKILL.md` §3 (bands) and §4 (tags).
 - `{{dir}}/dossier.json`: per model its size, triangles, bands, colours,
   kind, tags, variant group and ratios to the group median.
-- `CLAUDE.md`: no comments, assumptions or notes in code files; English only.
 
 ## Look
 
@@ -67,7 +66,8 @@ the run dir. Tools, all in place:
 | `tools/stylize/inflate.mjs`, `tools/stylize/stylize.mjs` | chunkier, thicker, resized by batch file; see `.claude/skills/stylize/SKILL.md` |
 | `anthropic-skills:glb-toolkit` skill | custom geometry edits with three.js or glTF-Transform when no tool fits |
 
-Scripts of your own go under `{{dir}}/tools/`, never into the repo. Keep the
+Scripts of your own go under `{{dir}}/tools/`, never into the repo, in English
+and without comments. Keep the
 baked gradient shading: a band is moved, not flattened. A band must be legal
 for the material (`lint/materials.json`, `lint/kinds.json`). Thicker never
 means thinner elsewhere; round stays round; recognisable first, and a fix that
