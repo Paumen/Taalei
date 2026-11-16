@@ -292510,28 +292510,30 @@
   {
    "kit": "m3-base",
    "name": "dragonfly-wings",
-   "hash": "4e662415bc",
+   "hash": "3545739e4e",
    "kind": "env-fauna-insect",
    "size": "s",
    "wdh": [
     0.14,
     0.042,
-    0
+    0.006
    ],
-   "tris": 272,
+   "tris": 848,
+   "tpu": 2472,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10088,
-   "vtx": 216,
+   "bytes": 39924,
+   "vtx": 1040,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.1122,
+   "minWall": 0.0059,
+   "thick": 0.1399,
    "avgTri": 0.00001,
-   "anglePct": 100,
+   "anglePct": 72,
    "pieces": 4,
-   "vpt": 0.79,
+   "vpt": 1.23,
    "cells": [
     "4,2"
    ],
@@ -292542,21 +292544,11 @@
     "comp",
     "m3"
    ],
-   "backface": [
-    {
-     "side": "below",
-     "share": 1,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "lint": [
     {
      "level": "error",
-     "check": "backface",
-     "text": "100.0% of view 0/-89.9 over 5.0%: open 100.0%"
+     "check": "measures",
+     "text": "G27 minWall 0.0059 wants min 0.006"
     }
    ]
   },
@@ -379640,8 +379632,25 @@
     "stone-masonry-dark"
    ],
    "variant": "quat-shoot/barrier",
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.002,
+     "view": "135/50",
+     "causes": {
+      "inverted": 0.99,
+      "other": 0.01,
+      "open": 0
+     }
+    }
+   ],
    "thickRel": 0.99,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/50 over 0.2%: inverted 99.0%, other 1.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -426316,29 +426325,30 @@
   {
    "kit": "styloo-farm",
    "name": "leaf",
-   "hash": "7ff8fa2b5d",
+   "hash": "0179ab0954",
    "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
-    0.027,
+    0.028,
     0.05,
-    0.008
+    0.014
    ],
-   "tris": 72,
-   "tpu": 210,
+   "tris": 200,
+   "tpu": 583,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 3848,
-   "vtx": 64,
+   "bytes": 10256,
+   "vtx": 240,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "thick": 0.0695,
+   "minWall": 0.0057,
+   "thick": 0.1414,
    "avgTri": 0.00001,
-   "anglePct": 2,
+   "anglePct": 3,
    "pieces": 1,
-   "vpt": 0.89,
+   "vpt": 1.2,
    "cells": [
     "3,1"
    ],
@@ -426351,21 +426361,11 @@
     "piece",
     "sty"
    ],
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.9992,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "lint": [
     {
      "level": "error",
-     "check": "backface",
-     "text": "99.9% of view 0/-89.9 over 5.0%: open 100.0%"
+     "check": "measures",
+     "text": "G27 minWall 0.0057 wants min 0.006"
     }
    ]
   },
