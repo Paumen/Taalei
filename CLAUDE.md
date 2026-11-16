@@ -14,7 +14,7 @@
 * Simpler beats more. Aim to remove lines.
 * Show visual work as a render or screenshot or artefact.
 * No PR check-ins or timers. I'll say merge.
-* Sub agents get a task and do it, then they're done. The brief holds what they need: they don't reread canon, skills or docs, and don't run repeated fix-render-lint loops. No fresh checker on their work unless I or a skill ask for it.
+* Sub agents only run proven methods and flows. They get a task and do it, then they're done. The brief holds what they need: they don't reread canon, skills or docs, and don't run repeated fix-render-lint loops. No fresh checker on their work unless I or a skill ask for it.
 
 ## key files
 * Asset and material rules live in docs/asset_style_guide.md and lint/*.
