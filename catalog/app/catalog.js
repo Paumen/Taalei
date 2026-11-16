@@ -124,10 +124,9 @@ function makeCard(model, kits, variants = []) {
   if (model.anim?.length) {
     glyphs.append(glyph('animatie', '▶', `${model.anim.length} animation${model.anim.length > 1 ? 's' : ''} — playable in the model panel`));
   }
-  const levels = lintLevels(model);
-  if (levels.length) {
-    glyphs.append(glyph(levels.includes('error') ? 'lint-fout' : 'lint-waarschuwing', '⚠',
-      model.lint.map(lintText).join('\n')));
+  if (lintLevels(model).includes('error')) {
+    glyphs.append(glyph('lint-fout', '⚠',
+      model.lint.filter((l) => l.level === 'error').map(lintText).join('\n')));
   }
   if (isFlagged(model.id)) {
     glyphs.append(glyph('vlag', '⚑', 'Flagged — unflag it in the model panel'));
