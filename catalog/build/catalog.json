@@ -72921,30 +72921,30 @@
   {
    "kit": "food-pack-2",
    "name": "pineapple",
-   "hash": "ec45d966bd",
+   "hash": "0bfed57d6b",
    "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
-    0.158,
-    0.158,
+    0.15,
+    0.141,
     0.313
    ],
-   "tris": 516,
-   "tpu": 1504,
+   "tris": 1006,
+   "tpu": 2933,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 32876,
-   "vtx": 887,
+   "bytes": 26020,
+   "vtx": 581,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
-   "minWall": 0.1304,
-   "thick": 0.2437,
-   "avgTri": 0.00029,
-   "anglePct": 2,
-   "pieces": 18,
-   "vpt": 1.72,
+   "minEdge": 0.001,
+   "minWall": 0.0007,
+   "thick": 0.2489,
+   "avgTri": 0.00023,
+   "anglePct": 8,
+   "pieces": 5,
+   "vpt": 0.58,
    "cells": [
     "6,0",
     "3,1"
@@ -72957,7 +72957,14 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 1.01
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0007 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "food-pack-2",
@@ -126305,7 +126312,7 @@
   {
    "kit": "kay-city",
    "name": "building-a-no-base",
-   "hash": "0f09f3d093",
+   "hash": "2c2ccf8737",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -126316,7 +126323,7 @@
    "tris": 456,
    "tpu": 54,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
    "bytes": 32716,
    "vtx": 805,
@@ -126336,6 +126343,7 @@
     "12,3",
     "2,0",
     "3,2",
+    "14,3",
     "5,2",
     "8,0"
    ],
@@ -126345,6 +126353,7 @@
     "#57493d",
     "#713e14",
     "#7a3525",
+    "#88735f",
     "#b5d5e3",
     "#dbd0b5"
    ],
@@ -126366,8 +126375,8 @@
    "lint": [
     {
      "level": "error",
-     "check": "palette",
-     "text": "stone-masonry-mid wants taupe, has teal hunter taupe-dark chestnut glass ivory sienna"
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -127157,7 +127166,7 @@
   {
    "kit": "kay-city",
    "name": "building-h-no-base",
-   "hash": "4eeba6b76c",
+   "hash": "31c0a83dd2",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -127168,7 +127177,7 @@
    "tris": 1415,
    "tpu": 59,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
    "bytes": 98644,
    "vtx": 2506,
@@ -127189,12 +127198,14 @@
     "2,0",
     "3,2",
     "8,0",
+    "14,3",
     "5,2"
    ],
    "colors": [
     "#57493d",
     "#713e14",
     "#7a3525",
+    "#88735f",
     "#95b438",
     "#af4c87",
     "#b5d5e3",
@@ -127218,8 +127229,8 @@
    "lint": [
     {
      "level": "error",
-     "check": "palette",
-     "text": "stone-masonry-mid wants taupe, has lime taupe-dark magenta chestnut glass sienna ivory"
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -340700,12 +340711,12 @@
   {
    "kit": "quat-apocalypse",
    "name": "rifle",
-   "hash": "4c5ab3a656",
+   "hash": "d79f5878a8",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle",
    "size": "s",
    "wdh": [
     0.036,
-    0.452,
+    0.45,
     0.147
    ],
    "tris": 1074,
@@ -340719,10 +340730,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0178,
-   "minWall": 0.0065,
-   "thick": 0.1389,
+   "minWall": 0.004,
+   "thick": 0.1397,
    "avgTri": 0.00012,
-   "anglePct": 30,
+   "anglePct": 31,
    "pieces": 18,
    "vpt": 1.6,
    "cells": [
@@ -340741,7 +340752,14 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.95,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.004 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-apocalypse",
@@ -436710,13 +436728,13 @@
   {
    "kit": "styloo-furniture",
    "name": "wooden-spoon-round",
-   "hash": "98a2d5452a",
+   "hash": "7278a0bb92",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.077,
-    0.015,
-    0.267
+    0.013,
+    0.266
    ],
    "tris": 333,
    "tpu": 971,
@@ -436728,10 +436746,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0073,
-   "thick": 0.1451,
-   "avgTri": 0.00008,
-   "anglePct": 34,
+   "minWall": 0.0045,
+   "thick": 0.131,
+   "avgTri": 0.00007,
+   "anglePct": 46,
    "pieces": 1,
    "vpt": 1.52,
    "cells": [
@@ -436745,7 +436763,14 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/wooden-spoon",
-   "thickRel": 0.97
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0045 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "styloo-furniture",
