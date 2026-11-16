@@ -199,8 +199,9 @@ const valuesOf = {
 };
 
 function matches(model) {
-  const { search, flagged } = state.filters;
+  const { search, flagged, noRecolours } = state.filters;
   if (flagged && !isFlagged(model.id)) return false;
+  if (noRecolours && model.recolourOf) return false;
   for (const field of FILTER_FIELDS) {
     if (!passes(valuesOf[field](model), state.filters[field] ?? {}, { all: !ANY_FIELDS.has(field) && field !== 'kinds', tree: field === 'kinds' })) return false;
   }
@@ -261,6 +262,7 @@ function setupFilters() {
     ...Object.fromEntries(FILTER_FIELDS.map((f) => [f, { ...draft[f] }])),
     shuffle: el('#schud').checked,
     flagged: el('#gevlagd').checked,
+    noRecolours: el('#recolours').checked,
   };
 }
 
@@ -431,6 +433,7 @@ function fillSetup() {
   el('#zoek').value = state.filters.search;
   el('#schud').checked = state.filters.shuffle;
   el('#gevlagd').checked = Boolean(state.filters.flagged);
+  el('#recolours').checked = Boolean(state.filters.noRecolours);
   el('#zes').checked = state.six;
   showSix(state.six);
   for (const direction of DIRECTIONS) el(`#label-${direction.id}`).value = state.labels[direction.id];
@@ -1003,6 +1006,7 @@ async function start() {
     for (const field of FILTER_FIELDS) draft[field] = {};
     el('#zoek').value = '';
     el('#gevlagd').checked = false;
+    el('#recolours').checked = false;
     for (const button of colorButtons) showState(button, undefined);
     syncFilterChips();
     setupCount();
