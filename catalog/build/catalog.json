@@ -5248,12 +5248,13 @@
    "scales": {
     "0.32": 23,
     "0.7": 15,
-    "0.44": 37,
+    "0.44": 36,
     "0.264": 1,
     "0.2": 13,
     "0.208": 1,
     "0.3696": 2,
-    "0.3519": 1
+    "0.3519": 1,
+    "0.5658": 1
    },
    "smooth": {
     "smooth": 87,
@@ -31888,7 +31889,7 @@
    "name": "Medium",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 3643,
+   "count": 3642,
    "derived": true
   },
   {
@@ -31896,7 +31897,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1336,
+   "count": 1337,
    "derived": true
   },
   {
@@ -52218,29 +52219,29 @@
   {
    "kit": "cooking-assets",
    "name": "fork",
-   "hash": "cc6ae5b1fb",
+   "hash": "356ab9f38f",
    "kind": "obj-kitchenware-tableware-cutlery-fork",
    "size": "s",
    "wdh": [
-    0.029,
-    0.02,
-    0.216
+    0.03,
+    0.027,
+    0.219
    ],
    "tris": 408,
    "tpu": 1190,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19472,
+   "bytes": 19532,
    "vtx": 412,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0175,
-   "minWall": 0.0014,
-   "thick": 0.2484,
-   "avgTri": 0.00002,
-   "anglePct": 11,
+   "minEdge": 0.001,
+   "minTube": 0.0244,
+   "minWall": 0.006,
+   "thick": 0.3013,
+   "avgTri": 0.00004,
+   "anglePct": 23,
    "pieces": 1,
    "vpt": 1.01,
    "cells": [
@@ -52254,14 +52255,7 @@
     "metal-steel"
    ],
    "variant": "cooking-assets/cutlery-set",
-   "thickRel": 1.13,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0014 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.37
   },
   {
    "kit": "cooking-assets",
@@ -124649,7 +124643,7 @@
   {
    "kit": "kay-city",
    "name": "building-a-no-base",
-   "hash": "b12e768b01",
+   "hash": "2c2ccf8737",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -124660,7 +124654,7 @@
    "tris": 456,
    "tpu": 54,
    "mat": 1,
-   "bands": 9,
+   "bands": 8,
    "calls": 1,
    "bytes": 32716,
    "vtx": 805,
@@ -124677,9 +124671,8 @@
    "cells": [
     "10,0",
     "1,1",
-    "15,3",
-    "2,0",
     "12,3",
+    "2,0",
     "3,2",
     "14,3",
     "5,2",
@@ -124690,7 +124683,6 @@
     "#328686",
     "#57493d",
     "#713e14",
-    "#7a8491",
     "#873a27",
     "#88735f",
     "#b5d5e3",
@@ -124715,7 +124707,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G17 bands 9 wants max 7"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -124782,7 +124774,7 @@
   {
    "kit": "kay-city",
    "name": "building-b-no-base",
-   "hash": "2c15cd550f",
+   "hash": "49cf5858c3",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -124793,7 +124785,7 @@
    "tris": 610,
    "tpu": 61,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 43576,
    "vtx": 1087,
@@ -124810,9 +124802,8 @@
    "cells": [
     "5,2",
     "9,0",
-    "15,3",
-    "2,0",
     "12,3",
+    "2,0",
     "3,2",
     "5,0",
     "14,3"
@@ -124820,7 +124811,6 @@
    "colors": [
     "#57493d",
     "#713e14",
-    "#7a8491",
     "#88735f",
     "#af4c87",
     "#b5d5e3",
@@ -124840,14 +124830,7 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-a-no-base",
-   "thickRel": 1.02,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
-    }
-   ]
+   "thickRel": 1.02
   },
   {
    "kit": "kay-city",
@@ -125271,7 +125254,7 @@
   {
    "kit": "kay-city",
    "name": "building-f-no-base",
-   "hash": "0775f126b5",
+   "hash": "d0869d62d4",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -125282,7 +125265,7 @@
    "tris": 1159,
    "tpu": 63,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 80372,
    "vtx": 2031,
@@ -125303,13 +125286,11 @@
     "12,3",
     "8,0",
     "14,3",
-    "5,2",
-    "15,3"
+    "5,2"
    ],
    "colors": [
     "#57493d",
     "#713e14",
-    "#7a8491",
     "#873a27",
     "#88735f",
     "#af4c87",
@@ -125329,14 +125310,7 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-f",
-   "thickRel": 0.85,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
-    }
-   ]
+   "thickRel": 0.85
   },
   {
    "kit": "kay-city",
@@ -125401,7 +125375,7 @@
   {
    "kit": "kay-city",
    "name": "building-g-no-base",
-   "hash": "928525d79a",
+   "hash": "ea0707350f",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -125412,7 +125386,7 @@
    "tris": 1113,
    "tpu": 55,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 77696,
    "vtx": 1964,
@@ -125430,17 +125404,15 @@
     "14,3",
     "5,2",
     "1,1",
-    "15,3",
+    "12,3",
     "3,2",
     "2,0",
-    "12,3",
     "8,0"
    ],
    "colors": [
     "#21552a",
     "#57493d",
     "#713e14",
-    "#7a8491",
     "#873a27",
     "#88735f",
     "#b5d5e3",
@@ -125460,14 +125432,7 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-g",
-   "thickRel": 0.87,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
-    }
-   ]
+   "thickRel": 0.87
   },
   {
    "kit": "kay-city",
@@ -125532,7 +125497,7 @@
   {
    "kit": "kay-city",
    "name": "building-h-no-base",
-   "hash": "8326c32023",
+   "hash": "31c0a83dd2",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -125543,7 +125508,7 @@
    "tris": 1415,
    "tpu": 59,
    "mat": 1,
-   "bands": 9,
+   "bands": 8,
    "calls": 1,
    "bytes": 98644,
    "vtx": 2506,
@@ -125559,10 +125524,9 @@
    "vpt": 1.77,
    "cells": [
     "11,0",
-    "15,3",
+    "12,3",
     "9,0",
     "2,0",
-    "12,3",
     "3,2",
     "8,0",
     "14,3",
@@ -125571,7 +125535,6 @@
    "colors": [
     "#57493d",
     "#713e14",
-    "#7a8491",
     "#873a27",
     "#88735f",
     "#95b438",
@@ -125598,7 +125561,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G17 bands 9 wants max 7"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -190888,7 +190851,7 @@
    "kit": "ken-commercial",
    "collection": "ken-city",
    "name": "building-f",
-   "hash": "6742b92fe6",
+   "hash": "9c1bed815c",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -190899,7 +190862,7 @@
    "tris": 1744,
    "tpu": 112,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 82772,
    "vtx": 2213,
@@ -190917,7 +190880,6 @@
     "14,3",
     "12,3",
     "15,3",
-    "6,1",
     "1,1",
     "5,2",
     "3,2",
@@ -190925,7 +190887,6 @@
    ],
    "colors": [
     "#21552a",
-    "#3a3e4b",
     "#57493d",
     "#7a8491",
     "#873a27",
@@ -190949,8 +190910,8 @@
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
+     "check": "palette",
+     "text": "metal-iron-dark wants slate, has taupe taupe-dark nickel hunter ivory glass sienna"
     }
    ]
   },
@@ -215967,7 +215928,7 @@
    "kit": "ken-industrial",
    "collection": "ken-city",
    "name": "factory-p",
-   "hash": "6a08e134d3",
+   "hash": "27e5e3632c",
    "kind": "str-building-work-industrial-factory",
    "size": "l",
    "wdh": [
@@ -215978,7 +215939,7 @@
    "tris": 1028,
    "tpu": 81,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 47368,
    "vtx": 1241,
@@ -215997,14 +215958,12 @@
     "12,3",
     "15,3",
     "14,3",
-    "6,1",
     "8,0",
     "3,2",
     "1,1"
    ],
    "colors": [
     "#21552a",
-    "#3a3e4b",
     "#57493d",
     "#7a8491",
     "#873a27",
@@ -216030,8 +215989,8 @@
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
+     "check": "palette",
+     "text": "metal-iron-dark wants slate, has ivory taupe-dark nickel taupe sienna glass hunter"
     }
    ]
   },
@@ -247541,7 +247500,7 @@
    "kit": "ken-suburban",
    "collection": "ken-city",
    "name": "house-p",
-   "hash": "9b1acfe5c2",
+   "hash": "2885428e44",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -247552,7 +247511,7 @@
    "tris": 1263,
    "tpu": 105,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 61228,
    "vtx": 1630,
@@ -247566,9 +247525,8 @@
    "pieces": 13,
    "vpt": 1.29,
    "cells": [
-    "6,1",
-    "12,3",
     "15,3",
+    "12,3",
     "14,3",
     "5,2",
     "8,0",
@@ -247576,7 +247534,6 @@
     "3,2"
    ],
    "colors": [
-    "#3a3e4b",
     "#57493d",
     "#66852a",
     "#7a8491",
@@ -247596,20 +247553,13 @@
     "storeys-2",
     "style-modern"
    ],
-   "thickRel": 1.13,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
-    }
-   ]
+   "thickRel": 1.13
   },
   {
    "kit": "ken-suburban",
    "collection": "ken-city",
    "name": "house-q",
-   "hash": "6544a8f44d",
+   "hash": "897abc5a2f",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -247620,7 +247570,7 @@
    "tris": 1126,
    "tpu": 105,
    "mat": 1,
-   "bands": 9,
+   "bands": 8,
    "calls": 1,
    "bytes": 56060,
    "vtx": 1493,
@@ -247636,9 +247586,8 @@
    "vpt": 1.33,
    "cells": [
     "12,3",
-    "6,1",
-    "14,3",
     "15,3",
+    "14,3",
     "5,2",
     "3,2",
     "8,0",
@@ -247646,7 +247595,6 @@
     "13,3"
    ],
    "colors": [
-    "#3a3e4b",
     "#57493d",
     "#59534e",
     "#66852a",
@@ -247672,7 +247620,7 @@
     {
      "level": "error",
      "check": "measures",
-     "text": "G17 bands 9 wants max 7"
+     "text": "G17 bands 8 wants max 7"
     }
    ]
   },
@@ -287035,30 +286983,30 @@
   {
    "kit": "m3-base",
    "name": "cardboard-produce-tray",
-   "hash": "09adcc29cc",
+   "hash": "f053f722c8",
    "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
-    0.524,
-    0.314,
-    0.131
+    0.529,
+    0.319,
+    0.136
    ],
-   "tris": 862,
-   "tpu": 2513,
+   "tris": 842,
+   "tpu": 2455,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 33852,
+   "bytes": 33728,
    "vtx": 847,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minWall": 0.0022,
-   "thick": 0.0594,
-   "avgTri": 0.00076,
-   "anglePct": 89,
+   "minEdge": 0.001,
+   "minWall": 0.0067,
+   "thick": 0.0612,
+   "avgTri": 0.00081,
+   "anglePct": 76,
    "pieces": 1,
-   "vpt": 0.98,
+   "vpt": 1.01,
    "cells": [
     "0,0"
    ],
@@ -287069,14 +287017,7 @@
     "m3",
     "paper-cardboard"
    ],
-   "thickRel": 0.5,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0022 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.52
   },
   {
    "kit": "m3-base",
@@ -291087,7 +291028,7 @@
   {
    "kit": "m3-base",
    "name": "dart-board",
-   "hash": "3b80da1d60",
+   "hash": "55c5bca81c",
    "kind": "obj-leisure-game",
    "size": "s",
    "wdh": [
@@ -291098,7 +291039,7 @@
    "tris": 3599,
    "tpu": 10493,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
    "bytes": 252456,
    "vtx": 7167,
@@ -291116,13 +291057,11 @@
     "12,3",
     "1,1",
     "8,0",
-    "5,2",
-    "15,3"
+    "5,2"
    ],
    "colors": [
     "#21552a",
     "#57493d",
-    "#7a8491",
     "#873a27",
     "#d8cfb7"
    ],
@@ -291141,8 +291080,8 @@
     },
     {
      "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
+     "check": "palette",
+     "text": "metal-steel wants nickel, has taupe-dark hunter sienna ivory"
     },
     {
      "level": "error",
@@ -304431,7 +304370,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.76,
+   "thickRel": 0.75,
    "lint": [
     {
      "level": "warning",
@@ -304479,7 +304418,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.73,
+   "thickRel": 0.72,
    "lint": [
     {
      "level": "warning",
@@ -313596,13 +313535,13 @@
   {
    "kit": "m3-base",
    "name": "signet-ring-01",
-   "hash": "8256525fc2",
+   "hash": "c7751e004d",
    "kind": "obj-equipment-apparel-jewellery-ring",
    "size": "s",
    "wdh": [
-    0.052,
-    0.026,
-    0.057
+    0.061,
+    0.035,
+    0.066
    ],
    "tris": 540,
    "tpu": 1574,
@@ -313614,10 +313553,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0024,
-   "thick": 0.0613,
-   "avgTri": 0.00001,
-   "anglePct": 35,
+   "minWall": 0.0065,
+   "thick": 0.0791,
+   "avgTri": 0.00002,
+   "anglePct": 25,
    "pieces": 1,
    "vpt": 0.81,
    "cells": [
@@ -313631,14 +313570,7 @@
     "metal-gold",
     "pickup"
    ],
-   "thickRel": 1.01,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0024 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.31
   },
   {
    "kit": "m3-base",
@@ -330980,7 +330912,7 @@
   {
    "kit": "pm-store",
    "name": "dragon",
-   "hash": "16adaad0f5",
+   "hash": "18e4b0e2a6",
    "kind": "obj-leisure-art-sculpture",
    "size": "m",
    "wdh": [
@@ -330991,7 +330923,7 @@
    "tris": 4355,
    "tpu": 7280,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
    "bytes": 257864,
    "vtx": 7196,
@@ -331009,12 +330941,10 @@
     "6,0",
     "8,0",
     "5,0",
-    "3,1",
     "13,3"
    ],
    "colors": [
     "#59534e",
-    "#66852a",
     "#873a27",
     "#ce7954",
     "#f1a63b"
@@ -331025,14 +330955,7 @@
     "metal-gold",
     "pm"
    ],
-   "thickRel": 0.64,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 4"
-    }
-   ]
+   "thickRel": 0.64
   },
   {
    "kit": "pm-store",
@@ -336892,7 +336815,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "survivor-shaun",
-   "hash": "dcc318f056",
+   "hash": "1ef952fbe8",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -336911,8 +336834,8 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0438,
-   "minWall": 0.0039,
-   "thick": 0.0945,
+   "minWall": 0.0064,
+   "thick": 0.0946,
    "avgTri": 0.00008,
    "anglePct": 7,
    "pieces": 56,
@@ -336942,40 +336865,12 @@
     "textile-cloth-dark",
     "wood-mid"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0032,
-     "view": "315/20",
-     "causes": {
-      "open": 1
-     }
-    },
-    {
-     "side": "below",
-     "share": 0.0052,
-     "view": "0/-89.9",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 0.98,
+   "thickRel": 0.99,
    "lint": [
     {
      "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 315/20 over 0.2%: open 100.0%"
-    },
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.5% of view 0/-89.9 over 0.5%: open 100.0%"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0039 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.012"
     }
    ]
   },
@@ -337773,7 +337668,7 @@
   {
    "kit": "quat-buildings",
    "name": "hospital",
-   "hash": "be82a81b90",
+   "hash": "0f1eb85666",
    "kind": "str-building-work",
    "size": "l",
    "wdh": [
@@ -337784,7 +337679,7 @@
    "tris": 4240,
    "tpu": 63,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 243080,
    "vtx": 6754,
@@ -337804,11 +337699,9 @@
     "13,3",
     "3,2",
     "8,0",
-    "14,3",
-    "6,1"
+    "14,3"
    ],
    "colors": [
-    "#3a3e4b",
     "#57493d",
     "#59534e",
     "#7a8491",
@@ -337828,19 +337721,12 @@
     "storeys-4",
     "style-modern"
    ],
-   "thickRel": 1.11,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
-    }
-   ]
+   "thickRel": 1.11
   },
   {
    "kit": "quat-buildings",
    "name": "house-2",
-   "hash": "5ef1c6fa15",
+   "hash": "483397266b",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
@@ -337851,7 +337737,7 @@
    "tris": 2000,
    "tpu": 822,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 107256,
    "vtx": 2556,
@@ -337866,7 +337752,6 @@
    "vpt": 1.28,
    "cells": [
     "5,2",
-    "13,3",
     "12,3",
     "8,0",
     "2,0",
@@ -337876,7 +337761,6 @@
    ],
    "colors": [
     "#57493d",
-    "#59534e",
     "#713e14",
     "#873a27",
     "#88735f",
@@ -337898,8 +337782,13 @@
    "lint": [
     {
      "level": "error",
+     "check": "palette",
+     "text": "stone-concrete wants basalt, has ivory taupe-dark sienna chestnut taupe camel glass"
+    },
+    {
+     "level": "error",
      "check": "measures",
-     "text": "G13 bands 8 wants max 5"
+     "text": "G13 bands 7 wants max 5"
     }
    ]
   },
@@ -354977,13 +354866,13 @@
   {
    "kit": "quat-interior",
    "name": "knife",
-   "hash": "32fcfcbe36",
+   "hash": "7b9f12723f",
    "kind": "obj-kitchenware-tableware-cutlery-knife",
    "size": "s",
    "wdh": [
     0.017,
     0.202,
-    0.003
+    0.009
    ],
    "tris": 116,
    "tpu": 338,
@@ -354994,12 +354883,12 @@
    "vtx": 124,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0025,
-   "minWall": 0.002,
-   "thick": 0.4012,
-   "avgTri": 0.00004,
-   "anglePct": 95,
+   "minEdge": 0.003,
+   "minTube": 0.0089,
+   "minWall": 0.0066,
+   "thick": 0.453,
+   "avgTri": 0.00006,
+   "anglePct": 82,
    "pieces": 1,
    "vpt": 1.07,
    "cells": [
@@ -355012,19 +354901,7 @@
     "metal-steel",
     "qua"
    ],
-   "thickRel": 1.55,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0025 wants min 0.006"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.002 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.76
   },
   {
    "kit": "quat-interior",
@@ -380763,7 +380640,7 @@
   {
    "kit": "quat-shoot",
    "name": "pistol",
-   "hash": "31b7548627",
+   "hash": "a3b840daaf",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
@@ -380771,22 +380648,23 @@
     0.287,
     0.176
    ],
-   "tris": 512,
-   "tpu": 1493,
+   "tris": 540,
+   "tpu": 1574,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26428,
-   "vtx": 686,
+   "bytes": 33512,
+   "vtx": 902,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0022,
+   "minTube": 0.006,
+   "minWall": 0.0067,
    "thick": 0.1179,
-   "avgTri": 0.00027,
+   "avgTri": 0.00026,
    "anglePct": 74,
    "pieces": 12,
-   "vpt": 1.34,
+   "vpt": 1.67,
    "cells": [
     "13,3",
     "15,3",
@@ -380804,14 +380682,7 @@
     "wood-mid"
    ],
    "variant": "quat-guns/pistol",
-   "thickRel": 0.82,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0022 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.82
   },
   {
    "kit": "quat-shoot",
@@ -380856,7 +380727,7 @@
   {
    "kit": "quat-shoot",
    "name": "revolver-short",
-   "hash": "bdcbb1a28a",
+   "hash": "91adf75203",
    "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
@@ -380864,22 +380735,22 @@
     0.241,
     0.186
    ],
-   "tris": 836,
-   "tpu": 2437,
+   "tris": 880,
+   "tpu": 2566,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 37344,
-   "vtx": 966,
+   "bytes": 46828,
+   "vtx": 1254,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minWall": 0.0022,
+   "minWall": 0.0063,
    "thick": 0.1053,
-   "avgTri": 0.00015,
+   "avgTri": 0.00014,
    "anglePct": 38,
    "pieces": 11,
-   "vpt": 1.16,
+   "vpt": 1.43,
    "cells": [
     "1,0",
     "15,3"
@@ -380894,19 +380765,12 @@
     "wood-mid"
    ],
    "variant": "quat-shoot/revolver",
-   "thickRel": 0.73,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0022 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.73
   },
   {
    "kit": "quat-shoot",
    "name": "revolver",
-   "hash": "e123c8c67a",
+   "hash": "2e815d71d4",
    "kind": "obj-equipment-weapon-ranged-firearm-hand-revolver",
    "size": "s",
    "wdh": [
@@ -380914,23 +380778,23 @@
     0.36,
     0.193
    ],
-   "tris": 704,
-   "tpu": 2052,
+   "tris": 758,
+   "tpu": 2210,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 35724,
-   "vtx": 940,
+   "bytes": 45268,
+   "vtx": 1228,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0338,
-   "minWall": 0.0024,
+   "minWall": 0.0065,
    "thick": 0.1206,
-   "avgTri": 0.00021,
+   "avgTri": 0.0002,
    "anglePct": 17,
    "pieces": 11,
-   "vpt": 1.34,
+   "vpt": 1.62,
    "cells": [
     "1,0",
     "15,3"
@@ -380945,14 +380809,7 @@
     "wood-mid"
    ],
    "variant": "quat-shoot/revolver",
-   "thickRel": 0.84,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0024 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.84
   },
   {
    "kit": "quat-shoot",
@@ -402401,11 +402258,11 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "arrow",
-   "hash": "6fcd8feab0",
+   "hash": "8b80b6a4bc",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.035,
+    0.037,
     0.037,
     0.296
    ],
@@ -402414,16 +402271,16 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 7072,
+   "bytes": 7068,
    "vtx": 149,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0089,
-   "minWall": 0.0012,
-   "thick": 0.3189,
-   "avgTri": 0.00012,
-   "anglePct": 62,
+   "minWall": 0.0065,
+   "thick": 0.3188,
+   "avgTri": 0.00013,
+   "anglePct": 56,
    "pieces": 5,
    "vpt": 1.06,
    "cells": [
@@ -402442,14 +402299,7 @@
     "rgp",
     "wood-dark"
    ],
-   "thickRel": 1.08,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0012 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.08
   },
   {
    "kit": "rgp-medieval",
@@ -412768,11 +412618,11 @@
    "kit": "rgp-weapons",
    "collection": "rgp",
    "name": "arrow-b",
-   "hash": "c7ce23595a",
+   "hash": "6a9f37361e",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.042,
+    0.045,
     0.051,
     0.301
    ],
@@ -412787,10 +412637,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0126,
-   "minWall": 0.0037,
-   "thick": 0.2207,
-   "avgTri": 0.00008,
-   "anglePct": 45,
+   "minWall": 0.0067,
+   "thick": 0.2253,
+   "avgTri": 0.00009,
+   "anglePct": 42,
    "pieces": 3,
    "vpt": 1.36,
    "cells": [
@@ -412810,14 +412660,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/arrow-a",
-   "thickRel": 0.75,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0037 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.77
   },
   {
    "kit": "rgp-weapons",
@@ -427210,27 +427053,27 @@
   {
    "kit": "styloo-farm",
    "name": "soil",
-   "hash": "b79eea93f3",
+   "hash": "e3a354bee7",
    "kind": "env-terrain-ground-field",
-   "size": "m",
+   "size": "l",
    "wdh": [
-    1.35,
-    1.193,
-    0.006
+    1.736,
+    1.534,
+    0.007
    ],
    "tris": 180,
-   "tpu": 160,
+   "tpu": 97,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12648,
+   "bytes": 12688,
    "vtx": 318,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0049,
+   "minEdge": 0.006,
+   "minWall": 0.0064,
    "thick": 0.0377,
-   "avgTri": 0.01721,
+   "avgTri": 0.02846,
    "anglePct": 100,
    "pieces": 21,
    "vpt": 1.77,
@@ -427247,9 +427090,9 @@
    "thickRel": 0.67,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0049 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.026"
     }
    ]
   },
@@ -430218,28 +430061,28 @@
   {
    "kit": "styloo-food",
    "name": "ramen-spoon",
-   "hash": "5aabc5f6f1",
+   "hash": "d567921a73",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.079,
     0.077,
-    0.251
+    0.257
    ],
    "tris": 282,
    "tpu": 822,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 10508,
+   "bytes": 10512,
    "vtx": 228,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0035,
-   "thick": 0.1176,
+   "minEdge": 0.001,
+   "minWall": 0.0067,
+   "thick": 0.1329,
    "avgTri": 0.0001,
-   "anglePct": 0,
+   "anglePct": 1,
    "pieces": 1,
    "vpt": 0.81,
    "cells": [
@@ -430252,14 +430095,7 @@
     "sty",
     "wood-mid"
    ],
-   "thickRel": 0.79,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0035 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.89
   },
   {
    "kit": "styloo-food",
