@@ -39538,7 +39538,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "luger",
-   "hash": "e4f1e9d0f1",
+   "hash": "2db2fce7ed",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
@@ -39557,8 +39557,8 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0343,
-   "minWall": 0.0049,
-   "thick": 0.1116,
+   "minWall": 0.0066,
+   "thick": 0.1115,
    "avgTri": 0.00008,
    "anglePct": 29,
    "pieces": 23,
@@ -39579,14 +39579,7 @@
     "metal-steel",
     "wood-dark"
    ],
-   "thickRel": 0.78,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0049 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.78
   },
   {
    "kit": "3dm-guns",
@@ -39638,7 +39631,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "m4a1",
-   "hash": "32b585887c",
+   "hash": "145ce4b7a8",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-assault",
    "size": "s",
    "wdh": [
@@ -39657,7 +39650,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.021,
-   "minWall": 0.0039,
+   "minWall": 0.0062,
    "thick": 0.1427,
    "avgTri": 0.00008,
    "anglePct": 18,
@@ -39676,14 +39669,7 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0039 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "3dm-guns",
@@ -40028,7 +40014,7 @@
    "kit": "3dm-guns",
    "collection": "3dm",
    "name": "suomi-kp",
-   "hash": "3e8b8a8780",
+   "hash": "b75159f8ef",
    "kind": "obj-equipment-weapon-ranged-firearm-smg",
    "size": "s",
    "wdh": [
@@ -40047,7 +40033,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0172,
-   "minWall": 0.0027,
+   "minWall": 0.0063,
    "thick": 0.1856,
    "avgTri": 0.00005,
    "anglePct": 31,
@@ -40071,14 +40057,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.26,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0027 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.26
   },
   {
    "kit": "3dm-industrial",
@@ -250256,7 +250235,7 @@
    "kit": "ken-suburban",
    "collection": "ken-city",
    "name": "house-q",
-   "hash": "897abc5a2f",
+   "hash": "e1b12cb6e3",
    "kind": "str-building-residential-house",
    "size": "l",
    "wdh": [
@@ -250267,7 +250246,7 @@
    "tris": 1126,
    "tpu": 105,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 56060,
    "vtx": 1493,
@@ -250287,7 +250266,6 @@
     "14,3",
     "5,2",
     "3,2",
-    "8,0",
     "3,1",
     "13,3"
    ],
@@ -250295,7 +250273,6 @@
     "#57493d",
     "#59534e",
     "#66852a",
-    "#7a3525",
     "#7a8491",
     "#88735f",
     "#b5d5e3",
@@ -250316,8 +250293,8 @@
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
+     "check": "bands",
+     "text": "ceramic-light wants sienna, has taupe-dark nickel taupe ivory glass moss basalt (str-building)"
     }
    ]
   },
@@ -342123,7 +342100,7 @@
   {
    "kit": "quat-buildings",
    "name": "house-2",
-   "hash": "483397266b",
+   "hash": "36b6903caa",
    "kind": "str-building-residential-house",
    "size": "m",
    "wdh": [
@@ -342134,7 +342111,7 @@
    "tris": 2000,
    "tpu": 822,
    "mat": 1,
-   "bands": 7,
+   "bands": 5,
    "calls": 1,
    "bytes": 107256,
    "vtx": 2556,
@@ -342151,16 +342128,12 @@
     "5,2",
     "12,3",
     "8,0",
-    "2,0",
-    "14,3",
     "1,0",
     "3,2"
    ],
    "colors": [
     "#57493d",
-    "#713e14",
     "#7a3525",
-    "#88735f",
     "#9e6d44",
     "#b5d5e3",
     "#dbd0b5"
@@ -342180,12 +342153,7 @@
     {
      "level": "error",
      "check": "palette",
-     "text": "stone-concrete wants basalt, has ivory taupe-dark sienna chestnut taupe camel glass"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G13 bands 7 wants max 5"
+     "text": "stone-concrete wants basalt, has ivory taupe-dark sienna camel glass"
     }
    ]
   },
@@ -355087,7 +355055,7 @@
   {
    "kit": "quat-furniture",
    "name": "bookcase-books",
-   "hash": "1396fed348",
+   "hash": "a365a9cfb3",
    "kind": "obj-furnishing-furniture-storage-bookcase",
    "size": "m",
    "wdh": [
@@ -355105,7 +355073,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0095,
+   "minTube": 0.0129,
    "minWall": 0.0068,
    "thick": 0.1335,
    "avgTri": 0.00202,
@@ -355139,11 +355107,6 @@
    "thickRel": 1.69,
    "lint": [
     {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0095 wants min 0.012"
-    },
-    {
      "level": "warning",
      "check": "measures",
      "text": "G27 minWall 0.0068 wants min 0.012"
@@ -355153,7 +355116,7 @@
   {
    "kit": "quat-furniture",
    "name": "bookcase",
-   "hash": "42fc2eb76c",
+   "hash": "2558b21e6a",
    "kind": "obj-furnishing-furniture-storage-bookcase",
    "size": "m",
    "wdh": [
@@ -355171,7 +355134,7 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0095,
+   "minTube": 0.0129,
    "minWall": 0.0068,
    "thick": 0.1256,
    "avgTri": 0.00207,
@@ -355198,11 +355161,6 @@
    "variant": "quat-furniture/bookcase",
    "thickRel": 1.59,
    "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0095 wants min 0.012"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -355851,7 +355809,7 @@
   {
    "kit": "quat-furniture",
    "name": "wardrobe-short",
-   "hash": "a82f0d1499",
+   "hash": "a737ab075b",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
@@ -355869,11 +355827,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0064,
-   "minWall": 0.0064,
-   "thick": 0.2156,
-   "avgTri": 0.00071,
-   "anglePct": 95,
+   "minTube": 0.0125,
+   "minWall": 0.0105,
+   "thick": 0.2165,
+   "avgTri": 0.00073,
+   "anglePct": 93,
    "pieces": 29,
    "vpt": 1.63,
    "cells": [
@@ -355902,21 +355860,16 @@
      "text": "tpu 6904 over max 5000 (obj-furnishing)"
     },
     {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0064 wants min 0.012"
-    },
-    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0064 wants min 0.012"
+     "text": "G27 minWall 0.0105 wants min 0.012"
     }
    ]
   },
   {
    "kit": "quat-furniture",
    "name": "wardrobe-tall",
-   "hash": "886d5a745b",
+   "hash": "b35780328d",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
@@ -355934,11 +355887,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0069,
-   "minWall": 0.0068,
-   "thick": 0.2372,
-   "avgTri": 0.00104,
-   "anglePct": 95,
+   "minTube": 0.0129,
+   "minWall": 0.0121,
+   "thick": 0.2371,
+   "avgTri": 0.00105,
+   "anglePct": 93,
    "pieces": 19,
    "vpt": 1.32,
    "cells": [
@@ -355959,19 +355912,7 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/wardrobe-tall",
-   "thickRel": 1.03,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minTube 0.0069 wants min 0.012"
-    },
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0068 wants min 0.012"
-    }
-   ]
+   "thickRel": 1.03
   },
   {
    "kit": "quat-guns",
@@ -371470,7 +371411,7 @@
   {
    "kit": "quat-pirate",
    "name": "ship-large",
-   "hash": "53cf7d3964",
+   "hash": "3afc1f073c",
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
@@ -371481,7 +371422,7 @@
    "tris": 4197,
    "tpu": 82,
    "mat": 1,
-   "bands": 7,
+   "bands": 6,
    "calls": 1,
    "bytes": 295468,
    "vtx": 8399,
@@ -371500,7 +371441,6 @@
     "0,0",
     "8,0",
     "14,3",
-    "1,0",
     "13,3",
     "14,2"
    ],
@@ -371510,7 +371450,6 @@
     "#7a3525",
     "#88735f",
     "#907a66",
-    "#9e6d44",
     "#ca9f6e"
    ],
    "tags": [
@@ -371526,11 +371465,6 @@
    ],
    "thickRel": 0.98,
    "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G15 bands 7 wants max 6"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -374895,11 +374829,11 @@
   {
    "kit": "quat-props",
    "name": "scroll-1",
-   "hash": "01b599998f",
+   "hash": "540a162b99",
    "kind": "obj-equipment-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
-    0.286,
+    0.287,
     0.076,
     0.071
    ],
@@ -374908,15 +374842,15 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 16020,
+   "bytes": 16024,
    "vtx": 375,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0042,
-   "thick": 0.3178,
-   "avgTri": 0.00043,
-   "anglePct": 10,
+   "minEdge": 0.002,
+   "minWall": 0.0066,
+   "thick": 0.3201,
+   "avgTri": 0.0004,
+   "anglePct": 9,
    "pieces": 2,
    "vpt": 0.88,
    "cells": [
@@ -374934,14 +374868,7 @@
     "sailing"
    ],
    "variant": "quat-props/scroll-1",
-   "thickRel": 3.92,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0042 wants min 0.006"
-    }
-   ]
+   "thickRel": 3.95
   },
   {
    "kit": "quat-props",
@@ -383340,7 +383267,7 @@
    "kit": "quat-scifi",
    "collection": "quat-guns",
    "name": "sniper-b",
-   "hash": "712d5ffd85",
+   "hash": "b01ef28a17",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
@@ -383358,9 +383285,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0283,
-   "minWall": 0.0055,
-   "thick": 0.1731,
+   "minTube": 0.0281,
+   "minWall": 0.0068,
+   "thick": 0.1732,
    "avgTri": 0.00008,
    "anglePct": 28,
    "pieces": 18,
@@ -383384,14 +383311,7 @@
     "space"
    ],
    "variant": "quat-scifi/sniper",
-   "thickRel": 1.08,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0055 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.08
   },
   {
    "kit": "quat-scifi",
@@ -409647,31 +409567,30 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "grass",
-   "hash": "ae6b01dcc8",
+   "hash": "e0db100d0e",
    "kind": "env-flora-plant-grass",
    "size": "s",
    "wdh": [
-    0.288,
-    0.331,
-    0.078
+    0.285,
+    0.328,
+    0.077
    ],
-   "tris": 2101,
-   "tpu": 6125,
+   "tris": 1891,
+   "tpu": 5513,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 171696,
-   "vtx": 4924,
+   "bytes": 137508,
+   "vtx": 3895,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minTube": 0.0066,
-   "minWall": 0.0001,
-   "thick": 0.0546,
-   "avgTri": 0.00004,
-   "anglePct": 3,
-   "pieces": 84,
-   "vpt": 2.34,
+   "minEdge": 0.004,
+   "minWall": 0.0066,
+   "thick": 0.0605,
+   "avgTri": 0.00008,
+   "anglePct": 2,
+   "pieces": 82,
+   "vpt": 2.06,
    "cells": [
     "3,1"
    ],
@@ -409683,14 +409602,7 @@
     "plural",
     "rgp"
    ],
-   "variant": "rgp-medieval/grass",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0001 wants min 0.006"
-    }
-   ]
+   "variant": "rgp-medieval/grass"
   },
   {
    "kit": "rgp-medieval",
@@ -417305,7 +417217,7 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "clock",
-   "hash": "7f5b1e363c",
+   "hash": "7f44476bb6",
    "kind": "obj-furnishing-clock-wall",
    "size": "s",
    "wdh": [
@@ -417324,11 +417236,11 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0016,
-   "minWall": 0.0033,
-   "thick": 0.1069,
-   "avgTri": 0.0003,
-   "anglePct": 79,
-   "pieces": 14,
+   "minWall": 0.0069,
+   "thick": 0.1102,
+   "avgTri": 0.00029,
+   "anglePct": 80,
+   "pieces": 15,
    "vpt": 1.19,
    "cells": [
     "6,0",
@@ -417352,32 +417264,17 @@
     "tba",
     "wood-dark"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0045,
-     "view": "180/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "thickRel": 0.72,
+   "thickRel": 0.74,
    "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.4% of view 180/20 over 0.2%: open 100.0%"
-    },
     {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0016 wants min 0.012"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0033 wants min 0.006"
+     "text": "G27 minWall 0.0069 wants min 0.012"
     }
    ]
   },
@@ -437050,7 +436947,7 @@
    "kit": "styloo-guns",
    "collection": "styloo-weapons",
    "name": "assault-rifle",
-   "hash": "1139bd7576",
+   "hash": "fa04b0b27c",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-assault",
    "size": "m",
    "wdh": [
@@ -437068,8 +436965,8 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0235,
-   "minWall": 0.0045,
+   "minTube": 0.0576,
+   "minWall": 0.012,
    "thick": 0.125,
    "avgTri": 0.00011,
    "anglePct": 35,
@@ -437092,14 +436989,7 @@
     "wood-mid"
    ],
    "variant": "styloo-guns/assault-rifle",
-   "thickRel": 0.9,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0045 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.9
   },
   {
    "kit": "styloo-guns",
@@ -444338,7 +444228,7 @@
   {
    "kit": "styloo-school",
    "name": "radio",
-   "hash": "1e987c8848",
+   "hash": "97340e78ff",
    "kind": "obj-device-electronics-radio",
    "size": "s",
    "wdh": [
@@ -444356,11 +444246,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0047,
-   "thick": 0.2397,
+   "minWall": 0.0062,
+   "thick": 0.2399,
    "avgTri": 0.00012,
-   "anglePct": 74,
-   "pieces": 11,
+   "anglePct": 71,
+   "pieces": 10,
    "vpt": 1.48,
    "cells": [
     "15,3",
@@ -444377,14 +444267,7 @@
     "sty",
     "tba"
    ],
-   "thickRel": 1.37,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0047 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.37
   },
   {
    "kit": "styloo-school",
@@ -445692,27 +445575,27 @@
   {
    "kit": "styloo-school",
    "name": "usb-stick-swivel",
-   "hash": "52163f4389",
+   "hash": "a7e09cd66d",
    "kind": "obj-device-electronics-media",
    "size": "s",
    "wdh": [
     0.097,
-    0.212,
-    0.071
+    0.214,
+    0.074
    ],
    "tris": 746,
    "tpu": 2175,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 33000,
+   "bytes": 33004,
    "vtx": 844,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0037,
-   "thick": 0.2464,
-   "avgTri": 0.00015,
+   "minWall": 0.0068,
+   "thick": 0.2498,
+   "avgTri": 0.00016,
    "anglePct": 69,
    "pieces": 2,
    "vpt": 1.13,
@@ -445733,12 +445616,12 @@
     "sty"
    ],
    "variant": "styloo-school/usb-stick",
-   "thickRel": 2.28,
+   "thickRel": 2.31,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0037 wants min 0.006"
+     "text": "G27 minWall 0.0068 wants min 0.026"
     }
    ]
   },
