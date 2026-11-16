@@ -372,7 +372,8 @@ Special proposals:
 Proposals go on the review page. A proposal made without any other fix
 is listed with only a `proposal`, so its card says proposal only.
 
-Special proposals always go on a separate page or tab.
+Special proposals always go on a page of their own, never on the review page
+of the round's changes; `review.mjs build` refuses a mix.
 
 When you propose, also show a fix or fix attempt, even one you think failed,
 unless that clearly wastes effort, because:
