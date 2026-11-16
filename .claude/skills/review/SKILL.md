@@ -29,8 +29,9 @@ Write a list JSON in the scratchpad (format: `node tools/review/review.mjs`):
 - `model`, `group` (the kind, or a heading)
 - `change`: what was done, a short clause
 - `why`: why you doubt it, a short clause; leave it out when you don't
-- `proposal`: a proposal for the PO (another kind, a tag, a looser rule), with
-  or without a change to the model
+- `proposal`: a proposal for the PO (another kind, a tag), with or without a
+  change to the model. A rule, limit, new-kind or lint proposal goes on a
+  page of its own, never with other changes; `build` refuses a mix
 - `warn`: a heads-up the PO must not miss, such as a fallback to a lower limit
 
 Put every doubtful change in, not a sample, plus the other visible changes of
