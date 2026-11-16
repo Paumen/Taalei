@@ -1,11 +1,11 @@
 ---
 name: sheepdog
-description: Round up the strays of random catalogue kinds, or families of related kinds — sub agents render each kind on sheets, fix glitchy triangles, off colours, odd shapes and thickness against the kind's peers, and update tags, autonomously; every run ends with a review page whose verdicts revert and calibrate. Use when asked to run sheepdog, to make kinds coherent, or to apply sheepdog review verdicts.
+description: Round up the strays of random catalogue kinds, or families of related kinds — one sub agent renders each kind on sheets, fix glitchy triangles, off colours, odd shapes and thickness against the kind's peers, and update tags, autonomously; every run ends with a review page whose verdicts revert and calibrate. Use when asked to run sheepdog, to make kinds coherent, or to apply sheepdog review verdicts.
 ---
 
 # Sheepdog
 
-One run: pick kinds, one sub agent per kind fixes its models, record, rebuild,
+One run: pick kinds, one sub agent fixes the models of all of them, record, rebuild,
 push, and end with a review (`.claude/skills/review`) of the run's changes. A
 second, short run applies the PO's verdicts.
 
@@ -38,22 +38,21 @@ say how bands and tags work. The agents get both as reading.
    It prints the run dir (`kits/.cache/sheepdog/<run>`) and writes `run.json`
    there: per kind its dir, dossier and sheets.
 
-4. For every kind in `run.json`, spawn one sub agent (`general-purpose`,
-   inherit the model, background) with `brief.md` from this folder, the
-   placeholders filled: `{{kind}}`, `{{kinds}}` (the entry's `kinds`, comma
-   separated), `{{dir}}`, `{{sheets}}` (one path per line), `{{calibration}}`
-   (the output of step 2). Three run at once; start
-   the next when one finishes. Agents work only their own kind's workfiles and
-   their own run dir, so they do not collide. Do not touch `tags.json` or run
-   a rebuild while agents run.
+4. Spawn one sub agent (`general-purpose`, inherit the model, background)
+   for all kinds in `run.json`, with `brief.md` from this folder filled once
+   per kind: `{{kind}}`, `{{kinds}}` (the entry's `kinds`, comma separated),
+   `{{dir}}`, `{{sheets}}` (one path per line), `{{calibration}}` (the output
+   of step 2). It works the kinds one after another, each only in that kind's
+   workfiles and run dir. Do not touch `tags.json` or run a rebuild while it
+   runs.
 
-5. When all agents are done:
+5. When the agent is done:
 
        node tools/sheepdog/sheepdog.mjs record --run kits/.cache/sheepdog/<run>
 
    It applies the agents' tag edits, lints every changed file against its
    before-state and turns a new finding into doubt, and stores the changes in
-   the log. An agent that wrote no `result.json` is reported and skipped;
+   the log. A kind with no `result.json` is reported and skipped;
    chase it before recording if its work is unfinished.
 
 6. Rebuild per `catalog-assets` §6, every step except `build-lists`. Commit
