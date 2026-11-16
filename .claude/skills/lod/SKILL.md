@@ -118,8 +118,8 @@ the list of what was tried and why it failed.
 
 ### Careful pass (only what the quick pass did not settle)
 
-One small, fresh sub agent per model (twins together): a `general-purpose`
-Agent (not a fork), a few at once. Its brief: the model, its problem, the checker's
+One fresh sub agent for the whole batch, never one per model: a
+`general-purpose` Agent (not a fork). Its brief, per model: the model, its problem, the checker's
 or PO's words, what the quick pass tried, and the verdict quotes that matter,
 and that it follows `.claude/skills/lod/SKILL.md`. It works as the rest of
 this skill says: look (peers when size or chunkiness changes), name the
@@ -127,26 +127,11 @@ problem from the table, pick from Fixes, render, and ends its answer with
 what it changed and the paths of its before and after glbs. The main session
 runs the fresh checker and passes its verdict back.
 
-Sub agents are the costly part of a round, so weigh it before launching. In
-one round of 22 models, 20 fixers at once on the session's model used a full
-5-hour window: each started at about 76k tokens of standing setup, grew to
-120–230k, and a limit hit mid-retry made the cut-off ones pay their context
-twice. What helps, to taste:
-
-- Start with one or a small batch, look at what it cost and how it came out,
-  then size the rest. For a big list, tell the PO roughly what it will take.
-- A lighter model for fixers often does; keep the session's model for
-  judging.
-- Ask for a short hand-back: what changed, open doubts, file paths. Long
-  reports pile up in the main session.
-- Keep the main session lean while agents run: past verdicts and lint output
-  to a file, read the parts that matter; no reply per finished agent.
-
 ### Retries
 
 A retry answers the comment: it names what was wrong and changes the
 approach, not a setting. The same tool with a slightly different number is
-not a retry. Retries go to a fresh sub agent with only that model. After two
+not a retry. Retries go to one fresh sub agent with only the retried models. After two
 approaches the checker judged failed, the latest attempt goes onto the review
 page; whether it failed is the PO's call. This limit counts fixer and checker
 rounds only, never PO verdicts: a PO retry always gets another try.
@@ -405,8 +390,7 @@ triangles.
    drop part, swap shape, rebuild part. Try `slim.mjs edit` first; write a
    rebuild script only for parts it can't do.
 4. **One model first**: show the PO its before and after before touching the
-   rest of the batch. Then one model or twin pair at a time, never several
-   sub agents at once.
+   rest of the batch.
 
 The peers' triangle counts are a guide; the look decides.
 
