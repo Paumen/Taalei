@@ -118,8 +118,8 @@ the list of what was tried and why it failed.
 
 ### Careful pass (only what the quick pass did not settle)
 
-One small, fresh sub agent per model (twins together): a `general-purpose`
-Agent (not a fork), a few at once. Its brief: the model, its problem, the checker's
+One fresh sub agent for the whole batch, never one per model: a
+`general-purpose` Agent (not a fork). Its brief, per model: the model, its problem, the checker's
 or PO's words, what the quick pass tried, and the verdict quotes that matter,
 and that it follows `.claude/skills/lod/SKILL.md`. It works as the rest of
 this skill says: look (peers when size or chunkiness changes), name the
@@ -146,7 +146,7 @@ twice. What helps, to taste:
 
 A retry answers the comment: it names what was wrong and changes the
 approach, not a setting. The same tool with a slightly different number is
-not a retry. Retries go to a fresh sub agent with only that model. After two
+not a retry. Retries go to one fresh sub agent with only the retried models. After two
 approaches the checker judged failed, the latest attempt goes onto the review
 page; whether it failed is the PO's call. This limit counts fixer and checker
 rounds only, never PO verdicts: a PO retry always gets another try.
