@@ -64820,7 +64820,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "town-hall",
-   "hash": "4519cca30d",
+   "hash": "114a6918d7",
    "kind": "str-building-work-commercial",
    "size": "l",
    "wdh": [
@@ -64839,7 +64839,7 @@
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0152,
-   "minWall": 0.0039,
+   "minWall": 0.0068,
    "thick": 0.2184,
    "avgTri": 0.05897,
    "anglePct": 48,
@@ -64867,33 +64867,17 @@
     "wood-dark",
     "wood-light"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0044,
-     "view": "0/50",
-     "causes": {
-      "open": 1,
-      "inverted": 0
-     }
-    }
-   ],
    "thickRel": 1,
    "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.4% of view 0/50 over 0.2%: open 100.0%"
-    },
     {
      "level": "error",
      "check": "measures",
      "text": "G27 minTube 0.0152 wants min 0.026"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0039 wants min 0.006"
+     "text": "G27 minWall 0.0068 wants min 0.026"
     }
    ]
   },
@@ -292541,6 +292525,23 @@
    "tags": [
     "comp",
     "m3"
+   ],
+   "backface": [
+    {
+     "side": "below",
+     "share": 1,
+     "view": "0/-89.9",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "100.0% of view 0/-89.9 over 5.0%: open 100.0%"
+    }
    ]
   },
   {
@@ -343307,7 +343308,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate",
-   "thickRel": 1.24
+   "thickRel": 1.23
   },
   {
    "kit": "quat-essentials",
@@ -343456,7 +343457,7 @@
     "space"
    ],
    "variant": "quat-essentials/crate",
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "quat-essentials",
@@ -359552,7 +359553,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.95
+   "thickRel": 0.94
   },
   {
    "kit": "quat-megakit",
@@ -366402,7 +366403,7 @@
   {
    "kit": "quat-pirate",
    "name": "pirate-anne",
-   "hash": "9e06414c65",
+   "hash": "ec5d6ee21c",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -366415,13 +366416,13 @@
    "mat": 1,
    "bands": 5,
    "calls": 2,
-   "bytes": 939872,
+   "bytes": 977268,
    "vtx": 10193,
    "gridMod": true,
    "grounded": true,
    "minEdge": 0,
    "minTube": 0.0365,
-   "minWall": 0.0054,
+   "minWall": 0.0064,
    "thick": 0.096,
    "avgTri": 0.00009,
    "anglePct": 3,
@@ -366471,9 +366472,9 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0054 wants min 0.006"
+     "text": "G27 minWall 0.0064 wants min 0.012"
     }
    ],
    "mark": [
@@ -366582,7 +366583,7 @@
   {
    "kit": "quat-pirate",
    "name": "pirate-henry",
-   "hash": "f7d884577c",
+   "hash": "cd8c6c1069",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -366595,11 +366596,11 @@
    "mat": 1,
    "bands": 6,
    "calls": 2,
-   "bytes": 1563280,
+   "bytes": 1600676,
    "vtx": 22264,
    "grounded": true,
    "minEdge": 0,
-   "minWall": 0.0058,
+   "minWall": 0.0067,
    "thick": 0.0915,
    "avgTri": 0.0001,
    "anglePct": 8,
@@ -366651,9 +366652,9 @@
    "thickRel": 0.95,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0058 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.012"
     }
    ],
    "mark": [
@@ -367324,7 +367325,7 @@
   {
    "kit": "quat-pirate",
    "name": "skeleton-headless",
-   "hash": "12a18dd411",
+   "hash": "c638c0c3b7",
    "kind": "char-undead",
    "size": "m",
    "wdh": [
@@ -367337,13 +367338,13 @@
    "mat": 1,
    "bands": 3,
    "calls": 2,
-   "bytes": 753592,
+   "bytes": 793724,
    "vtx": 6894,
    "grounded": true,
    "minEdge": 0,
    "minTube": 0.0289,
-   "minWall": 0.0056,
-   "thick": 0.0812,
+   "minWall": 0.0066,
+   "thick": 0.0816,
    "avgTri": 0.00008,
    "anglePct": 4,
    "pieces": 19,
@@ -367394,9 +367395,9 @@
      "text": "high 0.362 under min 0.45 (char)"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
+     "text": "G27 minWall 0.0066 wants min 0.026"
     }
    ],
    "mark": [
@@ -376227,7 +376228,7 @@
   {
    "kit": "quat-ruins",
    "name": "column-bridge-support",
-   "hash": "f1d22a7a8b",
+   "hash": "bd61b56c87",
    "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
@@ -376235,23 +376236,23 @@
     0.309,
     2.01
    ],
-   "tris": 1242,
-   "tpu": 1261,
+   "tris": 1218,
+   "tpu": 1237,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 64492,
+   "bytes": 64348,
    "vtx": 1733,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.204,
-   "minWall": 0.0028,
+   "minWall": 0.0447,
    "thick": 0.296,
-   "avgTri": 0.00299,
-   "anglePct": 73,
+   "avgTri": 0.0023,
+   "anglePct": 64,
    "pieces": 16,
-   "vpt": 1.4,
+   "vpt": 1.42,
    "cells": [
     "14,3"
    ],
@@ -376263,14 +376264,7 @@
     "qua",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.12,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0028 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.12
   },
   {
    "kit": "quat-ruins",
@@ -378430,7 +378424,7 @@
   {
    "kit": "quat-scifi-mod",
    "name": "chest",
-   "hash": "3f3635df43",
+   "hash": "e24c8ee482",
    "kind": "obj-container-crate-scifi",
    "size": "s",
    "wdh": [
@@ -378449,10 +378443,10 @@
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0075,
-   "minWall": 0.0056,
-   "thick": 0.2663,
+   "minWall": 0.007,
+   "thick": 0.2668,
    "avgTri": 0.00033,
-   "anglePct": 76,
+   "anglePct": 75,
    "pieces": 67,
    "vpt": 1.47,
    "cells": [
@@ -378479,11 +378473,6 @@
      "level": "error",
      "check": "tpu",
      "text": "tpu 13688 over max 10000 (obj)"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
     }
    ]
   },
@@ -391549,7 +391538,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "archery-1-a",
-   "hash": "e7c91a537a",
+   "hash": "8b2f735295",
    "kind": "str-building-military-barracks",
    "size": "l",
    "wdh": [
@@ -391566,9 +391555,9 @@
    "vtx": 6174,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "minTube": 0.009,
-   "minWall": 0.0052,
+   "minWall": 0.0068,
    "thick": 0.0892,
    "avgTri": 0.01164,
    "anglePct": 82,
@@ -391595,14 +391584,7 @@
     "wood-dark"
    ],
    "variant": "quat-town/archery-1-b",
-   "thickRel": 0.65,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0052 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.65
   },
   {
    "kit": "quat-town",
@@ -393722,7 +393704,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-1-c",
-   "hash": "00331c8b17",
+   "hash": "e2d287d25d",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -393739,9 +393721,9 @@
    "vtx": 4326,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
+   "minEdge": 0.005,
    "minTube": 0.0711,
-   "minWall": 0.0058,
+   "minWall": 0.0068,
    "thick": 0.044,
    "avgTri": 0.01281,
    "anglePct": 59,
@@ -393772,29 +393754,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/market-1-b",
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0023,
-     "view": "135/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 135/20 over 0.2%: open 100.0%"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0058 wants min 0.006"
-    }
-   ]
+   "variant": "quat-town/market-1-b"
   },
   {
    "kit": "quat-town",
@@ -393918,7 +393878,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "market-2-c",
-   "hash": "648f6e89bd",
+   "hash": "ea58a01b7b",
    "kind": "str-canopy-stall",
    "size": "l",
    "wdh": [
@@ -393936,7 +393896,7 @@
    "centered": true,
    "minEdge": 0.003,
    "minTube": 0.078,
-   "minWall": 0.0052,
+   "minWall": 0.0068,
    "thick": 0.05,
    "avgTri": 0.01302,
    "anglePct": 74,
@@ -393970,14 +393930,7 @@
     "textile-cloth-light",
     "wood-dark"
    ],
-   "variant": "quat-town/market-2-b",
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0052 wants min 0.006"
-    }
-   ]
+   "variant": "quat-town/market-2-b"
   },
   {
    "kit": "quat-town",
@@ -394755,7 +394708,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-b",
-   "hash": "b994b801e3",
+   "hash": "74e4662b55",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -394772,9 +394725,9 @@
    "vtx": 4025,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "minTube": 0.026,
-   "minWall": 0.0059,
+   "minWall": 0.0068,
    "thick": 0.1329,
    "avgTri": 0.0243,
    "anglePct": 70,
@@ -394801,9 +394754,9 @@
    "thickRel": 0.85,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0059 wants min 0.006"
+     "text": "G27 minWall 0.0068 wants min 0.026"
     }
    ]
   },
@@ -394811,7 +394764,7 @@
    "kit": "quat-town",
    "collection": "quat-medieval",
    "name": "storage-1-c",
-   "hash": "33a129e41f",
+   "hash": "5cd9f75ea1",
    "kind": "str-building-work-industrial",
    "size": "l",
    "wdh": [
@@ -394824,14 +394777,14 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 156752,
+   "bytes": 156772,
    "vtx": 4350,
    "grounded": true,
-   "minEdge": 0.003,
+   "minEdge": 0.004,
    "minTube": 0.026,
-   "minWall": 0.0056,
+   "minWall": 0.0067,
    "thick": 0.1728,
-   "avgTri": 0.0285,
+   "avgTri": 0.02851,
    "anglePct": 64,
    "pieces": 94,
    "vpt": 1.62,
@@ -394856,9 +394809,9 @@
    "thickRel": 1.1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
+     "text": "G27 minWall 0.0067 wants min 0.026"
     }
    ],
    "mark": [
@@ -426318,6 +426271,23 @@
     "leaf-light",
     "piece",
     "sty"
+   ],
+   "backface": [
+    {
+     "side": "below",
+     "share": 0.9992,
+     "view": "0/-89.9",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "99.9% of view 0/-89.9 over 5.0%: open 100.0%"
+    }
    ]
   },
   {
@@ -459121,27 +459091,27 @@
   {
    "kit": "wizp-lava",
    "name": "lava-pit-edge-a",
-   "hash": "016c755ab3",
+   "hash": "e82a5e4db6",
    "kind": "env-terrain-ground-pit",
    "size": "m",
    "wdh": [
     1.38,
     1.38,
-    0.074
+    0.076
    ],
    "tris": 96,
    "tpu": 72,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6380,
+   "bytes": 6428,
    "vtx": 137,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0049,
+   "minEdge": 0.007,
+   "minWall": 0.0068,
    "thick": 0.0459,
-   "avgTri": 0.04242,
+   "avgTri": 0.04253,
    "anglePct": 97,
    "pieces": 1,
    "vpt": 1.43,
@@ -459162,36 +459132,36 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0049 wants min 0.006"
+     "text": "G27 minWall 0.0068 wants min 0.026"
     }
    ]
   },
   {
    "kit": "wizp-lava",
    "name": "lava-pit-edge-b",
-   "hash": "8c56904b23",
+   "hash": "cd5b4fc414",
    "kind": "env-terrain-ground-pit",
    "size": "m",
    "wdh": [
     1.38,
     1.38,
-    0.074
+    0.076
    ],
    "tris": 96,
    "tpu": 72,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 6380,
+   "bytes": 6428,
    "vtx": 137,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0049,
-   "thick": 0.0457,
-   "avgTri": 0.04244,
+   "minEdge": 0.007,
+   "minWall": 0.0068,
+   "thick": 0.0458,
+   "avgTri": 0.04255,
    "anglePct": 97,
    "pieces": 1,
    "vpt": 1.43,
@@ -459212,9 +459182,9 @@
    "thickRel": 1,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0049 wants min 0.006"
+     "text": "G27 minWall 0.0068 wants min 0.026"
     }
    ]
   },
