@@ -40968,13 +40968,13 @@
    "kit": "3dm-medieval",
    "collection": "3dm",
    "name": "scroll",
-   "hash": "4965df9658",
+   "hash": "093080eb5e",
    "kind": "obj-equipment-pocketitem-scroll-rolled",
    "size": "s",
    "wdh": [
-    0.063,
+    0.054,
     0.2,
-    0.061
+    0.051
    ],
    "tris": 1194,
    "tpu": 3481,
@@ -40986,10 +40986,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minWall": 0.0065,
-   "thick": 0.3034,
-   "avgTri": 0.0001,
-   "anglePct": 9,
+   "minWall": 0.0016,
+   "thick": 0.3062,
+   "avgTri": 0.00009,
+   "anglePct": 8,
    "pieces": 3,
    "vpt": 0.83,
    "cells": [
@@ -41005,7 +41005,14 @@
     "paper-sheet",
     "textile-cloth-dark"
    ],
-   "thickRel": 3.75
+   "thickRel": 3.78,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0016 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "3dm-medieval",
@@ -286927,12 +286934,12 @@
   {
    "kit": "m3-base",
    "name": "cardboard-produce-tray",
-   "hash": "59ecf93c6c",
+   "hash": "553c0bef6f",
    "kind": "obj-container-crate-produce",
    "size": "m",
    "wdh": [
     0.529,
-    0.32,
+    0.319,
     0.136
    ],
    "tris": 862,
@@ -286940,17 +286947,17 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 33848,
-   "vtx": 847,
+   "bytes": 36536,
+   "vtx": 931,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
    "minWall": 0.0067,
-   "thick": 0.0616,
-   "avgTri": 0.00078,
+   "thick": 0.0614,
+   "avgTri": 0.00079,
    "anglePct": 77,
    "pieces": 1,
-   "vpt": 0.98,
+   "vpt": 1.08,
    "cells": [
     "0,0"
    ],
@@ -431434,12 +431441,12 @@
   {
    "kit": "styloo-furniture",
    "name": "wooden-spoon-round",
-   "hash": "086a55c67e",
+   "hash": "f636428d0d",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
     0.058,
-    0.013,
+    0.01,
     0.2
    ],
    "tris": 333,
@@ -431447,15 +431454,15 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19668,
+   "bytes": 19664,
    "vtx": 506,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0066,
-   "thick": 0.1448,
-   "avgTri": 0.00005,
-   "anglePct": 43,
+   "minWall": 0.0034,
+   "thick": 0.131,
+   "avgTri": 0.00004,
+   "anglePct": 46,
    "pieces": 1,
    "vpt": 1.52,
    "cells": [
@@ -431469,7 +431476,14 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/wooden-spoon",
-   "thickRel": 0.97
+   "thickRel": 0.88,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0034 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "styloo-furniture",
@@ -439207,30 +439221,30 @@
   {
    "kit": "styloo-school",
    "name": "scissors",
-   "hash": "3b382c65c2",
+   "hash": "b862cc2b77",
    "kind": "obj-equipment-tool-stationery",
    "size": "s",
    "wdh": [
-    0.051,
-    0.114,
-    0.011
+    0.049,
+    0.113,
+    0.009
    ],
-   "tris": 2360,
-   "tpu": 6880,
+   "tris": 2408,
+   "tpu": 7020,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 83728,
-   "vtx": 2128,
+   "bytes": 88624,
+   "vtx": 2272,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0067,
-   "thick": 0.1147,
+   "minWall": 0.0026,
+   "thick": 0.1025,
    "avgTri": 0,
-   "anglePct": 23,
-   "pieces": 3,
-   "vpt": 0.9,
+   "anglePct": 36,
+   "pieces": 4,
+   "vpt": 0.94,
    "cells": [
     "13,3",
     "15,3"
@@ -439246,7 +439260,14 @@
     "scale-small",
     "sty"
    ],
-   "thickRel": 0.55
+   "thickRel": 0.49,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0026 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "styloo-school",
@@ -440272,7 +440293,7 @@
   {
    "kit": "styloo-school",
    "name": "usb-stick-swivel",
-   "hash": "89f5b4eff2",
+   "hash": "7d4dbe086b",
    "kind": "obj-device-electronics-media",
    "size": "s",
    "wdh": [
@@ -440290,10 +440311,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0065,
-   "thick": 0.2417,
-   "avgTri": 0.00006,
-   "anglePct": 65,
+   "minWall": 0.0021,
+   "thick": 0.2465,
+   "avgTri": 0.00005,
+   "anglePct": 69,
    "pieces": 2,
    "vpt": 1.13,
    "cells": [
@@ -440313,12 +440334,12 @@
     "sty"
    ],
    "variant": "styloo-school/usb-stick",
-   "thickRel": 2.23,
+   "thickRel": 2.28,
    "lint": [
     {
-     "level": "warning",
+     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0065 wants min 0.026"
+     "text": "G27 minWall 0.0021 wants min 0.006"
     }
    ]
   },
@@ -464207,13 +464228,13 @@
   {
    "kit": "zombie-weapons",
    "name": "arrow",
-   "hash": "3f544d1cdf",
+   "hash": "e5c41f34af",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.033,
-    0.028,
-    0.365
+    0.03,
+    0.026,
+    0.364
    ],
    "tris": 204,
    "tpu": 595,
@@ -464224,12 +464245,12 @@
    "vtx": 317,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0066,
-   "minWall": 0.0066,
-   "thick": 0.3947,
-   "avgTri": 0.00008,
-   "anglePct": 60,
+   "minEdge": 0.001,
+   "minTube": 0.006,
+   "minWall": 0.001,
+   "thick": 0.4138,
+   "avgTri": 0.00006,
+   "anglePct": 90,
    "pieces": 5,
    "vpt": 1.55,
    "cells": [
@@ -464247,7 +464268,14 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.41,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.001 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "zombie-weapons",
