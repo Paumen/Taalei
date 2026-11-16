@@ -5512,7 +5512,7 @@
    "name": "taalei-kit",
    "note": "ornament comes from the Scythian Decoration source zip, which has no licence file and no author named; see kits/workfiles/taalei-kit/ornament-LICENSE.txt.",
    "licenseLabel": "CC0",
-   "count": 113,
+   "count": 114,
    "packs": [
     "Scythian Decoration",
     "Taalei"
@@ -5520,13 +5520,14 @@
    "origins": {
     "Taalei": 107,
     "procedureel": 5,
-    "Scythian Decoration": 1
+    "Scythian Decoration": 1,
+    "none": 1
    },
    "scales": {
     "1": 28,
     "1.6": 1,
     "0.77": 8,
-    "none": 5,
+    "none": 6,
     "1.382": 1,
     "0.99": 1,
     "1.1": 8,
@@ -5570,12 +5571,12 @@
     "1.595": 1
    },
    "smooth": {
-    "smooth": 97,
+    "smooth": 98,
     "none": 16
    },
    "kitCheck": {
-    "factor": 1.24,
-    "kinds": 19
+    "factor": 1.25,
+    "kinds": 20
    }
   },
   {
@@ -25527,7 +25528,7 @@
    "name": "Iron mid",
    "type": "material",
    "description": "Wrought iron forge work: hoops, straps, fittings, chain, nails, lantern frames.",
-   "count": 601,
+   "count": 602,
    "parent": "metal"
   },
   {
@@ -25734,7 +25735,7 @@
    "name": "Wood light",
    "type": "material",
    "description": "Light wood: planks, boards, signs, staves, cut log faces, plank floors.",
-   "count": 797,
+   "count": 798,
    "parent": "wood"
   },
   {
@@ -25750,7 +25751,7 @@
    "name": "Wood dark",
    "type": "material",
    "description": "Dark wood: posts, beams, pillars, frames, masts, shafts and hafts.",
-   "count": 1711,
+   "count": 1712,
    "parent": "wood"
   },
   {
@@ -25846,7 +25847,7 @@
    "name": "Cloth mid",
    "type": "material",
    "description": "Mid cloth: sacks, hessian, grips, wraps.",
-   "count": 217,
+   "count": 218,
    "parent": "textile-cloth"
   },
   {
@@ -25862,7 +25863,7 @@
    "name": "Rope",
    "type": "material",
    "description": "Rope and cord: bundles, rigging, rope fences and railings, bell pulls, well ropes.",
-   "count": 212,
+   "count": 213,
    "parent": "textile"
   },
   {
@@ -29141,7 +29142,7 @@
    "name": "Structure",
    "type": "kind",
    "description": "mine entrance",
-   "count": 2884,
+   "count": 2885,
    "color": "#877a63"
   },
   {
@@ -29149,7 +29150,7 @@
    "name": "Fixture",
    "type": "kind",
    "description": "Thing fixed in place outdoors that is not a building or barrier: marker, street light, utility, leisure ride.",
-   "count": 622
+   "count": 623
   },
   {
    "id": "str-fixture-fire-fireplace",
@@ -30119,7 +30120,7 @@
    "name": "Leisure",
    "type": "kind",
    "description": "Fixed structure for leisure or watching: ferris wheel, grandstand.",
-   "count": 88
+   "count": 89
   },
   {
    "id": "str-fixture-altar",
@@ -30574,7 +30575,7 @@
    "name": "Pirate",
    "type": "theme",
    "description": "Pirate-themed props and scenery from any kit: ships, boats, cannons, flags, treasure, palms, the pirate crew.",
-   "count": 105
+   "count": 106
   },
   {
    "id": "halloween",
@@ -31895,7 +31896,7 @@
    "name": "Large",
    "type": "size",
    "description": "Derived from the models themselves, so not tracked in catalog/data/tags.json.",
-   "count": 1336,
+   "count": 1337,
    "derived": true
   },
   {
@@ -47046,7 +47047,7 @@
     "spin"
    ],
    "variant": "architecture/ferris-wheel-anim",
-   "thickRel": 0.55
+   "thickRel": 0.57
   },
   {
    "kit": "architecture",
@@ -47093,7 +47094,7 @@
     "textile-cloth-mid"
    ],
    "variant": "architecture/ferris-wheel-anim",
-   "thickRel": 0.55
+   "thickRel": 0.57
   },
   {
    "kit": "architecture",
@@ -60367,6 +60368,26 @@
     "special-food",
     "special-organic",
     "wood-dark"
+   ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0049,
+     "view": "225/20",
+     "causes": {
+      "inside-out": 0.54,
+      "open": 0.39,
+      "inverted": 0.07,
+      "other": 0.01
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 225/20 over 0.2%: inside-out 54.0%, open 39.0%, inverted 7.0%, other 1.0%"
+    }
    ]
   },
   {
@@ -64843,8 +64864,24 @@
     "wood-dark",
     "wood-light"
    ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0044,
+     "view": "0/50",
+     "causes": {
+      "open": 1,
+      "inverted": 0
+     }
+    }
+   ],
    "thickRel": 1,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 0/50 over 0.2%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -209588,7 +209625,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-grave/altar-stone",
-   "thickRel": 1.91
+   "thickRel": 1.92
   },
   {
    "kit": "ken-grave",
@@ -231994,7 +232031,7 @@
     "textile-cloth-dark"
    ],
    "variant": "ken-racing/grand-stand",
-   "thickRel": 1.51,
+   "thickRel": 1.55,
    "lint": [
     {
      "level": "warning",
@@ -232051,7 +232088,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-racing/grand-stand-round",
-   "thickRel": 1.02
+   "thickRel": 1.05
   },
   {
    "kit": "ken-racing",
@@ -232101,7 +232138,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-racing/grand-stand",
-   "thickRel": 1.41
+   "thickRel": 1.45
   },
   {
    "kit": "ken-racing",
@@ -232148,7 +232185,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-racing/grand-stand-round",
-   "thickRel": 1.09
+   "thickRel": 1.11
   },
   {
    "kit": "ken-racing",
@@ -232195,7 +232232,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-racing/grand-stand",
-   "thickRel": 1.5
+   "thickRel": 1.54
   },
   {
    "kit": "ken-racing",
@@ -236843,7 +236880,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.46
+   "thickRel": 0.47
   },
   {
    "kit": "ken-skate",
@@ -312230,7 +312267,7 @@
     "plastic",
     "textile-cloth-dark"
    ],
-   "thickRel": 0.53
+   "thickRel": 0.55
   },
   {
    "kit": "m3-base",
@@ -393612,7 +393649,24 @@
     "wood-dark",
     "wood-light"
    ],
-   "variant": "quat-town/market-1-b"
+   "variant": "quat-town/market-1-b",
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0023,
+     "view": "135/20",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.2% of view 135/20 over 0.2%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "quat-town",
@@ -422154,7 +422208,7 @@
     "sq"
    ],
    "specialBand": "5,2",
-   "thickRel": 2.04
+   "thickRel": 2.09
   },
   {
    "kit": "sq-pool",
@@ -422310,7 +422364,7 @@
     "plastic",
     "sq"
    ],
-   "thickRel": 0.86,
+   "thickRel": 0.88,
    "lint": [
     {
      "level": "warning",
@@ -445469,6 +445523,67 @@
      "level": "warning",
      "check": "measures",
      "text": "G27 minWall 0.0174 wants min 0.026"
+    }
+   ]
+  },
+  {
+   "kit": "taalei-kit",
+   "name": "pirate-ship-ride",
+   "hash": "33a7664f21",
+   "kind": "str-fixture-leisure",
+   "size": "l",
+   "wdh": [
+    4.267,
+    3.038,
+    3.829
+   ],
+   "tris": 7132,
+   "tpu": 144,
+   "mat": 1,
+   "bands": 6,
+   "calls": 1,
+   "bytes": 381596,
+   "vtx": 10547,
+   "grounded": true,
+   "centered": true,
+   "minEdge": 0.001,
+   "minTube": 0.044,
+   "minWall": 0.0044,
+   "thick": 0.0643,
+   "avgTri": 0.00719,
+   "anglePct": 39,
+   "pieces": 170,
+   "vpt": 1.48,
+   "cells": [
+    "2,0",
+    "13,3",
+    "0,0",
+    "8,0",
+    "14,3",
+    "14,2"
+   ],
+   "colors": [
+    "#59534e",
+    "#713e14",
+    "#873a27",
+    "#88735f",
+    "#907a66",
+    "#ca9f6e"
+   ],
+   "tags": [
+    "metal-iron-mid",
+    "pirate",
+    "textile-cloth-mid",
+    "textile-rope",
+    "wood-dark",
+    "wood-light"
+   ],
+   "thickRel": 0.52,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0044 wants min 0.006"
     }
    ]
   },
