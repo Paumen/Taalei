@@ -25952,7 +25952,7 @@
    "name": "Iron dark",
    "type": "material",
    "description": "Cast iron: cannon and shot, gratings, gates, fences, cooking pots.",
-   "count": 921,
+   "count": 919,
    "parent": "metal"
   },
   {
@@ -25960,7 +25960,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2193,
+   "count": 2194,
    "parent": "metal"
   },
   {
@@ -26008,7 +26008,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 213,
+   "count": 214,
    "parent": "stone"
   },
   {
@@ -26024,7 +26024,7 @@
    "name": "Concrete",
    "type": "material",
    "description": "Concrete and asphalt: road surfaces, crossings, car parks. Kerbs and pavement are masonry.",
-   "count": 69,
+   "count": 68,
    "parent": "stone"
   },
   {
@@ -26072,7 +26072,7 @@
    "name": "Ceramic light",
    "type": "material",
    "description": "Light fired clay: porcelain plates, cups, basins, white tiles.",
-   "count": 445,
+   "count": 444,
    "parent": "ceramic"
   },
   {
@@ -126312,7 +126312,7 @@
   {
    "kit": "kay-city",
    "name": "building-a-no-base",
-   "hash": "2c2ccf8737",
+   "hash": "dc9dd27401",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -126323,7 +126323,7 @@
    "tris": 456,
    "tpu": 54,
    "mat": 1,
-   "bands": 8,
+   "bands": 7,
    "calls": 1,
    "bytes": 32716,
    "vtx": 805,
@@ -126338,18 +126338,16 @@
    "pieces": 47,
    "vpt": 1.77,
    "cells": [
-    "10,0",
+    "5,2",
     "1,1",
     "12,3",
     "2,0",
     "3,2",
     "14,3",
-    "5,2",
     "8,0"
    ],
    "colors": [
     "#21552a",
-    "#328686",
     "#57493d",
     "#713e14",
     "#7a3525",
@@ -126371,14 +126369,7 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-a-no-base",
-   "thickRel": 0.99,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
-    }
-   ]
+   "thickRel": 0.99
   },
   {
    "kit": "kay-city",
@@ -193521,7 +193512,7 @@
     "glass-clear",
     "ken",
     "leaf-dark",
-    "metal-iron-dark",
+    "metal-steel",
     "modern",
     "stone-masonry-dark",
     "stone-masonry-mid",
@@ -193529,14 +193520,7 @@
     "style-modern"
    ],
    "variant": "ken-commercial/building-f",
-   "thickRel": 1.16,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-dark wants slate, has taupe taupe-dark nickel hunter ivory glass sienna"
-    }
-   ]
+   "thickRel": 1.16
   },
   {
    "kit": "ken-commercial",
@@ -218647,7 +218631,6 @@
     "glass-clear",
     "ken",
     "leaf-dark",
-    "metal-iron-dark",
     "metal-steel",
     "modern",
     "plastic",
@@ -218657,14 +218640,7 @@
     "storeys-1",
     "style-modern"
    ],
-   "thickRel": 1.13,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "metal-iron-dark wants slate, has ivory taupe-dark nickel taupe sienna glass hunter"
-    }
-   ]
+   "thickRel": 1.13
   },
   {
    "kit": "ken-industrial",
@@ -250279,7 +250255,6 @@
     "#dbd0b5"
    ],
    "tags": [
-    "ceramic-light",
     "glass-clear",
     "ken",
     "leaf-light",
@@ -250289,14 +250264,7 @@
     "storeys-2",
     "style-modern"
    ],
-   "thickRel": 1.02,
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "ceramic-light wants sienna, has taupe-dark nickel taupe ivory glass moss basalt (str-building)"
-    }
-   ]
+   "thickRel": 1.02
   },
   {
    "kit": "ken-suburban",
@@ -342142,20 +342110,13 @@
     "ceramic-dark",
     "glass-clear",
     "qua",
-    "stone-concrete",
+    "stone-masonry-dark",
     "stone-masonry-light",
     "storeys-1-5",
     "style-classic",
     "wood-mid"
    ],
-   "thickRel": 1.27,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "stone-concrete wants basalt, has ivory taupe-dark sienna camel glass"
-    }
-   ]
+   "thickRel": 1.27
   },
   {
    "kit": "quat-buildings",
