@@ -25836,7 +25836,7 @@
    "name": "Cloth light",
    "type": "material",
    "description": "Light cloth: canvas, sails, bedding, bandages, shirts.",
-   "count": 304,
+   "count": 303,
    "parent": "textile-cloth"
   },
   {
@@ -25852,7 +25852,7 @@
    "name": "Cloth dark",
    "type": "material",
    "description": "Dark cloth: banners, upholstery, cushions, rugs, clothing.",
-   "count": 378,
+   "count": 379,
    "parent": "textile-cloth"
   },
   {
@@ -25883,7 +25883,7 @@
    "name": "Leather",
    "type": "material",
    "description": "Tanned hide: belts, straps, boots, bracers, quivers, bags, book covers.",
-   "count": 192,
+   "count": 191,
    "parent": "animal"
   },
   {
@@ -25938,7 +25938,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1543,
+   "count": 1539,
    "parent": "polymer"
   },
   {
@@ -30691,7 +30691,7 @@
    "name": "Modern",
    "type": "tech",
    "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material or style in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
-   "count": 2087
+   "count": 2083
   },
   {
    "id": "storeys-0-5",
@@ -76393,7 +76393,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "stool-kitchen-bar",
-   "hash": "92494e0499",
+   "hash": "1168b85b77",
    "kind": "obj-furnishing-furniture-seating-stool-bar",
    "size": "s",
    "wdh": [
@@ -76420,25 +76420,18 @@
    "vpt": 3,
    "cells": [
     "0,0",
-    "5,2"
+    "8,0"
    ],
    "colors": [
-    "#ca9f6e",
-    "#d8cfb7"
+    "#873a27",
+    "#ca9f6e"
    ],
    "tags": [
     "fs",
-    "textile-cloth-light",
+    "textile-cloth-dark",
     "wood-light"
    ],
-   "thickRel": 1.13,
-   "lint": [
-    {
-     "level": "error",
-     "check": "bands",
-     "text": "textile-cloth-light wants sienna, has tan ivory (obj-furnishing-furniture)"
-    }
-   ]
+   "thickRel": 1.13
   },
   {
    "kit": "fs-house",
@@ -343015,20 +343008,11 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
-    "modern",
-    "plastic",
     "qua",
     "space"
    ],
    "variant": "quat-essentials/ammo-box",
-   "thickRel": 0.97,
-   "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has slate nickel"
-    }
-   ]
+   "thickRel": 0.97
   },
   {
    "kit": "quat-essentials",
@@ -343173,19 +343157,12 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
-    "modern",
-    "plastic",
     "qua",
     "space"
    ],
    "variant": "quat-essentials/barrel-b",
    "thickRel": 1.02,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has slate nickel"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -343231,19 +343208,12 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
-    "modern",
-    "plastic",
     "qua",
     "space"
    ],
    "variant": "quat-essentials/barrel-b",
    "thickRel": 1.01,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has slate nickel"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -343289,18 +343259,11 @@
    "tags": [
     "metal-iron-dark",
     "metal-steel",
-    "modern",
-    "plastic",
     "qua",
     "space"
    ],
    "thickRel": 0.96,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has nickel slate"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -372110,7 +372073,6 @@
     "#9e6d44"
    ],
    "tags": [
-    "leather",
     "metal-steel",
     "qua",
     "textile-cloth-mid",
@@ -372119,11 +372081,6 @@
    "variant": "quat-rpg/axe-double",
    "thickRel": 0.94,
    "lint": [
-    {
-     "level": "error",
-     "check": "palette",
-     "text": "leather wants bark, has nickel taupe camel"
-    },
     {
      "level": "warning",
      "check": "measures",
