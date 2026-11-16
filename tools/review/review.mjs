@@ -45,8 +45,7 @@ apply   takes the verdicts the page saved (the artifact's db collection
         Every verdict is logged in tools/review/log.json with the model's
         kind, change types and risk (as doubt).
 
-brief   with --review, only the reviews whose title holds that text, and
-        every one of their verdicts with its change and comment.
+brief   with --review, only the reviews whose title holds that text.
         prints how often each change type, risk level and kind branch was
         kept or undone across all reviews, and advises what to send: every
         change of a type undone 30% or more, only high-risk ones of a type
@@ -477,10 +476,6 @@ function brief() {
     if (!rows.length) continue;
     console.log(`\nmarked ${label} (${rows.length})`);
     for (const e of rows.slice(-12)) console.log(`  ${e.model} [${e.types.join('+') || 'tag'}] ${e.change ?? ''}${e.comment ? `  — ${e.comment}` : ''}`);
-  }
-  if (only) {
-    console.log(`\nverdicts of reviews matching "${only}"`);
-    for (const e of log) console.log(`  ${e.verdict.padEnd(7)} ${e.mark === 'great' ? '★ ' : e.mark === 'bad' ? '✕✕ ' : ''}${e.model}: ${e.change ?? ''}${e.comment ? `  — ${e.comment}` : ''}`);
   }
   console.log(`\nadvice\n${advice.length ? advice.map((a) => `- ${a}`).join('\n') : '- none yet'}`);
 }

@@ -128,7 +128,7 @@ Then `inflate.mjs` pushes the surface out and scales back to size:
   never measured: put the original back, rerun, and compare before blaming
   the change.
 - `tpu` rises whenever a model shrinks with the same triangle count. Report
-  it; don't decimate unless asked.
+  it.
 - Straight-run detection samples the surface. A squeeze factor can move a
   few percent between runs; models near the 4× stick limit can flip moves.
 - `taaleiland.schaal` records the kit-wide factor only; per-model resizes are

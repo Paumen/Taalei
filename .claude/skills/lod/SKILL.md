@@ -1,6 +1,6 @@
 ---
 name: lod
-description: Bring catalogue models to the catalogue's level of detail, not too detailed and not too coarse, so each still reads as the thing it represents. Use when asked to fix level of detail, thin parts, fiddly, dense, too chunky or too simplified models, or to simplify models, reduce tris or lower tpu.
+description: Fix catalogue models whose parts are too thin or fiddly, or that are too coarse, so each reads as the thing it represents at the catalogue's level of detail. Use after triage, when asked to fix thin parts (G27), fiddly, too thick, too chunky or too simplified models.
 ---
 
 # Level of detail
@@ -75,12 +75,11 @@ the goal.
 ### Setup (main session, once per round)
 
 1. **Pick models**: the ones the PO names, or candidates from Finding them.
-2. **Brief**: read past verdicts (Review and learn) and the style examples
+2. **Brief**: read the learnings (Review and learn) and the style examples
    once: the [LoD example set](https://claude.ai/artifact/QG6bTDZxYCKLpXp5tM8yTG),
    with glbs in `examples/` next to this file; `examples/LIST.txt` gives each
-   card's tag, why, and which version is right. Keep the quotes that matter
-   per model.
-3. **Triage** (`node tools/thin/triage.mjs [ids] [--kit k] --out
+   card's tag, why, and which version is right.
+3. **Route** (`node tools/thin/triage.mjs [ids] [--kit k] --out
    triage.json`, no renders): per model the target wall (the kind's
    `thin.min`, at least 0.006), how much of the thin area is hidden inside,
    what the thin part is, and the route: hidden, tool or careful. The route
@@ -89,7 +88,7 @@ the goal.
 ### Quick pass (scripted, all hidden and tool models)
 
 `node tools/thin/quickpass.mjs triage.json --out <dir>` tries the fixes in the
-triage order and stops at the first that passes every gate. Hidden walls are
+route's order and stops at the first that passes every gate. Hidden walls are
 dropped first (`tools/thin/hidden.mjs`); thicken modes come by what the thin
 part is (flat: `--flat`, bent sheet: `--sheet`, shell: `--inward`, small
 spot: `--local`), each aimed at 0.006 with up to three passes (`--aim kind`
@@ -110,7 +109,7 @@ one go. `ok` and same or better: `quickpass.mjs apply <dir>/report.json
 <ids>` puts it in place. Anything else goes to the careful pass with the
 checker's words. Hidden drops change nothing visible and need no checker.
 
-Triage sends these straight to the careful pass, since the tool modes are
+The route step sends these straight to the careful pass, since the tool modes are
 known to fail there: a sharp blade, point or edge; lettering, numbers,
 strings, threads or anything else that makes the type; a model whose latest
 PO verdict is not keep. Models the quick pass could not settle follow, with
@@ -121,8 +120,8 @@ the list of what was tried and why it failed.
 One sub agent for the whole batch, never one per model: a
 `general-purpose` Agent (not a fork). Its brief holds all it needs, so it
 rereads nothing: per model the model, its problem, the checker's or PO's
-words, what the quick pass tried, the verdict quotes that matter, and the
-fix and tool to use from this skill. It does the fix, renders once, and ends
+words, what the quick pass tried, and the fix and tool to use from this
+skill. It does the fix, renders once, and ends
 its answer with what it changed and the paths of its before and after glbs.
 The main session runs the fresh checker.
 
@@ -155,14 +154,7 @@ Indicators point at candidates; the render decides.
   `tools/thin/thinmap.mjs` + `thinmap.py`, so the fix targets the part G27
   means. `thicken.mjs` works on models of several meshes; `slim.mjs` works on
   one mesh at a time with `--mesh`.
-- **Dense overall**: sort `catalog/build/catalog.json` on `tpu` or `tris`, or
-  `node lint/tpu.mjs` for models over budget.
-- **Dense for their kind**: in kinds of one shape (apple, book, cleaver,
-  skull, axe; not mixed kinds like ships, toys, instruments), compare `tpu`
-  with the kind median. Leave out the `char` and `set` kinds, and models
-  tagged `plural` or `comp`.
-- **Many-sided round parts**: `node lint/sides.mjs [ids]`. A round part
-  takes as few sides as still read round at its size, next to its peers.
+- **Dense models and many-sided round parts** go to `detail`.
 - **Detailed but not dense**: many small parts at an average `tpu`.
 
 **Too coarse**
@@ -301,24 +293,20 @@ Testing the skill will refine this guidance and show which modes work best.
 
 ## Review and learn
 
-Review pages are titled `LoD: …`. Before a round, read past verdicts from
-lod, thin and detail reviews (`--review` matches any title holding the text):
+Review pages are titled `LoD: …`. Before a round, read the learnings once:
 
     node tools/review/review.mjs brief --review lod
-    node tools/review/review.mjs brief --review thin
-    node tools/review/review.mjs brief --review detail
 
-Only PO verdicts count. They calibrate style; they never decide a model:
+It gives how often each change type was kept or undone and the latest ★ and
+✕✕ changes. It is not for looking up what was done to a model before: judge
+each model by how it looks now.
 
-- The PO's latest verdict and comment on a model is its task. Work toward
-  what it says; never overrule it with an older verdict or a verdict on
-  another model.
-- A past verdict never drops a model, marks it done, or replaces looking at
-  it.
-- Pass verdicts on as quotes with the model they were on, never as rules.
+- Only PO verdicts count.
+- The PO's verdict and comment on a model in this round is its task.
 - An Undo or revert without a comment says only that one change went back,
-  not why. Never read a reason or a rule into it, and never leave a part
-  alone because of it.
+  not why. Never read a reason or a rule into it.
+- When the same lesson shows up across several models and reviews, write it
+  into this skill in general terms.
 
 ## Edge cases: unusual outcomes and proposals
 
@@ -373,36 +361,6 @@ unless that clearly wastes effort, because:
 
 Rarely, the outcome is that the model is rejected from the catalogue. That
 call is the PO's.
-
-## Simplifying dense models
-
-For a model or kit the PO asks to simplify, or one with several times the
-triangles of its kind's peers in other kits. The goal stays the look: the
-model reads as itself, at the peers' level of detail, with far fewer
-triangles.
-
-1. **Calibrate**: `node tools/review/review.mjs brief --review detail`, next
-   to the lod verdicts.
-2. **Find the triangles**: `slim.mjs parts <glb>`. They usually sit in a few
-   repeated parts: roof tile rows, window frames, bricks, bevelled blocks.
-3. **Cut by part**, with the Too detailed fixes: fewer and bigger repeats,
-   drop part, swap shape, rebuild part. Try `slim.mjs edit` first; write a
-   rebuild script only for parts it can't do.
-4. **One model first**: show the PO its before and after before touching the
-   rest of the batch.
-
-The peers' triangle counts are a guide; the look decides.
-
-## Out of scope
-
-No automatic simplification or decimation:
-
-- These tools aim to cut triangles with little or no visual change; this
-  skill usually aims for the opposite.
-- Most models are already low-poly, so these tools do little or break things.
-- They can also melt rounded edges, flatten thin parts, flip faces or leave
-  messier meshes.
-- When they're worth using, that happens in a dedicated session.
 
 ## In scope
 

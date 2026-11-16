@@ -26,7 +26,7 @@ better makes a blanket a dull hard block.
    | Label | Looks like | Fix | Never |
    | --- | --- | --- | --- |
    | Copies | books, bars, rivets, matches, round tops | detail: fewer, drop the small ones | smoothing each copy |
-   | Soft surface | blanket, cushion, curved leg, carving | same shape, fewer triangles (automatic simplification) | a box or plain shape |
+   | Soft surface | blanket, cushion, curved leg, carving | same shape, fewer triangles | a box or plain shape |
    | Hard part, too many sides | turned post, knob, many-sided ring | detail: `lathe`, swap shape | dropping it |
    | Thin | paper sheet, hairline strand | lod: thicken | dropping what makes the type |
    | Makes the type | lettering on a sign, carving on antique furniture | keep; cut elsewhere | any cut that loses it |
@@ -38,11 +38,14 @@ better makes a blanket a dull hard block.
 
 ## Examples
 
-- sofa-b, armchair: soft cushions and body. Simplified, 3688 → 1570 and
-  2596 → 1244, look unchanged. Kept.
+- sofa-b, armchair: soft cushions and body. Same shape with fewer triangles,
+  3688 → 1570 and 2596 → 1244, look unchanged. Kept.
 - bed-double, bed-single: posts were already lean; the triangles sat in the
-  blanket, pillows and carved crest. Those simplified, posts left. Kept.
-- wardrobe-short: four curved gold legs (252 each), simplified with the curve
-  kept. Kept.
+  blanket, pillows and carved crest. Those got fewer triangles, posts left. Kept.
+- wardrobe-short: four curved gold legs (252 each), fewer triangles with the
+  curve kept. Kept.
 - bookcase-full: 39 books (60 each) are copies. Fewer books, not smoother
   books.
+
+Automatic simplification or decimation: only after showing that the other
+fixes don't work on that part, and asking the PO.

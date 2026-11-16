@@ -1,6 +1,6 @@
 ---
 name: detail
-description: Normalize the level of detail of catalogue models — cut triangles on dense models by dropping minor detail, thinning repeats and swapping dense round parts for simple shapes, so they match the catalogue's style and get lighter, without losing what makes them distinctive. Use when asked to reduce tris, lower tpu, simplify dense models, or bring a kit's detail in line with the catalogue.
+description: Normalize the level of detail of catalogue models — cut triangles on dense models by dropping minor detail, thinning repeats and swapping dense round parts for simple shapes, so they match the catalogue's style and get lighter, without losing what makes them distinctive. Use after triage, when asked to reduce tris, lower tpu, simplify dense models, or bring a kit's detail in line with the catalogue.
 ---
 
 # Normalizing level of detail
@@ -24,6 +24,7 @@ rebuild, `review` the PO's verdicts.
   Leave out `char`, `set`, and models tagged `plural` or `comp`.
 - **Look for clusters:** outliers often share a kit (styloo, m3-base, quat),
   which points at one modelling habit to treat the same way.
+- **Many-sided round parts:** `node lint/sides.mjs [ids]`.
 - **Detailed but not dense:** a model with many small parts can be a
   candidate even at an average or low `tpu`.
 - **Hidden triangles:** a dense model may hide content on purpose (gold in a
@@ -41,14 +42,10 @@ Only these three, unless the PO asks for more:
 3. **Swap shapes:** a dense tube, sphere or cone part becomes a plain one; a
    fine net becomes one with bigger holes.
 
-No automatic simplification or decimation unless the PO asks for it or
-approves it first. Catalogue models are already low-poly, and collapsing
-edges melts rounded edges, flattens thin parts and flips faces.
-
 ## 3. Level of detail to aim for
 
 There is no fixed number for most of this; judge each model by how it looks
-next to its original and its peers, and lean on the PO's past verdicts (§6).
+next to its original and its peers, and lean on the learnings (§6).
 
 - Keep the core shape and the **distinctive** features, including those that
   make a model a special type within its kind: inlaid gems on a warhammer,
@@ -110,13 +107,12 @@ Swapped shapes fit the part's oriented box: check the axis (`axis`, `flip`,
 
 ## 6. Calibrate
 
-Every verdict on a `Detail:` review is the skill's memory. Before any round,
-and in every sub agent's brief, run
+Before a round, read the learnings once:
 
     node tools/review/review.mjs brief --review detail
 
-and read the kept, reverted, ★ and ✕✕ changes with their comments. Match a
-new case to the closest past ones, not to a rule: copy what was kept or ★,
-avoid what was reverted or ✕✕, and when the nearest examples disagree, put
-the change on the review page with high doubt. When the same lesson shows
-up across several models and reviews, write it into §3 in general terms.
+It gives how often each change type was kept or undone and the latest ★ and
+✕✕ changes. Copy what was ★, avoid what was ✕✕. It is not for looking up what
+was done to a model before: judge each model by how it looks now. When the
+same lesson shows up across several models and reviews, write it into §3 in
+general terms.
