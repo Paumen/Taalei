@@ -39669,7 +39669,26 @@
     "metal-iron-mid",
     "metal-steel"
    ],
-   "thickRel": 1.03
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0036,
+     "view": "225/20",
+     "causes": {
+      "open": 0.92,
+      "inside-out": 0.06,
+      "inverted": 0.02
+     }
+    }
+   ],
+   "thickRel": 1.03,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 225/20 over 0.2%: open 92.0%, inside-out 6.0%, inverted 2.0%"
+    }
+   ]
   },
   {
    "kit": "3dm-guns",
@@ -126312,7 +126331,7 @@
   {
    "kit": "kay-city",
    "name": "building-a-no-base",
-   "hash": "dc9dd27401",
+   "hash": "8f4827343b",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -126323,7 +126342,7 @@
    "tris": 456,
    "tpu": 54,
    "mat": 1,
-   "bands": 7,
+   "bands": 1,
    "calls": 1,
    "bytes": 32716,
    "vtx": 805,
@@ -126338,21 +126357,9 @@
    "pieces": 47,
    "vpt": 1.77,
    "cells": [
-    "5,2",
-    "1,1",
-    "12,3",
-    "2,0",
-    "3,2",
-    "14,3",
-    "8,0"
+    "5,2"
    ],
    "colors": [
-    "#21552a",
-    "#57493d",
-    "#713e14",
-    "#7a3525",
-    "#88735f",
-    "#b5d5e3",
     "#dbd0b5"
    ],
    "tags": [
@@ -126369,7 +126376,29 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-a-no-base",
-   "thickRel": 0.99
+   "thickRel": 0.99,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "glass-clear wants glass, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-dark wants taupe-dark slate, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-mid wants taupe, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-dark wants chestnut, has ivory"
+    }
+   ]
   },
   {
    "kit": "kay-city",
@@ -126434,7 +126463,7 @@
   {
    "kit": "kay-city",
    "name": "building-b-no-base",
-   "hash": "49cf5858c3",
+   "hash": "5edfad52fc",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -126445,7 +126474,7 @@
    "tris": 610,
    "tpu": 61,
    "mat": 1,
-   "bands": 7,
+   "bands": 1,
    "calls": 1,
    "bytes": 43576,
    "vtx": 1087,
@@ -126460,21 +126489,9 @@
    "pieces": 60,
    "vpt": 1.78,
    "cells": [
-    "5,2",
-    "9,0",
-    "12,3",
-    "2,0",
-    "3,2",
-    "5,0",
-    "14,3"
+    "5,2"
    ],
    "colors": [
-    "#57493d",
-    "#713e14",
-    "#88735f",
-    "#af4c87",
-    "#b5d5e3",
-    "#c8714b",
     "#dbd0b5"
    ],
    "tags": [
@@ -126490,7 +126507,29 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-a-no-base",
-   "thickRel": 1.02
+   "thickRel": 1.02,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "glass-clear wants glass, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-dark wants taupe-dark slate, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-mid wants taupe, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-dark wants chestnut, has ivory"
+    }
+   ]
   },
   {
    "kit": "kay-city",
@@ -126791,7 +126830,7 @@
   {
    "kit": "kay-city",
    "name": "building-e-no-base",
-   "hash": "5da7f27037",
+   "hash": "c7f209081d",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -126802,7 +126841,7 @@
    "tris": 1014,
    "tpu": 50,
    "mat": 1,
-   "bands": 7,
+   "bands": 1,
    "calls": 1,
    "bytes": 70908,
    "vtx": 1789,
@@ -126817,21 +126856,9 @@
    "pieces": 104,
    "vpt": 1.76,
    "cells": [
-    "5,2",
-    "9,0",
-    "12,3",
-    "3,2",
-    "2,0",
-    "14,3",
-    "8,0"
+    "5,2"
    ],
    "colors": [
-    "#57493d",
-    "#713e14",
-    "#7a3525",
-    "#88735f",
-    "#af4c87",
-    "#b5d5e3",
     "#dbd0b5"
    ],
    "tags": [
@@ -126849,7 +126876,34 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-e",
-   "thickRel": 0.91
+   "thickRel": 0.91,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "glass-clear wants glass, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-dark wants taupe-dark slate, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-mid wants taupe, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "textile-cloth-dark wants sienna, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-dark wants chestnut, has ivory"
+    }
+   ]
   },
   {
    "kit": "kay-city",
@@ -126914,7 +126968,7 @@
   {
    "kit": "kay-city",
    "name": "building-f-no-base",
-   "hash": "d0869d62d4",
+   "hash": "07b8d9cd34",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -126925,7 +126979,7 @@
    "tris": 1159,
    "tpu": 63,
    "mat": 1,
-   "bands": 7,
+   "bands": 1,
    "calls": 1,
    "bytes": 80372,
    "vtx": 2031,
@@ -126940,21 +126994,9 @@
    "pieces": 110,
    "vpt": 1.75,
    "cells": [
-    "9,0",
-    "3,2",
-    "2,0",
-    "12,3",
-    "8,0",
-    "14,3",
     "5,2"
    ],
    "colors": [
-    "#57493d",
-    "#713e14",
-    "#7a3525",
-    "#88735f",
-    "#af4c87",
-    "#b5d5e3",
     "#dbd0b5"
    ],
    "tags": [
@@ -126970,7 +127012,29 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-f",
-   "thickRel": 0.85
+   "thickRel": 0.85,
+   "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "glass-clear wants glass, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-dark wants taupe-dark slate, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-mid wants taupe, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-dark wants chestnut, has ivory"
+    }
+   ]
   },
   {
    "kit": "kay-city",
@@ -127157,7 +127221,7 @@
   {
    "kit": "kay-city",
    "name": "building-h-no-base",
-   "hash": "31c0a83dd2",
+   "hash": "5640b0481a",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -127168,7 +127232,7 @@
    "tris": 1415,
    "tpu": 59,
    "mat": 1,
-   "bands": 8,
+   "bands": 1,
    "calls": 1,
    "bytes": 98644,
    "vtx": 2506,
@@ -127183,23 +127247,9 @@
    "pieces": 130,
    "vpt": 1.77,
    "cells": [
-    "11,0",
-    "12,3",
-    "9,0",
-    "2,0",
-    "3,2",
-    "8,0",
-    "14,3",
     "5,2"
    ],
    "colors": [
-    "#57493d",
-    "#713e14",
-    "#7a3525",
-    "#88735f",
-    "#95b438",
-    "#af4c87",
-    "#b5d5e3",
     "#dbd0b5"
    ],
    "tags": [
@@ -127220,8 +127270,23 @@
    "lint": [
     {
      "level": "error",
-     "check": "measures",
-     "text": "G17 bands 8 wants max 7"
+     "check": "palette",
+     "text": "glass-clear wants glass, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-dark wants taupe-dark slate, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "stone-masonry-mid wants taupe, has ivory"
+    },
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "wood-dark wants chestnut, has ivory"
     }
    ]
   },
@@ -272591,7 +272656,7 @@
     "wood-dark"
    ],
    "variant": "lpa-home/bed-double",
-   "thickRel": 1.33
+   "thickRel": 1.34
   },
   {
    "kit": "lpa-home",
@@ -354845,7 +354910,7 @@
   {
    "kit": "quat-furniture",
    "name": "armchair",
-   "hash": "0f161192c0",
+   "hash": "4d1a699d82",
    "kind": "obj-furnishing-furniture-seating-chair-lounge",
    "size": "s",
    "wdh": [
@@ -354853,22 +354918,22 @@
     0.431,
     0.408
    ],
-   "tris": 2596,
-   "tpu": 7569,
+   "tris": 1244,
+   "tpu": 3627,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 93204,
-   "vtx": 2378,
+   "bytes": 57636,
+   "vtx": 1520,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minWall": 0.0261,
-   "thick": 0.1582,
-   "avgTri": 0.00061,
+   "thick": 0.1588,
+   "avgTri": 0.00128,
    "anglePct": 21,
    "pieces": 8,
-   "vpt": 0.92,
+   "vpt": 1.22,
    "cells": [
     "2,0",
     "8,0"
@@ -354883,19 +354948,12 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 1,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 7569 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 1.01
   },
   {
    "kit": "quat-furniture",
    "name": "bed-double",
-   "hash": "5538dc16b7",
+   "hash": "e515b7b44f",
    "kind": "obj-furnishing-furniture-bed-double",
    "size": "m",
    "wdh": [
@@ -354903,28 +354961,28 @@
     0.954,
     0.368
    ],
-   "tris": 3054,
-   "tpu": 7079,
+   "tris": 2104,
+   "tpu": 4877,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 196876,
-   "vtx": 4959,
+   "bytes": 131508,
+   "vtx": 3667,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minTube": 0.0147,
-   "minWall": 0.0087,
-   "thick": 0.1439,
-   "avgTri": 0.00111,
-   "anglePct": 49,
+   "minTube": 0.0441,
+   "minWall": 0.0268,
+   "thick": 0.1403,
+   "avgTri": 0.0016,
+   "anglePct": 51,
    "pieces": 15,
-   "vpt": 1.62,
+   "vpt": 1.74,
    "cells": [
-    "8,0",
     "14,3",
     "1,0",
-    "2,0"
+    "2,0",
+    "8,0"
    ],
    "colors": [
     "#713e14",
@@ -354941,24 +354999,12 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/bed-double",
-   "thickRel": 1.12,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 7079 over max 5000 (obj-furnishing)"
-    },
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0087 wants min 0.012"
-    }
-   ]
+   "thickRel": 1.09
   },
   {
    "kit": "quat-furniture",
    "name": "bed-single",
-   "hash": "2bf1f0b405",
+   "hash": "50cfb09fb1",
    "kind": "obj-furnishing-furniture-bed",
    "size": "m",
    "wdh": [
@@ -354966,28 +355012,28 @@
     0.954,
     0.368
    ],
-   "tris": 2362,
-   "tpu": 6886,
+   "tris": 1666,
+   "tpu": 4857,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 160924,
-   "vtx": 4095,
+   "bytes": 112496,
+   "vtx": 3155,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0441,
-   "minWall": 0.0349,
-   "thick": 0.1828,
-   "avgTri": 0.00113,
+   "minWall": 0.0289,
+   "thick": 0.178,
+   "avgTri": 0.00158,
    "anglePct": 50,
    "pieces": 13,
-   "vpt": 1.73,
+   "vpt": 1.89,
    "cells": [
-    "8,0",
     "14,3",
     "1,0",
-    "2,0"
+    "2,0",
+    "8,0"
    ],
    "colors": [
     "#713e14",
@@ -355004,14 +355050,7 @@
     "wood-mid"
    ],
    "variant": "quat-furniture/bed-double",
-   "thickRel": 1.29,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6886 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 1.26
   },
   {
    "kit": "quat-furniture",
@@ -355540,7 +355579,7 @@
   {
    "kit": "quat-furniture",
    "name": "sofa-b",
-   "hash": "5b28eeffb7",
+   "hash": "7433c73b55",
    "kind": "obj-furnishing-furniture-seating-sofa",
    "size": "m",
    "wdh": [
@@ -355548,22 +355587,22 @@
     0.462,
     0.436
    ],
-   "tris": 3688,
-   "tpu": 9495,
+   "tris": 1570,
+   "tpu": 4042,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 139968,
-   "vtx": 3636,
+   "bytes": 81344,
+   "vtx": 2200,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.0792,
-   "thick": 0.2231,
-   "avgTri": 0.00103,
+   "minWall": 0.0664,
+   "thick": 0.2225,
+   "avgTri": 0.00241,
    "anglePct": 27,
    "pieces": 12,
-   "vpt": 0.99,
+   "vpt": 1.4,
    "cells": [
     "8,0",
     "2,0"
@@ -355577,14 +355616,7 @@
     "textile-cloth-dark",
     "wood-dark"
    ],
-   "thickRel": 1.13,
-   "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 9495 over max 5000 (obj-furnishing)"
-    }
-   ]
+   "thickRel": 1.13
   },
   {
    "kit": "quat-furniture",
@@ -355770,7 +355802,7 @@
   {
    "kit": "quat-furniture",
    "name": "wardrobe-short",
-   "hash": "a737ab075b",
+   "hash": "4728443d2d",
    "kind": "obj-furnishing-furniture-storage-cabinet",
    "size": "m",
    "wdh": [
@@ -355778,27 +355810,27 @@
     0.278,
     0.68
    ],
-   "tris": 2368,
-   "tpu": 6904,
+   "tris": 1656,
+   "tpu": 4828,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 153652,
-   "vtx": 3865,
+   "bytes": 102784,
+   "vtx": 2853,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0125,
-   "minWall": 0.0105,
-   "thick": 0.2165,
-   "avgTri": 0.00073,
+   "minWall": 0.0119,
+   "thick": 0.2166,
+   "avgTri": 0.00104,
    "anglePct": 93,
    "pieces": 29,
-   "vpt": 1.63,
+   "vpt": 1.72,
    "cells": [
-    "2,0",
     "1,0",
-    "6,0"
+    "6,0",
+    "2,0"
    ],
    "colors": [
     "#713e14",
@@ -355816,14 +355848,9 @@
    "thickRel": 0.94,
    "lint": [
     {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 6904 over max 5000 (obj-furnishing)"
-    },
-    {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0105 wants min 0.012"
+     "text": "G27 minWall 0.0119 wants min 0.012"
     }
    ]
   },
@@ -417225,8 +417252,23 @@
     "tba",
     "wood-dark"
    ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0049,
+     "view": "180/20",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
    "thickRel": 0.74,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 180/20 over 0.2%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
@@ -436902,7 +436944,24 @@
     "wood-mid"
    ],
    "variant": "styloo-guns/assault-rifle",
-   "thickRel": 0.81
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0026,
+     "view": "180/50",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
+   "thickRel": 0.81,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 180/50 over 0.2%: open 100.0%"
+    }
+   ]
   },
   {
    "kit": "styloo-guns",
@@ -447021,8 +447080,25 @@
     "metal-gold",
     "shell"
    ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0082,
+     "view": "90/50",
+     "causes": {
+      "open": 0.6,
+      "inverted": 0.38,
+      "other": 0.02
+     }
+    }
+   ],
    "thickRel": 0.83,
    "lint": [
+    {
+     "level": "error",
+     "check": "backface",
+     "text": "0.8% of view 90/50 over 0.5%: open 60.0%, inverted 38.0%, other 2.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
