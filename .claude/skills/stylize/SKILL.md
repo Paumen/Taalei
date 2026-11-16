@@ -11,7 +11,7 @@ without losing what it is. Read `docs/asset_style_guide.md` first; the lints
 decide what is allowed. `catalog-assets` §6 is the rebuild.
 
 The tools in `tools/stylize/` cover the common, generic part: resize, the
-three proportion moves and inflation.  They suit plain single-mesh models and
+three proportion moves and inflation. Held items get the resize only.  They suit plain single-mesh models and
 are a first pass, not the method. Look at every model after it; many need a
 different move or a hand-made one, and some need none.
 
@@ -36,10 +36,8 @@ different move or a hand-made one, and some need none.
   model, than it started.
 - Sharp things get less inflation. Tines, slots, holes, gaps and joints stay
   open.
-- Chunkier must not create thin-tube (G27) failures. When a model shrinks
-  and a part drops under its minimum, thicken that part, not the model.
-- Work kind by kind, in batches the PO reviews. Fix flagged models one at a
-  time and show each fix in more than one view or mode.
+
+
 
 ## 1. Batch
 
@@ -135,19 +133,6 @@ Then `inflate.mjs` pushes the surface out and scales back to size:
   not recorded there.
 - Thickening open shells (a key hole, a button) exposes their hollow backs.
   Leave them, or close them first.
-
-## What the PO judged (Oct 2026, about 1,070 stylized models)
-
-- Misformed most: held items. Cooking utensils 71%, guns 58%, melee weapons
-  57%, cutlery 55%, two-hand tools 50%, glassware 50%; long held items (2.5 to
-  5x longer than wide) 56%. 
-- Too strong most: flowers 92%, cattails 89%, pans 45%, bathroom 32%, tables
-  30%, lamps 29%. Thin stems, legs, poles and pan walls got too thick: use
-  `noStick` and inflate 0.01 or less there.
-- Nearly never misformed: walls, windows, pillars, fences, rocks, bones,
-  fungi, barrels, pots, crates, cheese, storage furniture.
-- Damage often shows only on a second look. Render matcap from iso, front and
-  side next to the source before calling a model done.
 
 ## Hard cases and what worked
 
