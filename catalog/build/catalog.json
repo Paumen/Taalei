@@ -3224,7 +3224,8 @@
     "Low Poly Primitive Tools": 20
    },
    "scales": {
-    "0.0045": 18,
+    "0.0045": 17,
+    "0.00603": 1,
     "0.00495": 1,
     "0.005175": 1
    },
@@ -3250,7 +3251,8 @@
     "Low Poly Medieval Weapons": 47
    },
    "scales": {
-    "0.00354": 43,
+    "0.005416": 1,
+    "0.00354": 42,
     "0.003487": 1,
     "0.004956": 1,
     "0.005664": 1,
@@ -3261,7 +3263,7 @@
     "none": 11
    },
    "kitCheck": {
-    "factor": 0.98,
+    "factor": 0.99,
     "kinds": 27
    }
   },
@@ -3312,7 +3314,7 @@
     "The Base Mesh Kitbash": 46
    },
    "scales": {
-    "0.87": 843,
+    "0.87": 842,
     "0.5336": 1,
     "0.5936": 1,
     "0.5359": 1,
@@ -3327,6 +3329,7 @@
     "0.7395": 1,
     "1.725": 1,
     "1.131": 2,
+    "0.9321": 1,
     "1.74": 8,
     "0.3604": 1,
     "0.6151": 3,
@@ -3752,8 +3755,9 @@
     "SciFi Essentials Kit": 37
    },
    "scales": {
-    "0.45": 36,
-    "0.4545": 1
+    "0.45": 35,
+    "0.4545": 1,
+    "0.5535": 1
    },
    "smooth": {
     "smooth": 33,
@@ -5257,7 +5261,7 @@
     "0.44": 36,
     "0.264": 1,
     "0.2": 13,
-    "0.208": 1,
+    "0.3016": 1,
     "0.3696": 2,
     "0.3519": 1,
     "0.5658": 1
@@ -5294,7 +5298,7 @@
     "0.3348": 1,
     "0.279": 6,
     "0.7254": 1,
-    "0.7288": 1,
+    "1.421": 1,
     "0.5971": 2
    },
    "smooth": {
@@ -273348,13 +273352,13 @@
   {
    "kit": "lpa-tools",
    "name": "stone-arrow",
-   "hash": "ea16eef5be",
+   "hash": "b0d383685a",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.023,
-    0.021,
-    0.268
+    0.031,
+    0.028,
+    0.36
    ],
    "tris": 448,
    "tpu": 1306,
@@ -273366,11 +273370,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0184,
-   "minWall": 0.0021,
-   "thick": 0.42,
-   "avgTri": 0.00002,
-   "anglePct": 28,
+   "minTube": 0.0247,
+   "minWall": 0.0067,
+   "thick": 0.4022,
+   "avgTri": 0.00004,
+   "anglePct": 27,
    "pieces": 4,
    "vpt": 1.99,
    "cells": [
@@ -273393,14 +273397,7 @@
     "wood-dark"
    ],
    "variant": "lpa-tools/stone-arrow",
-   "thickRel": 1.43,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0021 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.37
   },
   {
    "kit": "lpa-tools",
@@ -274257,13 +274254,13 @@
   {
    "kit": "lpa-weapons",
    "name": "arrow",
-   "hash": "f929522df0",
+   "hash": "d1f883ae5b",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.027,
-    0.028,
-    0.235
+    0.048,
+    0.045,
+    0.36
    ],
    "tris": 452,
    "tpu": 1318,
@@ -274274,12 +274271,12 @@
    "vtx": 944,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minTube": 0.0076,
-   "minWall": 0.0009,
-   "thick": 0.3236,
-   "avgTri": 0.00004,
-   "anglePct": 46,
+   "minEdge": 0.001,
+   "minTube": 0.0117,
+   "minWall": 0.0056,
+   "thick": 0.2991,
+   "avgTri": 0.00012,
+   "anglePct": 34,
    "pieces": 5,
    "vpt": 2.09,
    "cells": [
@@ -274299,28 +274296,12 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0028,
-     "view": "270/50",
-     "causes": {
-      "inverted": 0.92,
-      "other": 0.08
-     }
-    }
-   ],
-   "thickRel": 1.1,
+   "thickRel": 1.02,
    "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 270/50 over 0.2%: inverted 92.0%, other 8.0%"
-    },
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
+     "text": "G27 minWall 0.0056 wants min 0.006"
     }
    ]
   },
@@ -293917,31 +293898,31 @@
   {
    "kit": "m3-base",
    "name": "fish-slice",
-   "hash": "a99773a8eb",
+   "hash": "4cfe01b4ee",
    "kind": "obj-kitchenware-cookware-utensil-spatula",
    "size": "s",
    "wdh": [
-    0.054,
-    0.032,
-    0.28
+    0.058,
+    0.039,
+    0.3
    ],
-   "tris": 610,
-   "tpu": 1778,
+   "tris": 760,
+   "tpu": 2216,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25460,
-   "vtx": 633,
+   "bytes": 49664,
+   "vtx": 1361,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0176,
-   "minWall": 0.0015,
-   "thick": 0.2045,
-   "avgTri": 0.00003,
-   "anglePct": 58,
+   "minTube": 0.0063,
+   "minWall": 0.0063,
+   "thick": 0.1981,
+   "avgTri": 0.00004,
+   "anglePct": 39,
    "pieces": 7,
-   "vpt": 1.04,
+   "vpt": 1.79,
    "cells": [
     "15,3",
     "13,3"
@@ -293957,14 +293938,7 @@
     "plastic"
    ],
    "variant": "m3-base/spatula",
-   "thickRel": 1.55,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0015 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.51
   },
   {
    "kit": "m3-base",
@@ -343525,29 +343499,29 @@
   {
    "kit": "quat-essentials",
    "name": "keycard",
-   "hash": "bc736e9b42",
+   "hash": "fa9ef72c3d",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
    "wdh": [
-    0.08,
-    0.021,
-    0.21
+    0.1,
+    0.035,
+    0.264
    ],
    "tris": 722,
    "tpu": 2105,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 31212,
+   "bytes": 31216,
    "vtx": 792,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.006,
-   "minWall": 0.0016,
-   "thick": 0.0881,
-   "avgTri": 0.00003,
-   "anglePct": 80,
+   "minTube": 0.0074,
+   "minWall": 0.0062,
+   "thick": 0.097,
+   "avgTri": 0.00006,
+   "anglePct": 63,
    "pieces": 3,
    "vpt": 1.1,
    "cells": [
@@ -343569,14 +343543,7 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.8,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0016 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.88
   },
   {
    "kit": "quat-essentials",
@@ -424225,13 +424192,13 @@
   {
    "kit": "styloo-farm",
    "name": "cherries",
-   "hash": "f5589aa7f4",
+   "hash": "2d4410ad40",
    "kind": "obj-food-fruit-cherry",
    "size": "s",
    "wdh": [
-    0.077,
-    0.039,
-    0.082
+    0.114,
+    0.059,
+    0.119
    ],
    "tris": 494,
    "tpu": 1440,
@@ -424243,10 +424210,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.008,
-   "minWall": 0.0005,
-   "thick": 0.0838,
-   "avgTri": 0.00002,
+   "minTube": 0.0117,
+   "minWall": 0.0063,
+   "thick": 0.081,
+   "avgTri": 0.00004,
    "anglePct": 1,
    "pieces": 8,
    "vpt": 0.91,
@@ -424266,17 +424233,12 @@
     "special-food",
     "sty"
    ],
-   "thickRel": 0.35,
+   "thickRel": 0.34,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.35 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0005 wants min 0.006"
+     "text": "I01 thickRel 0.34 wants min 0.5"
     }
    ]
   },
@@ -430319,29 +430281,29 @@
   {
    "kit": "styloo-food",
    "name": "strawberry",
-   "hash": "94168afeef",
+   "hash": "d348469329",
    "kind": "obj-food-fruit",
    "size": "s",
    "wdh": [
-    0.044,
-    0.039,
-    0.055
+    0.086,
+    0.076,
+    0.11
    ],
    "tris": 432,
    "tpu": 1259,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 18644,
+   "bytes": 18640,
    "vtx": 454,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0008,
-   "thick": 0.2137,
-   "avgTri": 0.00002,
+   "minEdge": 0.003,
+   "minWall": 0.0063,
+   "thick": 0.2138,
+   "avgTri": 0.00007,
    "anglePct": 2,
-   "pieces": 4,
+   "pieces": 5,
    "vpt": 1.05,
    "cells": [
     "8,0",
@@ -430359,9 +430321,9 @@
    "thickRel": 0.89,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0008 wants min 0.006"
+     "text": "G27 minWall 0.0063 wants min 0.012"
     }
    ]
   },
