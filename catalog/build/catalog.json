@@ -60380,6 +60380,26 @@
     "special-food",
     "special-organic",
     "wood-dark"
+   ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0049,
+     "view": "225/20",
+     "causes": {
+      "inside-out": 0.54,
+      "open": 0.39,
+      "inverted": 0.07,
+      "other": 0.01
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 225/20 over 0.2%: inside-out 54.0%, open 39.0%, inverted 7.0%, other 1.0%"
+    }
    ]
   },
   {
@@ -64856,8 +64876,24 @@
     "wood-dark",
     "wood-light"
    ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0044,
+     "view": "0/50",
+     "causes": {
+      "open": 1,
+      "inverted": 0
+     }
+    }
+   ],
    "thickRel": 1,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 0/50 over 0.2%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -367030,7 +367066,7 @@
   {
    "kit": "quat-pirate",
    "name": "ship-large",
-   "hash": "0af035742a",
+   "hash": "4c94e1eb02",
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
