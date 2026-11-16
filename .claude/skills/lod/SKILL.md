@@ -177,6 +177,8 @@ Indicators point at candidates; the render decides.
   skull, axe; not mixed kinds like ships, toys, instruments), compare `tpu`
   with the kind median. Leave out the `char` and `set` kinds, and models
   tagged `plural` or `comp`.
+- **Many-sided round parts**: `node lint/sides.mjs [ids]`. A round part
+  takes as few sides as still read round at its size, next to its peers.
 - **Detailed but not dense**: many small parts at an average `tpu`.
 
 **Too coarse**
