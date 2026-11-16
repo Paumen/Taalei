@@ -389,6 +389,8 @@ Importing a pack:
 
 Which models sit together as one entry and which stand apart. Groups live in `catalog/data/asset_variants.json`, attached to the catalogue by `build-catalog.mjs`. A group exists for one of these reasons.
 
+A model whose shape is exactly that of another in its kit is a colour version of it. The build finds these from the geometry, so they are not listed in the file: each joins the group of the model it copies, or forms one with it. The model panel lists a group's shapes under Variants and the colour versions of the shown shape under Colours; a card counts its shapes, and its colour versions after ◑. The colour-versions button on the catalogue page leaves them out.
+
 | id | reason | shared | differs |
 |---|---|---|---|
 | `D08` | material | kind, size, shape | the material it is made of |
