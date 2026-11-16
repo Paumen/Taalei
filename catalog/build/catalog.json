@@ -3224,8 +3224,7 @@
     "Low Poly Primitive Tools": 20
    },
    "scales": {
-    "0.0045": 17,
-    "0.00603": 1,
+    "0.0045": 18,
     "0.00495": 1,
     "0.005175": 1
    },
@@ -3251,8 +3250,7 @@
     "Low Poly Medieval Weapons": 47
    },
    "scales": {
-    "0.005416": 1,
-    "0.00354": 42,
+    "0.00354": 43,
     "0.003487": 1,
     "0.004956": 1,
     "0.005664": 1,
@@ -3263,7 +3261,7 @@
     "none": 11
    },
    "kitCheck": {
-    "factor": 0.99,
+    "factor": 0.98,
     "kinds": 27
    }
   },
@@ -3755,9 +3753,8 @@
     "SciFi Essentials Kit": 37
    },
    "scales": {
-    "0.45": 35,
-    "0.4545": 1,
-    "0.5535": 1
+    "0.45": 36,
+    "0.4545": 1
    },
    "smooth": {
     "smooth": 33,
@@ -273352,13 +273349,13 @@
   {
    "kit": "lpa-tools",
    "name": "stone-arrow",
-   "hash": "b0d383685a",
+   "hash": "ea16eef5be",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.031,
-    0.028,
-    0.36
+    0.023,
+    0.021,
+    0.268
    ],
    "tris": 448,
    "tpu": 1306,
@@ -273370,11 +273367,11 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0247,
-   "minWall": 0.0067,
-   "thick": 0.4022,
-   "avgTri": 0.00004,
-   "anglePct": 27,
+   "minTube": 0.0184,
+   "minWall": 0.0021,
+   "thick": 0.42,
+   "avgTri": 0.00002,
+   "anglePct": 28,
    "pieces": 4,
    "vpt": 1.99,
    "cells": [
@@ -273397,7 +273394,14 @@
     "wood-dark"
    ],
    "variant": "lpa-tools/stone-arrow",
-   "thickRel": 1.37
+   "thickRel": 1.43,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0021 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "lpa-tools",
@@ -274254,13 +274258,13 @@
   {
    "kit": "lpa-weapons",
    "name": "arrow",
-   "hash": "d1f883ae5b",
+   "hash": "f929522df0",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.048,
-    0.045,
-    0.36
+    0.027,
+    0.028,
+    0.235
    ],
    "tris": 452,
    "tpu": 1318,
@@ -274271,12 +274275,12 @@
    "vtx": 944,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.0117,
-   "minWall": 0.0056,
-   "thick": 0.2991,
-   "avgTri": 0.00012,
-   "anglePct": 34,
+   "minEdge": 0,
+   "minTube": 0.0076,
+   "minWall": 0.0009,
+   "thick": 0.3236,
+   "avgTri": 0.00004,
+   "anglePct": 46,
    "pieces": 5,
    "vpt": 2.09,
    "cells": [
@@ -274296,12 +274300,28 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "thickRel": 1.02,
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0028,
+     "view": "270/50",
+     "causes": {
+      "inverted": 0.92,
+      "other": 0.08
+     }
+    }
+   ],
+   "thickRel": 1.1,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 270/50 over 0.2%: inverted 92.0%, other 8.0%"
+    },
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0056 wants min 0.006"
+     "text": "G27 minWall 0.0009 wants min 0.006"
     }
    ]
   },
@@ -343499,29 +343519,29 @@
   {
    "kit": "quat-essentials",
    "name": "keycard",
-   "hash": "fa9ef72c3d",
+   "hash": "bc736e9b42",
    "kind": "obj-equipment-pocketitem-key",
    "size": "s",
    "wdh": [
-    0.1,
-    0.035,
-    0.264
+    0.08,
+    0.021,
+    0.21
    ],
    "tris": 722,
    "tpu": 2105,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 31216,
+   "bytes": 31212,
    "vtx": 792,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0074,
-   "minWall": 0.0062,
-   "thick": 0.097,
-   "avgTri": 0.00006,
-   "anglePct": 63,
+   "minTube": 0.006,
+   "minWall": 0.0016,
+   "thick": 0.0881,
+   "avgTri": 0.00003,
+   "anglePct": 80,
    "pieces": 3,
    "vpt": 1.1,
    "cells": [
@@ -343543,7 +343563,14 @@
     "qua",
     "space"
    ],
-   "thickRel": 0.88
+   "thickRel": 0.8,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0016 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "quat-essentials",
