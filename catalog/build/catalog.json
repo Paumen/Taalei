@@ -60374,6 +60374,26 @@
     "special-food",
     "special-organic",
     "wood-dark"
+   ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0049,
+     "view": "225/20",
+     "causes": {
+      "inside-out": 0.54,
+      "open": 0.39,
+      "inverted": 0.07,
+      "other": 0.01
+     }
+    }
+   ],
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 225/20 over 0.2%: inside-out 54.0%, open 39.0%, inverted 7.0%, other 1.0%"
+    }
    ]
   },
   {
@@ -64850,8 +64870,24 @@
     "wood-dark",
     "wood-light"
    ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0044,
+     "view": "0/50",
+     "causes": {
+      "open": 1,
+      "inverted": 0
+     }
+    }
+   ],
    "thickRel": 1,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.4% of view 0/50 over 0.2%: open 100.0%"
+    },
     {
      "level": "warning",
      "check": "measures",
@@ -366907,37 +366943,38 @@
   {
    "kit": "quat-pirate",
    "name": "ship-large",
-   "hash": "e8a65fd360",
+   "hash": "53cf7d3964",
    "kind": "obj-transport-watercraft-ship",
    "size": "l",
    "wdh": [
-    2.04,
+    2.018,
     5.926,
-    4.408
+    4.288
    ],
-   "tris": 6439,
-   "tpu": 121,
+   "tris": 4197,
+   "tpu": 82,
    "mat": 1,
-   "bands": 6,
+   "bands": 7,
    "calls": 1,
-   "bytes": 410096,
-   "vtx": 11562,
+   "bytes": 295468,
+   "vtx": 8399,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
    "minTube": 0.0612,
-   "minWall": 0.0062,
-   "thick": 0.0935,
-   "avgTri": 0.00881,
-   "anglePct": 39,
-   "pieces": 238,
-   "vpt": 1.8,
+   "minWall": 0.0065,
+   "thick": 0.0961,
+   "avgTri": 0.01214,
+   "anglePct": 42,
+   "pieces": 101,
+   "vpt": 2,
    "cells": [
+    "2,0",
     "0,0",
-    "13,3",
     "8,0",
     "14,3",
-    "2,0",
+    "1,0",
+    "13,3",
     "14,2"
    ],
    "colors": [
@@ -366946,6 +366983,7 @@
     "#873a27",
     "#88735f",
     "#907a66",
+    "#9e6d44",
     "#ca9f6e"
    ],
    "tags": [
@@ -366959,12 +366997,17 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.95,
+   "thickRel": 0.98,
    "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G15 bands 7 wants max 6"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0062 wants min 0.026"
+     "text": "G27 minWall 0.0065 wants min 0.026"
     }
    ]
   },
