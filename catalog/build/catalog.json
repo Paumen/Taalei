@@ -126312,7 +126312,7 @@
   {
    "kit": "kay-city",
    "name": "building-a-no-base",
-   "hash": "48ef084899",
+   "hash": "dc9dd27401",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -126338,19 +126338,19 @@
    "pieces": 47,
    "vpt": 1.77,
    "cells": [
-    "10,0",
+    "5,2",
     "1,1",
     "12,3",
     "2,0",
     "3,2",
     "14,3",
-    "5,2"
+    "8,0"
    ],
    "colors": [
     "#21552a",
-    "#328686",
     "#57493d",
     "#713e14",
+    "#7a3525",
     "#88735f",
     "#b5d5e3",
     "#dbd0b5"
@@ -127157,7 +127157,7 @@
   {
    "kit": "kay-city",
    "name": "building-h-no-base",
-   "hash": "9f66403d99",
+   "hash": "31c0a83dd2",
    "kind": "str-building-residential-apartment",
    "size": "l",
    "wdh": [
@@ -127168,7 +127168,7 @@
    "tris": 1415,
    "tpu": 59,
    "mat": 1,
-   "bands": 7,
+   "bands": 8,
    "calls": 1,
    "bytes": 98644,
    "vtx": 2506,
@@ -127188,12 +127188,14 @@
     "9,0",
     "2,0",
     "3,2",
+    "8,0",
     "14,3",
     "5,2"
    ],
    "colors": [
     "#57493d",
     "#713e14",
+    "#7a3525",
     "#88735f",
     "#95b438",
     "#af4c87",
@@ -127214,7 +127216,14 @@
     "wood-dark"
    ],
    "variant": "kay-city/building-h",
-   "thickRel": 0.91
+   "thickRel": 0.91,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G17 bands 8 wants max 7"
+    }
+   ]
   },
   {
    "kit": "kay-city",
