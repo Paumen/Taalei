@@ -36,11 +36,6 @@ better makes a blanket a dull hard block.
 5. **Order**: copies and hard parts first, then soft surfaces, then thin
    parts, since cutting can make or remove thin parts.
 
-## Asking the PO
-
-- If the type-making parts must be cut to reach the budget, ask instead.
-- A label you're unsure of goes to the PO with its render.
-
 ## Examples
 
 - sofa-b, armchair: soft cushions and body. Simplified, 3688 → 1570 and
