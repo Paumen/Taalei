@@ -6,15 +6,15 @@ description: Work on the Taalei catalogue — add a source pack so its models sh
 # Working on the catalogue
 
 `docs/asset_style_guide.md` is the bible: it decides materials, colours, sizes
-and variants. Read it before deciding anything; this skill only says in what
+and variants; this skill only says in what
 order to do the work and which tool does each part.
 
-Two rules from `CLAUDE.md` bind every step: never look at earlier commits or
-PRs, and never leave assumptions, rules or commentary as comments in a code
-file — put them here, in the bible, or in the PR.
+Two canon rules bind every step: ask before reading earlier commits or PRs
+(C12), and no new code comments (C06) — put assumptions, rules and commentary
+here, in the bible, or in the PR.
 
-A workfile in `kits/workfiles` is the asset itself. No model is dropped
-because of a lint error; §7 says how to work one. A wrong band is moved in place
+A workfile in `kits/workfiles` is the asset itself. §7 says how to work a lint
+error. A wrong band is moved in place
 with `tools/import/recolour.mjs`, for the whole band or for named parts. A
 triangle spanning two colormap cells, or a flat face whose triangles show
 different colours, is evened in place with `tools/import/face-bands.mjs`.
@@ -135,9 +135,7 @@ Set in `catalog/data/tags.json`, per model, as `<kit>/<name>`:
   `lint/kinds.json` sets that value, for a clearly smaller or bigger
   version of it.
 - **theme** — only when obvious. Existing sets: `pirate`, `halloween`,
-  `robin-hood`, `asia`, `grave`, `sailing`, `space`. A new theme is worth opening
-  only if dozens of assets will carry it; a large kit is not a reason to sweep
-  every model into one.
+  `robin-hood`, `asia`, `grave`, `sailing`, `space`. 
 - **flags** — `plural` (several instances of one thing), `pickup` (a lone coin,
   key, ring, potion or token sized to be collected, not to stand in the world),
   `comp` (a part meant to be built into something larger, so the size rows do
@@ -232,7 +230,7 @@ re-measures only changed workfiles; `--force` measures all of them.
 
 ## 7. Working a lint error
 
-No model is dropped because of a lint error. Work it in this order and render
+Work it in this order and render
 at every step that compares models.
 
 ### A model off its kind's size range

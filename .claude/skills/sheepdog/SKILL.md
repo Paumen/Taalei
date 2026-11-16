@@ -13,8 +13,8 @@ The tool is `tools/sheepdog/sheepdog.mjs` (`--help` lists every command). It
 logs every picked kind in `tools/sheepdog/log.json`, so a random pick never
 returns a kind; `--kind` picks a kind on purpose, also one logged before.
 
-`CLAUDE.md` binds: never look at earlier commits or PRs, no comments or
-assumptions in code, English only. `docs/asset_style_guide.md` decides
+`canon.md` binds: C06 (no new code comments), C08 (English), C12 (ask before
+reading git history or past PRs). `docs/asset_style_guide.md` decides
 materials, colours and sizes; `.claude/skills/catalog-assets/SKILL.md` §3–4
 say how bands and tags work. The agents get both as reading.
 
@@ -29,8 +29,8 @@ say how bands and tags work. The agents get both as reading.
 
        node tools/sheepdog/sheepdog.mjs brief
 
-3. Pick and render. Six kinds with models from two or more kits by default,
-   whatever their size; `--kind` names kinds, `--max` caps the model count.
+3. Pick and render. Kinds with models from two or more kits, whatever their size; `--count` sets
+   how many, `--kind` names kinds, `--max` caps the model count.
    Sheets hold at most 12 models each, every tile fitted to its own model.
 
        node tools/sheepdog/sheepdog.mjs pick
@@ -42,8 +42,7 @@ say how bands and tags work. The agents get both as reading.
    inherit the model, background) with `brief.md` from this folder, the
    placeholders filled: `{{kind}}`, `{{kinds}}` (the entry's `kinds`, comma
    separated), `{{dir}}`, `{{sheets}}` (one path per line), `{{calibration}}`
-   (the output of step 2). Three run at once; start
-   the next when one finishes. Agents work only their own kind's workfiles and
+   (the output of step 2).  Agents work only their own kind's workfiles and
    their own run dir, so they do not collide. Do not touch `tags.json` or run
    a rebuild while agents run.
 
@@ -64,8 +63,7 @@ say how bands and tags work. The agents get both as reading.
        node tools/sheepdog/sheepdog.mjs review --out <scratchpad>/review-list.json
        node tools/review/review.mjs brief
 
-   Doubted changes carry their `why`; drop the items without one of a type
-   the brief says to send only where risk is high. Build, publish the page as
+   Doubted changes carry their `why`. Build, publish the page as
    an artifact and link it in the PR.
 
 8. Report to the PO: the kinds, changes made and doubted per kind, the
@@ -109,6 +107,6 @@ less doubt is due. `stats` gives the counts.
 - Commit nothing until `record`: agents lint and revert against `HEAD`.
 - A model changed by an agent but not listed in its `result.json` is logged
   as a doubted `look` change, so nothing slips past the PO unseen.
-- Rendering runs Chromium: three agents at once is the ceiling on four cores.
+
 - The run dir is under `kits/.cache`, gone with the container; the log holds
   what reverts need (the before blob is written into the git object store).

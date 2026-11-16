@@ -5,12 +5,11 @@ description: Read a catalogue extract — the JSON the browser stages with tag e
 
 # Working through a catalogue extract
 
-`docs/asset_style_guide.md` decides materials, colours and sizes. Read it
-before deciding anything. This skill is about finding the geometry a mark
+`docs/asset_style_guide.md` decides materials, colours and sizes. This skill is about finding the geometry a mark
 refers to, which the bible does not cover.
 
-`CLAUDE.md` binds every step: never look at earlier commits or PRs, and never
-leave assumptions or commentary in a code file.
+Canon binds every step: ask before reading earlier commits or PRs (C12), and
+no new code comments (C06).
 
 A tag edit is applied. A colour mark is diagnosed first, then applied with
 `tools/import/recolour.mjs`, which moves a band, or the part of it on named
@@ -54,8 +53,7 @@ first.
   above it is nearly a third. Set `--fit` by eye from the first render.
 
 - `swipe` — the directions of a swipe run, each with its label and paths.
-  `choices` carries each model's lint findings at the time. A label such as
-  "Relax rule" is read per §8.
+  `choices` carries each model's lint findings at the time. 
 
 Notes are terse and often typo'd. `iso` is "in plaats van" — *instead of*.
 Map the hexes to band names from the lane table in `lint/materials.json`.
@@ -93,31 +91,13 @@ also carries something that reads correctly moves only on the marked parts:
 `--list` numbers the parts; `render.mjs --isolate` tiles them in its own order,
 so take the number from `--list` and check it on a copy first. A mark with no
 `add` names no target: ask. After a recolour, run `palette.mjs` — a material
-tag that only held through the old band now fails, and the tag is the PO's
-call.
+tag that only held through the old band now fails.
 
 `P11`–`P14` in the bible: a pack's source colours have to survive the import.
 Two source colours on one band is a bug, not a style choice, so say so rather
 than proposing a band that hides it.
 
-## 5. Ask with a picture
-
-When a note names a part in a few words, do not guess and do not offer a
-multiple-choice of colours. Render the band and the view the note was written
-from, and ask which group is meant. This costs two minutes and settles in one
-round what guessing does not settle in three.
-
-Do not ask at all when the bible already decides — `B40` gives a wrapped grip
-taupe, `lint/kinds.json` gives bells copper or gold.
-
-## 6. Small batches, then verdicts
-
-Work ten or so models, push, and ask for a fresh extract with a verdict per
-model. Judging forty at once buries a wrong assumption under thirty more.
-
-When something fails, the cause is almost always the part, not the colour.
-
-## 7. Tags follow the geometry
+## 5. Tags follow the geometry## 7. Tags follow the geometry
 
 After a tag edit, run the lints and let them name what no longer fits:
 
@@ -131,27 +111,7 @@ bending the tag.
 Widening a palette in `lint/materials.json` is catalogue-wide. Count what else
 it clears before proposing it, and say so.
 
-## 8. Relaxing a rule
-
-A swipe direction or note that asks to relax a rule asks for the cleanest
-change with the least scope. Before changing anything:
-
-- Say what the rule is for, why this model breaks it, and whether relaxing
-  serves that purpose here or the model or its tags are the real problem.
-- Pick the narrowest place: one kind before its parent, one kind before a
-  material palette, an exception before a new catalogue-wide value. Count what
-  else the change clears or newly allows, and report it.
-- Relax only as far as the finding needs and the rule's purpose allows. An
-  error is not a reason to also clear the warning band: a model just past the
-  new limit should still warn. A limit wide enough to hide every outlier
-  defeats the rule.
-- Sometimes the reasonable relaxation is partial and the model stays an
-  error. When you suspect that, look at the model beside its catalogue peers
-  at locked scale before deciding, and say so.
-- If no small-scope change fits, do not widen anything. Flag it with the
-  options and what each would touch.
-
-## 9. Check before pushing
+## 6. Check before pushing## 9. Check before pushing
 
 Rebuild and lint as `catalog-assets` §6 says. Compare every count against the
 branch point, not against zero — the catalogue carries findings that are not

@@ -15,9 +15,7 @@ renders in chat and ask for a verdict there.
 ## 0. Calibrate
 
 Run `node tools/review/review.mjs brief` before choosing what to send. It reads
-every past verdict in `tools/review/log.json` and advises: a change type the
-PO often undoes is sent in full, one the PO nearly always keeps is sent only
-where risk is high, and a review with undone changes gets a follow-up round
+every past verdict in `tools/review/log.json` and advises: a change type the PO often undoes is sent in full, and a review with undone changes gets a follow-up round
 of the related changes not yet reviewed (same change, kind branch, material
 or kit). Follow the advice. The log is committed, so it carries across sessions.
 
@@ -87,11 +85,9 @@ also work) and run
 | Other       | `other`   | nothing                 | what the comment says            |
 | Later       | `later`   | nothing                 | left open                        |
 
-Flags or pins without a verdict count as Try again, a comment alone as
-Other, ★ alone as Keep, ✕✕ alone as Undo. Read pins against the after pictures (front or back,
-x and y from the top left). A Try again or Undo can point to another problem
-with the model than the change itself: look at the whole model against its
-source and peers before retrying the same change. A later fix on a reverted
+A comment alone counts as Other; flags, pins or marks without a verdict stay
+open. Read pins against the after pictures (front or back,
+x and y from the top left).  A later fix on a reverted
 file, such as a glb-lint repair, is applied again on top. Rebuild, lint, and
 put the retried models in the next round.
 

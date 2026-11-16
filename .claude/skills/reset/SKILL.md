@@ -1,6 +1,6 @@
 ---
 name: reset
-description: Restart a task that keeps failing from the PO's own words and canon, dropping Claude's own assumptions. Use when a task still misses after the assumption list (C17), when the PO asks to start over, when a review gives a retry verdict on the task as a whole, or when the PO runs /reset.
+description: Restart a task that keeps failing from the PO's own words and canon, dropping Claude's own assumptions. Use when a task keeps missing, when the PO asks to start over, when a review gives a retry verdict on the task as a whole, or when the PO runs /reset.
 ---
 
 # Reset

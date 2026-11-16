@@ -15,21 +15,20 @@ better makes a blanket a dull hard block.
 
 1. **Where are the triangles?** `node tools/detail/slim.mjs parts <glb>`
    (`--mesh` on models of several meshes). Identical parts are grouped
-   (`10× 60`). Take the parts that carry most of the triangles, until what is
-   left is under the kind's budget. For a thin flag, take the part
+   (`10× 60`). Take the parts that carry most of the triangles. For a thin flag, take the part
    `tools/thin/walls.mjs <glb>` names.
 2. **Look at each one.** `keep` it into a scratch file with `slim.mjs edit`
    and render it in `pbr` and `claywire` from two views. Label it by what you
    see, not by its numbers.
 3. **Label and route** each part:
 
-   | Label | Looks like | Fix | Never |
-   | --- | --- | --- | --- |
-   | Copies | books, bars, rivets, matches, round tops | detail: fewer, drop the small ones | smoothing each copy |
-   | Soft surface | blanket, cushion, curved leg, carving | same shape, fewer triangles (automatic simplification) | a box or plain shape |
-   | Hard part, too many sides | turned post, knob, many-sided ring | detail: `lathe`, swap shape | dropping it |
-   | Thin | paper sheet, hairline strand | lod: thicken | dropping what makes the type |
-   | Makes the type | lettering on a sign, carving on antique furniture | keep; cut elsewhere | any cut that loses it |
+   | Label | Looks like | Fix |
+   | --- | --- | --- |
+   | Copies | books, bars, rivets, matches, round tops | detail: fewer, drop the small ones |
+   | Soft surface | blanket, cushion, curved leg, carving | same shape, fewer triangles |
+   | Hard part, too many sides | turned post, knob, many-sided ring | detail: `lathe`, swap shape |
+   | Thin | paper sheet, hairline strand | lod: thicken |
+   | Makes the type | lettering on a sign, carving on antique furniture | keep; cut elsewhere |
 
 4. **Plan per model**: a table of part, triangles, label and fix. One model
    can take several fixes (container: copies on top, hard body below).
@@ -38,11 +37,14 @@ better makes a blanket a dull hard block.
 
 ## Examples
 
-- sofa-b, armchair: soft cushions and body. Simplified, 3688 → 1570 and
-  2596 → 1244, look unchanged. Kept.
+- sofa-b, armchair: soft cushions and body. Same shape with fewer triangles,
+  3688 → 1570 and 2596 → 1244, look unchanged. Kept.
 - bed-double, bed-single: posts were already lean; the triangles sat in the
-  blanket, pillows and carved crest. Those simplified, posts left. Kept.
-- wardrobe-short: four curved gold legs (252 each), simplified with the curve
-  kept. Kept.
+  blanket, pillows and carved crest. Those got fewer triangles, posts left. Kept.
+- wardrobe-short: four curved gold legs (252 each), fewer triangles with the
+  curve kept. Kept.
 - bookcase-full: 39 books (60 each) are copies. Fewer books, not smoother
   books.
+
+Automatic simplification or decimation: only after showing that the other
+fixes don't work on that part, and asking the PO.
