@@ -297,6 +297,11 @@ function build() {
   const list = JSON.parse(readFileSync(listPath, 'utf8'));
   const base = flag('--base', list.base);
   if (!base) throw new Error('no base ref: give --base or "base" in the list');
+  const ruleProposal = /\b(limits?|rules?|lint|thin\.min|tpu|new kind)\b/i;
+  const ruled = list.items.filter((item) => ruleProposal.test(item.proposal ?? ''));
+  if (ruled.length && ruled.length < list.items.length) {
+    throw new Error(`rule or limit proposals go on a page of their own, without other changes: ${ruled.map((item) => item.model).join(', ')}`);
+  }
   const tagsBefore = JSON.parse(atRef(base, TAGS));
   const tagsAfter = JSON.parse(readFileSync(join(ROOT, TAGS), 'utf8'));
 
