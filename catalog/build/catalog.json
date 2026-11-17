@@ -72859,13 +72859,13 @@
   {
    "kit": "food-pack-2",
    "name": "pineapple",
-   "hash": "0bfed57d6b",
+   "hash": "24e8900251",
    "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
-    0.15,
-    0.141,
-    0.313
+    0.156,
+    0.147,
+    0.314
    ],
    "tris": 1006,
    "tpu": 2933,
@@ -72876,11 +72876,11 @@
    "vtx": 581,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0007,
-   "thick": 0.2489,
-   "avgTri": 0.00023,
-   "anglePct": 8,
+   "minEdge": 0.003,
+   "minWall": 0.0063,
+   "thick": 0.2469,
+   "avgTri": 0.00027,
+   "anglePct": 6,
    "pieces": 5,
    "vpt": 0.58,
    "cells": [
@@ -72898,9 +72898,9 @@
    "thickRel": 1.03,
    "lint": [
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
+     "text": "G27 minWall 0.0063 wants min 0.012"
     }
    ]
   },
@@ -349371,7 +349371,7 @@
    "kit": "quat-fish",
    "collection": "quat-sea",
    "name": "fish-3",
-   "hash": "f72f43fd91",
+   "hash": "10795c12b3",
    "kind": "env-fauna-fish",
    "size": "s",
    "wdh": [
@@ -349384,8 +349384,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 3,
-   "bytes": 152704,
-   "vtx": 2475,
+   "bytes": 152872,
+   "vtx": 2478,
    "minEdge": 0.001,
    "minTube": 0.012,
    "minWall": 0.0071,
@@ -349412,25 +349412,7 @@
     "Armature|Swim"
    ],
    "variant": "quat-fish/fish-1",
-   "backface": [
-    {
-     "side": "below",
-     "share": 0.0138,
-     "view": "0/-89.9",
-     "causes": {
-      "inverted": 0.7,
-      "open": 0.3
-     }
-    }
-   ],
    "thickRel": 0.74,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "1.4% of view 0/-89.9 over 0.5%: inverted 70.0%, open 30.0%"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -416898,7 +416880,7 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "clock",
-   "hash": "9b33054abe",
+   "hash": "f47f6c8dff",
    "kind": "obj-furnishing-clock-wall",
    "size": "s",
    "wdh": [
@@ -416911,16 +416893,16 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 76308,
+   "bytes": 67564,
    "vtx": 1792,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0074,
+   "minTube": 0.0109,
    "minWall": 0.0064,
-   "thick": 0.1101,
-   "avgTri": 0.00029,
-   "anglePct": 80,
+   "thick": 0.1102,
+   "avgTri": 0.0003,
+   "anglePct": 79,
    "pieces": 15,
    "vpt": 1.23,
    "cells": [
@@ -416945,27 +416927,12 @@
     "tba",
     "wood-dark"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0049,
-     "view": "180/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 0.74,
    "lint": [
     {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.5% of view 180/20 over 0.2%: open 100.0%"
-    },
-    {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0074 wants min 0.012"
+     "text": "G27 minTube 0.0109 wants min 0.012"
     },
     {
      "level": "warning",
@@ -446094,7 +446061,7 @@
   {
    "kit": "swords-tember",
    "name": "coral",
-   "hash": "93d70252bb",
+   "hash": "d6faec63dd",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
@@ -446107,8 +446074,8 @@
    "mat": 1,
    "bands": 5,
    "calls": 1,
-   "bytes": 198020,
-   "vtx": 5570,
+   "bytes": 198404,
+   "vtx": 5582,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -446117,7 +446084,7 @@
    "avgTri": 0.00011,
    "anglePct": 5,
    "pieces": 38,
-   "vpt": 1.83,
+   "vpt": 1.84,
    "cells": [
     "4,2",
     "5,0",
@@ -473317,7 +473284,7 @@
   {
    "kit": "zombie-weapons",
    "name": "arrow",
-   "hash": "e5c41f34af",
+   "hash": "4de2542dd8",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
@@ -473325,23 +473292,23 @@
     0.026,
     0.364
    ],
-   "tris": 204,
-   "tpu": 595,
+   "tris": 160,
+   "tpu": 466,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12844,
-   "vtx": 317,
+   "bytes": 18724,
+   "vtx": 509,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.002,
    "minTube": 0.006,
-   "minWall": 0.001,
-   "thick": 0.4138,
-   "avgTri": 0.00006,
-   "anglePct": 90,
-   "pieces": 5,
-   "vpt": 1.55,
+   "minWall": 0.006,
+   "thick": 0.4304,
+   "avgTri": 0.00007,
+   "anglePct": 85,
+   "pieces": 4,
+   "vpt": 3.18,
    "cells": [
     "15,3",
     "8,0"
@@ -473357,14 +473324,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 1.5,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.56
   },
   {
    "kit": "zombie-weapons",
