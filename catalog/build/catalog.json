@@ -3224,7 +3224,8 @@
     "Low Poly Primitive Tools": 20
    },
    "scales": {
-    "0.0045": 18,
+    "0.0045": 16,
+    "0.00675": 2,
     "0.00495": 1,
     "0.005175": 1
    },
@@ -3232,7 +3233,7 @@
     "smooth": 20
    },
    "kitCheck": {
-    "factor": 1.08,
+    "factor": 1.14,
     "kinds": 12
    }
   },
@@ -5263,7 +5264,7 @@
     "0.2": 13,
     "0.3016": 1,
     "0.3696": 2,
-    "0.3519": 1,
+    "1.056": 1,
     "0.5658": 1
    },
    "smooth": {
@@ -5966,7 +5967,8 @@
    },
    "scales": {
     "0.4186": 1,
-    "0.364": 42,
+    "0.364": 41,
+    "0.4004": 1,
     "0.5351": 1,
     "0.6515": 1,
     "0.9681": 1
@@ -276312,29 +276314,29 @@
   {
    "kit": "lpa-tools",
    "name": "stone-arrow",
-   "hash": "ea16eef5be",
+   "hash": "42786a6a6c",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.023,
-    0.021,
-    0.268
+    0.035,
+    0.032,
+    0.403
    ],
    "tris": 448,
    "tpu": 1306,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 32892,
+   "bytes": 32908,
    "vtx": 893,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0184,
-   "minWall": 0.0021,
-   "thick": 0.42,
-   "avgTri": 0.00002,
-   "anglePct": 28,
+   "minTube": 0.0276,
+   "minWall": 0.0061,
+   "thick": 0.4122,
+   "avgTri": 0.00005,
+   "anglePct": 25,
    "pieces": 4,
    "vpt": 1.99,
    "cells": [
@@ -276357,14 +276359,7 @@
     "wood-dark"
    ],
    "variant": "lpa-tools/stone-arrow",
-   "thickRel": 1.53,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0021 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.5
   },
   {
    "kit": "lpa-tools",
@@ -276806,28 +276801,28 @@
   {
    "kit": "lpa-tools",
    "name": "wooden-arrow",
-   "hash": "02783f6394",
+   "hash": "4c1dd4da25",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.019,
-    0.021,
-    0.257
+    0.028,
+    0.032,
+    0.386
    ],
    "tris": 126,
    "tpu": 367,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 9332,
+   "bytes": 9328,
    "vtx": 219,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
-   "minTube": 0.0185,
-   "minWall": 0.0078,
+   "minEdge": 0.003,
+   "minTube": 0.0278,
+   "minWall": 0.0117,
    "thick": 0.4594,
-   "avgTri": 0.00007,
+   "avgTri": 0.00016,
    "anglePct": 23,
    "pieces": 1,
    "vpt": 1.74,
@@ -307424,7 +307419,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.75,
+   "thickRel": 0.76,
    "lint": [
     {
      "level": "warning",
@@ -307472,7 +307467,7 @@
     "stone-masonry-mid"
    ],
    "variant": "m3-base/mortar-and-pestle-01",
-   "thickRel": 0.72,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "warning",
@@ -430340,27 +430335,27 @@
   {
    "kit": "styloo-farm",
    "name": "leaf",
-   "hash": "33287fa683",
+   "hash": "390f084343",
    "kind": "env-flora-plant-leafy",
    "size": "s",
    "wdh": [
-    0.027,
-    0.05,
-    0.009
+    0.084,
+    0.151,
+    0.031
    ],
    "tris": 216,
    "tpu": 630,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11600,
+   "bytes": 11664,
    "vtx": 279,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0008,
-   "thick": 0.0783,
-   "avgTri": 0.00001,
+   "minEdge": 0.002,
+   "minWall": 0.0062,
+   "thick": 0.091,
+   "avgTri": 0.00011,
    "anglePct": 2,
    "pieces": 1,
    "vpt": 1.29,
@@ -430375,13 +430370,6 @@
     "leaf-light",
     "piece",
     "sty"
-   ],
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0008 wants min 0.006"
-    }
    ]
   },
   {
@@ -435861,12 +435849,12 @@
   {
    "kit": "styloo-furniture",
    "name": "wooden-spoon-round",
-   "hash": "7278a0bb92",
+   "hash": "411a7a138a",
    "kind": "obj-kitchenware-cookware-utensil-spoon",
    "size": "s",
    "wdh": [
-    0.077,
-    0.013,
+    0.097,
+    0.014,
     0.266
    ],
    "tris": 333,
@@ -435879,10 +435867,10 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0045,
-   "thick": 0.131,
-   "avgTri": 0.00007,
-   "anglePct": 46,
+   "minWall": 0.0063,
+   "thick": 0.1124,
+   "avgTri": 0.00009,
+   "anglePct": 43,
    "pieces": 1,
    "vpt": 1.52,
    "cells": [
@@ -435896,14 +435884,7 @@
     "wood-mid"
    ],
    "variant": "styloo-furniture/wooden-spoon",
-   "thickRel": 0.88,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0045 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.75
   },
   {
    "kit": "styloo-furniture",
@@ -473432,13 +473413,13 @@
   {
    "kit": "zombie-weapons",
    "name": "arrow",
-   "hash": "e5c41f34af",
+   "hash": "391df5bce6",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.03,
-    0.026,
-    0.364
+    0.05,
+    0.043,
+    0.4
    ],
    "tris": 204,
    "tpu": 595,
@@ -473449,12 +473430,12 @@
    "vtx": 317,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minTube": 0.006,
-   "minWall": 0.001,
-   "thick": 0.4138,
-   "avgTri": 0.00006,
-   "anglePct": 90,
+   "minEdge": 0.003,
+   "minTube": 0.0066,
+   "minWall": 0.0061,
+   "thick": 0.2887,
+   "avgTri": 0.00012,
+   "anglePct": 86,
    "pieces": 5,
    "vpt": 1.55,
    "cells": [
@@ -473472,14 +473453,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 1.5,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.05
   },
   {
    "kit": "zombie-weapons",
