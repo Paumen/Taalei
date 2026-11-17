@@ -72,7 +72,7 @@ most. A kit needs its row in `catalog/data/manifest.js` (slug, url, note,
 licence label; `name` only when it differs from the slug);
 `tools/importeer/zet-catalogus.mjs` writes it when missing. Kits that share
 style and source units go in a collection row there (`collection`, `kits`, and
-`name` only when it differs from the collection id), per the bible's `P15`; give them one scale
+`name` only when it differs from the collection id), per the style guide's `P15`; give them one scale
 factor first.
 
 ## 3. Colour and bands

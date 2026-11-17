@@ -1,6 +1,32 @@
 import { measureFindingsFor, buildKindFields, materialIdsOf } from './rules.mjs';
 import { read, VARS, printTally, widthsOf } from './report.mjs';
 
+const HELP = `measures.mjs [row ids]
+
+Checks the rows of lint/measures.json. Fields, in catalogue units, measured
+after the node transform; a part is shells welded on shared positions:
+minTube  width of the thinnest tube or stick. A tube is a part whose every
+         slice is a ring of at least five directions, at least 2.5 diameters
+         long; width is twice the median slice radius. A stick is at least 6
+         times as long as its wide side, also when welded into a larger part;
+         width is its narrow side. A piece under 0.026 lying within 0.002 of
+         another face does not count. None recorded passes G27.
+minWall  thinnest wall: rays from sampled faces into the part to the first
+         face facing back within 25 degrees; per part the 20% mark by area,
+         the lowest part counts. Parts under 0.2% of the surface, and depths
+         under 0.026 lying within 0.002 of another part, do not count.
+thick    twice the mean depth of the solid over the middle extent; the solid
+         is all not seen from at or above the horizon, gaps under about 7% of
+         the longest extent closed. thickRel divides by the median of the
+         deepest kind with at least 8 models, plural, piece, comp and set
+         left out.
+leaf     1 when the kind has no children in lint/kinds.json.`;
+
+if (process.argv.includes('--help')) {
+  console.log(HELP);
+  process.exit(0);
+}
+
 const { rows } = read(VARS.measures);
 const KIND_FIELDS = buildKindFields(read(VARS.kinds));
 const { models } = read(VARS.models);

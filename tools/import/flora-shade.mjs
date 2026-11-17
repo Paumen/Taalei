@@ -27,7 +27,17 @@ Twine, glass and amber cells are left as they are.
 gradient, less its mean over the piece (the whole model for wood), to the v
 the vertex has, undersides included, and adds less of it to a piece that would
 leave 0.02-0.95. --strength scales the added gradient (default 1), for models
-whose own contrast or part tones it would drown.`;
+whose own contrast or part tones it would drown.
+
+Style guide rows:
+B70 plants: --mode plant; --keep-detail for detailed models, --strength 0.5
+  where the gradient would drown their own contrast or part tones. Left out:
+  quat-space/bush-spiral.
+B71, B72 fungi: --mode fungi (--keep-detail for detailed models).
+B73 deadwood: --mode wood (--bands bark,ivory for birch, --keep-detail for
+  detailed models).
+B74 palm fronds: --mode plant --keep-detail.
+B75 palm trunks: --mode trunk --keep-detail.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;

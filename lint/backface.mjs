@@ -2,6 +2,24 @@ import { backfaceFindingsFor, findingText } from './rules.mjs';
 import { execFileSync } from 'node:child_process';
 import { read, VARS, printTally, widthsOf } from './report.mjs';
 
+const HELP = `backface.mjs
+
+G28: the largest share of each model's silhouette that shows back faces, over
+16 views above the horizon and one from straight below, read from
+catalog/build/backfaces.json (made by node catalog/tools/backfaces.mjs).
+Causes: doubled (two opposite copies of one face), inverted (wound against its
+normals or neighbours), inside-out (a closed shell wound inward), open (a
+single-sided surface), other. Above and below have their own limits,
+backface.above and backface.below in lint/variables.json. Each view of a
+changed model is also compared with the measure on backface.base; a view whose
+share grew by more than backface.worse is an error. Look with
+render.mjs --modes faceorient --views <az/el>.`;
+
+if (process.argv.includes('--help')) {
+  console.log(HELP);
+  process.exit(0);
+}
+
 const { models } = read(VARS.models);
 const measured = read(VARS.backface.file).models;
 

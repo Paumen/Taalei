@@ -11,7 +11,9 @@ bands are the ones the model's ceramic tags name in catalog/build/catalog.json;
 the ranges are ceramic.ranges in lint/variables.json. --move first moves a band
 into another, as ivory=terracotta, and shades what it moved as well; several
 moves happen at once, so sienna=ivory,ivory=sienna swaps the two.
-Check with node lint/ceramic.mjs.`;
+Check with node lint/ceramic.mjs.
+
+Style guide row B78; --move <band>=<band> for another colour.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const json = (path) => JSON.parse(readFileSync(resolve(ROOT, path), 'utf8'));
