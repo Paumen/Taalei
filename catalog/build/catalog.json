@@ -3345,8 +3345,8 @@
     "1.087": 1
    },
    "smooth": {
-    "smooth": 886,
-    "none": 22
+    "smooth": 885,
+    "none": 23
    },
    "kitCheck": {
     "factor": 1.05,
@@ -4660,8 +4660,8 @@
     "0.869": 1
    },
    "smooth": {
-    "smooth": 229,
-    "none": 1
+    "smooth": 228,
+    "none": 2
    },
    "members": [
     {
@@ -4733,7 +4733,8 @@
       "0.869": 1
      },
      "smooth": {
-      "smooth": 16
+      "smooth": 15,
+      "none": 1
      }
     },
     {
@@ -26327,7 +26328,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1532,
+   "count": 1531,
    "parent": "polymer"
   },
   {
@@ -26379,7 +26380,7 @@
    "name": "Organic",
    "type": "material",
    "description": "Plant matter that is neither leaf nor wood: blooms, mushroom caps and stems, dried stalks, husks, grain.",
-   "count": 232
+   "count": 233
   },
   {
    "id": "obj",
@@ -31080,7 +31081,7 @@
    "name": "Modern",
    "type": "tech",
    "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material or style in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
-   "count": 2074
+   "count": 2073
   },
   {
    "id": "storeys-0-5",
@@ -72858,30 +72859,31 @@
   {
    "kit": "food-pack-2",
    "name": "pineapple",
-   "hash": "0bfed57d6b",
+   "hash": "a2e210e1b3",
    "kind": "obj-food-fruit-pineapple",
    "size": "s",
    "wdh": [
-    0.15,
-    0.141,
+    0.152,
+    0.152,
     0.313
    ],
-   "tris": 1006,
-   "tpu": 2933,
+   "tris": 610,
+   "tpu": 1778,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 26020,
-   "vtx": 581,
+   "bytes": 44780,
+   "vtx": 1127,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0007,
-   "thick": 0.2489,
-   "avgTri": 0.00023,
-   "anglePct": 8,
-   "pieces": 5,
-   "vpt": 0.58,
+   "minEdge": 0.006,
+   "minTube": 0.0115,
+   "minWall": 0.0091,
+   "thick": 0.2513,
+   "avgTri": 0.00024,
+   "anglePct": 3,
+   "pieces": 14,
+   "vpt": 1.85,
    "cells": [
     "6,0",
     "3,1"
@@ -72894,12 +72896,17 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 1.03,
+   "thickRel": 1.04,
    "lint": [
     {
      "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0007 wants min 0.006"
+     "text": "G27 minTube 0.0115 wants min 0.012"
+    },
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0091 wants min 0.012"
     }
    ]
   },
@@ -290263,37 +290270,37 @@
   {
    "kit": "m3-base",
    "name": "cd",
-   "hash": "4df675a367",
+   "hash": "a69b3b2152",
    "kind": "obj-device-electronics-media",
    "size": "s",
    "wdh": [
-    0.179,
-    0.179,
-    0.003
+    0.19,
+    0.19,
+    0.008
    ],
-   "tris": 576,
-   "tpu": 1679,
+   "tris": 420,
+   "tpu": 1224,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 20160,
-   "vtx": 476,
+   "bytes": 46836,
+   "vtx": 1260,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
-   "minWall": 0.0031,
-   "thick": 0.0333,
-   "avgTri": 0.00009,
-   "anglePct": 96,
+   "minEdge": 0,
+   "minWall": 0.0074,
+   "thick": 0.0438,
+   "avgTri": 0.00019,
+   "anglePct": 99,
    "pieces": 1,
-   "vpt": 0.83,
+   "vpt": 3,
    "cells": [
     "15,3",
-    "5,2"
+    "6,1"
    ],
    "colors": [
-    "#7a8491",
-    "#dbd0b5"
+    "#3a3e4b",
+    "#7a8491"
    ],
    "tags": [
     "m3",
@@ -290302,17 +290309,22 @@
     "pickup",
     "plastic"
    ],
-   "thickRel": 0.31,
+   "thickRel": 0.4,
    "lint": [
+    {
+     "level": "error",
+     "check": "palette",
+     "text": "plastic wants sienna terracotta amber hunter moss azure ivory basalt taupe, has nickel slate"
+    },
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.31 wants min 0.5"
+     "text": "I01 thickRel 0.4 wants min 0.5"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0031 wants min 0.006"
+     "text": "G27 minWall 0.0074 wants min 0.026"
     }
    ]
   },
@@ -293957,9 +293969,8 @@
    ],
    "tags": [
     "m3",
-    "modern",
     "mounted",
-    "plastic",
+    "special-organic",
     "textile-cloth-light"
    ],
    "thickRel": 0.44
@@ -416880,7 +416891,7 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "clock",
-   "hash": "e8d5459bbe",
+   "hash": "9b33054abe",
    "kind": "obj-furnishing-clock-wall",
    "size": "s",
    "wdh": [
@@ -416893,18 +416904,18 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 66412,
-   "vtx": 1756,
+   "bytes": 76308,
+   "vtx": 1792,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0061,
-   "minWall": 0.0061,
+   "minTube": 0.0074,
+   "minWall": 0.0064,
    "thick": 0.1101,
    "avgTri": 0.00029,
-   "anglePct": 79,
+   "anglePct": 80,
    "pieces": 15,
-   "vpt": 1.21,
+   "vpt": 1.23,
    "cells": [
     "2,0",
     "5,2",
@@ -416927,32 +416938,17 @@
     "tba",
     "wood-dark"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0049,
-     "view": "180/20",
-     "causes": {
-      "open": 1
-     }
-    }
-   ],
    "thickRel": 0.74,
    "lint": [
     {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.5% of view 180/20 over 0.2%: open 100.0%"
-    },
-    {
      "level": "error",
      "check": "measures",
-     "text": "G27 minTube 0.0061 wants min 0.012"
+     "text": "G27 minTube 0.0074 wants min 0.012"
     },
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0061 wants min 0.012"
+     "text": "G27 minWall 0.0064 wants min 0.012"
     }
    ]
   },
@@ -417233,38 +417229,40 @@
    "kit": "rgp-vintage",
    "collection": "rgp",
    "name": "record",
-   "hash": "75fa4f052a",
+   "hash": "e857b8eedb",
    "kind": "obj-device-electronics-media",
    "size": "s",
    "wdh": [
-    0.236,
-    0.238,
-    0.004
+    0.252,
+    0.252,
+    0.008
    ],
-   "tris": 392,
-   "tpu": 1143,
+   "tris": 414,
+   "tpu": 1207,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 11164,
-   "vtx": 230,
+   "bytes": 46172,
+   "vtx": 1242,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0038,
-   "thick": 0.0337,
-   "avgTri": 0.00023,
-   "anglePct": 97,
+   "minWall": 0.0075,
+   "thick": 0.0333,
+   "avgTri": 0.00032,
+   "anglePct": 99,
    "pieces": 1,
-   "vpt": 0.59,
+   "vpt": 3,
    "cells": [
     "13,3",
-    "8,0"
+    "8,0",
+    "5,2"
    ],
    "colors": [
     "#59534e",
-    "#7a3525"
+    "#7a3525",
+    "#dbd0b5"
    ],
    "tags": [
     "modern",
@@ -417281,9 +417279,9 @@
      "text": "I01 thickRel 0.31 wants min 0.5"
     },
     {
-     "level": "error",
+     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0038 wants min 0.006"
+     "text": "G27 minWall 0.0075 wants min 0.026"
     }
    ]
   },
@@ -446074,12 +446072,12 @@
   {
    "kit": "swords-tember",
    "name": "coral",
-   "hash": "86db5ee195",
+   "hash": "93d70252bb",
    "kind": "obj-equipment-weapon-melee-sword",
    "size": "m",
    "wdh": [
-    0.225,
-    0.075,
+    0.226,
+    0.076,
     0.762
    ],
    "tris": 3041,
@@ -446092,9 +446090,9 @@
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minWall": 0.0009,
-   "thick": 0.1209,
-   "avgTri": 0.0001,
+   "minWall": 0.0063,
+   "thick": 0.1221,
+   "avgTri": 0.00011,
    "anglePct": 5,
    "pieces": 38,
    "vpt": 1.83,
@@ -446117,29 +446115,12 @@
     "metal-gold",
     "shell"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0049,
-     "view": "90/50",
-     "causes": {
-      "inverted": 0.95,
-      "other": 0.03,
-      "open": 0.03
-     }
-    }
-   ],
-   "thickRel": 0.83,
+   "thickRel": 0.84,
    "lint": [
     {
      "level": "warning",
-     "check": "backface",
-     "text": "0.5% of view 90/50 over 0.2%: inverted 95.0%, other 3.0%, open 3.0%"
-    },
-    {
-     "level": "error",
      "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
+     "text": "G27 minWall 0.0063 wants min 0.012"
     }
    ]
   },
@@ -449353,7 +449334,7 @@
   {
    "kit": "taalei-kit",
    "name": "newtons-cradle",
-   "hash": "c566bef1df",
+   "hash": "61cfaa6373",
    "kind": "obj-leisure-toy",
    "size": "s",
    "wdh": [
@@ -449361,22 +449342,23 @@
     0.15,
     0.19
    ],
-   "tris": 2024,
-   "tpu": 5901,
+   "tris": 1960,
+   "tpu": 5714,
    "mat": 1,
    "bands": 3,
    "calls": 6,
-   "bytes": 64700,
-   "vtx": 1386,
+   "bytes": 85388,
+   "vtx": 1674,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
-   "minWall": 0.0009,
-   "thick": 0.0607,
-   "avgTri": 0.00009,
-   "anglePct": 91,
-   "pieces": 9,
-   "vpt": 0.68,
+   "minEdge": 0.003,
+   "minTube": 0.0063,
+   "minWall": 0.0063,
+   "thick": 0.0596,
+   "avgTri": 0.0001,
+   "anglePct": 94,
+   "pieces": 17,
+   "vpt": 0.85,
    "cells": [
     "13,3",
     "15,3",
@@ -449396,14 +449378,7 @@
    "anim": [
     "swing"
    ],
-   "thickRel": 0.54,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.0009 wants min 0.006"
-    }
-   ]
+   "thickRel": 0.53
   },
   {
    "kit": "taalei-kit",
@@ -473314,31 +473289,31 @@
   {
    "kit": "zombie-weapons",
    "name": "arrow",
-   "hash": "e5c41f34af",
+   "hash": "f56dc79b68",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.03,
-    0.026,
+    0.037,
+    0.032,
     0.364
    ],
-   "tris": 204,
-   "tpu": 595,
+   "tris": 156,
+   "tpu": 455,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 12844,
-   "vtx": 317,
+   "bytes": 19252,
+   "vtx": 497,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0.002,
    "minTube": 0.006,
-   "minWall": 0.001,
-   "thick": 0.4138,
-   "avgTri": 0.00006,
-   "anglePct": 90,
+   "minWall": 0.006,
+   "thick": 0.3496,
+   "avgTri": 0.0001,
+   "anglePct": 55,
    "pieces": 5,
-   "vpt": 1.55,
+   "vpt": 3.19,
    "cells": [
     "15,3",
     "8,0"
@@ -473354,14 +473329,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 1.5,
-   "lint": [
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G27 minWall 0.001 wants min 0.006"
-    }
-   ]
+   "thickRel": 1.27
   },
   {
    "kit": "zombie-weapons",
