@@ -34726,7 +34726,7 @@
    "high.max": 8,
    "longest.min": 0.05,
    "longest.max": 30,
-   "tpu.max": 7000
+   "tpu.max": 10000
   },
   "obj-furnishing-furniture": {
    "high.max": 8,
@@ -164399,35 +164399,35 @@
   {
    "kit": "kay-mixed",
    "name": "autumn-wreath",
-   "hash": "267022e2dc",
+   "hash": "a58a1e151c",
    "kind": "obj-furnishing-decor-wreath",
    "size": "s",
    "wdh": [
     0.442,
-    0.108,
+    0.107,
     0.44
    ],
-   "tris": 4456,
-   "tpu": 12991,
+   "tris": 3376,
+   "tpu": 9843,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 314152,
-   "vtx": 8933,
+   "bytes": 345916,
+   "vtx": 10128,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minWall": 0,
-   "thick": 0.073,
-   "avgTri": 0.00015,
+   "thick": 0.0714,
+   "avgTri": 0.00018,
    "anglePct": 2,
-   "pieces": 117,
-   "vpt": 2,
+   "pieces": 111,
+   "vpt": 3,
    "cells": [
     "3,0",
-    "5,0",
+    "8,0",
     "6,0",
-    "8,0"
+    "5,0"
    ],
    "colors": [
     "#52301e",
@@ -164444,24 +164444,19 @@
    "backface": [
     {
      "side": "above",
-     "share": 0.0038,
+     "share": 0.0049,
      "view": "270/20",
      "causes": {
       "open": 1
      }
     }
    ],
-   "thickRel": 0.59,
+   "thickRel": 0.58,
    "lint": [
-    {
-     "level": "error",
-     "check": "tpu",
-     "text": "tpu 12991 over max 7000 (obj-furnishing-decor)"
-    },
     {
      "level": "warning",
      "check": "backface",
-     "text": "0.4% of view 270/20 over 0.2%: open 100.0%"
+     "text": "0.5% of view 270/20 over 0.2%: open 100.0%"
     }
    ]
   },
@@ -277268,7 +277263,25 @@
     "textile-cloth-light",
     "wood-mid"
    ],
-   "thickRel": 1
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0025,
+     "view": "225/50",
+     "causes": {
+      "inverted": 0.61,
+      "open": 0.39
+     }
+    }
+   ],
+   "thickRel": 1,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.3% of view 225/50 over 0.2%: inverted 61.0%, open 39.0%"
+    }
+   ]
   },
   {
    "kit": "lpa-weapons",
@@ -348509,7 +348522,7 @@
   {
    "kit": "quat-essentials",
    "name": "sniper",
-   "hash": "a46fe5794c",
+   "hash": "b2f4a8d81c",
    "kind": "obj-equipment-weapon-ranged-firearm-rifle-sniper",
    "size": "m",
    "wdh": [
@@ -348517,23 +348530,23 @@
     0.022,
     0.125
    ],
-   "tris": 5200,
-   "tpu": 15160,
+   "tris": 3394,
+   "tpu": 9895,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 206028,
-   "vtx": 5415,
+   "bytes": 347740,
+   "vtx": 10182,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minTube": 0.0083,
-   "minWall": 0.0065,
+   "minWall": 0.0025,
    "thick": 0.1791,
-   "avgTri": 0.00003,
-   "anglePct": 76,
+   "avgTri": 0.00005,
+   "anglePct": 78,
    "pieces": 30,
-   "vpt": 1.04,
+   "vpt": 3,
    "cells": [
     "15,3",
     "6,0"
@@ -348553,8 +348566,8 @@
    "lint": [
     {
      "level": "error",
-     "check": "tpu",
-     "text": "tpu 15160 over max 10000 (obj)"
+     "check": "measures",
+     "text": "G27 minWall 0.0025 wants min 0.006"
     }
    ]
   },
@@ -417005,8 +417018,23 @@
     "tba",
     "wood-dark"
    ],
+   "backface": [
+    {
+     "side": "above",
+     "share": 0.0049,
+     "view": "180/20",
+     "causes": {
+      "open": 1
+     }
+    }
+   ],
    "thickRel": 0.74,
    "lint": [
+    {
+     "level": "warning",
+     "check": "backface",
+     "text": "0.5% of view 180/20 over 0.2%: open 100.0%"
+    },
     {
      "level": "error",
      "check": "measures",
