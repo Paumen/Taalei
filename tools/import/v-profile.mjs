@@ -22,7 +22,21 @@ leaves a piece as it is when its darkest point sits in its upper half, such as
 a painted shadow under a cap or overhang. --keep-under leaves a vertex as it is
 when it faces down or the model has geometry less than 0.15 of its height
 right above it. --whole treats the whole model as one piece, so parts that
-meet, such as a fin on a body, match where they join.`;
+meet, such as a fin on a body, match where they join.
+
+Style guide rows:
+B63 rocks: --add 1; ken-*, kay-forest and kay-hexagon rocks also --reach 0.15.
+  Left out: wizp-rock, wizp-asia large and medium rocks, wizp-mediev/rock-a,
+  wizp-lava hot rocks other than rock-hot-g, nature-assets/cobble-d.
+B64 buildings: --add 1 --reach 0.15 --fit --keep-under; architecture/fortress
+  without --keep-under.
+B65 walls: as B64; ken-holiday cabin walls --add 0.5.
+B66 transport: as B64; kay-space/lander-a --add 0.5.
+B67 roofs, B68 fences, B69 doors, frames, pillars, stairs: --add 1 --reach
+  0.15 --fit --keep-shadow --keep-under; the chimney of ken-holiday cabin
+  roofs is left as it is.
+B76 sea animals: --top 0.85 --bottom 0.08 --add 1 --fit; --whole where a
+  per-piece gradient would part a fin from the body, as quat-fishing/clownfish.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;

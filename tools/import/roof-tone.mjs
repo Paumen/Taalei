@@ -24,7 +24,12 @@ largest roof piece, such as ribs, curbs or small canopies. --by-plane splits
 pieces into flat parts, so each plank face of a welded roof gets its own run.
 --keep-upright leaves upright faces fully alone, colour band too, such as
 parapet walls. --ramp-upright gives upright roof edges the run of their piece. --keep-under
-keeps faces turned down at their tone, such as the sides of roof ribs.`;
+keeps faces turned down at their tone, such as the sides of roof ribs.
+
+Style guide row B77: per kit with --type <type> and the options above. Left
+out: the ken-commercial and ken-modular towers whose kind needs their roof
+band, and rgp-medieval/house-9, which keeps its own wood band so its grain
+shows.`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BANDS = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), 'utf8')).bands;
