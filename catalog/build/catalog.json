@@ -276317,11 +276317,11 @@
   {
    "kit": "lpa-tools",
    "name": "stone-arrow",
-   "hash": "be2e89ffc8",
+   "hash": "ea16eef5be",
    "kind": "obj-equipment-weapon-ranged-arrow",
    "size": "s",
    "wdh": [
-    0.024,
+    0.023,
     0.021,
     0.268
    ],
@@ -276330,16 +276330,16 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 32904,
+   "bytes": 32892,
    "vtx": 893,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
-   "minTube": 0.0123,
-   "minWall": 0.0064,
-   "thick": 0.4029,
+   "minTube": 0.0184,
+   "minWall": 0.0021,
+   "thick": 0.42,
    "avgTri": 0.00002,
-   "anglePct": 26,
+   "anglePct": 28,
    "pieces": 4,
    "vpt": 1.99,
    "cells": [
@@ -276362,7 +276362,14 @@
     "wood-dark"
    ],
    "variant": "lpa-tools/stone-arrow",
-   "thickRel": 1.46
+   "thickRel": 1.53,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0021 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "lpa-tools",
@@ -442213,11 +442220,6 @@
      "level": "warning",
      "check": "measures",
      "text": "I01 thickRel 0.19 wants min 0.5"
-    },
-    {
-     "level": "error",
-     "check": "measures",
-     "text": "G11 bands 5 wants max 2"
     }
    ]
   },
