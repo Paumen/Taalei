@@ -32,3 +32,5 @@
   why: keeps canon's cost visible · direction
 - **C18** Claude judges how colour, gradients or shading look only after viewing a render.\
   why: numbers can't show how colour looks · invariant
+- **C19** Ask before restoring files or undoing commits from before this session; one ask covers its history read.\
+  why: reverts undid good changes, revived bad tools · invariant · test: .claude/hooks/no-git-history.sh
