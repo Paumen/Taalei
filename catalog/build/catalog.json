@@ -2137,8 +2137,8 @@
     "0.7541": 1
    },
    "smooth": {
-    "smooth": 190,
-    "none": 37
+    "smooth": 188,
+    "none": 39
    },
    "members": [
     {
@@ -2164,7 +2164,8 @@
       "1.185": 1
      },
      "smooth": {
-      "smooth": 17
+      "smooth": 16,
+      "none": 1
      }
     },
     {
@@ -2257,8 +2258,8 @@
       "1.0890306": 2
      },
      "smooth": {
-      "smooth": 26,
-      "none": 2
+      "smooth": 25,
+      "none": 3
      }
     },
     {
@@ -25061,12 +25062,6 @@
     "vases-pots/vase-long-lid",
     "vases-pots/vase-long-cracked",
     "vases-pots/vase-long-handle-cracked",
-    "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
-    "vases-pots/vase-long-cracked-sienna-terracotta-ivory",
-    "vases-pots/vase-long-cracked-terracotta-sienna-ivory",
-    "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
-    "vases-pots/vase-long-handle-cracked-sienna-terracotta-ivory",
-    "vases-pots/vase-long-handle-cracked-terracotta-sienna-ivory",
     "vases-pots/vase-long-handle-sienna-ivory-terracotta",
     "vases-pots/vase-long-handle-sienna-terracotta-ivory",
     "vases-pots/vase-long-handle-terracotta-sienna-ivory",
@@ -25654,15 +25649,6 @@
    ]
   },
   {
-   "id": "kay-dun-1/pots",
-   "type": "color-variant",
-   "main": "kay-dun-1/pots",
-   "members": [
-    "kay-dun-1/pots",
-    "kay-dun-1/pots-terracotta"
-   ]
-  },
-  {
    "id": "kay-holiday/tree-stand",
    "type": "color-variant",
    "main": "kay-holiday/tree-stand",
@@ -25805,6 +25791,26 @@
    "members": [
     "rgp-asia/vase",
     "rgp-asia/vase-sienna"
+   ]
+  },
+  {
+   "id": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+   "type": "color-variant",
+   "main": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+   "members": [
+    "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+    "vases-pots/vase-long-cracked-sienna-terracotta-ivory",
+    "vases-pots/vase-long-cracked-terracotta-sienna-ivory"
+   ]
+  },
+  {
+   "id": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+   "type": "color-variant",
+   "main": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+   "members": [
+    "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+    "vases-pots/vase-long-handle-cracked-sienna-terracotta-ivory",
+    "vases-pots/vase-long-handle-cracked-terracotta-sienna-ivory"
    ]
   }
  ],
@@ -26067,7 +26073,7 @@
    "name": "Glass",
    "type": "material",
    "description": "Glass vessels: bottles, jars, vials, potions, drinking glasses. Other glass carries a subtype.",
-   "count": 142,
+   "count": 134,
    "parent": "mineral"
   },
   {
@@ -26075,7 +26081,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 579,
+   "count": 587,
    "parent": "glass"
   },
   {
@@ -26366,7 +26372,7 @@
    "name": "Emissive",
    "type": "material",
    "description": "Lit and giving light: a burning flame, glowing lantern, lamp or beacon. Unlit holders carry fire or lamp only.",
-   "count": 190
+   "count": 191
   },
   {
    "id": "special-food",
@@ -37735,36 +37741,38 @@
    "kit": "3dm-city",
    "collection": "3dm",
    "name": "ac-unit",
-   "hash": "bff4fd40d1",
+   "hash": "3a62487d58",
    "kind": "str-fixture-installation",
    "size": "m",
    "wdh": [
-    0.399,
+    0.398,
     0.784,
     0.627
    ],
-   "tris": 1282,
-   "tpu": 3738,
+   "tris": 1146,
+   "tpu": 3341,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 49888,
-   "vtx": 1270,
+   "bytes": 118344,
+   "vtx": 3438,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0292,
-   "minWall": 0.0273,
-   "thick": 0.197,
-   "avgTri": 0.00261,
-   "anglePct": 61,
+   "minTube": 0.0559,
+   "minWall": 0.0276,
+   "thick": 0.1752,
+   "avgTri": 0.00279,
+   "anglePct": 70,
    "pieces": 13,
-   "vpt": 0.99,
+   "vpt": 3,
    "cells": [
     "5,2",
-    "15,3"
+    "15,3",
+    "13,3"
    ],
    "colors": [
+    "#59534e",
     "#7a8491",
     "#dbd0b5"
    ],
@@ -37774,7 +37782,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.1
   },
   {
    "kit": "3dm-city",
@@ -38068,7 +38076,7 @@
    "kit": "3dm-city",
    "collection": "3dm",
    "name": "payphone",
-   "hash": "6f0ec1ef8f",
+   "hash": "a77d0f21cc",
    "kind": "obj-device-electronics-phone",
    "size": "m",
    "wdh": [
@@ -38081,8 +38089,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 89692,
-   "vtx": 2412,
+   "bytes": 187696,
+   "vtx": 5478,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -38092,7 +38100,7 @@
    "avgTri": 0.00093,
    "anglePct": 76,
    "pieces": 23,
-   "vpt": 1.32,
+   "vpt": 3,
    "cells": [
     "15,3",
     "13,3",
@@ -40828,7 +40836,7 @@
    "kit": "3dm-industrial-2",
    "collection": "3dm",
    "name": "solar-panel",
-   "hash": "6ba24513f2",
+   "hash": "5253461687",
    "kind": "str-fixture-utility-solar",
    "size": "l",
    "wdh": [
@@ -40836,23 +40844,23 @@
     1.009,
     1.498
    ],
-   "tris": 508,
-   "tpu": 217,
+   "tris": 676,
+   "tpu": 289,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 28584,
-   "vtx": 750,
+   "bytes": 70420,
+   "vtx": 2028,
    "grounded": true,
    "centered": true,
    "minEdge": 0.005,
    "minTube": 0.0501,
    "minWall": 0.0365,
-   "thick": 0.0447,
-   "avgTri": 0.0139,
+   "thick": 0.0448,
+   "avgTri": 0.01044,
    "anglePct": 6,
    "pieces": 15,
-   "vpt": 1.48,
+   "vpt": 3,
    "cells": [
     "6,1",
     "15,3",
@@ -47719,7 +47727,7 @@
     "wood-dark",
     "wood-mid"
    ],
-   "thickRel": 2.65
+   "thickRel": 2.72
   },
   {
    "kit": "avra-food",
@@ -50084,7 +50092,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.65
   },
   {
    "kit": "avra-weapons",
@@ -50132,7 +50140,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.63,
+   "thickRel": 0.64,
    "lint": [
     {
      "level": "warning",
@@ -51195,7 +51203,7 @@
     "ceramic-mid",
     "shm"
    ],
-   "thickRel": 0.85
+   "thickRel": 0.87
   },
   {
    "kit": "clay-props",
@@ -52862,7 +52870,7 @@
   {
    "kit": "cooking-assets",
    "name": "glass",
-   "hash": "06253b896c",
+   "hash": "0b1498b85c",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -52887,13 +52895,13 @@
    "pieces": 2,
    "vpt": 0.74,
    "cells": [
-    "5,2"
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#b5d5e3"
    ],
    "tags": [
-    "glass",
+    "glass-clear",
     "mab"
    ],
    "thickRel": 1.11
@@ -53391,30 +53399,30 @@
   {
    "kit": "cooking-assets",
    "name": "mixing-bowl",
-   "hash": "e353a1ba70",
+   "hash": "101642fdc7",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.204,
-    0.204,
-    0.118
+    0.197,
+    0.197,
+    0.116
    ],
-   "tris": 320,
-   "tpu": 933,
+   "tris": 432,
+   "tpu": 1259,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8512,
-   "vtx": 162,
+   "bytes": 45492,
+   "vtx": 1296,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minWall": 0.0198,
-   "thick": 0.0757,
-   "avgTri": 0.00038,
-   "anglePct": 4,
+   "minEdge": 0.008,
+   "minWall": 0.0125,
+   "thick": 0.0609,
+   "avgTri": 0.0003,
+   "anglePct": 14,
    "pieces": 1,
-   "vpt": 0.51,
+   "vpt": 3,
    "cells": [
     "5,2"
    ],
@@ -53425,7 +53433,7 @@
     "ceramic-light",
     "mab"
    ],
-   "thickRel": 1.12
+   "thickRel": 0.92
   },
   {
    "kit": "cooking-assets",
@@ -53833,7 +53841,7 @@
   {
    "kit": "cooking-assets",
    "name": "pilsner-glass",
-   "hash": "e0b5eec0b7",
+   "hash": "7f86b433f9",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -53858,13 +53866,13 @@
    "pieces": 1,
    "vpt": 1.17,
    "cells": [
-    "5,2"
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#b5d5e3"
    ],
    "tags": [
-    "glass",
+    "glass-clear",
     "mab"
    ],
    "variant": "cooking-assets/pilsner-glass",
@@ -54435,7 +54443,7 @@
     "ceramic-mid",
     "mab"
    ],
-   "thickRel": 2.31
+   "thickRel": 2.37
   },
   {
    "kit": "cooking-assets",
@@ -54489,7 +54497,7 @@
   {
    "kit": "cooking-assets",
    "name": "shot-glass",
-   "hash": "4eb14bd2ec",
+   "hash": "8e9cabcc13",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -54514,13 +54522,13 @@
    "pieces": 2,
    "vpt": 0.72,
    "cells": [
-    "5,2"
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#b5d5e3"
    ],
    "tags": [
-    "glass",
+    "glass-clear",
     "mab"
    ],
    "thickRel": 0.98
@@ -55293,7 +55301,7 @@
   {
    "kit": "cooking-assets",
    "name": "vodka-glass",
-   "hash": "99028cd018",
+   "hash": "30a06a1a68",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -55318,13 +55326,13 @@
    "pieces": 2,
    "vpt": 0.7,
    "cells": [
-    "5,2"
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#b5d5e3"
    ],
    "tags": [
-    "glass",
+    "glass-clear",
     "mab"
    ],
    "thickRel": 0.94,
@@ -55339,7 +55347,7 @@
   {
    "kit": "cooking-assets",
    "name": "weizen-glass",
-   "hash": "0f6bebe6b4",
+   "hash": "0dc64b5823",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -55365,13 +55373,13 @@
    "pieces": 2,
    "vpt": 0.56,
    "cells": [
-    "5,2"
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#b5d5e3"
    ],
    "tags": [
-    "glass",
+    "glass-clear",
     "mab"
    ],
    "variant": "cooking-assets/pilsner-glass",
@@ -59706,7 +59714,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/bowl",
-   "thickRel": 1.62
+   "thickRel": 1.66
   },
   {
    "kit": "emace-village",
@@ -59746,7 +59754,7 @@
     "wood-mid"
    ],
    "variant": "emace-village/bowl",
-   "thickRel": 1.09
+   "thickRel": 1.12
   },
   {
    "kit": "emace-village",
@@ -74852,7 +74860,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "ceiling-light-triple",
-   "hash": "2621724182",
+   "hash": "02d0e07520",
    "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
@@ -74865,8 +74873,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 34624,
-   "vtx": 839,
+   "bytes": 109188,
+   "vtx": 3168,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -74875,7 +74883,7 @@
    "avgTri": 0.00018,
    "anglePct": 18,
    "pieces": 4,
-   "vpt": 0.79,
+   "vpt": 3,
    "cells": [
     "6,0",
     "5,2"
@@ -74898,7 +74906,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "ceiling-light",
-   "hash": "f110967d27",
+   "hash": "67cf0f0059",
    "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
@@ -74909,10 +74917,10 @@
    "tris": 264,
    "tpu": 770,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
-   "bytes": 8136,
-   "vtx": 160,
+   "bytes": 28384,
+   "vtx": 792,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -74921,17 +74929,20 @@
    "avgTri": 0.00094,
    "anglePct": 62,
    "pieces": 2,
-   "vpt": 0.61,
+   "vpt": 3,
    "cells": [
-    "5,2"
+    "5,2",
+    "6,0"
    ],
    "colors": [
-    "#dbd0b5"
+    "#dbd0b5",
+    "#f1a63b"
    ],
    "tags": [
     "fs",
     "modern",
     "mounted",
+    "special-emissive",
     "textile-cloth-light"
    ],
    "variant": "fs-house/ceiling-light",
@@ -104370,7 +104381,7 @@
     "ceramic-light",
     "isa"
    ],
-   "thickRel": 1.2
+   "thickRel": 1.23
   },
   {
    "kit": "isa-bakery",
@@ -114686,7 +114697,7 @@
     "isa"
    ],
    "variant": "isa-picnic/bowl",
-   "thickRel": 1.23
+   "thickRel": 1.26
   },
   {
    "kit": "isa-picnic",
@@ -121126,30 +121137,30 @@
   {
    "kit": "jb-kitchen",
    "name": "bowl",
-   "hash": "d408201fe7",
+   "hash": "5e1d63778f",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
+    0.198,
+    0.198,
     0.091
    ],
-   "tris": 706,
-   "tpu": 2058,
+   "tris": 760,
+   "tpu": 2216,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19672,
-   "vtx": 435,
+   "bytes": 78948,
+   "vtx": 2280,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0195,
-   "thick": 0.0731,
-   "avgTri": 0.00016,
-   "anglePct": 11,
+   "minEdge": 0.004,
+   "minWall": 0.0194,
+   "thick": 0.0761,
+   "avgTri": 0.00014,
+   "anglePct": 13,
    "pieces": 1,
-   "vpt": 0.62,
+   "vpt": 3,
    "cells": [
     "5,0"
    ],
@@ -121159,7 +121170,7 @@
    "tags": [
     "ceramic-mid"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.15
   },
   {
    "kit": "jb-kitchen",
@@ -123423,7 +123434,7 @@
    "kit": "kay-adventurers",
    "collection": "kay-rpg",
    "name": "rogue-hooded",
-   "hash": "1a3e549aa2",
+   "hash": "b9a3c254a5",
    "kind": "char-human",
    "size": "m",
    "wdh": [
@@ -123857,7 +123868,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "kay-adventurers",
@@ -123901,7 +123912,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.32
   },
   {
    "kit": "kay-adventurers",
@@ -123944,7 +123955,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "kay-adventurers",
@@ -123988,7 +123999,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "kay-adventurers",
@@ -132640,38 +132651,35 @@
     "ceramic-mid",
     "kay",
     "plural"
-   ],
-   "variant": "kay-dun-1/pots",
-   "recolourOf": "kay-dun-1/pots"
+   ]
   },
   {
    "kit": "kay-dun-1",
    "name": "pots",
-   "hash": "8199e6c11c",
+   "hash": "5e7cc57f58",
    "kind": "obj-container-pot",
    "size": "m",
    "wdh": [
-    0.64,
-    0.696,
+    0.639,
+    0.694,
     0.393
    ],
-   "tris": 1462,
-   "tpu": 4262,
+   "tris": 1288,
+   "tpu": 3755,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 39308,
-   "vtx": 907,
+   "bytes": 132788,
+   "vtx": 3864,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "minTube": 0.1246,
-   "minWall": 0.0119,
-   "thick": 0.1023,
-   "avgTri": 0.00096,
-   "anglePct": 11,
+   "minEdge": 0.014,
+   "minWall": 0.0144,
+   "thick": 0.1032,
+   "avgTri": 0.00107,
+   "anglePct": 8,
    "pieces": 5,
-   "vpt": 0.62,
+   "vpt": 3,
    "cells": [
     "8,0"
    ],
@@ -132682,8 +132690,7 @@
     "ceramic-dark",
     "kay",
     "plural"
-   ],
-   "variant": "kay-dun-1/pots"
+   ]
   },
   {
    "kit": "kay-dun-1",
@@ -134348,7 +134355,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "kay-dun-1",
@@ -134393,7 +134400,7 @@
     "metal-gold",
     "metal-steel"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.19
   },
   {
    "kit": "kay-dun-1",
@@ -142432,7 +142439,7 @@
     "kay",
     "special-food"
    ],
-   "thickRel": 1.09
+   "thickRel": 1.11
   },
   {
    "kit": "kay-food",
@@ -142473,7 +142480,7 @@
     "kay"
    ],
    "variant": "kay-food/bowl",
-   "thickRel": 1.14
+   "thickRel": 1.16
   },
   {
    "kit": "kay-food",
@@ -142514,7 +142521,7 @@
     "kay"
    ],
    "variant": "kay-food/bowl",
-   "thickRel": 1.08
+   "thickRel": 1.11
   },
   {
    "kit": "kay-food",
@@ -143959,7 +143966,7 @@
     "stone-masonry-mid"
    ],
    "variant": "kay-food/floor-kitchen",
-   "thickRel": 1.48
+   "thickRel": 1.47
   },
   {
    "kit": "kay-food",
@@ -175067,7 +175074,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-large-a",
-   "thickRel": 1.54,
+   "thickRel": 1.55,
    "lint": [
     {
      "level": "warning",
@@ -175120,7 +175127,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-large-a",
-   "thickRel": 1.46
+   "thickRel": 1.47
   },
   {
    "kit": "kay-skeleton",
@@ -175165,7 +175172,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-small-a",
-   "thickRel": 0.84,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -176381,7 +176388,7 @@
     "metal-steel"
    ],
    "variant": "kay-skeleton-1/helmet-horned",
-   "thickRel": 1.6,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "warning",
@@ -176436,7 +176443,7 @@
     "metal-steel"
    ],
    "variant": "kay-skeleton-1/helmet-horned",
-   "thickRel": 2.19
+   "thickRel": 2.2
   },
   {
    "kit": "kay-skeleton-1",
@@ -176681,7 +176688,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton-1/shield-round",
-   "thickRel": 0.77,
+   "thickRel": 0.78,
    "lint": [
     {
      "level": "warning",
@@ -178686,7 +178693,7 @@
   {
    "kit": "kay-space",
    "name": "roofmodule-solarpanels",
-   "hash": "502407cc45",
+   "hash": "ff46614ac3",
    "kind": "str-fixture-utility-solar",
    "size": "l",
    "wdh": [
@@ -178694,22 +178701,22 @@
     1.888,
     0.772
    ],
-   "tris": 242,
-   "tpu": 88,
+   "tris": 360,
+   "tpu": 131,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 13660,
-   "vtx": 333,
+   "bytes": 38220,
+   "vtx": 1080,
    "grounded": true,
    "centered": true,
    "minEdge": 0.061,
    "minWall": 0.0608,
    "thick": 0.0825,
-   "avgTri": 0.05225,
+   "avgTri": 0.03512,
    "anglePct": 94,
    "pieces": 7,
-   "vpt": 1.38,
+   "vpt": 3,
    "cells": [
     "15,3",
     "4,2"
@@ -178736,7 +178743,7 @@
   {
    "kit": "kay-space",
    "name": "solarpanel",
-   "hash": "7a51ef0dbc",
+   "hash": "2be24d868c",
    "kind": "str-fixture-utility-solar",
    "size": "m",
    "wdh": [
@@ -178744,22 +178751,22 @@
     0.609,
     0.502
    ],
-   "tris": 118,
-   "tpu": 227,
+   "tris": 166,
+   "tpu": 320,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7192,
-   "vtx": 155,
+   "bytes": 18392,
+   "vtx": 498,
    "grounded": true,
    "centered": true,
    "minEdge": 0.061,
    "minWall": 0.0608,
    "thick": 0.1062,
-   "avgTri": 0.02245,
+   "avgTri": 0.01596,
    "anglePct": 93,
    "pieces": 3,
-   "vpt": 1.31,
+   "vpt": 3,
    "cells": [
     "15,3",
     "4,2"
@@ -184407,7 +184414,7 @@
     "wood-mid"
    ],
    "variant": "kay-weapons/shield-a",
-   "thickRel": 1.14,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "warning",
@@ -184460,7 +184467,7 @@
     "wood-mid"
    ],
    "variant": "kay-weapons/shield-a",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "kay-weapons",
@@ -184507,7 +184514,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/shield-a",
-   "thickRel": 1.31
+   "thickRel": 1.32
   },
   {
    "kit": "kay-weapons",
@@ -185359,31 +185366,31 @@
    "kit": "ken-arcade",
    "collection": "ken-mini",
    "name": "floor",
-   "hash": "feb3f0de72",
+   "hash": "f62394ba87",
    "kind": "str-part-floor-unit-tiled",
    "size": "m",
    "wdh": [
-    0.997,
-    0.997,
-    0.057
+    1,
+    1,
+    0.05
    ],
-   "tris": 76,
-   "tpu": 109,
+   "tris": 32,
+   "tpu": 46,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 7568,
-   "vtx": 176,
+   "bytes": 4600,
+   "vtx": 96,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minWall": 0.0069,
-   "thick": 0.0453,
-   "avgTri": 0.05798,
-   "anglePct": 99,
-   "pieces": 2,
-   "vpt": 2.32,
+   "minEdge": 0.05,
+   "minWall": 0.05,
+   "thick": 0.0489,
+   "avgTri": 0.06875,
+   "anglePct": 100,
+   "pieces": 1,
+   "vpt": 3,
    "cells": [
     "14,3",
     "12,3"
@@ -185398,14 +185405,7 @@
     "stone-masonry-dark",
     "stone-masonry-mid"
    ],
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0069 wants min 0.026"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-arcade",
@@ -192647,7 +192647,7 @@
    "kit": "ken-chars",
    "collection": "ken-mini",
    "name": "luggage",
-   "hash": "88825c355f",
+   "hash": "0d6f52e774",
    "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
@@ -192660,26 +192660,26 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27808,
-   "vtx": 760,
+   "bytes": 34916,
+   "vtx": 984,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minWall": 0.0099,
-   "thick": 0.1701,
+   "thick": 0.1699,
    "avgTri": 0.00115,
    "anglePct": 91,
    "pieces": 14,
-   "vpt": 2.32,
+   "vpt": 3,
    "cells": [
-    "5,0",
+    "1,1",
     "3,0",
     "15,3"
    ],
    "colors": [
+    "#21552a",
     "#52301e",
-    "#7a8491",
-    "#c8714b"
+    "#7a8491"
    ],
    "tags": [
     "ken",
@@ -192694,12 +192694,12 @@
    "kit": "ken-chars",
    "collection": "ken-mini",
    "name": "shield-round",
-   "hash": "4d86e78dd9",
+   "hash": "c4ab4f9831",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
    "wdh": [
     0.454,
-    0.127,
+    0.054,
     0.454
    ],
    "tris": 160,
@@ -192707,17 +192707,17 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 7840,
-   "vtx": 168,
+   "bytes": 17788,
+   "vtx": 480,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.029,
-   "minWall": 0.0338,
-   "thick": 0.1051,
-   "avgTri": 0.00359,
-   "anglePct": 63,
+   "minEdge": 0.017,
+   "minWall": 0.0202,
+   "thick": 0.0659,
+   "avgTri": 0.00298,
+   "anglePct": 77,
    "pieces": 3,
-   "vpt": 1.05,
+   "vpt": 3,
    "cells": [
     "6,1",
     "15,3",
@@ -192734,7 +192734,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.44
+   "thickRel": 0.91
   },
   {
    "kit": "ken-chars",
@@ -197416,7 +197416,7 @@
     "ken",
     "metal-iron-dark"
    ],
-   "thickRel": 1
+   "thickRel": 0.99
   },
   {
    "kit": "ken-factory",
@@ -200410,36 +200410,36 @@
   {
    "kit": "ken-food",
    "name": "bowl-soup",
-   "hash": "2b3112ddb9",
+   "hash": "b1d63dfb56",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.249,
-    0.26,
+    0.251,
+    0.251,
     0.105
    ],
-   "tris": 680,
-   "tpu": 1983,
+   "tris": 355,
+   "tpu": 1035,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 23380,
-   "vtx": 557,
+   "bytes": 37640,
+   "vtx": 1065,
    "gridMod": true,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
-   "minWall": 0.019,
-   "thick": 0.1387,
-   "avgTri": 0.00023,
-   "anglePct": 25,
-   "pieces": 1,
-   "vpt": 0.82,
+   "minWall": 0.0089,
+   "thick": 0.1396,
+   "avgTri": 0.00045,
+   "anglePct": 49,
+   "pieces": 9,
+   "vpt": 3,
    "cells": [
-    "5,2",
-    "1,0",
+    "3,1",
     "5,0",
-    "3,1"
+    "5,2",
+    "1,0"
    ],
    "colors": [
     "#66852a",
@@ -200453,7 +200453,7 @@
     "leaf-light",
     "special-food"
    ],
-   "thickRel": 2.05
+   "thickRel": 2.11
   },
   {
    "kit": "ken-food",
@@ -213355,7 +213355,7 @@
     "ceramic-light",
     "ken"
    ],
-   "thickRel": 0.93,
+   "thickRel": 0.95,
    "mark": [
     "centered"
    ]
@@ -220085,31 +220085,31 @@
    "kit": "ken-market",
    "collection": "ken-mini",
    "name": "floor-tiles",
-   "hash": "cba5a151ae",
+   "hash": "92fb013036",
    "kind": "str-part-floor-unit-tiled",
    "size": "m",
    "wdh": [
-    0.997,
-    0.997,
-    0.057
+    1,
+    1,
+    0.05
    ],
-   "tris": 76,
-   "tpu": 109,
+   "tris": 32,
+   "tpu": 46,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 7580,
-   "vtx": 176,
+   "bytes": 4612,
+   "vtx": 96,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.007,
-   "minWall": 0.0069,
-   "thick": 0.0452,
-   "avgTri": 0.05814,
-   "anglePct": 99,
-   "pieces": 2,
-   "vpt": 2.32,
+   "minEdge": 0.05,
+   "minWall": 0.05,
+   "thick": 0.0489,
+   "avgTri": 0.06875,
+   "anglePct": 100,
+   "pieces": 1,
+   "vpt": 3,
    "cells": [
     "5,2"
    ],
@@ -220121,14 +220121,7 @@
     "grid-1x1",
     "ken"
    ],
-   "thickRel": 0.93,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "G27 minWall 0.0069 wants min 0.026"
-    }
-   ]
+   "thickRel": 1
   },
   {
    "kit": "ken-market",
@@ -221296,7 +221289,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "ken-mini-dun",
@@ -231880,7 +231873,7 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-proto/floor-square",
-   "thickRel": 0.9
+   "thickRel": 0.89
   },
   {
    "kit": "ken-proto",
@@ -272838,7 +272831,7 @@
     "ceramic-light",
     "lpa"
    ],
-   "thickRel": 0.77
+   "thickRel": 0.79
   },
   {
    "kit": "lpa-home",
@@ -273846,7 +273839,7 @@
   {
    "kit": "lpa-home",
    "name": "glass",
-   "hash": "33c447d1fc",
+   "hash": "e4ebc87a41",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -273871,13 +273864,13 @@
    "pieces": 1,
    "vpt": 1.79,
    "cells": [
-    "5,2"
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#b5d5e3"
    ],
    "tags": [
-    "glass",
+    "glass-clear",
     "lpa"
    ],
    "thickRel": 1
@@ -275952,12 +275945,12 @@
   {
    "kit": "lpa-home",
    "name": "vase",
-   "hash": "c7d8936f11",
+   "hash": "56feadfed9",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.138,
-    0.138,
+    0.11,
+    0.11,
     0.2
    ],
    "tris": 206,
@@ -275965,17 +275958,18 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14600,
-   "vtx": 372,
+   "bytes": 22428,
+   "vtx": 618,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minWall": 0.0359,
-   "thick": 0.1637,
-   "avgTri": 0.00047,
-   "anglePct": 12,
+   "minTube": 0.0783,
+   "minWall": 0.0286,
+   "thick": 0.1768,
+   "avgTri": 0.00037,
+   "anglePct": 10,
    "pieces": 1,
-   "vpt": 1.81,
+   "vpt": 3,
    "cells": [
     "4,2"
    ],
@@ -275986,7 +275980,7 @@
     "glass",
     "lpa"
    ],
-   "thickRel": 1.08
+   "thickRel": 1.16
   },
   {
    "kit": "lpa-home",
@@ -276626,7 +276620,7 @@
     "lpa",
     "stone-rock"
    ],
-   "thickRel": 1.61,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "warning",
@@ -277099,7 +277093,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "lpa-tools",
@@ -278696,7 +278690,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-a",
-   "thickRel": 0.84,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -278749,7 +278743,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-a",
-   "thickRel": 0.84,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -278803,7 +278797,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-d",
-   "thickRel": 0.93,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -278857,7 +278851,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-d",
-   "thickRel": 1.11,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "warning",
@@ -288352,7 +288346,7 @@
     "m3"
    ],
    "variant": "m3-base/bowl-01",
-   "thickRel": 0.91
+   "thickRel": 0.94
   },
   {
    "kit": "m3-base",
@@ -288392,7 +288386,7 @@
     "m3"
    ],
    "variant": "m3-base/bowl-01",
-   "thickRel": 0.97
+   "thickRel": 1
   },
   {
    "kit": "m3-base",
@@ -288514,7 +288508,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/breastplate-armour-01",
-   "thickRel": 0.83,
+   "thickRel": 0.84,
    "lint": [
     {
      "level": "warning",
@@ -288561,7 +288555,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/breastplate-armour-01",
-   "thickRel": 0.76,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "warning",
@@ -294910,7 +294904,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.3
   },
   {
    "kit": "m3-base",
@@ -298093,7 +298087,7 @@
     "ceramic-light",
     "m3"
    ],
-   "thickRel": 1.25
+   "thickRel": 1.29
   },
   {
    "kit": "m3-base",
@@ -307214,7 +307208,7 @@
    ],
    "variant": "m3-base/milk-jug",
    "recolourOf": "m3-base/milk-jug",
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "m3-base",
@@ -307254,7 +307248,7 @@
     "m3"
    ],
    "variant": "m3-base/milk-jug",
-   "thickRel": 0.67
+   "thickRel": 0.68
   },
   {
    "kit": "m3-base",
@@ -307946,7 +307940,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.84,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -311438,7 +311432,7 @@
   {
    "kit": "m3-base",
    "name": "pint-glass-01",
-   "hash": "2a99449dd6",
+   "hash": "055f5d9db0",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -311463,13 +311457,13 @@
    "pieces": 1,
    "vpt": 0.66,
    "cells": [
-    "5,2"
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#b5d5e3"
    ],
    "tags": [
-    "glass",
+    "glass-clear",
     "m3"
    ],
    "thickRel": 0.95
@@ -314673,7 +314667,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-08",
-   "thickRel": 0.6
+   "thickRel": 0.62
   },
   {
    "kit": "m3-base",
@@ -314714,7 +314708,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-08",
-   "thickRel": 0.65
+   "thickRel": 0.67
   },
   {
    "kit": "m3-base",
@@ -314754,7 +314748,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-08",
-   "thickRel": 0.66
+   "thickRel": 0.68
   },
   {
    "kit": "m3-base",
@@ -314794,7 +314788,7 @@
     "m3"
    ],
    "variant": "m3-base/roman-pottery-08",
-   "thickRel": 0.7
+   "thickRel": 0.72
   },
   {
    "kit": "m3-base",
@@ -315325,31 +315319,31 @@
   {
    "kit": "m3-base",
    "name": "round-shield",
-   "hash": "6f9207f91c",
+   "hash": "cb6e48c3b6",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
    "wdh": [
-    0.349,
+    0.35,
     0.07,
-    0.348
+    0.35
    ],
-   "tris": 986,
-   "tpu": 2875,
+   "tris": 1114,
+   "tpu": 3248,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 37756,
-   "vtx": 947,
+   "bytes": 115068,
+   "vtx": 3342,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.001,
    "minTube": 0.0429,
-   "minWall": 0.0324,
-   "thick": 0.0749,
-   "avgTri": 0.00033,
-   "anglePct": 49,
+   "minWall": 0.0298,
+   "thick": 0.0746,
+   "avgTri": 0.00032,
+   "anglePct": 62,
    "pieces": 13,
-   "vpt": 0.96,
+   "vpt": 3,
    "cells": [
     "15,3",
     "0,0"
@@ -315363,7 +315357,7 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
@@ -323694,7 +323688,7 @@
   {
    "kit": "m3-base",
    "name": "whiskey-glass",
-   "hash": "a8e3d40571",
+   "hash": "1dcee705dc",
    "kind": "obj-kitchenware-tableware-drinkware-glass",
    "size": "s",
    "wdh": [
@@ -323719,13 +323713,13 @@
    "pieces": 1,
    "vpt": 0.88,
    "cells": [
-    "5,2"
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#b5d5e3"
    ],
    "tags": [
-    "glass",
+    "glass-clear",
     "m3"
    ],
    "thickRel": 0.99
@@ -324025,31 +324019,30 @@
   {
    "kit": "m3-base",
    "name": "wine-jug-01-terracotta",
-   "hash": "f1dd8c27ca",
+   "hash": "fb5325d19f",
    "kind": "obj-container-pot-jug",
    "size": "s",
    "wdh": [
-    0.268,
-    0.268,
+    0.271,
+    0.271,
     0.362
    ],
-   "tris": 1296,
-   "tpu": 3778,
+   "tris": 1460,
+   "tpu": 4257,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 42032,
+   "bytes": 43016,
    "vtx": 1022,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0106,
-   "thick": 0.2102,
-   "avgTri": 0.00019,
-   "anglePct": 11,
+   "minEdge": 0.003,
+   "minWall": 0.0112,
+   "thick": 0.2088,
+   "avgTri": 0.00017,
+   "anglePct": 5,
    "pieces": 1,
-   "vpt": 0.79,
+   "vpt": 0.7,
    "cells": [
     "5,0"
    ],
@@ -324067,31 +324060,30 @@
   {
    "kit": "m3-base",
    "name": "wine-jug-01",
-   "hash": "6237f3715f",
+   "hash": "a2519d19dd",
    "kind": "obj-container-pot-jug",
    "size": "s",
    "wdh": [
-    0.268,
-    0.268,
+    0.271,
+    0.271,
     0.362
    ],
-   "tris": 1296,
-   "tpu": 3778,
+   "tris": 1460,
+   "tpu": 4257,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 42032,
+   "bytes": 43016,
    "vtx": 1022,
-   "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
-   "minWall": 0.0106,
-   "thick": 0.2102,
-   "avgTri": 0.00019,
-   "anglePct": 11,
+   "minEdge": 0.003,
+   "minWall": 0.0112,
+   "thick": 0.2088,
+   "avgTri": 0.00017,
+   "anglePct": 5,
    "pieces": 1,
-   "vpt": 0.79,
+   "vpt": 0.7,
    "cells": [
     "8,0"
    ],
@@ -324144,7 +324136,7 @@
    ],
    "variant": "m3-base/wine-jug-01",
    "recolourOf": "m3-base/wine-jug-02",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "m3-base",
@@ -324184,7 +324176,7 @@
     "m3"
    ],
    "variant": "m3-base/wine-jug-01",
-   "thickRel": 1.19
+   "thickRel": 1.2
   },
   {
    "kit": "m3-base",
@@ -324279,7 +324271,7 @@
   {
    "kit": "m3-base",
    "name": "wood-barrel",
-   "hash": "6fd7530889",
+   "hash": "7034818920",
    "kind": "obj-container-barrel-wood",
    "size": "s",
    "wdh": [
@@ -324292,8 +324284,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 46716,
-   "vtx": 1149,
+   "bytes": 60380,
+   "vtx": 1576,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
@@ -324302,7 +324294,7 @@
    "avgTri": 0.00053,
    "anglePct": 29,
    "pieces": 8,
-   "vpt": 0.82,
+   "vpt": 1.13,
    "cells": [
     "0,0",
     "13,3"
@@ -324629,7 +324621,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/wooden-bowl-01",
-   "thickRel": 0.94
+   "thickRel": 0.96
   },
   {
    "kit": "m3-base",
@@ -324669,7 +324661,7 @@
     "wood-mid"
    ],
    "variant": "m3-base/wooden-bowl-01",
-   "thickRel": 0.95
+   "thickRel": 0.97
   },
   {
    "kit": "m3-base",
@@ -328325,7 +328317,7 @@
     "wood-mid"
    ],
    "variant": "medieval-forge/shield-2",
-   "thickRel": 0.7,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "warning",
@@ -328373,7 +328365,7 @@
     "wood-mid"
    ],
    "variant": "medieval-forge/shield-2",
-   "thickRel": 0.72,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "warning",
@@ -339035,7 +339027,7 @@
     "ceramic-light"
    ],
    "variant": "props/plate-b",
-   "thickRel": 0.68
+   "thickRel": 0.69
   },
   {
    "kit": "props",
@@ -339074,7 +339066,7 @@
     "ceramic-light"
    ],
    "variant": "props/plate-b",
-   "thickRel": 0.63
+   "thickRel": 0.64
   },
   {
    "kit": "props",
@@ -341365,7 +341357,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "trash-bag",
-   "hash": "ffb9459556",
+   "hash": "207f8dea12",
    "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
@@ -341390,10 +341382,10 @@
    "pieces": 1,
    "vpt": 0.89,
    "cells": [
-    "14,3"
+    "13,3"
    ],
    "colors": [
-    "#88735f"
+    "#59534e"
    ],
    "tags": [
     "modern",
@@ -341406,7 +341398,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "trash-bags",
-   "hash": "68393082ea",
+   "hash": "6e06f07f83",
    "kind": "obj-container-bag-sack",
    "size": "s",
    "wdh": [
@@ -341431,10 +341423,10 @@
    "pieces": 2,
    "vpt": 0.94,
    "cells": [
-    "14,3"
+    "13,3"
    ],
    "colors": [
-    "#88735f"
+    "#59534e"
    ],
    "tags": [
     "modern",
@@ -370599,7 +370591,7 @@
   {
    "kit": "quat-pirate",
    "name": "pistol",
-   "hash": "eb1ed89f1c",
+   "hash": "96517a39eb",
    "kind": "obj-equipment-weapon-ranged-firearm-hand",
    "size": "s",
    "wdh": [
@@ -374773,7 +374765,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "quat-props",
@@ -375602,7 +375594,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-horned",
-   "thickRel": 0.95,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -375653,7 +375645,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-horned",
-   "thickRel": 1.36,
+   "thickRel": 1.37,
    "lint": [
     {
      "level": "warning",
@@ -375700,7 +375692,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.76,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "warning",
@@ -375748,7 +375740,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-metal",
-   "thickRel": 1.02,
+   "thickRel": 1.03,
    "lint": [
     {
      "level": "warning",
@@ -375796,7 +375788,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-metal",
-   "thickRel": 1.15,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "warning",
@@ -391445,7 +391437,7 @@
     "ceramic-mid",
     "qua"
    ],
-   "thickRel": 0.8
+   "thickRel": 0.82
   },
   {
    "kit": "quat-sushi",
@@ -401660,7 +401652,7 @@
     "rgp"
    ],
    "variant": "rgp-asia/bowl",
-   "thickRel": 1.29
+   "thickRel": 1.33
   },
   {
    "kit": "rgp-asia",
@@ -401701,7 +401693,7 @@
     "rgp"
    ],
    "variant": "rgp-asia/bowl",
-   "thickRel": 1
+   "thickRel": 1.03
   },
   {
    "kit": "rgp-asia",
@@ -408217,7 +408209,7 @@
    "kit": "rgp-medieval",
    "collection": "rgp",
    "name": "crate-cube",
-   "hash": "212ef708f2",
+   "hash": "fc105cce79",
    "kind": "obj-container-crate-cube",
    "size": "s",
    "wdh": [
@@ -408230,8 +408222,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 19424,
-   "vtx": 490,
+   "bytes": 40192,
+   "vtx": 1140,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
@@ -408241,7 +408233,7 @@
    "avgTri": 0.00338,
    "anglePct": 48,
    "pieces": 23,
-   "vpt": 1.29,
+   "vpt": 3,
    "cells": [
     "2,0",
     "0,0",
@@ -413533,7 +413525,7 @@
     "wood-mid"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "rgp-medieval",
@@ -417941,7 +417933,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-a",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "rgp-weapons",
@@ -417989,7 +417981,7 @@
    ],
    "variant": "rgp-weapons/shield-a",
    "recolourOf": "rgp-weapons/shield-a-blue",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "rgp-weapons",
@@ -418033,7 +418025,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-a",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "rgp-weapons",
@@ -418083,7 +418075,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-weapons",
@@ -418131,7 +418123,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-weapons",
@@ -418176,7 +418168,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-weapons",
@@ -422272,33 +422264,33 @@
    "kit": "sq-bowling",
    "collection": "sq-props",
    "name": "house-balls",
-   "hash": "692e9dbe3c",
+   "hash": "7f8e76e26f",
    "kind": "obj-leisure-game-ball",
    "size": "s",
    "wdh": [
     0.2,
-    0.194,
+    0.191,
     0.093
    ],
-   "tris": 584,
-   "tpu": 1703,
+   "tris": 708,
+   "tpu": 2064,
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 17632,
-   "vtx": 393,
+   "bytes": 73672,
+   "vtx": 2124,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.004,
-   "minWall": 0.0091,
-   "thick": 0.1278,
-   "avgTri": 0.00013,
+   "minEdge": 0.005,
+   "minWall": 0.0846,
+   "thick": 0.1289,
+   "avgTri": 0.00012,
    "anglePct": 1,
-   "pieces": 6,
-   "vpt": 0.67,
+   "pieces": 3,
+   "vpt": 3,
    "cells": [
     "6,1",
-    "2,0",
+    "13,3",
     "4,2",
     "1,1"
    ],
@@ -422306,7 +422298,7 @@
     "#1564a4",
     "#21552a",
     "#3a3e4b",
-    "#713e14"
+    "#59534e"
    ],
    "tags": [
     "modern",
@@ -432432,7 +432424,7 @@
     "ceramic-light",
     "sty"
    ],
-   "thickRel": 0.9
+   "thickRel": 0.93
   },
   {
    "kit": "styloo-food",
@@ -434324,7 +434316,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/bowl",
-   "thickRel": 0.71
+   "thickRel": 0.73
   },
   {
    "kit": "styloo-food",
@@ -436828,7 +436820,7 @@
     "sty"
    ],
    "variant": "styloo-kitchen/bowl",
-   "thickRel": 1.12
+   "thickRel": 1.15
   },
   {
    "kit": "styloo-kitchen",
@@ -442088,13 +442080,13 @@
   {
    "kit": "styloo-school",
    "name": "paint-palette",
-   "hash": "802fb20601",
+   "hash": "56e14246e3",
    "kind": "obj-equipment-tool-hand-brush",
    "size": "s",
    "wdh": [
     0.282,
-    0.01,
-    0.269
+    0.269,
+    0.01
    ],
    "tris": 458,
    "tpu": 1335,
@@ -442107,7 +442099,7 @@
    "centered": true,
    "minEdge": 0.002,
    "minWall": 0.0078,
-   "thick": 0.045,
+   "thick": 0.0363,
    "avgTri": 0.00028,
    "anglePct": 75,
    "pieces": 8,
@@ -442130,12 +442122,12 @@
     "special-liquid",
     "sty"
    ],
-   "thickRel": 0.19,
+   "thickRel": 0.15,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "I01 thickRel 0.19 wants min 0.5"
+     "text": "I01 thickRel 0.15 wants min 0.5"
     }
    ]
   },
@@ -456121,8 +456113,7 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-cracked",
+   "variant": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
    "thickRel": 1.16,
    "lint": [
     {
@@ -456175,8 +456166,8 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-cracked",
+   "variant": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+   "recolourOf": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
    "thickRel": 1.16,
    "lint": [
     {
@@ -456229,8 +456220,8 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-cracked",
+   "variant": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+   "recolourOf": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
    "thickRel": 1.16,
    "lint": [
     {
@@ -456243,7 +456234,7 @@
   {
    "kit": "vases-pots",
    "name": "vase-long-cracked",
-   "hash": "7613f80a6b",
+   "hash": "e39caf9956",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
@@ -456251,25 +456242,25 @@
     0.225,
     0.417
    ],
-   "tris": 2200,
-   "tpu": 6414,
+   "tris": 2208,
+   "tpu": 6437,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 84180,
-   "vtx": 2169,
+   "bytes": 226740,
+   "vtx": 6624,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minWall": 0.0062,
-   "thick": 0.1763,
+   "thick": 0.1764,
    "avgTri": 0.0002,
    "anglePct": 6,
    "pieces": 10,
-   "vpt": 0.99,
+   "vpt": 3,
    "cells": [
-    "5,2",
     "5,0",
+    "5,2",
     "8,0"
    ],
    "colors": [
@@ -456336,8 +456327,7 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-handle-cracked",
+   "variant": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
    "thickRel": 1.15,
    "lint": [
     {
@@ -456390,8 +456380,8 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-handle-cracked",
+   "variant": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+   "recolourOf": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
    "thickRel": 1.15,
    "lint": [
     {
@@ -456444,8 +456434,8 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-handle-cracked",
+   "variant": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+   "recolourOf": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
    "thickRel": 1.15,
    "lint": [
     {
@@ -456458,7 +456448,7 @@
   {
    "kit": "vases-pots",
    "name": "vase-long-handle-cracked",
-   "hash": "c7a0ef4d57",
+   "hash": "f58656bde3",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
@@ -456466,25 +456456,25 @@
     0.225,
     0.417
    ],
-   "tris": 3032,
-   "tpu": 8840,
+   "tris": 3200,
+   "tpu": 9329,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 118960,
-   "vtx": 3099,
+   "bytes": 327952,
+   "vtx": 9600,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minWall": 0.0062,
    "thick": 0.175,
-   "avgTri": 0.00015,
+   "avgTri": 0.00014,
    "anglePct": 6,
    "pieces": 11,
-   "vpt": 1.02,
+   "vpt": 3,
    "cells": [
-    "5,2",
     "5,0",
+    "5,2",
     "8,0"
    ],
    "colors": [
@@ -458895,30 +458885,31 @@
   {
    "kit": "western",
    "name": "bed",
-   "hash": "829b7dc276",
+   "hash": "7042a2d796",
    "kind": "obj-furnishing-furniture-bed-double",
    "size": "m",
    "wdh": [
     0.798,
-    1.079,
+    1.081,
     0.593
    ],
-   "tris": 386,
-   "tpu": 640,
+   "tris": 518,
+   "tpu": 858,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 26792,
-   "vtx": 721,
+   "bytes": 54280,
+   "vtx": 1554,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.014,
-   "minWall": 0.0363,
-   "thick": 0.115,
-   "avgTri": 0.00965,
-   "anglePct": 60,
-   "pieces": 5,
-   "vpt": 1.87,
+   "minEdge": 0,
+   "minTube": 0.0279,
+   "minWall": 0.0175,
+   "thick": 0.1149,
+   "avgTri": 0.00861,
+   "anglePct": 64,
+   "pieces": 23,
+   "vpt": 3,
    "cells": [
     "2,0",
     "8,0",
@@ -474773,7 +474764,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "zombie-weapons",
@@ -474833,30 +474824,30 @@
   {
    "kit": "zombie-weapons",
    "name": "shield-bin-lid",
-   "hash": "c3befa7f50",
+   "hash": "d1e48cfe8f",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
    "wdh": [
-    0.364,
+    0.368,
     0.132,
-    0.364
+    0.368
    ],
-   "tris": 500,
-   "tpu": 1458,
+   "tris": 888,
+   "tpu": 2589,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 37016,
-   "vtx": 1016,
+   "bytes": 92012,
+   "vtx": 2664,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minWall": 0.0164,
-   "thick": 0.0739,
-   "avgTri": 0.00064,
-   "anglePct": 48,
+   "minWall": 0.0096,
+   "thick": 0.0436,
+   "avgTri": 0.00036,
+   "anglePct": 1,
    "pieces": 4,
-   "vpt": 2.03,
+   "vpt": 3,
    "cells": [
     "15,3"
    ],
@@ -474867,7 +474858,14 @@
     "ct",
     "metal-steel"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.6,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0096 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "zombie-weapons",
@@ -475237,7 +475235,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "zombie-weapons",

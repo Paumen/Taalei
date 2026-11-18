@@ -230,7 +230,11 @@ const pins=v=>(cur.p||[]).map((p,n)=>p[0]===v?`<i class="pin" data-pin="${n}" st
 const pic=(src,cap,cls,bx,v)=>`<figure class="pic ${cls||''} ${v?'pa':''}" ${v?`data-v2="${v}"`:''}>${src?`<img src="${src}" alt="${esc(cap)}" loading="lazy">`:''}${cap?`<figcaption>${esc(cap)}</figcaption>`:''}${bx||''}${v?pins(v):''}</figure>`;
 const wipe=(b,a,cls,v)=>`<div class="wipe ${cls||''}" data-v2="${v}"><img src="${b}" alt="before"><img class="a" src="${a}" alt="after"><div class="h"></div>${pins(v)}</div>`;
 function pics(it){
-  if(it.scale&&(scl||it.types.join()==='size'))return scalePanel(it);
+  if(it.scale&&scl)return scalePanel(it);
+  if(it.scale&&it.types.join()==='size')return views(it)+scalePanel(it);
+  return views(it);
+}
+function views(it){
   if(!it.types.some(t=>t!=='tag'))return pic(it.img.a1,'','thumb','','front');
   if(!it.visual)return `<div class="pics">${pic(it.img.a1,'','','','front')}${pic(it.img.a2,'','','','back')}</div>`;
   const V=[['front',it.img.b1,it.img.a1,it.boxes.front],['back',it.img.b2,it.img.a2,it.boxes.back]];if(flip.has(ci))V.reverse();
