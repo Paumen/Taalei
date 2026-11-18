@@ -24,7 +24,7 @@
 
 ## Working
 
-- **C12** Ask before reading git history or past PRs.\
+- **C12** Ask before reading git history or past PRs; one yes covers the rest of the session.\
   why: old work acts as false precedent · invariant · test: .claude/hooks/no-git-history.sh
 - **C15** Name any limit, not from canon or your brief, that changed the result.\
   why: makes hidden limits visible · direction
@@ -32,3 +32,5 @@
   why: keeps canon's cost visible · direction
 - **C18** Claude judges how colour, gradients or shading look only after viewing a render.\
   why: numbers can't show how colour looks · invariant
+- **C19** Ask before restoring files or undoing commits from before this session; one ask covers its history read.\
+  why: reverts undid good changes, revived bad tools · invariant · test: .claude/hooks/no-git-history.sh
