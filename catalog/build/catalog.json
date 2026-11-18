@@ -25062,12 +25062,6 @@
     "vases-pots/vase-long-lid",
     "vases-pots/vase-long-cracked",
     "vases-pots/vase-long-handle-cracked",
-    "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
-    "vases-pots/vase-long-cracked-sienna-terracotta-ivory",
-    "vases-pots/vase-long-cracked-terracotta-sienna-ivory",
-    "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
-    "vases-pots/vase-long-handle-cracked-sienna-terracotta-ivory",
-    "vases-pots/vase-long-handle-cracked-terracotta-sienna-ivory",
     "vases-pots/vase-long-handle-sienna-ivory-terracotta",
     "vases-pots/vase-long-handle-sienna-terracotta-ivory",
     "vases-pots/vase-long-handle-terracotta-sienna-ivory",
@@ -25655,15 +25649,6 @@
    ]
   },
   {
-   "id": "kay-dun-1/pots",
-   "type": "color-variant",
-   "main": "kay-dun-1/pots",
-   "members": [
-    "kay-dun-1/pots",
-    "kay-dun-1/pots-terracotta"
-   ]
-  },
-  {
    "id": "kay-holiday/tree-stand",
    "type": "color-variant",
    "main": "kay-holiday/tree-stand",
@@ -25807,6 +25792,26 @@
     "rgp-asia/vase",
     "rgp-asia/vase-sienna"
    ]
+  },
+  {
+   "id": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+   "type": "color-variant",
+   "main": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+   "members": [
+    "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+    "vases-pots/vase-long-cracked-sienna-terracotta-ivory",
+    "vases-pots/vase-long-cracked-terracotta-sienna-ivory"
+   ]
+  },
+  {
+   "id": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+   "type": "color-variant",
+   "main": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+   "members": [
+    "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+    "vases-pots/vase-long-handle-cracked-sienna-terracotta-ivory",
+    "vases-pots/vase-long-handle-cracked-terracotta-sienna-ivory"
+   ]
   }
  ],
  "bands": [
@@ -25932,7 +25937,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2189,
+   "count": 2191,
    "parent": "metal"
   },
   {
@@ -26076,7 +26081,7 @@
    "name": "Clear glass",
    "type": "material",
    "description": "Clear glass: windows, panes, goggles and clear lenses, visors, car windows, glass tables and domes.",
-   "count": 587,
+   "count": 589,
    "parent": "glass"
   },
   {
@@ -26227,7 +26232,7 @@
    "name": "Cloth light",
    "type": "material",
    "description": "Light cloth: canvas, sails, bedding, bandages, shirts.",
-   "count": 303,
+   "count": 301,
    "parent": "textile-cloth"
   },
   {
@@ -37736,7 +37741,7 @@
    "kit": "3dm-city",
    "collection": "3dm",
    "name": "ac-unit",
-   "hash": "bff4fd40d1",
+   "hash": "481963b7ec",
    "kind": "str-fixture-installation",
    "size": "m",
    "wdh": [
@@ -37747,25 +37752,27 @@
    "tris": 1282,
    "tpu": 3738,
    "mat": 1,
-   "bands": 2,
+   "bands": 3,
    "calls": 1,
-   "bytes": 49888,
-   "vtx": 1270,
+   "bytes": 132228,
+   "vtx": 3846,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
-   "minTube": 0.0292,
+   "minTube": 0.0318,
    "minWall": 0.0273,
-   "thick": 0.197,
+   "thick": 0.1756,
    "avgTri": 0.00261,
    "anglePct": 61,
    "pieces": 13,
-   "vpt": 0.99,
+   "vpt": 3,
    "cells": [
     "5,2",
-    "15,3"
+    "15,3",
+    "13,3"
    ],
    "colors": [
+    "#59534e",
     "#7a8491",
     "#dbd0b5"
    ],
@@ -37775,7 +37782,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 1.24
+   "thickRel": 1.1
   },
   {
    "kit": "3dm-city",
@@ -41017,34 +41024,34 @@
    "kit": "3dm-medieval",
    "collection": "3dm",
    "name": "cannon",
-   "hash": "da7fbdb024",
+   "hash": "362206edd6",
    "kind": "obj-equipment-weapon-siege-cannon",
    "size": "m",
    "wdh": [
-    1.092,
+    1.097,
     0.588,
-    0.586
+    0.594
    ],
-   "tris": 2616,
-   "tpu": 5820,
+   "tris": 2517,
+   "tpu": 5574,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 117168,
-   "vtx": 3123,
+   "bytes": 258192,
+   "vtx": 7551,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.0595,
    "minWall": 0.0363,
-   "thick": 0.1755,
-   "avgTri": 0.00135,
-   "anglePct": 33,
-   "pieces": 20,
-   "vpt": 1.19,
+   "thick": 0.1743,
+   "avgTri": 0.00132,
+   "anglePct": 37,
+   "pieces": 25,
+   "vpt": 3,
    "cells": [
-    "2,0",
-    "6,1"
+    "6,1",
+    "2,0"
    ],
    "colors": [
     "#3a3e4b",
@@ -50085,7 +50092,7 @@
     "wood-dark",
     "wood-light"
    ],
-   "thickRel": 0.64
+   "thickRel": 0.65
   },
   {
    "kit": "avra-weapons",
@@ -50133,7 +50140,7 @@
     "wood-light",
     "wood-mid"
    ],
-   "thickRel": 0.63,
+   "thickRel": 0.64,
    "lint": [
     {
      "level": "warning",
@@ -74853,7 +74860,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "ceiling-light-triple",
-   "hash": "2621724182",
+   "hash": "c2ee0f4288",
    "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
@@ -74864,10 +74871,10 @@
    "tris": 1056,
    "tpu": 3079,
    "mat": 1,
-   "bands": 2,
+   "bands": 4,
    "calls": 1,
-   "bytes": 34624,
-   "vtx": 839,
+   "bytes": 109188,
+   "vtx": 3168,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -74876,21 +74883,26 @@
    "avgTri": 0.00018,
    "anglePct": 18,
    "pieces": 4,
-   "vpt": 0.79,
+   "vpt": 3,
    "cells": [
     "6,0",
-    "5,2"
+    "3,2",
+    "5,2",
+    "15,3"
    ],
    "colors": [
+    "#7a8491",
+    "#b5d5e3",
     "#dbd0b5",
     "#f1a63b"
    ],
    "tags": [
     "fs",
+    "glass-clear",
+    "metal-steel",
     "modern",
     "mounted",
-    "special-emissive",
-    "textile-cloth-light"
+    "special-emissive"
    ],
    "variant": "fs-house/ceiling-light",
    "thickRel": 0.85
@@ -74899,7 +74911,7 @@
    "kit": "fs-house",
    "collection": "fs-buildings",
    "name": "ceiling-light",
-   "hash": "f110967d27",
+   "hash": "8db6b2665b",
    "kind": "obj-furnishing-light-lamp-ceiling",
    "size": "s",
    "wdh": [
@@ -74910,10 +74922,10 @@
    "tris": 264,
    "tpu": 770,
    "mat": 1,
-   "bands": 1,
+   "bands": 2,
    "calls": 1,
-   "bytes": 8136,
-   "vtx": 160,
+   "bytes": 28384,
+   "vtx": 792,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -74922,18 +74934,21 @@
    "avgTri": 0.00094,
    "anglePct": 62,
    "pieces": 2,
-   "vpt": 0.61,
+   "vpt": 3,
    "cells": [
-    "5,2"
+    "15,3",
+    "3,2"
    ],
    "colors": [
-    "#dbd0b5"
+    "#7a8491",
+    "#b5d5e3"
    ],
    "tags": [
     "fs",
+    "glass-clear",
+    "metal-steel",
     "modern",
-    "mounted",
-    "textile-cloth-light"
+    "mounted"
    ],
    "variant": "fs-house/ceiling-light",
    "thickRel": 2.49
@@ -121127,30 +121142,30 @@
   {
    "kit": "jb-kitchen",
    "name": "bowl",
-   "hash": "d408201fe7",
+   "hash": "5e1d63778f",
    "kind": "obj-kitchenware-tableware-bowl",
    "size": "s",
    "wdh": [
-    0.2,
-    0.2,
+    0.198,
+    0.198,
     0.091
    ],
-   "tris": 706,
-   "tpu": 2058,
+   "tris": 760,
+   "tpu": 2216,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19672,
-   "vtx": 435,
+   "bytes": 78948,
+   "vtx": 2280,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.005,
-   "minWall": 0.0195,
-   "thick": 0.0731,
-   "avgTri": 0.00016,
-   "anglePct": 11,
+   "minEdge": 0.004,
+   "minWall": 0.0194,
+   "thick": 0.0761,
+   "avgTri": 0.00014,
+   "anglePct": 13,
    "pieces": 1,
-   "vpt": 0.62,
+   "vpt": 3,
    "cells": [
     "5,0"
    ],
@@ -121160,7 +121175,7 @@
    "tags": [
     "ceramic-mid"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.15
   },
   {
    "kit": "jb-kitchen",
@@ -123858,7 +123873,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.11
+   "thickRel": 1.12
   },
   {
    "kit": "kay-adventurers",
@@ -123902,7 +123917,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.31
+   "thickRel": 1.32
   },
   {
    "kit": "kay-adventurers",
@@ -123945,7 +123960,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.07
+   "thickRel": 1.08
   },
   {
    "kit": "kay-adventurers",
@@ -123989,7 +124004,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.23
+   "thickRel": 1.24
   },
   {
    "kit": "kay-adventurers",
@@ -132641,38 +132656,35 @@
     "ceramic-mid",
     "kay",
     "plural"
-   ],
-   "variant": "kay-dun-1/pots",
-   "recolourOf": "kay-dun-1/pots"
+   ]
   },
   {
    "kit": "kay-dun-1",
    "name": "pots",
-   "hash": "8199e6c11c",
+   "hash": "5e7cc57f58",
    "kind": "obj-container-pot",
    "size": "m",
    "wdh": [
-    0.64,
-    0.696,
+    0.639,
+    0.694,
     0.393
    ],
-   "tris": 1462,
-   "tpu": 4262,
+   "tris": 1288,
+   "tpu": 3755,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 39308,
-   "vtx": 907,
+   "bytes": 132788,
+   "vtx": 3864,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.011,
-   "minTube": 0.1246,
-   "minWall": 0.0119,
-   "thick": 0.1023,
-   "avgTri": 0.00096,
-   "anglePct": 11,
+   "minEdge": 0.014,
+   "minWall": 0.0144,
+   "thick": 0.1032,
+   "avgTri": 0.00107,
+   "anglePct": 8,
    "pieces": 5,
-   "vpt": 0.62,
+   "vpt": 3,
    "cells": [
     "8,0"
    ],
@@ -132683,8 +132695,7 @@
     "ceramic-dark",
     "kay",
     "plural"
-   ],
-   "variant": "kay-dun-1/pots"
+   ]
   },
   {
    "kit": "kay-dun-1",
@@ -134349,7 +134360,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 0.84
+   "thickRel": 0.85
   },
   {
    "kit": "kay-dun-1",
@@ -134394,7 +134405,7 @@
     "metal-gold",
     "metal-steel"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.19
   },
   {
    "kit": "kay-dun-1",
@@ -146794,30 +146805,30 @@
    "kit": "kay-food",
    "collection": "kay-interior",
    "name": "pot-large-closed",
-   "hash": "d74b33284b",
+   "hash": "5a07d73948",
    "kind": "obj-kitchenware-cookware-cookpot",
    "size": "s",
    "wdh": [
-    0.4,
-    0.246,
+    0.438,
+    0.258,
     0.217
    ],
-   "tris": 606,
-   "tpu": 1767,
+   "tris": 792,
+   "tpu": 2309,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 25540,
-   "vtx": 637,
+   "bytes": 82240,
+   "vtx": 2376,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
-   "minWall": 0.0299,
-   "thick": 0.2676,
-   "avgTri": 0.00082,
-   "anglePct": 25,
-   "pieces": 4,
-   "vpt": 1.05,
+   "minWall": 0.0326,
+   "thick": 0.2425,
+   "avgTri": 0.00038,
+   "anglePct": 23,
+   "pieces": 3,
+   "vpt": 3,
    "cells": [
     "5,0"
    ],
@@ -146829,7 +146840,7 @@
     "kay"
    ],
    "variant": "kay-food/pot-large-closed",
-   "thickRel": 1.56
+   "thickRel": 1.42
   },
   {
    "kit": "kay-food",
@@ -175068,7 +175079,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-large-a",
-   "thickRel": 1.54,
+   "thickRel": 1.55,
    "lint": [
     {
      "level": "warning",
@@ -175121,7 +175132,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-large-a",
-   "thickRel": 1.46
+   "thickRel": 1.47
   },
   {
    "kit": "kay-skeleton",
@@ -175166,7 +175177,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton/shield-small-a",
-   "thickRel": 0.84,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -176382,7 +176393,7 @@
     "metal-steel"
    ],
    "variant": "kay-skeleton-1/helmet-horned",
-   "thickRel": 1.6,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "warning",
@@ -176437,7 +176448,7 @@
     "metal-steel"
    ],
    "variant": "kay-skeleton-1/helmet-horned",
-   "thickRel": 2.19
+   "thickRel": 2.2
   },
   {
    "kit": "kay-skeleton-1",
@@ -176682,7 +176693,7 @@
     "wood-mid"
    ],
    "variant": "kay-skeleton-1/shield-round",
-   "thickRel": 0.77,
+   "thickRel": 0.78,
    "lint": [
     {
      "level": "warning",
@@ -184408,7 +184419,7 @@
     "wood-mid"
    ],
    "variant": "kay-weapons/shield-a",
-   "thickRel": 1.14,
+   "thickRel": 1.15,
    "lint": [
     {
      "level": "warning",
@@ -184461,7 +184472,7 @@
     "wood-mid"
    ],
    "variant": "kay-weapons/shield-a",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "kay-weapons",
@@ -184508,7 +184519,7 @@
     "textile-cloth-mid"
    ],
    "variant": "kay-weapons/shield-a",
-   "thickRel": 1.31
+   "thickRel": 1.32
   },
   {
    "kit": "kay-weapons",
@@ -192641,7 +192652,7 @@
    "kit": "ken-chars",
    "collection": "ken-mini",
    "name": "luggage",
-   "hash": "88825c355f",
+   "hash": "0d6f52e774",
    "kind": "obj-equipment-apparel-bag",
    "size": "s",
    "wdh": [
@@ -192654,26 +192665,26 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 27808,
-   "vtx": 760,
+   "bytes": 34916,
+   "vtx": 984,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
    "minWall": 0.0099,
-   "thick": 0.1701,
+   "thick": 0.1699,
    "avgTri": 0.00115,
    "anglePct": 91,
    "pieces": 14,
-   "vpt": 2.32,
+   "vpt": 3,
    "cells": [
-    "5,0",
+    "1,1",
     "3,0",
     "15,3"
    ],
    "colors": [
+    "#21552a",
     "#52301e",
-    "#7a8491",
-    "#c8714b"
+    "#7a8491"
    ],
    "tags": [
     "ken",
@@ -192688,12 +192699,12 @@
    "kit": "ken-chars",
    "collection": "ken-mini",
    "name": "shield-round",
-   "hash": "4d86e78dd9",
+   "hash": "c4ab4f9831",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
    "wdh": [
     0.454,
-    0.127,
+    0.054,
     0.454
    ],
    "tris": 160,
@@ -192701,17 +192712,17 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 7840,
-   "vtx": 168,
+   "bytes": 17788,
+   "vtx": 480,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.029,
-   "minWall": 0.0338,
-   "thick": 0.1051,
-   "avgTri": 0.00359,
-   "anglePct": 63,
+   "minEdge": 0.017,
+   "minWall": 0.0202,
+   "thick": 0.0659,
+   "avgTri": 0.00298,
+   "anglePct": 77,
    "pieces": 3,
-   "vpt": 1.05,
+   "vpt": 3,
    "cells": [
     "6,1",
     "15,3",
@@ -192728,7 +192739,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.44
+   "thickRel": 0.91
   },
   {
    "kit": "ken-chars",
@@ -221283,7 +221294,7 @@
     "metal-steel",
     "wood-mid"
    ],
-   "thickRel": 1.49
+   "thickRel": 1.5
   },
   {
    "kit": "ken-mini-dun",
@@ -275939,30 +275950,30 @@
   {
    "kit": "lpa-home",
    "name": "vase",
-   "hash": "c7d8936f11",
+   "hash": "e42b9dae30",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
-    0.138,
-    0.138,
+    0.135,
+    0.135,
     0.2
    ],
-   "tris": 206,
-   "tpu": 601,
+   "tris": 640,
+   "tpu": 1866,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14600,
-   "vtx": 372,
+   "bytes": 66688,
+   "vtx": 1920,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.008,
-   "minWall": 0.0359,
-   "thick": 0.1637,
-   "avgTri": 0.00047,
-   "anglePct": 12,
+   "minEdge": 0.006,
+   "minWall": 0.0059,
+   "thick": 0.1302,
+   "avgTri": 0.00022,
+   "anglePct": 8,
    "pieces": 1,
-   "vpt": 1.81,
+   "vpt": 3,
    "cells": [
     "4,2"
    ],
@@ -275973,7 +275984,14 @@
     "glass",
     "lpa"
    ],
-   "thickRel": 1.08
+   "thickRel": 0.86,
+   "lint": [
+    {
+     "level": "error",
+     "check": "measures",
+     "text": "G27 minWall 0.0059 wants min 0.006"
+    }
+   ]
   },
   {
    "kit": "lpa-home",
@@ -276613,7 +276631,7 @@
     "lpa",
     "stone-rock"
    ],
-   "thickRel": 1.61,
+   "thickRel": 1.62,
    "lint": [
     {
      "level": "warning",
@@ -277086,7 +277104,7 @@
     "textile-cloth-mid",
     "wood-dark"
    ],
-   "thickRel": 1.34
+   "thickRel": 1.35
   },
   {
    "kit": "lpa-tools",
@@ -278683,7 +278701,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-a",
-   "thickRel": 0.84,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -278736,7 +278754,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-a",
-   "thickRel": 0.84,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -278790,7 +278808,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-d",
-   "thickRel": 0.93,
+   "thickRel": 0.94,
    "lint": [
     {
      "level": "warning",
@@ -278844,7 +278862,7 @@
     "wood-mid"
    ],
    "variant": "lpa-weapons/shield-d",
-   "thickRel": 1.11,
+   "thickRel": 1.12,
    "lint": [
     {
      "level": "warning",
@@ -288501,7 +288519,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/breastplate-armour-01",
-   "thickRel": 0.83,
+   "thickRel": 0.84,
    "lint": [
     {
      "level": "warning",
@@ -288548,7 +288566,7 @@
     "metal-steel"
    ],
    "variant": "m3-base/breastplate-armour-01",
-   "thickRel": 0.76,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "warning",
@@ -289583,34 +289601,34 @@
   {
    "kit": "m3-base",
    "name": "cannon-with-base",
-   "hash": "21069f7eb9",
+   "hash": "de81c8173b",
    "kind": "obj-equipment-weapon-siege-cannon",
    "size": "m",
    "wdh": [
     0.543,
     1.1,
-    0.452
+    0.465
    ],
-   "tris": 2056,
-   "tpu": 4917,
+   "tris": 2516,
+   "tpu": 6018,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 81500,
-   "vtx": 2113,
+   "bytes": 258088,
+   "vtx": 7548,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
    "minTube": 0.0629,
-   "minWall": 0.0406,
-   "thick": 0.1911,
-   "avgTri": 0.00137,
+   "minWall": 0.0409,
+   "thick": 0.1931,
+   "avgTri": 0.00114,
    "anglePct": 21,
    "pieces": 27,
-   "vpt": 1.03,
+   "vpt": 3,
    "cells": [
-    "2,0",
-    "6,1"
+    "6,1",
+    "2,0"
    ],
    "colors": [
     "#3a3e4b",
@@ -289621,7 +289639,7 @@
     "metal-iron-dark",
     "wood-dark"
    ],
-   "thickRel": 1.3
+   "thickRel": 1.31
   },
   {
    "kit": "m3-base",
@@ -307933,7 +307951,7 @@
     "m3",
     "metal-steel"
    ],
-   "thickRel": 0.84,
+   "thickRel": 0.85,
    "lint": [
     {
      "level": "warning",
@@ -315312,31 +315330,31 @@
   {
    "kit": "m3-base",
    "name": "round-shield",
-   "hash": "6f9207f91c",
+   "hash": "a4b185cdad",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
    "wdh": [
-    0.349,
+    0.35,
     0.07,
-    0.348
+    0.35
    ],
-   "tris": 986,
-   "tpu": 2875,
+   "tris": 1338,
+   "tpu": 3901,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 37756,
-   "vtx": 947,
+   "bytes": 137916,
+   "vtx": 4014,
    "grounded": true,
    "centered": true,
-   "minEdge": 0,
+   "minEdge": 0.001,
    "minTube": 0.0429,
-   "minWall": 0.0324,
-   "thick": 0.0749,
-   "avgTri": 0.00033,
-   "anglePct": 49,
+   "minWall": 0.0299,
+   "thick": 0.0746,
+   "avgTri": 0.00026,
+   "anglePct": 58,
    "pieces": 13,
-   "vpt": 0.96,
+   "vpt": 3,
    "cells": [
     "15,3",
     "0,0"
@@ -315350,7 +315368,7 @@
     "metal-steel",
     "wood-light"
    ],
-   "thickRel": 1.02
+   "thickRel": 1.03
   },
   {
    "kit": "m3-base",
@@ -328310,7 +328328,7 @@
     "wood-mid"
    ],
    "variant": "medieval-forge/shield-2",
-   "thickRel": 0.7,
+   "thickRel": 0.71,
    "lint": [
     {
      "level": "warning",
@@ -328358,7 +328376,7 @@
     "wood-mid"
    ],
    "variant": "medieval-forge/shield-2",
-   "thickRel": 0.72,
+   "thickRel": 0.73,
    "lint": [
     {
      "level": "warning",
@@ -374758,7 +374776,7 @@
     "qua",
     "wood-mid"
    ],
-   "thickRel": 1.27
+   "thickRel": 1.28
   },
   {
    "kit": "quat-props",
@@ -375587,7 +375605,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-horned",
-   "thickRel": 0.95,
+   "thickRel": 0.96,
    "lint": [
     {
      "level": "warning",
@@ -375638,7 +375656,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-horned",
-   "thickRel": 1.36,
+   "thickRel": 1.37,
    "lint": [
     {
      "level": "warning",
@@ -375685,7 +375703,7 @@
     "pickup",
     "qua"
    ],
-   "thickRel": 0.76,
+   "thickRel": 0.77,
    "lint": [
     {
      "level": "warning",
@@ -375733,7 +375751,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-metal",
-   "thickRel": 1.02,
+   "thickRel": 1.03,
    "lint": [
     {
      "level": "warning",
@@ -375781,7 +375799,7 @@
     "qua"
    ],
    "variant": "quat-rpg/armor-metal",
-   "thickRel": 1.15,
+   "thickRel": 1.16,
    "lint": [
     {
      "level": "warning",
@@ -413518,7 +413536,7 @@
     "wood-mid"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 0.88
+   "thickRel": 0.89
   },
   {
    "kit": "rgp-medieval",
@@ -417926,7 +417944,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-a",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "rgp-weapons",
@@ -417974,7 +417992,7 @@
    ],
    "variant": "rgp-weapons/shield-a",
    "recolourOf": "rgp-weapons/shield-a-blue",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "rgp-weapons",
@@ -418018,7 +418036,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-a",
-   "thickRel": 0.98
+   "thickRel": 0.99
   },
   {
    "kit": "rgp-weapons",
@@ -418068,7 +418086,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-weapons",
@@ -418116,7 +418134,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-weapons",
@@ -418161,7 +418179,7 @@
     "wood-dark"
    ],
    "variant": "rgp-weapons/shield-b",
-   "thickRel": 1
+   "thickRel": 1.01
   },
   {
    "kit": "rgp-weapons",
@@ -456106,8 +456124,7 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-cracked",
+   "variant": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
    "thickRel": 1.16,
    "lint": [
     {
@@ -456160,8 +456177,8 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-cracked",
+   "variant": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+   "recolourOf": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
    "thickRel": 1.16,
    "lint": [
     {
@@ -456214,8 +456231,8 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-cracked",
+   "variant": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
+   "recolourOf": "vases-pots/vase-long-cracked-sienna-ivory-terracotta",
    "thickRel": 1.16,
    "lint": [
     {
@@ -456228,7 +456245,7 @@
   {
    "kit": "vases-pots",
    "name": "vase-long-cracked",
-   "hash": "7613f80a6b",
+   "hash": "e39caf9956",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
@@ -456236,25 +456253,25 @@
     0.225,
     0.417
    ],
-   "tris": 2200,
-   "tpu": 6414,
+   "tris": 2208,
+   "tpu": 6437,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 84180,
-   "vtx": 2169,
+   "bytes": 226740,
+   "vtx": 6624,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minWall": 0.0062,
-   "thick": 0.1763,
+   "thick": 0.1764,
    "avgTri": 0.0002,
    "anglePct": 6,
    "pieces": 10,
-   "vpt": 0.99,
+   "vpt": 3,
    "cells": [
-    "5,2",
     "5,0",
+    "5,2",
     "8,0"
    ],
    "colors": [
@@ -456321,8 +456338,7 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-handle-cracked",
+   "variant": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
    "thickRel": 1.15,
    "lint": [
     {
@@ -456375,8 +456391,8 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-handle-cracked",
+   "variant": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+   "recolourOf": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
    "thickRel": 1.15,
    "lint": [
     {
@@ -456429,8 +456445,8 @@
     "ceramic-light",
     "ceramic-mid"
    ],
-   "variant": "vases-pots/vase-long",
-   "recolourOf": "vases-pots/vase-long-handle-cracked",
+   "variant": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
+   "recolourOf": "vases-pots/vase-long-handle-cracked-sienna-ivory-terracotta",
    "thickRel": 1.15,
    "lint": [
     {
@@ -456443,7 +456459,7 @@
   {
    "kit": "vases-pots",
    "name": "vase-long-handle-cracked",
-   "hash": "c7a0ef4d57",
+   "hash": "f58656bde3",
    "kind": "obj-container-pot-vase",
    "size": "s",
    "wdh": [
@@ -456451,25 +456467,25 @@
     0.225,
     0.417
    ],
-   "tris": 3032,
-   "tpu": 8840,
+   "tris": 3200,
+   "tpu": 9329,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 118960,
-   "vtx": 3099,
+   "bytes": 327952,
+   "vtx": 9600,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minWall": 0.0062,
    "thick": 0.175,
-   "avgTri": 0.00015,
+   "avgTri": 0.00014,
    "anglePct": 6,
    "pieces": 11,
-   "vpt": 1.02,
+   "vpt": 3,
    "cells": [
-    "5,2",
     "5,0",
+    "5,2",
     "8,0"
    ],
    "colors": [
@@ -474759,7 +474775,7 @@
     "modern",
     "plastic"
    ],
-   "thickRel": 1.26
+   "thickRel": 1.27
   },
   {
    "kit": "zombie-weapons",
@@ -474819,30 +474835,30 @@
   {
    "kit": "zombie-weapons",
    "name": "shield-bin-lid",
-   "hash": "c3befa7f50",
+   "hash": "078a395374",
    "kind": "obj-equipment-armor-shield",
    "size": "s",
    "wdh": [
-    0.364,
+    0.368,
     0.132,
-    0.364
+    0.368
    ],
-   "tris": 500,
-   "tpu": 1458,
+   "tris": 888,
+   "tpu": 2589,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 37016,
-   "vtx": 1016,
+   "bytes": 92012,
+   "vtx": 2664,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
-   "minWall": 0.0164,
-   "thick": 0.0739,
-   "avgTri": 0.00064,
-   "anglePct": 48,
+   "minWall": 0.0096,
+   "thick": 0.0436,
+   "avgTri": 0.00036,
+   "anglePct": 1,
    "pieces": 4,
-   "vpt": 2.03,
+   "vpt": 3,
    "cells": [
     "15,3"
    ],
@@ -474853,7 +474869,14 @@
     "ct",
     "metal-steel"
    ],
-   "thickRel": 1.01
+   "thickRel": 0.6,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.0096 wants min 0.012"
+    }
+   ]
   },
   {
    "kit": "zombie-weapons",
@@ -475223,7 +475246,7 @@
     "paper-sheet",
     "plastic"
    ],
-   "thickRel": 0.83
+   "thickRel": 0.84
   },
   {
    "kit": "zombie-weapons",
