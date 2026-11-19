@@ -22,11 +22,10 @@ a tone in its band (0 light, 1 dark):
            growing distances in front of it; how deep it stays enclosed,
            against how wide the opening is (--ratio), sets how dark, so a
            shallow rim around a big wall barely counts
-  shadow   walls are cut along the line where a shadow from a ledge, collar,
-           hood or eave above ends, lit from in front at --sun-angle degrees;
-           the shadow is darkest (--shadow) right under the overhang and fades
-           out to nothing where it ends.
-           Cuts are shared over each wall plane, so its triangles line up
+  shadow   a wall under a ledge, collar, hood or eave is darkest (--shadow)
+           right under it and fades to nothing over --shadow-len times how far
+           the overhang sticks out; the wall is cut where the fade ends, one cut
+           per wall plane, so its triangles line up
 
 Options (defaults are the values set for the masonry-mid smooth-detail group):
   --bands <a,b>        bands to shade, default taupe,taupe-dark
@@ -34,8 +33,10 @@ Options (defaults are the values set for the masonry-mid smooth-detail group):
   --height <t>         0.26     --side-fade <t>   0.20     --sun <t>   0.04
   --cover <t>          0.25     --reach <f>       0.3 of the model size
   --ratio <f>          3: darkness grows with depth over width
-  --shadow <t>         0.18     --sun-angle <deg> 40 (lower: longer shadows)
-  --shadow-reach <f>   0.4 of the model size
+  --shallow <f>        0.3: enclosure below this counts as none; walls look
+                       only sideways, overhangs above are the shadow's job
+  --shadow <t>         0.18     --shadow-len <f>  3
+  --shadow-reach <f>   0.4 of the model size, how far up an overhang is looked for
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
@@ -47,7 +48,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.3, ratio: 3, shadowReach: 0.4, shadow: 0.18, sunAngle: 40, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadow: 0.18, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -175,61 +176,38 @@ function shade(file) {
 
   const centreOf = (item, t) => [0, 1, 2].map((j) => t.c.reduce((s, v) => s + item.verts[v].wp[j], 0) / 3);
 
-  const lightFor = (n) => {
-    const h = norm([n[0], 0, n[2]]), e = opt.sunAngle * Math.PI / 180;
-    return norm([h[0] * Math.cos(e), Math.sin(e), h[2] * Math.cos(e)]);
-  };
-  const blocked = (p, n) => cast(p.map((x, j) => x + n[j] * size * 2e-3), lightFor(n), size * 0.004, size * opt.shadowReach);
   if (opt.shadow > 0) {
-    const planes = new Map();
-    const samples = new Map();
+    const UP = [0, 1, 0];
     const planeKey = (n, p) => n.map((x) => Math.round(x * 50)).join(',') + '|' + Math.round(dot(n, p) / (size * 1e-3));
+    const under = (p, n) => {
+      const h = cast.dist(p.map((x, j) => x + n[j] * size * 0.004), UP, size * 0.002, size * opt.shadowReach);
+      if (h === Infinity) return null;
+      let depth = 0;
+      for (const o of [0.01, 0.02, 0.035, 0.05, 0.075, 0.1, 0.15]) {
+        const ho = cast.dist(p.map((x, j) => x + n[j] * size * o), UP, size * 0.002, size * opt.shadowReach);
+        if (ho !== Infinity && ho < h + size * 0.02) depth = o; else break;
+      }
+      return depth ? { top: p[1] + h, len: depth * size * opt.shadowLen } : null;
+    };
+    const found = new Map();
     for (const item of items) for (const t of item.tris) {
       if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
       const P = t.c.map((v) => item.verts[v].wp);
-      const S = [], U = [];
-      for (let i = 0; i <= 14; i++) for (let j = 0; j <= 14 - i; j++) {
-        const u = (i + 0.3) / 15, w = (j + 0.3) / 15, x = 1 - u - w;
-        if (x < 0) continue;
-        const pt = [0, 1, 2].map((k) => P[0][k] * x + P[1][k] * u + P[2][k] * w);
-        const b = blocked(pt, t.n);
-        (b ? S : U).push(pt[1]);
-        const key0 = planeKey(t.n, P[0]);
-        if (!samples.has(key0)) samples.set(key0, []);
-        samples.get(key0).push([pt[1], b]);
+      const k = planeKey(t.n, P[0]);
+      for (const [x, u, w] of [[1 / 3, 1 / 3, 1 / 3], [0.7, 0.15, 0.15], [0.15, 0.7, 0.15], [0.15, 0.15, 0.7]]) {
+        const r = under([0, 1, 2].map((j) => P[0][j] * x + P[1][j] * u + P[2][j] * w), t.n);
+        if (!r) continue;
+        if (!found.has(k)) found.set(k, []);
+        found.get(k).push(r);
       }
-      if (!S.length || !U.length) continue;
-      const top = Math.min(...S);
-      const below = U.filter((y) => y < top);
-      if (!below.length) continue;
-      const y = (top + Math.max(...below)) / 2;
-      const key = planeKey(t.n, P[0]);
-      if (!planes.has(key)) planes.set(key, []);
-      planes.get(key).push(y);
     }
-    const everyY = [...planes.values()].flat().sort((x, y) => x - y);
-    const centres = [];
-    for (const y of everyY) {
-      const g = centres[centres.length - 1];
-      if (g && y - g[g.length - 1] < size / 30) g.push(y); else centres.push([y]);
-    }
-    const snapped = centres.map((g) => g.reduce((s2, y) => s2 + y, 0) / g.length);
-    const snap = (y) => snapped.reduce((b, c) => (Math.abs(c - y) < Math.abs(b - y) ? c : b), snapped[0]);
+    const med = (a) => { const s2 = [...a].sort((x, y) => x - y); return s2[Math.floor(s2.length / 2)]; };
+    const shade = new Map();
     const cutsOf = new Map();
-    const reliable = new Map();
-    for (const [key, list] of samples) {
-      const cuts = [...new Set((planes.get(key) ?? []).map(snap))].sort((x, y) => x - y);
-      const predict = (y) => {
-        let best = null;
-        for (const c of cuts) if (y > c) best = c;
-        return best !== null;
-      };
-      const S = list.filter(([, b]) => b).length;
-      let wrong = 0;
-      if (cuts.length) for (const [y, b] of list) if (predict(y) !== b) wrong++;
-      const ok = cuts.length ? wrong / list.length < 0.12 : S === 0 || S === list.length;
-      reliable.set(key, ok);
-      if (ok && cuts.length) cutsOf.set(key, cuts);
+    for (const [k, list] of found) {
+      const top = med(list.map((r) => r.top)), len = med(list.map((r) => r.len));
+      shade.set(k, { top, cut: top - len });
+      cutsOf.set(k, [top - len]);
     }
     for (const item of items) {
       const mids = new Map();
@@ -267,34 +245,15 @@ function shade(file) {
       }
       item.tris = tris;
     }
-    const ext = new Map();
     for (const item of items) for (const t of item.tris) {
       if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
       const P = t.c.map((v) => item.verts[v].wp);
-      const k = planeKey(t.n, P[0]);
-      const e = ext.get(k) ?? [Infinity, -Infinity];
-      for (const q2 of P) { e[0] = Math.min(e[0], q2[1]); e[1] = Math.max(e[1], q2[1]); }
-      ext.set(k, e);
-    }
-    for (const item of items) for (const t of item.tris) {
-      if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
-      const P = t.c.map((v) => item.verts[v].wp);
-      const pk0 = planeKey(t.n, P[0]);
-      if (!reliable.get(pk0)) continue;
-      const cuts = cutsOf.get(pk0);
-      const [elo, ehi] = ext.get(pk0);
-      if (cuts) {
-        const cy = (P[0][1] + P[1][1] + P[2][1]) / 3;
-        const below = cuts.filter((c) => cy > c);
-        if (below.length) { t.shadow = true; t.fade = [Math.max(...below), ehi]; }
-        continue;
-      }
-      let hits = 0;
-      for (const [x, u, w] of [[0.6, 0.2, 0.2], [0.2, 0.6, 0.2], [0.2, 0.2, 0.6], [1 / 3, 1 / 3, 1 / 3]]) {
-        if (blocked([0, 1, 2].map((k) => P[0][k] * x + P[1][k] * u + P[2][k] * w), t.n)) hits++;
-      }
-      t.shadow = hits >= 3;
-      if (t.shadow) t.fade = [elo, ehi];
+      const sh = shade.get(planeKey(t.n, P[0]));
+      if (!sh) continue;
+      const c = [0, 1, 2].map((j) => (P[0][j] + P[1][j] + P[2][j]) / 3);
+      const r = under(c, t.n);
+      if (!r || Math.abs(r.top - sh.top) > size * 0.05) continue;
+      if (c[1] > sh.cut) { t.shadow = true; t.fade = [sh.cut, sh.top]; }
     }
   }
 
@@ -335,7 +294,8 @@ function shade(file) {
     for (const [r, { n, list }] of pts) {
       const a = Math.abs(n[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0];
       const u = norm(cross(a, n)), w = cross(n, u);
-      const dirs = [0, 1, 2, 3].map((k) => { const an = k * Math.PI / 4; return [0, 1, 2].map((j) => u[j] * Math.cos(an) + w[j] * Math.sin(an)); });
+      const flat = Math.abs(n[1]) > 0.7;
+      const dirs = (flat ? [0, 1, 2, 3] : [0]).map((k) => { const an = k * Math.PI / 4; return [0, 1, 2].map((j) => u[j] * Math.cos(an) + w[j] * Math.sin(an)); });
       const step = Math.max(1, Math.floor(list.length / 24));
       let sum = 0, cnt = 0;
       const ext = Math.max(...[0, 1, 2].map((j) => Math.max(...list.map((q) => q[j])) - Math.min(...list.map((q) => q[j]))));
@@ -354,7 +314,8 @@ function shade(file) {
         }
         sum += best; cnt++;
       }
-      recess.set(r, cnt ? sum / cnt : 0);
+      const raw = cnt ? sum / cnt : 0;
+      recess.set(r, Math.max(0, Math.min(1, (raw - opt.shallow) / (1 - opt.shallow))));
     }
     stone.forEach((e, i) => { e.t.recess = recess.get(gf(i)) ?? 0; });
   }
