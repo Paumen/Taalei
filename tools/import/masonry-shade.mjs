@@ -24,7 +24,7 @@ a tone in its band (0 light, 1 dark):
            shallow rim around a big wall barely counts
   shadow   a wall under a ledge, collar, hood or eave is darkest (--shadow)
            right under it and fades to nothing over --shadow-len times the
-           rim: the overhang's own thickness, or how far it sticks out if less; the wall is cut where the fade ends, one cut
+           rim: the overhang's own thickness, or how far it sticks out if less; only under a level overhang; the wall is cut where the fade ends, one cut
            per wall plane, so its triangles line up
 
 Options (defaults are the values set for the masonry-mid smooth-detail group):
@@ -42,6 +42,7 @@ Options (defaults are the values set for the masonry-mid smooth-detail group):
                        keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
   --min <t> --max <t>  0.03 0.97
+  --flat 1             give the stone flat faces, for models with smooth normals
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -49,7 +50,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.18, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.18, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -215,6 +216,8 @@ function shade(file) {
     const cutsOf = new Map();
     for (const [k, list] of found) {
       const top = med(list.map((r) => r.top));
+      const near = list.map((r) => r.top).filter((y) => Math.abs(y - top) <= size * 0.05);
+      if (Math.max(...near) - Math.min(...near) > size * 0.005) continue;
       const len = Math.min(med(list.map((r) => r.len)), (top - bottom.get(k)) * opt.shadowCap);
       shade.set(k, { top, cut: top - len });
       cutsOf.set(k, [top - len]);
@@ -262,7 +265,7 @@ function shade(file) {
       if (!sh) continue;
       const c = [0, 1, 2].map((j) => (P[0][j] + P[1][j] + P[2][j]) / 3);
       const r = under(c, t.n);
-      if (!r || Math.abs(r.top - sh.top) > size * 0.05) continue;
+      if (!r || Math.abs(r.top - sh.top) > size * 0.005) continue;
       if (c[1] > sh.cut) { t.shadow = true; t.fade = [sh.cut, sh.top]; }
     }
   }
@@ -403,16 +406,20 @@ function shade(file) {
     const keys = new Map();
     const order = [];
     const indices = [];
+    const pA = item.attrs.find((a) => a.name === 'POSITION');
+    const local = (v) => [0, 1, 2].map((k) => item.verts[v].mix.reduce((s2, [src, wt]) => s2 + pA.data[src * 3 + k] * wt, 0));
     for (const t of item.tris) for (let k = 0; k < 3; k++) {
       const v = t.c[k];
       let uv = null;
+      let fn = null;
+      if (opt.flat && t.stone) { const [a, b, c] = t.c.map(local); fn = norm(cross(b.map((x, j) => x - a[j]), c.map((x, j) => x - a[j]))); }
       if (t.stone) {
         const [cu, cv] = t.cell.split(',').map(Number);
         uv = [(cu + 0.5) / 16, (cv + t.tones[k]) / 4];
         corners++;
       }
-      const key = uv ? `${v}:${uv[0].toFixed(5)},${uv[1].toFixed(5)}` : `${v}`;
-      if (!keys.has(key)) { keys.set(key, order.length); order.push({ v, uv }); }
+      const key = (uv ? `${v}:${uv[0].toFixed(5)},${uv[1].toFixed(5)}` : `${v}`) + (fn ? `:${fn.map((x) => x.toFixed(3))}` : '');
+      if (!keys.has(key)) { keys.set(key, order.length); order.push({ v, uv, fn }); }
       indices.push(keys.get(key));
     }
     const write = (a, isUv) => {
@@ -422,11 +429,12 @@ function shade(file) {
       const buf = Buffer.alloc(bytes * w * order.length);
       const ints = acc.componentType !== 5126;
       const joints = a.name.startsWith('JOINTS');
-      order.forEach(({ v, uv }, i) => {
+      order.forEach(({ v, uv, fn }, i) => {
         const vert = item.verts[v];
         for (let k = 0; k < w; k++) {
           let x;
           if (isUv && uv) x = uv[k];
+          else if (fn && a.name === 'NORMAL') x = fn[k];
           else if (joints) { const top = vert.mix.reduce((m, e) => (e[1] > m[1] ? e : m)); x = a.data[top[0] * w + k]; }
           else x = vert.mix.reduce((s, [src, wt]) => s + a.data[src * w + k] * wt, 0);
           if (ints) x = Math.round(x);
