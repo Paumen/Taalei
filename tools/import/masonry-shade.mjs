@@ -23,8 +23,8 @@ a tone in its band (0 light, 1 dark):
            against how wide the opening is (--ratio), sets how dark, so a
            shallow rim around a big wall barely counts
   shadow   a wall under a ledge, collar, hood or eave is darkest (--shadow)
-           right under it and fades to nothing over --shadow-len times how far
-           the overhang sticks out; the wall is cut where the fade ends, one cut
+           right under it and fades to nothing over --shadow-len times the
+           rim: the overhang's own thickness, or how far it sticks out if less; the wall is cut where the fade ends, one cut
            per wall plane, so its triangles line up
 
 Options (defaults are the values set for the masonry-mid smooth-detail group):
@@ -187,7 +187,13 @@ function shade(file) {
         const ho = cast.dist(p.map((x, j) => x + n[j] * size * o), UP, size * 0.002, size * opt.shadowReach);
         if (ho !== Infinity && ho < h + size * 0.02) depth = o; else break;
       }
-      return depth ? { top: p[1] + h, len: depth * size * opt.shadowLen } : null;
+      if (!depth) return null;
+      const top = p[1] + h;
+      const o = p.map((x, j) => x + n[j] * size * 0.004);
+      o[1] = top + size * 0.003;
+      const thick = cast.dist(o, UP, size * 0.001, size * opt.shadowReach);
+      const rim = Math.min(depth * size, thick === Infinity ? depth * size : thick + size * 0.003);
+      return { top, len: rim * opt.shadowLen };
     };
     const found = new Map();
     for (const item of items) for (const t of item.tris) {
