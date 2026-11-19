@@ -17,12 +17,16 @@ Each face corner gets a tone in its band (0 light, 1 dark):
 
 Options:
   --bands <a,b>      bands to shade, default taupe,taupe-dark
-  --up <t> --side <t> --down <t>   facing tones, default 0.15 0.45 0.80
-  --sun <t>          extra light/dark on sides by direction, default 0.12
-  --fade <t>         bottom-to-top spread, default 0.15
-  --hollow <t>       darkening at full cover, default 0.35
-  --reach <f>        hollow ray length as a share of the model size, default 0.2
-  --seams <t>        least tone gap across a hard edge, default 0.14
+  --up <t> --side <t> --down <t>   facing tones, default 0.375 0.475 0.655
+  --sun <t>          extra light/dark on sides by direction, default 0.03
+  --fade <t>         bottom-to-top spread over the model, default 0.2
+  --piece <t>        bottom-to-top spread within each connected piece, default 0.3
+  --hollow <t>       darkening at full cover, default 0.25
+  --deep <f>         cover below this share is ignored, so only deep recesses darken, default 0.35
+  --reach <f>        cover ray length as a share of the model size, default 0.1
+  --seams <t>        least tone gap across a hard edge between a top, side and underside, default 0.08
+  --mean <t>         shift each model so its stone averages this tone, default 0 (off)
+  --min <t> --max <t>  tone limits, default 0.15 0.85
 
 Defaults are the values set for the masonry-mid smooth-detail group.
   --out <dir>        write copies there (kit/name.glb, with the colour map) instead of in place`;
@@ -32,7 +36,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.8, sun: 0.12, fade: 0.15, hollow: 0.35, reach: 0.2, seams: 0.14, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0.375, side: 0.475, down: 0.655, sun: 0.03, fade: 0.2, piece: 0.3, hollow: 0.25, deep: 0.35, reach: 0.1, seams: 0.08, mean: 0, min: 0.15, max: 0.85, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -192,19 +196,31 @@ function shade(file) {
   }
 
   const stoneTris = [];
-  for (const { tris } of per) for (const t of tris) {
-    if (!t.stone) continue;
+  for (const { tris } of per) for (const t of tris) if (t.stone) stoneTris.push(t);
+  if (opt.piece > 0) {
+    const q = size * 1e-4;
+    const pk = (p) => p.map((x) => Math.round(x / q)).join(',');
+    const root = stoneTris.map((_, i) => i);
+    const find = (i) => { while (root[i] !== i) i = root[i] = root[root[i]]; return i; };
+    const at = new Map();
+    stoneTris.forEach((t, i) => t.P.forEach((p) => { const k = pk(p); if (at.has(k)) root[find(i)] = find(at.get(k)); else at.set(k, i); }));
+    const span = new Map();
+    stoneTris.forEach((t, i) => { const r = find(i); const s = span.get(r) ?? [Infinity, -Infinity]; for (const p of t.P) { s[0] = Math.min(s[0], p[1]); s[1] = Math.max(s[1], p[1]); } span.set(r, s); });
+    stoneTris.forEach((t, i) => { t.span = span.get(find(i)); });
+  }
+  for (const t of stoneTris) {
     t.tones = t.P.map((p) => {
       const ny = t.n[1];
       let tone = ny >= 0 ? opt.side + (opt.up - opt.side) * ny : opt.side + (opt.down - opt.side) * -ny;
       tone -= opt.sun * (1 - Math.abs(ny)) * dot(norm([t.n[0], 0, t.n[2]]), SUN);
       if (opt.fade > 0) tone += opt.fade * (0.5 - (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1));
-      if (grid) tone += opt.hollow * hollowAt.get(cornerKey(p, t.n));
+      if (t.span) tone += opt.piece * (0.5 - (p[1] - t.span[0]) / ((t.span[1] - t.span[0]) || 1));
+      if (grid) tone += opt.hollow * Math.max(0, hollowAt.get(cornerKey(p, t.n)) - opt.deep) / (1 - opt.deep);
       return tone;
     });
-    stoneTris.push(t);
   }
 
+  const facing = (n) => (n[1] > 0.5 ? 1 : n[1] < -0.5 ? -1 : 0);
   if (opt.seams > 0) {
     const q = size * 1e-4;
     const pk = (p) => p.map((x) => Math.round(x / q)).join(',');
@@ -234,7 +250,7 @@ function shade(file) {
     const pairs = new Set();
     for (const list of edges.values()) for (const i of list) for (const j of list) {
       const a = find(i), b = find(j);
-      if (a < b && dot(stoneTris[i].n, stoneTris[j].n) < 0.866) pairs.add(a + ',' + b);
+      if (a < b && dot(stoneTris[i].n, stoneTris[j].n) < 0.866 && facing(stoneTris[i].n) !== facing(stoneTris[j].n)) pairs.add(a + ',' + b);
     }
     for (let round = 0; round < 6; round++) {
       for (const pr of pairs) {
@@ -252,6 +268,16 @@ function shade(file) {
     stoneTris.forEach((t, i) => { const o = off.get(find(i)); t.tones = t.tones.map((x) => x + o); });
   }
 
+  if (opt.mean > 0 && stoneTris.length) {
+    let sum = 0, area = 0;
+    for (const t of stoneTris) {
+      const a = Math.hypot(...cross(sub(t.P[1], t.P[0]), sub(t.P[2], t.P[0]))) / 2;
+      sum += a * (t.tones[0] + t.tones[1] + t.tones[2]) / 3; area += a;
+    }
+    const shift = opt.mean - sum / (area || 1);
+    for (const t of stoneTris) t.tones = t.tones.map((x) => x + shift);
+  }
+
   let changed = 0;
   const replaced = new Map();
   for (const item of per) {
@@ -260,7 +286,7 @@ function shade(file) {
     for (const t of tris) {
       for (let k = 0; k < 3; k++) {
         if (!t.stone) { corners.push({ v: t.c[k], uv: null }); continue; }
-        const tone = Math.max(0.03, Math.min(0.97, t.tones[k]));
+        const tone = Math.max(opt.min, Math.min(opt.max, t.tones[k]));
         const [cu, cv] = t.cell.split(',').map(Number);
         corners.push({ v: t.c[k], uv: [(cu + 0.5) / 16, (cv + tone) / 4] });
       }
