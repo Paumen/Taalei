@@ -27,21 +27,22 @@ a tone in its band (0 light, 1 dark):
            rim: the overhang's own thickness, or how far it sticks out if less; only under a level overhang; the wall is cut where the fade ends, one cut
            per wall plane, so its triangles line up
 
-Options (defaults are the values set for the masonry-mid smooth-detail group):
+Options (defaults are the knob page values, tuned on https://claude.ai/artifact/Co1YCyQPwHd2e1xrNyDbLQ;
+retune there, the saved values are in its db collection knobs, doc current):
   --bands <a,b>        bands to shade, default taupe,taupe-dark
-  --up <t>             0.15     --side <t>        0.45     --down <t>  0.80
-  --height <t>         0.26     --side-fade <t>   0.20     --sun <t>   0.04
-  --cover <t>          0.25     --reach <f>       0.3 of the model size
+  --up <t>             0        --side <t>        0.5      --down <t>  1
+  --height <t>         0.3      --side-fade <t>   0.25     --sun <t>   0.1
+  --cover <t>          0.4      --reach <f>       0.3 of the model size
   --ratio <f>          3: darkness grows with depth over width
   --shallow <f>        0.3: enclosure below this counts as none; walls look
                        only sideways, overhangs above are the shadow's job
-  --shadow <t>         0.18     --shadow-len <f>  3
+  --shadow <t>         0.4      --shadow-len <f>  3
   --shadow-cap <f>     0.25: a shadow covers at most this share of the wall below it
   --shadow-reach <f>   0.4 of the model size, how far up an overhang is looked for
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
-  --min <t> --max <t>  0.03 0.97
+  --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
 
@@ -50,7 +51,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.18, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
