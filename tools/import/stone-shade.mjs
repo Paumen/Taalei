@@ -99,7 +99,7 @@ const turn = (m, p) => norm([m[0] * p[0] + m[4] * p[1] + m[8] * p[2], m[1] * p[0
 
 function worldTris(glb) {
   const all = [];
-  for (const prim of (glb.json.meshes ?? []).flatMap((m) => m.primitives).filter((p) => p.indices !== undefined)) {
+  for (const prim of (glb.json.meshes ?? []).flatMap((m) => m.primitives)) {
     const m = primitiveMatrix(glb.json, prim);
     const pos = readAccessor(glb, prim.attributes.POSITION).data;
     const idx = readAccessor(glb, prim.indices).data;
@@ -239,7 +239,7 @@ function shade(file, o) {
   const prims = editablePrimitives(glb.json).filter((p) => p.attributes.TEXCOORD_0 !== undefined && glb.json.accessors[p.attributes.TEXCOORD_0].componentType === 5126);
   const all = [];
   const stone = [];
-  for (const prim of (glb.json.meshes ?? []).flatMap((m) => m.primitives).filter((p) => p.indices !== undefined)) {
+  for (const prim of (glb.json.meshes ?? []).flatMap((m) => m.primitives)) {
     const m = primitiveMatrix(glb.json, prim);
     const pos = readAccessor(glb, prim.attributes.POSITION).data;
     const idx = readAccessor(glb, prim.indices).data;
