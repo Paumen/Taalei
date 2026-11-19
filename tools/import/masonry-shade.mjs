@@ -17,8 +17,9 @@ a tone in its band (0 light, 1 dark):
   sides    on sides only, the nudged tone is the middle of a gradient over
            its own piece, dark at the foot to light at the head (--side-fade);
            sides turned to the light a little lighter (--sun)
-  cover    corners under overhangs and in recesses darker (--cover), seen from
-           a sky that weighs up more than sideways
+  recess   a flat face sitting in a recess goes darker as a whole (--cover):
+           from points just in front of it (--depth), rays along the face
+           look for walls on both opposite sides within --reach
   shadow   walls are cut along the line where a shadow from a ledge, collar,
            hood or eave above ends, lit from in front at --sun-angle degrees;
            the shadow is darkest (--shadow) right under the overhang and fades
@@ -29,8 +30,10 @@ Options (defaults are the values set for the masonry-mid smooth-detail group):
   --bands <a,b>        bands to shade, default taupe,taupe-dark
   --up <t>             0.15     --side <t>        0.45     --down <t>  0.80
   --height <t>         0.26     --side-fade <t>   0.20     --sun <t>   0.04
-  --cover <t>          0.25     --reach <f>       0.15 of the model size
-  --shadow <t>         0.18     --sun-angle <deg> 55
+  --cover <t>          0.25     --reach <f>       0.25 of the model size
+  --depth <f>          0.03 of the model size in front of the face
+  --shadow <t>         0.18     --sun-angle <deg> 40 (lower: longer shadows)
+  --shadow-reach <f>   0.4 of the model size
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
@@ -42,7 +45,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.15, shadow: 0.18, sunAngle: 55, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.25, depth: 0.03, shadowReach: 0.4, shadow: 0.18, sunAngle: 40, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -162,29 +165,14 @@ function shade(file) {
   const pk = (p) => p.map((x) => Math.round(x / q)).join(',');
   const cast = opt.cover > 0 || opt.shadow > 0 ? grid(all, size) : null;
 
-  const coverCache = new Map();
-  const coverAt = (p, n, centre) => {
-    if (!cast) return 0;
-    const key = pk(p) + '|' + n.map((x) => Math.round(x * 20)).join(',');
-    if (coverCache.has(key)) return coverCache.get(key);
-    const o = [0, 1, 2].map((j) => p[j] + (centre[j] - p[j]) * 0.02 + n[j] * size * 2e-3);
-    let blocked = 0, total = 0;
-    for (const d of hemisphere(n)) {
-      const w = 0.25 + 0.75 * Math.max(0, d[1]);
-      total += w;
-      if (cast(o, d, size * 0.004, size * opt.reach)) blocked += w;
-    }
-    const v = blocked / total;
-    coverCache.set(key, v);
-    return v;
-  };
+
   const centreOf = (item, t) => [0, 1, 2].map((j) => t.c.reduce((s, v) => s + item.verts[v].wp[j], 0) / 3);
 
   const lightFor = (n) => {
     const h = norm([n[0], 0, n[2]]), e = opt.sunAngle * Math.PI / 180;
     return norm([h[0] * Math.cos(e), Math.sin(e), h[2] * Math.cos(e)]);
   };
-  const blocked = (p, n) => cast(p.map((x, j) => x + n[j] * size * 2e-3), lightFor(n), size * 0.004, size * opt.reach);
+  const blocked = (p, n) => cast(p.map((x, j) => x + n[j] * size * 2e-3), lightFor(n), size * 0.004, size * opt.shadowReach);
   if (opt.shadow > 0) {
     const planes = new Map();
     const samples = new Map();
@@ -320,6 +308,43 @@ function shade(file) {
     span.set(r, s);
   });
 
+  const recess = new Map();
+  if (opt.cover > 0) {
+    const gr = stone.map((_, i) => i);
+    const gf = (i) => { while (gr[i] !== i) i = gr[i] = gr[gr[i]]; return i; };
+    const vat = new Map();
+    stone.forEach(({ item, t }, i) => t.c.forEach((v) => {
+      const k = pk(item.verts[v].wp) + '|' + t.n.map((x) => Math.round(x * 100)).join(',');
+      if (vat.has(k)) gr[gf(i)] = gf(vat.get(k)); else vat.set(k, i);
+    }));
+    const pts = new Map();
+    stone.forEach(({ item, t }, i) => {
+      const r = gf(i);
+      if (!pts.has(r)) pts.set(r, { n: t.n, list: [] });
+      const P = t.c.map((v) => item.verts[v].wp);
+      const g = pts.get(r);
+      for (const [x, u, w] of [[1 / 3, 1 / 3, 1 / 3], [0.6, 0.2, 0.2], [0.2, 0.6, 0.2], [0.2, 0.2, 0.6]]) g.list.push([0, 1, 2].map((k) => P[0][k] * x + P[1][k] * u + P[2][k] * w));
+    });
+    for (const [r, { n, list }] of pts) {
+      const a = Math.abs(n[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0];
+      const u = norm(cross(a, n)), w = cross(n, u);
+      const dirs = [0, 1, 2, 3].map((k) => { const an = k * Math.PI / 4; return [0, 1, 2].map((j) => u[j] * Math.cos(an) + w[j] * Math.sin(an)); });
+      const step = Math.max(1, Math.floor(list.length / 24));
+      let sum = 0, cnt = 0;
+      for (let li = 0; li < list.length; li += step) {
+        const q = list[li].map((x, j) => x + n[j] * size * opt.depth);
+        let pairs = 0;
+        for (const d of dirs) {
+          const neg = d.map((x) => -x);
+          if (cast(q, d, size * 0.002, size * opt.reach) && cast(q, neg, size * 0.002, size * opt.reach)) pairs++;
+        }
+        sum += pairs / dirs.length; cnt++;
+      }
+      recess.set(r, cnt ? sum / cnt : 0);
+    }
+    stone.forEach((e, i) => { e.t.recess = recess.get(gf(i)) ?? 0; });
+  }
+
   stone.forEach(({ item, t }, i) => {
     const sp = span.get(find(i));
     const centre = centreOf(item, t);
@@ -331,7 +356,7 @@ function shade(file) {
       const hn = (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
       const hp = (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1);
       const sunT = (1 - Math.abs(ny)) * dot(norm([t.n[0], 0, t.n[2]]), SUN);
-      const cov = tiny ? 0 : coverAt(p, t.n, centre);
+      const cov = tiny ? 0 : t.recess ?? 0;
       const shf = t.shadow && !tiny ? (t.fade ? Math.max(0, Math.min(1, (p[1] - t.fade[0]) / ((t.fade[1] - t.fade[0]) || 1))) : 1) : 0;
       return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
     });
