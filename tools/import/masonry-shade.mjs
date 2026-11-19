@@ -9,25 +9,30 @@ const HELP = `masonry-shade.mjs [options] <workfile.glb> [...]
 Shades the stone faces of masonry models from scratch. Each face corner gets
 a tone in its band (0 light, 1 dark):
 
-  height   a base tone from the model's foot (--ground) to its top (--crown)
-  facing   tops lighter (--top-lift) and undersides darker (--under-drop) than
-           the base; sides start at --side-foot at the foot of their own piece
-           and run to the base at its top; sides turned to the light a little
-           lighter (--sun)
+  facing   each face first gets a tone by the way it points: up lightest
+           (--up), down darkest (--down), sides in the middle (--side), faces
+           tilted between these in between
+  height   that tone is nudged by height in the model: darker near the
+           bottom, lighter near the top (--height, the full spread)
+  sides    on sides only, the nudged tone is the middle of a gradient over
+           its own piece, dark at the foot to light at the head (--side-fade);
+           sides turned to the light a little lighter (--sun)
   cover    corners under overhangs and in recesses darker (--cover), seen from
            a sky that weighs up more than sideways
   shadow   walls are cut along the line where a shadow from a ledge, collar,
            hood or eave above ends, lit from in front at --sun-angle degrees;
-           the part in shadow is darker by --shadow, so the shadow has an edge.
+           the shadow is darkest (--shadow) right under the overhang and fades
+           out to nothing where it ends.
            Cuts are shared over each wall plane, so its triangles line up
 
 Options (defaults are the values set for the masonry-mid smooth-detail group):
   --bands <a,b>        bands to shade, default taupe,taupe-dark
-  --ground <t>         0.58     --crown <t>       0.32
-  --top-lift <t>       0.22     --under-drop <t>  0.25
-  --side-foot <t>      0.62     --sun <t>         0.04
+  --up <t>             0.15     --side <t>        0.45     --down <t>  0.80
+  --height <t>         0.26     --side-fade <t>   0.20     --sun <t>   0.04
   --cover <t>          0.25     --reach <f>       0.15 of the model size
   --shadow <t>         0.18     --sun-angle <deg> 55
+  --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
+                       keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
   --min <t> --max <t>  0.03 0.97
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
@@ -37,7 +42,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', ground: 0.58, crown: 0.32, topLift: 0.22, underDrop: 0.25, sideFoot: 0.62, sun: 0.04, cover: 0.25, reach: 0.15, shadow: 0.18, sunAngle: 55, keepMean: 0, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.15, shadow: 0.18, sunAngle: 55, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -267,15 +272,26 @@ function shade(file) {
       }
       item.tris = tris;
     }
+    const ext = new Map();
+    for (const item of items) for (const t of item.tris) {
+      if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
+      const P = t.c.map((v) => item.verts[v].wp);
+      const k = planeKey(t.n, P[0]);
+      const e = ext.get(k) ?? [Infinity, -Infinity];
+      for (const q2 of P) { e[0] = Math.min(e[0], q2[1]); e[1] = Math.max(e[1], q2[1]); }
+      ext.set(k, e);
+    }
     for (const item of items) for (const t of item.tris) {
       if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
       const P = t.c.map((v) => item.verts[v].wp);
       const pk0 = planeKey(t.n, P[0]);
       if (!reliable.get(pk0)) continue;
       const cuts = cutsOf.get(pk0);
+      const [elo, ehi] = ext.get(pk0);
       if (cuts) {
         const cy = (P[0][1] + P[1][1] + P[2][1]) / 3;
-        t.shadow = cuts.some((c) => cy > c);
+        const below = cuts.filter((c) => cy > c);
+        if (below.length) { t.shadow = true; t.fade = [Math.max(...below), ehi]; }
         continue;
       }
       let hits = 0;
@@ -283,6 +299,7 @@ function shade(file) {
         if (blocked([0, 1, 2].map((k) => P[0][k] * x + P[1][k] * u + P[2][k] * w), t.n)) hits++;
       }
       t.shadow = hits >= 3;
+      if (t.shadow) t.fade = [elo, ehi];
     }
   }
 
@@ -307,17 +324,23 @@ function shade(file) {
     const sp = span.get(find(i));
     const centre = centreOf(item, t);
     const ny = t.n[1];
-    t.tones = t.c.map((v) => {
+    t.f = t.c.map((v) => {
       const p = item.verts[v].wp;
-      const base = opt.ground + (opt.crown - opt.ground) * (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
-      const hp = (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1);
       const tiny = sp[1] - sp[0] < size * 0.04;
-      const side = tiny ? base : opt.sideFoot + (base - opt.sideFoot) * hp;
-      const top = base - opt.topLift, under = Math.max(base + opt.underDrop, opt.sideFoot);
-      let tone = ny >= 0 ? side + (top - side) * ny : side + (under - side) * -ny;
-      tone -= opt.sun * (1 - Math.abs(ny)) * dot(norm([t.n[0], 0, t.n[2]]), SUN);
-      if (!tiny) tone += opt.cover * coverAt(p, t.n, centre);
-      if (t.shadow && !tiny) tone += opt.shadow;
+      const short = sp[1] - sp[0] < (hi[1] - lo[1]) * opt.shortPiece;
+      const hn = (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
+      const hp = (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1);
+      const sunT = (1 - Math.abs(ny)) * dot(norm([t.n[0], 0, t.n[2]]), SUN);
+      const cov = tiny ? 0 : coverAt(p, t.n, centre);
+      const shf = t.shadow && !tiny ? (t.fade ? Math.max(0, Math.min(1, (p[1] - t.fade[0]) / ((t.fade[1] - t.fade[0]) || 1))) : 1) : 0;
+      return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
+    });
+    t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
+      let tone = ny2 >= 0 ? opt.side + (opt.up - opt.side) * ny2 : opt.side + (opt.down - opt.side) * -ny2;
+      tone += opt.height * (0.5 - hn);
+      tone += sides * opt.sideFade * (1 - Math.abs(ny2)) * (0.5 - hp);
+      tone -= opt.sun * sunT;
+      tone += opt.cover * cov + opt.shadow * shf;
       return Math.max(opt.min, Math.min(opt.max, tone));
     });
   });
@@ -331,6 +354,36 @@ function shade(file) {
     }
     const shift = (was - now) / (area || 1);
     for (const { t } of stone) t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
+  }
+
+  if (opt.dump) {
+    const r = (x) => Math.round(x * 1e4) / 1e4;
+    const out = { pos: [], nrm: [], uv: [], f: [], was: [], area: [] };
+    for (const item of items) {
+      const nA = item.attrs.find((a) => a.name === 'NORMAL'), uA = item.attrs.find((a) => a.name === 'TEXCOORD_0');
+      const m = item.matrix;
+      for (const t of item.tris) {
+        const P = t.c.map((v) => item.verts[v].wp);
+        const ar = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0]))) / 2;
+        if (t.stone) { out.was.push(r(t.was)); out.area.push(r(ar)); }
+        t.c.forEach((v, k) => {
+          const vert = item.verts[v];
+          out.pos.push(...vert.wp.map(r));
+          let n = nA ? [0, 1, 2].map((j) => vert.mix.reduce((s2, [src, w]) => s2 + nA.data[src * 3 + j] * w, 0)) : t.n;
+          n = norm([0, 1, 2].map((rr) => m[rr] * n[0] + m[4 + rr] * n[1] + m[8 + rr] * n[2]));
+          out.nrm.push(...n.map((x) => Math.round(x * 1e3) / 1e3));
+          if (t.stone) {
+            const [cu, cv] = t.cell.split(',').map(Number);
+            out.uv.push((cu + 0.5) / 16, -1 - cv);
+            out.f.push(...t.f[k].map(r));
+          } else out.uv.push(...[0, 1].map((j) => r(vert.mix.reduce((s2, [src, w]) => s2 + uA.data[src * 2 + j] * w, 0))));
+        });
+      }
+    }
+    out.keepMean = !!opt.keepMean;
+    mkdirSync(opt.dump, { recursive: true });
+    writeFileSync(resolve(opt.dump, basename(dirname(file)) + '__' + basename(file, '.glb') + '.json'), JSON.stringify(out));
+    return { corners: out.f.length / 7, tris: out.pos.length / 9 };
   }
 
   const replaced = new Map();
