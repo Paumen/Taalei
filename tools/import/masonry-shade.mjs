@@ -36,6 +36,7 @@ Options (defaults are the values set for the masonry-mid smooth-detail group):
   --shallow <f>        0.3: enclosure below this counts as none; walls look
                        only sideways, overhangs above are the shadow's job
   --shadow <t>         0.18     --shadow-len <f>  3
+  --shadow-cap <f>     0.25: a shadow covers at most this share of the wall below it
   --shadow-reach <f>   0.4 of the model size, how far up an overhang is looked for
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
@@ -48,7 +49,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadow: 0.18, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.18, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -182,24 +183,26 @@ function shade(file) {
     const under = (p, n) => {
       const h = cast.dist(p.map((x, j) => x + n[j] * size * 0.004), UP, size * 0.002, size * opt.shadowReach);
       if (h === Infinity) return null;
-      let depth = 0;
+      let depth = 0, tipH = h;
       for (const o of [0.01, 0.02, 0.035, 0.05, 0.075, 0.1, 0.15]) {
         const ho = cast.dist(p.map((x, j) => x + n[j] * size * o), UP, size * 0.002, size * opt.shadowReach);
-        if (ho !== Infinity && ho < h + size * 0.02) depth = o; else break;
+        if (ho !== Infinity && ho < h + size * 0.02) { depth = o; tipH = ho; } else break;
       }
       if (!depth) return null;
       const top = p[1] + h;
-      const o = p.map((x, j) => x + n[j] * size * 0.004);
-      o[1] = top + size * 0.003;
+      const o = p.map((x, j) => x + n[j] * size * depth * 0.9);
+      o[1] = p[1] + tipH + size * 0.003;
       const thick = cast.dist(o, UP, size * 0.001, size * opt.shadowReach);
       const rim = Math.min(depth * size, thick === Infinity ? depth * size : thick + size * 0.003);
       return { top, len: rim * opt.shadowLen };
     };
     const found = new Map();
+    const bottom = new Map();
     for (const item of items) for (const t of item.tris) {
       if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
       const P = t.c.map((v) => item.verts[v].wp);
       const k = planeKey(t.n, P[0]);
+      bottom.set(k, Math.min(bottom.get(k) ?? Infinity, ...P.map((q) => q[1])));
       for (const [x, u, w] of [[1 / 3, 1 / 3, 1 / 3], [0.7, 0.15, 0.15], [0.15, 0.7, 0.15], [0.15, 0.15, 0.7]]) {
         const r = under([0, 1, 2].map((j) => P[0][j] * x + P[1][j] * u + P[2][j] * w), t.n);
         if (!r) continue;
@@ -211,7 +214,8 @@ function shade(file) {
     const shade = new Map();
     const cutsOf = new Map();
     for (const [k, list] of found) {
-      const top = med(list.map((r) => r.top)), len = med(list.map((r) => r.len));
+      const top = med(list.map((r) => r.top));
+      const len = Math.min(med(list.map((r) => r.len)), (top - bottom.get(k)) * opt.shadowCap);
       shade.set(k, { top, cut: top - len });
       cutsOf.set(k, [top - len]);
     }
