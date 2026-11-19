@@ -27,7 +27,7 @@ Options (defaults are the values set for the masonry-mid smooth-detail group):
   --top-lift <t>       0.22     --under-drop <t>  0.25
   --side-foot <t>      0.62     --sun <t>         0.04
   --cover <t>          0.25     --reach <f>       0.15 of the model size
-  --shadow <t>         0        --sun-angle <deg> 55
+  --shadow <t>         0.18     --sun-angle <deg> 55
   --min <t> --max <t>  0.03 0.97
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
 
@@ -36,7 +36,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', ground: 0.58, crown: 0.32, topLift: 0.22, underDrop: 0.25, sideFoot: 0.62, sun: 0.04, cover: 0.25, reach: 0.15, shadow: 0, sunAngle: 55, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', ground: 0.58, crown: 0.32, topLift: 0.22, underDrop: 0.25, sideFoot: 0.62, sun: 0.04, cover: 0.25, reach: 0.15, shadow: 0.18, sunAngle: 55, min: 0.03, max: 0.97, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
