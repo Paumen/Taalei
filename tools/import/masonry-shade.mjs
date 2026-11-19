@@ -18,8 +18,10 @@ a tone in its band (0 light, 1 dark):
            its own piece, dark at the foot to light at the head (--side-fade);
            sides turned to the light a little lighter (--sun)
   recess   a flat face sitting in a recess goes darker as a whole (--cover):
-           from points just in front of it (--depth), rays along the face
-           look for walls on both opposite sides within --reach
+           rays along the face look for walls on both opposite sides, at
+           growing distances in front of it; how deep it stays enclosed,
+           against how wide the opening is (--ratio), sets how dark, so a
+           shallow rim around a big wall barely counts
   shadow   walls are cut along the line where a shadow from a ledge, collar,
            hood or eave above ends, lit from in front at --sun-angle degrees;
            the shadow is darkest (--shadow) right under the overhang and fades
@@ -30,8 +32,8 @@ Options (defaults are the values set for the masonry-mid smooth-detail group):
   --bands <a,b>        bands to shade, default taupe,taupe-dark
   --up <t>             0.15     --side <t>        0.45     --down <t>  0.80
   --height <t>         0.26     --side-fade <t>   0.20     --sun <t>   0.04
-  --cover <t>          0.25     --reach <f>       0.25 of the model size
-  --depth <f>          0.03 of the model size in front of the face
+  --cover <t>          0.25     --reach <f>       0.3 of the model size
+  --ratio <f>          3: darkness grows with depth over width
   --shadow <t>         0.18     --sun-angle <deg> 40 (lower: longer shadows)
   --shadow-reach <f>   0.4 of the model size
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
@@ -45,7 +47,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.25, depth: 0.03, shadowReach: 0.4, shadow: 0.18, sunAngle: 40, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0.15, side: 0.45, down: 0.80, height: 0.26, sideFade: 0.20, sun: 0.04, cover: 0.25, reach: 0.3, ratio: 3, shadowReach: 0.4, shadow: 0.18, sunAngle: 40, keepMean: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 0.97, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -98,19 +100,24 @@ function grid(tris, size) {
       map.get(k).push(ti);
     }
   });
-  return (o, d, near, far) => {
+  const dist = (o, d, near, far) => {
     const seen = new Set();
+    let best = Infinity;
     for (let s = 0; s <= far + cell; s += cell * 0.5) {
+      if (s > best + cell) break;
       const k = [0, 1, 2].map((j) => Math.floor((o[j] + d[j] * s) / cell)).join(',');
       for (const ti of map.get(k) ?? []) {
         if (seen.has(ti)) continue;
         seen.add(ti);
         const t = hit(o, d, tris[ti]);
-        if (t > near && t < far) return true;
+        if (t > near && t < far && t < best) best = t;
       }
     }
-    return false;
+    return best;
   };
+  const cast = (o, d, near, far) => dist(o, d, near, far) < Infinity;
+  cast.dist = dist;
+  return cast;
 }
 
 const DIRS = Array.from({ length: 48 }, (_, i) => {
@@ -331,14 +338,21 @@ function shade(file) {
       const dirs = [0, 1, 2, 3].map((k) => { const an = k * Math.PI / 4; return [0, 1, 2].map((j) => u[j] * Math.cos(an) + w[j] * Math.sin(an)); });
       const step = Math.max(1, Math.floor(list.length / 24));
       let sum = 0, cnt = 0;
+      const ext = Math.max(...[0, 1, 2].map((j) => Math.max(...list.map((q) => q[j])) - Math.min(...list.map((q) => q[j]))));
       for (let li = 0; li < list.length; li += step) {
-        const q = list[li].map((x, j) => x + n[j] * size * opt.depth);
-        let pairs = 0;
+        let best = 0;
         for (const d of dirs) {
           const neg = d.map((x) => -x);
-          if (cast(q, d, size * 0.002, size * opt.reach) && cast(q, neg, size * 0.002, size * opt.reach)) pairs++;
+          let deep = 0, width = Infinity;
+          for (const f of [0.01, 0.03, 0.06, 0.1, 0.15, 0.22]) {
+            const q = list[li].map((x, j) => x + n[j] * size * f);
+            const a1 = cast.dist(q, d, size * 0.002, size * opt.reach), a2 = cast.dist(q, neg, size * 0.002, size * opt.reach);
+            if (a1 === Infinity || a2 === Infinity) break;
+            deep = f * size; width = Math.min(width, a1 + a2);
+          }
+          if (deep) best += Math.min(1, opt.ratio * deep / Math.max(width, ext * 1.25)) / dirs.length;
         }
-        sum += pairs / dirs.length; cnt++;
+        sum += best; cnt++;
       }
       recess.set(r, cnt ? sum / cnt : 0);
     }
