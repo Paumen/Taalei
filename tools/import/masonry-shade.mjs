@@ -173,6 +173,45 @@ function shade(file) {
   const size = Math.max(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]);
   const q = size * 1e-4;
   const pk = (p) => p.map((x) => Math.round(x / q)).join(',');
+  const facesOf = (list) => {
+    const info = list.map(({ item, t }) => {
+      const P = t.c.map((v) => item.verts[v].wp);
+      return { n: t.n, d: dot(t.n, P[0]), lo: [0, 1, 2].map((j) => Math.min(...P.map((x) => x[j]))), hi: [0, 1, 2].map((j) => Math.max(...P.map((x) => x[j]))) };
+    });
+    const fr = list.map((_, i) => i);
+    const ff = (i) => { while (fr[i] !== i) i = fr[i] = fr[fr[i]]; return i; };
+    const eps = size * 0.002;
+    const byVert = new Map();
+    list.forEach(({ item, t }, i) => {
+      if (!byVert.has(item)) byVert.set(item, new Map());
+      const bv = byVert.get(item);
+      for (const v of t.c) if (bv.has(v)) fr[ff(i)] = ff(bv.get(v)); else bv.set(v, i);
+    });
+    const byEdge = new Map();
+    list.forEach(({ item, t }, i) => {
+      const ks = t.c.map((v) => pk(item.verts[v].wp));
+      for (let k = 0; k < 3; k++) {
+        const e = [ks[k], ks[(k + 1) % 3]].sort().join('|');
+        const o = byEdge.get(e);
+        if (o === undefined) byEdge.set(e, i); else if (dot(list[o].t.n, t.n) > 0.995) fr[ff(i)] = ff(o);
+      }
+    });
+    const cellOf = (x) => Math.floor(x / (size * 0.05));
+    const grid2 = new Map();
+    info.forEach((f, i) => {
+      for (let x = cellOf(f.lo[0] - eps); x <= cellOf(f.hi[0] + eps); x++) for (let y = cellOf(f.lo[1] - eps); y <= cellOf(f.hi[1] + eps); y++) for (let z = cellOf(f.lo[2] - eps); z <= cellOf(f.hi[2] + eps); z++) {
+        const k = x + ',' + y + ',' + z;
+        if (!grid2.has(k)) grid2.set(k, []);
+        grid2.get(k).push(i);
+      }
+    });
+    for (const cell of grid2.values()) for (let a = 0; a < cell.length; a++) for (let b = a + 1; b < cell.length; b++) {
+      const A = info[cell[a]], B = info[cell[b]];
+      if (dot(A.n, B.n) < 0.995 || Math.abs(A.d - B.d) > eps) continue;
+      if ([0, 1, 2].every((j) => A.lo[j] <= B.hi[j] + eps && B.lo[j] <= A.hi[j] + eps)) fr[ff(cell[a])] = ff(cell[b]);
+    }
+    return list.map((_, i) => ff(i));
+  };
   const cast = opt.cover > 0 || opt.shadow > 0 ? grid(all, size) : null;
 
 
@@ -180,7 +219,6 @@ function shade(file) {
 
   if (opt.shadow > 0) {
     const UP = [0, 1, 0];
-    const planeKey = (n, p) => n.map((x) => Math.round(x * 50)).join(',') + '|' + Math.round(dot(n, p) / (size * 1e-3));
     const under = (p, n) => {
       const h = cast.dist(p.map((x, j) => x + n[j] * size * 0.004), UP, size * 0.002, size * opt.shadowReach);
       if (h === Infinity) return null;
@@ -199,10 +237,12 @@ function shade(file) {
     };
     const found = new Map();
     const bottom = new Map();
-    for (const item of items) for (const t of item.tris) {
-      if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
+    const walls0 = [];
+    for (const item of items) for (const t of item.tris) if (t.stone && Math.abs(t.n[1]) <= 0.3) walls0.push({ item, t });
+    facesOf(walls0).forEach((g, i) => { walls0[i].t.sg = g; });
+    for (const { item, t } of walls0) {
       const P = t.c.map((v) => item.verts[v].wp);
-      const k = planeKey(t.n, P[0]);
+      const k = t.sg;
       bottom.set(k, Math.min(bottom.get(k) ?? Infinity, ...P.map((q) => q[1])));
       for (const [x, u, w] of [[1 / 3, 1 / 3, 1 / 3], [0.7, 0.15, 0.15], [0.15, 0.7, 0.15], [0.15, 0.15, 0.7]]) {
         const r = under([0, 1, 2].map((j) => P[0][j] * x + P[1][j] * u + P[2][j] * w), t.n);
@@ -238,7 +278,7 @@ function shade(file) {
         return mids.get(k);
       };
       let tris = item.tris;
-      const keyOf = (t) => planeKey(t.n, item.verts[t.c[0]].wp);
+      const keyOf = (t) => t.sg;
       const allCuts = new Set();
       for (const t of tris) if (t.stone && Math.abs(t.n[1]) <= 0.3) for (const y of cutsOf.get(keyOf(t)) ?? []) allCuts.add(y);
       for (const y of allCuts) {
@@ -258,16 +298,28 @@ function shade(file) {
       }
       item.tris = tris;
     }
-    for (const item of items) for (const t of item.tris) {
-      if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
+    const walls = [];
+    for (const item of items) for (const t of item.tris) if (t.stone && Math.abs(t.n[1]) <= 0.3) walls.push({ item, t });
+    const wf = walls.map(({ t }) => t.sg);
+    const votes = new Map();
+    walls.forEach(({ item, t }, i) => {
       const P = t.c.map((v) => item.verts[v].wp);
-      const sh = shade.get(planeKey(t.n, P[0]));
-      if (!sh) continue;
+      const sh = shade.get(t.sg);
+      if (!sh) return;
       const c = [0, 1, 2].map((j) => (P[0][j] + P[1][j] + P[2][j]) / 3);
       const r = under(c, t.n);
-      if (!r || Math.abs(r.top - sh.top) > size * 0.005) continue;
-      if (c[1] > sh.cut) { t.shadow = true; t.fade = [sh.cut, sh.top]; }
-    }
+      const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0])));
+      const v = votes.get(wf[i]) ?? [0, 0];
+      v[r && Math.abs(r.top - sh.top) <= size * 0.005 ? 0 : 1] += a;
+      votes.set(wf[i], v);
+    });
+    walls.forEach(({ item, t }, i) => {
+      const v = votes.get(wf[i]);
+      if (!v || v[0] < v[1]) return;
+      const P = t.c.map((x) => item.verts[x].wp);
+      const sh = shade.get(t.sg);
+      if ((P[0][1] + P[1][1] + P[2][1]) / 3 > sh.cut) { t.shadow = true; t.fade = [sh.cut, sh.top]; }
+    });
   }
 
   const stone = [];
@@ -279,6 +331,9 @@ function shade(file) {
     const k = pk(item.verts[v].wp);
     if (at.has(k)) root[find(i)] = find(at.get(k)); else at.set(k, i);
   }));
+  const sf = facesOf(stone);
+  const faceFirst = new Map();
+  sf.forEach((f, i) => { if (faceFirst.has(f)) root[find(i)] = find(faceFirst.get(f)); else faceFirst.set(f, i); });
   const span = new Map();
   stone.forEach(({ item, t }, i) => {
     const r = find(i);
@@ -296,6 +351,7 @@ function shade(file) {
       const k = pk(item.verts[v].wp) + '|' + t.n.map((x) => Math.round(x * 100)).join(',');
       if (vat.has(k)) gr[gf(i)] = gf(vat.get(k)); else vat.set(k, i);
     }));
+    sf.forEach((f, i) => { gr[gf(i)] = gf(faceFirst.get(f)); });
     const pts = new Map();
     stone.forEach(({ item, t }, i) => {
       const r = gf(i);
@@ -333,17 +389,34 @@ function shade(file) {
     stone.forEach((e, i) => { e.t.recess = recess.get(gf(i)) ?? 0; });
   }
 
+  const o0 = (m) => apply(m, [0, 0, 0]);
+  const smooth = new Map();
+  if (!opt.flat) for (const { item, t } of stone) {
+    const nA = item.attrs.find((a) => a.name === 'NORMAL');
+    if (!nA) continue;
+    if (!smooth.has(item)) smooth.set(item, new Map());
+    const sm = smooth.get(item), z = o0(item.matrix);
+    for (const v of t.c) {
+      const ln = [0, 1, 2].map((k) => item.verts[v].mix.reduce((s2, [src, wt]) => s2 + nA.data[src * 3 + k] * wt, 0));
+      const wn = norm(apply(item.matrix, ln).map((x, k) => x - z[k]));
+      const ok = dot(wn, t.n) > Math.cos(Math.PI * 1 / 6);
+      const was = sm.get(v);
+      sm.set(v, was === undefined ? (ok ? wn : null) : (ok && was ? was : null));
+    }
+  }
   stone.forEach(({ item, t }, i) => {
     const sp = span.get(find(i));
     const centre = centreOf(item, t);
-    const ny = t.n[1];
+    const sm = smooth.get(item);
     t.f = t.c.map((v) => {
       const p = item.verts[v].wp;
+      const vn = sm?.get(v) ?? t.n;
+      const ny = vn[1];
       const tiny = sp[1] - sp[0] < size * 0.04;
       const short = sp[1] - sp[0] < (hi[1] - lo[1]) * opt.shortPiece;
       const hn = (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
       const hp = (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1);
-      const sunT = (1 - Math.abs(ny)) * dot(norm([t.n[0], 0, t.n[2]]), SUN);
+      const sunT = (1 - Math.abs(ny)) * dot(norm([vn[0], 0, vn[2]]), SUN);
       const cov = tiny ? 0 : t.recess ?? 0;
       const shf = t.shadow && !tiny ? (t.fade ? Math.max(0, Math.min(1, (p[1] - t.fade[0]) / ((t.fade[1] - t.fade[0]) || 1))) : 1) : 0;
       return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
