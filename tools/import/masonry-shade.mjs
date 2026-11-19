@@ -28,6 +28,7 @@ Options (defaults are the values set for the masonry-mid smooth-detail group):
   --side-foot <t>      0.62     --sun <t>         0.04
   --cover <t>          0.25     --reach <f>       0.15 of the model size
   --shadow <t>         0.18     --sun-angle <deg> 55
+  --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
   --min <t> --max <t>  0.03 0.97
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
 
@@ -36,7 +37,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', ground: 0.58, crown: 0.32, topLift: 0.22, underDrop: 0.25, sideFoot: 0.62, sun: 0.04, cover: 0.25, reach: 0.15, shadow: 0.18, sunAngle: 55, min: 0.03, max: 0.97, out: null };
+const opt = { bands: 'taupe,taupe-dark', ground: 0.58, crown: 0.32, topLift: 0.22, underDrop: 0.25, sideFoot: 0.62, sun: 0.04, cover: 0.25, reach: 0.15, shadow: 0.18, sunAngle: 55, keepMean: 0, min: 0.03, max: 0.97, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -145,7 +146,7 @@ function shade(file) {
       const n = norm(cross(sub(P[1], P[0]), sub(P[2], P[0])));
       const mu = (uv[c[0] * 2] + uv[c[1] * 2] + uv[c[2] * 2]) / 3, mv = (uv[c[0] * 2 + 1] + uv[c[1] * 2 + 1] + uv[c[2] * 2 + 1]) / 3;
       const cell = `${Math.floor(mu * 16)},${Math.floor(mv * 4)}`;
-      item.tris.push({ c, n, cell, stone: bandCells.has(cell) });
+      item.tris.push({ c, n, cell, stone: bandCells.has(cell), was: mv * 4 - Math.floor(mv * 4) });
       all.push(P);
     }
   }
@@ -210,7 +211,7 @@ function shade(file) {
     const centres = [];
     for (const y of everyY) {
       const g = centres[centres.length - 1];
-      if (g && y - g[g.length - 1] < size / 60) g.push(y); else centres.push([y]);
+      if (g && y - g[g.length - 1] < size / 30) g.push(y); else centres.push([y]);
     }
     const snapped = centres.map((g) => g.reduce((s2, y) => s2 + y, 0) / g.length);
     const snap = (y) => snapped.reduce((b, c) => (Math.abs(c - y) < Math.abs(b - y) ? c : b), snapped[0]);
@@ -269,7 +270,14 @@ function shade(file) {
     for (const item of items) for (const t of item.tris) {
       if (!t.stone || Math.abs(t.n[1]) > 0.3) continue;
       const P = t.c.map((v) => item.verts[v].wp);
-      if (!reliable.get(planeKey(t.n, P[0]))) continue;
+      const pk0 = planeKey(t.n, P[0]);
+      if (!reliable.get(pk0)) continue;
+      const cuts = cutsOf.get(pk0);
+      if (cuts) {
+        const cy = (P[0][1] + P[1][1] + P[2][1]) / 3;
+        t.shadow = cuts.some((c) => cy > c);
+        continue;
+      }
       let hits = 0;
       for (const [x, u, w] of [[0.6, 0.2, 0.2], [0.2, 0.6, 0.2], [0.2, 0.2, 0.6], [1 / 3, 1 / 3, 1 / 3]]) {
         if (blocked([0, 1, 2].map((k) => P[0][k] * x + P[1][k] * u + P[2][k] * w), t.n)) hits++;
@@ -303,15 +311,27 @@ function shade(file) {
       const p = item.verts[v].wp;
       const base = opt.ground + (opt.crown - opt.ground) * (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
       const hp = (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1);
-      const side = opt.sideFoot + (base - opt.sideFoot) * hp;
+      const tiny = sp[1] - sp[0] < size * 0.04;
+      const side = tiny ? base : opt.sideFoot + (base - opt.sideFoot) * hp;
       const top = base - opt.topLift, under = Math.max(base + opt.underDrop, opt.sideFoot);
       let tone = ny >= 0 ? side + (top - side) * ny : side + (under - side) * -ny;
       tone -= opt.sun * (1 - Math.abs(ny)) * dot(norm([t.n[0], 0, t.n[2]]), SUN);
-      tone += opt.cover * coverAt(p, t.n, centre);
-      if (t.shadow) tone += opt.shadow;
+      if (!tiny) tone += opt.cover * coverAt(p, t.n, centre);
+      if (t.shadow && !tiny) tone += opt.shadow;
       return Math.max(opt.min, Math.min(opt.max, tone));
     });
   });
+
+  if (opt.keepMean) {
+    let was = 0, now = 0, area = 0;
+    for (const { item, t } of stone) {
+      const P = t.c.map((v) => item.verts[v].wp);
+      const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0]))) / 2;
+      was += a * t.was; now += a * (t.tones[0] + t.tones[1] + t.tones[2]) / 3; area += a;
+    }
+    const shift = (was - now) / (area || 1);
+    for (const { t } of stone) t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
+  }
 
   const replaced = new Map();
   let corners = 0;
