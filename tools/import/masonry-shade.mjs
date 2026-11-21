@@ -57,6 +57,8 @@ retune there, the saved values are in its db collection knobs, doc current):
                        by the masonry shading, heights taken within the brick,
                        each brick darker at random by up to --brick-tones
   --brick-tones <t>    0
+  --brick-width <t>    0: with none, each brick's shading squeezed into a slice this
+                       wide, placed at random over --min-band..--max-band
   --brick-grad <f>     1: share of the gradient, 0 for one flat tone per brick
   --min-band <t>       0.06     --max-band <t>    0.94
   --brick-debug 1      write each brick in a loud colour instead of its tone;
@@ -71,7 +73,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickWidth: 0, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -528,6 +530,7 @@ function shade(file) {
       tone += sides * opt.sideFade * (1 - Math.abs(ny2)) * (0.5 - hp);
       tone -= opt.sun * sunT;
       tone += opt.cover * cov + opt.shadow * shf;
+      if (bi && opt.brickWidth) return opt.minBand + bi.tone * (opt.maxBand - opt.minBand - opt.brickWidth) + Math.max(0, Math.min(1, tone)) * opt.brickWidth;
       if (bi) tone += bi.tone * opt.brickTones;
       return Math.max(opt.min, Math.min(opt.max, tone));
     });
