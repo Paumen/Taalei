@@ -474,12 +474,20 @@ function shade(file) {
       const P = t.c.map((v) => item.verts[v].wp);
       for (const q of P) for (let j = 0; j < 3; j++) { bi.lo[j] = Math.min(bi.lo[j], q[j]); bi.hi[j] = Math.max(bi.hi[j], q[j]); }
       bi.span = [bi.lo[1], bi.hi[1]];
-      if (Math.abs(t.n[1]) > 0.5) return;
       const k = t.n.map((x) => Math.round(x * 10)).join(',');
       const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0])));
+      bi.faces = bi.faces ?? new Map();
+      bi.faces.set(k, (bi.faces.get(k) ?? 0) + a);
+      t.fkey = k;
+      if (Math.abs(t.n[1]) > 0.5) return;
       const e = bi.sides.get(k) ?? { n: t.n, a: 0 };
       e.a += a;
       bi.sides.set(k, e);
+    });
+    stone.forEach(({ t }, i) => {
+      const bi = brickInfo.get(brickOf.get(i));
+      t.brick = bi.n;
+      t.fa = bi.faces.get(t.fkey) / Math.max(...bi.faces.values());
     });
     const cell = size * 0.35;
     const hash = (x, y, z) => { let h = (x * 374761393 + y * 668265263 + z * 2147483647 + seed) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 2 ** 32; };
@@ -577,7 +585,7 @@ function shade(file) {
 
   if (opt.dump) {
     const r = (x) => Math.round(x * 1e4) / 1e4;
-    const out = { pos: [], nrm: [], uv: [], f: [], was: [], area: [] };
+    const out = { pos: [], nrm: [], uv: [], f: [], b: [], was: [], area: [] };
     for (const item of items) {
       const nA = item.attrs.find((a) => a.name === 'NORMAL'), uA = item.attrs.find((a) => a.name === 'TEXCOORD_0');
       const m = item.matrix;
@@ -595,6 +603,7 @@ function shade(file) {
             const [cu, cv] = t.cell.split(',').map(Number);
             out.uv.push((cu + 0.5) / 16, -1 - cv);
             out.f.push(...t.f[k].map(r));
+            if (t.brick !== undefined) out.b.push(t.brick, r(t.fa));
           } else out.uv.push(...[0, 1].map((j) => r(vert.mix.reduce((s2, [src, w]) => s2 + uA.data[src * 2 + j] * w, 0))));
         });
       }
