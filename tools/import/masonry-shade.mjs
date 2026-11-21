@@ -53,7 +53,8 @@ retune there, the saved values are in its db collection knobs, doc current):
                        faces take its darkest value. Sides --brick-side darker
                        than tops, undersides twice that. No other shading
   --brick-fold <deg>   5        --brick-gap <t>   0.02      --brick-side <t>  0.03
-  --brick-pick <m>     wash, random or few (wash)
+  --brick-pick <m>     wash, random or few (wash); none: every brick shaded alone
+                       by the masonry shading, heights taken within the brick
   --brick-grad <f>     1: share of the gradient, 0 for one flat tone per brick
   --min-band <t>       0.06     --max-band <t>    0.94
   --brick-debug 1      write each brick in a loud colour instead of its tone;
@@ -506,15 +507,15 @@ function shade(file) {
       const ny = vn[1];
       const tiny = sp[1] - sp[0] < size * 0.04;
       const short = sp[1] - sp[0] < (hi[1] - lo[1]) * opt.shortPiece;
-      const hn = (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
+      const hn = bi && opt.brickPick === 'none' ? (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1) : (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
       const hp = (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1);
       const sunT = (1 - Math.abs(ny)) * dot(norm([vn[0], 0, vn[2]]), SUN);
       const cov = tiny ? 0 : t.recess ?? 0;
       const shf = t.shadow && !tiny ? (t.fade ? Math.max(0, Math.min(1, (p[1] - t.fade[0]) / ((t.fade[1] - t.fade[0]) || 1))) : 1) : 0;
-      return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
+      return [ny, hn, hp, bi ? 1 : tiny || short ? 0 : 1, sunT, cov, shf];
     });
     t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
-      if (bi) {
+      if (bi && opt.brickPick !== 'none') {
         const g = ((opt.maxBand - opt.minBand) / 6 - opt.brickGap) * opt.brickGrad;
         const mid = opt.minBand + (opt.maxBand - opt.minBand) * bi.tone;
         const face = ny2 < -0.5 ? 2 * opt.brickSide : ny2 > 0.5 ? 0 : opt.brickSide;
