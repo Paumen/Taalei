@@ -61,7 +61,7 @@ retune there, the saved values are in its db collection knobs, doc current):
                        one stone, shuffled, each used about equally: sides run from
                        foot to head, faces up take top, faces down bottom. In OKLCH
                        lightness, added on top: --stone-sun (sides to the sun
-                       lighter), --stone-seam (small faces darker), --stone-height
+                       lighter), --stone-seam (small faces darker, not tops), --stone-height
                        (darker toward the model's foot), --stone-recess and
                        --stone-shadow (need --cover and --shadow above 0)
   --stone-tilt <f>     0.5: how far up or down a face points to take top or bottom
@@ -546,7 +546,7 @@ function shade(file) {
         const toV = (l) => l / L_SPAN;
         let tone = ny2 > opt.stoneTilt ? top : ny2 < -opt.stoneTilt ? bottom : foot + (head - foot) * hp;
         tone += toV(-opt.stoneSun * sunT + opt.stoneHeight * (1 - hn) + opt.stoneRecess * cov + opt.stoneShadow * shf);
-        if (t.fa < 0.3) tone += toV(opt.stoneSeam);
+        if (t.fa < 0.3 && ny2 <= opt.stoneTilt) tone += toV(opt.stoneSeam);
         return Math.max(0.004, Math.min(0.996, tone));
       }
       if (bi && opt.brickPick !== 'none') {
