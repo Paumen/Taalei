@@ -68,7 +68,8 @@ retune there, the saved values are in its db collection knobs, doc current):
                        foot to head, faces up take top, faces down bottom. In OKLCH
                        lightness, added on top: --stone-sun (sides to the sun
                        lighter), --stone-seam (small faces at a brick's edge darker, not tops), --stone-height
-                       (darker toward the model's foot), --stone-recess and
+                       (darker toward the model's foot), --stone-recess (the brick's average
+                       recess, so the whole brick darkens) and
                        --stone-shadow (need --cover and --shadow above 0)
   --stone-tilt <f>     0.5: how far up or down a face points to take top or bottom
   --stone-dent <f>     0: faces up or down smaller than this share of the brick's largest
@@ -527,6 +528,13 @@ function shade(file) {
       e.a += a;
       bi.sides.set(k, e);
     });
+    stone.forEach(({ item, t }, i) => {
+      const bi = brickInfo.get(brickOf.get(i));
+      const P = t.c.map((v) => item.verts[v].wp);
+      const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0])));
+      bi.cov = (bi.cov ?? 0) + a * (t.recess ?? 0);
+      bi.area = (bi.area ?? 0) + a;
+    });
     stone.forEach(({ t }, i) => {
       const bi = brickInfo.get(brickOf.get(i));
       t.brick = bi.n;
@@ -579,7 +587,7 @@ function shade(file) {
         const toV = (l) => l / L_SPAN;
         const big = t.fa >= opt.stoneDent;
         let tone = big && ny2 > opt.stoneTilt ? top : big && ny2 < -opt.stoneTilt ? bottom : foot + (head - foot) * hp;
-        tone += toV(-opt.stoneSun * sunT + opt.stoneHeight * (1 - hn) + opt.stoneRecess * cov + opt.stoneShadow * shf);
+        tone += toV(-opt.stoneSun * sunT + opt.stoneHeight * (1 - hn) + opt.stoneRecess * bi.cov / (bi.area || 1) + opt.stoneShadow * shf);
         if (t.fa < 0.3 && edge && ny2 <= opt.stoneTilt) tone += toV(opt.stoneSeam);
         return Math.max(0.004, Math.min(0.996, tone));
       }
