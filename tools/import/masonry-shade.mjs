@@ -42,7 +42,6 @@ retune there, the saved values are in its db collection knobs, doc current):
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
-  --piece-mean 1       the same per piece, so stacked pieces keep their own tone from the source
   --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
@@ -52,7 +51,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, pieceMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -442,21 +441,15 @@ function shade(file) {
     });
   });
 
-  if (opt.keepMean || opt.pieceMean) {
-    const sums = new Map();
-    const groupOf = (i) => (opt.pieceMean ? find(i) : 0);
-    stone.forEach(({ item, t }, i) => {
+  if (opt.keepMean) {
+    let was = 0, now = 0, area = 0;
+    for (const { item, t } of stone) {
       const P = t.c.map((v) => item.verts[v].wp);
       const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0]))) / 2;
-      const s = sums.get(groupOf(i)) ?? { was: 0, now: 0, area: 0 };
-      s.was += a * t.was; s.now += a * (t.tones[0] + t.tones[1] + t.tones[2]) / 3; s.area += a;
-      sums.set(groupOf(i), s);
-    });
-    stone.forEach(({ t }, i) => {
-      const s = sums.get(groupOf(i));
-      const shift = (s.was - s.now) / (s.area || 1);
-      t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
-    });
+      was += a * t.was; now += a * (t.tones[0] + t.tones[1] + t.tones[2]) / 3; area += a;
+    }
+    const shift = (was - now) / (area || 1);
+    for (const { t } of stone) t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
   }
 
   if (!opt.flat) {
