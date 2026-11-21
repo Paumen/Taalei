@@ -42,14 +42,17 @@ retune there, the saved values are in its db collection knobs, doc current):
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
-  --bricks <t>         0: spread of the brick tones; each brick gets one of six
-                       tones from 0 to this, darker only, shuffled, seeded by file
-                       name, on top of the shading; on sides its own gradient
-                       (--brick-fade) replaces --side-fade, and side faces across
-                       its broad face are darker by --brick-edge. A brick is stone sharing edges whose old
-                       tones differ by at most --brick-join, so blocks painted on one
-                       panel stay apart
-  --brick-join <t>     0.08
+  --bricks 1           tone by brick instead, like planks: a brick is stone sharing
+                       corners with the same colour, or faces meeting at an outward
+                       fold of at least --brick-fold. Each brick gets one of six
+                       tone slots over --min-band..--max-band, shuffled, seeded by
+                       file name, --brick-gap apart so tones never overlap; within
+                       its slot a gradient from its foot (dark) to its head
+                       (light), full or half the slot by tone. Its end and bottom
+                       faces take its darkest value. Sides --brick-side darker
+                       than tops, undersides twice that. No other shading
+  --brick-fold <deg>   5        --brick-gap <t>   0.02      --brick-side <t>  0.03
+  --min-band <t>       0.06     --max-band <t>    0.94
   --brick-debug 1      write each brick in a loud colour instead of its tone
   --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
@@ -60,7 +63,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickFade: 0.35, brickEdge: 0.25, brickDebug: 0, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -453,7 +456,7 @@ function shade(file) {
     const ids = [...new Set(stone.map((_, i) => bf(i)))];
     let seed = [...basename(file)].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
     const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 2 ** 32; };
-    const levels = ids.map((_, i) => (i % 6) / 5);
+    const levels = ids.map((_, i) => i % 6);
     for (let i = levels.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [levels[i], levels[j]] = [levels[j], levels[i]]; }
     ids.forEach((r, n) => brickInfo.set(r, { n, level: levels[n], span: [Infinity, -Infinity], sides: new Map() }));
     stone.forEach(({ item, t }, i) => {
@@ -489,13 +492,19 @@ function shade(file) {
       const sunT = (1 - Math.abs(ny)) * dot(norm([vn[0], 0, vn[2]]), SUN);
       const cov = tiny ? 0 : t.recess ?? 0;
       const shf = t.shadow && !tiny ? (t.fade ? Math.max(0, Math.min(1, (p[1] - t.fade[0]) / ((t.fade[1] - t.fade[0]) || 1))) : 1) : 0;
-      return [ny, hn, hp, bi ? 1 : tiny || short ? 0 : 1, sunT, cov, shf];
+      return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
     });
     t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
+      if (bi) {
+        const slot = (opt.maxBand - opt.minBand) / 6;
+        const g = (slot - opt.brickGap) * [1, 0.5, 1, 1, 0.5, 1][bi.level];
+        const mid = opt.minBand + slot * (bi.level + 0.5);
+        const face = ny2 < -0.5 ? 2 * opt.brickSide : ny2 > 0.5 ? 0 : opt.brickSide;
+        return Math.max(opt.min, Math.min(opt.max, mid + (edge ? g / 2 : g * (0.5 - hp)) + face));
+      }
       let tone = ny2 >= 0 ? opt.side + (opt.up - opt.side) * ny2 : opt.side + (opt.down - opt.side) * Math.sqrt(-ny2);
       tone += ny2 < -0.1 ? opt.height * Math.max(0, 0.5 - hn) : opt.height * (0.5 - hn);
-      tone += sides * (bi ? opt.brickFade : opt.sideFade) * (1 - Math.abs(ny2)) * (0.5 - hp);
-      if (bi) tone += bi.level * opt.bricks + edge * opt.brickEdge;
+      tone += sides * opt.sideFade * (1 - Math.abs(ny2)) * (0.5 - hp);
       tone -= opt.sun * sunT;
       tone += opt.cover * cov + opt.shadow * shf;
       return Math.max(opt.min, Math.min(opt.max, tone));
