@@ -57,6 +57,9 @@ retune there, the saved values are in its db collection knobs, doc current):
                        by the masonry shading, heights taken within the brick,
                        each brick darker at random by up to --brick-tones
   --brick-tones <t>    0
+  --brick-stones <l>   foot:head:top:bottom,... band tones per stone; each brick takes
+                       one stone, shuffled, each used about equally: sides run from
+                       foot to head, faces up take top, faces down bottom
   --brick-width <t>    0: with none, each brick's shading squeezed into a slice this
                        wide, placed at random over --min-band..--max-band
   --brick-grad <f>     1: share of the gradient, 0 for one flat tone per brick
@@ -73,7 +76,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickWidth: 0, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickWidth: 0, brickStones: '', brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -84,6 +87,7 @@ for (let i = 0; i < args.length; i++) {
   } else files.push(a);
 }
 
+const stones = opt.brickStones ? opt.brickStones.split(',').map((q) => q.split(':').map(Number)) : [];
 const bandCells = new Set(opt.bands.split(',').map((b) => {
   if (!LANES[b]) throw new Error(`unknown band ${b}`);
   return LANES[b];
@@ -499,6 +503,8 @@ function shade(file) {
       for (const dx of [0, 1]) for (const dy of [0, 1]) for (const dz of [0, 1]) sum += hash(i0[0] + dx, i0[1] + dy, i0[2] + dz) * (dx ? f[0] : 1 - f[0]) * (dy ? f[1] : 1 - f[1]) * (dz ? f[2] : 1 - f[2]);
       return sum;
     };
+    const order = [...brickInfo.values()].map((bi) => [rnd(), bi]).sort((a, b) => a[0] - b[0]);
+    order.forEach(([, bi], i) => { bi.stone = stones.length ? i % stones.length : 0; });
     for (const bi of brickInfo.values()) {
       const c = [0, 1, 2].map((j) => (bi.lo[j] + bi.hi[j]) / 2);
       bi.tone = opt.brickPick === 'wash' ? Math.max(0, Math.min(1, 0.5 + 1.6 * (wash(c) - 0.5) + 0.3 * (rnd() - 0.5)))
@@ -528,6 +534,10 @@ function shade(file) {
       return [ny, hn, hp, bi ? 1 : tiny || short ? 0 : 1, sunT, cov, shf];
     });
     t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
+      if (bi && opt.brickStones) {
+        const [foot, head, top, bottom] = stones[bi.stone];
+        return ny2 > 0.5 ? top : ny2 < -0.5 ? bottom : foot + (head - foot) * hp;
+      }
       if (bi && opt.brickPick !== 'none') {
         const g = ((opt.maxBand - opt.minBand) / 6 - opt.brickGap) * opt.brickGrad;
         const mid = opt.minBand + (opt.maxBand - opt.minBand) * bi.tone;
