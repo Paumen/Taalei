@@ -66,6 +66,7 @@ const bandCells = new Set(opt.bands.split(',').map((b) => {
   if (!LANES[b]) throw new Error(`unknown band ${b}`);
   return LANES[b];
 }));
+const ROUND = Math.PI / 9;
 const SUN = (() => { const s = [-0.5, 0, 0.87]; const l = Math.hypot(...s); return s.map((x) => x / l); })();
 const COMPONENT = { 5120: [1, 'Int8'], 5121: [1, 'UInt8'], 5122: [2, 'Int16LE'], 5123: [2, 'UInt16LE'], 5125: [4, 'UInt32LE'], 5126: [4, 'FloatLE'] };
 const WIDTH = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4 };
@@ -408,7 +409,7 @@ function shade(file) {
     for (const v of t.c) {
       const ln = [0, 1, 2].map((k) => item.verts[v].mix.reduce((s2, [src, wt]) => s2 + nA.data[src * 3 + k] * wt, 0));
       const wn = norm(apply(item.matrix, ln).map((x, k) => x - z[k]));
-      const ok = dot(wn, t.n) > Math.cos(Math.PI * 1 / 6);
+      const ok = dot(wn, t.n) > Math.cos(ROUND);
       const was = sm.get(v);
       sm.set(v, was === undefined ? (ok ? wn : null) : (ok && was ? was : null));
     }
@@ -431,8 +432,8 @@ function shade(file) {
       return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
     });
     t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
-      let tone = ny2 >= 0 ? opt.side + (opt.up - opt.side) * ny2 : opt.side + (opt.down - opt.side) * -ny2;
-      tone += opt.height * (0.5 - hn);
+      let tone = ny2 >= 0 ? opt.side + (opt.up - opt.side) * ny2 : opt.side + (opt.down - opt.side) * Math.sqrt(-ny2);
+      tone += ny2 < -0.1 ? opt.height * Math.max(0, 0.5 - hn) : opt.height * (0.5 - hn);
       tone += sides * opt.sideFade * (1 - Math.abs(ny2)) * (0.5 - hp);
       tone -= opt.sun * sunT;
       tone += opt.cover * cov + opt.shadow * shf;
@@ -449,6 +450,27 @@ function shade(file) {
     }
     const shift = (was - now) / (area || 1);
     for (const { t } of stone) t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
+  }
+
+  if (!opt.flat) {
+    const weld = new Map();
+    for (const { item, t } of stone) {
+      const nA = item.attrs.find((a) => a.name === 'NORMAL');
+      if (!nA) continue;
+      const z = o0(item.matrix);
+      t.c.forEach((v, k) => {
+        const ln = [0, 1, 2].map((j) => item.verts[v].mix.reduce((s2, [src, wt]) => s2 + nA.data[src * 3 + j] * wt, 0));
+        const wn = norm(apply(item.matrix, ln).map((x, j) => x - z[j]));
+        const key = pk(item.verts[v].wp) + '|' + t.cell + '|' + wn.map((x) => Math.round(x * 50)).join(',');
+        if (!weld.has(key)) weld.set(key, []);
+        weld.get(key).push([t, k, dot(wn, t.n) > Math.cos(ROUND)]);
+      });
+    }
+    for (const list of weld.values()) {
+      if (list.length < 2 || !list.every(([, , round]) => round)) continue;
+      const mean = list.reduce((s2, [t, k]) => s2 + t.tones[k], 0) / list.length;
+      for (const [t, k] of list) t.tones[k] = mean;
+    }
   }
 
   if (opt.dump) {
