@@ -42,6 +42,7 @@ retune there, the saved values are in its db collection knobs, doc current):
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
+  --piece-mean 1       the same per piece, so stacked pieces keep their own tone from the source
   --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
@@ -51,7 +52,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, pieceMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -66,6 +67,7 @@ const bandCells = new Set(opt.bands.split(',').map((b) => {
   if (!LANES[b]) throw new Error(`unknown band ${b}`);
   return LANES[b];
 }));
+const ROUND = Math.PI / 9;
 const SUN = (() => { const s = [-0.5, 0, 0.87]; const l = Math.hypot(...s); return s.map((x) => x / l); })();
 const COMPONENT = { 5120: [1, 'Int8'], 5121: [1, 'UInt8'], 5122: [2, 'Int16LE'], 5123: [2, 'UInt16LE'], 5125: [4, 'UInt32LE'], 5126: [4, 'FloatLE'] };
 const WIDTH = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4 };
@@ -408,7 +410,7 @@ function shade(file) {
     for (const v of t.c) {
       const ln = [0, 1, 2].map((k) => item.verts[v].mix.reduce((s2, [src, wt]) => s2 + nA.data[src * 3 + k] * wt, 0));
       const wn = norm(apply(item.matrix, ln).map((x, k) => x - z[k]));
-      const ok = dot(wn, t.n) > Math.cos(Math.PI * 1 / 6);
+      const ok = dot(wn, t.n) > Math.cos(ROUND);
       const was = sm.get(v);
       sm.set(v, was === undefined ? (ok ? wn : null) : (ok && was ? was : null));
     }
@@ -440,15 +442,42 @@ function shade(file) {
     });
   });
 
-  if (opt.keepMean) {
-    let was = 0, now = 0, area = 0;
-    for (const { item, t } of stone) {
+  if (opt.keepMean || opt.pieceMean) {
+    const sums = new Map();
+    const groupOf = (i) => (opt.pieceMean ? find(i) : 0);
+    stone.forEach(({ item, t }, i) => {
       const P = t.c.map((v) => item.verts[v].wp);
       const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0]))) / 2;
-      was += a * t.was; now += a * (t.tones[0] + t.tones[1] + t.tones[2]) / 3; area += a;
+      const s = sums.get(groupOf(i)) ?? { was: 0, now: 0, area: 0 };
+      s.was += a * t.was; s.now += a * (t.tones[0] + t.tones[1] + t.tones[2]) / 3; s.area += a;
+      sums.set(groupOf(i), s);
+    });
+    stone.forEach(({ t }, i) => {
+      const s = sums.get(groupOf(i));
+      const shift = (s.was - s.now) / (s.area || 1);
+      t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
+    });
+  }
+
+  if (!opt.flat) {
+    const weld = new Map();
+    for (const { item, t } of stone) {
+      const nA = item.attrs.find((a) => a.name === 'NORMAL');
+      if (!nA) continue;
+      const z = o0(item.matrix);
+      t.c.forEach((v, k) => {
+        const ln = [0, 1, 2].map((j) => item.verts[v].mix.reduce((s2, [src, wt]) => s2 + nA.data[src * 3 + j] * wt, 0));
+        const wn = norm(apply(item.matrix, ln).map((x, j) => x - z[j]));
+        const key = pk(item.verts[v].wp) + '|' + t.cell + '|' + wn.map((x) => Math.round(x * 50)).join(',');
+        if (!weld.has(key)) weld.set(key, []);
+        weld.get(key).push([t, k, dot(wn, t.n) > Math.cos(ROUND)]);
+      });
     }
-    const shift = (was - now) / (area || 1);
-    for (const { t } of stone) t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
+    for (const list of weld.values()) {
+      if (list.length < 2 || !list.every(([, , round]) => round)) continue;
+      const mean = list.reduce((s2, [t, k]) => s2 + t.tones[k], 0) / list.length;
+      for (const [t, k] of list) t.tones[k] = mean;
+    }
   }
 
   if (opt.dump) {
