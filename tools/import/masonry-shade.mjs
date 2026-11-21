@@ -432,8 +432,8 @@ function shade(file) {
       return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
     });
     t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
-      let tone = ny2 >= 0 ? opt.side + (opt.up - opt.side) * ny2 : opt.side + (opt.down - opt.side) * -ny2;
-      tone += opt.height * (0.5 - hn);
+      let tone = ny2 >= 0 ? opt.side + (opt.up - opt.side) * ny2 : opt.side + (opt.down - opt.side) * Math.sqrt(-ny2);
+      tone += ny2 < -0.1 ? opt.height * Math.max(0, 0.5 - hn) : opt.height * (0.5 - hn);
       tone += sides * opt.sideFade * (1 - Math.abs(ny2)) * (0.5 - hp);
       tone -= opt.sun * sunT;
       tone += opt.cover * cov + opt.shadow * shf;
