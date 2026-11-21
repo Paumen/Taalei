@@ -487,6 +487,7 @@ function shade(file) {
     stone.forEach(({ t }, i) => {
       const bi = brickInfo.get(brickOf.get(i));
       t.brick = bi.n;
+      t.bi = bi;
       t.fa = bi.faces.get(t.fkey) / Math.max(...bi.faces.values());
     });
     const cell = size * 0.35;
@@ -603,7 +604,10 @@ function shade(file) {
             const [cu, cv] = t.cell.split(',').map(Number);
             out.uv.push((cu + 0.5) / 16, -1 - cv);
             out.f.push(...t.f[k].map(r));
-            if (t.brick !== undefined) out.b.push(t.brick, r(t.fa));
+            if (t.bi) {
+              const ax = t.bi.hi[0] - t.bi.lo[0] >= t.bi.hi[2] - t.bi.lo[2] ? 0 : 2;
+              out.b.push(t.brick, r(t.fa), r((vert.wp[ax] - t.bi.lo[ax]) / ((t.bi.hi[ax] - t.bi.lo[ax]) || 1)));
+            }
           } else out.uv.push(...[0, 1].map((j) => r(vert.mix.reduce((s2, [src, w]) => s2 + uA.data[src * 2 + j] * w, 0))));
         });
       }
