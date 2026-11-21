@@ -25986,7 +25986,7 @@
    "name": "Masonry dark",
    "type": "material",
    "description": "Dark stone someone has laid or hewn: walls, bricks, floors, columns, stairs, paving.",
-   "count": 214,
+   "count": 211,
    "parent": "stone"
   },
   {
@@ -44324,7 +44324,7 @@
    "kit": "aq-hallow",
    "collection": "aq",
    "name": "wall",
-   "hash": "16cb4fa0f6",
+   "hash": "e7674797ef",
    "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
@@ -44337,8 +44337,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 50788,
-   "vtx": 1402,
+   "bytes": 52164,
+   "vtx": 1445,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
@@ -44347,7 +44347,7 @@
    "avgTri": 0.01325,
    "anglePct": 74,
    "pieces": 14,
-   "vpt": 1.89,
+   "vpt": 1.95,
    "cells": [
     "14,3"
    ],
@@ -47094,7 +47094,7 @@
   {
    "kit": "architecture",
    "name": "arch",
-   "hash": "206fcafd18",
+   "hash": "168f507859",
    "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
@@ -47107,8 +47107,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 80552,
-   "vtx": 2303,
+   "bytes": 73512,
+   "vtx": 2083,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -47118,7 +47118,7 @@
    "avgTri": 0.00044,
    "anglePct": 28,
    "pieces": 3,
-   "vpt": 2.55,
+   "vpt": 2.31,
    "cells": [
     "14,3"
    ],
@@ -55896,7 +55896,7 @@
   {
    "kit": "dungeon",
    "name": "beam-001",
-   "hash": "52dd32e65f",
+   "hash": "365a58c772",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -55909,7 +55909,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 27980,
+   "bytes": 25892,
    "vtx": 696,
    "grounded": true,
    "centered": true,
@@ -55935,7 +55935,7 @@
   {
    "kit": "dungeon",
    "name": "beam-002",
-   "hash": "55059f221f",
+   "hash": "1e3ff4bb7b",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -55948,7 +55948,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 38920,
+   "bytes": 35968,
    "vtx": 984,
    "grounded": true,
    "centered": true,
@@ -55975,7 +55975,7 @@
   {
    "kit": "dungeon",
    "name": "beam",
-   "hash": "14522f874a",
+   "hash": "32c135fe80",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -55988,7 +55988,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 40300,
+   "bytes": 37228,
    "vtx": 1020,
    "grounded": true,
    "centered": true,
@@ -56477,7 +56477,7 @@
   {
    "kit": "dungeon",
    "name": "stair",
-   "hash": "e554cc7a14",
+   "hash": "5ac47d8a25",
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
@@ -56485,37 +56485,42 @@
     1.497,
     1
    ],
-   "tris": 1330,
-   "tpu": 592,
+   "tris": 2252,
+   "tpu": 1003,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 113676,
-   "vtx": 3006,
+   "bytes": 157824,
+   "vtx": 4462,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.006,
+   "minEdge": 0,
    "minTube": 0.0466,
-   "minWall": 0.0712,
+   "minWall": 0.022,
    "thick": 0.1438,
-   "avgTri": 0.01966,
+   "avgTri": 0.01161,
    "anglePct": 84,
    "pieces": 63,
-   "vpt": 2.26,
+   "vpt": 1.98,
    "cells": [
-    "14,3",
-    "5,2"
+    "14,3"
    ],
    "colors": [
-    "#88735f",
-    "#dbd0b5"
+    "#88735f"
    ],
    "tags": [
     "grid-1-5x1-5x1",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.18,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.022 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "dungeon",
@@ -56839,7 +56844,7 @@
   {
    "kit": "dungeon",
    "name": "walls-001",
-   "hash": "d6127df7e8",
+   "hash": "7f1ad8c00e",
    "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
@@ -56852,8 +56857,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 51576,
-   "vtx": 1284,
+   "bytes": 50012,
+   "vtx": 1375,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -56864,7 +56869,7 @@
    "avgTri": 0.01647,
    "anglePct": 77,
    "pieces": 33,
-   "vpt": 1.72,
+   "vpt": 1.84,
    "cells": [
     "0,0",
     "6,1",
@@ -56887,7 +56892,7 @@
   {
    "kit": "dungeon",
    "name": "walls-002",
-   "hash": "170c159f05",
+   "hash": "1cfcebc918",
    "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
@@ -56895,24 +56900,24 @@
     0.245,
     1
    ],
-   "tris": 805,
-   "tpu": 1092,
+   "tris": 881,
+   "tpu": 1195,
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 52156,
-   "vtx": 1280,
+   "bytes": 52488,
+   "vtx": 1427,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.003,
+   "minEdge": 0.002,
    "minTube": 0.0783,
    "minWall": 0.0068,
    "thick": 0.1358,
-   "avgTri": 0.01492,
+   "avgTri": 0.01363,
    "anglePct": 86,
    "pieces": 32,
-   "vpt": 1.59,
+   "vpt": 1.62,
    "cells": [
     "0,0",
     "6,1",
@@ -56942,7 +56947,7 @@
   {
    "kit": "dungeon",
    "name": "walls-003",
-   "hash": "c583d6f584",
+   "hash": "e807893d0c",
    "kind": "str-part-wall-unit-window",
    "size": "l",
    "wdh": [
@@ -56950,22 +56955,22 @@
     0.189,
     1
    ],
-   "tris": 521,
-   "tpu": 919,
+   "tris": 627,
+   "tpu": 1106,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 34116,
-   "vtx": 823,
+   "bytes": 39344,
+   "vtx": 1064,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.002,
+   "minEdge": 0.001,
    "minWall": 0.0473,
    "thick": 0.1346,
-   "avgTri": 0.01897,
+   "avgTri": 0.01576,
    "anglePct": 81,
    "pieces": 21,
-   "vpt": 1.58,
+   "vpt": 1.7,
    "cells": [
     "14,3"
    ],
@@ -56982,7 +56987,7 @@
   {
    "kit": "dungeon",
    "name": "walls-004",
-   "hash": "0c24debbbb",
+   "hash": "33957cb7a5",
    "kind": "str-part-wall-unit-window",
    "size": "l",
    "wdh": [
@@ -56995,8 +57000,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 61464,
-   "vtx": 1497,
+   "bytes": 62872,
+   "vtx": 1729,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
@@ -57006,7 +57011,7 @@
    "avgTri": 0.01092,
    "anglePct": 65,
    "pieces": 33,
-   "vpt": 1.49,
+   "vpt": 1.73,
    "cells": [
     "14,3"
    ],
@@ -57023,7 +57028,7 @@
   {
    "kit": "dungeon",
    "name": "walls-005",
-   "hash": "05ccfc6d8a",
+   "hash": "e121f1e641",
    "kind": "str-part-wall-unit-window",
    "size": "l",
    "wdh": [
@@ -57036,8 +57041,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 50324,
-   "vtx": 1207,
+   "bytes": 51196,
+   "vtx": 1393,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -57047,7 +57052,7 @@
    "avgTri": 0.01259,
    "anglePct": 76,
    "pieces": 27,
-   "vpt": 1.43,
+   "vpt": 1.64,
    "cells": [
     "14,3",
     "6,1"
@@ -57067,7 +57072,7 @@
   {
    "kit": "dungeon",
    "name": "walls-010",
-   "hash": "dd5ca40416",
+   "hash": "a77cfd6c6b",
    "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
@@ -57075,23 +57080,23 @@
     0.162,
     1
    ],
-   "tris": 244,
-   "tpu": 498,
+   "tris": 308,
+   "tpu": 629,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16868,
-   "vtx": 388,
+   "bytes": 20812,
+   "vtx": 545,
    "grounded": true,
    "centered": true,
    "minEdge": 0.018,
-   "minTube": 0.1249,
+   "minTube": 0.125,
    "minWall": 0.1249,
    "thick": 0.1301,
-   "avgTri": 0.03887,
+   "avgTri": 0.03079,
    "anglePct": 83,
    "pieces": 12,
-   "vpt": 1.59,
+   "vpt": 1.77,
    "cells": [
     "14,3"
    ],
@@ -57108,7 +57113,7 @@
   {
    "kit": "dungeon",
    "name": "walls-011",
-   "hash": "32e49a8814",
+   "hash": "bb2b1e36c3",
    "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
@@ -57121,8 +57126,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16868,
-   "vtx": 388,
+   "bytes": 17228,
+   "vtx": 445,
    "grounded": true,
    "centered": true,
    "minEdge": 0.018,
@@ -57132,7 +57137,7 @@
    "avgTri": 0.03887,
    "anglePct": 83,
    "pieces": 12,
-   "vpt": 1.59,
+   "vpt": 1.82,
    "cells": [
     "14,3"
    ],
@@ -57149,7 +57154,7 @@
   {
    "kit": "dungeon",
    "name": "walls-012",
-   "hash": "5a5fe9e529",
+   "hash": "9a16a07db0",
    "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
@@ -57162,8 +57167,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 11052,
-   "vtx": 246,
+   "bytes": 10640,
+   "vtx": 259,
    "grounded": true,
    "centered": true,
    "minEdge": 0.021,
@@ -57173,7 +57178,7 @@
    "avgTri": 0.0467,
    "anglePct": 93,
    "pieces": 9,
-   "vpt": 1.78,
+   "vpt": 1.88,
    "cells": [
     "14,3"
    ],
@@ -57190,7 +57195,7 @@
   {
    "kit": "dungeon",
    "name": "walls",
-   "hash": "19ac93aa4e",
+   "hash": "7f1cdfc682",
    "kind": "str-part-wall-unit-doorway",
    "size": "l",
    "wdh": [
@@ -57201,10 +57206,10 @@
    "tris": 605,
    "tpu": 866,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 38152,
-   "vtx": 918,
+   "bytes": 35996,
+   "vtx": 964,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -57215,14 +57220,12 @@
    "avgTri": 0.01702,
    "anglePct": 83,
    "pieces": 21,
-   "vpt": 1.52,
+   "vpt": 1.59,
    "cells": [
-    "14,3",
-    "5,2"
+    "14,3"
    ],
    "colors": [
-    "#88735f",
-    "#dbd0b5"
+    "#88735f"
    ],
    "tags": [
     "grid-3x1",
@@ -57233,7 +57236,7 @@
   {
    "kit": "dungeon",
    "name": "wallslittle-001",
-   "hash": "a1ef10ceba",
+   "hash": "54ffb55e2e",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -57246,8 +57249,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 72760,
-   "vtx": 1799,
+   "bytes": 65992,
+   "vtx": 1801,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -57276,7 +57279,7 @@
   {
    "kit": "dungeon",
    "name": "wallslittle-002",
-   "hash": "d08d777692",
+   "hash": "043298fb5b",
    "kind": "str-part-wall-unit-doorway",
    "size": "m",
    "wdh": [
@@ -57289,8 +57292,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 55436,
-   "vtx": 1361,
+   "bytes": 55296,
+   "vtx": 1518,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -57299,7 +57302,7 @@
    "avgTri": 0.00668,
    "anglePct": 70,
    "pieces": 19,
-   "vpt": 1.58,
+   "vpt": 1.76,
    "cells": [
     "14,3"
    ],
@@ -57315,7 +57318,7 @@
   {
    "kit": "dungeon",
    "name": "wallslittle-003",
-   "hash": "e33ba4f6d9",
+   "hash": "8bfa20cd6b",
    "kind": "str-part-wall-unit",
    "size": "l",
    "wdh": [
@@ -57328,8 +57331,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 54876,
-   "vtx": 1487,
+   "bytes": 57532,
+   "vtx": 1570,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -57339,7 +57342,7 @@
    "avgTri": 0.00745,
    "anglePct": 89,
    "pieces": 5,
-   "vpt": 1.55,
+   "vpt": 1.64,
    "cells": [
     "14,3"
    ],
@@ -59822,7 +59825,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "broken-fence",
-   "hash": "43e6713670",
+   "hash": "ee32968f64",
    "kind": "str-barrier-fence-mid",
    "size": "m",
    "wdh": [
@@ -59833,10 +59836,10 @@
    "tris": 484,
    "tpu": 1411,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 32560,
-   "vtx": 878,
+   "bytes": 34576,
+   "vtx": 941,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -59846,14 +59849,12 @@
    "avgTri": 0.00186,
    "anglePct": 5,
    "pieces": 15,
-   "vpt": 1.81,
+   "vpt": 1.94,
    "cells": [
     "2,0",
-    "14,3",
-    "12,3"
+    "14,3"
    ],
    "colors": [
-    "#57493d",
     "#713e14",
     "#88735f"
    ],
@@ -60492,7 +60493,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "cobble-path-a",
-   "hash": "382429339e",
+   "hash": "f197f7a538",
    "kind": "str-access-path",
    "size": "m",
    "wdh": [
@@ -60503,10 +60504,10 @@
    "tris": 548,
    "tpu": 1598,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 37948,
-   "vtx": 1034,
+   "bytes": 42620,
+   "vtx": 1180,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -60515,13 +60516,11 @@
    "avgTri": 0.00346,
    "anglePct": 29,
    "pieces": 13,
-   "vpt": 1.89,
+   "vpt": 2.15,
    "cells": [
-    "14,3",
-    "12,3"
+    "14,3"
    ],
    "colors": [
-    "#57493d",
     "#88735f"
    ],
    "tags": [
@@ -60541,7 +60540,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "cobble-path-b",
-   "hash": "9e3523009c",
+   "hash": "952cbaf6e9",
    "kind": "str-access-path",
    "size": "m",
    "wdh": [
@@ -60554,8 +60553,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5808,
-   "vtx": 120,
+   "bytes": 6064,
+   "vtx": 128,
    "grounded": true,
    "centered": true,
    "minEdge": 0.01,
@@ -60564,7 +60563,7 @@
    "avgTri": 0.01727,
    "anglePct": 53,
    "pieces": 3,
-   "vpt": 1.76,
+   "vpt": 1.88,
    "cells": [
     "14,3"
    ],
@@ -60581,7 +60580,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "cobble-path-corner",
-   "hash": "a3827145b7",
+   "hash": "54ab8554ee",
    "kind": "str-access-path",
    "size": "m",
    "wdh": [
@@ -60592,10 +60591,10 @@
    "tris": 190,
    "tpu": 350,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 14304,
-   "vtx": 362,
+   "bytes": 14432,
+   "vtx": 366,
    "grounded": true,
    "centered": true,
    "minEdge": 0.061,
@@ -60604,13 +60603,11 @@
    "avgTri": 0.01118,
    "anglePct": 42,
    "pieces": 13,
-   "vpt": 1.91,
+   "vpt": 1.93,
    "cells": [
-    "14,3",
-    "12,3"
+    "14,3"
    ],
    "colors": [
-    "#57493d",
     "#88735f"
    ],
    "tags": [
@@ -60623,7 +60620,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "cobble-stairs",
-   "hash": "0df6d1a0f7",
+   "hash": "8982e4a395",
    "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
@@ -60634,10 +60631,10 @@
    "tris": 742,
    "tpu": 2120,
    "mat": 1,
-   "bands": 3,
+   "bands": 2,
    "calls": 1,
-   "bytes": 55956,
-   "vtx": 1560,
+   "bytes": 56980,
+   "vtx": 1592,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -60647,20 +60644,17 @@
    "avgTri": 0.00306,
    "anglePct": 12,
    "pieces": 15,
-   "vpt": 2.1,
+   "vpt": 2.15,
    "cells": [
     "2,0",
-    "12,3",
     "14,3"
    ],
    "colors": [
-    "#57493d",
     "#713e14",
     "#88735f"
    ],
    "tags": [
     "grid-1x0-5x0-5",
-    "stone-masonry-dark",
     "stone-masonry-mid",
     "wood-dark"
    ],
@@ -64980,7 +64974,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stone-footing",
-   "hash": "b397509226",
+   "hash": "be40dfc581",
    "kind": "str-part-floor",
    "size": "l",
    "wdh": [
@@ -64991,10 +64985,10 @@
    "tris": 4548,
    "tpu": 3979,
    "mat": 1,
-   "bands": 2,
+   "bands": 1,
    "calls": 1,
-   "bytes": 304648,
-   "vtx": 8621,
+   "bytes": 354796,
+   "vtx": 10188,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -65004,13 +64998,11 @@
    "avgTri": 0.00336,
    "anglePct": 26,
    "pieces": 120,
-   "vpt": 1.9,
+   "vpt": 2.24,
    "cells": [
-    "14,3",
-    "12,3"
+    "14,3"
    ],
    "colors": [
-    "#57493d",
     "#88735f"
    ],
    "tags": [
@@ -65029,7 +65021,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stone-gateway",
-   "hash": "bc852b5e2f",
+   "hash": "20887a0b91",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
@@ -65040,10 +65032,10 @@
    "tris": 2486,
    "tpu": 5038,
    "mat": 1,
-   "bands": 4,
+   "bands": 3,
    "calls": 1,
-   "bytes": 165508,
-   "vtx": 4660,
+   "bytes": 172964,
+   "vtx": 4893,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
@@ -65053,15 +65045,13 @@
    "avgTri": 0.00206,
    "anglePct": 27,
    "pieces": 81,
-   "vpt": 1.87,
+   "vpt": 1.97,
    "cells": [
     "14,3",
-    "12,3",
     "2,0",
     "1,0"
    ],
    "colors": [
-    "#57493d",
     "#713e14",
     "#88735f",
     "#9e6d44"
@@ -65072,28 +65062,12 @@
     "wood-dark",
     "wood-mid"
    ],
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0028,
-     "view": "90/50",
-     "causes": {
-      "inverted": 0.89,
-      "inside-out": 0.11
-     }
-    }
-   ],
    "thickRel": 0.69,
    "lint": [
     {
      "level": "warning",
      "check": "tpu",
      "text": "tpu 5038 over max 5000 (str)"
-    },
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 90/50 over 0.2%: inverted 89.0%, inside-out 11.0%"
     },
     {
      "level": "warning",
@@ -65157,7 +65131,7 @@
    "kit": "emace-village",
    "collection": "emace",
    "name": "stone-post",
-   "hash": "fc79eb8fba",
+   "hash": "edf8cdf2f2",
    "kind": "str-barrier-post",
    "size": "m",
    "wdh": [
@@ -65170,8 +65144,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 25632,
-   "vtx": 681,
+   "bytes": 27840,
+   "vtx": 750,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
@@ -65180,7 +65154,7 @@
    "avgTri": 0.00675,
    "anglePct": 19,
    "pieces": 13,
-   "vpt": 1.77,
+   "vpt": 1.95,
    "cells": [
     "14,3",
     "12,3"
@@ -88361,7 +88335,7 @@
    "kit": "fs-terrain",
    "collection": "fs-modular",
    "name": "hilly-prop-ruins-pillar-e",
-   "hash": "c367e14417",
+   "hash": "843be4c149",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -88374,8 +88348,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 14772,
-   "vtx": 373,
+   "bytes": 15092,
+   "vtx": 383,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -88385,7 +88359,7 @@
    "avgTri": 0.00813,
    "anglePct": 33,
    "pieces": 3,
-   "vpt": 1.59,
+   "vpt": 1.64,
    "cells": [
     "14,3"
    ],
@@ -92853,7 +92827,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stone-curb-a",
-   "hash": "ce00b05e85",
+   "hash": "d993fdd6b4",
    "kind": "str-barrier",
    "size": "s",
    "wdh": [
@@ -92866,8 +92840,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13784,
-   "vtx": 332,
+   "bytes": 22392,
+   "vtx": 601,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
@@ -92876,7 +92850,7 @@
    "avgTri": 0.00081,
    "anglePct": 98,
    "pieces": 1,
-   "vpt": 1.17,
+   "vpt": 2.12,
    "cells": [
     "14,3"
    ],
@@ -92894,7 +92868,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stone-curb-b",
-   "hash": "14e230dc91",
+   "hash": "f442c502dd",
    "kind": "str-barrier",
    "size": "s",
    "wdh": [
@@ -92907,8 +92881,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12260,
-   "vtx": 292,
+   "bytes": 19528,
+   "vtx": 519,
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
@@ -92917,7 +92891,7 @@
    "avgTri": 0.00094,
    "anglePct": 98,
    "pieces": 1,
-   "vpt": 1.2,
+   "vpt": 2.13,
    "cells": [
     "14,3"
    ],
@@ -92935,7 +92909,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stone-curb-c",
-   "hash": "99ef87dc2d",
+   "hash": "e8110c2ee4",
    "kind": "str-barrier",
    "size": "s",
    "wdh": [
@@ -92948,8 +92922,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13848,
-   "vtx": 334,
+   "bytes": 22616,
+   "vtx": 608,
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
@@ -92958,7 +92932,7 @@
    "avgTri": 0.00081,
    "anglePct": 98,
    "pieces": 1,
-   "vpt": 1.18,
+   "vpt": 2.14,
    "cells": [
     "14,3"
    ],
@@ -92976,7 +92950,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "stone-curb-d",
-   "hash": "d87a260d16",
+   "hash": "c7ae968886",
    "kind": "str-barrier",
    "size": "s",
    "wdh": [
@@ -92989,8 +92963,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 13976,
-   "vtx": 338,
+   "bytes": 22488,
+   "vtx": 604,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
@@ -92999,7 +92973,7 @@
    "avgTri": 0.00081,
    "anglePct": 98,
    "pieces": 1,
-   "vpt": 1.19,
+   "vpt": 2.13,
    "cells": [
     "14,3"
    ],
@@ -95237,7 +95211,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "well-a",
-   "hash": "712c8a278b",
+   "hash": "5b10ff5a77",
    "kind": "str-fixture-utility-well",
    "size": "m",
    "wdh": [
@@ -95250,8 +95224,8 @@
    "mat": 1,
    "bands": 5,
    "calls": 3,
-   "bytes": 82336,
-   "vtx": 2172,
+   "bytes": 88352,
+   "vtx": 2360,
    "grounded": true,
    "minEdge": 0.011,
    "minTube": 0.0275,
@@ -95260,7 +95234,7 @@
    "avgTri": 0.0022,
    "anglePct": 81,
    "pieces": 13,
-   "vpt": 1.53,
+   "vpt": 1.66,
    "cells": [
     "0,0",
     "2,0",
@@ -113179,7 +113153,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-modular-window-large",
-   "hash": "a024f4c61d",
+   "hash": "b213a29d59",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -113225,7 +113199,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-modular-window-small",
-   "hash": "9fa2f9d2fe",
+   "hash": "b8d0f0827e",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -113238,8 +113212,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 46180,
-   "vtx": 1268,
+   "bytes": 49988,
+   "vtx": 1387,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
@@ -113248,7 +113222,7 @@
    "avgTri": 0.00372,
    "anglePct": 69,
    "pieces": 5,
-   "vpt": 1.87,
+   "vpt": 2.05,
    "cells": [
     "14,3",
     "5,2"
@@ -113264,28 +113238,12 @@
     "stone-masonry-mid"
    ],
    "variant": "isa-kitchen/wall-tiles-window-small",
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0021,
-     "view": "270/20",
-     "causes": {
-      "open": 0.88,
-      "inverted": 0.12
-     }
-    }
-   ],
    "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
      "check": "size",
      "text": "high 1.247 over max 1.2 (str-part-wall-unit)"
-    },
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.2% of view 270/20 over 0.2%: open 88.0%, inverted 12.0%"
     },
     {
      "level": "warning",
@@ -113298,7 +113256,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-modular",
-   "hash": "ce154f24d2",
+   "hash": "d579ae4b7b",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
@@ -113311,8 +113269,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 27680,
-   "vtx": 748,
+   "bytes": 25632,
+   "vtx": 690,
    "grounded": true,
    "centered": true,
    "minEdge": 0.013,
@@ -113321,7 +113279,7 @@
    "avgTri": 0.00427,
    "anglePct": 87,
    "pieces": 2,
-   "vpt": 2.15,
+   "vpt": 1.98,
    "cells": [
     "5,2",
     "14,3"
@@ -113343,7 +113301,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-window-large",
-   "hash": "a27818e017",
+   "hash": "ab8751f104",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -113395,7 +113353,7 @@
    "kit": "isa-kitchen",
    "collection": "isa-tt",
    "name": "wall-tiles-window-small",
-   "hash": "ac90fa98cb",
+   "hash": "1ecee7fa1f",
    "kind": "str-part-wall-unit-window",
    "size": "m",
    "wdh": [
@@ -129500,7 +129458,7 @@
   {
    "kit": "kay-dun-1",
    "name": "bricks",
-   "hash": "779464c09f",
+   "hash": "e4972b9375",
    "kind": "obj-resource-stone",
    "size": "m",
    "wdh": [
@@ -129513,8 +129471,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 12520,
-   "vtx": 284,
+   "bytes": 13160,
+   "vtx": 304,
    "grounded": true,
    "centered": true,
    "minEdge": 0.008,
@@ -129523,7 +129481,7 @@
    "avgTri": 0.00218,
    "anglePct": 38,
    "pieces": 3,
-   "vpt": 0.89,
+   "vpt": 0.95,
    "cells": [
     "14,3"
    ],
@@ -153507,7 +153465,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch-gate-arch",
-   "hash": "4418146612",
+   "hash": "14e17d445a",
    "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
@@ -153550,7 +153508,7 @@
   {
    "kit": "kay-hallow",
    "name": "arch-gate",
-   "hash": "18dac17fbe",
+   "hash": "31ac40e537",
    "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
@@ -153563,8 +153521,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 60092,
-   "vtx": 1668,
+   "bytes": 59452,
+   "vtx": 1648,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -153575,7 +153533,7 @@
    "avgTri": 0.00398,
    "anglePct": 74,
    "pieces": 18,
-   "vpt": 1.9,
+   "vpt": 1.88,
    "cells": [
     "6,1",
     "14,3"
@@ -156689,7 +156647,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "building-site-a",
-   "hash": "a57182a27b",
+   "hash": "e992213a34",
    "kind": "str-part-frame",
    "size": "l",
    "wdh": [
@@ -156702,8 +156660,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 48064,
-   "vtx": 1318,
+   "bytes": 50112,
+   "vtx": 1382,
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
@@ -156713,7 +156671,7 @@
    "avgTri": 0.01311,
    "anglePct": 64,
    "pieces": 14,
-   "vpt": 1.77,
+   "vpt": 1.86,
    "cells": [
     "2,0",
     "1,0",
@@ -156741,7 +156699,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "building-site-b",
-   "hash": "5422f89cb8",
+   "hash": "7c88d17040",
    "kind": "str-part-frame",
    "size": "l",
    "wdh": [
@@ -156752,10 +156710,10 @@
    "tris": 918,
    "tpu": 214,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
-   "bytes": 57972,
-   "vtx": 1595,
+   "bytes": 60148,
+   "vtx": 1663,
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
@@ -156765,16 +156723,14 @@
    "avgTri": 0.0162,
    "anglePct": 69,
    "pieces": 21,
-   "vpt": 1.74,
+   "vpt": 1.81,
    "cells": [
-    "12,3",
-    "2,0",
     "14,3",
+    "2,0",
     "1,0",
     "15,3"
    ],
    "colors": [
-    "#57493d",
     "#713e14",
     "#7a8491",
     "#88735f",
@@ -156784,7 +156740,6 @@
     "broken",
     "kay",
     "metal-steel",
-    "stone-masonry-dark",
     "stone-masonry-mid",
     "wood-dark",
     "wood-mid"
@@ -156796,7 +156751,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "building-site-c",
-   "hash": "daf094d047",
+   "hash": "8ae5773d92",
    "kind": "str-part-frame",
    "size": "l",
    "wdh": [
@@ -156807,10 +156762,10 @@
    "tris": 1168,
    "tpu": 155,
    "mat": 1,
-   "bands": 5,
+   "bands": 4,
    "calls": 1,
-   "bytes": 71500,
-   "vtx": 1971,
+   "bytes": 72556,
+   "vtx": 2004,
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
@@ -156820,16 +156775,14 @@
    "avgTri": 0.01489,
    "anglePct": 79,
    "pieces": 28,
-   "vpt": 1.69,
+   "vpt": 1.72,
    "cells": [
-    "12,3",
-    "2,0",
     "14,3",
+    "2,0",
     "1,0",
     "15,3"
    ],
    "colors": [
-    "#57493d",
     "#713e14",
     "#7a8491",
     "#88735f",
@@ -156839,7 +156792,6 @@
     "broken",
     "kay",
     "metal-steel",
-    "stone-masonry-dark",
     "stone-masonry-mid",
     "wood-dark",
     "wood-mid"
@@ -159026,7 +158978,7 @@
    "kit": "kay-hexagon",
    "collection": "kay-strategy",
    "name": "stone-blocks",
-   "hash": "2bc580c15a",
+   "hash": "d04bde8882",
    "kind": "obj-resource-stone",
    "size": "m",
    "wdh": [
@@ -159039,8 +158991,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16108,
-   "vtx": 418,
+   "bytes": 18764,
+   "vtx": 501,
    "grounded": true,
    "centered": true,
    "minEdge": 0.036,
@@ -159049,7 +159001,7 @@
    "avgTri": 0.01579,
    "anglePct": 99,
    "pieces": 5,
-   "vpt": 1.9,
+   "vpt": 2.28,
    "cells": [
     "14,3"
    ],
@@ -173595,7 +173547,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "stone-brick",
-   "hash": "7e5990e5cb",
+   "hash": "e7b8c2da85",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -173608,8 +173560,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 5924,
-   "vtx": 132,
+   "bytes": 5668,
+   "vtx": 124,
    "grounded": true,
    "centered": true,
    "minEdge": 0.021,
@@ -173618,7 +173570,7 @@
    "avgTri": 0.00288,
    "anglePct": 99,
    "pieces": 1,
-   "vpt": 3,
+   "vpt": 2.82,
    "cells": [
     "14,3"
    ],
@@ -173635,7 +173587,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "stone-bricks-stack-large",
-   "hash": "fc14cb6a90",
+   "hash": "49e77bb52f",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -173648,8 +173600,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 148832,
-   "vtx": 4332,
+   "bytes": 141084,
+   "vtx": 4090,
    "grounded": true,
    "centered": true,
    "minEdge": 0.009,
@@ -173658,7 +173610,7 @@
    "avgTri": 0.00241,
    "anglePct": 88,
    "pieces": 29,
-   "vpt": 3,
+   "vpt": 2.83,
    "cells": [
     "14,3",
     "3,0"
@@ -173686,7 +173638,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "stone-bricks-stack-medium",
-   "hash": "cfcdfa4e8b",
+   "hash": "c3c2737eeb",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -173737,7 +173689,7 @@
    "kit": "kay-resources",
    "collection": "kay-rpg",
    "name": "stone-bricks-stack-small",
-   "hash": "f1248a46ab",
+   "hash": "98f27a3ebf",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -186074,7 +186026,7 @@
    "kit": "ken-arena",
    "collection": "ken-mini",
    "name": "bricks",
-   "hash": "c2eed53f3a",
+   "hash": "b40483e11b",
    "kind": "obj-resource-stone",
    "size": "m",
    "wdh": [
@@ -186087,8 +186039,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8944,
-   "vtx": 212,
+   "bytes": 9808,
+   "vtx": 239,
    "grounded": true,
    "centered": true,
    "minEdge": 0.054,
@@ -186097,7 +186049,7 @@
    "avgTri": 0.02247,
    "anglePct": 75,
    "pieces": 8,
-   "vpt": 1.66,
+   "vpt": 1.87,
    "cells": [
     "14,3"
    ],
@@ -192069,7 +192021,7 @@
   {
    "kit": "ken-cave",
    "name": "gate-metal-bars",
-   "hash": "02940757b7",
+   "hash": "a8ab6643f2",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
@@ -192077,23 +192029,23 @@
     0.351,
     1
    ],
-   "tris": 780,
-   "tpu": 1592,
+   "tris": 2344,
+   "tpu": 4784,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 58460,
-   "vtx": 1634,
+   "bytes": 153480,
+   "vtx": 4310,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.026,
-   "minWall": 0.0065,
+   "minWall": 0.006,
    "thick": 0.0801,
-   "avgTri": 0.00974,
+   "avgTri": 0.00324,
    "anglePct": 57,
-   "pieces": 92,
-   "vpt": 2.09,
+   "pieces": 91,
+   "vpt": 1.84,
    "cells": [
     "14,3",
     "6,1"
@@ -192109,35 +192061,19 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-cave/gate",
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0025,
-     "view": "180/20",
-     "causes": {
-      "open": 0.91,
-      "inverted": 0.09
-     }
-    }
-   ],
    "thickRel": 0.74,
    "lint": [
     {
      "level": "warning",
-     "check": "backface",
-     "text": "0.3% of view 180/20 over 0.2%: open 91.0%, inverted 9.0%"
-    },
-    {
-     "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0065 wants min 0.026"
+     "text": "G27 minWall 0.006 wants min 0.026"
     }
    ]
   },
   {
    "kit": "ken-cave",
    "name": "gate",
-   "hash": "cfe22814f7",
+   "hash": "8982a356f1",
    "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
@@ -192145,22 +192081,22 @@
     0.351,
     1
    ],
-   "tris": 606,
-   "tpu": 1237,
+   "tris": 1890,
+   "tpu": 3857,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 44936,
-   "vtx": 1246,
+   "bytes": 123012,
+   "vtx": 3445,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minWall": 0.0136,
-   "thick": 0.0817,
-   "avgTri": 0.00899,
+   "thick": 0.0818,
+   "avgTri": 0.00288,
    "anglePct": 49,
    "pieces": 52,
-   "vpt": 2.06,
+   "vpt": 1.82,
    "cells": [
     "14,3"
    ],
@@ -192173,24 +192109,8 @@
     "stone-masonry-mid"
    ],
    "variant": "ken-cave/gate",
-   "backface": [
-    {
-     "side": "above",
-     "share": 0.0036,
-     "view": "90/50",
-     "causes": {
-      "inverted": 0.42,
-      "open": 0.58
-     }
-    }
-   ],
    "thickRel": 1.18,
    "lint": [
-    {
-     "level": "warning",
-     "check": "backface",
-     "text": "0.4% of view 90/50 over 0.2%: open 58.0%, inverted 42.0%"
-    },
     {
      "level": "warning",
      "check": "measures",
@@ -213260,7 +213180,7 @@
    "kit": "ken-grave",
    "collection": "ken-village",
    "name": "debris",
-   "hash": "cb6745108b",
+   "hash": "b70c04f555",
    "kind": "env-terrain-rock",
    "size": "s",
    "wdh": [
@@ -213273,8 +213193,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 16932,
-   "vtx": 456,
+   "bytes": 11172,
+   "vtx": 276,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -213284,7 +213204,7 @@
    "avgTri": 0.00362,
    "anglePct": 63,
    "pieces": 10,
-   "vpt": 3.17,
+   "vpt": 1.92,
    "cells": [
     "14,3"
    ],
@@ -267884,7 +267804,7 @@
   {
    "kit": "lpa-construction",
    "name": "brick",
-   "hash": "a138fc8eae",
+   "hash": "11ad128b1d",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -267897,8 +267817,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 4764,
-   "vtx": 96,
+   "bytes": 5536,
+   "vtx": 120,
    "grounded": true,
    "centered": true,
    "minEdge": 0.026,
@@ -267907,7 +267827,7 @@
    "avgTri": 0.00611,
    "anglePct": 99,
    "pieces": 1,
-   "vpt": 2.18,
+   "vpt": 2.73,
    "cells": [
     "14,3"
    ],
@@ -267924,7 +267844,7 @@
   {
    "kit": "lpa-construction",
    "name": "bricks-pallet",
-   "hash": "b4de59dbe8",
+   "hash": "6120ff0346",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -267937,8 +267857,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 156004,
-   "vtx": 4458,
+   "bytes": 173060,
+   "vtx": 4991,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
@@ -267948,7 +267868,7 @@
    "avgTri": 0.00129,
    "anglePct": 93,
    "pieces": 37,
-   "vpt": 2.25,
+   "vpt": 2.52,
    "cells": [
     "2,0",
     "1,0",
@@ -267977,7 +267897,7 @@
   {
    "kit": "lpa-construction",
    "name": "bricks-pile",
-   "hash": "8246c68c44",
+   "hash": "be9481bf77",
    "kind": "obj-resource-stone",
    "size": "m",
    "wdh": [
@@ -267990,8 +267910,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 21480,
-   "vtx": 576,
+   "bytes": 26568,
+   "vtx": 735,
    "grounded": true,
    "centered": true,
    "minEdge": 0.019,
@@ -268000,7 +267920,7 @@
    "avgTri": 0.00344,
    "anglePct": 82,
    "pieces": 6,
-   "vpt": 2.18,
+   "vpt": 2.78,
    "cells": [
     "14,3"
    ],
@@ -268201,7 +268121,7 @@
   {
    "kit": "lpa-construction",
    "name": "cinderblock",
-   "hash": "1b5b1a7b3d",
+   "hash": "ed38a4cf1e",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -268214,8 +268134,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 9908,
-   "vtx": 239,
+   "bytes": 12440,
+   "vtx": 318,
    "grounded": true,
    "centered": true,
    "minEdge": 0.016,
@@ -268224,7 +268144,7 @@
    "avgTri": 0.00317,
    "anglePct": 67,
    "pieces": 1,
-   "vpt": 1.81,
+   "vpt": 2.41,
    "cells": [
     "14,3"
    ],
@@ -272048,7 +271968,7 @@
   {
    "kit": "lpa-desert",
    "name": "well",
-   "hash": "922c536952",
+   "hash": "d93dcbfc17",
    "kind": "str-fixture-utility-well",
    "size": "m",
    "wdh": [
@@ -272061,8 +271981,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 151204,
-   "vtx": 4084,
+   "bytes": 297544,
+   "vtx": 8657,
    "grounded": true,
    "centered": true,
    "minEdge": 0.015,
@@ -272072,7 +271992,7 @@
    "avgTri": 0.00313,
    "anglePct": 40,
    "pieces": 7,
-   "vpt": 1.29,
+   "vpt": 2.74,
    "cells": [
     "14,3",
     "2,0"
@@ -292536,7 +292456,7 @@
   {
    "kit": "m3-base",
    "name": "concrete-block",
-   "hash": "e25780097f",
+   "hash": "349d6d5721",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -292549,8 +292469,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8868,
-   "vtx": 196,
+   "bytes": 11168,
+   "vtx": 268,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
@@ -292559,7 +292479,7 @@
    "avgTri": 0.00249,
    "anglePct": 75,
    "pieces": 1,
-   "vpt": 1.09,
+   "vpt": 1.49,
    "cells": [
     "14,3"
    ],
@@ -295892,7 +295812,7 @@
   {
    "kit": "m3-base",
    "name": "english-bond-brick",
-   "hash": "2f6d6603fe",
+   "hash": "6cac844b6f",
    "kind": "obj-resource-stone",
    "size": "m",
    "wdh": [
@@ -295905,7 +295825,7 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 68776,
+   "bytes": 68780,
    "vtx": 1920,
    "grounded": true,
    "centered": true,
@@ -297049,7 +296969,7 @@
   {
    "kit": "m3-base",
    "name": "flemish-bond-brick",
-   "hash": "e3709b6cd5",
+   "hash": "89c42cda73",
    "kind": "obj-resource-stone",
    "size": "m",
    "wdh": [
@@ -318797,13 +318717,13 @@
   {
    "kit": "m3-base",
    "name": "stack-of-breeze-blocks",
-   "hash": "93a613cff2",
+   "hash": "b0bfa62705",
    "kind": "obj-resource-stone",
    "size": "m",
    "wdh": [
-    0.519,
-    0.516,
-    0.589
+    0.494,
+    0.494,
+    0.568
    ],
    "tris": 480,
    "tpu": 1399,
@@ -318815,10 +318735,10 @@
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.129,
-   "minWall": 0.1332,
-   "thick": 0.2764,
-   "avgTri": 0.01459,
+   "minEdge": 0.109,
+   "minWall": 0.1133,
+   "thick": 0.2681,
+   "avgTri": 0.01054,
    "anglePct": 54,
    "pieces": 40,
    "vpt": 2,
@@ -319586,7 +319506,7 @@
   {
    "kit": "m3-base",
    "name": "stone-archway-01",
-   "hash": "684fb03bfe",
+   "hash": "820653e415",
    "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
@@ -319626,7 +319546,7 @@
   {
    "kit": "m3-base",
    "name": "stone-archway-02",
-   "hash": "364d566e07",
+   "hash": "ace2b5b4d0",
    "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
@@ -319639,8 +319559,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 22200,
-   "vtx": 584,
+   "bytes": 22712,
+   "vtx": 600,
    "grounded": true,
    "centered": true,
    "minEdge": 0.034,
@@ -319649,7 +319569,7 @@
    "avgTri": 0.00811,
    "anglePct": 9,
    "pieces": 21,
-   "vpt": 1.76,
+   "vpt": 1.81,
    "cells": [
     "14,3"
    ],
@@ -319666,7 +319586,7 @@
   {
    "kit": "m3-base",
    "name": "stone-archway-03",
-   "hash": "ad04d06e9e",
+   "hash": "3cb9150384",
    "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
@@ -319679,8 +319599,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 43572,
-   "vtx": 1122,
+   "bytes": 81524,
+   "vtx": 2308,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
@@ -319689,7 +319609,7 @@
    "avgTri": 0.0013,
    "anglePct": 32,
    "pieces": 5,
-   "vpt": 1.1,
+   "vpt": 2.27,
    "cells": [
     "14,3"
    ],
@@ -319706,7 +319626,7 @@
   {
    "kit": "m3-base",
    "name": "stone-archway-04",
-   "hash": "0bcf014ee1",
+   "hash": "cb97c6f241",
    "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
@@ -319719,8 +319639,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 63212,
-   "vtx": 1651,
+   "bytes": 114644,
+   "vtx": 3259,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -319729,7 +319649,7 @@
    "avgTri": 0.0014,
    "anglePct": 63,
    "pieces": 5,
-   "vpt": 1.13,
+   "vpt": 2.23,
    "cells": [
     "14,3"
    ],
@@ -320179,27 +320099,27 @@
   {
    "kit": "m3-base",
    "name": "stretcher-bond-brick",
-   "hash": "8a72786ead",
+   "hash": "a5b8ae24f6",
    "kind": "obj-resource-stone",
    "size": "m",
    "wdh": [
-    0.719,
-    0.071,
-    0.36
+    0.71,
+    0.066,
+    0.356
    ],
    "tris": 480,
    "tpu": 1399,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 35188,
+   "bytes": 35184,
    "vtx": 960,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.055,
-   "minWall": 0.0548,
-   "thick": 0.1232,
-   "avgTri": 0.00339,
+   "minEdge": 0.051,
+   "minWall": 0.051,
+   "thick": 0.1229,
+   "avgTri": 0.00293,
    "anglePct": 91,
    "pieces": 40,
    "vpt": 2,
@@ -339754,7 +339674,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "cinder-block",
-   "hash": "73f4c81e26",
+   "hash": "24c4a33218",
    "kind": "obj-resource-stone",
    "size": "s",
    "wdh": [
@@ -339767,8 +339687,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 8288,
-   "vtx": 185,
+   "bytes": 10240,
+   "vtx": 246,
    "grounded": true,
    "centered": true,
    "minEdge": 0.003,
@@ -339777,7 +339697,7 @@
    "avgTri": 0.00174,
    "anglePct": 87,
    "pieces": 1,
-   "vpt": 1.23,
+   "vpt": 1.64,
    "cells": [
     "14,3"
    ],
@@ -345073,7 +344993,7 @@
    "kit": "quat-dun-1",
    "collection": "quat-dun",
    "name": "arch",
-   "hash": "3985d6d94c",
+   "hash": "7eae351fe9",
    "kind": "str-part-wall-arch",
    "size": "l",
    "wdh": [
@@ -345086,8 +345006,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 295420,
-   "vtx": 8403,
+   "bytes": 300092,
+   "vtx": 8549,
    "gridMod": true,
    "grounded": true,
    "centered": true,
@@ -345097,7 +345017,7 @@
    "avgTri": 0.0045,
    "anglePct": 77,
    "pieces": 52,
-   "vpt": 2.01,
+   "vpt": 2.04,
    "cells": [
     "14,3"
    ],
@@ -345591,7 +345511,7 @@
    "kit": "quat-dun-1",
    "collection": "quat-dun",
    "name": "floor-bricks-separate",
-   "hash": "0808327911",
+   "hash": "a0eb054d77",
    "kind": "str-part-floor",
    "size": "m",
    "wdh": [
@@ -346102,7 +346022,7 @@
    "kit": "quat-dun-1",
    "collection": "quat-dun",
    "name": "wall-modular",
-   "hash": "cab2a29538",
+   "hash": "45c7c8a296",
    "kind": "str-part-wall-unit",
    "size": "m",
    "wdh": [
@@ -346115,8 +346035,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 118536,
-   "vtx": 3350,
+   "bytes": 117704,
+   "vtx": 3324,
    "grounded": true,
    "centered": true,
    "minEdge": 0.002,
@@ -346125,7 +346045,7 @@
    "avgTri": 0.00272,
    "anglePct": 92,
    "pieces": 18,
-   "vpt": 2.03,
+   "vpt": 2.01,
    "cells": [
     "14,3"
    ],
@@ -361521,7 +361441,7 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "door-round",
-   "hash": "2355f92ef1",
+   "hash": "797765c316",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
@@ -361534,8 +361454,8 @@
    "mat": 1,
    "bands": 4,
    "calls": 1,
-   "bytes": 51112,
-   "vtx": 1400,
+   "bytes": 51624,
+   "vtx": 1416,
    "grounded": true,
    "centered": true,
    "minEdge": 0.006,
@@ -361545,7 +361465,7 @@
    "avgTri": 0.0042,
    "anglePct": 76,
    "pieces": 51,
-   "vpt": 1.71,
+   "vpt": 1.73,
    "cells": [
     "14,3",
     "13,3",
@@ -361578,7 +361498,7 @@
    "kit": "quat-medieval",
    "collection": "quat-medieval",
    "name": "door-straight",
-   "hash": "a247c13b9a",
+   "hash": "5380e7c389",
    "kind": "str-part-door-single",
    "size": "m",
    "wdh": [
@@ -405159,7 +405079,7 @@
   {
    "kit": "rgp-asia",
    "name": "tree-bed",
-   "hash": "9884acefe6",
+   "hash": "43e39ec698",
    "kind": "env-terrain-ground-field",
    "size": "m",
    "wdh": [
@@ -405172,8 +405092,8 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 19632,
-   "vtx": 457,
+   "bytes": 53592,
+   "vtx": 1518,
    "grounded": true,
    "centered": true,
    "minEdge": 0.044,
@@ -405182,7 +405102,7 @@
    "avgTri": 0.00835,
    "anglePct": 25,
    "pieces": 15,
-   "vpt": 0.77,
+   "vpt": 2.56,
    "cells": [
     "14,3",
     "3,1"
@@ -461004,7 +460924,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "forge",
-   "hash": "2d7ae1c42b",
+   "hash": "f0a889d454",
    "kind": "obj-equipment-tool-station",
    "size": "s",
    "wdh": [
@@ -461017,8 +460937,8 @@
    "mat": 1,
    "bands": 3,
    "calls": 1,
-   "bytes": 33332,
-   "vtx": 910,
+   "bytes": 33396,
+   "vtx": 912,
    "grounded": true,
    "centered": true,
    "minEdge": 0.004,
@@ -461028,7 +460948,7 @@
    "avgTri": 0.00134,
    "anglePct": 27,
    "pieces": 9,
-   "vpt": 1.94,
+   "vpt": 1.95,
    "cells": [
     "14,3",
     "15,3",
@@ -464185,7 +464105,7 @@
    "kit": "wizp-asia",
    "collection": "wizp-eastern",
    "name": "steps-stone",
-   "hash": "9d8bb9c408",
+   "hash": "30fb391556",
    "kind": "str-access-stairs-step",
    "size": "m",
    "wdh": [
@@ -465580,7 +465500,7 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "arch-stone",
-   "hash": "483b6decdf",
+   "hash": "22ff3ec97d",
    "kind": "str-part-wall-arch",
    "size": "l",
    "wdh": [
@@ -465593,8 +465513,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 27380,
-   "vtx": 744,
+   "bytes": 34356,
+   "vtx": 962,
    "grounded": true,
    "centered": true,
    "minEdge": 0.011,
@@ -465603,7 +465523,7 @@
    "avgTri": 0.00944,
    "anglePct": 29,
    "pieces": 1,
-   "vpt": 2.04,
+   "vpt": 2.64,
    "cells": [
     "14,3"
    ],
@@ -465878,7 +465798,7 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "column-medium",
-   "hash": "d224a42213",
+   "hash": "48ae3f768a",
    "kind": "str-part-pillar",
    "size": "m",
    "wdh": [
@@ -465891,8 +465811,8 @@
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 19180,
-   "vtx": 508,
+   "bytes": 19916,
+   "vtx": 531,
    "grounded": true,
    "centered": true,
    "minEdge": 0.007,
@@ -465901,7 +465821,7 @@
    "avgTri": 0.00815,
    "anglePct": 24,
    "pieces": 2,
-   "vpt": 1.98,
+   "vpt": 2.07,
    "cells": [
     "14,3"
    ],

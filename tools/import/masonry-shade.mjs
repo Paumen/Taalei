@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
 import { dirname, resolve, basename } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { cutAlong } from './plank-cut.mjs';
 import { readGlb, writeGlb, readAccessor, worldMatrices } from '../../catalog/tools/glb.mjs';
 import { repack } from './mesh-edit.mjs';
 
@@ -41,9 +42,61 @@ retune there, the saved values are in its db collection knobs, doc current):
   --shadow-reach <f>   0.4 of the model size, how far up an overhang is looked for
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
-  --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
+  --keep-mean <f>      shift the stone this share of the way back to its old average tone
+  --bricks 1           tone by brick instead, like planks: a brick is stone sharing
+                       corners with the same colour, or faces meeting at an outward
+                       fold of at least --brick-fold. Each brick gets a tone over
+                       --min-band..--max-band by --brick-pick, seeded by file name:
+                       wash: a soft pattern over the model at the brick's centre
+                       plus a small random nudge; random: any tone; few: one of
+                       four. On it a gradient from its foot (dark) to its head
+                       (light), a sixth of the range less --brick-gap. Its end and bottom
+                       faces take its darkest value. Sides --brick-side darker
+                       than tops, undersides twice that. No other shading
+  --brick-parts 1      a brick is a piece whose triangles share corner positions, nothing else
+  --brick-edges 1      join faces only across edges (outward folds, or --brick-flat), not
+                       shared corners, so grooves part bricks
+  --brick-flat <deg>   0: faces sharing an edge and turned less than this apart are one brick,
+                       for bricks whose triangles share no corners
+  --brick-fold <deg>   5        --brick-gap <t>   0.02      --brick-side <t>  0.03
+  --brick-pick <m>     wash, random or few (wash); none: every brick shaded alone
+                       by the masonry shading, heights taken within the brick,
+                       each brick darker at random by up to --brick-tones
+  --brick-tones <t>    0
+  --brick-stones <l>   foot:head:top:bottom,... band tones per stone; each brick takes
+                       one stone, shuffled, each used about equally: sides run from
+                       foot to head, faces up take top, faces down bottom. In OKLCH
+                       lightness, added on top: --stone-sun (sides to the sun
+                       lighter), --stone-seam (small faces at a brick's edge darker, not tops), --stone-height
+                       (darker toward the model's foot), --stone-recess (the brick's average
+                       recess, so the whole brick darkens) and
+                       --stone-shadow (need --cover and --shadow above 0)
+  --stone-tilt <f>     0.5: how far up or down a face points to take top or bottom
+  --stone-dent <f>     0: faces up or down smaller than this share of the brick's largest
+                       face (dents, chips) take the side gradient instead
+  --brick-width <t>    0: with none, each brick's shading squeezed into a slice this
+                       wide, placed at random over --min-band..--max-band
+  --brick-grad <f>     1: share of the gradient, 0 for one flat tone per brick
+  --min-band <t>       0.06     --max-band <t>    0.94
+  --brick-debug 1      write each brick in a loud colour instead of its tone;
+                       2: one loud colour per sixth of the range, or per stone of
+                       --brick-stones, lightest first:
+                       magenta, teal, lime, amber, azure, hunter, terracotta;
+                       3: as 1, and lists each brick's number and world bounds
   --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
+  --spec <spec.mjs>    names stones by hand, like plank-tone's: its default export gets
+                       each stone triangle as { c (centre), n (normal), lo, hi (bounds of
+                       the brick the brick finder put it in, after any cut) } and returns a
+                       stone key, or null to leave it to the brick finder; triangles
+                       with one key make one brick. Optional cut({ c, band }) returns
+                       planes [[normal, offset], ...] that split triangles first, to
+                       part stones fused into one piece (the file is cut in place,
+                       or its copy with --out); joint({ c }) true marks a triangle as
+                       mortar between cut stones: the brick's foot tone plus --stone-joint;
+                       stone({ c, lo, hi }) returns a --brick-stones index for the brick, or null
+  --stone-joint <l>    0.08 OKLCH lightness darker for joint triangles
+  --into <band>        write all shaded stone into this band, e.g. taupe
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -51,7 +104,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickFlat: 0, brickParts: 0, brickEdges: 0, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickWidth: 0, brickStones: '', stoneTilt: 0.5, stoneDent: 0, stoneSun: 0, stoneSeam: 0, stoneJoint: 0.08, stoneHeight: 0, stoneRecess: 0, stoneShadow: 0, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, into: null, spec: null, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -62,6 +115,8 @@ for (let i = 0; i < args.length; i++) {
   } else files.push(a);
 }
 
+const L_SPAN = 0.262;
+const stones = opt.brickStones ? opt.brickStones.split(',').map((q) => q.split(':').map(Number)) : [];
 const bandCells = new Set(opt.bands.split(',').map((b) => {
   if (!LANES[b]) throw new Error(`unknown band ${b}`);
   return LANES[b];
@@ -166,7 +221,8 @@ function shade(file) {
       const n = norm(cross(sub(P[1], P[0]), sub(P[2], P[0])));
       const mu = (uv[c[0] * 2] + uv[c[1] * 2] + uv[c[2] * 2]) / 3, mv = (uv[c[0] * 2 + 1] + uv[c[1] * 2 + 1] + uv[c[2] * 2 + 1]) / 3;
       const cell = `${Math.floor(mu * 16)},${Math.floor(mv * 4)}`;
-      item.tris.push({ c, n, cell, stone: bandCells.has(cell), was: mv * 4 - Math.floor(mv * 4) });
+      const stone = bandCells.has(cell);
+      item.tris.push({ c, n, cell: stone && opt.into ? LANES[opt.into] : cell, stone, was: mv * 4 - Math.floor(mv * 4) });
       all.push(P);
     }
   }
@@ -225,7 +281,6 @@ function shade(file) {
   const cast = opt.cover > 0 || opt.shadow > 0 ? grid(all, size) : null;
 
 
-  const centreOf = (item, t) => [0, 1, 2].map((j) => t.c.reduce((s, v) => s + item.verts[v].wp[j], 0) / 3);
 
   if (opt.shadow > 0) {
     const UP = [0, 1, 0];
@@ -414,9 +469,112 @@ function shade(file) {
       sm.set(v, was === undefined ? (ok ? wn : null) : (ok && was ? was : null));
     }
   }
+  const brickOf = new Map();
+  const brickInfo = new Map();
+  if (opt.bricks > 0 || opt.brickDebug) {
+    const br = stone.map((_, i) => i);
+    const bf = (i) => { while (br[i] !== i) i = br[i] = br[br[i]]; return i; };
+    const byIndex = new Map();
+    const edges = new Map();
+    stone.forEach(({ item, t }, i) => {
+      for (const v of t.c) {
+        const k = (opt.brickParts ? pk(item.verts[v].wp) : `${items.indexOf(item)}:${v}`) + `|${t.cell}`;
+        if (opt.brickEdges) continue;
+        if (byIndex.has(k)) br[bf(i)] = bf(byIndex.get(k)); else byIndex.set(k, i);
+      }
+      const ks = t.c.map((v) => pk(item.verts[v].wp));
+      for (let k = 0; k < 3; k++) {
+        const e = [ks[k], ks[(k + 1) % 3]].sort().join('|');
+        const list = edges.get(e) ?? [];
+        list.push([i, t.c[(k + 2) % 3], t.c[k]]);
+        edges.set(e, list);
+      }
+    });
+    const fold = Math.sin(opt.brickFold * Math.PI / 180);
+    const flat = opt.brickFlat ? Math.cos(opt.brickFlat * Math.PI / 180) : 2;
+    if (!opt.brickParts) for (const list of edges.values()) for (let a = 0; a < list.length; a++) for (let b = a + 1; b < list.length; b++) {
+      const A = stone[list[a][0]], B = stone[list[b][0]];
+      if (A.t.cell !== B.t.cell) continue;
+      const pa = A.item.verts[list[a][2]].wp;
+      const qb = norm(sub(B.item.verts[list[b][1]].wp, pa)), qa = norm(sub(A.item.verts[list[a][1]].wp, pa));
+      if ((dot(A.t.n, qb) < -fold && dot(B.t.n, qa) < -fold) || dot(A.t.n, B.t.n) > flat) br[bf(list[a][0])] = bf(list[b][0]);
+    }
+    const auto = new Map();
+    if (spec) stone.forEach(({ item, t }, i) => {
+      const b = auto.get(bf(i)) ?? { lo: [Infinity, Infinity, Infinity], hi: [-Infinity, -Infinity, -Infinity] };
+      for (const v of t.c) for (let j = 0; j < 3; j++) { b.lo[j] = Math.min(b.lo[j], item.verts[v].wp[j]); b.hi[j] = Math.max(b.hi[j], item.verts[v].wp[j]); }
+      auto.set(bf(i), b);
+    });
+    const keyOf = stone.map(({ item, t }, i) => {
+      const P = t.c.map((v) => item.verts[v].wp);
+      const k = spec?.default?.({ c: [0, 1, 2].map((j) => (P[0][j] + P[1][j] + P[2][j]) / 3), n: t.n, ...auto.get(bf(i)) });
+      return k === null || k === undefined ? bf(i) : 'k' + k;
+    });
+    const ids = [...new Set(keyOf)];
+    let seed = [...basename(file)].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
+    const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 2 ** 32; };
+    ids.forEach((r, n) => brickInfo.set(r, { n, level: 0, span: [Infinity, -Infinity], lo: [Infinity, Infinity, Infinity], hi: [-Infinity, -Infinity, -Infinity], sides: new Map() }));
+    stone.forEach(({ item, t }, i) => {
+      const r = keyOf[i];
+      brickOf.set(i, r);
+      const bi = brickInfo.get(r);
+      const P = t.c.map((v) => item.verts[v].wp);
+      for (const q of P) for (let j = 0; j < 3; j++) { bi.lo[j] = Math.min(bi.lo[j], q[j]); bi.hi[j] = Math.max(bi.hi[j], q[j]); }
+      bi.span = [bi.lo[1], bi.hi[1]];
+      const k = t.n.map((x) => Math.round(x * 10)).join(',');
+      const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0])));
+      bi.faces = bi.faces ?? new Map();
+      bi.faces.set(k, (bi.faces.get(k) ?? 0) + a);
+      t.fkey = k;
+      if (Math.abs(t.n[1]) > 0.5) return;
+      const e = bi.sides.get(k) ?? { n: t.n, a: 0 };
+      e.a += a;
+      bi.sides.set(k, e);
+    });
+    stone.forEach(({ item, t }, i) => {
+      const bi = brickInfo.get(brickOf.get(i));
+      const P = t.c.map((v) => item.verts[v].wp);
+      const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0])));
+      bi.cov = (bi.cov ?? 0) + a * (t.recess ?? 0);
+      bi.area = (bi.area ?? 0) + a;
+    });
+    if (spec?.joint) stone.forEach(({ item, t }) => {
+      const P = t.c.map((v) => item.verts[v].wp);
+      t.joint = spec.joint({ c: [0, 1, 2].map((j) => (P[0][j] + P[1][j] + P[2][j]) / 3) });
+    });
+    stone.forEach(({ t }, i) => {
+      const bi = brickInfo.get(brickOf.get(i));
+      t.brick = bi.n;
+      t.bi = bi;
+      t.fa = bi.faces.get(t.fkey) / Math.max(...bi.faces.values());
+    });
+    const cell = size * 0.35;
+    const hash = (x, y, z) => { let h = (x * 374761393 + y * 668265263 + z * 2147483647 + seed) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 2 ** 32; };
+    const ease = (f) => f * f * (3 - 2 * f);
+    const wash = (p) => {
+      const q = p.map((x) => x / cell), i0 = q.map(Math.floor), f = q.map((x, j) => ease(x - i0[j]));
+      let sum = 0;
+      for (const dx of [0, 1]) for (const dy of [0, 1]) for (const dz of [0, 1]) sum += hash(i0[0] + dx, i0[1] + dy, i0[2] + dz) * (dx ? f[0] : 1 - f[0]) * (dy ? f[1] : 1 - f[1]) * (dz ? f[2] : 1 - f[2]);
+      return sum;
+    };
+    const order = [...brickInfo.values()].map((bi) => [rnd(), bi]).sort((a, b) => a[0] - b[0]);
+    order.forEach(([, bi], i) => { bi.stone = stones.length ? i % stones.length : 0; });
+    if (spec?.stone) for (const bi of brickInfo.values()) bi.stone = spec.stone({ c: [0, 1, 2].map((j) => (bi.lo[j] + bi.hi[j]) / 2), lo: bi.lo, hi: bi.hi }) ?? bi.stone;
+    for (const bi of brickInfo.values()) {
+      const c = [0, 1, 2].map((j) => (bi.lo[j] + bi.hi[j]) / 2);
+      bi.tone = opt.brickPick === 'wash' ? Math.max(0, Math.min(1, 0.5 + 1.6 * (wash(c) - 0.5) + 0.3 * (rnd() - 0.5)))
+        : opt.brickPick === 'few' ? Math.floor(rnd() * 4) / 3 : rnd();
+      bi.level = Math.min(5, Math.floor(bi.tone * 6));
+    }
+    for (const bi of brickInfo.values()) bi.face = [...bi.sides.values()].reduce((m, e) => (e.a > m.a ? e : m), { n: null, a: 0 }).n;
+    console.log(`${file}: ${ids.length} bricks`);
+    if (opt.brickDebug === 3) for (const bi of brickInfo.values()) console.log(bi.n, bi.lo.map((x) => x.toFixed(3)).join(' '), '|', bi.hi.map((x) => x.toFixed(3)).join(' '));
+  }
+
   stone.forEach(({ item, t }, i) => {
-    const sp = span.get(find(i));
-    const centre = centreOf(item, t);
+    const bi = brickInfo.get(brickOf.get(i));
+    const sp = bi ? bi.span : span.get(find(i));
+    const edge = bi && bi.face && Math.abs(t.n[1]) <= 0.5 && Math.abs(dot(t.n, bi.face)) < 0.7 ? 1 : 0;
     const sm = smooth.get(item);
     t.f = t.c.map((v) => {
       const p = item.verts[v].wp;
@@ -424,21 +582,46 @@ function shade(file) {
       const ny = vn[1];
       const tiny = sp[1] - sp[0] < size * 0.04;
       const short = sp[1] - sp[0] < (hi[1] - lo[1]) * opt.shortPiece;
-      const hn = (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
+      const hn = bi && opt.brickPick === 'none' && !opt.brickStones ? (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1) : (p[1] - lo[1]) / ((hi[1] - lo[1]) || 1);
       const hp = (p[1] - sp[0]) / ((sp[1] - sp[0]) || 1);
       const sunT = (1 - Math.abs(ny)) * dot(norm([vn[0], 0, vn[2]]), SUN);
       const cov = tiny ? 0 : t.recess ?? 0;
       const shf = t.shadow && !tiny ? (t.fade ? Math.max(0, Math.min(1, (p[1] - t.fade[0]) / ((t.fade[1] - t.fade[0]) || 1))) : 1) : 0;
-      return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
+      return [ny, hn, hp, bi ? 1 : tiny || short ? 0 : 1, sunT, cov, shf];
     });
     t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
+      if (bi && opt.brickStones) {
+        const [foot, head, top, bottom] = stones[bi.stone];
+        const toV = (l) => l / L_SPAN;
+        const big = t.fa >= opt.stoneDent;
+        let tone = big && ny2 > opt.stoneTilt ? top : big && ny2 < -opt.stoneTilt ? bottom : foot + (head - foot) * hp;
+        tone += toV(-opt.stoneSun * sunT + opt.stoneHeight * (1 - hn) + opt.stoneRecess * bi.cov / (bi.area || 1) + opt.stoneShadow * shf);
+        if (t.fa < 0.3 && edge && ny2 <= opt.stoneTilt) tone += toV(opt.stoneSeam);
+        if (t.joint) tone = Math.max(tone, foot) + toV(opt.stoneJoint);
+        return Math.max(0.004, Math.min(0.996, tone));
+      }
+      if (bi && opt.brickPick !== 'none') {
+        const g = ((opt.maxBand - opt.minBand) / 6 - opt.brickGap) * opt.brickGrad;
+        const mid = opt.minBand + (opt.maxBand - opt.minBand) * bi.tone;
+        const face = ny2 < -0.5 ? 2 * opt.brickSide : ny2 > 0.5 ? 0 : opt.brickSide;
+        return Math.max(opt.min, Math.min(opt.max, mid + (edge ? g / 2 : g * (0.5 - hp)) + face));
+      }
       let tone = ny2 >= 0 ? opt.side + (opt.up - opt.side) * ny2 : opt.side + (opt.down - opt.side) * Math.sqrt(-ny2);
       tone += ny2 < -0.1 ? opt.height * Math.max(0, 0.5 - hn) : opt.height * (0.5 - hn);
       tone += sides * opt.sideFade * (1 - Math.abs(ny2)) * (0.5 - hp);
       tone -= opt.sun * sunT;
       tone += opt.cover * cov + opt.shadow * shf;
+      if (bi && opt.brickWidth) return opt.minBand + bi.tone * (opt.maxBand - opt.minBand - opt.brickWidth) + Math.max(0, Math.min(1, tone)) * opt.brickWidth;
+      if (bi) tone += bi.tone * opt.brickTones;
       return Math.max(opt.min, Math.min(opt.max, tone));
     });
+    if (bi && opt.brickDebug) {
+      const LOUD = ['9,0', '10,0', '11,0', '6,0', '4,2', '1,1', '5,0'];
+      if (opt.brickDebug === 2) { t.cell = LOUD[opt.brickStones ? stones.length - 1 - bi.stone : bi.level]; t.tones = t.tones.map(() => 0.35); } else {
+        t.cell = LOUD[bi.n % LOUD.length];
+        t.tones = t.tones.map(() => 0.2 + 0.3 * (Math.floor(bi.n / LOUD.length) % 3));
+      }
+    }
   });
 
   if (opt.keepMean) {
@@ -448,7 +631,7 @@ function shade(file) {
       const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0]))) / 2;
       was += a * t.was; now += a * (t.tones[0] + t.tones[1] + t.tones[2]) / 3; area += a;
     }
-    const shift = (was - now) / (area || 1);
+    const shift = opt.keepMean * (was - now) / (area || 1);
     for (const { t } of stone) t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
   }
 
@@ -461,7 +644,7 @@ function shade(file) {
       t.c.forEach((v, k) => {
         const ln = [0, 1, 2].map((j) => item.verts[v].mix.reduce((s2, [src, wt]) => s2 + nA.data[src * 3 + j] * wt, 0));
         const wn = norm(apply(item.matrix, ln).map((x, j) => x - z[j]));
-        const key = pk(item.verts[v].wp) + '|' + t.cell + '|' + wn.map((x) => Math.round(x * 50)).join(',');
+        const key = pk(item.verts[v].wp) + '|' + t.cell + '|' + (t.brick ?? '') + (t.joint ? 'j' : '') + '|' + wn.map((x) => Math.round(x * 50)).join(',');
         if (!weld.has(key)) weld.set(key, []);
         weld.get(key).push([t, k, dot(wn, t.n) > Math.cos(ROUND)]);
       });
@@ -475,7 +658,7 @@ function shade(file) {
 
   if (opt.dump) {
     const r = (x) => Math.round(x * 1e4) / 1e4;
-    const out = { pos: [], nrm: [], uv: [], f: [], was: [], area: [] };
+    const out = { pos: [], nrm: [], uv: [], f: [], b: [], was: [], area: [] };
     for (const item of items) {
       const nA = item.attrs.find((a) => a.name === 'NORMAL'), uA = item.attrs.find((a) => a.name === 'TEXCOORD_0');
       const m = item.matrix;
@@ -493,6 +676,10 @@ function shade(file) {
             const [cu, cv] = t.cell.split(',').map(Number);
             out.uv.push((cu + 0.5) / 16, -1 - cv);
             out.f.push(...t.f[k].map(r));
+            if (t.bi) {
+              const ax = t.bi.hi[0] - t.bi.lo[0] >= t.bi.hi[2] - t.bi.lo[2] ? 0 : 2;
+              out.b.push(t.brick, r(t.fa), r((vert.wp[ax] - t.bi.lo[ax]) / ((t.bi.hi[ax] - t.bi.lo[ax]) || 1)));
+            }
           } else out.uv.push(...[0, 1].map((j) => r(vert.mix.reduce((s2, [src, w]) => s2 + uA.data[src * 2 + j] * w, 0))));
         });
       }
@@ -586,7 +773,18 @@ function shade(file) {
   return { corners, tris };
 }
 
-for (const f of files) {
+const spec = opt.spec ? await import(pathToFileURL(resolve(opt.spec))) : null;
+for (let f of files) {
+  if (spec?.cut) {
+    if (opt.out) {
+      const dir = resolve(opt.out, basename(dirname(f)));
+      mkdirSync(resolve(dir, 'Textures'), { recursive: true });
+      copyFileSync(resolve(ROOT, 'kits', 'colormap.png'), resolve(dir, 'Textures', 'colormap.png'));
+      copyFileSync(f, resolve(dir, basename(f)));
+      f = resolve(dir, basename(f));
+    }
+    cutAlong(f, spec.cut, opt.bands.split(','));
+  }
   const { corners, tris } = shade(f);
   console.log(`${f}: ${corners} stone corners, ${tris} triangles`);
 }
