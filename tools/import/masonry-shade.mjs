@@ -42,6 +42,15 @@ retune there, the saved values are in its db collection knobs, doc current):
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
+  --bricks <t>         0: spread of the brick tones; each brick gets one of six
+                       tones from 0 to this, darker only, shuffled, seeded by file
+                       name, on top of the shading; on sides its own gradient
+                       (--brick-fade) replaces --side-fade, and side faces across
+                       its broad face are darker by --brick-edge. A brick is stone sharing edges whose old
+                       tones differ by at most --brick-join, so blocks painted on one
+                       panel stay apart
+  --brick-join <t>     0.08
+  --brick-debug 1      write each brick in a loud colour instead of its tone
   --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
@@ -51,7 +60,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickFade: 0.35, brickEdge: 0.25, brickDebug: 0, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -225,7 +234,6 @@ function shade(file) {
   const cast = opt.cover > 0 || opt.shadow > 0 ? grid(all, size) : null;
 
 
-  const centreOf = (item, t) => [0, 1, 2].map((j) => t.c.reduce((s, v) => s + item.verts[v].wp[j], 0) / 3);
 
   if (opt.shadow > 0) {
     const UP = [0, 1, 0];
@@ -414,9 +422,61 @@ function shade(file) {
       sm.set(v, was === undefined ? (ok ? wn : null) : (ok && was ? was : null));
     }
   }
+  const brickOf = new Map();
+  const brickInfo = new Map();
+  if (opt.bricks > 0 || opt.brickDebug) {
+    const br = stone.map((_, i) => i);
+    const bf = (i) => { while (br[i] !== i) i = br[i] = br[br[i]]; return i; };
+    const byIndex = new Map();
+    const edges = new Map();
+    stone.forEach(({ item, t }, i) => {
+      for (const v of t.c) {
+        const k = `${items.indexOf(item)}:${v}|${t.cell}`;
+        if (byIndex.has(k)) br[bf(i)] = bf(byIndex.get(k)); else byIndex.set(k, i);
+      }
+      const ks = t.c.map((v) => pk(item.verts[v].wp));
+      for (let k = 0; k < 3; k++) {
+        const e = [ks[k], ks[(k + 1) % 3]].sort().join('|');
+        const list = edges.get(e) ?? [];
+        list.push([i, t.c[(k + 2) % 3], t.c[k]]);
+        edges.set(e, list);
+      }
+    });
+    const fold = Math.sin(opt.brickFold * Math.PI / 180);
+    for (const list of edges.values()) for (let a = 0; a < list.length; a++) for (let b = a + 1; b < list.length; b++) {
+      const A = stone[list[a][0]], B = stone[list[b][0]];
+      if (A.t.cell !== B.t.cell) continue;
+      const pa = A.item.verts[list[a][2]].wp;
+      const qb = norm(sub(B.item.verts[list[b][1]].wp, pa)), qa = norm(sub(A.item.verts[list[a][1]].wp, pa));
+      if (dot(A.t.n, qb) < -fold && dot(B.t.n, qa) < -fold) br[bf(list[a][0])] = bf(list[b][0]);
+    }
+    const ids = [...new Set(stone.map((_, i) => bf(i)))];
+    let seed = [...basename(file)].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
+    const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 2 ** 32; };
+    const levels = ids.map((_, i) => (i % 6) / 5);
+    for (let i = levels.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [levels[i], levels[j]] = [levels[j], levels[i]]; }
+    ids.forEach((r, n) => brickInfo.set(r, { n, level: levels[n], span: [Infinity, -Infinity], sides: new Map() }));
+    stone.forEach(({ item, t }, i) => {
+      const r = bf(i);
+      brickOf.set(i, r);
+      const bi = brickInfo.get(r);
+      const P = t.c.map((v) => item.verts[v].wp);
+      for (const q of P) { bi.span[0] = Math.min(bi.span[0], q[1]); bi.span[1] = Math.max(bi.span[1], q[1]); }
+      if (Math.abs(t.n[1]) > 0.5) return;
+      const k = t.n.map((x) => Math.round(x * 10)).join(',');
+      const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0])));
+      const e = bi.sides.get(k) ?? { n: t.n, a: 0 };
+      e.a += a;
+      bi.sides.set(k, e);
+    });
+    for (const bi of brickInfo.values()) bi.face = [...bi.sides.values()].reduce((m, e) => (e.a > m.a ? e : m), { n: null, a: 0 }).n;
+    console.log(`${file}: ${ids.length} bricks`);
+  }
+
   stone.forEach(({ item, t }, i) => {
-    const sp = span.get(find(i));
-    const centre = centreOf(item, t);
+    const bi = brickInfo.get(brickOf.get(i));
+    const sp = bi ? bi.span : span.get(find(i));
+    const edge = bi && bi.face && Math.abs(t.n[1]) <= 0.5 && Math.abs(dot(t.n, bi.face)) < 0.7 ? 1 : 0;
     const sm = smooth.get(item);
     t.f = t.c.map((v) => {
       const p = item.verts[v].wp;
@@ -429,16 +489,22 @@ function shade(file) {
       const sunT = (1 - Math.abs(ny)) * dot(norm([vn[0], 0, vn[2]]), SUN);
       const cov = tiny ? 0 : t.recess ?? 0;
       const shf = t.shadow && !tiny ? (t.fade ? Math.max(0, Math.min(1, (p[1] - t.fade[0]) / ((t.fade[1] - t.fade[0]) || 1))) : 1) : 0;
-      return [ny, hn, hp, tiny || short ? 0 : 1, sunT, cov, shf];
+      return [ny, hn, hp, bi ? 1 : tiny || short ? 0 : 1, sunT, cov, shf];
     });
     t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
       let tone = ny2 >= 0 ? opt.side + (opt.up - opt.side) * ny2 : opt.side + (opt.down - opt.side) * Math.sqrt(-ny2);
       tone += ny2 < -0.1 ? opt.height * Math.max(0, 0.5 - hn) : opt.height * (0.5 - hn);
-      tone += sides * opt.sideFade * (1 - Math.abs(ny2)) * (0.5 - hp);
+      tone += sides * (bi ? opt.brickFade : opt.sideFade) * (1 - Math.abs(ny2)) * (0.5 - hp);
+      if (bi) tone += bi.level * opt.bricks + edge * opt.brickEdge;
       tone -= opt.sun * sunT;
       tone += opt.cover * cov + opt.shadow * shf;
       return Math.max(opt.min, Math.min(opt.max, tone));
     });
+    if (bi && opt.brickDebug) {
+      const LOUD = ['9,0', '10,0', '11,0', '6,0', '4,2', '1,1', '5,0'];
+      t.cell = LOUD[bi.n % LOUD.length];
+      t.tones = t.tones.map(() => 0.2 + 0.3 * (Math.floor(bi.n / LOUD.length) % 3));
+    }
   });
 
   if (opt.keepMean) {
