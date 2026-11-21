@@ -44,20 +44,21 @@ retune there, the saved values are in its db collection knobs, doc current):
   --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
   --bricks 1           tone by brick instead, like planks: a brick is stone sharing
                        corners with the same colour, or faces meeting at an outward
-                       fold of at least --brick-fold. Each brick gets one of six
-                       tone slots over --min-band..--max-band, at least two slots
-                       from bricks it touches where it can, each slot used about
-                       equally, seeded by file name, --brick-gap apart so tones never overlap; within
-                       its slot a gradient from its foot (dark) to its head
-                       (light), full or half the slot by tone. Its end and bottom
+                       fold of at least --brick-fold. Each brick gets a tone over
+                       --min-band..--max-band by --brick-pick, seeded by file name:
+                       wash: a soft pattern over the model at the brick's centre
+                       plus a small random nudge; random: any tone; few: one of
+                       four. On it a gradient from its foot (dark) to its head
+                       (light), a sixth of the range less --brick-gap. Its end and bottom
                        faces take its darkest value. Sides --brick-side darker
                        than tops, undersides twice that. No other shading
   --brick-fold <deg>   5        --brick-gap <t>   0.02      --brick-side <t>  0.03
+  --brick-pick <m>     wash, random or few (wash)
   --brick-grad <f>     1: share of the gradient, 0 for one flat tone per brick
   --min-band <t>       0.06     --max-band <t>    0.94
   --brick-debug 1      write each brick in a loud colour instead of its tone;
-                       2: one loud colour per tone slot, lightest first: magenta,
-                       teal, lime, amber, azure, hunter
+                       2: one loud colour per sixth of the range, lightest first:
+                       magenta, teal, lime, amber, azure, hunter
   --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
@@ -67,7 +68,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickGrad: 1, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -475,19 +476,20 @@ function shade(file) {
       e.a += a;
       bi.sides.set(k, e);
     });
-    const list = [...brickInfo.values()];
-    const near = size * 0.01;
-    const touch = (a, b) => [0, 1, 2].every((j) => a.lo[j] <= b.hi[j] + near && b.lo[j] <= a.hi[j] + near);
-    const used = [0, 0, 0, 0, 0, 0];
-    const done = [];
-    for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }
-    for (const bi of list) {
-      const taken = done.filter((o) => touch(bi, o)).map((o) => o.level);
-      const score = (l) => Math.min(2, ...taken.map((x) => Math.abs(x - l)));
-      const best = [0, 1, 2, 3, 4, 5].map((l) => [l, score(l), used[l], rnd()]).sort((a, b) => b[1] - a[1] || a[2] - b[2] || a[3] - b[3])[0][0];
-      bi.level = best;
-      used[best]++;
-      done.push(bi);
+    const cell = size * 0.35;
+    const hash = (x, y, z) => { let h = (x * 374761393 + y * 668265263 + z * 2147483647 + seed) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 2 ** 32; };
+    const ease = (f) => f * f * (3 - 2 * f);
+    const wash = (p) => {
+      const q = p.map((x) => x / cell), i0 = q.map(Math.floor), f = q.map((x, j) => ease(x - i0[j]));
+      let sum = 0;
+      for (const dx of [0, 1]) for (const dy of [0, 1]) for (const dz of [0, 1]) sum += hash(i0[0] + dx, i0[1] + dy, i0[2] + dz) * (dx ? f[0] : 1 - f[0]) * (dy ? f[1] : 1 - f[1]) * (dz ? f[2] : 1 - f[2]);
+      return sum;
+    };
+    for (const bi of brickInfo.values()) {
+      const c = [0, 1, 2].map((j) => (bi.lo[j] + bi.hi[j]) / 2);
+      bi.tone = opt.brickPick === 'wash' ? Math.max(0, Math.min(1, 0.5 + 1.6 * (wash(c) - 0.5) + 0.3 * (rnd() - 0.5)))
+        : opt.brickPick === 'few' ? Math.floor(rnd() * 4) / 3 : rnd();
+      bi.level = Math.min(5, Math.floor(bi.tone * 6));
     }
     for (const bi of brickInfo.values()) bi.face = [...bi.sides.values()].reduce((m, e) => (e.a > m.a ? e : m), { n: null, a: 0 }).n;
     console.log(`${file}: ${ids.length} bricks`);
@@ -513,9 +515,8 @@ function shade(file) {
     });
     t.tones = t.f.map(([ny2, hn, hp, sides, sunT, cov, shf]) => {
       if (bi) {
-        const slot = (opt.maxBand - opt.minBand) / 6;
-        const g = (slot - opt.brickGap) * [1, 0.5, 1, 1, 0.5, 1][bi.level] * opt.brickGrad;
-        const mid = opt.minBand + slot * (bi.level + 0.5);
+        const g = ((opt.maxBand - opt.minBand) / 6 - opt.brickGap) * opt.brickGrad;
+        const mid = opt.minBand + (opt.maxBand - opt.minBand) * bi.tone;
         const face = ny2 < -0.5 ? 2 * opt.brickSide : ny2 > 0.5 ? 0 : opt.brickSide;
         return Math.max(opt.min, Math.min(opt.max, mid + (edge ? g / 2 : g * (0.5 - hp)) + face));
       }
