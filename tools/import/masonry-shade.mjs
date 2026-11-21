@@ -92,7 +92,9 @@ retune there, the saved values are in its db collection knobs, doc current):
                        with one key make one brick. Optional cut({ c, band }) returns
                        planes [[normal, offset], ...] that split triangles first, to
                        part stones fused into one piece (the file is cut in place,
-                       or its copy with --out)
+                       or its copy with --out); joint({ c }) true marks a triangle as
+                       mortar between cut stones: the brick's foot tone plus --stone-joint
+  --stone-joint <l>    0.08 OKLCH lightness darker for joint triangles
   --into <band>        write all shaded stone into this band, e.g. taupe
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
 
@@ -101,7 +103,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickFlat: 0, brickParts: 0, brickEdges: 0, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickWidth: 0, brickStones: '', stoneTilt: 0.5, stoneDent: 0, stoneSun: 0, stoneSeam: 0, stoneHeight: 0, stoneRecess: 0, stoneShadow: 0, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, into: null, spec: null, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickFlat: 0, brickParts: 0, brickEdges: 0, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickWidth: 0, brickStones: '', stoneTilt: 0.5, stoneDent: 0, stoneSun: 0, stoneSeam: 0, stoneJoint: 0.08, stoneHeight: 0, stoneRecess: 0, stoneShadow: 0, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, into: null, spec: null, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -535,6 +537,10 @@ function shade(file) {
       bi.cov = (bi.cov ?? 0) + a * (t.recess ?? 0);
       bi.area = (bi.area ?? 0) + a;
     });
+    if (spec?.joint) stone.forEach(({ item, t }) => {
+      const P = t.c.map((v) => item.verts[v].wp);
+      t.joint = spec.joint({ c: [0, 1, 2].map((j) => (P[0][j] + P[1][j] + P[2][j]) / 3) });
+    });
     stone.forEach(({ t }, i) => {
       const bi = brickInfo.get(brickOf.get(i));
       t.brick = bi.n;
@@ -589,6 +595,7 @@ function shade(file) {
         let tone = big && ny2 > opt.stoneTilt ? top : big && ny2 < -opt.stoneTilt ? bottom : foot + (head - foot) * hp;
         tone += toV(-opt.stoneSun * sunT + opt.stoneHeight * (1 - hn) + opt.stoneRecess * bi.cov / (bi.area || 1) + opt.stoneShadow * shf);
         if (t.fa < 0.3 && edge && ny2 <= opt.stoneTilt) tone += toV(opt.stoneSeam);
+        if (t.joint) tone = Math.max(tone, foot) + toV(opt.stoneJoint);
         return Math.max(0.004, Math.min(0.996, tone));
       }
       if (bi && opt.brickPick !== 'none') {

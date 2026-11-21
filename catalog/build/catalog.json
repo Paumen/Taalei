@@ -56477,7 +56477,7 @@
   {
    "kit": "dungeon",
    "name": "stair",
-   "hash": "a16f26da2d",
+   "hash": "cbad93643c",
    "kind": "str-access-stairs",
    "size": "l",
    "wdh": [
@@ -56485,24 +56485,24 @@
     1.497,
     1
    ],
-   "tris": 1548,
-   "tpu": 689,
+   "tris": 2302,
+   "tpu": 1025,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 120476,
-   "vtx": 3427,
+   "bytes": 145992,
+   "vtx": 4083,
    "gridMod": true,
    "grounded": true,
    "centered": true,
-   "minEdge": 0.001,
+   "minEdge": 0,
    "minTube": 0.0466,
-   "minWall": 0.0693,
+   "minWall": 0.022,
    "thick": 0.1438,
-   "avgTri": 0.01689,
+   "avgTri": 0.01136,
    "anglePct": 84,
    "pieces": 63,
-   "vpt": 2.21,
+   "vpt": 1.77,
    "cells": [
     "14,3"
    ],
@@ -56513,7 +56513,14 @@
     "grid-1-5x1-5x1",
     "stone-masonry-mid"
    ],
-   "thickRel": 1.18
+   "thickRel": 1.18,
+   "lint": [
+    {
+     "level": "warning",
+     "check": "measures",
+     "text": "G27 minWall 0.022 wants min 0.026"
+    }
+   ]
   },
   {
    "kit": "dungeon",
@@ -95204,7 +95211,7 @@
    "kit": "fs-town",
    "collection": "fs-modular",
    "name": "well-a",
-   "hash": "c501e4787e",
+   "hash": "5cc52c96b3",
    "kind": "str-fixture-utility-well",
    "size": "m",
    "wdh": [
@@ -95212,22 +95219,22 @@
     0.722,
     0.804
    ],
-   "tris": 1992,
-   "tpu": 5056,
+   "tris": 1424,
+   "tpu": 3615,
    "mat": 1,
    "bands": 5,
    "calls": 3,
-   "bytes": 112500,
-   "vtx": 3008,
+   "bytes": 88448,
+   "vtx": 2363,
    "grounded": true,
-   "minEdge": 0,
+   "minEdge": 0.011,
    "minTube": 0.0275,
    "minWall": 0.0189,
-   "thick": 0.0858,
-   "avgTri": 0.00158,
+   "thick": 0.0857,
+   "avgTri": 0.0022,
    "anglePct": 81,
    "pieces": 13,
-   "vpt": 1.51,
+   "vpt": 1.66,
    "cells": [
     "0,0",
     "2,0",
@@ -125991,7 +125998,7 @@
     "spin"
    ],
    "variant": "kay-builder/well-anim",
-   "thickRel": 0.89,
+   "thickRel": 0.9,
    "lint": [
     {
      "level": "warning",
@@ -192014,7 +192021,7 @@
   {
    "kit": "ken-cave",
    "name": "gate-metal-bars",
-   "hash": "f54a4c2c87",
+   "hash": "599cf9bb0b",
    "kind": "str-part-gate-gateway",
    "size": "m",
    "wdh": [
@@ -192022,23 +192029,23 @@
     0.351,
     1
    ],
-   "tris": 1408,
-   "tpu": 2873,
+   "tris": 2344,
+   "tpu": 4784,
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 103256,
-   "vtx": 2916,
+   "bytes": 137224,
+   "vtx": 3802,
    "grounded": true,
    "centered": true,
    "minEdge": 0.001,
    "minTube": 0.026,
-   "minWall": 0.0065,
+   "minWall": 0.006,
    "thick": 0.0801,
-   "avgTri": 0.00539,
+   "avgTri": 0.00324,
    "anglePct": 57,
    "pieces": 91,
-   "vpt": 2.07,
+   "vpt": 1.62,
    "cells": [
     "14,3",
     "6,1"
@@ -192059,14 +192066,14 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0065 wants min 0.026"
+     "text": "G27 minWall 0.006 wants min 0.026"
     }
    ]
   },
   {
    "kit": "ken-cave",
    "name": "gate",
-   "hash": "c95beaeffb",
+   "hash": "7b7e4e7b57",
    "kind": "str-part-wall-arch",
    "size": "m",
    "wdh": [
@@ -192074,22 +192081,22 @@
     0.351,
     1
    ],
-   "tris": 1114,
-   "tpu": 2273,
+   "tris": 1890,
+   "tpu": 3857,
    "mat": 1,
    "bands": 1,
    "calls": 1,
-   "bytes": 84432,
-   "vtx": 2385,
+   "bytes": 113028,
+   "vtx": 3133,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
    "minWall": 0.0136,
    "thick": 0.0818,
-   "avgTri": 0.00489,
+   "avgTri": 0.00288,
    "anglePct": 49,
    "pieces": 52,
-   "vpt": 2.14,
+   "vpt": 1.66,
    "cells": [
     "14,3"
    ],
@@ -465877,7 +465884,7 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "column-tall",
-   "hash": "f925d944b9",
+   "hash": "a8ea8095ae",
    "kind": "str-part-pillar",
    "size": "l",
    "wdh": [
