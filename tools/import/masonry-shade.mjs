@@ -65,8 +65,9 @@ retune there, the saved values are in its db collection knobs, doc current):
   --brick-grad <f>     1: share of the gradient, 0 for one flat tone per brick
   --min-band <t>       0.06     --max-band <t>    0.94
   --brick-debug 1      write each brick in a loud colour instead of its tone;
-                       2: one loud colour per sixth of the range, lightest first:
-                       magenta, teal, lime, amber, azure, hunter
+                       2: one loud colour per sixth of the range, or per stone of
+                       --brick-stones, lightest first:
+                       magenta, teal, lime, amber, azure, hunter, terracotta
   --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
@@ -555,7 +556,7 @@ function shade(file) {
     });
     if (bi && opt.brickDebug) {
       const LOUD = ['9,0', '10,0', '11,0', '6,0', '4,2', '1,1', '5,0'];
-      if (opt.brickDebug === 2) { t.cell = LOUD[bi.level]; t.tones = t.tones.map(() => 0.35); } else {
+      if (opt.brickDebug === 2) { t.cell = LOUD[opt.brickStones ? stones.length - 1 - bi.stone : bi.level]; t.tones = t.tones.map(() => 0.35); } else {
         t.cell = LOUD[bi.n % LOUD.length];
         t.tones = t.tones.map(() => 0.2 + 0.3 * (Math.floor(bi.n / LOUD.length) % 3));
       }
