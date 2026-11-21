@@ -93,7 +93,8 @@ retune there, the saved values are in its db collection knobs, doc current):
                        planes [[normal, offset], ...] that split triangles first, to
                        part stones fused into one piece (the file is cut in place,
                        or its copy with --out); joint({ c }) true marks a triangle as
-                       mortar between cut stones: the brick's foot tone plus --stone-joint
+                       mortar between cut stones: the brick's foot tone plus --stone-joint;
+                       stone({ c, lo, hi }) returns a --brick-stones index for the brick, or null
   --stone-joint <l>    0.08 OKLCH lightness darker for joint triangles
   --into <band>        write all shaded stone into this band, e.g. taupe
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
@@ -506,7 +507,7 @@ function shade(file) {
     });
     const keyOf = stone.map(({ item, t }, i) => {
       const P = t.c.map((v) => item.verts[v].wp);
-      const k = spec?.default({ c: [0, 1, 2].map((j) => (P[0][j] + P[1][j] + P[2][j]) / 3), n: t.n, ...auto.get(bf(i)) });
+      const k = spec?.default?.({ c: [0, 1, 2].map((j) => (P[0][j] + P[1][j] + P[2][j]) / 3), n: t.n, ...auto.get(bf(i)) });
       return k === null || k === undefined ? bf(i) : 'k' + k;
     });
     const ids = [...new Set(keyOf)];
@@ -558,6 +559,7 @@ function shade(file) {
     };
     const order = [...brickInfo.values()].map((bi) => [rnd(), bi]).sort((a, b) => a[0] - b[0]);
     order.forEach(([, bi], i) => { bi.stone = stones.length ? i % stones.length : 0; });
+    if (spec?.stone) for (const bi of brickInfo.values()) bi.stone = spec.stone({ c: [0, 1, 2].map((j) => (bi.lo[j] + bi.hi[j]) / 2), lo: bi.lo, hi: bi.hi }) ?? bi.stone;
     for (const bi of brickInfo.values()) {
       const c = [0, 1, 2].map((j) => (bi.lo[j] + bi.hi[j]) / 2);
       bi.tone = opt.brickPick === 'wash' ? Math.max(0, Math.min(1, 0.5 + 1.6 * (wash(c) - 0.5) + 0.3 * (rnd() - 0.5)))
@@ -642,7 +644,7 @@ function shade(file) {
       t.c.forEach((v, k) => {
         const ln = [0, 1, 2].map((j) => item.verts[v].mix.reduce((s2, [src, wt]) => s2 + nA.data[src * 3 + j] * wt, 0));
         const wn = norm(apply(item.matrix, ln).map((x, j) => x - z[j]));
-        const key = pk(item.verts[v].wp) + '|' + t.cell + '|' + (t.brick ?? '') + '|' + wn.map((x) => Math.round(x * 50)).join(',');
+        const key = pk(item.verts[v].wp) + '|' + t.cell + '|' + (t.brick ?? '') + (t.joint ? 'j' : '') + '|' + wn.map((x) => Math.round(x * 50)).join(',');
         if (!weld.has(key)) weld.set(key, []);
         weld.get(key).push([t, k, dot(wn, t.n) > Math.cos(ROUND)]);
       });
