@@ -41,7 +41,7 @@ retune there, the saved values are in its db collection knobs, doc current):
   --shadow-reach <f>   0.4 of the model size, how far up an overhang is looked for
   --short-piece <f>    0.15 of the model height: shorter pieces (caps, bands, ledges)
                        keep the base tone on their sides, no fade from a dark foot
-  --keep-mean 1        shift the stone so its average tone stays as it was, for models with little stone
+  --keep-mean <f>      shift the stone this share of the way back to its old average tone
   --bricks 1           tone by brick instead, like planks: a brick is stone sharing
                        corners with the same colour, or faces meeting at an outward
                        fold of at least --brick-fold. Each brick gets a tone over
@@ -61,10 +61,12 @@ retune there, the saved values are in its db collection knobs, doc current):
                        one stone, shuffled, each used about equally: sides run from
                        foot to head, faces up take top, faces down bottom. In OKLCH
                        lightness, added on top: --stone-sun (sides to the sun
-                       lighter), --stone-seam (small faces darker, not tops), --stone-height
+                       lighter), --stone-seam (small faces at a brick's edge darker, not tops), --stone-height
                        (darker toward the model's foot), --stone-recess and
                        --stone-shadow (need --cover and --shadow above 0)
   --stone-tilt <f>     0.5: how far up or down a face points to take top or bottom
+  --stone-dent <f>     0: faces up or down smaller than this share of the brick's largest
+                       face (dents, chips) take the side gradient instead
   --brick-width <t>    0: with none, each brick's shading squeezed into a slice this
                        wide, placed at random over --min-band..--max-band
   --brick-grad <f>     1: share of the gradient, 0 for one flat tone per brick
@@ -75,6 +77,7 @@ retune there, the saved values are in its db collection knobs, doc current):
                        magenta, teal, lime, amber, azure, hunter, terracotta
   --min <t> --max <t>  0.03 1
   --flat 1             give the stone flat faces, for models with smooth normals
+  --into <band>        write all shaded stone into this band, e.g. taupe
   --out <dir>          write copies there (kit/name.glb, with the colour map) instead of in place`;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -82,7 +85,7 @@ const LANES = JSON.parse(readFileSync(resolve(ROOT, 'lint', 'materials.json'), '
 
 const args = process.argv.slice(2);
 if (!args.length || args.includes('--help')) { console.log(HELP); process.exit(0); }
-const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickWidth: 0, brickStones: '', stoneTilt: 0.5, stoneSun: 0, stoneSeam: 0, stoneHeight: 0, stoneRecess: 0, stoneShadow: 0, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, out: null };
+const opt = { bands: 'taupe,taupe-dark', up: 0, side: 0.5, down: 1, height: 0.3, sideFade: 0.25, sun: 0.1, cover: 0.4, reach: 0.3, ratio: 3, shallow: 0.3, shadowReach: 0.4, shadowLen: 3, shadowCap: 0.25, shadow: 0.4, keepMean: 0, flat: 0, dump: null, shortPiece: 0.15, min: 0.03, max: 1, bricks: 0, brickFold: 5, brickGap: 0.02, brickGrad: 1, brickPick: 'wash', brickTones: 0, brickWidth: 0, brickStones: '', stoneTilt: 0.5, stoneDent: 0, stoneSun: 0, stoneSeam: 0, stoneHeight: 0, stoneRecess: 0, stoneShadow: 0, brickSide: 0.03, minBand: 0.06, maxBand: 0.94, brickDebug: 0, into: null, out: null };
 const files = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -199,7 +202,8 @@ function shade(file) {
       const n = norm(cross(sub(P[1], P[0]), sub(P[2], P[0])));
       const mu = (uv[c[0] * 2] + uv[c[1] * 2] + uv[c[2] * 2]) / 3, mv = (uv[c[0] * 2 + 1] + uv[c[1] * 2 + 1] + uv[c[2] * 2 + 1]) / 3;
       const cell = `${Math.floor(mu * 16)},${Math.floor(mv * 4)}`;
-      item.tris.push({ c, n, cell, stone: bandCells.has(cell), was: mv * 4 - Math.floor(mv * 4) });
+      const stone = bandCells.has(cell);
+      item.tris.push({ c, n, cell: stone && opt.into ? LANES[opt.into] : cell, stone, was: mv * 4 - Math.floor(mv * 4) });
       all.push(P);
     }
   }
@@ -544,9 +548,10 @@ function shade(file) {
       if (bi && opt.brickStones) {
         const [foot, head, top, bottom] = stones[bi.stone];
         const toV = (l) => l / L_SPAN;
-        let tone = ny2 > opt.stoneTilt ? top : ny2 < -opt.stoneTilt ? bottom : foot + (head - foot) * hp;
+        const big = t.fa >= opt.stoneDent;
+        let tone = big && ny2 > opt.stoneTilt ? top : big && ny2 < -opt.stoneTilt ? bottom : foot + (head - foot) * hp;
         tone += toV(-opt.stoneSun * sunT + opt.stoneHeight * (1 - hn) + opt.stoneRecess * cov + opt.stoneShadow * shf);
-        if (t.fa < 0.3 && ny2 <= opt.stoneTilt) tone += toV(opt.stoneSeam);
+        if (t.fa < 0.3 && edge && ny2 <= opt.stoneTilt) tone += toV(opt.stoneSeam);
         return Math.max(0.004, Math.min(0.996, tone));
       }
       if (bi && opt.brickPick !== 'none') {
@@ -580,7 +585,7 @@ function shade(file) {
       const a = Math.hypot(...cross(sub(P[1], P[0]), sub(P[2], P[0]))) / 2;
       was += a * t.was; now += a * (t.tones[0] + t.tones[1] + t.tones[2]) / 3; area += a;
     }
-    const shift = (was - now) / (area || 1);
+    const shift = opt.keepMean * (was - now) / (area || 1);
     for (const { t } of stone) t.tones = t.tones.map((x) => Math.max(opt.min, Math.min(opt.max, x + shift)));
   }
 
