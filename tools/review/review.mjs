@@ -349,8 +349,14 @@ function build() {
     const d1 = pixelDiff(png('before', 'iso'), png('after', 'iso'), join(out, 'diff', `${key(item.model)}-iso.png`));
     const d2 = pixelDiff(png('before', 'iso-back'), png('after', 'iso-back'), join(out, 'diff', `${key(item.model)}-back.png`));
     const pixels = Math.max(d1.share ?? 0, d2.share ?? 0);
-    const visual = d.types.includes('recolour') || d1.boxes.length + d2.boxes.length > 0;
     const added = !existsSync(join(out, 'before', `${key(item.model)}.glb`));
+    const glbOf = (side) => join(out, side, `${key(item.model)}.glb`);
+    const rewritten = !added && existsSync(glbOf('after')) && !readFileSync(glbOf('before')).equals(readFileSync(glbOf('after')));
+    if (rewritten && !d.types.some((t) => t !== 'tag')) {
+      d.types.push('shape');
+      d.facts.push({ f: 'shape', move: null, s: 'mid' });
+    }
+    const visual = d.types.some((t) => t !== 'tag') || d1.boxes.length + d2.boxes.length > 0;
     const reasons = riskReasons(item, d, added);
     return {
       model: item.model,
