@@ -100,6 +100,7 @@ function facts(buf) {
   const area = new Map();
   const uvs = [];
   const positions = [];
+  const corners = [];
   for (const mesh of glb.json.meshes ?? []) {
     for (const prim of mesh.primitives ?? []) {
       const pos = readAccessor(glb, prim.attributes.POSITION).data;
@@ -110,6 +111,8 @@ function facts(buf) {
       const idx = prim.indices === undefined
         ? Array.from({ length: pos.length / 3 }, (_, i) => i)
         : Array.from(readAccessor(glb, prim.indices).data);
+      const nrm = prim.attributes.NORMAL === undefined ? null : readAccessor(glb, prim.attributes.NORMAL).data;
+      for (const i of idx) corners.push([nrm ? nrm[i * 3] : 0, nrm ? nrm[i * 3 + 1] : 0, nrm ? nrm[i * 3 + 2] : 0, uv[i * 2 + 1], pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]]);
       for (let t = 0; t < idx.length; t += 3) {
         const [a, b, c] = [idx[t], idx[t + 1], idx[t + 2]];
         const e1 = [0, 1, 2].map((k) => pos[b * 3 + k] - pos[a * 3 + k]);
@@ -124,7 +127,7 @@ function facts(buf) {
   }
   const total = [...area.values()].reduce((s, a) => s + a, 0) || 1;
   const bands = new Map([...area].map(([cell, a]) => [cell, a / total]));
-  return { tris: scene.triangles, wdh: scene.wdh, bands, uvs, positions };
+  return { tris: scene.triangles, wdh: scene.wdh, bands, uvs, positions, corners };
 }
 
 function bandInfo(cell) {
@@ -140,6 +143,8 @@ function bandInfo(cell) {
 const round = (v) => Math.round(v * 1000) / 1000;
 const longest = (wdh) => Math.max(...wdh);
 const strength = (value, mid, high) => (value >= high ? 'strong' : value >= mid ? 'mid' : 'low');
+
+const SHADE_COS = Math.cos((2 * Math.PI) / 180);
 
 function diff(model, base, tagsBefore, tagsAfter, beforeFile) {
   const path = `${WORK}/${model}.glb`;
@@ -180,7 +185,17 @@ function diff(model, base, tagsBefore, tagsAfter, beforeFile) {
     const gone = [...before.bands.keys()].filter((c) => !after.bands.has(c));
     const come = [...after.bands.keys()].filter((c) => !before.bands.has(c));
     const sameMesh = before.uvs.length === after.uvs.length && before.uvs.every((u, i) => u.length === after.uvs[i].length);
+    const sameCorners = before.corners.length === after.corners.length;
+    const toned = sameCorners ? before.corners.filter((c, i) => Math.abs(c[3] - after.corners[i][3]) * ROWS > 0.02).length / (before.corners.length || 1) : 0;
+    const bent = sameCorners ? before.corners.filter((c, i) => {
+      const d = after.corners[i];
+      return (c[0] * d[0] + c[1] * d[1] + c[2] * d[2]) / ((Math.hypot(c[0], c[1], c[2]) * Math.hypot(d[0], d[1], d[2])) || 1) < SHADE_COS;
+    }).length / (before.corners.length || 1) : 0;
     const slide = sameMesh && before.uvs.some((u, i) => u.some((x, k) => Math.abs(x - after.uvs[i][k]) * ROWS > 0.02));
+    if (bent > 0 || toned > 0) {
+      types.add('shading');
+      out.push({ f: 'shading', normals: Math.round(bent * 100), tones: Math.round(toned * 100), s: strength(Math.max(bent, toned), 0.1, 0.35) });
+    }
     if (gone.length || come.length || shift >= 0.02 || slide) {
       types.add('recolour');
       out.push({ f: 'colour', from: row(before.bands), to: row(after.bands), changed: Math.round(shift * 100),
@@ -198,8 +213,11 @@ function diff(model, base, tagsBefore, tagsAfter, beforeFile) {
 }
 
 function maxMove(a, b) {
-  if (a.positions.length !== b.positions.length) return null;
   const scale = longest(a.wdh) || 1;
+  if (a.corners.length && a.corners.length === b.corners.length) {
+    return a.corners.reduce((m, c, i) => Math.max(m, ...[4, 5, 6].map((k) => Math.abs(c[k] - b.corners[i][k]) / scale)), 0);
+  }
+  if (a.positions.length !== b.positions.length) return null;
   let most = 0;
   for (let p = 0; p < a.positions.length; p++) {
     const x = a.positions[p];
@@ -349,7 +367,7 @@ function build() {
     const d1 = pixelDiff(png('before', 'iso'), png('after', 'iso'), join(out, 'diff', `${key(item.model)}-iso.png`));
     const d2 = pixelDiff(png('before', 'iso-back'), png('after', 'iso-back'), join(out, 'diff', `${key(item.model)}-back.png`));
     const pixels = Math.max(d1.share ?? 0, d2.share ?? 0);
-    const visual = d.types.includes('recolour') || d1.boxes.length + d2.boxes.length > 0;
+    const visual = d.types.includes('recolour') || d.types.includes('shading') || d1.boxes.length + d2.boxes.length > 0;
     const added = !existsSync(join(out, 'before', `${key(item.model)}.glb`));
     const reasons = riskReasons(item, d, added);
     return {

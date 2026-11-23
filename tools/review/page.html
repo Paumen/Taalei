@@ -25,7 +25,7 @@ article{background:var(--card);border:1px solid var(--line);border-radius:var(--
 .flipb{position:absolute;right:6px;bottom:6px;z-index:2;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.92);color:#2f2a26;font:600 12px system-ui;cursor:pointer}.head .name{font-weight:650;font-size:14px;overflow-wrap:anywhere}
 .type{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700}
 .type svg{width:18px;height:18px}
-.t-size{color:var(--t-size)}.t-tag{color:var(--t-tag)}.t-recolour{color:var(--t-colour)}.t-shape{color:var(--t-shape)}.t-geometry{color:var(--t-mesh)}
+.t-size{color:var(--t-size)}.t-tag{color:var(--t-tag)}.t-recolour{color:var(--t-colour)}.t-shape{color:var(--t-shape)}.t-geometry{color:var(--t-mesh)}.t-shading{color:var(--t-shape)}
 .pics{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .colhead{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}.colhead span:last-child{text-align:right}
 .pic{position:relative;margin:0;background:var(--tile);border-radius:9px;overflow:hidden;aspect-ratio:1}
@@ -41,7 +41,7 @@ article{background:var(--card);border:1px solid var(--line);border-radius:var(--
 .row .c::before{content:"";position:absolute;left:-6px;right:-6px;top:13px;border-top:1px dashed var(--line);z-index:0}
 .dot{position:relative;z-index:1;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;color:#fff}
 .dot svg{width:15px;height:15px}
-.dot.t-size{background:var(--t-size)}.dot.t-tag{background:var(--t-tag)}.dot.t-recolour{background:var(--t-colour)}.dot.t-shape{background:var(--t-shape)}.dot.t-geometry{background:var(--t-mesh)}
+.dot.t-size{background:var(--t-size)}.dot.t-tag{background:var(--t-tag)}.dot.t-recolour{background:var(--t-colour)}.dot.t-shape{background:var(--t-shape)}.dot.t-geometry{background:var(--t-mesh)}.dot.t-shading{background:var(--t-shape)}
 .delta{font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
 .delta.low{color:var(--ink-soft)}.delta.mid{color:var(--m2)}.delta.strong{color:var(--m3)}
 .hdots{display:flex;gap:4px}.hdots .dot{width:24px;height:24px}.hdots .dot svg{width:14px;height:14px}
@@ -140,10 +140,11 @@ const ICON={
   recolour:svg('<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" fill="currentColor" fill-opacity=".25"/>'),
   shape:svg('<path d="M4 18 9 6l6 9 5-7"/><circle cx="9" cy="6" r="1.8" fill="currentColor"/><circle cx="15" cy="15" r="1.8" fill="currentColor"/>'),
   geometry:svg('<path d="M12 3 21 20H3z"/><path d="M7.5 11.5h9M12 3l-4.5 8.5L12 20l4.5-8.5z"/>'),
+  shading:svg('<circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" fill-opacity=".45"/>'),
 };
-const NAME={size:'Size',tag:'Tags',recolour:'Colour',shape:'Shape',geometry:'Mesh'};
+const NAME={size:'Size',tag:'Tags',recolour:'Colour',shape:'Shape',geometry:'Mesh',shading:'Shading'};
 const MORE=[['relax','Relax rule','Which rule, and how?'],['other','Other','What should happen?']];
-const ISSUE={size:['too big','too small','stretched'],tag:['tag missing'],recolour:['too dark','too light','parts blend','wrong part','too busy'],shape:['too thick','too thin','deformed','parts fused','lost detail'],geometry:['too blocky','too dense','holes','spikes','lost detail']};
+const ISSUE={size:['too big','too small','stretched'],tag:['tag missing'],recolour:['too dark','too light','parts blend','wrong part','too busy'],shape:['too thick','too thin','deformed','parts fused','lost detail'],geometry:['too blocky','too dense','holes','spikes','lost detail'],shading:['still faceted','too soft','blotchy','lost pattern','lost edges']};
 const NEED=Object.fromEntries(MORE.filter(m=>m[2]).map(m=>[m[0],m[2]]));
 const K='review:'+D.title+':'+D.base;
 let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
@@ -190,6 +191,7 @@ function factRows(it){
       const right=f.to.map(b=>`<span class="sw ${F('recolour: '+b.name)}" ${fa('recolour: '+b.name)}><i class="staal ${was.has(b.name)?'':'in'}" title="${esc(b.name)}" style="--c:${b.hex};--tx:${ink(b.hex)}">${b.share}%</i></span>`).join('');
       r.push(row('recolour',left,`${f.changed}%`,right,f.s));
     }
+    if(f.f==='shading')r.push(row('shading',`<span class="num">normals ${f.normals}%</span>`,'',`<span class="num">tones ${f.tones}%</span>`,f.s));
     if(f.f==='shape')r.push(row('shape','',f.move==null?'changed':'moved '+f.move+'%','',f.s));
   }
   return r.length?`<div class="rows">${r.join('')}</div>`:'';
