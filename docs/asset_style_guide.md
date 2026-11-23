@@ -304,7 +304,7 @@ Run `node lint/bands.mjs`.
 
 ### 5.3 The rest
 
-Checked by eye. Each row names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list. `B63`–`B78` are set with `v-profile.mjs`, `flora-shade.mjs`, `roof-tone.mjs` and `ceramic-shade.mjs` in `tools/import`; their `--help` gives the options per row and the models left out.
+Checked by eye. Each row names a noun the catalogue does not record, a `part:` the mesh does not label, `any`, or a condition beyond a band list. `B63`–`B79` are set with `v-profile.mjs`, `flora-shade.mjs`, `roof-tone.mjs` and `ceramic-shade.mjs` in `tools/import`; their `--help` gives the options per row and the models left out.
 
 | id | when | subject | assert | value |
 |---|---|---|---|---|
@@ -326,7 +326,7 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B60` | `kind:env-flora-tree-conifer & !tag:plural` | `part:trunk` | is | UV 0.80 of the band where the foliage starts to 0.20 at the base |
 | `B61` | `kind:env-flora-tree & !kind:env-flora-tree-conifer & !kind:env-flora-tree-palm & !tag:plural`, except `wizp-tree/banana-tree`, `wizp-asia/tree-garden`, `quat-shoot/tree-b` | `part:foliage` | is | per canopy blob, UV 0.08 of the band at the blob top to 0.85 at its bottom; undersides 0.92. A blob is foliage bounded by undersides |
 | `B62` | as `B61` | `part:trunk, branch` | is | as `B60` |
-| `B63` | `kind:env-terrain-rock & !tag:plural` | `part:rock` | is | per rock piece, lighter at its top and darker at its bottom: UV 0.08 of the band at the top to 0.85 at the bottom, less its mean, added to each face's own light and dark; a rock past the band is squeezed back in whole |
+| `B63` | `kind:env-terrain-rock & !tag:plural` | `part:rock` | is | per rock piece, lighter at its top and darker at its bottom: UV 0.08 of the band at the top to 0.85 at the bottom, less its mean, added to the light and dark the rock already has; a rock past the band is squeezed back in whole |
 | `B64` | `kind:str-building* & !tag:plural` | all parts | is | as `B63`, within 0.15 of the piece's own lightest and darkest; a piece that would pass that gets less gradient instead; a spot that faces down or has the model's own geometry right above it stays as it was |
 | `B65` | `kind:str-part-wall* \| kind:str-barrier-wall`, `!tag:plural` | all parts | is | as `B64` |
 | `B66` | `kind:obj-transport* & !kind:obj-transport-part* & !tag:plural` | all parts | is | as `B64` |
@@ -339,9 +339,10 @@ Checked by eye. Each row names a noun the catalogue does not record, a `part:` t
 | `B73` | `kind:env-remains-deadwood* & !tag:plural` | `part:bark` | is | over the whole model, UV 0.08 of the band at the top to 0.85 at the base; detailed models as in `B70` |
 | `B74` | `kind:env-flora-tree-palm & !tag:plural` | `part:frond` in `moss` | is | as `B70`, with each model's own detail kept |
 | `B75` | as `B74` | `part:trunk` in `tan` | is | as `B60`, with each model's own detail kept |
-| `B76` | sea animals: `kind:env-fauna-fish* \| kind:env-fauna-starfish`, and `env-fauna*` of `quat-ocean` and `quat-fish`; `!tag:plural` | all parts | is | per piece, darker at its top and lighter at its bottom, added on top of each face's own light and dark, so painted bellies, stripes and spots stay |
-| `B77` | roofs: `kind:str-part-roof*`, and the roof of `kind:str-building*` and `kind:str-canopy*`, `!tag:plural`, except sci-fi metal roofs | roof surface: the band seen most from above, on the pieces that carry it | is | one band by roof type: ceramic `sienna`, wood `chestnut`, thatch `tan`, stone `taupe`, metal `nickel`, cloth its own. Pitched, cone and dome pieces UV 0.15 at the top to 0.80 at the eave (thatch 0.25 to 0.70, metal 0.20 to 0.70, cloth 0.30 to 0.60); flat pieces 0.40; faces under the roof 0.90; each face keeps its own light and dark against its piece. Overrides `B64` and `B67` on the roof |
+| `B76` | sea animals: `kind:env-fauna-fish* \| kind:env-fauna-starfish`, and `env-fauna*` of `quat-ocean` and `quat-fish`; `!tag:plural` | all parts | is | per piece, darker at its top and lighter at its bottom, added on top of the light and dark the model already has, so painted bellies, stripes and spots stay |
+| `B77` | roofs: `kind:str-part-roof*`, and the roof of `kind:str-building*` and `kind:str-canopy*`, `!tag:plural`, except sci-fi metal roofs | roof surface: the band seen most from above, on the pieces that carry it | is | one band by roof type: ceramic `sienna`, wood `chestnut`, thatch `tan`, stone `taupe`, metal `nickel`, cloth its own. Pitched, cone and dome pieces UV 0.15 at the top to 0.80 at the eave (thatch 0.25 to 0.70, metal 0.20 to 0.70, cloth 0.30 to 0.60); flat pieces 0.40; faces under the roof 0.90; each piece keeps its own light and dark. Overrides `B64` and `B67` on the roof |
 | `B78` | `kind:obj-container-pot*` carrying `ceramic:`, `!tag:plural` | the bands its ceramic tags name: `ceramic-light` `ivory`, `ceramic-mid` `terracotta`, `ceramic-dark` `sienna` | is | shaded by facing: a face pointing up takes the top of the band's range, a side the middle, a face pointing down the bottom; ranges in `ceramic.ranges` in `lint/variables.json`. Body colour by kind in `lint/kinds.json` (`band.ceramic`). `ivory` is free as a rim, band or stripe. A pot's other colours are files of their own, named after the pot and its colours (`jug-sienna`, `pot-a-decorated-sienna-ivory`), in one `D09` group. Checked by `node lint/ceramic.mjs [ids]` |
+| `B79` | `*` | model | is | smooth over curves: where faces meet under 50° normals are shared and painted light and dark changes per vertex, never per face; harder edges, tone steps between faces in one plane (stones, planks) and steps over 0.15 of the band (stripes, painted patterns) stay sharp. Rope (`twine`) stays flat shaded with its own tones. Set with `autosmooth.mjs 50`, then `tone-smooth.mjs 50`, then `ceramic-shade.mjs` on `B78` pots |
 
 ---
 
