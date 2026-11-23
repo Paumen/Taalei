@@ -3,11 +3,12 @@ import { parseGlb, readAccessor, writeGlb } from '../../catalog/tools/glb.mjs';
 import { editablePrimitives, faceNormal, fixBounds, rawRows, repack, welder } from './mesh-edit.mjs';
 
 export function autosmooth(glb, degrees) {
-  const limit = Math.cos((degrees * Math.PI) / 180);
+  const limit = Math.cos(((degrees - 0.5) * Math.PI) / 180);
   const { json } = glb;
   const replaced = new Map();
   for (const prim of editablePrimitives(json)) {
     const pos = readAccessor(glb, prim.attributes.POSITION).data;
+    const old = readAccessor(glb, prim.attributes.NORMAL).data;
     const idx = readAccessor(glb, prim.indices).data;
     const { weld } = welder(pos);
     const faces = [];
@@ -20,7 +21,7 @@ export function autosmooth(glb, degrees) {
       for (let k = 0; k < 3; k++) {
         const w = weld(idx[t + k]);
         if (!around.has(w)) around.set(w, []);
-        around.get(w).push(face);
+        around.get(w).push({ face, v: idx[t + k] });
       }
     }
     const keys = new Map();
@@ -30,8 +31,10 @@ export function autosmooth(glb, degrees) {
     for (let c = 0; c < idx.length; c++) {
       const face = faces[Math.floor(c / 3)];
       const sum = [0, 0, 0];
-      for (const o of around.get(weld(idx[c]))) {
-        if (face.w && o.n[0] * face.n[0] + o.n[1] * face.n[1] + o.n[2] * face.n[2] < limit) continue;
+      const v = idx[c];
+      for (const { face: o, v: u } of around.get(weld(v))) {
+        const kept = Math.abs(old[3 * v] - old[3 * u]) + Math.abs(old[3 * v + 1] - old[3 * u + 1]) + Math.abs(old[3 * v + 2] - old[3 * u + 2]) < 1e-3;
+        if (face.w && !kept && o.n[0] * face.n[0] + o.n[1] * face.n[1] + o.n[2] * face.n[2] < limit) continue;
         for (let k = 0; k < 3; k++) sum[k] += o.n[k] * o.w;
       }
       const len = Math.hypot(...sum);
