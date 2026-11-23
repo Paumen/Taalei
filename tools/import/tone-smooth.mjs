@@ -4,6 +4,7 @@ import { editablePrimitives, faceNormal, fixBounds, rawRows, repack, welder } fr
 
 export function toneSmooth(glb, degrees) {
   const limit = Math.cos((degrees * Math.PI) / 180);
+  const flat = Math.cos((2 * Math.PI) / 180);
   const { json } = glb;
   const replaced = new Map();
   let changed = 0;
@@ -39,7 +40,10 @@ export function toneSmooth(glb, degrees) {
       const w = weld(idx[c]);
       let sum = 0, weight = 0;
       for (const o of around.get(w)) {
-        if (o.cell !== face.cell || !face.w || o.n[0] * face.n[0] + o.n[1] * face.n[1] + o.n[2] * face.n[2] < limit) continue;
+        const d = o.n[0] * face.n[0] + o.n[1] * face.n[1] + o.n[2] * face.n[2];
+        if (o.cell !== face.cell || !face.w || d < limit) continue;
+        const step = Math.abs(o.v.get(w) - face.v.get(w)) * 4;
+        if (step > 0.15 || (d > flat && step > 0.02)) continue;
         sum += o.v.get(w) * o.w;
         weight += o.w;
       }
@@ -78,7 +82,7 @@ export function toneSmooth(glb, degrees) {
 if (process.argv[1] === new URL(import.meta.url).pathname) {
   const [degrees, ...files] = process.argv.slice(2);
   if (!files.length) {
-    console.log('tone-smooth.mjs <degrees> <file.glb> [...]\n\nBlends each corner\'s v with the corners of the faces around it that share its colormap cell and meet it under <degrees>, so painted light and dark runs smoothly over curves; u, cells and hard edges stay.');
+    console.log('tone-smooth.mjs <degrees> <file.glb> [...]\n\nBlends each corner\'s v with the corners of the faces around it that share its colormap cell and meet it under <degrees>, so painted light and dark runs smoothly over curves; u, cells and hard edges stay, and so does a tone step between faces in one plane or one over 0.15 of the cell, such as painted stripes.');
     process.exit(1);
   }
   for (const file of files) {
