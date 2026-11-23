@@ -236,7 +236,7 @@ Everything touch first.
 
 ## 10. Visuals
 
-**Style.** Low-poly, faceted, flat shaded.
+**Style.** Low-poly, smooth shaded: curves read round, hard edges stay sharp.
 
 **Camera.** Low angle, orbit and zoom. Descends when entering a zone.
 
