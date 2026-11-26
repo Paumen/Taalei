@@ -19540,9 +19540,11 @@
    "id": "obj-container-cylinder",
    "name": "Cylinder",
    "type": "kind",
-   "description": "Pressure or chemical cylinder: gas cylinder, chemical vat.",
+   "description": "Pressure or chemical cylinder: gas cylinder, chemical vat, fire extinguisher.",
    "models": [
-    "sq-lab/chemical-vat"
+    "sq-lab/chemical-vat",
+    "3dm-industrial-2/fire-extinguisher",
+    "styloo-school/fire-extinguisher"
    ]
   },
   {
@@ -19563,16 +19565,6 @@
     "quat-scifi-mod/vessel",
     "quat-scifi-mod/vessel-short",
     "quat-scifi-mod/vessel-tall"
-   ]
-  },
-  {
-   "id": "obj-container-cylinder-extinguisher",
-   "name": "Extinguisher",
-   "type": "kind",
-   "description": "fire extinguisher",
-   "models": [
-    "3dm-industrial-2/fire-extinguisher",
-    "styloo-school/fire-extinguisher"
    ]
   },
   {
@@ -26924,7 +26916,7 @@
    "id": "env-fauna-fish",
    "name": "Fish",
    "type": "kind",
-   "description": "fish",
+   "description": "fish, ray",
    "models": [
     "quat-fish/fish-3",
     "quat-fish/fish-2",
@@ -26952,7 +26944,9 @@
     "styloo-farm/fish",
     "styloo-farm/fish-tan",
     "styloo-farm/fish-umber",
-    "quat-ocean/eel"
+    "quat-ocean/eel",
+    "quat-fish/manta-ray",
+    "quat-ocean/stingray"
    ]
   },
   {
@@ -26985,16 +26979,6 @@
     "quat-fish/shark",
     "quat-ocean/shark-hammerhead",
     "styloo-farm/shark"
-   ]
-  },
-  {
-   "id": "env-fauna-fish-ray",
-   "name": "Ray",
-   "type": "kind",
-   "description": "ray, stingray, manta ray",
-   "models": [
-    "quat-fish/manta-ray",
-    "quat-ocean/stingray"
    ]
   },
   {
@@ -32998,7 +32982,7 @@
    "id": "obj-equipment-weapon-ranged-throwing",
    "name": "Throwing weapon",
    "type": "kind",
-   "description": "throwing knife, shuriken, throwing star, boomerang",
+   "description": "throwing knife, shuriken, throwing star, boomerang, javelin",
    "models": [
     "m3-base/4-point-shuriken",
     "m3-base/3-point-shuriken",
@@ -33008,15 +32992,7 @@
     "styloo-weapons/shuriken-d",
     "m3-base/boomerang",
     "rgp-asia/shuriken",
-    "m3-base/throwing-knife"
-   ]
-  },
-  {
-   "id": "obj-equipment-weapon-ranged-throwing-javelin",
-   "name": "Javelin",
-   "type": "kind",
-   "description": "javelin",
-   "models": [
+    "m3-base/throwing-knife",
     "lpa-weapons/javelin"
    ]
   },
@@ -39788,7 +39764,8 @@
     "ken-racing/race-car-white",
     "rgs-vehicles/limousine",
     "quat-scifi-mod/crate-long",
-    "ken-racing/flag-tankco"
+    "ken-racing/flag-tankco",
+    "quat-fish/manta-ray"
    ]
   }
  ]

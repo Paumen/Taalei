@@ -4,7 +4,7 @@ import { join, dirname, resolve, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 
-const HELP = `sheepdog.mjs pick [--out <dir>] [--count 6] [--kits 2] [--max 0] [--per-sheet 12] [--jobs 3]
+const HELP = `sheepdog.mjs pick [--out <dir>] [--count 6] [--kits 2] [--min 6] [--max 50] [--per-sheet 12] [--jobs 3]
                   [--kind <id[,id]>] [--dry] [--no-render] [--family [--min 30] [--max 100]]
 sheepdog.mjs record --run <dir>
 sheepdog.mjs review [--run <id>] [--out <list.json>] [--base origin/main]
@@ -14,13 +14,18 @@ sheepdog.mjs stats
 sheepdog.mjs open
 
 pick    draws --count random catalogue kinds with models from at least --kits
-        kits, skipping every kind in the log (--max caps the model count, 0 is
-        no cap), and starts a run: the log gets one entry per kind with the
+        kits, skipping every kind in the log, and starts a run: the log gets one entry per kind with the
         file hash and tags of every model as they are now, and <out>/<kind>/
         gets the kind's dossier, its files under src/ and one pbr sheet per
         --per-sheet models, each tile fitted to its model, c01.png, c02.png, ….
-        <out> defaults to kits/.cache/sheepdog/<run>. --kind takes those kinds
-        instead of random ones. --dry prints the pool and the draw only.
+        <out> defaults to kits/.cache/sheepdog/<run>. A kind of over --max
+        models is not drawn; a kind under --min models is taken along in its
+        parent's group, else in its smallest sibling's, while that stays
+        within --max. A small kind first bundles with its small parent, and a
+        bundle of --min models or more is a group of its own. A small kind is
+        never drawn on its own. --kind takes those kinds
+        instead of random ones, whatever their size. --dry prints the pool
+        and the draw only.
 
         --family draws groups of related kinds instead of single kinds: a
         parent kind with every kind under it when they hold --max models or
@@ -210,11 +215,35 @@ function families(byKind, min, max) {
   return named;
 }
 
+function singles(byKind, min, max) {
+  const count = (kinds) => kinds.reduce((n, id) => n + (byKind.get(id)?.length ?? 0), 0);
+  const parent = new Map();
+  const walk = (k) => (k.children ?? []).forEach((c) => (parent.set(c.id, k.id), walk(c)));
+  readJson(KINDS).kinds.forEach(walk);
+  const groups = new Map([...byKind.keys()].filter((id) => count([id]) >= min).map((id) => [id, [id]]));
+  const small = new Set([...byKind.keys()].filter((id) => count([id]) < min));
+  const root = (id) => (small.has(parent.get(id)) ? root(parent.get(id)) : id);
+  const bundles = [...Map.groupBy(small, root)].sort((a, b) => count(a[1]) - count(b[1]));
+  for (const [id, kinds] of bundles) {
+    if (count(kinds) >= min) {
+      groups.set(id, kinds);
+      continue;
+    }
+    const up = parent.get(id);
+    const siblings = [...groups.keys()].filter((g) => g !== up && parent.get(g) === up).sort((a, b) => count(groups.get(a)) - count(groups.get(b)));
+    const host = [up, ...siblings].find((g) => groups.has(g) && count(groups.get(g)) + count(kinds) <= max);
+    if (host) groups.get(host).push(...kinds);
+  }
+  for (const [id, kinds] of groups) if (count(kinds) > max) groups.delete(id);
+  return groups;
+}
+
 async function pick() {
   const family = has('family');
   const count = Number(flag('count', '6'));
   const minKits = Number(flag('kits', '2'));
-  const max = Number(flag('max', family ? '100' : '0'));
+  const min = Number(flag('min', family ? '30' : '6'));
+  const max = Number(flag('max', family ? '100' : '50'));
   const perSheet = Number(flag('per-sheet', '12'));
   const jobs = Number(flag('jobs', '3'));
   const catalog = readJson(CATALOG);
@@ -223,7 +252,7 @@ async function pick() {
     if (!byKind.has(m.kind)) byKind.set(m.kind, []);
     byKind.get(m.kind).push(`${m.kit}/${m.name}`);
   }
-  const groups = family ? families(byKind, Number(flag('min', '30')), max) : new Map([...byKind.keys()].map((kind) => [kind, [kind]]));
+  const groups = family ? families(byKind, min, max) : singles(byKind, min, max);
   const modelsOf = (group) => groups.get(group).flatMap((kind) => byKind.get(kind));
   const kitsOf = (group) => new Set(modelsOf(group).map((id) => id.split('/')[0])).size;
   const done = new Set(log.filter((e) => !!e.family === family).map((e) => e.kind));
@@ -234,12 +263,13 @@ async function pick() {
       const wanted = kinds;
       kinds = [...groups.keys()].filter((g) => wanted.includes(g.split('~')[0]));
       for (const root of wanted) if (!kinds.some((g) => g.split('~')[0] === root)) throw new Error(`no family under ${root}`);
-    } else for (const kind of kinds) if (!byKind.has(kind)) throw new Error(`no catalogue models of kind ${kind}`);
+    } else
+      for (const kind of kinds) {
+        if (!byKind.has(kind)) throw new Error(`no catalogue models of kind ${kind}`);
+        if (!groups.has(kind)) groups.set(kind, [kind]);
+      }
   } else {
-    const pool = [...groups.keys()].filter((group) => {
-      const n = modelsOf(group).length;
-      return kitsOf(group) >= minKits && (family || max === 0 || n <= max) && !done.has(group);
-    });
+    const pool = [...groups.keys()].filter((group) => kitsOf(group) >= minKits && !done.has(group));
     if (pool.length < count) throw new Error(`only ${pool.length} kinds left to pick; ${done.size} are in ${LOG}`);
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -248,7 +278,7 @@ async function pick() {
     kinds = pool.slice(0, count);
     console.log(`${pool.length} kinds in the pool, ${done.size} logged`);
   }
-  for (const kind of kinds) console.log(`${kind}  ${modelsOf(kind).length} models from ${kitsOf(kind)} kits${family ? `: ${groups.get(kind).join(', ')}` : ''}`);
+  for (const kind of kinds) console.log(`${kind}  ${modelsOf(kind).length} models from ${kitsOf(kind)} kits${groups.get(kind).length > 1 ? `: ${groups.get(kind).join(', ')}` : ''}`);
   if (has('dry')) return;
 
   const run = new Date().toISOString().slice(0, 16).replace('T', '-').replace(':', '');

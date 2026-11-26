@@ -3261,8 +3261,8 @@
     "none": 1
    },
    "kitCheck": {
-    "factor": 0.98,
-    "kinds": 27
+    "factor": 0.97,
+    "kinds": 26
    }
   },
   {
@@ -4018,7 +4018,7 @@
    ],
    "kitCheck": {
     "factor": 0.95,
-    "kinds": 15
+    "kinds": 14
    }
   },
   {
@@ -26685,7 +26685,7 @@
    "id": "obj-container-cylinder",
    "name": "Cylinder",
    "type": "kind",
-   "description": "Pressure or chemical cylinder: gas cylinder, chemical vat.",
+   "description": "Pressure or chemical cylinder: gas cylinder, chemical vat, fire extinguisher.",
    "count": 15
   },
   {
@@ -26694,13 +26694,6 @@
    "type": "kind",
    "description": "gas tank, propane tank, gas bottle, gas canister",
    "count": 12
-  },
-  {
-   "id": "obj-container-cylinder-extinguisher",
-   "name": "Extinguisher",
-   "type": "kind",
-   "description": "fire extinguisher",
-   "count": 2
   },
   {
    "id": "obj-container-trash-dumpster",
@@ -29190,7 +29183,7 @@
    "id": "env-fauna-fish",
    "name": "Fish",
    "type": "kind",
-   "description": "fish",
+   "description": "fish, ray",
    "count": 45
   },
   {
@@ -29206,13 +29199,6 @@
    "type": "kind",
    "description": "shark, hammerhead",
    "count": 4
-  },
-  {
-   "id": "env-fauna-fish-ray",
-   "name": "Ray",
-   "type": "kind",
-   "description": "ray, stingray, manta ray",
-   "count": 2
   },
   {
    "id": "env-fauna-starfish",
@@ -30789,15 +30775,8 @@
    "id": "obj-equipment-weapon-ranged-throwing",
    "name": "Throwing weapon",
    "type": "kind",
-   "description": "throwing knife, shuriken, throwing star, boomerang",
+   "description": "throwing knife, shuriken, throwing star, boomerang, javelin",
    "count": 10
-  },
-  {
-   "id": "obj-equipment-weapon-ranged-throwing-javelin",
-   "name": "Javelin",
-   "type": "kind",
-   "description": "javelin",
-   "count": 1
   },
   {
    "id": "obj-equipment-weapon-ranged-launcher",
@@ -32215,7 +32194,7 @@
    "name": "Big version",
    "type": "attribute",
    "description": "A clearly bigger version of its kind: double, high, long or tall. Only on kinds that set scale in lint/kinds.json.",
-   "count": 174,
+   "count": 175,
    "kinds": [
     "obj-container-crate",
     "obj-container-crate-cube",
@@ -32461,7 +32440,6 @@
  "byLongest": [
   "env-fauna-bird",
   "env-fauna-fish",
-  "env-fauna-fish-ray",
   "env-fauna-fish-shark",
   "env-fauna-insect",
   "env-fauna-mammal",
@@ -32613,7 +32591,6 @@
   "obj-equipment-weapon-ranged-firearm-smg",
   "obj-equipment-weapon-ranged-launcher",
   "obj-equipment-weapon-ranged-throwing",
-  "obj-equipment-weapon-ranged-throwing-javelin",
   "obj-equipment-weapon-siege-ammunition",
   "obj-equipment-weapon-siege-cannon",
   "obj-food-baked-bread",
@@ -32847,19 +32824,13 @@
   "env-fauna-fish": {
    "high.max": 8,
    "longest.min": 0.1,
-   "longest.max": 0.7,
-   "tpu.max": 10000
-  },
-  "env-fauna-fish-ray": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 1.5,
+   "longest.max": 0.75,
    "tpu.max": 10000
   },
   "env-fauna-fish-reef": {
    "high.max": 8,
    "longest.min": 0.1,
-   "longest.max": 0.7,
+   "longest.max": 0.75,
    "tpu.max": 10000
   },
   "env-fauna-fish-shark": {
@@ -33327,12 +33298,6 @@
    "tpu.max": 10000
   },
   "obj-container-cylinder": {
-   "high.max": 8,
-   "longest.min": 0.15,
-   "longest.max": 0.9,
-   "tpu.max": 10000
-  },
-  "obj-container-cylinder-extinguisher": {
    "high.max": 8,
    "longest.min": 0.15,
    "longest.max": 0.9,
@@ -34217,12 +34182,6 @@
   "obj-equipment-weapon-ranged-throwing": {
    "high.max": 8,
    "longest.min": 0.05,
-   "longest.max": 0.4,
-   "tpu.max": 10000
-  },
-  "obj-equipment-weapon-ranged-throwing-javelin": {
-   "high.max": 8,
-   "longest.min": 0.4,
    "longest.max": 0.7,
    "tpu.max": 10000
   },
@@ -37579,7 +37538,7 @@
   "env-fauna-fish scale-big": {
    "high.max": 8,
    "longest.min": 0.2,
-   "longest.max": 1.4,
+   "longest.max": 1.5,
    "tpu.max": 10000
   },
   "env-fauna-fish-shark scale-big": {
@@ -37588,16 +37547,10 @@
    "longest.max": 4,
    "tpu.max": 10000
   },
-  "env-fauna-fish-ray scale-big": {
-   "high.max": 8,
-   "longest.min": 0.3,
-   "longest.max": 3,
-   "tpu.max": 10000
-  },
   "env-fauna-fish-reef scale-big": {
    "high.max": 8,
    "longest.min": 0.2,
-   "longest.max": 1.4,
+   "longest.max": 1.5,
    "tpu.max": 10000
   },
   "env-fauna-starfish scale-big": {
@@ -40689,7 +40642,7 @@
    "collection": "3dm",
    "name": "fire-extinguisher",
    "hash": "0f425208e5",
-   "kind": "obj-container-cylinder-extinguisher",
+   "kind": "obj-container-cylinder",
    "size": "s",
    "wdh": [
     0.181,
@@ -277951,7 +277904,7 @@
    "kit": "lpa-weapons",
    "name": "javelin",
    "hash": "a9e6bb8a1c",
-   "kind": "obj-equipment-weapon-ranged-throwing-javelin",
+   "kind": "obj-equipment-weapon-ranged-throwing",
    "size": "m",
    "wdh": [
     0.039,
@@ -349311,7 +349264,7 @@
    "collection": "quat-sea",
    "name": "manta-ray",
    "hash": "f443572f4d",
-   "kind": "env-fauna-fish-ray",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.936,
@@ -349342,19 +349295,13 @@
    ],
    "tags": [
     "animation",
-    "qua"
+    "qua",
+    "scale-big"
    ],
    "anim": [
     "Armature|Swim"
    ],
    "thickRel": 0.42,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.42 wants min 0.5"
-    }
-   ],
    "mark": [
     "grounded",
     "centered"
@@ -368314,7 +368261,7 @@
    "collection": "quat-sea",
    "name": "stingray",
    "hash": "8f1429a094",
-   "kind": "env-fauna-fish-ray",
+   "kind": "env-fauna-fish",
    "size": "m",
    "wdh": [
     0.36,
@@ -368346,14 +368293,7 @@
    "tags": [
     "qua"
    ],
-   "thickRel": 0.38,
-   "lint": [
-    {
-     "level": "warning",
-     "check": "measures",
-     "text": "I01 thickRel 0.38 wants min 0.5"
-    }
-   ]
+   "thickRel": 0.38
   },
   {
    "kit": "quat-ocean",
@@ -440942,7 +440882,7 @@
    "kit": "styloo-school",
    "name": "fire-extinguisher",
    "hash": "73f51620d6",
-   "kind": "obj-container-cylinder-extinguisher",
+   "kind": "obj-container-cylinder",
    "size": "s",
    "wdh": [
     0.156,
