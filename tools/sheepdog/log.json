@@ -150471,5 +150471,639 @@
    "ken-grave crypt-small-roof and crypt-large-roof could be str-part-roof-unit; left as module since the kind's nouns name crypt sections",
    "ken-pirate tower-base and tower-base-door are all dark stone while the upper tower pieces are mid stone; kept as the kit's stacked look"
   ]
+ },
+ {
+  "kind": "env-fauna-fictional",
+  "run": "2026-11-26-2030",
+  "models": [
+   {
+    "id": "dragon/dragon-chestnut",
+    "before": "598465b9153c87be25b06fc7c0166f93c492fc0b",
+    "tags": [
+     "bone",
+     "special-organic",
+     "env-fauna-fictional"
+    ]
+   },
+   {
+    "id": "dragon/dragon-hunter",
+    "before": "e9f59b1c5a55c24dc757d8333be98e5465aa2d4e",
+    "tags": [
+     "bone",
+     "special-organic",
+     "env-fauna-fictional"
+    ]
+   },
+   {
+    "id": "dragon/dragon-sienna",
+    "before": "97e9caa5f54a43b00dbb9224c71b26793ba59959",
+    "tags": [
+     "bone",
+     "special-organic",
+     "env-fauna-fictional"
+    ]
+   },
+   {
+    "id": "dragon/dragon-umber",
+    "before": "a5d831e810f5c9ccae1c56d90242d729130711ec",
+    "tags": [
+     "bone",
+     "special-organic",
+     "env-fauna-fictional"
+    ]
+   },
+   {
+    "id": "quat-megakit/alien-scolitex",
+    "before": "15fe068ec9d7ce4ade81e4f331d20d69728d41d4",
+    "tags": [
+     "env-fauna-fictional",
+     "space"
+    ]
+   },
+   {
+    "id": "quat-pirate/tentacle",
+    "before": "29b93c66909d72971083da1ab95a209333485830",
+    "tags": [
+     "special-organic",
+     "env-fauna-fictional",
+     "pirate",
+     "hero"
+    ]
+   }
+  ],
+  "changes": [],
+  "notes": [
+   "dragon (4 colours): magenta wing backs on the sheet are render-only; material is double-sided and the mesh is skinned, so backing faces would need new skin weights; left",
+   "quat-megakit/alien-scolitex: 11k tris, tpu ~58x the kind; a simplify to ~6.5k lost its dark eye spots, so left for a triage/detail run",
+   "quat-pirate/tentacle: one orange band, suckers read by shading; hero and skinned, left"
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-hand-hammer-mallet",
+  "run": "2026-11-26-2030",
+  "models": [
+   {
+    "id": "kay-tools/mallet",
+    "before": "88207d31d5e290e955270eff04ca07a6e673983e",
+    "tags": [
+     "wood-light",
+     "obj-equipment-tool-hand-hammer-mallet"
+    ]
+   },
+   {
+    "id": "lpa-construction/mallet",
+    "before": "8b5801c575df7ab1a64b7544c3a4c8591cc7a3bd",
+    "tags": [
+     "wood-light",
+     "rubber",
+     "obj-equipment-tool-hand-hammer-mallet"
+    ]
+   },
+   {
+    "id": "lpa-tools/wooden-hammer",
+    "before": "3b600419560bdef7ded80338176791156dd3be8e",
+    "tags": [
+     "wood-light",
+     "leather",
+     "obj-equipment-tool-hand-hammer-mallet"
+    ]
+   },
+   {
+    "id": "m3-base/wooden-mallet",
+    "before": "8c0a15490d3f74fa2bb3fc8ea4765a346a156b09",
+    "tags": [
+     "wood-light",
+     "obj-equipment-tool-hand-hammer-mallet"
+    ]
+   }
+  ],
+  "changes": [],
+  "notes": [
+   "All four mallets read as one family: tan wood handles, similar size and head shape, glb-lint clean.",
+   "kay-tools/mallet: small chips on the head ends are the kit's worn style, left as is.",
+   "lpa-tools/wooden-hammer: 990 tris, twice the family median, from the leather lashing; no tri budget on the kind, left."
+  ]
+ },
+ {
+  "kind": "obj-equipment-tool-hand-shaping-trowel",
+  "run": "2026-11-26-2030",
+  "models": [
+   {
+    "id": "kay-tools/trowel",
+    "before": "d3cd4cf58926ba5a9a2fda7eb20b0b25930d9dfc",
+    "tags": [
+     "metal-steel",
+     "wood-light",
+     "obj-equipment-tool-hand-shaping-trowel"
+    ]
+   },
+   {
+    "id": "m3-base/brick-trowel",
+    "before": "f7722f5a7c12aacdd0090104cccacaf13ede24ed",
+    "tags": [
+     "metal-steel",
+     "wood-light",
+     "obj-equipment-tool-hand-shaping-trowel"
+    ]
+   },
+   {
+    "id": "m3-base/trowel",
+    "before": "191a28cca75e30aa2720095c3e221d4677db7988",
+    "tags": [
+     "metal-steel",
+     "wood-light",
+     "obj-equipment-tool-hand-shaping-trowel"
+    ]
+   },
+   {
+    "id": "styloo-farm/trowel",
+    "before": "62506c443b26e4e6835f3a7c607c3bc8e2c8830b",
+    "tags": [
+     "metal-steel",
+     "wood-light",
+     "obj-equipment-tool-hand-shaping-trowel"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "styloo-farm/trowel",
+    "category": "glitch",
+    "change": "blade face evened, no more light and dark streaks",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/trowel",
+    "category": "kind",
+    "change": "kind to garden hand tool: a scoop-shaped hand shovel",
+    "doubt": true,
+    "why": "may be meant to stay with the trowels",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "styloo-farm/trowel has a very fat handle next to its peers; left as the kit's chunky style"
+  ]
+ },
+ {
+  "kind": "obj-equipment-weapon-explosive-powder",
+  "run": "2026-11-26-2030",
+  "models": [
+   {
+    "id": "kay-adventurers/smokebomb",
+    "before": "02921739edbee8af5444706a2d9e3dd757f8d2de",
+    "tags": [
+     "metal-iron-dark",
+     "leather",
+     "obj-equipment-weapon-explosive-powder"
+    ]
+   },
+   {
+    "id": "kay-minigame/bomb",
+    "before": "9191f86775cae4c6bbc3d2342602f50f3ea1dbcf",
+    "tags": [
+     "metal-iron-dark",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-powder",
+     "scale-big"
+    ]
+   },
+   {
+    "id": "kay-minigame/bomb-red",
+    "before": "cb17840e99c54c1a4b28332d17f48fb413fad219",
+    "tags": [
+     "metal-iron-dark",
+     "textile-rope",
+     "plastic",
+     "obj-equipment-weapon-explosive-powder",
+     "scale-big"
+    ]
+   },
+   {
+    "id": "kay-platformer/bomb",
+    "before": "3707da76020e53324665b104e5d21b30d200daf3",
+    "tags": [
+     "metal-iron-dark",
+     "cork",
+     "obj-equipment-weapon-explosive-powder",
+     "scale-big"
+    ]
+   },
+   {
+    "id": "kay-platformer/bomb-striped",
+    "before": "23a45f99e19ed412bc02755a80d3c4edb04cacaf",
+    "tags": [
+     "metal-iron-dark",
+     "cork",
+     "plastic",
+     "obj-equipment-weapon-explosive-powder",
+     "scale-big"
+    ]
+   },
+   {
+    "id": "quat-pirate/bomb",
+    "before": "3aa525ad9c92d65e84b28a0f43856a977a4cafa4",
+    "tags": [
+     "metal-iron-dark",
+     "textile-cloth-light",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-powder",
+     "pirate",
+     "scale-big"
+    ]
+   },
+   {
+    "id": "rgp-explosives/bomb-a",
+    "before": "971565d769d4d119305c4e6797262e0e59328cd0",
+    "tags": [
+     "metal-iron-dark",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-powder"
+    ]
+   },
+   {
+    "id": "rgp-explosives/bomb-b",
+    "before": "7dc57f0a21612ad1dc80dcee2ff3d8887f6240ec",
+    "tags": [
+     "metal-iron-dark",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-powder"
+    ]
+   },
+   {
+    "id": "rgp-explosives/bomb-c",
+    "before": "2aa823321455d9e1ba9bef609c3ee03b0107ad69",
+    "tags": [
+     "metal-iron-dark",
+     "textile-rope",
+     "obj-equipment-weapon-explosive-powder"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "kay-adventurers/smokebomb",
+    "category": "colour",
+    "change": "dark brown stopper to tan cork, like the cork bombs",
+    "doubt": true,
+    "why": "a dark leather stopper may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "kay-adventurers/smokebomb",
+    "category": "tag",
+    "change": "leather to cork for the tan stopper",
+    "doubt": true,
+    "why": "follows the doubted stopper recolour",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "rgp-explosives bomb-a/b/c: G27 minWall 0.011 vs 0.012 min, a hair under and looks fine; left",
+   "kay-minigame bombs are about twice the rgp size, explained by their scale-big tag; left"
+  ]
+ },
+ {
+  "kind": "obj-furnishing-clock-table",
+  "run": "2026-11-26-2030",
+  "models": [
+   {
+    "id": "household/alarm-clock",
+    "before": "d81996d1b7685e6590587498c4d731d0480d73dc",
+    "tags": [
+     "metal-iron-mid",
+     "metal-steel",
+     "paper-sheet",
+     "obj-furnishing-clock-table",
+     "tba"
+    ]
+   },
+   {
+    "id": "lpa-home/alarm-clock",
+    "before": "ace0c980be8a23233a7c19efe0fd517df5773198",
+    "tags": [
+     "metal-steel",
+     "glass-tinted",
+     "plastic",
+     "obj-furnishing-clock-table",
+     "tba"
+    ]
+   },
+   {
+    "id": "m3-base/antique-clock-01",
+    "before": "4c94dbf7ae8f0a0e03e2ba7ea848838190a93574",
+    "tags": [
+     "metal-gold",
+     "wood-mid",
+     "obj-furnishing-clock-table",
+     "tba",
+     "antique"
+    ]
+   },
+   {
+    "id": "taalei-kit/hourglass",
+    "before": "3b04a8bd8379492dbd380adf6b944f349e872925",
+    "tags": [
+     "earth-sand",
+     "glass",
+     "wood-mid",
+     "obj-furnishing-clock-table"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/antique-clock-01",
+    "category": "shape",
+    "change": "ivory dial added inside the gold ring, was bare wood",
+    "doubt": true,
+    "why": "a wooden dial face may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/antique-clock-01",
+    "category": "tag",
+    "change": "add paper-sheet for the new ivory dial",
+    "doubt": true,
+    "why": "follows the doubted dial",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": []
+ },
+ {
+  "kind": "obj-furnishing-clock-wall",
+  "run": "2026-11-26-2030",
+  "models": [
+   {
+    "id": "lpa-home/clock",
+    "before": "3442e537cc4a046f240db908a429e2c0a7354699",
+    "tags": [
+     "metal-iron-mid",
+     "wood-mid",
+     "paper-sheet",
+     "obj-furnishing-clock-wall",
+     "mounted",
+     "tba"
+    ]
+   },
+   {
+    "id": "m3-base/wall-clock",
+    "before": "ca494211ac3cb6c733590a29ba63a364560d7e5c",
+    "tags": [
+     "wood-mid",
+     "paper-sheet",
+     "obj-furnishing-clock-wall",
+     "mounted",
+     "tba"
+    ]
+   },
+   {
+    "id": "rgp-vintage/clock",
+    "before": "fca35af2f07f5f0ad2c1ba5ca1fb8c94adb9c3bb",
+    "tags": [
+     "metal-gold",
+     "ceramic-light",
+     "wood-dark",
+     "obj-furnishing-clock-wall",
+     "hero",
+     "mounted",
+     "tba",
+     "antique"
+    ]
+   },
+   {
+    "id": "styloo-school/wall-clock",
+    "before": "e575c5d134d8112b2da35dee219c63b3e9390c61",
+    "tags": [
+     "plastic",
+     "obj-furnishing-clock-wall",
+     "mounted",
+     "tba"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/wall-clock",
+    "category": "glitch",
+    "change": "back showed a second dial with hand stubs; now plain wood",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-vintage/clock",
+    "category": "kind",
+    "change": "kind to table clock: bracket clock standing on a plinth",
+    "doubt": true,
+    "why": "a hanging pendulum clock may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "rgp-vintage/clock",
+    "category": "tag",
+    "change": "drop mounted: it stands on its base",
+    "doubt": true,
+    "why": "follows the doubted kind move",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "m3-base/antique-clock-01 and other modified workfiles in the tree are not from this agent; not touched."
+  ]
+ },
+ {
+  "kind": "obj-transport-watercraft",
+  "run": "2026-11-26-2030",
+  "models": [
+   {
+    "id": "rgp-props/boat-frame-a",
+    "before": "052fc741a78c764337a451efae62f6b6e8c919b8",
+    "tags": [
+     "wood-dark",
+     "obj-transport-watercraft",
+     "pirate",
+     "broken",
+     "sailing"
+    ]
+   },
+   {
+    "id": "taalei-kit/jetski",
+    "before": "0f7777e54c9f778b073c9b989f2daf03b379b2c0",
+    "tags": [
+     "metal-iron-mid",
+     "metal-iron-dark",
+     "plastic",
+     "rubber",
+     "obj-transport-watercraft"
+    ]
+   },
+   {
+    "id": "taalei-kit/submarine",
+    "before": "b81e674a4911312c87e3c29bc01cbe30058703eb",
+    "tags": [
+     "metal-iron-dark",
+     "glass-clear",
+     "plastic",
+     "special-emissive",
+     "obj-transport-watercraft"
+    ]
+   },
+   {
+    "id": "taalei-kit/submarine-abyss",
+    "before": "a7d33df4490770d6404cbe314e916bfb3e8197fc",
+    "tags": [
+     "metal-iron-dark",
+     "metal-gold",
+     "glass-clear",
+     "plastic",
+     "obj-transport-watercraft"
+    ]
+   },
+   {
+    "id": "taalei-kit/submarine-rescue",
+    "before": "354f4a498fc1a5fd4276e8ebed7965b41498d38e",
+    "tags": [
+     "metal-iron-dark",
+     "glass-clear",
+     "plastic",
+     "special-emissive",
+     "obj-transport-watercraft"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "taalei-kit/submarine",
+    "category": "placement",
+    "change": "turned so the big window faces front, was sideways",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "taalei-kit/submarine-abyss",
+    "category": "placement",
+    "change": "turned so the big window faces front, was sideways",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "taalei-kit/submarine-rescue",
+    "category": "placement",
+    "change": "turned so the big window faces front, was sideways",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "taalei-kit/jetski: G27 thin-wall warning (0.006) on a small trim part; reads fine, left",
+   "taalei-kit/submarine-abyss: lacks special-emissive that its two variants carry (PO's tag)"
+  ]
+ },
+ {
+  "kind": "str-barrier-crowd",
+  "run": "2026-11-26-2030",
+  "models": [
+   {
+    "id": "ipoly-concert/barricade",
+    "before": "87ff3fa55a00af26eda4d8ee102743cb96d2d952",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-crowd"
+    ]
+   },
+   {
+    "id": "lpa-construction/barrier-a",
+    "before": "44544c0939392e10b4767326b630d0132a16886d",
+    "tags": [
+     "metal-steel",
+     "str-barrier-crowd"
+    ]
+   },
+   {
+    "id": "m3-base/crowd-control-barrier",
+    "before": "7fcca3334036aa56ed44f3b9447bdd211c69d43c",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-crowd"
+    ]
+   },
+   {
+    "id": "quat-shoot/fence",
+    "before": "870784dd2d7fa798fd9a66d080a51b59786992f1",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-crowd"
+    ]
+   },
+   {
+    "id": "quat-shoot/fence-long",
+    "before": "af336d2457398d2be3a02063489e2ba51733a806",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-crowd"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "m3-base/crowd-control-barrier",
+    "category": "detail",
+    "change": "every other bar dropped, so it reads as bars, not a panel",
+    "doubt": true,
+    "why": "dense flat slats may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "m3-base/crowd-control-barrier",
+    "category": "glitch",
+    "change": "four open holes capped",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-shoot/fence",
+    "category": "shape",
+    "change": "flat feet made 2.5x thicker, were under the min wall",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-shoot/fence-long",
+    "category": "shape",
+    "change": "flat feet made 2.5x thicker, were under the min wall",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "lpa-construction/barrier-a is light steel grey, the rest dark slate; left, as galvanised grey is the real look",
+   "quat-shoot/fence-long has its bars in uneven pairs; left as the source design"
+  ]
  }
 ]
