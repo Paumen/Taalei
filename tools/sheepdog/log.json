@@ -146990,5 +146990,1065 @@
    "fs-town flume braces are thin flat slats (0.028); left, above the kind's floor and they read as braces",
    "rgp-medieval/waterwheel and wizp-asia/waterwheel carry tba; left for the PO"
   ]
+ },
+ {
+  "kind": "char-undead",
+  "run": "2026-11-26-1347",
+  "models": [
+   {
+    "id": "aq-hallow/ghost-a",
+    "before": "c6e1631c15353e46866c02e6be6177ce65ab4694",
+    "tags": [
+     "textile-cloth-light",
+     "char-undead",
+     "halloween",
+     "hero",
+     "grave"
+    ]
+   },
+   {
+    "id": "aq-hallow/ghost-b",
+    "before": "de5576adf302a9521777db58c455e8c0a68ebb95",
+    "tags": [
+     "textile-cloth-light",
+     "char-undead",
+     "halloween",
+     "hero",
+     "grave"
+    ]
+   },
+   {
+    "id": "kay-skeleton/skeleton-mage",
+    "before": "1a8029a5664dcb8ce22372cbb42d3cffea390f22",
+    "tags": [
+     "textile-cloth-dark",
+     "leather",
+     "bone",
+     "char-undead",
+     "halloween",
+     "hero"
+    ]
+   },
+   {
+    "id": "kay-skeleton/skeleton-minion",
+    "before": "f76a04d05cee38f89304ae89c1d3a667551ff0b3",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-light",
+     "leather",
+     "bone",
+     "char-undead",
+     "halloween",
+     "hero"
+    ]
+   },
+   {
+    "id": "kay-skeleton/skeleton-rogue",
+    "before": "62f206910b94818ebe04a3bb07288464dad88080",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-dark",
+     "bone",
+     "char-undead",
+     "halloween",
+     "hero"
+    ]
+   },
+   {
+    "id": "kay-skeleton/skeleton-warrior",
+    "before": "1581bc729fd5d0f1fe605f2814f6e40595a7778d",
+    "tags": [
+     "metal-steel",
+     "textile-cloth-mid",
+     "leather",
+     "bone",
+     "char-undead",
+     "halloween",
+     "hero"
+    ]
+   },
+   {
+    "id": "kay-spook/jack",
+    "before": "756b92b5c6bca58a9d130675fb72d1027fcc0023",
+    "tags": [
+     "textile-cloth-dark",
+     "leather",
+     "special-organic",
+     "char-undead",
+     "halloween",
+     "hero"
+    ]
+   },
+   {
+    "id": "quat-apocalypse/zombie-half",
+    "before": "40e1cdc48f69ab5510e4e90e38d7d0605cf6e561",
+    "tags": [
+     "textile-cloth-dark",
+     "leather",
+     "skin",
+     "char-undead",
+     "hero",
+     "broken"
+    ]
+   },
+   {
+    "id": "quat-pirate/skeleton",
+    "before": "2fc103112e678624167c83dba24c2564dfae6211",
+    "tags": [
+     "metal-steel",
+     "leather",
+     "bone",
+     "char-undead",
+     "pirate",
+     "halloween",
+     "hero"
+    ]
+   },
+   {
+    "id": "quat-pirate/skeleton-headless",
+    "before": "6ff2ec37150944e84a96a1341b38ef73e2198495",
+    "tags": [
+     "metal-steel",
+     "leather",
+     "bone",
+     "char-undead",
+     "pirate",
+     "halloween",
+     "hero"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "kay-spook/jack",
+    "category": "colour",
+    "change": "pumpkin inside orange to dark, so the carved face reads",
+    "doubt": true,
+    "why": "a glowing orange inside may be meant",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-apocalypse/zombie-half",
+    "category": "colour",
+    "change": "tan spine and ribs to ivory, like the other skeletons",
+    "doubt": true,
+    "why": "fleshy tan bones may be the zombie look",
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-apocalypse/zombie-half",
+    "category": "tag",
+    "change": "add bone for the ivory spine and ribs",
+    "doubt": true,
+    "why": "follows the doubted bone recolour",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "quat-pirate/skeleton-headless is 0.36 high, under the char min 0.45: it crouches like its twin, and scaling would make it bigger than the twin; left",
+   "aq-hallow ghosts are smaller than the skeletons (0.49 vs about 0.7); left as the kit's size"
+  ]
+ },
+ {
+  "kind": "env-fauna-amphibian",
+  "run": "2026-11-26-1347",
+  "models": [
+   {
+    "id": "aq-pond/frog-a",
+    "before": "7dac7d74ffdec7b906bbae6758209e66b13a48c0",
+    "tags": [
+     "env-fauna-amphibian"
+    ]
+   },
+   {
+    "id": "aq-pond/frog-b",
+    "before": "69e73ac5cffe214b78033ec4b48808317cd6232b",
+    "tags": [
+     "env-fauna-amphibian"
+    ]
+   },
+   {
+    "id": "aq-pond/green-frog",
+    "before": "6a15ab0c5968649341648e966fd7469f82cb0fca",
+    "tags": [
+     "env-fauna-amphibian",
+     "halloween"
+    ]
+   },
+   {
+    "id": "aq-pond/yellow-frog",
+    "before": "83e6ee1162f8fbb43b05961abffbe50e22ab1b8a",
+    "tags": [
+     "env-fauna-amphibian",
+     "halloween"
+    ]
+   },
+   {
+    "id": "m3-base/forked-tongue",
+    "before": "d392917a3d325d151d085bf7ec63cc8a3a4c9828",
+    "tags": [
+     "env-fauna-amphibian",
+     "comp"
+    ]
+   },
+   {
+    "id": "m3-base/rattlesnake-head",
+    "before": "423df974f8f716a9fa86cb82c99c22904a08a4a9",
+    "tags": [
+     "env-fauna-amphibian",
+     "piece"
+    ]
+   },
+   {
+    "id": "quat-ocean/turtle",
+    "before": "c02122d0167735c0e0d7f25578baefcb5ba071fa",
+    "tags": [
+     "env-fauna-amphibian"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "aq-pond/frog-a",
+    "category": "colour",
+    "change": "grey eyes to dark slate, like the other frogs",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "aq-pond/frog-b",
+    "category": "colour",
+    "change": "grey eyes to dark slate, like the other frogs",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "turtle and rattlesnake are reptiles; the kind's description includes them, so they stay; a reptile kind would be the PO's call",
+   "m3-base/forked-tongue is about as long as the snake head; left, since shrinking would make the thin tongue thinner",
+   "frog-a and frog-b show a few tiny backfaces at the toe tips; too small to spoil the look"
+  ]
+ },
+ {
+  "kind": "obj-container-trash-dumpster",
+  "run": "2026-11-26-1347",
+  "models": [
+   {
+    "id": "3dm-city/dumpster",
+    "before": "b6022b9bc06b6883eae199bcc0167ef250d2dc5c",
+    "tags": [
+     "metal-iron-mid",
+     "plastic",
+     "obj-container-trash-dumpster"
+    ]
+   },
+   {
+    "id": "kay-city/dumpster",
+    "before": "c6dea68cd96d89ce9660b01d90c9d824e4d1a5f7",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "obj-container-trash-dumpster"
+    ]
+   },
+   {
+    "id": "ken-roads/dumpster",
+    "before": "86a625b640021fb66f294c2b2a5cc92f8cd1514c",
+    "tags": [
+     "metal-iron-dark",
+     "plastic",
+     "obj-container-trash-dumpster"
+    ]
+   },
+   {
+    "id": "lpa-construction/skip",
+    "before": "cb7c6db77f994a3f5ede60fd70037deb59966724",
+    "tags": [
+     "plastic",
+     "obj-container-trash-dumpster"
+    ]
+   },
+   {
+    "id": "m3-base/skip",
+    "before": "b36fd2cfe9a626285d17c0ed46ad1ca9ea21c60f",
+    "tags": [
+     "metal-iron-mid",
+     "plastic",
+     "obj-container-trash-dumpster"
+    ]
+   },
+   {
+    "id": "quat-shoot/dumpster",
+    "before": "cbb47b69054a283fd8044dc0f87d9df76b25a1fe",
+    "tags": [
+     "metal-iron-mid",
+     "plastic",
+     "obj-container-trash-dumpster"
+    ]
+   },
+   {
+    "id": "quat-shoot/trash-container-open",
+    "before": "b7135e3a79975402eb4bec572663bd5d9d90cb32",
+    "tags": [
+     "metal-iron-mid",
+     "earth-soil",
+     "plastic",
+     "obj-container-trash-dumpster",
+     "contents"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "quat-shoot/dumpster",
+    "category": "tag",
+    "change": "add metal-steel for the steel front plate",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "quat-shoot/trash-container-open",
+    "category": "tag",
+    "change": "add metal-steel for the steel front plate",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-roads/dumpster",
+    "category": "tag",
+    "change": "add metal-steel for the label's steel edge",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "3dm-city/dumpster is 5x the kind's tri density (wheels, lid slats) but reads clean; left.",
+   "Lids split two slate (kay, ken) and three basalt (3dm, quat x2); both read as dark lids, left as is.",
+   "m3-base/skip is about twice the other skips and dumpsters, within the kind max; real skips are bigger than dumpsters, left.",
+   "quat-shoot/trash-container-open sacks are brown, not black; left, as a basalt sack would merge with the lid."
+  ]
+ },
+ {
+  "kind": "obj-container-trash-trashcan",
+  "run": "2026-11-26-1347",
+  "models": [
+   {
+    "id": "3dm-city-2/wheelie-bin",
+    "before": "7627f5aa515c0c3e7144b68019a23ef2ec776465",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "rubber",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "fs-house/trashcan",
+    "before": "11833a7bf05531721ce72c01d008402cdffb51f1",
+    "tags": [
+     "metal-steel",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "fs-house/trashcan-kitchen",
+    "before": "845d8695bf0e16afd2371bfddaa8450cf0b2eb00",
+    "tags": [
+     "metal-steel",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "household/pedal-bin",
+    "before": "21dbe888b19abd202b5f81cc4c756f11e3b43505",
+    "tags": [
+     "metal-iron-mid",
+     "metal-steel",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "isa-park/trashcan",
+    "before": "290bde1fd6f74f707e0cfeff7ff068b57702380c",
+    "tags": [
+     "metal-iron-mid",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "ken-furniture/trashcan",
+    "before": "24ee769a3bc0776b2cde76cb10846db01d5b6eb0",
+    "tags": [
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "lpa-construction/bin",
+    "before": "c460b265e8ea8e86c065571a2365a09cc6a51eef",
+    "tags": [
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "lpa-home/bin",
+    "before": "9094dadb626a3d8eba3c933b0ffa41abecd54f87",
+    "tags": [
+     "metal-steel",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "m3-base/cigarette-bin",
+    "before": "80739a667688460487fe9f43bc2a26d28b3ed25e",
+    "tags": [
+     "metal-steel",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "m3-base/mesh-bin",
+    "before": "f18d70676bede1525e1e20b474561b97a8d9d5f9",
+    "tags": [
+     "metal-steel",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "m3-base/outdoor-bin",
+    "before": "3a3d42f2c35f35a3e8879d61c3e52efa73867b14",
+    "tags": [
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "m3-base/outdoor-bin-02",
+    "before": "74d9d68e87335cdb80be87b8691ee0312569c75d",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "m3-base/outdoor-bin-03",
+    "before": "f73da16ca46e2c1ddb6054ad0f1ceaf2bf8fb448",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "m3-base/outdoor-bin-04",
+    "before": "ec89443ff5c41ca5184f9d79f7fc15693c19028a",
+    "tags": [
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "m3-base/swing-bin",
+    "before": "22362167e5087c034a5ecc7ce066d72fef72a9e0",
+    "tags": [
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "quat-interior/trashcan",
+    "before": "55e819c65f6743e59b67c67fd326a3be7cf052ab",
+    "tags": [
+     "metal-steel",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "quat-interior/trashcan-large",
+    "before": "868fded4487ed058e9f549ac8639e96345f990f4",
+    "tags": [
+     "metal-steel",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "quat-interior/trashcan-small-a",
+    "before": "3358b6c095a34a25e93e93c37ae9cdf3c8a5c48c",
+    "tags": [
+     "metal-steel",
+     "plastic",
+     "obj-container-trash-trashcan",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "quat-interior/trashcan-small-b",
+    "before": "a8e03949f115185be2e25ab35e9d3f2678fb34b7",
+    "tags": [
+     "metal-steel",
+     "obj-container-trash-trashcan",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "quat-interior/wheelie-bin",
+    "before": "12d6c5e92f3512ab25e1c17280a1da9a876402a8",
+    "tags": [
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   },
+   {
+    "id": "styloo-furniture/trash-can",
+    "before": "689843e01090a17789d9ecbdef99d05d98e83b44",
+    "tags": [
+     "plastic",
+     "obj-container-trash-trashcan"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "isa-park/trashcan",
+    "category": "tag",
+    "change": "add plastic for the green body",
+    "doubt": true,
+    "why": "green may be painted metal",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "Thin-wall (G27) and thickRel (I01) warnings on several bins left for the lod skill; walls read fine at catalogue scale",
+   "Family is coherent: green outdoor bins, steel indoor bins, sizes in line; no scale or colour changes needed"
+  ]
+ },
+ {
+  "kind": "str-barrier-fence-iron",
+  "run": "2026-11-26-1347",
+  "models": [
+   {
+    "id": "kay-hallow/fence",
+    "before": "2856c888cd8c9038eefa9683812a84e932d4be0d",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "kay-hallow/fence-broken",
+    "before": "42dec1c70707d3eb5649902c2801f19e798f1959",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "broken",
+     "grave"
+    ]
+   },
+   {
+    "id": "kay-hallow/fence-seperate",
+    "before": "9f3697ae3abb792b7ebb22224909f6372d3e8ced",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "kay-hallow/fence-seperate-broken",
+    "before": "5d585c3a0629e742f978c4e230af161038943056",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence-iron",
+     "halloween",
+     "broken",
+     "grave"
+    ]
+   },
+   {
+    "id": "kay-spook/fence",
+    "before": "1821413e154e218423fff5beb725e9c1a1b2ac44",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "kay-spook/fence-corner",
+    "before": "3dafe61cb5a366b3dfde8ffb15b85a05b730d4f5",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "kay-spook/fence-double",
+    "before": "cff50ba894e8b88de308005033c011ab5fdb74ad",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "kay-spook/fence-single",
+    "before": "a99e223c6a39ecdc9805c246e5e8f2b0d39ba7e4",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "ken-grave/iron-fence",
+    "before": "2f070aa2ef2a6a7a2885a90dde55ef3f33631ec6",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "ken-grave/iron-fence-border",
+    "before": "d7b107b30583d3c564e17a75b2fbb84d93f0b140",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "ken-grave/iron-fence-border-column",
+    "before": "a55fe7595752556710fae43bf856864d64ae4abb",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "ken-grave/iron-fence-border-curve",
+    "before": "4fd9f5c674e58e3cbcd5ffdb16b849ff6c2202c6",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "ken-grave/iron-fence-border-gate",
+    "before": "c7380437b1bb00370467c7031fb571771c00e50b",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "comp",
+     "grave"
+    ]
+   },
+   {
+    "id": "ken-grave/iron-fence-curve",
+    "before": "1501ee0c4b009933eb0565a8d5363514ede92a29",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence-iron",
+     "halloween",
+     "grave"
+    ]
+   },
+   {
+    "id": "ken-grave/iron-fence-damaged",
+    "before": "a040d74fa5da191f9e7053ca5d2fa2fb2f812a38",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence-iron",
+     "halloween",
+     "broken",
+     "grave"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-bars",
+    "before": "11ca1b79fa6234b093ea80943613cd786ab7d90c",
+    "tags": [
+     "metal-iron-dark",
+     "str-barrier-fence-iron",
+     "halloween",
+     "scale-big"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-broken",
+    "before": "243700d8ad36a9de3a04c3d6845ff02341bd5bdd",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "broken"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-large",
+    "before": "551a58a9506c84f3e0685531d4be9ab6d23d6459",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-medium",
+    "before": "b831f640a4defedf401039644127e50e17ecfb97",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-a",
+    "before": "b06c69892859c38628b73b8e097a22f489f8e5c7",
+    "tags": [
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "comp"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-b",
+    "before": "f9b9e99cac6f59e35cd6573420057b8691c7bb5f",
+    "tags": [
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "comp"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-c",
+    "before": "b0e387326585cfaf9dd0a2591a048da16bf125f6",
+    "tags": [
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "comp"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-run",
+    "before": "7a24b8af5e61f853b4eaa9625aa281a8ffa30321",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween",
+     "scale-big"
+    ]
+   },
+   {
+    "id": "wizp-grave/iron-fence-short",
+    "before": "308de77eee95b8a21f86747d05c23c785d55ace3",
+    "tags": [
+     "metal-iron-dark",
+     "stone-masonry-mid",
+     "str-barrier-fence-iron",
+     "halloween"
+    ]
+   }
+  ],
+  "changes": [
+   {
+    "id": "wizp-grave/iron-fence-short",
+    "category": "shape",
+    "change": "iron bars and spikes thicker, were far thinner than peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-medium",
+    "category": "shape",
+    "change": "iron bars and spikes thicker, were far thinner than peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-large",
+    "category": "shape",
+    "change": "iron bars and spikes thicker, were far thinner than peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-broken",
+    "category": "shape",
+    "change": "iron bars and spikes thicker, were far thinner than peers",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-bars",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-broken",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-large",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-medium",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-a",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-b",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-c",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-run",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-short",
+    "category": "tag",
+    "change": "add grave theme, like the other graveyard fences",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-a",
+    "category": "kind",
+    "change": "kind to post: stone post with no iron, like kay fence posts",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-b",
+    "category": "kind",
+    "change": "kind to post: stone post with no iron, like kay fence posts",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "wizp-grave/iron-fence-post-c",
+    "category": "kind",
+    "change": "kind to post: stone post with no iron, like kay fence posts",
+    "doubt": false,
+    "why": null,
+    "lint": [],
+    "verdict": null
+   },
+   {
+    "id": "ken-grave/iron-fence-border-gate",
+    "category": "kind",
+    "change": "kind to gate: two gate columns with hinge stubs, no fence",
+    "doubt": true,
+    "why": "may be meant to stay with its iron fence set",
+    "lint": [],
+    "verdict": null
+   }
+  ],
+  "notes": [
+   "wizp-grave/iron-fence-bars and -run bars still a bit under min wall (0.020); thinner than ken but read fine, left",
+   "kay-spook fences bars at 0.021 min wall, close to min and match their kit, left",
+   "wizp-grave/iron-fence-short and -broken have a few back faces only seen from below, left"
+  ]
+ },
+ {
+  "kind": "str-barrier-fence-roped",
+  "run": "2026-11-26-1347",
+  "models": [
+   {
+    "id": "ken-forest-mini/fence",
+    "before": "820f6db5df5eb36faf3952be1a566220af9e869b",
+    "tags": [
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence-roped",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "ken-platformer/fence-rope",
+    "before": "3a40772c6db321826c3f5c13211d45c78d2fb815",
+    "tags": [
+     "wood-light",
+     "bark",
+     "textile-rope",
+     "str-barrier-fence-roped",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "m3-base/wooden-rope-barrier",
+    "before": "dccceeb291f7d7f2844306c3b6811d4ed9ae1563",
+    "tags": [
+     "wood-mid",
+     "textile-rope",
+     "str-barrier-fence-roped"
+    ]
+   },
+   {
+    "id": "rgp-asia/fence-rope-a",
+    "before": "fa7e35f36040a2ae42b5bb21b11e88681e6c55ac",
+    "tags": [
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence-roped",
+     "asia"
+    ]
+   },
+   {
+    "id": "rgp-asia/fence-rope-b",
+    "before": "57d525a6c38c70b6816e72b17205bbe5ce8a5f67",
+    "tags": [
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence-roped",
+     "asia"
+    ]
+   },
+   {
+    "id": "wizp-fish/rope-fence-long",
+    "before": "58a483d1a95813ee095d1e21fd00da8d094c9614",
+    "tags": [
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence-roped",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "wizp-fish/rope-fence-medium",
+    "before": "f86e2e862d772e91e4ea68d92a032111a9b8abe8",
+    "tags": [
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence-roped",
+     "scale-small"
+    ]
+   },
+   {
+    "id": "wizp-fish/rope-fence-short",
+    "before": "579f5eab9f13dd32b7ea0b82d1380942b84c196c",
+    "tags": [
+     "wood-dark",
+     "textile-rope",
+     "str-barrier-fence-roped",
+     "comp",
+     "scale-small"
+    ]
+   }
+  ],
+  "changes": [],
+  "notes": [
+   "All 8 read as one family (dark posts, twine rope); no glitches, colour or shape strays found",
+   "wizp-fish/rope-fence-short is a single post with a loose rope end: a modular link piece, left as is"
+  ]
  }
 ]

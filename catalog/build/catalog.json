@@ -25934,7 +25934,7 @@
    "name": "Steel",
    "type": "material",
    "description": "Steel: blades, armour, tableware, tools, and painted or bare metal no other subtype fits.",
-   "count": 2190,
+   "count": 2193,
    "parent": "metal"
   },
   {
@@ -26284,7 +26284,7 @@
    "name": "Bone",
    "type": "material",
    "description": "Bone as bone: loose bones, ribcages, skulls, the bone in a joint of meat.",
-   "count": 152,
+   "count": 153,
    "parent": "animal"
   },
   {
@@ -26331,7 +26331,7 @@
    "name": "Plastic",
    "type": "material",
    "description": "Moulded plastic: coolers, traffic cones, toys, casings, inflatables.",
-   "count": 1531,
+   "count": 1532,
    "parent": "polymer"
   },
   {
@@ -29696,7 +29696,7 @@
    "name": "Fence",
    "type": "kind",
    "description": "Fence with no leaf that fits.",
-   "count": 174
+   "count": 171
   },
   {
    "id": "str-barrier-fence-roped",
@@ -29717,7 +29717,7 @@
    "name": "Iron",
    "type": "kind",
    "description": "iron fence",
-   "count": 24
+   "count": 20
   },
   {
    "id": "str-barrier-fence-picket",
@@ -29731,7 +29731,7 @@
    "name": "Post",
    "type": "kind",
    "description": "post, bollard, stake",
-   "count": 29
+   "count": 32
   },
   {
    "id": "str-building",
@@ -30566,7 +30566,7 @@
    "name": "Gate",
    "type": "kind",
    "description": "Gate, turnstile or arch set in a fence or hedge run.",
-   "count": 24
+   "count": 25
   },
   {
    "id": "str-barrier-crowd",
@@ -31056,7 +31056,7 @@
    "name": "Grave",
    "type": "theme",
    "description": "Graveyard/cemetery theme set: tombs, gravestones, crypts, mourning iconography and their surrounding dressing.",
-   "count": 204
+   "count": 213
   },
   {
    "id": "sailing",
@@ -31084,7 +31084,7 @@
    "name": "Modern",
    "type": "tech",
    "description": "Only exists since modern technology: plastic, rubber, display screens, electric power. Given at build to models carrying a material or style in from, with a kind under kinds, or with both the tag and a kind under the kind of a pair; the models list holds the rest by hand.",
-   "count": 2074
+   "count": 2075
   },
   {
    "id": "storeys-0-5",
@@ -45653,7 +45653,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "frog-a",
-   "hash": "e164cd2ab0",
+   "hash": "0d5575a86f",
    "kind": "env-fauna-amphibian",
    "size": "s",
    "wdh": [
@@ -45680,11 +45680,11 @@
    "cells": [
     "1,1",
     "3,1",
-    "13,3"
+    "6,1"
    ],
    "colors": [
     "#21552a",
-    "#59534e",
+    "#3a3e4b",
     "#66852a"
    ],
    "tags": [
@@ -45697,7 +45697,7 @@
    "kit": "aq-pond",
    "collection": "aq",
    "name": "frog-b",
-   "hash": "bf3affd6ca",
+   "hash": "3a1e5fdded",
    "kind": "env-fauna-amphibian",
    "size": "s",
    "wdh": [
@@ -45724,11 +45724,11 @@
    "cells": [
     "3,0",
     "1,0",
-    "13,3"
+    "6,1"
    ],
    "colors": [
+    "#3a3e4b",
     "#52301e",
-    "#59534e",
     "#9e6d44"
    ],
    "tags": [
@@ -114292,7 +114292,9 @@
    ],
    "tags": [
     "isa",
-    "metal-iron-mid"
+    "metal-iron-mid",
+    "modern",
+    "plastic"
    ],
    "thickRel": 0.71
   },
@@ -180644,7 +180646,7 @@
    "kit": "kay-spook",
    "collection": "kay-undead",
    "name": "jack",
-   "hash": "a2bf1a1a60",
+   "hash": "031d3007e3",
    "kind": "char-undead",
    "size": "m",
    "wdh": [
@@ -214153,7 +214155,7 @@
    "collection": "ken-village",
    "name": "iron-fence-border-gate",
    "hash": "b4468f8a58",
-   "kind": "str-barrier-fence-iron",
+   "kind": "str-barrier-fence-gate",
    "size": "m",
    "wdh": [
     0.9,
@@ -236624,6 +236626,7 @@
    "tags": [
     "ken",
     "metal-iron-dark",
+    "metal-steel",
     "modern",
     "plastic"
    ],
@@ -341543,7 +341546,7 @@
   {
    "kit": "quat-apocalypse",
    "name": "zombie-half",
-   "hash": "c3602251ef",
+   "hash": "1bfa505cb8",
    "kind": "char-undead",
    "size": "s",
    "wdh": [
@@ -341572,16 +341575,17 @@
     "8,0",
     "6,1",
     "3,0",
-    "0,0"
+    "5,2"
    ],
    "colors": [
     "#3a3e4b",
     "#52301e",
     "#66852a",
     "#7a3525",
-    "#ca9f6e"
+    "#dbd0b5"
    ],
    "tags": [
+    "bone",
     "broken",
     "hero",
     "leather",
@@ -384756,6 +384760,7 @@
    ],
    "tags": [
     "metal-iron-mid",
+    "metal-steel",
     "modern",
     "plastic",
     "qua"
@@ -386694,6 +386699,7 @@
     "contents",
     "earth-soil",
     "metal-iron-mid",
+    "metal-steel",
     "modern",
     "plastic",
     "qua"
@@ -466283,6 +466289,7 @@
     "#3a3e4b"
    ],
    "tags": [
+    "grave",
     "halloween",
     "metal-iron-dark",
     "scale-big",
@@ -466307,12 +466314,12 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "iron-fence-broken",
-   "hash": "a6385389de",
+   "hash": "36d6456bbe",
    "kind": "str-barrier-fence-iron",
    "size": "s",
    "wdh": [
-    0.479,
-    0.248,
+    0.48,
+    0.244,
     0.489
    ],
    "tris": 588,
@@ -466320,16 +466327,16 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 56588,
+   "bytes": 56668,
    "vtx": 1614,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.026,
-   "minWall": 0.0119,
-   "thick": 0.0985,
-   "avgTri": 0.00181,
-   "anglePct": 39,
+   "minTube": 0.0346,
+   "minWall": 0.0211,
+   "thick": 0.0972,
+   "avgTri": 0.00185,
+   "anglePct": 38,
    "pieces": 10,
    "vpt": 2.74,
    "cells": [
@@ -466342,18 +466349,19 @@
    ],
    "tags": [
     "broken",
+    "grave",
     "halloween",
     "metal-iron-dark",
     "stone-masonry-mid",
     "wizp"
    ],
    "variant": "wizp-grave/iron-fence-short",
-   "thickRel": 1.21,
+   "thickRel": 1.2,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0119 wants min 0.026"
+     "text": "G27 minWall 0.0211 wants min 0.026"
     }
    ]
   },
@@ -466361,7 +466369,7 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "iron-fence-large",
-   "hash": "5919a75fe7",
+   "hash": "54741ff73a",
    "kind": "str-barrier-fence-iron",
    "size": "l",
    "wdh": [
@@ -466374,16 +466382,16 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 179148,
+   "bytes": 179204,
    "vtx": 5127,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0267,
-   "minWall": 0.0119,
-   "thick": 0.2275,
-   "avgTri": 0.00233,
-   "anglePct": 44,
+   "minTube": 0.0347,
+   "minWall": 0.021,
+   "thick": 0.2285,
+   "avgTri": 0.00239,
+   "anglePct": 43,
    "pieces": 48,
    "vpt": 2.25,
    "cells": [
@@ -466395,18 +466403,19 @@
     "#88735f"
    ],
    "tags": [
+    "grave",
     "halloween",
     "metal-iron-dark",
     "stone-masonry-mid",
     "wizp"
    ],
    "variant": "wizp-grave/iron-fence-large",
-   "thickRel": 2.8,
+   "thickRel": 2.81,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0119 wants min 0.026"
+     "text": "G27 minWall 0.021 wants min 0.026"
     }
    ]
   },
@@ -466414,7 +466423,7 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "iron-fence-medium",
-   "hash": "163998e897",
+   "hash": "46aeebc737",
    "kind": "str-barrier-fence-iron",
    "size": "l",
    "wdh": [
@@ -466427,16 +466436,16 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 141084,
+   "bytes": 141140,
    "vtx": 4029,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0267,
-   "minWall": 0.0125,
-   "thick": 0.2069,
-   "avgTri": 0.00248,
-   "anglePct": 43,
+   "minTube": 0.0348,
+   "minWall": 0.0218,
+   "thick": 0.2064,
+   "avgTri": 0.00254,
+   "anglePct": 42,
    "pieces": 39,
    "vpt": 2.25,
    "cells": [
@@ -466448,18 +466457,19 @@
     "#88735f"
    ],
    "tags": [
+    "grave",
     "halloween",
     "metal-iron-dark",
     "stone-masonry-mid",
     "wizp"
    ],
    "variant": "wizp-grave/iron-fence-large",
-   "thickRel": 2.55,
+   "thickRel": 2.54,
    "lint": [
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0125 wants min 0.026"
+     "text": "G27 minWall 0.0218 wants min 0.026"
     }
    ]
   },
@@ -466468,7 +466478,7 @@
    "collection": "wizp-grave",
    "name": "iron-fence-post-a",
    "hash": "15831015f8",
-   "kind": "str-barrier-fence-iron",
+   "kind": "str-barrier-post",
    "size": "m",
    "wdh": [
     0.363,
@@ -466499,6 +466509,7 @@
    ],
    "tags": [
     "comp",
+    "grave",
     "halloween",
     "stone-masonry-mid",
     "wizp"
@@ -466510,7 +466521,7 @@
    "collection": "wizp-grave",
    "name": "iron-fence-post-b",
    "hash": "f1149b03b3",
-   "kind": "str-barrier-fence-iron",
+   "kind": "str-barrier-post",
    "size": "m",
    "wdh": [
     0.355,
@@ -466541,6 +466552,7 @@
    ],
    "tags": [
     "comp",
+    "grave",
     "halloween",
     "stone-masonry-mid",
     "wizp"
@@ -466552,7 +466564,7 @@
    "collection": "wizp-grave",
    "name": "iron-fence-post-c",
    "hash": "d23c109831",
-   "kind": "str-barrier-fence-iron",
+   "kind": "str-barrier-post",
    "size": "m",
    "wdh": [
     0.358,
@@ -466583,6 +466595,7 @@
    ],
    "tags": [
     "comp",
+    "grave",
     "halloween",
     "stone-masonry-mid",
     "wizp"
@@ -466627,6 +466640,7 @@
     "#88735f"
    ],
    "tags": [
+    "grave",
     "halloween",
     "metal-iron-dark",
     "scale-big",
@@ -466647,7 +466661,7 @@
    "kit": "wizp-grave",
    "collection": "wizp-grave",
    "name": "iron-fence-short",
-   "hash": "8bb52ba593",
+   "hash": "3f5c2e9545",
    "kind": "str-barrier-fence-iron",
    "size": "m",
    "wdh": [
@@ -466660,15 +466674,15 @@
    "mat": 1,
    "bands": 2,
    "calls": 1,
-   "bytes": 106060,
+   "bytes": 106116,
    "vtx": 3010,
    "grounded": true,
    "centered": true,
    "minEdge": 0,
-   "minTube": 0.0267,
-   "minWall": 0.0125,
-   "thick": 0.1902,
-   "avgTri": 0.00259,
+   "minTube": 0.0355,
+   "minWall": 0.0218,
+   "thick": 0.1898,
+   "avgTri": 0.00262,
    "anglePct": 41,
    "pieces": 30,
    "vpt": 2.17,
@@ -466681,6 +466695,7 @@
     "#88735f"
    ],
    "tags": [
+    "grave",
     "halloween",
     "metal-iron-dark",
     "stone-masonry-mid",
@@ -466692,7 +466707,7 @@
     {
      "level": "warning",
      "check": "measures",
-     "text": "G27 minWall 0.0125 wants min 0.026"
+     "text": "G27 minWall 0.0218 wants min 0.026"
     }
    ]
   },
