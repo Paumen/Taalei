@@ -29,8 +29,10 @@ say how bands and tags work. The agents get both as reading.
 
        node tools/sheepdog/sheepdog.mjs brief
 
-3. Pick and render. Kinds with models from two or more kits, whatever their size; `--count` sets
-   how many, `--kind` names kinds, `--max` caps the model count.
+3. Pick and render. Kinds with models from two or more kits; `--count` sets
+   how many, `--kind` names kinds. Kinds over 50 models (`--max`) are skipped;
+   kinds under 6 (`--min`) go along in their parent's or a sibling's group,
+   never on their own.
    Sheets hold at most 12 models each, every tile fitted to its own model.
 
        node tools/sheepdog/sheepdog.mjs pick
