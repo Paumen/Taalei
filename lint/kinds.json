@@ -545,7 +545,8 @@
        "thin.min": 0.006,
        "nouns": [
         "gas cylinder",
-        "vat"
+        "vat",
+        "fire extinguisher"
        ],
        "children": [
         {
@@ -555,12 +556,6 @@
           "propane tank",
           "gas bottle",
           "gas canister"
-         ]
-        },
-        {
-         "id": "obj-container-cylinder-extinguisher",
-         "nouns": [
-          "fire extinguisher"
          ]
         }
        ]
@@ -1976,22 +1971,13 @@
           },
           {
            "id": "obj-equipment-weapon-ranged-throwing",
-           "longest.max": 0.4,
+           "longest.max": 0.7,
            "nouns": [
             "throwing knife",
             "shuriken",
             "throwing star",
-            "boomerang"
-           ],
-           "children": [
-            {
-             "id": "obj-equipment-weapon-ranged-throwing-javelin",
-             "longest.min": 0.4,
-             "longest.max": 0.7,
-             "nouns": [
-              "javelin"
-             ]
-            }
+            "boomerang",
+            "javelin"
            ]
           },
           {
@@ -6150,13 +6136,16 @@
       {
        "id": "env-fauna-fish",
        "longest.min": 0.1,
-       "longest.max": 0.7,
+       "longest.max": 0.75,
        "scale": {
         "big": 2
        },
        "nouns": [
         "fish",
-        "eel"
+        "eel",
+        "ray",
+        "stingray",
+        "manta ray"
        ],
        "children": [
         {
@@ -6166,16 +6155,6 @@
          "nouns": [
           "shark",
           "hammerhead"
-         ]
-        },
-        {
-         "id": "env-fauna-fish-ray",
-         "longest.min": 0.15,
-         "longest.max": 1.5,
-         "nouns": [
-          "ray",
-          "stingray",
-          "manta ray"
          ]
         },
         {
